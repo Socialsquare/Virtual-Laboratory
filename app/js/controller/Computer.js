@@ -10,12 +10,7 @@ define([
     'model/GameState',
     'model/InventoryItem',
 
-    'service/DNA',
-
-    // self-registering jquery plugins
-	'chcdraggable',
-	'chcdraggablespawner',
-	'chcdroppable'
+    'service/DNA'
 ], function (ko, mapping, $, _, BaseController, Gene, gameState, InventoryItem, DNAService) {
     var Computer = BaseController.extend({
 
@@ -60,14 +55,14 @@ define([
             };
 
             self.orderDNA = function () {
+                // TODO: validate DNA?
+
                 var geneClone = mapping.fromJS(ko.toJS(self.activeGene()));
                 var item = new InventoryItem("dna", geneClone);
                 gameState.addInventoryItem(item);
 
-                // TODO: validate DNA?
                 // reset the gene and go to computer menu
                 self.activeGene().dnaElements.removeAll();
-
                 self.activeScreen('menu');
 	        };
 	    }

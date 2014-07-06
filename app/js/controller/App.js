@@ -34,7 +34,6 @@ define([
             });
 
             self.triggerPopup = function (popupName) {
-                console.log(popupName);
                 self.activePopup('popup-' + popupName);
                 self.hasActivePopup(true);
             };
@@ -47,6 +46,8 @@ define([
         viewChange: function (viewName) {
             // hide any potential active popup
             this.hidePopup();
+
+            this.currentViewController().leave();
 
             this.activeView(viewName);
         },

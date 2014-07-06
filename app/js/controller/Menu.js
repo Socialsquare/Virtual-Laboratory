@@ -10,10 +10,6 @@ define([
 
         gameState: gameState,
 
-        back: function () {
-            console.log('TODO: Go back');
-        },
-
         fullscreen: function () {
             console.log('TODO: Go fullscreen');
         },

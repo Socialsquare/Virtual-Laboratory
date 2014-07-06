@@ -7,9 +7,8 @@ define([
             this.name = name;
         },
 
-        greet: function () {
-            alert('hello i am ' + this.name);
-        }
+        // Called when navigating away, use to reset content if needed
+        leave: function () {}
     });
 
     return BaseController;
