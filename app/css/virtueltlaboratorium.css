@@ -82,6 +82,7 @@ body {
 	cursor: pointer;
 	padding: 0;
 	margin: 0;
+	outline:none;
 }
 .right-align {
 	text-align: right;
