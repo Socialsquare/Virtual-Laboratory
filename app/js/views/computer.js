@@ -2,7 +2,7 @@
  * Backbone view controller for the computer view.
  * @author: Chris Hjorth, www.chrishjorth.com
  */
- 
+
 define([
 	'jquery',
 	'underscore',
@@ -12,13 +12,15 @@ define([
 	'chcdroppable',
 	'globals',
 	'text!../../templates/computer.html',
+	'text!../../templates/computer-dna-element.html',
 	'collections/dnaelements',
 	'models/dnaelement',
 	'models/gene',
 	'views/popup-quiz'
-], function($, _, Backbone, chcDraggable, chcDraggableSpawner, chcDroppable, Globals, computerViewTemplate, DNAElements, DNAElement, Gene, popupQuizView) {
+], function($, _, Backbone, chcDraggable, chcDraggableSpawner, chcDroppable, Globals, computerViewTemplate, dnaElementTemplateRaw, DNAElements, DNAElement, Gene, popupQuizView) {
 	var computerView = Backbone.View.extend({
 		template: _.template(computerViewTemplate),
+		dnaElementTemplate: _.template(dnaElementTemplateRaw),
 		currentView: '#computer-mainmenu',
 		DNAElements: null,
 		popupQuiz: new popupQuizView(),
@@ -60,14 +62,12 @@ define([
 			$('body').on('click', '#design-dna', this, gotoDesignDNA);
 			$('body').on('click', '#computer-ordermouse ul li a', selectMouse);
 			$('body').on('click', '.computer-header-container .menu-link', this, goBackToMenu);
-			
-			$('.computer-screen .draggablespawner').chcDraggableSpawner({styleClass: 'draggablespawn-computer'});
 
+			$('.computer-screen .draggablespawner').chcDraggableSpawner({styleClass: 'draggablespawn-computer'});
 
 			$('.computer-screen .droppable').chcDroppable();
 			$('.droparea').on('chcDroppableDrop.chcEvent', null, this, handleDrop);
 
-			$('.computer-screen').on('click', '.dna-element', this, handleDNAElementSelect);
 			$('.computer-screen').on('click', '.remove-btn', this, handleDNAElementRemove);
 			$('.computer-screen').on('click', '#order-btn-DNA', this, handleOrderDNA);
 		},
@@ -81,11 +81,11 @@ define([
 			$('body').off('click', '.computer-header-container .menu-link', goBackToMenu);
 		}
 	});
-	
+
 	return computerView;
-	
+
 	/* !EVENT HANDLERS */
-	
+
 	function showQuiz(event) {
 		event.preventDefault();
 		event.data.popupQuiz.show();
@@ -122,17 +122,20 @@ define([
 	}
 
 	function handleDrop(event, $draggable) {
-		setTimeout(function() { //On iPad there is a delay if we do not wait for last draw cycle to complete	
-			var DNAElement = event.data.DNAElements.get($draggable.data('dnaelementid'));
-			var $DNAElement = $('<div class="dna-element" id="dna-element-' + DNAElement.get('id') + '" data-dnaelementid="' + DNAElement.get('id') + '"></div>');
-			$DNAElement.html('<div class="dna-element-img"></div><div class="dna-element-name">' + $draggable.html() + '</div>');
-			$DNAElement.find('.dna-element-img').css({
-				'background-color': DNAElement.get('color')
-			});
+        var viewCtrl = event.data;
+		setTimeout(function() { //On iPad there is a delay if we do not wait for last draw cycle to complete
+			var DNAElement = viewCtrl.DNAElements.get($draggable.data('dnaelementid'));
+
+            var $DNAElement = viewCtrl.dnaElementTemplate({
+                elementId: DNAElement.get('id'),
+                elementName: $draggable.html(),
+                elementColor: DNAElement.get('color')
+            });
 
 			if($('#computer-designdna .detail .droparea p').length > 0) {
 				$('#computer-designdna .detail .droparea').empty();
 			}
+
 			$('#computer-designdna .detail .droparea').append($DNAElement);
 
 			$draggable.remove();
@@ -146,17 +149,13 @@ define([
 		//DETECT MOUSE OVER ON DROPAREA ONLY WHEN IN DRAG MODE, THEN EITHER APPEND OR PREPEND CUE TO ELEMENT BASED ON MOUSE POSITION
 	}
 
-	function handleDNAElementSelect(event) {
-		var $this = $(this);
-		var DNAElement = event.data.DNAElements.get($this.data('dnaelementid'));
-		$this.append('<button class="remove-btn" data-dnaelementid="' + DNAElement.get('id') + '">X</button>');
-	}
-
 	function handleDNAElementRemove(event) {
 		var $this = $(this);
+        debugger;
 		var DNAElement = event.data.DNAElements.get($this.data('dnaelementid'));
 		$('#dna-element-' + DNAElement.get('id')).remove();
-		$('#sequence-' + DNAElement.get('id')).remove();
+        $('#computer-designdna .detail .sequence span[data-dnaid="' + DNAElement.get('id') + '"]').remove();
+		//$('#sequence-' + DNAElement.get('id')).remove();
 	}
 
 	function handleOrderDNA(event) {
