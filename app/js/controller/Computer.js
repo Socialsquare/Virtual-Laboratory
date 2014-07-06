@@ -1,5 +1,6 @@
 define([
     'knockout',
+    'mapping',
     'jquery',
     'lodash',
     'controller/Base',
@@ -10,7 +11,7 @@ define([
 	'chcdraggable',
 	'chcdraggablespawner',
 	'chcdroppable'
-], function (ko, $, _, BaseController, Gene, DNAService) {
+], function (ko, mapping, $, _, BaseController, Gene, DNAService) {
     var Computer = BaseController.extend({
 
         dnaService: new DNAService(),
@@ -40,7 +41,8 @@ define([
                         return d.id() === $draggable.data('dnaelementid');
                     });
 
-                    self.activeGene().dnaElements.push(dna);
+                    var clone = mapping.fromJS(ko.toJS(dna));
+                    self.activeGene().dnaElements.push(clone);
 
 			        $draggable.remove();
 		        }, 1);
