@@ -3,27 +3,31 @@ define([
     'mapping',
     'jquery',
     'lodash',
+
     'controller/Base',
+
     'model/Gene',
+    'model/GameState',
+    'model/InventoryItem',
+
     'service/DNA',
 
     // self-registering jquery plugins
 	'chcdraggable',
 	'chcdraggablespawner',
 	'chcdroppable'
-], function (ko, mapping, $, _, BaseController, Gene, DNAService) {
+], function (ko, mapping, $, _, BaseController, Gene, gameState, InventoryItem, DNAService) {
     var Computer = BaseController.extend({
 
         dnaService: new DNAService(),
 
-        activeScreen: ko.observable('menu'),
-        activeGene: ko.observable(new Gene()),
-
         availableDNA: ko.observableArray([]),
+
+        activeScreen: ko.observable('menu'),
+        activeGene: ko.observable(new Gene()), // TODO: just make this an observableArray
 
         constructor: function () {
             var self = this;
-            self.base(1, 'computer');
 
             self.changeScreen = function (name) {
                 self.activeScreen(name);
@@ -54,24 +58,19 @@ define([
             self.removeDNA = function (dna) {
                 self.activeGene().dnaElements.remove(dna);
             };
-	    },
 
-        handleOrderDNA: function (event) {
-		    //Add DNA to inventory, Create DNA collection and add, add id to object for retrieval.
-		    var $dna = $('<div class="draggable dna" id="dna"><img src="img/icon_dna.png" /></div>');
-		    var DNAElements = event.data.DNAElements;
-		    var DNA = [];
-		    $('#computer-dnasequence span').each(function() {
-			    var DNAId = $(this).data('dnaid');
-			    DNA.push(DNAElements.get(DNAId));
-		    });
-		    $dna.data('DNA', new Gene(DNA));
-		    Globals.menuView.addItemToInventory($dna);
+            self.orderDNA = function () {
+                var geneClone = mapping.fromJS(ko.toJS(self.activeGene()));
+                var item = new InventoryItem("dna", geneClone);
+                gameState.addInventoryItem(item);
 
-		    $(document.body).trigger('task:INST_COMPUTER:ACTION_ORDERDNA');
+                // TODO: validate DNA?
+                // reset the gene and go to computer menu
+                self.activeGene().dnaElements.removeAll();
+
+                self.activeScreen('menu');
+	        };
 	    }
-
-
     });
 
     return Computer;

@@ -12,7 +12,9 @@
     <body>
         <div id="app">
             <div class="interface-container">
-                <div data-bind="template: { name: activeView, data: currentController() }"></div>
+                <div data-bind="template: { name: activeView, data: currentViewController() }"></div>
+
+                <div data-bind="template: { name: 'menu', data: menuController }"></div>
             </div>
 
             <div id="popup-container" data-bind="visible: hasActivePopup">
@@ -184,10 +186,82 @@
                             <span data-bind="style: { color: color }, text: sequence"></span>
                         </div>
  			        </div>
- 			        <button class="order-btn">Bestil</button>
+ 			        <button class="order-btn" data-bind="click: orderDNA">Bestil</button>
  		        </div>
  	        </div>
         </div>
     </div>
 
+</script>
+
+
+<script id="menu" type="text/html">
+    <div id="top-menu" class="top-menu">
+        <ul class="left">
+	        <li>
+                <a id="view-back-link" data-bind="click: back">
+                    <img src="img/top-button_back.png" alt="Tilbage">
+                </a>
+            </li>
+        </ul>
+
+        <ul class="right">
+	        <li>
+                <a id="menu-newexperiment-link" data-bind="click: selectExperiment">
+                    <img src="img/top-button_menu.png" alt="Vælg nyt eksperiment">
+                </a>
+            </li>
+	        <li>
+                <a id="menu-fullscreen-link" data-bind="click: fullscreen">
+                    <img src="img/top-button_fullscreen.png" alt="Full screen">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="menu" class="menu">
+        <ul>
+	        <li>
+                <a id="menu-experimentinstructions-link">
+                    <img class="menu-left-icon" src="img/icon_main_notes.png" alt="Øvelsesvejledninger">
+                </a>
+            </li>
+        </ul>
+
+        <div class="logo-container">
+	        <img class="logo" src="img/logo-white.png" alt="Biotech Academy logo">
+        </div>
+
+        <div class="menu-inventory-container">
+	        <div class="inventory droppable">
+		        <ul data-bind="foreach: gameState.inventory">
+		            <li class="menu-inventory-box">
+                        <div class="draggable">
+                            <img data-bind="attr: { src: 'img/icon_' + type() + '.png' }">
+                        </div>
+                    </li>
+                </ul>
+	        </div>
+        </div>
+
+        <div class="menu-right-links">
+	        <ul>
+		        <li>
+                    <button class="btn-none" id="menu-pipette-btn">
+                        <img src="img/icon_big_pipette.png" alt="Pipette">
+                    </button>
+                </li>
+		        <li>
+                    <button class="btn-none" id="menu-tips-btn">
+                        <img src="img/icon_big_tips.png" alt="Pipette spidser">
+                    </button>
+                </li>
+		        <li>
+                    <button class="btn-none" id="menu-trash-btn">
+                        <img src="img/icon_big_biotrash.png" alt="Affald">
+                    </button>
+                </li>
+	        </ul>
+        </div>
+    </div>
 </script>

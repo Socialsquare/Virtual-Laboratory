@@ -6,14 +6,17 @@ define([
     // controllers
     'controller/Overview',
     'controller/Computer',
+    'controller/Menu',
 
     // require knockout bindings to register them
     'bindings/dragging'
-], function (Base, ko, Router, OverviewController, ComputerController) {
+], function (Base, ko, Router, OverviewController, ComputerController, MenuController) {
     var App = Base.extend({
         activeView: ko.observable('overview'),
         activePopup: ko.observable(''),
         hasActivePopup: ko.observable(false),
+
+        menuController: new MenuController(),
 
         constructor: function (isWeb) {
             var self = this;
@@ -26,7 +29,7 @@ define([
                 computer: new ComputerController()
             };
 
-            self.currentController = ko.computed(function () {
+            self.currentViewController = ko.computed(function () {
                 return controllers[self.activeView()];
             });
 

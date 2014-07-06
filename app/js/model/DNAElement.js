@@ -1,3 +1,5 @@
+// TODO: delete if there's no use for this
+
 define([
 	'underscore',
     'base'
