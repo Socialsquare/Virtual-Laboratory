@@ -410,7 +410,7 @@ body {
 	background-color: #000000;
 	opacity: 0;
 	z-index: 10;
-	
+
 	animation-duration: 2s;
 	-webkit-animation-duration: 2s;
 	-moz-animation-duration: 2s;
@@ -430,7 +430,7 @@ body {
 
 /* !POPUPS */
 #popup-container {
-	display: none;
+	/* display: none; */
 	z-index: 1000;
 	position: absolute;
 	left: 0;
@@ -1817,5 +1817,3 @@ body {
 .spectrophotometer-view {
 	background-image: url('../img/spc_spektro_off.png');
 }
-
-

@@ -9,7 +9,10 @@ var requireConfig = {
 		text: 'libs/requirejs/text',
 		jquery: 'libs/jquery/jquery-2.0.3.min',
 		underscore: 'libs/underscore.js/underscore-min',
-		backbone: 'libs/backbone.js/backbone-min',
+		//backbone: 'libs/backbone.js/backbone-min',
+		knockout: 'libs/knockout.js/knockout-3.1.0',
+		base: 'libs/Base',
+
 		chcdraggable: 'libs/jquery/plugins/jquery.chcdraggable',
 		chcdraggablespawner: 'libs/jquery/plugins/jquery.chcdraggablespawner',
 		chcdroppable: 'libs/jquery/plugins/jquery.chcdroppable',
@@ -37,6 +40,15 @@ var requireConfig = {
 			deps: ['underscore'],
 			exports: 'Backbone'
 		},
+
+		'base': {
+			exports: 'Base'
+		},
+
+		'knockout': {
+			deps: ['jquery'],
+			exports: 'ko'
+		},
 		'chcdraggable': {
 			deps: ['jquery'],
 			exports: 'chcdraggable'
@@ -55,19 +67,21 @@ var requireConfig = {
 		}
 	}
 };
- 
+
 require.config(requireConfig);
 
 require([
-	'jquery',
-	'underscore',
-	'backbone',
-	'virtueltlaboratorium'
-], function($, _, Backbone, app) {
-	var isWeb = false;
-	var browser = document.URL.match(/^https?:/);
-	if(browser) {
-		isWeb = true;
-	}
-	app.initialize(isWeb);
+    'knockout',
+
+	'controller/App',
+
+    'Router'
+], function(ko, App, Router) {
+	var isWeb = document.URL.match(/^https?:/);
+
+    var app = new App(isWeb);
+
+    var appElement = document.getElementById('#app');
+
+	ko.applyBindings(app, appElement);
 });

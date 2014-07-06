@@ -28,23 +28,23 @@ define([
 			'spectrophotometer': 'showSpectrophotometer',
 			'*action': 'defaultAction' //Default
 		},
-		
+
 		back: function() {
 			window.history.back();
 		},
-		
+
 		showWelcome: function() {
 			ViewLoader.changeView('welcome');
 		},
-		
+
 		showMain: function() {
 			ViewLoader.changeView('main');
 		},
-		
+
 		showWorktable2: function() {
 			ViewLoader.changeView('worktable2');
 		},
-		
+
 		showFermentor: function() {
 			ViewLoader.changeView('fermentor');
 		},
@@ -52,35 +52,35 @@ define([
 		showChromatographScreen: function() {
 			ViewLoader.changeView('chromatograph-screen');
 		},
-		
+
 		showHPLC: function() {
 			ViewLoader.changeView('hplc');
 		},
-		
+
 		showWorktable1: function() {
 			ViewLoader.changeView('worktable1');
 		},
-		
+
 		showHood: function() {
 			ViewLoader.changeView('hood');
 		},
-		
+
 		showChemicalcloset: function() {
 			ViewLoader.changeView('chemicalcloset');
 		},
-		
+
 		showMouse: function() {
 			ViewLoader.changeView('mouse');
 		},
-		
+
 		showWashingMachine: function() {
 			ViewLoader.changeView('washingmachine');
 		},
-		
+
 		showComputer: function() {
 			ViewLoader.changeView('computer');
 		},
-		
+
 		showIncubator: function() {
 			ViewLoader.changeView('incubator');
 		},
@@ -92,14 +92,14 @@ define([
 		showSpectrophotometer: function() {
 			ViewLoader.changeView('spectrophotometer');
 		},
-		
+
 		defaultAction: function(actions) {
 			console.log('Router: No route matched. Default action: ' + actions);
 		}
 	});
-	
+
 	var router = new Router();
 	Backbone.history.start({silent: true});
-	
+
 	return router;
 });
