@@ -3,7 +3,7 @@
  * @author Chris Hjorth, www.chrishjorth.com
  * @version: ALPHA 2014-04-17
  */
- 
+
 /**
  * DROPPABLE
  * Turns a jQuery element into a droppable element that reacts to interposed Draggables with whom the user stopped interaction.
@@ -18,7 +18,7 @@ define([
 	var PLUGIN_NAME = "chcDroppable";
 	var droppables = [];
 	var isDragStopHandlerInitialized = false;
-	
+
 	var methods = {
 		init: function(options) {
 			return init.apply(this, arguments);
@@ -27,7 +27,7 @@ define([
 			return destroy.apply(this);
 		}
 	};
-	
+
 	$.fn.chcDroppable = function(method) {
 		if(methods[method]) {
 			return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
@@ -39,7 +39,7 @@ define([
 			$.error('Method ' +  method + ' does not exist on jQuery.' + PLUGIN_NAME);
 		}
 	};
-	
+
 	//PUBLIC METHODS
 	function init(options) {
 		if(isDragStopHandlerInitialized === false) {
@@ -49,17 +49,17 @@ define([
 
 		return this.each(function() {
 			var $this = $(this);
-			
+
 			if($this.data(PLUGIN_NAME)) {
 				//This is already initialized
 				return;
 			}
-			
+
 			$this.data(PLUGIN_NAME, {});
 			droppables.push($this);
 		});
 	}
-	
+
 	function destroy() {
 		return this.each(function() {
 			var $this = $(this),
@@ -97,6 +97,6 @@ define([
 		if(hit === false) {
 			//The draggable was dropped outside of any droppables
 			$draggable.chcDraggable('returnToOriginalPosition');
-		}	
+		}
 	}
 });

@@ -5,7 +5,10 @@ define([
 
     // controllers
     'controller/Overview',
-    'controller/Computer'
+    'controller/Computer',
+
+    // require knockout bindings to register them
+    'bindings/dragging'
 ], function (Base, ko, Router, OverviewController, ComputerController) {
     var App = Base.extend({
         activeView: ko.observable('overview'),

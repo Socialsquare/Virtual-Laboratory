@@ -97,8 +97,7 @@
                  data-bind="visible: activeScreen() === 'menu'">
  		        <ul>
  			        <li>
- 				        <a href="javascript:;" id="order-mouse"
-                           data-bind="click: changeScreen.bind(null, 'ordermouse')">
+ 				        <a id="order-mouse" data-bind="click: changeScreen.bind(null, 'ordermouse')">
  					        <div class="icon"></div>
  					        <div class="text">Bestil mus</div>
  				        </a>
@@ -155,23 +154,35 @@
                  data-bind="visible: activeScreen() === 'designdna'">
 
  		        <div class="computer-header-container">
-                    <a href="javascript:;" class="menu-link"
-                       data-bind="click: changeScreen.bind(null, 'menu')">Menu</a>
+                    <a class="menu-link" data-bind="click: changeScreen.bind(null, 'menu')">Menu</a>
 
                     <h2 class="computer-header">Design DNA</h2>
                 </div>
 
- 		        <ul class="dna-element-list">
-                    <li></li>
+ 		        <ul class="dna-element-list" data-bind="foreach: availableDNA">
+                    <li>
+                        <div class="draggablespawner"
+                             data-bind="text: name, attr: { 'data-dnaelementid': id },
+                                        dragSpawner: { styleClass: 'draggablespawn-computer'}"></div>
+                    </li>
                 </ul>
 
  		        <div class="detail">
- 			        <div class="droparea droppable">
- 				        <p>Træk genelementer hertil fra listen i venstre side for at designe et gen</p>
+ 			        <div class="droparea droppable" data-bind="foreach: activeGene().dnaElements,
+                                                               droparea: { handler: handleDrop }">
+                        <div class="dna-element">
+                            <div class="dna-element-img" data-bind="style: { 'background-color': color }"></div>
+                            <div class="dna-element-name" data-bind="text: name"></div>
+
+                            <button class="remove-btn" data-bind="click: $parent.removeDNA">X</button>
+                        </div>
  			        </div>
+
  			        <h3 class="computer-subheader">Sekvens:</h3>
  			        <div class="sequence-container">
- 				        <div class="sequence" id="computer-dnasequence"></div>
+ 				        <div class="sequence" id="computer-dnasequence" data-bind="foreach: activeGene().dnaElements">
+                            <span data-bind="style: { color: color }, text: sequence"></span>
+                        </div>
  			        </div>
  			        <button class="order-btn">Bestil</button>
  		        </div>

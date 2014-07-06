@@ -9,8 +9,10 @@ var requireConfig = {
 		text: 'libs/requirejs/text',
 		jquery: 'libs/jquery/jquery-2.0.3.min',
 		underscore: 'libs/underscore.js/underscore-min',
+		lodash: 'libs/lodash.compat',
 		//backbone: 'libs/backbone.js/backbone-min',
 		knockout: 'libs/knockout.js/knockout-3.1.0',
+		mapping: 'libs/knockout.mapping',
 		base: 'libs/Base',
 
 		chcdraggable: 'libs/jquery/plugins/jquery.chcdraggable',
@@ -49,6 +51,7 @@ var requireConfig = {
 			deps: ['jquery'],
 			exports: 'ko'
 		},
+
 		'chcdraggable': {
 			deps: ['jquery'],
 			exports: 'chcdraggable'
