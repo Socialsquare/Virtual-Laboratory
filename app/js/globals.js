@@ -2,14 +2,13 @@
  * Global variables.
  * @author: Chris Hjorth, www.chrishjorth.com
  */
- 
+
 define([
 	'underscore',
 	'backbone',
 	'models/lab'
 ], function(_, Backbone, Lab) {
-	var API_URL = 'http://virtueltlaboratorium.dk/api/';
-	//var API_URL = 'http://virtueltlaboratorium.site/api/';
+	var API_URL = '//api/';
 
 	return {
 		isWeb: false,
