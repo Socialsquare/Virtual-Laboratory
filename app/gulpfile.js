@@ -1,6 +1,8 @@
 var gulp = require('gulp')
 , del = require('del')
+, url = require('url')
 , connect = require('gulp-connect')
+, proxy = require('proxy-middleware')
 , minimist = require('minimist')
 , imagemin = require('gulp-imagemin')
 , sass = require('gulp-sass');
@@ -76,7 +78,14 @@ gulp.task('build', ['copy']);
 gulp.task('connect', function() {
   connect.server({
     root: dist_root,
-    livereload: true
+    livereload: true,
+    middleware: function(connect, o) {
+      return [ (function() {
+        var options = url.parse('http://localhost:80/api');
+        options.route = '/api';
+        return proxy(options);
+      })() ];
+    }
   });
 });
 
