@@ -1,14 +1,18 @@
 define([
     'knockout',
 
-    'controller/Base',
+    'controller/BaseView',
 
     'model/GameState'
-], function (ko, BaseController, gameState) {
+], function (ko, BaseViewController, gameState) {
 
-    var MouseController = BaseController.extend({
+    var MouseController = BaseViewController.extend({
 
         gameState: gameState,
+
+        activeVideo: ko.observable('runfast'),
+
+        isDragginWaterBottle: ko.observable(false),
 
         constructor: function () {
             var self = this;
@@ -28,29 +32,31 @@ define([
 	        };
 
 	        self.handleDropOnMouse = function (event, $draggable) {
-		        //Figure out what was droppen in mouse
-		        var view = event.data,
-			        id = $draggable.prop('id'),
-			        mouse = Globals.lab.get('mouse');
+
+		        var id = $draggable.prop('id'),
+			        mouse = self.gameState.mouse();
+
 		        switch(id) {
 			    case 'water-bottle':
 				    $draggable.removeClass('visible');
-				    mouseDrinkingStart();
+				    self.mouseDrinkingStart();
 				    return;
 		        }
+
 		        if($draggable.hasClass('needle')) {
-			        mouseNeedle($draggable.data('content'));
+			        self.mouseNeedle($draggable.data('content'));
 			        $draggable.remove();
 			        return;
 		        }
 		        if($draggable.hasClass('scalpel')) {
-			        if(mouse.attributes.alive === false) {
-				        mouseScalpel();
+			        if(!mouse.alive()) {
+				        self.mouseScalpel();
 				        $draggable.remove();
 				        return;
 			        }
 			        else {
-				        view.popupOKView.show('Kan ikke udføres', 'Musen skal være død.');
+                        // TODO: fix #13
+				        //view.popupOKView.show('Kan ikke udføres', 'Musen skal være død.');
 			        }
 
 		        }
@@ -59,43 +65,37 @@ define([
 	        };
 
             self.handleStartDrag = function (event) {
-		        var $draggable = $(this),
-			        id = $draggable.attr('id'),
-			        $scene;
-		        if(id === 'water-bottle') {
-			        $scene = event.data.$el.find('.mouse-view');
-			        $scene.addClass('no-bottle');
+		        var $draggable = $(this);
+
+		        if ($draggable.attr('id') === 'water-bottle') {
+                    self.isDragginWaterBottle(true);
 			        $draggable.addClass('visible');
 		        }
 	        };
 
 	        self.handleDroppedOut = function (event) {
-		        var $draggable = $(this),
-			        id = $draggable.attr('id'),
-			        mouse = Globals.lab.get('mouse'),
-			        $scene, $deadMouse;
-		        console.log('DROPPED OUT');
-		        if(id === 'water-bottle') {
-			        $scene = event.data.$el.find('.view');
-			        $draggable.removeClass('visible');
-			        $scene.removeClass('no-bottle');
-		        }
-		        if($draggable.hasClass('spleen') === true) {
-			        console.log('Dropped out spleen');
+		        var $draggable = $(this);
 
+		        if ($draggable.attr('id') === 'water-bottle') {
+			        self.isDragginWaterBottle(false);
+
+			        $draggable.removeClass('visible');
+		        }
+
+		        if ($draggable.hasClass('spleen') === true) {
+			        console.log('Dropped out spleen');
 		        }
 	        };
 
 	        self.handleSpawnDroppedOut = function (event) {
-		        var mouse = Globals.lab.get('mouse');
-		        mouse.attributes.spleen = true;
-		        addDraggableSpleen();
+                self.gameState.mouse().spleen(true);
+		        self.addDraggableSpleen();
 	        };
 
 	        /* !ANIMATION HANDLERS */
 	        //TODO: Complete this one
 	        self.stopAnimations = function () {
-		        mouseRunStop();
+		        self.mouseRunStop();
 	        };
 
 	        self.mouseRunStart = function () {
@@ -103,12 +103,12 @@ define([
 		        var video = $video.get(0);
 		        $video.removeClass('offscreen');
 		        video.play();
-		        mouseRunLoop();
+		        self.mouseRunLoop();
 	        };
 
 	        self.mouseRunLoop = function () {
 		        var $video = $('#mouse-video-runfast');
-		        $video.on('ended', handleVideoEnd);
+		        $video.on('ended', self.handleVideoEnd);
 	        };
 
 	        self.mouseRunStop = function () {
@@ -116,7 +116,7 @@ define([
 		        var video = $video.get(0);
 		        video.pause();
 		        video.currentTime = '0';
-		        $video.off('ended', handleVideoEnd);
+		        $video.off('ended', self.handleVideoEnd);
 		        $video.addClass('offscreen');
 	        };
 
@@ -126,12 +126,12 @@ define([
 		        var $loopVideo = $('#mouse-video-drinkloop');
 		        var loopVideo = $loopVideo.get(0);
 
-		        mouseRunStop();
+		        self.mouseRunStop();
 
 		        $video.removeClass('offscreen');
 		        video.play();
 		        $video.one('ended', function() {
-			        mouseDrinkingLoop();
+			        self.mouseDrinkingLoop();
 		        });
 	        };
 
@@ -145,12 +145,13 @@ define([
 		        video.play();
 		        startVideo.pause();
 		        $video.on('ended', function() {
-			        mouseDrinkingStop();
-			        mouseRunStart();
+			        self.mouseDrinkingStop();
+			        self.mouseRunStart();
 			        var $bottle = $('#water-bottle');
 			        $bottle.addClass('visible');
 			        $bottle.chcDraggable('returnToOriginalPosition', function() {
 				        $bottle.removeClass('visible');
+                        self.isDragginWaterBottle(false);
 				        $('.mouse-view').removeClass('no-bottle');
 				        $(document.body).trigger('task:INST_BOTTLE:ACTION_DRINK');
 			        });
@@ -160,19 +161,19 @@ define([
 	        self.mouseDrinkingStop = function () {
 		        var $video = $('#mouse-video-drinkloop');
 		        $video.get(0).pause();
-		        $video.off('ended', handleVideoEnd);
+		        $video.off('ended', self.handleVideoEnd);
 		        $video.addClass('offscreen');
 	        };
 
 	        self.mouseNeedle = function (content) {
 		        var $video, video;
-		        mouseRunStop();
+		        self.mouseRunStop();
 		        if(content && content.hasOther('death')) {
 			        $video = $('#mouse-video-injdie');
 			        video = $video.get(0);
 			        $video.removeClass('offscreen');
 			        $video.one('ended', function(event) {
-				        var mouse = Globals.lab.get('mouse');
+				        var mouse = gameState.mouse();
 				        mouse.attributes.alive = false;
 				        video.pause();
 				        video.currentTime = 0;
@@ -188,7 +189,7 @@ define([
 				        video.pause();
 				        video.currentTime = 0;
 				        $video.addClass('offscreen');
-				        mouseRunStart();
+				        self.mouseRunStart();
 			        });
 		        }
 
@@ -202,12 +203,12 @@ define([
 		        $video.one('ended', function(event) {
 			        var $mouseDroppable = $('#mouse'),
 				        $deadMouse = $('#dead_mouse'),
-				        mouse = Globals.lab.get('mouse');
+				        mouse = gameState.mouse();
 			        video.pause();
 			        video.currentTime = 0;
 			        $video.addClass('offscreen');
 			        mouse.attributes.cut = true;
-			        addDraggableSpleen();
+			        self.addDraggableSpleen();
 		        });
 		        video.play();
 	        };
@@ -227,7 +228,7 @@ define([
 			        })
 		        });
 		        $mouseDroppable.one('chcDraggableSpawned.chcEvent', function(event) {
-			        var mouse = Globals.lab.get('mouse');
+			        var mouse = gameState.mouse();
 			        $deadMouse.removeClass('cut-with-spleen');
 			        $deadMouse.addClass('cut');
 			        $mouseDroppable.chcDraggableSpawner('destroy');

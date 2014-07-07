@@ -4,7 +4,7 @@ define([
     'jquery',
     'lodash',
 
-    'controller/Base',
+    'controller/BaseView',
 
     'model/GameState',
     'model/InventoryItem',
@@ -12,8 +12,8 @@ define([
     'service/Chemical',
 
     'utils/utils'
-], function (ko, mapping, $, _, BaseController, gameState, InventoryItem, ChemicalService, utils) {
-    var Chemical = BaseController.extend({
+], function (ko, mapping, $, _, BaseViewController, gameState, InventoryItem, ChemicalService, utils) {
+    var Chemical = BaseViewController.extend({
 
         closetItems: ko.observableArray([]),
         drawerItems: ko.observableArray([]),
@@ -24,6 +24,7 @@ define([
         // TODO: remove app dep and use ko.postbox or similar
         constructor: function (app) {
             var self = this;
+            self.base('chemical-closet');
 
             var groups = {
                 closet: { name: 'Kemikalie skabet', items: self.closetItems },

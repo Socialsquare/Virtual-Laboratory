@@ -1,15 +1,16 @@
 define([
     'base'
 ], function (Base) {
-    var BaseController = Base.extend({
+    var BaseViewController = Base.extend({
         constructor: function (id, name) {
             this.id = id;
             this.name = name;
         },
 
-        // Called when navigating away, use to reset content if needed
-        leave: function () {}
+        // Use to con- and destruct the view
+        enter: function () {},
+        exit: function () {}
     });
 
-    return BaseController;
+    return BaseViewController;
 });

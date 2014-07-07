@@ -1,12 +1,10 @@
 define([
     'knockout',
-
-    'controller/Base',
-
+    'base',
     'model/GameState'
-], function (ko, BaseController, gameState) {
+], function (ko, Base, gameState) {
 
-    var MenuController = BaseController.extend({
+    var MenuController = Base.extend({
 
         gameState: gameState,
 

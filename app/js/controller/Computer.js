@@ -4,7 +4,7 @@ define([
     'jquery',
     'lodash',
 
-    'controller/Base',
+    'controller/BaseView',
 
     'model/Gene',
     'model/GameState',
@@ -12,8 +12,8 @@ define([
 
     'service/DNA',
     'utils/utils'
-], function (ko, mapping, $, _, BaseController, Gene, gameState, InventoryItem, DNAService, utils) {
-    var Computer = BaseController.extend({
+], function (ko, mapping, $, _, BaseViewController, Gene, gameState, InventoryItem, DNAService, utils) {
+    var Computer = BaseViewController.extend({
 
         dnaService: new DNAService(),
 
@@ -24,6 +24,8 @@ define([
 
         constructor: function () {
             var self = this;
+            self.base('computer');
+
 
             self.changeScreen = function (name) {
                 self.activeScreen(name);
@@ -56,10 +58,13 @@ define([
             };
 
             self.orderDNA = function () {
-                // TODO: validate DNA?
-
                 var geneClone = utils.klone(self.activeGene());
-                var item = new InventoryItem("dna", geneClone);
+                var item = new InventoryItem({
+                    type: "dna",
+                    name: "dna",
+                    icon: "img/icon_dna.png",
+                    content: geneClone
+                });
                 gameState.addInventoryItem(item);
 
                 // reset the gene and go to computer menu

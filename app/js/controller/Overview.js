@@ -1,10 +1,10 @@
 define([
-    'controller/Base',
+    'controller/BaseView',
     'knockout'
-], function (BaseVM, ko) {
-    var Overview = BaseVM.extend({
+], function (BaseViewController, ko) {
+    var Overview = BaseViewController.extend({
         constructor: function () {
-            this.base(1, 'overview');
+            this.base('overview');
         }
     });
 

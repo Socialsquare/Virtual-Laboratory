@@ -13,7 +13,7 @@
     <body>
         <div id="app">
             <div class="interface-container">
-                <div data-bind="template: { name: activeView, data: currentViewController() }"></div>
+                <div data-bind="template: { name: activeViewController().templateName, data: activeViewController }"></div>
 
                 <div data-bind="template: { name: 'menu', data: menuController }"></div>
             </div>
@@ -85,7 +85,7 @@
 	    <div class="btn-row float-clear">
             <button type="button"
                     class="popup-cancel-btn"
-                    data-bind="click: hidePopup">Fortryd</button>
+                    data-bind="click: $parent.hidePopup">Fortryd</button>
         </div>
     </div>
 </script>
@@ -238,11 +238,7 @@
                  data-bind="droparea: handleDrop">
 		        <ul data-bind="foreach: gameState.inventory">
 		            <li class="menu-inventory-box">
-                        <div class="draggable" data-bind="dragSpawner: {
-                                  styleClass: 'draggablespawn-popuplist',
-                                  spawnHTML: '<img src=\'' + icon() + '\'/>',
-                                  content: $data
-                                }">
+                        <div class="draggable" data-bind="draggable: {}">
                             <img data-bind="attr: { src: icon() }">
                         </div>
                     </li>
@@ -309,9 +305,9 @@
 </script>
 
 <script id="mouse" type="text/html">
-    <div class="mouse-view view">
+    <div class="mouse-view view" data-bind="css: { 'no-bottle': isDragginWaterBottle }">
  	    <div class="video-container">
-            <video id="mouse-video-runfast" class="offscreen" preload="auto">
+            <video id="mouse-video-runfast" class="offscreen" preload="auto" data-bind="css">
                 <source src="videos/runFast.mp4" type="video/mp4"/>
                 <source src="videos/runFast.webm" type="video/webm"/>
             </video>
@@ -343,7 +339,10 @@
         </div>
 
  	    <div class="draggable" id="water-bottle"
-             data-bind="dragSpawner: "></div>
+             data-bind="draggable: {
+                        startHandler: handleStartDrag,
+                        droppedHandler: handleDroppedOut,
+                        spawnDroppedHandler: handleSpawnDroppedOut }"></div>
  	    <div class="hidden" id="dead_mouse"></div>
  	    <div class="droppable" id="mouse"
              data-bind="droparea: handleDropOnMouse"></div>

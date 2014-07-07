@@ -14,9 +14,10 @@ define([
     'bindings/dragging'
 ], function (Base, ko, Router, OverviewController, ComputerController, ChemicalController, MouseController, MenuController) {
     var App = Base.extend({
-        activeView: ko.observable('overview'),
+        activeViewController: ko.observable(),
         activePopup: ko.observable(''),
         activePopupVM: ko.observable({}),
+
         hasActivePopup: ko.observable(false),
 
         menuController: new MenuController(),
@@ -24,19 +25,12 @@ define([
         constructor: function (isWeb) {
             var self = this;
 
-            var router = new Router();
-            router.viewChangeHandler = this.viewChange.bind(this);
-
-            var controllers = {
+            var viewControllers = {
                 overview: new OverviewController(),
                 computer: new ComputerController(),
                 'chemical-closet': new ChemicalController(this),
                 mouse: new MouseController()
             };
-
-            self.currentViewController = ko.computed(function () {
-                return controllers[self.activeView()];
-            });
 
             self.triggerPopup = function (popupName, vm) {
                 self.activePopupVM(vm || {}),
@@ -47,17 +41,29 @@ define([
             self.hidePopup = function (popupName) {
                 self.hasActivePopup(false);
             };
-        },
 
-        viewChange: function (viewName) {
-            // hide any potential active popup
-            this.hidePopup();
+            self.viewChange = function (viewName) {
+                // hide any potential active popup
+                self.hidePopup();
 
-            this.currentViewController().leave();
+                // exit current controller
+                if (self.activeViewController()) {
+                    self.activeViewController().exit();
+                }
 
-            this.activeView(viewName);
-        },
+                // find new controller and enter it
+                var viewController = viewControllers[viewName];
+                self.activeViewController(viewController);
+                self.activeViewController().enter();
+            };
 
+            // setup routing
+            var router = new Router();
+            router.viewChangeHandler = self.viewChange.bind(this);
+
+            // bootstrap the app by going to 'overview'
+            self.viewChange('overview');
+        }
     });
 
     return App;

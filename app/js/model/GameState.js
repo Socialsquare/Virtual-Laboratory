@@ -2,11 +2,16 @@
 
 define([
     'knockout',
-    'base'
-], function (ko, Base) {
+    'base',
+    'model/Mouse'
+], function (ko, Base, MouseModel) {
     var GameState = Base.extend({
+
         activeExperiment: ko.observable(),
+
         inventory: ko.observableArray(),
+
+        mouse: ko.observable(new MouseModel()),
 
         addInventoryItem: function (item) {
             this.inventory.push(item);

@@ -14,8 +14,8 @@ define([
             var options = valueAccessor();
             $(element).chcDraggable();
             $(element).on('chcDraggableStart.chcEvent', options.startHandler);
-			$(element).on('chcDraggableDroppedOut.chcEvent', options.droppedOutHandler);
-			$(element).on('chcDraggableSpawnDroppedOut.chcEvent', options.spawnDroppedOutHandler);
+			$(element).on('chcDraggableDroppedOut.chcEvent', options.droppedHandler);
+			$(element).on('chcDraggableSpawnDroppedOut.chcEvent', options.spawnDroppedHandler);
         }
     };
 
