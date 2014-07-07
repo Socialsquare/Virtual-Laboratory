@@ -1,7 +1,8 @@
 var gulp = require('gulp')
 , del = require('del')
 , connect = require('gulp-connect')
-, minimist = require('minimist');
+, minimist = require('minimist')
+, imagemin = require('gulp-imagemin');
 
 var args = minimist(process.argv.slice(2), {
   default: {
@@ -17,7 +18,7 @@ var paths = {
   index: 'index.html'
 , scripts: 'js/**/*.js'
 , templates: 'templates/**/*.html'
-, styles: 'css/**/*.css'
+, styles: 'css/**/*.(css|scss)'
 , images: 'img/**/*'
 , videos: 'videos/**/*'
 };
@@ -53,10 +54,10 @@ gulp.task('styles', ['clean'], function() {
 });
 
 gulp.task('images', ['clean'], function() {
-  return gulp.src(paths.images)
-    // pass in options to the task
-    // .pipe(imagemin({optimizationLevel: 5}))
-    .pipe(gulp.dest(dist_root + '/img'));
+  var src = gulp.src(paths.images)
+  var res = (optimize ? src.pipe(imagemin({optimizationLevel: 1})) : src);
+
+  return res.pipe(gulp.dest(dist_root + '/img'));
 });
 
 gulp.task('videos', ['clean'], function() {
