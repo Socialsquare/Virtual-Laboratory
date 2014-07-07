@@ -10,7 +10,6 @@ var requireConfig = {
 		jquery: 'libs/jquery/jquery-2.0.3.min',
 		underscore: 'libs/underscore.js/underscore-min',
 		lodash: 'libs/lodash.compat',
-		//backbone: 'libs/backbone.js/backbone-min',
 		knockout: 'libs/knockout.js/knockout-3.1.0',
 		mapping: 'libs/knockout.mapping',
 		base: 'libs/Base',
@@ -75,11 +74,14 @@ require.config(requireConfig);
 
 require([
     'knockout',
-
+    'Router',
 	'controller/App',
 
-    'Router'
-], function(ko, App, Router) {
+    // self-registering jquery plugins
+	'chcdraggable',
+	'chcdraggablespawner',
+	'chcdroppable'
+], function(ko, Router, App) {
 	var isWeb = document.URL.match(/^https?:/);
 
     var app = new App(isWeb);
