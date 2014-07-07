@@ -38,7 +38,6 @@ define([
             };
 
             self.showList = function (name) {
-                console.log(items[name]());
                 app.triggerPopup('list', {
                     title: titles[name],
                     items: items[name]

@@ -165,13 +165,13 @@
                     <li>
                         <div class="draggablespawner"
                              data-bind="text: name, attr: { 'data-dnaelementid': id },
-                                        dragSpawner: { styleClass: 'draggablespawn-computer'}"></div>
+                                        dragSpawner: { styleClass: 'draggablespawn-computer' }"></div>
                     </li>
                 </ul>
 
  		        <div class="detail">
  			        <div class="droparea droppable" data-bind="foreach: activeGene().dnaElements,
-                                                               droparea: { handler: handleDrop }">
+                                                               droparea: handleDrop">
                         <div class="dna-element">
                             <div class="dna-element-img" data-bind="style: { 'background-color': color }"></div>
                             <div class="dna-element-name" data-bind="text: name"></div>
@@ -233,11 +233,12 @@
         </div>
 
         <div class="menu-inventory-container">
-	        <div class="inventory droppable">
+	        <div class="inventory droppable"
+                 data-bind="droparea: handleDrop">
 		        <ul data-bind="foreach: gameState.inventory">
 		            <li class="menu-inventory-box">
                         <div class="draggable">
-                            <img data-bind="attr: { src: 'img/icon_' + type() + '.png' }">
+                            <img data-bind="attr: { src: icon() }">
                         </div>
                     </li>
                 </ul>
@@ -274,10 +275,10 @@
             <li>
                 <div class="draggablespawner"
                      data-bind="text: name, css: klass, attr: { 'data-item-index': $index },
-                                dragSpawn: {
-                                styleClass: 'draggablespawn-popuplist',
-                                spawnHTML: '<img src=\'img/' + icon + '\' />',
-                                content: content
+                                dragSpawner: {
+                                  styleClass: 'draggablespawn-popuplist',
+                                  spawnHTML: '<img src=\'' + icon() + '\'/>',
+                                  content: $data
                                 }">
                 </div>
             </li>

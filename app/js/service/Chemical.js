@@ -15,14 +15,14 @@ define([
             var things = [{
 				name: 'Antibiotikum',
 				klass: 'antibiotic',
-				icon: 'icon_antibiotic_g418.png',
+				icon: 'img/icon_antibiotic_g418.png',
 				content: new ContainerContent({
 					other: ['antibiotic']
 				})
 			}, {
 				name: 'Dødelig reagens',
 				klass: 'death',
-				icon: 'icon_death.png',
+				icon: 'img/icon_death.png',
 				content: new ContainerContent({
 					other: ['death']
 				})
@@ -43,27 +43,27 @@ define([
             var things = [{
 				name: 'Kanyle',
 				klass: 'needle',
-				icon: 'icon_med_inj.png',
+				icon: 'img/icon_med_inj.png',
 				content: null
 			}, {
 				name: 'Petriskål',
 				klass: 'petridish',
-				icon: 'icon_cup_petri.png',
+				icon: 'img/icon_cup_petri.png',
 				content: new Container({maxConcentration: 10, maxBiomass: 1.01})
 			}, {
 				name: 'Reagensglas',
 				klass: 'testtube',
-				icon: 'icon_cup_tube.png',
+				icon: 'img/icon_cup_tube.png',
 				content: new Container()
 			}, {
 				name: 'Mikrotiterbakke',
 				klass: 'microtiterplate',
-				icon: 'icon_cup_mkrt.png',
+				icon: 'img/icon_cup_mkrt.png',
 				content: null
 			}, {
 				name: 'Skalpel',
 				klass: 'scalpel',
-				icon: 'icon_scalpel.png',
+				icon: 'img/icon_scalpel.png',
 				content: null
 			}];
 
@@ -82,7 +82,7 @@ define([
             var item = new InventoryItem({
 				name: 'Gærceller',
 				klass: 'yeastcells',
-				icon: 'icon_cells_yeast.png',
+				icon: 'img/icon_cells_yeast.png',
 				content: new ContainerContent({
 					genes: [],
 					microorganisms:	[

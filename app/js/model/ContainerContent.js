@@ -159,30 +159,7 @@ define([
 	}
 
 	function clone() {
-		var genes = [],
-			microorganisms = [],
-			other = [],
-			cloned, i;
-
-		for(i = 0; i < this.genes.length; i++) {
-			genes.push(this.genes[i].clone());
-		}
-
-		for(i = 0; i < this.microorganisms.length; i++) {
-			microorganisms.push(this.microorganisms[i].clone());
-		}
-
-		for(i = 0; i < this.other.length; i++) {
-			other.push(this.other[i]);
-		}
-
-		cloned = new ContainerContent({
-			genes: genes,
-			microorganisms: microorganisms,
-			other: other
-		});
-
-		return cloned;
+        return utils.klone(this);
 	}
 
 	function killMicroorganisms() {

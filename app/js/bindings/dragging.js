@@ -11,9 +11,9 @@ define([
 
     ko.bindingHandlers.droparea = {
         init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
-            var options = valueAccessor();
+            var handler = valueAccessor();
             $(element).chcDroppable();
-            $(element).on('chcDroppableDrop.chcEvent', options.handler);
+            $(element).on('chcDroppableDrop.chcEvent', handler);
         }
     };
 });
