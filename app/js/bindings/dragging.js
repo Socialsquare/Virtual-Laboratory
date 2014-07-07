@@ -5,7 +5,7 @@ define([
     ko.bindingHandlers.dragSpawner = {
         init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
             var options = valueAccessor();
-            $(element).chcDraggableSpawner({ styleClass: options.styleClass });
+            $(element).chcDraggableSpawner(options);
         }
     };
 

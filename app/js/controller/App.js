@@ -6,14 +6,16 @@ define([
     // controllers
     'controller/Overview',
     'controller/Computer',
+    'controller/Chemical',
     'controller/Menu',
 
     // require knockout bindings to register them
     'bindings/dragging'
-], function (Base, ko, Router, OverviewController, ComputerController, MenuController) {
+], function (Base, ko, Router, OverviewController, ComputerController, ChemicalController, MenuController) {
     var App = Base.extend({
         activeView: ko.observable('overview'),
         activePopup: ko.observable(''),
+        activePopupVM: ko.observable({}),
         hasActivePopup: ko.observable(false),
 
         menuController: new MenuController(),
@@ -26,14 +28,16 @@ define([
 
             var controllers = {
                 overview: new OverviewController(),
-                computer: new ComputerController()
+                computer: new ComputerController(),
+                'chemical-closet': new ChemicalController(this)
             };
 
             self.currentViewController = ko.computed(function () {
                 return controllers[self.activeView()];
             });
 
-            self.triggerPopup = function (popupName) {
+            self.triggerPopup = function (popupName, vm) {
+                self.activePopupVM(vm || {}),
                 self.activePopup('popup-' + popupName);
                 self.hasActivePopup(true);
             };

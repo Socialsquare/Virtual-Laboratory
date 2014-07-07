@@ -3,9 +3,12 @@ define([
     'knockout'
 ], function (Base, ko) {
     var InventoryItem = Base.extend({
-        constructor: function (type, value) {
-            this.type = ko.observable(type);
-            this.value = ko.observable(value);
+        constructor: function (vals) {
+            this.type = ko.observable(vals.type || '');
+            this.name = ko.observable(vals.name || '');
+            this.content = ko.observable(vals.content || null);
+            this.klass = ko.observable(vals.klass || '');
+            this.icon = ko.observable(vals.icon || '');
         }
     });
 

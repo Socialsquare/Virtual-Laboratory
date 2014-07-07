@@ -10,8 +10,9 @@ define([
     'model/GameState',
     'model/InventoryItem',
 
-    'service/DNA'
-], function (ko, mapping, $, _, BaseController, Gene, gameState, InventoryItem, DNAService) {
+    'service/DNA',
+    'utils/utils'
+], function (ko, mapping, $, _, BaseController, Gene, gameState, InventoryItem, DNAService, utils) {
     var Computer = BaseController.extend({
 
         dnaService: new DNAService(),
@@ -40,7 +41,7 @@ define([
                         return d.id() === $draggable.data('dnaelementid');
                     });
 
-                    var clone = mapping.fromJS(ko.toJS(dna));
+                    var clone = utils.klone(dna);
                     self.activeGene().dnaElements.push(clone);
 
 			        $draggable.remove();
@@ -57,7 +58,7 @@ define([
             self.orderDNA = function () {
                 // TODO: validate DNA?
 
-                var geneClone = mapping.fromJS(ko.toJS(self.activeGene()));
+                var geneClone = utils.klone(self.activeGene());
                 var item = new InventoryItem("dna", geneClone);
                 gameState.addInventoryItem(item);
 

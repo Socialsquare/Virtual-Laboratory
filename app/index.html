@@ -18,7 +18,7 @@
             </div>
 
             <div id="popup-container" data-bind="visible: hasActivePopup">
-                <div data-bind="template: { name: activePopup, 'if': hasActivePopup }"></div>
+                <div data-bind="template: { name: activePopup, data: activePopupVM, 'if': hasActivePopup }"></div>
             </div>
 
             <div id="video-container"></div>
@@ -263,5 +263,41 @@
                 </li>
 	        </ul>
         </div>
+    </div>
+</script>
+
+<script id="popup-list" type="text/html">
+    <div class="popup popup-list">
+	    <h1 data-bind="text: title"></h1>
+	    <hr />
+	    <ul data-bind="foreach: items">
+            <li>
+                <div class="draggablespawner"
+                     data-bind="text: name, css: klass, attr: { 'data-item-index': $index },
+                                dragSpawn: {
+                                styleClass: 'draggablespawn-popuplist',
+                                spawnHTML: '<img src=\'img/' + icon + '\' />',
+                                content: content
+                                }">
+                </div>
+            </li>
+        </ul>
+	    <div class="btn-row float-clear">
+            <button data-bind="click: $parent.hidePopup" type="button" class="popup-cancel-btn">Luk</button>
+        </div>
+    </div>
+</script>
+
+<script id="chemical-closet" type="text/html">
+    <div class="chemicalcloset-view view placeholder">
+	    <a data-bind="click: showList.bind(null, 'closet')" class="chemicalcloset-link" id="chemicalcloset-closet-link">
+            <div></div>
+        </a>
+	    <a data-bind="click: showList.bind(null, 'fridge')" class="chemicalcloset-link" id="chemicalcloset-fridge-link">
+            <div></div>
+        </a>
+	    <a data-bind="click: showList.bind(null, 'drawer')" class="chemicalcloset-link" id="chemicalcloset-drawer-link">
+            <div></div>
+        </a>
     </div>
 </script>
