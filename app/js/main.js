@@ -80,7 +80,13 @@ require([
     // self-registering jquery plugins
 	'chcdraggable',
 	'chcdraggablespawner',
-	'chcdroppable'
+	'chcdroppable',
+	'flot',
+
+    // register knockout bindings
+    'bindings/dragging',
+    'bindings/video',
+    'bindings/plotting'
 ], function(ko, Router, App) {
 	var isWeb = document.URL.match(/^https?:/);
 

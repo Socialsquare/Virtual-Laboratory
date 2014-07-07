@@ -1,10 +1,12 @@
 define([
+    'jquery',
     'knockout',
+    'lodash',
 
     'controller/BaseView',
 
     'model/GameState'
-], function (ko, BaseViewController, gameState) {
+], function ($, ko, _, BaseViewController, gameState) {
 
     var MouseController = BaseViewController.extend({
 
@@ -12,10 +14,28 @@ define([
 
         activeVideo: ko.observable('runfast'),
 
+        mouseData: ko.observableArray([]),
+
         isDragginWaterBottle: ko.observable(false),
+
+        graphTimer: null,
 
         constructor: function () {
             var self = this;
+            self.base('mouse');
+
+            // TODO: fix correct data
+            // dummy mouse data
+            self.graphTimer = window.setInterval(function () {
+                var mouseData = _.map(_.range(0, 250), function (i) {
+                    return [i, Math.random() * 100];
+                });
+                self.mouseData(mouseData);
+            }, 500);
+
+            self.exit = function () {
+                window.clearInterval(self.graphTimer);
+            };
 
             self.handleDrop = function (event, $draggable) {
                 var item = $draggable.data('content');
@@ -32,7 +52,6 @@ define([
 	        };
 
 	        self.handleDropOnMouse = function (event, $draggable) {
-
 		        var id = $draggable.prop('id'),
 			        mouse = self.gameState.mouse();
 
@@ -58,7 +77,6 @@ define([
                         // TODO: fix #13
 				        //view.popupOKView.show('Kan ikke udføres', 'Musen skal være død.');
 			        }
-
 		        }
 
 		        $draggable.chcDraggable('returnToOriginalPosition');
@@ -265,7 +283,27 @@ define([
 		        }
 		        return res;
 	        };
-        }
+        },
+
+        getMouseData: function (mouseData) {
+		    if(mouseData.length > 0) {
+			    mouseData = mouseData.slice(1);
+		    }
+
+		    while(mouseData.length < 250) {
+			    var prev = mouseData.length > 0 ? mouseData[mouseData.length - 1] : 50;
+			    var y = prev + Math.random() * 10 - 5;
+			    if (y < 0) {
+				    y = 0;
+			    }
+			    else if (y > 100) {
+				    y = 100;
+			    }
+			    mouseData.push(y);
+		    }
+
+		    return mouseData;
+	    },
     });
 
     return MouseController;

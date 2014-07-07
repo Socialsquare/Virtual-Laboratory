@@ -8,10 +8,7 @@ define([
     'controller/Computer',
     'controller/Chemical',
     'controller/Mouse',
-    'controller/Menu',
-
-    // require knockout bindings to register them
-    'bindings/dragging'
+    'controller/Menu'
 ], function (Base, ko, Router, OverviewController, ComputerController, ChemicalController, MouseController, MenuController) {
     var App = Base.extend({
         activeViewController: ko.observable(),
