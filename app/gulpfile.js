@@ -2,7 +2,8 @@ var gulp = require('gulp')
 , del = require('del')
 , connect = require('gulp-connect')
 , minimist = require('minimist')
-, imagemin = require('gulp-imagemin');
+, imagemin = require('gulp-imagemin')
+, sass = require('gulp-sass');
 
 var args = minimist(process.argv.slice(2), {
   default: {
@@ -18,7 +19,7 @@ var paths = {
   index: 'index.html'
 , scripts: 'js/**/*.js'
 , templates: 'templates/**/*.html'
-, styles: 'css/**/*.(css|scss)'
+, styles: 'css/**/*.scss'
 , images: 'img/**/*'
 , videos: 'videos/**/*'
 };
@@ -49,7 +50,7 @@ gulp.task('templates', ['clean'], function() {
 
 gulp.task('styles', ['clean'], function() {
   return gulp.src(paths.styles)
-    // convert sass
+    .pipe(sass())
     .pipe(gulp.dest(dist_root + '/css'));
 });
 
