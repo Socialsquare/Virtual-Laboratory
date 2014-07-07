@@ -1,0 +1,101 @@
+<div class="computer-view view">
+
+    <div class="computer-screen">
+
+ 	    <div id="computer-mainmenu"
+             class="computer-mainmenu"
+             data-bind="visible: activeScreen() === 'menu'">
+ 		    <ul>
+ 			    <li>
+ 				    <a id="order-mouse" data-bind="click: changeScreen.bind(null, 'ordermouse')">
+ 					    <div class="icon"></div>
+ 					    <div class="text">Bestil mus</div>
+ 				    </a>
+ 			    </li>
+ 			    <li>
+ 				    <div class="icon order-drug"></div>
+ 				    <div class="text">Bestil lægemiddel</div>
+ 			    </li>
+ 			    <li>
+ 				    <div class="icon order-cleansedprotein"></div>
+ 				    <div class="text">Bestil oprænset protein</div>
+ 			    </li>
+ 			    <li>
+ 				    <div class="icon send-tubesequencing"></div>
+ 				    <div class="text">Send til sekvensering</div>
+ 			    </li>
+ 			    <li>
+ 				    <a>
+ 					    <div class="icon design-dna"
+                             data-bind="click: changeScreen.bind(null, 'designdna')"></div>
+ 					    <div class="text">Design DNA</div>
+ 				    </a>
+ 			    </li>
+ 			    <li>
+ 				    <div class="icon design-drug"></div>
+ 				    <div class="text">Design lægemiddel</div>
+ 			    </li>
+ 		    </ul>
+ 	    </div>
+
+ 	    <div class="computer-view-view" id="computer-ordermouse"
+             data-bind="visible: activeScreen() === 'ordermouse'">
+
+ 		    <div class="computer-header-container">
+                <a href="javascript:;" class="menu-link"
+                   data-bind="click: changeScreen.bind(null, 'menu')">Menu</a>
+
+                <h2 class="computer-header">Bestil mus</h2>
+            </div>
+
+ 		    <ul>
+ 			    <li><a href="javascript:;" data-mouse="healthy"><div class="selected">Rask mus</div></a></li>
+ 			    <li><a href="javascript:;" data-mouse="diabetes"><div>Mus med diabetes</div></a></li>
+ 		    </ul>
+ 		    <div class="detail">
+ 			    <div class="mouse healthy">HEALTHY MOUSE</div>
+ 			    <div class="mouse diabetes hidden">DIABETES MOUSE</div>
+ 			    <button>Bestil</button>
+ 		    </div>
+ 	    </div>
+
+ 	    <div id="computer-designdna"
+             class="computer-view-view"
+             data-bind="visible: activeScreen() === 'designdna'">
+
+ 		    <div class="computer-header-container">
+                <a class="menu-link" data-bind="click: changeScreen.bind(null, 'menu')">Menu</a>
+
+                <h2 class="computer-header">Design DNA</h2>
+            </div>
+
+ 		    <ul class="dna-element-list" data-bind="foreach: availableDNA">
+                <li>
+                    <div class="draggablespawner"
+                         data-bind="text: name, attr: { 'data-dnaelementid': id },
+                                    dragSpawner: { styleClass: 'draggablespawn-computer' }"></div>
+                </li>
+            </ul>
+
+ 		    <div class="detail">
+ 			    <div class="droparea droppable" data-bind="foreach: activeGene().dnaElements,
+                                                           droparea: handleDrop">
+                    <div class="dna-element">
+                        <div class="dna-element-img" data-bind="style: { 'background-color': color }"></div>
+                        <div class="dna-element-name" data-bind="text: name"></div>
+
+                        <button class="remove-btn" data-bind="click: $parent.removeDNA">X</button>
+                    </div>
+ 			    </div>
+
+ 			    <h3 class="computer-subheader">Sekvens:</h3>
+ 			    <div class="sequence-container">
+ 				    <div class="sequence" id="computer-dnasequence" data-bind="foreach: activeGene().dnaElements">
+                        <span data-bind="style: { color: color }, text: sequence"></span>
+                    </div>
+ 			    </div>
+ 			    <button class="order-btn" data-bind="click: orderDNA">Bestil</button>
+ 		    </div>
+ 	    </div>
+    </div>
+</div>

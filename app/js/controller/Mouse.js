@@ -37,16 +37,6 @@ define([
                 window.clearInterval(self.graphTimer);
             };
 
-            self.handleDrop = function (event, $draggable) {
-                var item = $draggable.data('content');
-
-		        $draggable.off();
-		        $draggable.chcDraggable('destroy');
-                $draggable.remove();
-
-		        gameState.addInventoryItem(item);
-	        };
-
             self.handleVideoEnd = function (event) {
 		        this.play();
 	        };

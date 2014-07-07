@@ -1,0 +1,11 @@
+<div class="chemicalcloset-view view placeholder">
+	<a data-bind="click: showList.bind(null, 'closet')" class="chemicalcloset-link" id="chemicalcloset-closet-link">
+        <div></div>
+    </a>
+	<a data-bind="click: showList.bind(null, 'fridge')" class="chemicalcloset-link" id="chemicalcloset-fridge-link">
+        <div></div>
+    </a>
+	<a data-bind="click: showList.bind(null, 'drawer')" class="chemicalcloset-link" id="chemicalcloset-drawer-link">
+        <div></div>
+    </a>
+</div>

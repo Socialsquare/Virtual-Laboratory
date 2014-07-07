@@ -1,0 +1,60 @@
+<div class="worktable1-view view">
+	<div class="video-container">
+        <video id="electroporator1" class="offscreen" preload="auto">
+            <source src="videos/electroporator01.mp4" type="video/mp4" />
+            <source src="videos/electroporator01.webm" type="video/webm" />
+        </video>
+		<video id="electroporator2" class="offscreen" preload="auto">
+            <source src="videos/electroporator02.mp4" type="video/mp4" />
+            <source src="videos/electroporator02.webm" type="video/webm" />
+        </video>
+		<video id="electroporator3" class="offscreen" preload="auto">
+            <source src="videos/electroporator03.mp4" type="video/mp4" />
+            <source src="videos/electroporator03.webm" type="video/webm" />
+        </video>
+		<video id="electroporator4" class="offscreen" preload="auto">
+            <source src="videos/electroporator04.mp4" type="video/mp4" />
+            <source src="videos/electroporator04.webm" type="video/webm" />
+        </video>
+		<video id="electroporator5" class="offscreen" preload="auto">
+            <source src="videos/electroporator05.mp4" type="video/mp4" />
+            <source src="videos/electroporator05.webm" type="video/webm" />
+        </video>
+		<video id="electroporator6" class="offscreen" preload="auto">
+            <source src="videos/electroporator06.mp4" type="video/mp4" />
+            <source src="videos/electroporator06.webm" type="video/webm" />
+        </video>
+    </div>
+	<div class="droppable" id="worktable1-table" data-bind="droparea: handleDrop"></div>
+	<div id="worktable1-testtubeholder">
+		<ul>
+			<li class="droppable testtubeholder-slot" id="tube1"></li>
+			<li class="droppable testtubeholder-slot" id="tube2"></li>
+			<li class="droppable testtubeholder-slot" id="tube3"></li>
+			<li class="droppable testtubeholder-slot" id="tube4"></li>
+			<li class="droppable testtubeholder-slot" id="tube5"></li>
+			<li class="droppable testtubeholder-slot" id="tube6"></li>
+		</ul>
+	</div>
+
+	<div id="worktable1-bunsenflame" data-bind="css: { hidden: !worktable1().bunsenBurner() }"></div>
+
+	<button class="btn-none" id="worktable1-bunsen" data-bind="click: worktable1().toggleBunsen"></button>
+
+	<div class="droppable" id="worktable1-electroporator"></div>
+
+	<button class="btn-none" id="worktable1-electroporator-btn" data-bind="click: activateElectroporator">
+        <img class="hidden" src="img/work1_dev1-on.png" alt="Electroporator button" />
+    </button>
+
+	<div id="worktable1-heater-testtubeholder">
+		<ul>
+			<li class="droppable heater-slot" id="heatertube1" data-bind="droparea: handleDrop"></li>
+			<li class="droppable heater-slot" id="heatertube2"></li>
+			<li class="droppable heater-slot" id="heatertube3"></li>
+		</ul>
+	</div>
+	<button class="btn-none" id="worktable1-heater-btn" data-bind="click: activateHeater">
+        <img class="hidden" src="img/work1_dev2-on.png" alt="Heater button" />
+    </button>
+</div>

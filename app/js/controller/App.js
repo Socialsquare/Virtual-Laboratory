@@ -8,8 +8,10 @@ define([
     'controller/Computer',
     'controller/Chemical',
     'controller/Mouse',
+    'controller/Worktable1',
+    'controller/Worktable2',
     'controller/Menu'
-], function (Base, ko, Router, OverviewController, ComputerController, ChemicalController, MouseController, MenuController) {
+], function (Base, ko, Router, OverviewController, ComputerController, ChemicalController, MouseController, Worktable1, Worktable2, MenuController) {
     var App = Base.extend({
         activeViewController: ko.observable(),
         activePopup: ko.observable(''),
@@ -26,7 +28,9 @@ define([
                 overview: new OverviewController(),
                 computer: new ComputerController(),
                 'chemical-closet': new ChemicalController(this),
-                mouse: new MouseController()
+                mouse: new MouseController(),
+                worktable1: new Worktable1(),
+                worktable2: new Worktable2()
             };
 
             self.triggerPopup = function (popupName, vm) {

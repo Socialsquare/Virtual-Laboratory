@@ -1,0 +1,19 @@
+<div class="popup popup-list">
+	<h1 data-bind="text: title"></h1>
+	<hr />
+	<ul data-bind="foreach: items">
+        <li>
+            <div class="draggablespawner"
+                 data-bind="text: name, css: klass, attr: { 'data-item-index': $index },
+                            dragSpawner: {
+                            styleClass: 'draggablespawn-popuplist',
+                            spawnHTML: '<img src=\'' + icon() + '\'/>',
+                            content: $data
+                            }">
+            </div>
+        </li>
+    </ul>
+	<div class="btn-row float-clear">
+        <button data-bind="click: $parent.hidePopup" type="button" class="popup-cancel-btn">Luk</button>
+    </div>
+</div>
