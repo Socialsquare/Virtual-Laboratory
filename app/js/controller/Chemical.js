@@ -25,22 +25,16 @@ define([
         constructor: function (app) {
             var self = this;
 
-            var titles = {
-                'closet': 'Kemikalie skabet',
-                'fridge': 'Køleskabet',
-                'drawer': 'Kemikalie skuffen'
-            };
-
-            var items = {
-                'closet': self.closetItems,
-                'fridge': self.fridgeItems,
-                'drawer': self.drawerItems
+            var groups = {
+                closet: { name: 'Kemikalie skabet', items: self.closetItems },
+                fridge: { name: 'Køleskabet', items: self.fridgeItems },
+                drawer: { name: 'Kemikalie skuffen', items: self.drawerItems }
             };
 
             self.showList = function (name) {
                 app.triggerPopup('list', {
-                    title: titles[name],
-                    items: items[name]
+                    title: groups[name].name,
+                    items: groups[name].items
                 });
             };
 

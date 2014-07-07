@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="css/virtueltlaboratorium.css" />
 
         <title>Virtuelt Laboratorium</title>
+
         <script type="text/javascript" data-main="js/main.js" src="js/require.js"></script>
     </head>
 
@@ -237,7 +238,11 @@
                  data-bind="droparea: handleDrop">
 		        <ul data-bind="foreach: gameState.inventory">
 		            <li class="menu-inventory-box">
-                        <div class="draggable">
+                        <div class="draggable" data-bind="dragSpawner: {
+                                  styleClass: 'draggablespawn-popuplist',
+                                  spawnHTML: '<img src=\'' + icon() + '\'/>',
+                                  content: $data
+                                }">
                             <img data-bind="attr: { src: icon() }">
                         </div>
                     </li>
@@ -300,5 +305,48 @@
 	    <a data-bind="click: showList.bind(null, 'drawer')" class="chemicalcloset-link" id="chemicalcloset-drawer-link">
             <div></div>
         </a>
+    </div>
+</script>
+
+<script id="mouse" type="text/html">
+    <div class="mouse-view view">
+ 	    <div class="video-container">
+            <video id="mouse-video-runfast" class="offscreen" preload="auto">
+                <source src="videos/runFast.mp4" type="video/mp4"/>
+                <source src="videos/runFast.webm" type="video/webm"/>
+            </video>
+
+			<video id="mouse-video-drinkstart" class="offscreen" preload="auto">
+                <source src="videos/runFast_drink_spawn.mp4" type="video/mp4"/>
+                <source src="videos/runFast_drink_spawn.webm" type="video/webm"/>
+            </video>
+
+            <video id="mouse-video-drinkloop" class="offscreen" preload="auto">
+                <source src="videos/runFast_drink_loop.mp4" type="video/mp4"/>
+                <source src="videos/runFast_drink_loop.webm" type="video/webm"/>
+            </video>
+
+            <video id="mouse-video-inj" class="offscreen" preload="auto">
+                <source src="videos/runFast_inj.mp4" type="video/mp4"/>
+                <source src="videos/runFast_inj.webm" type="video/webm"/>
+            </video>
+
+            <video id="mouse-video-injdie" class="offscreen" preload="auto">
+                <source src="videos/poi1_inj.mp4" type="video/mp4"/>
+                <source src="videos/poi1_inj.webm" type="video/webm"/>
+            </video>
+
+			<video id="mouse-video-cut" class="offscreen" preload="auto">
+                <source src="videos/poi3_cut.mp4" type="video/mp4"/>
+                <source src="videos/poi3_cut.webm" type="video/webm"/>
+            </video>
+        </div>
+
+ 	    <div class="draggable" id="water-bottle"
+             data-bind="dragSpawner: "></div>
+ 	    <div class="hidden" id="dead_mouse"></div>
+ 	    <div class="droppable" id="mouse"
+             data-bind="droparea: handleDropOnMouse"></div>
+ 	    <div class="mousegraph"></div>
     </div>
 </script>
