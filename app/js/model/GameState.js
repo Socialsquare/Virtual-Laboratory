@@ -10,14 +10,12 @@ define([
 ], function (ko, Base, Inventory, MouseModel, Worktable1Model, Worktable2Model) {
     var GameState = Base.extend({
 
-        activeExperiment: ko.observable(),
+        //inventory: new Inventory(),
+        //draggingItem: ko.observable(null),
 
-        inventory: new Inventory(),
-        draggingItem: ko.observable(null),
-
-        mouse: new MouseModel(),
+        //mouse: new MouseModel(),
         worktable1: new Worktable1Model(),
-        worktable2: new Worktable2Model()
+        //worktable2: new Worktable2Model()
     });
 
     // Note that we're returning an instance

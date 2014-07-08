@@ -29,13 +29,11 @@
 	<div class="droppable" id="worktable1-table" data-bind="droparea: handleDrop"></div>
 
 	<div id="worktable1-testtubeholder">
-		<ul>
-			<li class="droppable testtubeholder-slot" data-bind="droparea: handleDrop" id="tube1"></li>
-			<li class="droppable testtubeholder-slot" data-bind="droparea: handleDrop" id="tube2"></li>
-			<li class="droppable testtubeholder-slot" data-bind="droparea: handleDrop" id="tube3"></li>
-			<li class="droppable testtubeholder-slot" data-bind="droparea: handleDrop" id="tube4"></li>
-			<li class="droppable testtubeholder-slot" data-bind="droparea: handleDrop" id="tube5"></li>
-			<li class="droppable testtubeholder-slot" data-bind="droparea: handleDrop" id="tube6"></li>
+		<ul data-bind="foreach: worktable1.tubeRack.tubes">
+			<li class="droppable testtubeholder-slot"
+                data-bind="droparea: $parent.handleDrop, attr: {id: 'tube' + $index()}">
+                <img data-bind="attr: { src: $parent.worktable1.tubeRack.tubeImage($index(), $data) }, visible: !!$data">
+            </li>
 		</ul>
 	</div>
 
