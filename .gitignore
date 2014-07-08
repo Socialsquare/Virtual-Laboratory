@@ -1,3 +1,6 @@
 .dumptruck
 logs
 .tern-port
+/app/dist/
+/app/node_modules/
+.sass-cache
