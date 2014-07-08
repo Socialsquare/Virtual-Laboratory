@@ -5,7 +5,11 @@ var gulp = require('gulp')
 , proxy = require('proxy-middleware')
 , minimist = require('minimist')
 , imagemin = require('gulp-imagemin')
-, sass = require('gulp-sass');
+, sass = require('gulp-sass')
+, glob = require('glob')
+, fs = require('fs')
+, path = require('path')
+, _ = require("lodash");
 
 var args = minimist(process.argv.slice(2), {
   default: {
@@ -74,19 +78,35 @@ gulp.task('build', ['copy']);
 
 
 // dev
-
+var wrap = function(name, content) {
+    return '<script type="text/html" id="' + name + '">' + content + '</script>';
+};
 gulp.task('connect', function() {
-  connect.server({
-    root: dist_root,
-    livereload: true,
-    middleware: function(connect, o) {
-      return [ (function() {
-        var options = url.parse('http://localhost:80/api');
-        options.route = '/api';
-        return proxy(options);
-      })() ];
-    }
-  });
+    connect.server({
+        root: dist_root,
+        livereload: true,
+        middleware: function(connect, o) {
+            return [
+                (function() {
+                    var options = url.parse('http://localhost:80/api');
+                    options.route = '/api';
+                    return proxy(options);
+                })(),
+                function (req, res, next) {
+                    if (req.originalUrl !== '/') return next();
+
+                    glob("**/*.ko", function (er, files) {
+                        var tpls =_.reduce(files, function (acc, file) {
+                            return acc +  wrap(path.basename(file, '.ko'), fs.readFileSync(file, 'utf8'));
+                        }, '');
+
+                        var index = fs.readFileSync('index.html', 'utf8');
+                        res.end(index + tpls);
+                    });
+                }
+            ];
+        }
+    });
 });
 
 gulp.task('reload', ['build'], function () {
