@@ -1,6 +1,7 @@
 var gulp = require('gulp')
 , del = require('del')
 , url = require('url')
+, jshint = require('gulp-jshint')
 , connect = require('gulp-connect')
 , proxy = require('proxy-middleware')
 , minimist = require('minimist')
@@ -74,13 +75,21 @@ gulp.task('videos', ['clean'], function() {
 
 gulp.task('copy', ['index', 'scripts', 'templates', 'styles', 'images', 'videos']);
 
+gulp.task('lint', function() {
+  return gulp.src('js/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
+
 gulp.task('build', ['copy']);
 
 
 // dev
+
 var wrap = function(name, content) {
     return '<script type="text/html" id="' + name + '">' + content + '</script>';
 };
+
 gulp.task('connect', function() {
     connect.server({
         root: dist_root,
