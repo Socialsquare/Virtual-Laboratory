@@ -3,23 +3,21 @@
 define([
     'knockout',
     'base',
+    'model/Inventory',
     'model/Mouse',
     'model/Worktable1',
     'model/Worktable2'
-], function (ko, Base, MouseModel, Worktable1Model, Worktable2Model) {
+], function (ko, Base, Inventory, MouseModel, Worktable1Model, Worktable2Model) {
     var GameState = Base.extend({
 
         activeExperiment: ko.observable(),
 
-        inventory: ko.observableArray(),
+        inventory: new Inventory(),
+        draggingItem: ko.observable(null),
 
-        mouse: ko.observable(new MouseModel()),
-        worktable1: ko.observable(new Worktable1Model()),
-        worktable2: ko.observable(new Worktable2Model()),
-
-        addInventoryItem: function (item) {
-            this.inventory.push(item);
-        }
+        mouse: new MouseModel(),
+        worktable1: new Worktable1Model(),
+        worktable2: new Worktable2Model()
     });
 
     // Note that we're returning an instance

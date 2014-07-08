@@ -10,8 +10,12 @@ define([
     'controller/Mouse',
     'controller/Worktable1',
     'controller/Worktable2',
-    'controller/Menu'
-], function (Base, ko, Router, OverviewController, ComputerController, ChemicalController, MouseController, Worktable1, Worktable2, MenuController) {
+    'controller/Menu',
+
+    'model/GameState',
+
+    'factory/Item'
+], function (Base, ko, Router, OverviewController, ComputerController, ChemicalController, MouseController, Worktable1, Worktable2, MenuController, gameState, itemFactory) {
     var App = Base.extend({
         activeViewController: ko.observable(),
         activePopup: ko.observable(''),
@@ -64,6 +68,9 @@ define([
 
             // bootstrap the app by going to 'overview'
             self.viewChange('overview');
+
+            // add some initial items (dummy)
+            gameState.inventory.add(itemFactory.createTube());
         }
     });
 

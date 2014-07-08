@@ -24,7 +24,12 @@ define([
             $draggable.remove();
 
 		    gameState.addInventoryItem(item);
-	    }
+	    },
+
+        startDragItem: function (event) {
+            var item = gameState.inventory.get(event.target.dataset.uid);
+            gameState.draggingItem(item);
+        }
     });
 
     return MenuController;

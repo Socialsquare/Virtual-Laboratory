@@ -2,8 +2,9 @@ define([
     'knockout',
     'jquery',
     'controller/BaseView',
+    'controller/Notifier',
     'model/GameState'
-], function (ko, $, BaseViewController, gameState) {
+], function (ko, $, BaseViewController, Notifier, gameState) {
 
     var Worktable1 = BaseViewController.extend({
 
@@ -14,27 +15,32 @@ define([
             var self = this;
             self.base('worktable1');
 
-            self.renderTubeHolder = function () {
-		        var worktable1 = gameState.worktable1();
-		        for(var i = 0; i < worktable1.attributes.testTubes.length; i++) {
-			        var emptyOrFull = 'empty';
-			        if(worktable1.attributes.testTubes[i] !== null) {
-				        if(worktable1.attributes.testTubes[i].hasContent()) {
-					        emptyOrFull = 'full';
-				        }
-				        $('#worktable1-testtubeholder ul li:nth-child(' + (i + 1) + ')').html('<div class="draggable testtube"><img src="img/worktable1_testtube_' + (i + 1) + '_' + emptyOrFull + '.png" alt="Test tube" /></div>');
-			        }
-		        }
-	        };
+
+            self.tubeImage = function (index, tube) {
+                var state = tube.hasContent() ? 'full' : 'empty';
+                return 'img/worktable1_testtube_' + index + '_' + state + '.png';
+            };
+
+            // self.renderTubeHolder = function () {
+		    //     for(var i = 0; i < self.worktable1.testTubes.length; i++) {
+			//         var emptyOrFull = 'empty';
+			//         if(worktable1.testTubes[i] !== null) {
+			// 	        if(worktable1.testTubes[i].hasContent()) {
+			// 		        emptyOrFull = 'full';
+			// 	        }
+			// 	        $('#worktable1-testtubeholder ul li:nth-child(' + (i + 1) + ')').html('<div class="draggable testtube"><img src="img/worktable1_testtube_' + (i + 1) + '_' + emptyOrFull + '.png" alt="Test tube" /></div>');
+			//         }
+		    //     }
+	        // };
 
 	        self.renderTable = function () {
-		        var worktable1 = gameState.worktable1(),
+		        var worktable1 = gameState.worktable1,
 			        $table = $('#worktable1-table'),
 			        i, emptyOrFull, $petridish;
-		        for(i = 0; i < worktable1.attributes.tableItems.length; i++) {
+		        for(i = 0; i < worktable1.tableItems.length; i++) {
 			        emptyOrFull = 'empty';
-			        if(worktable1.attributes.tableItems[i] !== null) {
-				        if(worktable1.attributes.tableItems[i].hasContent()) {
+			        if(worktable1.tableItems[i] !== null) {
+				        if(worktable1.tableItems[i].hasContent()) {
 					        emptyOrFull = 'full';
 				        }
 				        $petridish = $('<div class="petridish draggable droppable" data-table-position="' + i + '"><img src="img/petri_' + emptyOrFull + '.png" /></div>');
@@ -51,7 +57,7 @@ define([
 	        };
 
 	        self.renderHeater = function () {
-		        var worktable1 = gameState.worktable1(),
+		        var worktable1 = gameState.worktable1,
 			        i;
 
 		        for(i = 0; i < worktable1.attributes.heater.content.length; i++) {
@@ -76,7 +82,7 @@ define([
 				    return;
 		        }
 		        if($droppable.hasClass('testtubeholder-slot')) {
-			        handleDropOnTestTubeHolder(event.data, $droppable, $draggable);
+			        self.handleDropOnTestTubeHolder(event.data, $droppable, $draggable);
 		        }
 		        if($droppable.hasClass('petridish')) {
 			        handleDropOnPetridish(event.data, $droppable, $draggable);
@@ -87,11 +93,11 @@ define([
 	        };
 
 	        self.handleDropOnTable = function (view, $table, $draggable) {
-		        var worktable1 = gameState.worktable1(),
+		        var worktable1 = gameState.worktable1,
 			        content;
 
-		        if(worktable1.attributes.bunsenBurner === false) {
-			        view.popupOKView.show('Kan ikke udføres', 'Bunsenbrænderen skal være tændt før du kan arbejde med bordet.');
+		        if(!worktable1.bunsenBurner()) {
+			        Notifier.pop('Kan ikke udføres', 'Bunsenbrænderen skal være tændt før du kan arbejde med bordet.');
 			        $draggable.chcDraggable('returnToOriginalPosition');
 			        return;
 		        }
@@ -131,18 +137,20 @@ define([
 	        };
 
 	        self.handleDropOnTestTubeHolder = function (view, $testTubeHolderSlot, $draggable) {
-		        var lab = Globals.lab,
-			        worktable1 = lab.get('worktable1'),
+		        var worktable1 = gameState.worktable1,
 			        emptyOrFull = 'empty',
 			        position, content;
 
-		        if(!worktable1.attributes.bunsenBurner) {
-			        view.popupOKView.show('Kan ikke udføres', 'Bunsenbrænderen skal være tændt før du kan arbejde med reagensglas.');
+                var item = gameState.draggingItem();
+
+		        if(!worktable1.bunsenBurner()) {
+			        Notifier.pop('Kan ikke udføres', 'Bunsenbrænderen skal være tændt før du kan arbejde med reagensglas.');
 			        $draggable.chcDraggable('returnToOriginalPosition');
 			        return;
 		        }
 
 		        position = $testTubeHolderSlot.index();
+                debugger;
 
 		        if($draggable.hasClass('testtube')) {
 			        content = $draggable.data('content');
@@ -323,7 +331,7 @@ define([
 	        };
 
 	        self.handleDropOnHeater = function (view, $heaterSlot, $draggable) {
-		        var worktable1 = gameState.worktable1(),
+		        var worktable1 = gameState.worktable1,
 			        position, content;
 		        position = $heaterSlot.index();
 		        if($draggable.hasClass('testtube')) {
@@ -345,7 +353,7 @@ define([
 
 	        self.handleStartDrag = function (event) {
 		        var $draggable = $(this),
-			        worktable1 = gameState.worktable1(),
+			        worktable1 = gameState.worktable1,
 			        position;
 
 		        $draggable.chcDroppable('destroy');
@@ -377,7 +385,7 @@ define([
 
 	        self.handleDroppedOut = function (event) {
 		        var $draggable = $(this),
-			        worktable1 = gameState.worktable1(),
+			        worktable1 = gameState.worktable1,
 			        emptyOrFull = 'empty',
 			        position;
 
@@ -420,7 +428,7 @@ define([
 	        self.activateElectroporator = function (event) {
 		        var $this = $(this),
 			        view = event.data,
-			        worktable1 = gameState.worktable1(),
+			        worktable1 = gameState.worktable1,
 			        playVideos;
 
 		        playVideos = function(currentVideo, lastVideo, message) {
@@ -458,7 +466,7 @@ define([
 
 	        self.activateHeater = function (event) {
 		        var $this = $(this),
-			        worktable1 = gameState.worktable1();
+			        worktable1 = gameState.worktable1;
 		        $('img', $this).removeClass('hidden');
 		        worktable1.toggleHeater();
 		        if(!worktable1.get('heater').status) {

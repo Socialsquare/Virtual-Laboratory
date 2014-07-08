@@ -25,21 +25,23 @@
             <source src="videos/electroporator06.webm" type="video/webm" />
         </video>
     </div>
+
 	<div class="droppable" id="worktable1-table" data-bind="droparea: handleDrop"></div>
+
 	<div id="worktable1-testtubeholder">
 		<ul>
-			<li class="droppable testtubeholder-slot" id="tube1"></li>
-			<li class="droppable testtubeholder-slot" id="tube2"></li>
-			<li class="droppable testtubeholder-slot" id="tube3"></li>
-			<li class="droppable testtubeholder-slot" id="tube4"></li>
-			<li class="droppable testtubeholder-slot" id="tube5"></li>
-			<li class="droppable testtubeholder-slot" id="tube6"></li>
+			<li class="droppable testtubeholder-slot" data-bind="droparea: handleDrop" id="tube1"></li>
+			<li class="droppable testtubeholder-slot" data-bind="droparea: handleDrop" id="tube2"></li>
+			<li class="droppable testtubeholder-slot" data-bind="droparea: handleDrop" id="tube3"></li>
+			<li class="droppable testtubeholder-slot" data-bind="droparea: handleDrop" id="tube4"></li>
+			<li class="droppable testtubeholder-slot" data-bind="droparea: handleDrop" id="tube5"></li>
+			<li class="droppable testtubeholder-slot" data-bind="droparea: handleDrop" id="tube6"></li>
 		</ul>
 	</div>
 
-	<div id="worktable1-bunsenflame" data-bind="css: { hidden: !worktable1().bunsenBurner() }"></div>
+	<div id="worktable1-bunsenflame" data-bind="css: { hidden: !worktable1.bunsenBurner() }"></div>
 
-	<button class="btn-none" id="worktable1-bunsen" data-bind="click: worktable1().toggleBunsen"></button>
+	<button class="btn-none" id="worktable1-bunsen" data-bind="click: worktable1.toggleBunsen"></button>
 
 	<div class="droppable" id="worktable1-electroporator"></div>
 

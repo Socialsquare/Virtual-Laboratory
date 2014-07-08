@@ -3,8 +3,14 @@ define([
     'knockout',
     'utils/utils'
 ], function (Base, ko, utils) {
+    var _nextId = 0;
+    var nextId = function () {
+        return _nextId++;
+    };
+
     var InventoryItem = Base.extend({
         constructor: function (vals) {
+            this.uid = ko.observable(nextId());
             this.type = ko.observable(vals.type || '');
             this.name = ko.observable(vals.name || '');
             this.content = ko.observable(vals.content || null);
