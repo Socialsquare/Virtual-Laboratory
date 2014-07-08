@@ -13,12 +13,16 @@ define([
 
     var ContainerContent = Base.extend({
         constructor: function (vals) {
-            // Array of strings describing other reagents added
-		    self.other = vals.other || [];
-		    self.genes = vals.genes || [];
-		    self.microorganisms = vals.microorganisms || [];
+            var self = this;
 
-            var con = _.reduce(this.microorganisms, function (acc, micro) {
+            if (typeof vals === 'undefined')
+                vals = {};
+
+		    self.other = ko.observableArray(vals.other || []);
+		    self.genes = ko.observableArray(vals.genes || []);
+		    self.microorganisms = ko.observableArray(vals.microorganisms || []);
+
+            var con = _.reduce(this.microorganisms(), function (acc, micro) {
                 return acc + micro.logConcentration;
             }, 0);
 

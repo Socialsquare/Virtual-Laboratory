@@ -15,24 +15,6 @@ define([
             var self = this;
             self.base('worktable1');
 
-
-            self.tubeImage = function (index, tube) {
-                var state = tube.hasContent() ? 'full' : 'empty';
-                return 'img/worktable1_testtube_' + index + '_' + state + '.png';
-            };
-
-            // self.renderTubeHolder = function () {
-		    //     for(var i = 0; i < self.worktable1.testTubes.length; i++) {
-			//         var emptyOrFull = 'empty';
-			//         if(worktable1.testTubes[i] !== null) {
-			// 	        if(worktable1.testTubes[i].hasContent()) {
-			// 		        emptyOrFull = 'full';
-			// 	        }
-			// 	        $('#worktable1-testtubeholder ul li:nth-child(' + (i + 1) + ')').html('<div class="draggable testtube"><img src="img/worktable1_testtube_' + (i + 1) + '_' + emptyOrFull + '.png" alt="Test tube" /></div>');
-			//         }
-		    //     }
-	        // };
-
 	        self.renderTable = function () {
 		        var worktable1 = gameState.worktable1,
 			        $table = $('#worktable1-table'),
@@ -73,6 +55,7 @@ define([
 		        event.stopPropagation();
 		        event.preventDefault();
 		        var $droppable = $(this);
+
 		        switch($droppable.attr('id')) {
 			    case 'worktable1-table':
 				    handleDropOnTable(event.data, $droppable, $draggable);
@@ -137,34 +120,20 @@ define([
 	        };
 
 	        self.handleDropOnTestTubeHolder = function (view, $testTubeHolderSlot, $draggable) {
-		        var worktable1 = gameState.worktable1,
-			        emptyOrFull = 'empty',
-			        position, content;
-
+		        var position = $testTubeHolderSlot.index();
                 var item = gameState.draggingItem();
 
-		        if(!worktable1.bunsenBurner()) {
+		        if(!self.worktable1.bunsenBurner()) {
 			        Notifier.pop('Kan ikke udføres', 'Bunsenbrænderen skal være tændt før du kan arbejde med reagensglas.');
 			        $draggable.chcDraggable('returnToOriginalPosition');
 			        return;
 		        }
 
-		        position = $testTubeHolderSlot.index();
-                debugger;
+		        if(item.type() === 'testtube') {
+			        if(self.worktable1.tubeRack.add(item, position)) {
+                        gameState.inventory.remove(item);
 
-		        if($draggable.hasClass('testtube')) {
-			        content = $draggable.data('content');
-			        if(worktable1.addTestTubeAtPos(content, position) === true) {
-				        $draggable.removeAttr('style');
-				        $draggable.removeClass('draggablespawn draggablespawn-popuplist');
-				        $draggable.off();
-				        $draggable.chcDraggable('destroy');
-				        $draggable.chcDraggable();
-				        if(content.hasContent()) {
-					        emptyOrFull = 'full';
-				        }
-				        $draggable.html('<img src="img/worktable1_testtube_' + (position + 1) + '_' + emptyOrFull + '.png" alt="Test tube" />');
-				        $testTubeHolderSlot.append($draggable);
+                        $draggable.remove();
 				        return;
 			        }
 		        }

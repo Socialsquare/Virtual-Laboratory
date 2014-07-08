@@ -83,10 +83,11 @@ require([
 	'chcdroppable',
 	'flot',
 
-    // register knockout bindings
+    // register knockout bindings and extensions
     'bindings/dragging',
     'bindings/video',
-    'bindings/plotting'
+    'bindings/plotting',
+    'extensions/extensions'
 ], function(ko, Router, App) {
 	var isWeb = document.URL.match(/^https?:/);
 

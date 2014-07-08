@@ -16,6 +16,10 @@ define([
             return _.find(this.items(), function (item) {
                 return item.uid() === id;
             });
+        },
+
+        remove: function (item) {
+            this.items.remove(item);
         }
     });
 

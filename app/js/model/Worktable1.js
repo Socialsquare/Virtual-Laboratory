@@ -8,8 +8,9 @@ define([
 	'lodash',
 	'base',
 	'model/Microorganism',
-	'model/Container'
-], function(ko, _, Base, Microorganism, Container) {
+	'model/Container',
+	'model/TubeRack'
+], function(ko, _, Base, Microorganism, Container, TubeRack) {
 	var maxTestTubeNum = 6,
 		maxPetridishNum = 3,
 		maxHeaterTubes = 3;
@@ -17,7 +18,7 @@ define([
     var Worktable1Model = Base.extend({
         id: null,
 		tableItems: [],
-		testTubes: [],
+		tubeRack: new TubeRack(),
 		bunsenBurner: ko.observable(false),
 		electroporator: new Container(),
 		heater: {

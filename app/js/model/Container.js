@@ -20,7 +20,7 @@ define([
             if (typeof vals === 'undefined')
                 vals = {};
 
-            self.content = ko.observable(vals.content || null);
+            self.content = ko.observable(vals.content || new ContainerContent());
             //Can be 'petridish', 'testtube', 'microtiterplate'
 		    self.type = ko.observable(vals.type || '');
 		    self.maxConcentration = ko.observable(vals.maxConcentration || 11);
@@ -44,7 +44,9 @@ define([
 	    },
 
 	    hasContent: function () {
-		    return (this.content.genes.length > 0 || (this.content.microorganisms.length > 0 && this.content.totalLogConcentration > 0) || this.content.other.length > 0);
+		    return !this.content().genes.isEmpty()
+                || (!this.content().microorganisms.isEmpty() && this.content().totalLogConcentration > 0)
+                || !this.content().other.isEmpty();
 	    },
 
 	    hasPlaceFor: function (content) {

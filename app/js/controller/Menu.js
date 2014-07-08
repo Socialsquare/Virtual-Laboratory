@@ -23,7 +23,7 @@ define([
 		    $draggable.chcDraggable('destroy');
             $draggable.remove();
 
-		    gameState.addInventoryItem(item);
+		    gameState.inventory.add(item);
 	    },
 
         startDragItem: function (event) {
