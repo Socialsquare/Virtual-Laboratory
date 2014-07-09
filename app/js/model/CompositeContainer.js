@@ -48,8 +48,10 @@ define([
             };
 
             self.growContentsOnce = function(deltaTime, growerType, pH, temperature) {
+                // deltaTime is in "hours"
                 _.forEach(self.containers(), function(container){
-
+                    //TODO check if null?
+                    container.growContentsOnce(deltaTime, growerType, pH, temperature);
                 });
             };
         },

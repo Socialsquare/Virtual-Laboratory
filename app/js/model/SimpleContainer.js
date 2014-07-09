@@ -70,6 +70,8 @@ define([
                     if(! (liquid.type() === LiquidType.MICROORGANISM))
                     { return; }
 
+                    //TODO check if null?
+
                     var growthAmount = 0;
 
                     if(growerType === GrowerType.FERMENTOR)
