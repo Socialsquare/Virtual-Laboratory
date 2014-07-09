@@ -19,7 +19,8 @@ define([
                 micro.extraProperties([]);
 		        micro.optimalpH(0);
 		        micro.optimalTemp(0);
-		        micro.logConcentration(0);
+                //TODO: patty: log eller ikke log?
+		        micro.concentration(5);
 
                 return micro;
             },
@@ -33,7 +34,7 @@ define([
                 micro.extraProperties([]);
 		        micro.optimalpH(0);
 		        micro.optimalTemp(0);
-		        micro.logConcentration(0);
+		        micro.concentration(0);
 
                 return micro;
             }

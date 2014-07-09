@@ -11,7 +11,7 @@ define([
             var self = this;
             self.base(LiquidType.MICROORGANISM, ReactionCount.NEVER);
 
-            self.type = ko.observable(microorganismType);
+            self.microorganismType = ko.observable(microorganismType);
             self.living = ko.observable(true);
 		    self.name = ko.observable('');
 		    self.extraGenes = ko.observable(null);

@@ -17,21 +17,8 @@ define([
             self.tubeRack = new TubeRackModel();
             self.odMachine = new ODMachineModel();
 
-            // TODO blender
-
+            // TODO: blender
         }
-/*
-        id: null,
-		tableItems: new Array(maxPetridishNum),
-		testTubes: new Array(maxTestTubeNum),
-		centrifugeTubes: new Array(maxCentrifugeTubeNum),
-		blender: {
-			dirty: false,
-			content: null
-		},
-		OD: null,
-*/
-
     });
 
     return Worktable2;

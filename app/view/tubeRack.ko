@@ -1,0 +1,7 @@
+<ul data-bind="foreach: tubeRack.containers">
+    <!-- data-bind="droparea: $parent.handleDrop, attr: {id: 'tube' + $index()}" -->
+	<li class="droppable testtubeholder-slot" data-bind="attr: { id: 'tube' + ($index() + 1) }">
+        <img data-bind="visible: $parent.tubeRack.hasContainerAt($index()),
+                        attr: { src: $parent.Imager.tubeRackImage($index(), $data) }">
+    </li>
+</ul>

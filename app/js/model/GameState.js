@@ -15,7 +15,7 @@ define([
 
         //mouse: new MouseModel(),
         worktable1: new Worktable1Model(),
-        //worktable2: new Worktable2Model()
+        worktable2: new Worktable2Model()
     });
 
     // Note that we're returning an instance

@@ -1,17 +1,18 @@
 <div class="worktable2-view view">
 	<div class="droppable" id="worktable2-table"></div>
-	<div id="worktable2-testtubeholder">
-		<ul>
-			<li class="droppable testtubeholder-slot" id="tube1"></li>
-			<li class="droppable testtubeholder-slot" id="tube2"></li>
-			<li class="droppable testtubeholder-slot" id="tube3"></li>
-			<li class="droppable testtubeholder-slot" id="tube4"></li>
-			<li class="droppable testtubeholder-slot" id="tube5"></li>
-			<li class="droppable testtubeholder-slot" id="tube6"></li>
-		</ul>
+
+    <div id="worktable2-testtubeholder" data-bind="template: { name:'tubeRack', data: { tubeRack: worktable2.tubeRack, Imager: Imager } }">
 	</div>
+
 	<div class="droppable" id="worktable2-centrifuge"></div>
+
 	<button class="btn-none" id="worktable2-blender"></button>
-	<div class="droppable" id="worktable2-od"></div>
-	<div class="hidden" id="worktable2-od-display">0.0</div>
+
+	<div class="droppable" id="worktable2-od" data-bind="if: worktable2.odMachine.hasTube()">
+        <div class="testtube draggable">
+            <img src="img/work2_od-on.png">
+        </div>
+    </div>
+
+	<div data-bind="css: { hidden: !worktable2.odMachine.hasTube() }, text: worktable2.odMachine.display()" id="worktable2-od-display"></div>
 </div>

@@ -35,11 +35,12 @@ define([
             };
 
             self.getTotalConcentration = function() {
+                debugger;
+
                 var concSum = 0;
 
-                _.forEach(self.liquids(), function(liquid){
-                    if(liquid.type === LiquidType.MICROORGANISM)
-                    {
+                _.each(self.liquids(), function(liquid){
+                    if(liquid.type() === LiquidType.MICROORGANISM) {
                         concSum += liquid.concentration();
                     }
                 });
