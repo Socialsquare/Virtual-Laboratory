@@ -7,12 +7,11 @@ define([
     'controller/BaseView',
 
     'model/GameState',
-    'model/InventoryItem',
 
     'service/Chemical',
 
     'utils/utils'
-], function (ko, mapping, $, _, BaseViewController, gameState, InventoryItem, ChemicalService, utils) {
+], function (ko, mapping, $, _, BaseViewController, gameState, ChemicalService, utils) {
     var Chemical = BaseViewController.extend({
 
         closetItems: ko.observableArray([]),

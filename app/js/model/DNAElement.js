@@ -1,9 +1,8 @@
 // TODO: delete if there's no use for this
 
 define([
-	'underscore',
     'base'
-], function(_, Base) {
+], function(Base) {
 	var DNAElement = Base.extend({
         constructor: function () {
             self.id = null;

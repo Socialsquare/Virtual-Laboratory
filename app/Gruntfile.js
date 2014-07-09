@@ -1,4 +1,5 @@
-var tplProcess = require('./build-tools/tpl-process'),
+var proxy = require('grunt-connect-proxy/lib/utils'),
+    tplProcess = require('./build-tools/tpl-process'),
     path = require('path'),
     mountFolder = function (connect, dir) {
         return connect.static(path.resolve(dir.toString()));
@@ -23,17 +24,15 @@ module.exports = function (grunt) {
                     // views
                     { expand: true, src: [ 'view/**' ], dest: '<%= dist_root %>' },
                     // index
-                    { expand: true, src: [ 'index.html' ], dest: '<%= dist_root %>',
-                      options: {
-                          process: tplProcess.process(grunt, '<%= dist_root %>')
-                      } },
+                    { expand: true, src: [ 'index.html' ], dest: '<%= dist_root %>' },
                     // images
                     { expand: true, src: [ 'img/**' ], dest: '<%= dist_root %>' },
                     // videos
                     { expand: true, src: [ 'videos/**' ], dest: '<%= dist_root %>' },
+                    // css
+                    { expand: true, src: [ 'css/**' ], dest: '<%= dist_root %>' },
                     // vendor
-                    { expand: true, flatten: true, cwd: 'bower_components',
-                      src: [ '**/*.js' ], dest: '<%= dist_root %>/vendor' }
+                    { expand: true, src: [ 'bower_components/**' ], dest: '<%= dist_root %>' }
                 ]
             }
         },
@@ -68,9 +67,9 @@ module.exports = function (grunt) {
                     base: '<%= dist_root %>',
                     middleware: function (connect, options) {
                         return [
-                            tplProcess.middleware(grunt, '<%= dist_root %>'), // TODO: fix
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, options.base)
+                            tplProcess.middleware(grunt, process.cwd()),
+                            mountFolder(connect, options.base),
+                            //proxy.proxyRequest
                         ];
                     }
                 }

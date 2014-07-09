@@ -8,11 +8,10 @@ define([
 
     'model/Gene',
     'model/GameState',
-    'model/InventoryItem',
 
     'service/DNA',
     'utils/utils'
-], function (ko, mapping, $, _, BaseViewController, Gene, gameState, InventoryItem, DNAService, utils) {
+], function (ko, mapping, $, _, BaseViewController, Gene, gameState, DNAService, utils) {
     var Computer = BaseViewController.extend({
 
         dnaService: new DNAService(),
@@ -58,18 +57,19 @@ define([
             };
 
             self.orderDNA = function () {
-                var geneClone = utils.klone(self.activeGene());
-                var item = new InventoryItem({
-                    type: "dna",
-                    name: "dna",
-                    icon: "img/icon_dna.png",
-                    content: geneClone
-                });
-                gameState.addInventoryItem(item);
+                //TODO: implement
+                // var geneClone = utils.klone(self.activeGene());
+                // var item = new InventoryItem({
+                //     type: "dna",
+                //     name: "dna",
+                //     icon: "img/icon_dna.png",
+                //     content: geneClone
+                // });
+                // gameState.addInventoryItem(item);
 
-                // reset the gene and go to computer menu
-                self.activeGene().dnaElements.removeAll();
-                self.activeScreen('menu');
+                // // reset the gene and go to computer menu
+                // self.activeGene().dnaElements.removeAll();
+                // self.activeScreen('menu');
 	        };
 	    }
     });

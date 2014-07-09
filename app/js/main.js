@@ -6,10 +6,10 @@
 var requireConfig = {
 	paths: {
 		cordova: '../cordova',
-		jquery: 'vendor/jquery',
-		lodash: 'vendor/lodash.compat',
-		knockout: 'vendor/knockout',
-		mapping: 'vendor/knockout.mapping',
+		jquery: '../bower_components/jquery/dist/jquery',
+		lodash: '../bower_components/lodash/dist/lodash.compat',
+		knockout: '../bower_components/knockout/dist/knockout',
+		mapping: '../bower_components/knockout-mapping/knockout.mapping',
 		base: 'libs/Base',
 
 		chcdraggable: 'libs/jquery/jquery.chcdraggable',

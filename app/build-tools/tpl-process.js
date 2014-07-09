@@ -38,9 +38,11 @@ var process = function (grunt, cwd) {
 
 var middleware = function (grunt, path) {
     return function (req, res, next) {
-        if (/^\/[^\/\.]*$/.test(req.originalUrl)) {
-            req.indexHtmlContentHack = process(grunt, path);
+        if (/^\/$/.test(req.originalUrl)) {
+            res.end(process(grunt, path));
+            return;
         }
+
         next();
     };
 }
