@@ -65,14 +65,20 @@ module.exports = function (grunt) {
                 options: {
                     port: 8000,
                     base: '<%= dist_root %>',
+                    host: '0.0.0.0',
                     middleware: function (connect, options) {
                         return [
                             tplProcess.middleware(grunt, process.cwd()),
                             mountFolder(connect, options.base),
-                            //proxy.proxyRequest
+                            proxy.proxyRequest
                         ];
                     }
-                }
+                },
+                proxies: [{
+                    context: '/',
+                    host: 'www.virtueltlaboratorium.dk',
+                    changeOrigin: true,
+                }]
             }
         }
     });
@@ -83,9 +89,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-connect-proxy');
 
     // TODO: enable jshint when smellz is cleaned
     grunt.registerTask('build', [ 'clean:dist', 'copy:dist', 'sass:dist' ]);
 
-    grunt.registerTask('default', [ 'build', 'connect:dist', 'watch:dist' ]);
+    grunt.registerTask('default', [ 'build', 'configureProxies:dist', 'connect:dist', 'watch:dist' ]);
 };
