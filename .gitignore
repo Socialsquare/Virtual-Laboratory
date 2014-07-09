@@ -4,3 +4,4 @@ logs
 /app/dist/
 /app/node_modules/
 .sass-cache
+/app/bower_components/
