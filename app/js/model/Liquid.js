@@ -1,8 +1,7 @@
 define([
     'knockout',
-    'base',
-    'model/ReactionCount'
-], function (ko, Base, ReactionCount) {
+    'base'
+], function (ko, Base) {
 
     var LiquidModel = Base.extend({
         constructor: function (type, reactionCount) {

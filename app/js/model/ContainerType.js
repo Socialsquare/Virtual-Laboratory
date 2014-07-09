@@ -11,9 +11,12 @@ define([], function () {
 
         // Simple machines
         ELECTROPORATOR: 'faceroll',
+        BLENDER: 'kaffe m. mælk, tak',
+        FERMENTOR_TANK: 'who the fuck are the boomtown rats?',
 
         // Composite machines
-        HEATER: '12312312312355_SUCH_UNIQUE'
+        HEATER: '12312312312355_SUCH_UNIQUE',
+        OD_MACHINE: 'yttappattyderpalurp'
 
     };
 });

@@ -11,7 +11,7 @@ define([
             self.containers = ko.observableArray(new Array(capacity));
             self.acceptedType = ko.observable(acceptedType);
 
-            self.addAt = function (position, container) {
+            self._addAt = function (position, container) {
                 if (container.type() !== self.acceptedType()) {
                     // TODO: notify error
                     return false;
@@ -26,7 +26,11 @@ define([
                 return true;
             };
 
-            self.anyContainsAll = function (liquids) {
+            self.addAt = function(position, container) {
+                self._addAt(position, container);
+            };
+
+            self.anyContainsAll = function (liquidTypes) {
                 // TODO: for each container
                 throw 'NotYetImplementedException';
             };

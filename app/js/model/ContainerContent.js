@@ -1,7 +1,8 @@
 /**
  * Model that defines content for a container.
  * @author: Chris Hjorth, www.chrishjorth.com
- */
+ *//*
+
 
 define([
     'knockout',
@@ -45,12 +46,14 @@ define([
     return ContainerContent;
 
 
-	/**
+	*/
+/**
 	 * @param content: {
 	 *		genes: [],
 	 *		microorganisms: []
 	 * }
-	 */
+	 *//*
+
 	function addContent(content) {
 		var i, index;
 
@@ -174,3 +177,4 @@ define([
 		console.log('Killed all microorganisms in container content.');
 	}
 });
+*/

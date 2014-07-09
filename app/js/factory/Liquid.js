@@ -18,11 +18,7 @@ define([
 		        micro.extraGenes([]);
                 micro.extraProperties([]);
 		        micro.optimalpH(0);
-		        micro.maxpH(0);
-		        micro.minpH(0);
 		        micro.optimalTemp(0);
-		        micro.minTemp(0);
-		        micro.maxTemp(0);
 		        micro.logConcentration(0);
 
                 return micro;
@@ -36,11 +32,7 @@ define([
 		        micro.extraGenes([]);
                 micro.extraProperties([]);
 		        micro.optimalpH(0);
-		        micro.maxpH(0);
-		        micro.minpH(0);
 		        micro.optimalTemp(0);
-		        micro.minTemp(0);
-		        micro.maxTemp(0);
 		        micro.logConcentration(0);
 
                 return micro;

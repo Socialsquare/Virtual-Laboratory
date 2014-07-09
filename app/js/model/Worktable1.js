@@ -9,16 +9,17 @@ define([
 ], function(ko, Base, TubeRack, TableSpace, ContainerType, Heater, Electroporator) {
 
 	var Worktable1Model = Base.extend({
-		tableSpacePetri: new TableSpace(ContainerType.PETRI_DISH),
-		tableSpaceMicro: new TableSpace(ContainerType.MICROTITER),
-		tubeRack: new TubeRack(),
-		bunsenBurner: ko.observable(false),
-		electroporator: new Electroporator(),
-		heater: new Heater(),
+
 
         constructor: function () {
             var self = this;
 
+            self.tableSpacePetri = new TableSpace(ContainerType.PETRI_DISH);
+            self.tableSpaceMicro = new TableSpace(ContainerType.MICROTITER);
+            self.tubeRack = new TubeRack();
+            self.bunsenBurner = ko.observable(false);
+            self.electroporator = new Electroporator();
+            self.heater = new Heater();
         }
     });
 

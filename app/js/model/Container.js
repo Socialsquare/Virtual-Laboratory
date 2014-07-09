@@ -1,3 +1,4 @@
+/*
 define([
     'knockout',
     'base',
@@ -21,3 +22,4 @@ define([
 
     return Container;
 });
+*/
