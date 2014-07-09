@@ -15,8 +15,10 @@ define([
     'model/GameState',
 
     'model/Tube',
+    'model/Petridish',
+    'model/Microtiterplate',
     'factory/Liquid'
-], function (Base, ko, Router, OverviewController, ComputerController, ChemicalController, MouseController, Worktable1, Worktable2, MenuController, gameState, Tube, LiquidFactory) {
+], function (Base, ko, Router, OverviewController, ComputerController, ChemicalController, MouseController, Worktable1, Worktable2, MenuController, gameState, Tube, Petridish, Microtiterplate, LiquidFactory) {
     var App = Base.extend({
         activeViewController: ko.observable(),
         activePopup: ko.observable(''),
@@ -70,7 +72,11 @@ define([
             // bootstrap the app by going to 'overview'
             self.viewChange('overview');
 
-            // dummy tubes
+
+
+            //------------------------
+            // dummy data
+            //------------------------
             var tube = new Tube();
             var tubefull = new Tube();
 
@@ -78,6 +84,15 @@ define([
 
             gameState.worktable1.tubeRack.addAt(0, tube);
             gameState.worktable1.tubeRack.addAt(5, tubefull);
+
+            var petri = new Petridish();
+            gameState.inventory.add(petri);
+
+            var micro = new Microtiterplate();
+            gameState.inventory.add(micro);
+
+            var tube1 = new Tube();
+            gameState.inventory.add(tube);
         }
     });
 

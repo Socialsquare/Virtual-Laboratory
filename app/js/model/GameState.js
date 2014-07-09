@@ -10,7 +10,7 @@ define([
 ], function (ko, Base, Inventory, MouseModel, Worktable1Model, Worktable2Model) {
     var GameState = Base.extend({
 
-        //inventory: new Inventory(),
+        inventory: new Inventory(),
         //draggingItem: ko.observable(null),
 
         //mouse: new MouseModel(),

@@ -35,12 +35,13 @@
     </div>
 
     <div class="menu-inventory-container">
-	    <div class="inventory droppable"
-             data-bind="droparea: handleDrop">
+        <!-- data-bind="droparea: handleDrop" -->
+	    <div class="inventory droppable">
 		    <ul data-bind="foreach: gameState.inventory.items">
 		        <li class="menu-inventory-box">
-                    <div class="draggable" data-bind="draggable: { startHandler: $parent.startDragItem }, attr: { 'data-uid': uid }">
-                        <img data-bind="attr: { src: icon() }">
+                    <!-- data-bind="draggable: { startHandler: $parent.startDragItem }, attr: { 'data-uid': uid }" -->
+                    <div class="draggable">
+                        <img data-bind="attr: { src: $parent.Imager.inventoryIcon($data) }">
                     </div>
                 </li>
             </ul>

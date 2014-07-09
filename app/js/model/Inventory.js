@@ -8,14 +8,8 @@ define([
         items: ko.observableArray([]),
 
         add: function(item) {
+            // TODO: validate that an item can be placed here
             this.items.push(item);
-        },
-
-        get: function(id) {
-            id = parseInt(id, 10);
-            return _.find(this.items(), function (item) {
-                return item.uid() === id;
-            });
         },
 
         remove: function (item) {
