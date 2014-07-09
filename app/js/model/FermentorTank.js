@@ -4,7 +4,7 @@ define([
     'model/ContainerType'
 ], function (ko, SimpleContainerModel, ContainerType) {
 
-    var FermentorTank = SimpleContainerModel.extend({
+    var FermentorTankModel = SimpleContainerModel.extend({
 
 // TODO only organisms with a concentration of
 
@@ -18,5 +18,5 @@ define([
         }
     });
 
-    return FermentorTank;
+    return FermentorTankModel;
 });

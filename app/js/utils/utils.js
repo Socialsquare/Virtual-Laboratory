@@ -10,17 +10,25 @@ define([
         },
 
         math: {
-	        getBiomassFromLogConcentration: function(logConcentration) {
+	        /*getBiomassFromLogConcentration: function(logConcentration) {
 		        return Math.pow(10, logConcentration - 12);
 	        },
 
 	        getLogConcentrationFromBiomass: function (biomass) {
 		        return this.getBaseLog(10, biomass) + 12;
-	        },
+	        },*/
 
 	        getBaseLog: function (base, num) {
 		        return Math.log(num) / Math.log(base);
-	        }
+	        },
+
+            getBiomassFromConcentration: function(concentration){ //Converts from concentration to biomass (g/L)
+                return concentration / Math.pow(10, 12);
+            },
+
+            getConcentrationFromBiomass: function(biomass){
+                return biomass * Math.pow(10, 12);
+            }
         }
     };
 });

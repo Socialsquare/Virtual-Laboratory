@@ -4,7 +4,7 @@ define([
     'model/TubeRack',
     'model/TableSpace',
     'model/ContainerType'
-], function(ko, Base, TubeRack, TableSpace, ContainerType) {
+], function(ko, Base, TubeRackModel, TableSpaceModel, ContainerType) {
 
     var IncubatorModel = Base.extend({
 
@@ -13,12 +13,13 @@ define([
 
             self.temperature = ko.observable(30.0);
 
-            self.tableSpacePetri = new TableSpace(ContainerType.PETRI_DISH);
-            self.tableSpaceMicro = new TableSpace(ContainerType.MICROTITER);
-            self.tubeRack = new TubeRack();
+            self.tableSpacePetri = new TableSpaceModel(ContainerType.PETRI_DISH);
+            self.tableSpaceMicro = new TableSpaceModel(ContainerType.MICROTITER);
+            self.tubeRack = new TubeRackModel();
 
             self.activate = function() {
-                // TODO implement
+                // TODO implement growth-caller
+
                 throw 'JegErHerIkke, Derfor: Undtagelsestilstand';
             };
 

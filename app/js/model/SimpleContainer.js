@@ -3,8 +3,9 @@ define([
     'base',
 	'lodash',
 	'model/ContainerContent',
-    'model/LiquidType'
-], function(ko, Base, _, ContainerContent, LiquidType) {
+    'model/LiquidType',
+    'model/GrowerType'
+], function(ko, Base, _, ContainerContent, LiquidType, GrowerType) {
 
     var SimpleContainer = Base.extend({
         constructor: function (type, maxConcentration) {
@@ -51,17 +52,39 @@ define([
                 return self.liquids.isEmpty();
             };
 
-            self.growContents = function(stepSize) {
-                // stepSize is in hours!
+
+            self.growContents = function(deltaTime, growerType, pH, temperature) {
+                // deltaTime is in hours!
+
+// TODO limit when reaches maxConcentration
+
+                while(self.getTotalConcentration() < self.maxConcentration())
+                {
+                    var totalConc = self.getTotalConcentration();
 
 
-                // TODO
-                // TODO 1st step is a special case
-                // TODO the rest of the steps follow another procedure
-            };
+                    _.forEach(self.liquids(), function(liquid){
+                        if(! (liquid.type() === LiquidType.MICROORGANISM))
+                        { continue; }
 
-            self.growthStep = function() {
-                // TODO
+                        var growthAmount = 0;
+
+                        if(growerType === GrowerType.FERMENTOR)
+                        {
+                            growthAmount = liquid.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, pH, temperature);
+                        }else if(growerType === GrowerType.INCUBATOR)
+                        { // Always choose the optimal pH
+                            pH = liquid.optimalpH();
+                            growthAmount = liquid.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, pH, temperature);
+                        }else
+                        {
+                            throw 'wtf are you doing, developer-dude?';
+                        }
+
+                        liquid.grow(growthAmount);
+                    });
+                }
+
             };
         }
     });

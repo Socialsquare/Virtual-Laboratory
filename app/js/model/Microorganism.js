@@ -3,9 +3,8 @@ define([
     'model/Liquid',
     'model/LiquidType',
     'model/ReactionCount',
-    'model/MicroorganismType',
     'utils/utils'
-], function(ko, LiquidModel, LiquidType, ReactionCount, MicroorganismType, Utils) {
+], function(ko, LiquidModel, LiquidType, ReactionCount, Utils) {
 
     var Microorganism = LiquidModel.extend({
         constructor: function (microorganismType) {
@@ -32,34 +31,36 @@ define([
                 return self.getPHGrowthFactor() * self.getTempGrowthFactor() * 0.6;
             };
 
-            self.getBiomass = function(){
-                return self.concentration() / Math.pow(10,12);
+            self.grow = function(growthAmount){
+                self.concentration(self.concentration + growthAmount);
             };
 
-            self.growthStep = function(dt, container) {
-                // TODO convert to Biomass!!! (has the real unit g/L)
-                var a_i = self.getGrowthRate();
-                var n_i = self.concentration();
-                var k = Math.pow(10, container.maxConcentration()) * 1.01;
-                var n = container.getTotalConcentration();
+            self.getGrowthStep = function(deltaTime, containerMaxConc, containerPrevTotalConc, pH, temperature) {
+                // Returns concentration
+                // Temporarily converts to biomass (has the real unit g/L)
+                // And back to concentration afterwards!
+                var a_i = self.getGrowthRate(pH, temperature);
+
+                var n_i = Utils.math.getBiomassFromConcentration(self.concentration()); //This _is_ the previous, as it is not updated until afterwards
+                /*var k = Math.pow(10, container.maxConcentration()) * 1.01;
+                var n = container.getTotalConcentration();*/
+
+                var k = Utils.math.getBiomassFromConcentration(containerMaxConc * 1.01); // Logarithmic asymptotic max-level
+                var n = Utils.math.getBiomassFromConcentration(containerPrevTotalConc);
 
                 // Formula:
 
                 // dN_i = a_i * N_i * (K - N) / K // Logarithmic growth
                 // a_i = growthRate;
                 // dt = timeStep
-                // n_i = concentration of the microorganism
-                // n = total concentration
-                // k = max-concentration * 1.01 (artifact when approaching something asymptotically)
+                // n_i = biomass of the microorganism
+                // n = total biomass
+                // k = max-biomass * 1.01 (artifact when approaching something asymptotically)
 
-                var dN_i = a_i * n_i * (k - n) / k;
-
-
-                throw 'TODO'; // TODO
-                return dN_i; // I know this is lame, but its _slightly_ better for readability
-
-                // TODO limit when reaches maxConcentration
-
+                var dN_i = a_i * n_i * (k - n) / k * deltaTime;
+                // Converts back to actual concentration
+                dN_i_concentration = Utils.math.getConcentrationFromBiomass(dN_i);
+                return dN_i_concentration; // I know this is lame, but its _slightly_ better for readability
             };
 
             self.getPHGrowthFactor = function(pH) {
