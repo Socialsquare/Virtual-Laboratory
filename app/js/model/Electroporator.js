@@ -1,16 +1,23 @@
 define([
     'knockout',
+    'lodash',
     'model/SimpleContainer',
     'model/ContainerType'
-], function (ko, SimpleContainerModel, ContainerType) {
+], function (ko, _, SimpleContainerModel, ContainerType) {
 
     var Electroporator = SimpleContainerModel.extend({
         constructor: function () {
             var self = this;
             self.base(ContainerType.ELECTROPORATOR, 13);
 
+            self.status = ko.observable(false);
+
             self.activate = function () {
-                throw 'Den er her ikke lige endnu';
+                self.status(true);
+
+                _.delay(self.status, 1000, false);
+
+                //TODO: implement
             };
         }
     });

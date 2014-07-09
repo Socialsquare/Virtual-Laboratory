@@ -11,4 +11,9 @@ define([
     ko.observableArray.fn.isEmpty = function() {
         return _.isEmpty(this());
     };
+
+    // toggle bools
+    ko.observable.fn.toggle = function() {
+        return this(!this());
+    };
 });

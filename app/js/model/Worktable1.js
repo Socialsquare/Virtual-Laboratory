@@ -10,7 +10,6 @@ define([
 
 	var Worktable1Model = Base.extend({
 
-
         constructor: function () {
             var self = this;
 

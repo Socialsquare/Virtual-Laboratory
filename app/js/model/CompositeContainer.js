@@ -39,6 +39,10 @@ define([
                 return self.containers()[position];
             };
 
+            self.hasContainerAt = function (position) {
+                return !!self.get(position);
+            };
+
             self.remove = function (position) {
                 self.containers.setAt(position, null);
             };

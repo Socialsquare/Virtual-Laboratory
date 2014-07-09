@@ -26,35 +26,36 @@
         </video>
     </div>
 
-	<div class="droppable" id="worktable1-table" data-bind="droparea: handleDrop"></div>
+	<div class="droppable" id="worktable1-table"></div>
 
 	<div id="worktable1-testtubeholder">
-		<ul data-bind="foreach: worktable1.tubeRack.tubes">
-			<li class="droppable testtubeholder-slot"
-                data-bind="droparea: $parent.handleDrop, attr: {id: 'tube' + $index()}">
-                <img data-bind="attr: { src: $parent.worktable1.tubeRack.tubeImage($index(), $data) }, visible: !!$data">
+		<ul data-bind="foreach: worktable1.tubeRack.containers">
+            <!-- data-bind="droparea: $parent.handleDrop, attr: {id: 'tube' + $index()}" -->
+			<li class="droppable testtubeholder-slot" data-bind="attr: { id: 'tube' + ($index() + 1) }">
+                <img data-bind="visible: $parent.worktable1.tubeRack.hasContainerAt($index()),
+                                attr: { src: $parent.Imager.tubeRackImage($index(), $data) }">
             </li>
 		</ul>
 	</div>
 
 	<div id="worktable1-bunsenflame" data-bind="css: { hidden: !worktable1.bunsenBurner() }"></div>
 
-	<button class="btn-none" id="worktable1-bunsen" data-bind="click: worktable1.toggleBunsen"></button>
+	<button class="btn-none" id="worktable1-bunsen" data-bind="click: toggleBunsen"></button>
 
 	<div class="droppable" id="worktable1-electroporator"></div>
 
 	<button class="btn-none" id="worktable1-electroporator-btn" data-bind="click: activateElectroporator">
-        <img class="hidden" src="img/work1_dev1-on.png" alt="Electroporator button" />
+        <img src="img/work1_dev1-on.png" alt="Electroporator button" data-bind="css: { hidden: !worktable1.electroporator.status() }"/>
     </button>
 
 	<div id="worktable1-heater-testtubeholder">
 		<ul>
-			<li class="droppable heater-slot" id="heatertube1" data-bind="droparea: handleDrop"></li>
+			<li class="droppable heater-slot" id="heatertube1"></li>
 			<li class="droppable heater-slot" id="heatertube2"></li>
 			<li class="droppable heater-slot" id="heatertube3"></li>
 		</ul>
 	</div>
-	<button class="btn-none" id="worktable1-heater-btn" data-bind="click: activateHeater">
-        <img class="hidden" src="img/work1_dev2-on.png" alt="Heater button" />
+	<button class="btn-none" id="worktable1-heater-btn" data-bind="click: toggleHeater">
+        <img src="img/work1_dev2-on.png" alt="Heater button" data-bind="css: { hidden: !worktable1.heater.status() }"/>
     </button>
 </div>

@@ -14,12 +14,18 @@ define([
             self.maxConcentration = ko.observable(maxConcentration);
             self.liquids = ko.observableArray([]);
 
-            self._add = function (liquids) {
+            //self.inventoryConfig = ko.observable(null);
+
+            self._addAll = function (liquids) {
                 ko.utils.arrayPushAll(self.liquids, liquids);
             };
 
-            self.add = function (liquids) {
-                self.add(liquids);
+            self.addAll = function (liquids) {
+                self._addAll(liquids);
+            };
+
+            self.add = function (liquid) {
+                self._addAll([liquid]);
             };
 
             self.containsAll = function (liquidTypes) {
@@ -41,10 +47,14 @@ define([
                 return concSum;
             };
 
+            self.isEmpty = function () {
+                return self.liquids.isEmpty();
+            };
+
             self.growContents = function(stepSize) {
                 // stepSize is in hours!
 
-                
+
                 // TODO
                 // TODO 1st step is a special case
                 // TODO the rest of the steps follow another procedure
