@@ -5,17 +5,17 @@ define([
     'model/TableSpace',
     'model/ContainerType',
     'model/ODMachine'
-], function(ko, Base, TubeRack, TableSpace, ContainerType, ODMachine) {
+], function(ko, Base, TubeRackModel, TableSpaceModel, ContainerType, ODMachineModel) {
 
-    var Worktable2Model = Base.extend({
+    var Worktable2 = Base.extend({
 
         constructor: function () {
             var self = this;
 
-            self.tableSpacePetri = new TableSpace(ContainerType.PETRI_DISH);
-            self.tableSpaceMicro = new TableSpace(ContainerType.MICROTITER);
-            self.tubeRack = new TubeRack();
-            self.odMachine = new ODMachine();
+            self.tableSpacePetri = new TableSpaceModel(ContainerType.PETRI_DISH);
+            self.tableSpaceMicro = new TableSpaceModel(ContainerType.MICROTITER);
+            self.tubeRack = new TubeRackModel();
+            self.odMachine = new ODMachineModel();
 
             // TODO blender
 
@@ -34,5 +34,5 @@ define([
 
     });
 
-    return Worktable2Model;
+    return Worktable2;
 });

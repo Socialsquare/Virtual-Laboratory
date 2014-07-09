@@ -3,7 +3,7 @@ define([
     'lodash',
     'base',
 	'model/DNAElement'
-], function(ko, _, Base, DNAElement) {
+], function(ko, _, Base, DNAElementModel) {
 
     var Gene = Base.extend({
         constructor: function (elements) {

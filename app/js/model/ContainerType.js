@@ -9,7 +9,6 @@ define([], function () {
         // Composite
         TABLE_SPACE: 'table_fucking_space_OMG!',
         TUBE_RACK: 'BIG_RACKS_LOL!',
-        FERMENTOR: 'saokdsaokf',
 
         // Simple machines
         ELECTROPORATOR: 'faceroll',

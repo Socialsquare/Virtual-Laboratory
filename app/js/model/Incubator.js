@@ -6,7 +6,7 @@ define([
     'model/ContainerType'
 ], function(ko, Base, TubeRackModel, TableSpaceModel, ContainerType) {
 
-    var IncubatorModel = Base.extend({
+    var Incubator = Base.extend({
 
         constructor: function () {
             var self = this;
@@ -39,5 +39,5 @@ define([
 
     });
 
-    return IncubatorModel;
+    return Incubator;
 });

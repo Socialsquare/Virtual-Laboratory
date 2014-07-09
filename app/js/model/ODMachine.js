@@ -4,7 +4,7 @@ define([
     'model/ContainerType'
 ], function (ko, CompositeContainerModel, ContainerType) {
 
-    var ODMachineModel = CompositeContainerModel.extend({
+    var ODMachine = CompositeContainerModel.extend({
         constructor: function () {
             var self = this;
             self.base(1, ContainerType.TUBE, ContainerType.OD_MACHINE);
@@ -21,5 +21,5 @@ define([
 
     });
 
-    return ODMachineModel;
+    return ODMachine;
 });

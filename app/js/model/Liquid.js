@@ -3,7 +3,7 @@ define([
     'base'
 ], function (ko, Base) {
 
-    var LiquidModel = Base.extend({
+    var Liquid = Base.extend({
         constructor: function (type, reactionCount) {
             var self = this;
 
@@ -14,5 +14,5 @@ define([
         }
     });
 
-    return LiquidModel;
+    return Liquid;
 });

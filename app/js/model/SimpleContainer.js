@@ -2,10 +2,9 @@ define([
     'knockout',
     'base',
 	'lodash',
-	'model/ContainerContent',
     'model/LiquidType',
     'model/GrowerType'
-], function(ko, Base, _, ContainerContent, LiquidType, GrowerType) {
+], function(ko, Base, _, LiquidType, GrowerType) {
 
     var SimpleContainer = Base.extend({
         constructor: function (type, maxConcentration) {
@@ -53,7 +52,45 @@ define([
             };
 
 
-            self.growContents = function(deltaTime, growerType, pH, temperature) {
+
+            self.growContentsOnce = function(deltaTime, growerType, pH, temperature) {
+                // TODO return whether growth is performed. False = max is reached, True = grew once
+                // deltaTime is in hours!
+                if(self.getTotalConcentration() >= self.maxConcentration())
+                { return false; }
+
+
+// TODO limit when reaches maxConcentration
+
+                var totalConc = self.getTotalConcentration();
+
+
+                _.forEach(self.liquids(), function(liquid){
+                    if(! (liquid.type() === LiquidType.MICROORGANISM))
+                    { return; }
+
+                    var growthAmount = 0;
+
+                    if(growerType === GrowerType.FERMENTOR)
+                    {
+                        growthAmount = liquid.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, pH, temperature);
+                    }else if(growerType === GrowerType.INCUBATOR)
+                    { // Always choose the optimal pH
+                        pH = liquid.optimalpH();
+                        growthAmount = liquid.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, pH, temperature);
+                    }else
+                    {
+                        throw 'wtf are you doing, developer-dude?';
+                    }
+
+                    liquid.grow(growthAmount);
+                });
+
+                return true;
+
+            };
+
+            /*self.growContents = function(deltaTime, growerType, pH, temperature) {
                 // deltaTime is in hours!
 
 // TODO limit when reaches maxConcentration
@@ -65,7 +102,7 @@ define([
 
                     _.forEach(self.liquids(), function(liquid){
                         if(! (liquid.type() === LiquidType.MICROORGANISM))
-                        { continue; }
+                        { return; }
 
                         var growthAmount = 0;
 
@@ -85,7 +122,7 @@ define([
                     });
                 }
 
-            };
+            };*/
         }
     });
 

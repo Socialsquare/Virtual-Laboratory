@@ -46,6 +46,12 @@ define([
             self.remove = function (position) {
                 self.containers.setAt(position, null);
             };
+
+            self.growContentsOnce = function(deltaTime, growerType, pH, temperature) {
+                _.forEach(self.containers(), function(container){
+
+                });
+            };
         },
     });
 

@@ -6,7 +6,7 @@ define([
     'model/AntibioticType'
 ], function (ko, LiquidModel, LiquidType, ReactionCount, AntibioticType) {
 
-    var AntibioticModel = LiquidModel.extend({
+    var Antibiotic = LiquidModel.extend({
         constructor: function (antibioticType) {
             var self = this;
             self.base(LiquidType.ANTIBIOTIC, ReactionCount.ALWAYS);
@@ -20,5 +20,5 @@ define([
         }
     });
 
-    return AntibioticModel;
+    return Antibiotic;
 });

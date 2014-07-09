@@ -1,4 +1,4 @@
-define([
+/*define([
 	'knockout',
     'base',
 	'lodash'
@@ -18,4 +18,4 @@ function(ko, Base, _) {
 	// var HEALTHY = 1;
 	// var DIABETES = 2;
 	// var DEAD = 3;
-});
+});*/
