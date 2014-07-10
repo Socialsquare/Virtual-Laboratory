@@ -2,9 +2,9 @@ define([
     'knockout',
     'base',
     'model/FermentorTank'
-], function(ko, Base, FermentorTankModel) { // TODO "model" here?
+], function(ko, Base, FermentorTankModel) {
 
-    var FermentorChromatograph = Base.extend({ // TODO or "model" here??
+    var FermentorChromatograph = Base.extend({
 
 
         constructor: function () {

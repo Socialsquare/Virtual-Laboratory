@@ -27,7 +27,7 @@
     <a href="#worktable1">
         <img id="overview-worktable1-img" src="img/overview_base-worktable1.png" alt="Go to work table 1">
     </a>
-    <a href="#fermentor">
+    <a href="#fermentorchromatograph">
         <img id="overview-fermentorchroma-img" src="img/overview_base-fermentorchroma.png" alt="Go to fermentor and chromatograph">
     </a>
     <a href="#incubator">

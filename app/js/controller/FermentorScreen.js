@@ -7,18 +7,22 @@ define([
     'utils/Imager'
 ], function (ko, $, BaseViewController, Notifier, gameState, Imager) {
 
-    var SpectroPM = BaseViewController.extend({
+    var FermentorScreen = BaseViewController.extend({
+
+// TODO is it problematic that the view-controllers FermentorScreen and FermentorChromatograph both exist?
 
         gameState: gameState,
-        spectroPM: gameState.spectroPM,
+        FermentorChromatograph: gameState.FermentorChromatograph,
         Imager: Imager,
 
         constructor: function () {
             var self = this;
-            self.base('spectropm');
+            self.base('fermentorscreen');
 
         }
     });
 
-    return SpectroPM;
+    return FermentorScreen;
 });
+
+

@@ -7,18 +7,19 @@ define([
     'utils/Imager'
 ], function (ko, $, BaseViewController, Notifier, gameState, Imager) {
 
-    var SpectroPM = BaseViewController.extend({
+    var FermentorChromatograph = BaseViewController.extend({
 
         gameState: gameState,
-        spectroPM: gameState.spectroPM,
+        FermentorChromatograph: gameState.FermentorChromatograph,
         Imager: Imager,
 
         constructor: function () {
             var self = this;
-            self.base('spectropm');
+            self.base('fermentorchromatograph');
 
         }
     });
 
-    return SpectroPM;
+    return FermentorChromatograph;
 });
+

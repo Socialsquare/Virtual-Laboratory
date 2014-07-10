@@ -13,6 +13,9 @@ define([
     'controller/Worktable2',
     'controller/Incubator',
     'controller/SpectroPM',
+    'controller/FermentorChromatograph',
+    'controller/FermentorScreen',
+
     'controller/Menu',
 
     'model/GameState',
@@ -24,7 +27,7 @@ define([
 
 ], function (Base, ko, Router, OverviewController, /* ComputerController, ChemicalController, MouseController*/
              FumehoodController, Worktable1Controller, Worktable2Controller, IncubatorController,
-             SpectroPMController,
+             SpectroPMController, FermentorChromatographController, FermentorScreenController,
              MenuController, gameState, Tube, Petridish, Microtiterplate, LiquidFactory) {
     var App = Base.extend({
         activeViewController: ko.observable(),
@@ -50,7 +53,9 @@ define([
                 worktable2: new Worktable2Controller(),
                 fumehood: new FumehoodController(),
                 incubator: new IncubatorController(),
-                spectropm: new SpectroPMController()
+                spectropm: new SpectroPMController(),
+                fermentorchromatograph: new FermentorChromatographController(), // TODO is it problematic that the view-controllers FermentorScreen and FermentorChromatograph both exist?
+                fermentorscreen: new FermentorScreenController(),
             };
 
             self.triggerPopup = function (popupName, vm) {
