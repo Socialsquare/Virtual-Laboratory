@@ -2,11 +2,23 @@ define([
     'model/ContainerType'
 ], function (ContainerType) {
     return {
+        incubatorTubeRackImage: function (position, tube) {
+            if (!tube) return '';
+
+            return 'img/incubator_tube' + (position + 1) + '.png';
+        },
+
         tubeRackImage: function (position, tube) {
             if (!tube) return '';
 
             var state = tube.isEmpty() ? 'empty' : 'full';
             return 'img/worktable1_testtube_' + (position + 1) + '_' + state + '.png';
+        },
+
+        heaterTubeImage: function (position, tube) {
+            if (!tube) return '';
+
+            return 'img/work1-heater_' + (position + 1) + '.png';
         },
 
         inventoryIcon: function (item) {

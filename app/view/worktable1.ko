@@ -46,7 +46,7 @@
 	        <li class="droppable heater-slot" data-bind="attr: { id: 'heatertube' + ($index() + 1) }">
                 <div class="testtube draggable" data-item-index="2">
                     <img data-bind="visible: $parent.worktable1.heater.hasContainerAt($index()),
-                                    attr: { src: 'img/work1-heater_' + ($index() + 1) + '.png' }"
+                                    attr: { src: $parent.Imager.heaterTubeImage($index(), $data) }"
                          alt="Heater tube">
                 </div>
             </li>

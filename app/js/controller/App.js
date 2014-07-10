@@ -11,6 +11,7 @@ define([
     'controller/Fumehood',
     'controller/Worktable1',
     'controller/Worktable2',
+    'controller/Incubator',
     'controller/Menu',
 
     'model/GameState',
@@ -19,7 +20,7 @@ define([
     'model/Petridish',
     'model/Microtiterplate',
     'factory/Liquid'
-], function (Base, ko, Router, OverviewController, /* ComputerController, ChemicalController, MouseController*/  FumehoodController, Worktable1Controller, Worktable2Controller, MenuController, gameState, Tube, Petridish, Microtiterplate, LiquidFactory) {
+], function (Base, ko, Router, OverviewController, /* ComputerController, ChemicalController, MouseController*/  Fumehood, Worktable1, Worktable2, IncubatorController, MenuController, gameState, Tube, Petridish, Microtiterplate, LiquidFactory) {
     var App = Base.extend({
         activeViewController: ko.observable(),
         activePopup: ko.observable(''),
@@ -39,7 +40,8 @@ define([
                 // mouse: new MouseController(),
                 worktable1: new Worktable1Controller(),
                 worktable2: new Worktable2Controller(),
-                fumehood: new FumehoodController()
+                fumehood: new FumehoodController(),
+                incubator: new IncubatorController(),
             };
 
             self.triggerPopup = function (popupName, vm) {
@@ -86,9 +88,9 @@ define([
             tubefull.add(LiquidFactory.microorganism.yeast());
 
             gameState.worktable1.tubeRack.addAt(0, tube);
+            gameState.worktable1.tubeRack.addAt(5, tubefull);
             gameState.worktable1.heater.addAt(0, tube);
             gameState.worktable1.heater.addAt(2, tube);
-            gameState.worktable1.tubeRack.addAt(5, tubefull);
 
             var petri = new Petridish();
             gameState.inventory.add(petri);
@@ -104,6 +106,12 @@ define([
 
             gameState.fumehood.tubeRack.addAt(0, tube);
             gameState.fumehood.tubeRack.addAt(5, tubefull);
+
+            gameState.incubator.tubeRack.addAt(0, tube);
+            gameState.incubator.tubeRack.addAt(1, tube);
+            gameState.incubator.tubeRack.addAt(2, tube);
+            gameState.incubator.tubeRack.addAt(4, tube);
+            gameState.incubator.tubeRack.addAt(5, tube);
         }
     });
 

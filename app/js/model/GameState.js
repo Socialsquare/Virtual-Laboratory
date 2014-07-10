@@ -7,8 +7,9 @@ define([
     'model/Mouse',
     'model/Worktable1',
     'model/Worktable2',
-    'model/Fumehood'
-], function (ko, Base, Inventory, MouseModel, Worktable1Model, Worktable2Model, FumehoodModel) {
+    'model/Fumehood',
+    'model/Incubator'
+], function (ko, Base, Inventory, MouseModel, Worktable1Model, Worktable2Model, FumehoodModel, IncubatorModel) {
     var GameState = Base.extend({
 
         inventory: new Inventory(),
@@ -17,7 +18,8 @@ define([
         //mouse: new MouseModel(),
         worktable1: new Worktable1Model(),
         worktable2: new Worktable2Model(),
-        fumehood: new FumehoodModel()
+        fumehood: new FumehoodModel(),
+        incubator: new IncubatorModel()
     });
 
     // Note that we're returning an instance
