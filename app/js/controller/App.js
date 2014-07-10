@@ -8,6 +8,7 @@ define([
     //'controller/Computer',
   //  'controller/Chemical',
 //    'controller/Mouse',
+    'controller/Fumehood',
     'controller/Worktable1',
     'controller/Worktable2',
     'controller/Menu',
@@ -18,7 +19,7 @@ define([
     'model/Petridish',
     'model/Microtiterplate',
     'factory/Liquid'
-], function (Base, ko, Router, OverviewController, /* ComputerController, ChemicalController, MouseController*/  Worktable1, Worktable2, MenuController, gameState, Tube, Petridish, Microtiterplate, LiquidFactory) {
+], function (Base, ko, Router, OverviewController, /* ComputerController, ChemicalController, MouseController*/  FumehoodController, Worktable1Controller, Worktable2Controller, MenuController, gameState, Tube, Petridish, Microtiterplate, LiquidFactory) {
     var App = Base.extend({
         activeViewController: ko.observable(),
         activePopup: ko.observable(''),
@@ -36,8 +37,9 @@ define([
                 // computer: new ComputerController(),
                 // 'chemical-closet': new ChemicalController(this),
                 // mouse: new MouseController(),
-                worktable1: new Worktable1(),
-                worktable2: new Worktable2()
+                worktable1: new Worktable1Controller(),
+                worktable2: new Worktable2Controller(),
+                fumehood: new FumehoodController()
             };
 
             self.triggerPopup = function (popupName, vm) {
@@ -98,8 +100,10 @@ define([
             gameState.inventory.add(tube);
 
             gameState.worktable2.odMachine.addAt(0, tubefull);
-
             gameState.worktable2.tubeRack.addAt(0, tube);
+
+            gameState.fumehood.tubeRack.addAt(0, tube);
+            gameState.fumehood.tubeRack.addAt(5, tubefull);
         }
     });
 

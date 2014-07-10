@@ -1,39 +1,41 @@
 <div class="main-view view">
-	<a href="#spectrophotometer">
+    <a href="#spectrophotometer">
         <img id="overview-spectrophotometer-img"
              src="img/special_spektro.png"
              alt="Go to spectrophotometer">
     </a>
-	<a id="overview-door-link">
+    <a id="overview-door-link">
         <img id="overview-door-img"
              src="img/overview_base-door.png"
              alt="Go to door"
              data-bind="click: $parent.triggerPopup.bind(null, 'door')">
     </a>
-	<a href="#chemical-closet">
+    <a href="#chemical-closet">
         <img id="overview-chemicalcloset-img"
              src="img/overview_base-chemicalcloset.png"
              alt="Go to chemical closet">
     </a>
-	<a href="#hood">
-        <img id="overview-hood-img" src="img/overview_base-hood.png" alt="Go to hood">
+    <a href="#fumehood">
+        <img id="overview-fumehood-img" src="img/overview_base-fumehood.png" alt="Go to fumehood">
     </a>
-	<a href="#worktable2">
+    <a href="#worktable2">
         <img id="overview-worktable2-img" src="img/overview_base-worktable2.png" alt="Go to work table 2">
     </a>
-	<a href="#mouse">
+    <a href="#mouse">
         <img id="overview-mouse-img" src="img/overview_base-mouse.png" alt="Go to mouse">
     </a>
-	<a href="#worktable1">
+    <a href="#worktable1">
         <img id="overview-worktable1-img" src="img/overview_base-worktable1.png" alt="Go to work table 1">
     </a>
-	<a href="#fermentor">
+    <a href="#fermentor">
         <img id="overview-fermentorchroma-img" src="img/overview_base-fermentorchroma.png" alt="Go to fermentor and chromatograph">
     </a>
-	<a href="#incubator">
+    <a href="#incubator">
         <img id="overview-incubator-img" src="img/overview_base-incubator.png" alt="Go to incubator">
     </a>
-	<div class="view-cover">
-	</div>
-	<div class="hidden" id="letter">Hello</div>
+
+    <div class="view-cover">
+    </div>
+
+    <div class="hidden" id="letter">Hello</div>
 </div>

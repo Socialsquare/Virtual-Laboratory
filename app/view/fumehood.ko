@@ -1,0 +1,6 @@
+<div class="fumehood-view view">
+    <div class="droppable" id="fumehood-table"></div>
+
+    <div id="fumehood-testtubeholder" data-bind="template: { name:'tubeRack', data: { tubeRack: fumehood.tubeRack, Imager: Imager } }">
+    </div>
+</div>

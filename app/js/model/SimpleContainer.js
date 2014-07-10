@@ -1,7 +1,7 @@
 define([
     'knockout',
     'base',
-	'lodash',
+    'lodash',
     'model/LiquidType',
     'model/GrowerType'
 ], function(ko, Base, _, LiquidType, GrowerType) {
@@ -35,8 +35,6 @@ define([
             };
 
             self.getTotalConcentration = function() {
-                debugger;
-
                 var concSum = 0;
 
                 _.each(self.liquids(), function(liquid){
