@@ -3,19 +3,19 @@
 @import 'mixin/compositecontainer';
 
 .worktable1-view {
-  background-image: url("../img/work1_base.png"); }
-
-#worktable1-table {
-  position: absolute;
-  top: 460px;
-  left: 220px;
-  width: 804px;
-  height: 100px;
-  z-index: 9;
+  background-image: url("../img/work1_base.png");
 }
 
-#worktable1-testtubeholder {
-  @include compositecontainer(514px, 315px);
+#worktable1-micro {
+  @include tablespacemicro(200px, 460px);
+}
+
+#worktable1-petri {
+  @include tablespacepetri(600px, 460px);
+}
+
+#worktable1-tuberack {
+  @include tuberack(514px, 315px);
 }
 
 #worktable1-bunsen {
@@ -60,7 +60,7 @@
 }
 
 #worktable1-heater-testtubeholder {
-  @include compositecontainer(857px, 229px);
+  @include tuberack(857px, 229px);
   width: 105px;
   height: 38px;
 

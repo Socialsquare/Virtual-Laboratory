@@ -1,0 +1,6 @@
+<ul data-bind="foreach: tableSpacePetri.containers">
+    <li class="tablespace-slot" data-bind="attr: { id: 'petri' + ($index() + 1) }">
+        <img data-bind="visible: $parent.tableSpacePetri.hasContainerAt($index()),
+                        attr: { src: $parent.Imager.tableSpacePetriImage($data) }">
+    </li>
+</ul>

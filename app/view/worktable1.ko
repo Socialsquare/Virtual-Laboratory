@@ -1,58 +1,63 @@
 <div class="worktable1-view view">
-	<div class="video-container">
+    <div class="video-container">
         <video id="electroporator1" class="offscreen" preload="auto">
             <source src="videos/electroporator01.mp4" type="video/mp4" />
             <source src="videos/electroporator01.webm" type="video/webm" />
         </video>
-		<video id="electroporator2" class="offscreen" preload="auto">
+        <video id="electroporator2" class="offscreen" preload="auto">
             <source src="videos/electroporator02.mp4" type="video/mp4" />
             <source src="videos/electroporator02.webm" type="video/webm" />
         </video>
-		<video id="electroporator3" class="offscreen" preload="auto">
+        <video id="electroporator3" class="offscreen" preload="auto">
             <source src="videos/electroporator03.mp4" type="video/mp4" />
             <source src="videos/electroporator03.webm" type="video/webm" />
         </video>
-		<video id="electroporator4" class="offscreen" preload="auto">
+        <video id="electroporator4" class="offscreen" preload="auto">
             <source src="videos/electroporator04.mp4" type="video/mp4" />
             <source src="videos/electroporator04.webm" type="video/webm" />
         </video>
-		<video id="electroporator5" class="offscreen" preload="auto">
+        <video id="electroporator5" class="offscreen" preload="auto">
             <source src="videos/electroporator05.mp4" type="video/mp4" />
             <source src="videos/electroporator05.webm" type="video/webm" />
         </video>
-		<video id="electroporator6" class="offscreen" preload="auto">
+        <video id="electroporator6" class="offscreen" preload="auto">
             <source src="videos/electroporator06.mp4" type="video/mp4" />
             <source src="videos/electroporator06.webm" type="video/webm" />
         </video>
     </div>
 
-	<div class="droppable" id="worktable1-table"></div>
+    <div id="worktable1-tuberack" data-bind="template: { name:'tubeRack', data: { tubeRack: worktable1.tubeRack, Imager: Imager, dropHandler: handleTubeRackDrop, DragHelper: DragHelper } }">
+    </div>
 
-	<div id="worktable1-testtubeholder" data-bind="template: { name:'tubeRack', data: { tubeRack: worktable1.tubeRack, Imager: Imager, dropHandler: handleTubeRackDrop, DragHelper: DragHelper } }">
-	</div>
 
-	<div id="worktable1-bunsenflame" data-bind="css: { hidden: !worktable1.bunsenBurner() }"></div>
+    <div id="worktable1-petri" data-bind="template: { name:'tableSpacePetri', data: { tableSpacePetri: worktable1.tableSpacePetri, Imager: Imager } }">
+    </div>
 
-	<button class="btn-none" id="worktable1-bunsen" data-bind="click: toggleBunsen"></button>
+    <div id="worktable1-micro" data-bind="template: { name:'tableSpaceMicro', data: { tableSpaceMicro: worktable1.tableSpaceMicro, Imager: Imager } }">
+    </div>
 
-	<div class="droppable" id="worktable1-electroporator"></div>
+    <div id="worktable1-bunsenflame" data-bind="css: { hidden: !worktable1.bunsenBurner() }"></div>
 
-	<button class="btn-none" id="worktable1-electroporator-btn" data-bind="click: activateElectroporator">
+    <button class="btn-none" id="worktable1-bunsen" data-bind="click: toggleBunsen"></button>
+
+    <div class="droppable" id="worktable1-electroporator"></div>
+
+    <button class="btn-none" id="worktable1-electroporator-btn" data-bind="click: activateElectroporator">
         <img src="img/work1_dev1-on.png" alt="Electroporator button" data-bind="css: { hidden: !worktable1.electroporator.status() }"/>
     </button>
 
-	<div id="worktable1-heater-testtubeholder">
+    <div id="worktable1-heater-testtubeholder">
         <ul data-bind="foreach: worktable1.heater.containers">
-	        <li class="droppable heater-slot" data-bind="attr: { id: 'heatertube' + ($index() + 1) }">
+            <li class="droppable heater-slot" data-bind="attr: { id: 'heatertube' + ($index() + 1) }">
                 <div class="testtube draggable" data-item-index="2">
                     <img data-bind="visible: $parent.worktable1.heater.hasContainerAt($index()),
-                                    attr: { src: $parent.Imager.heaterTubeImage($index(), $data) }"
+                         attr: { src: $parent.Imager.heaterTubeImage($index(), $data) }"
                          alt="Heater tube">
                 </div>
             </li>
         </ul>
-	</div>
-	<button class="btn-none" id="worktable1-heater-btn" data-bind="click: toggleHeater">
+    </div>
+    <button class="btn-none" id="worktable1-heater-btn" data-bind="click: toggleHeater">
         <img src="img/work1_dev2-on.png" alt="Heater button" data-bind="css: { hidden: !worktable1.heater.status() }"/>
     </button>
 </div>

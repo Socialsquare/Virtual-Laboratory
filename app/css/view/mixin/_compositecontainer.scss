@@ -1,18 +1,22 @@
 /* mixin/compositecontainer.scss */
 
-@mixin compositecontainer($left, $top) {
-  position: absolute;
-  left: $left;
-  top: $top;
-  width: 242px;
-  height: 138px;
-
+.composite-container {
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
     li { float: left; }
   }
+}
+
+@mixin tuberack($left, $top) {
+  @extend .composite-container;
+
+  position: absolute;
+  left: $left;
+  top: $top;
+  width: 242px;
+  height: 138px;
 
   #tube1 { width: 51px; }
   #tube2 { width: 36px; }
@@ -22,4 +26,32 @@
   #tube6 { width: 41px; }
 
   #tube1, #tube2, #tube3, #tube4, #tube5 { height: 138px; }
+}
+
+@mixin tablespacepetri($left, $top) {
+  @extend .composite-container;
+
+  position: absolute;
+  left: $left;
+  top: $top;
+  width: 390px;
+  height: 100px;
+  z-index: 9;
+}
+
+@mixin tablespacemicro($left, $top) {
+  @extend .composite-container;
+
+  position: absolute;
+  left: $left;
+  top: $top;
+  width: 390px;
+  height: 100px;
+  z-index: 9;
+
+  #micro3 {
+    position: relative;
+    left: 130px;
+    top: -180px;
+  }
 }

@@ -7,17 +7,16 @@
   background-image: url("../img/work2_base.png");
 }
 
-#worktable2-table {
-  position: absolute;
-  top: 460px;
-  left: 0px;
-  width: 1020px;
-  height: 110px;
-  z-index: 9;
+#worktable2-micro {
+  @include tablespacemicro(160px, 460px);
 }
 
-#worktable2-testtubeholder {
-  @include compositecontainer(492px, 318px);
+#worktable2-petri {
+  @include tablespacepetri(600px, 460px);
+}
+
+#worktable2-tuberack {
+  @include tuberack(492px, 318px);
 }
 
 #worktable2-centrifuge {

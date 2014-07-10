@@ -21,6 +21,18 @@ define([
             return 'img/work1-heater_' + (position + 1) + '.png';
         },
 
+        tableSpacePetriImage: function (dish) {
+            if (!dish) return '';
+
+            var state = dish.isEmpty() ? 'empty' : 'full';
+            return 'img/petri_' + state + '.png';
+        },
+
+        tableSpaceMicroImage: function (position, dish) {
+            if (!dish) return '';
+
+            return 'img/micro' + (position + 1) + '.png';
+        },
 
         inventoryIcon: function (item) {
             switch (item.type()) {

@@ -92,15 +92,13 @@ define([
             // dummy data
             //------------------------
             var tube = new Tube();
-            var tubefull = new Tube();
             var microtiter = new Microtiterplate();
 
+            var tubefull = new Tube();
             tubefull.add(LiquidFactory.microorganism.yeast());
 
-            gameState.worktable1.tubeRack.addAt(0, tube);
-            gameState.worktable1.tubeRack.addAt(5, tubefull);
-            gameState.worktable1.heater.addAt(0, tube);
-            gameState.worktable1.heater.addAt(2, tube);
+            var tube1 = new Tube();
+            gameState.inventory.add(tube);
 
             var petri = new Petridish();
             gameState.inventory.add(petri);
@@ -108,9 +106,23 @@ define([
             var micro = new Microtiterplate();
             gameState.inventory.add(micro);
 
-            var tube1 = new Tube();
-            gameState.inventory.add(tube);
+            gameState.worktable1.tubeRack.addAt(0, tube);
+            gameState.worktable1.tubeRack.addAt(5, tubefull);
+            gameState.worktable1.heater.addAt(0, tube);
+            gameState.worktable1.heater.addAt(2, tube);
+            gameState.worktable1.tableSpaceMicro.addAt(0, micro);
+            gameState.worktable1.tableSpaceMicro.addAt(1, micro);
+            gameState.worktable1.tableSpaceMicro.addAt(2, micro);
+            gameState.worktable1.tableSpacePetri.addAt(0, petri);
+            gameState.worktable1.tableSpacePetri.addAt(1, petri);
+            gameState.worktable1.tableSpacePetri.addAt(2, petri);
 
+            gameState.worktable2.tableSpaceMicro.addAt(0, micro);
+            gameState.worktable2.tableSpaceMicro.addAt(1, micro);
+            gameState.worktable2.tableSpaceMicro.addAt(2, micro);
+            gameState.worktable2.tableSpacePetri.addAt(0, petri);
+            gameState.worktable2.tableSpacePetri.addAt(1, petri);
+            gameState.worktable2.tableSpacePetri.addAt(2, petri);
             gameState.worktable2.odMachine.addAt(0, tubefull);
             gameState.worktable2.tubeRack.addAt(0, tube);
 
