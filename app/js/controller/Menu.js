@@ -2,8 +2,9 @@ define([
     'knockout',
     'base',
     'model/GameState',
-    'utils/Imager'
-], function (ko, Base, gameState, Imager) {
+    'utils/Imager',
+    'model/ContainerType'
+], function (ko, Base, gameState, Imager, ContainerType) {
 
     var MenuController = Base.extend({
 
@@ -12,6 +13,8 @@ define([
         Imager: Imager,
 
         constructor: function () {
+            var self = this;
+
             self.fullscreen = function () {
                 console.log('TODO: Go fullscreen');
             };
@@ -19,22 +22,15 @@ define([
             self.selectExperiment = function () {
                 console.log('TODO: Select experiment');
             };
-        },
 
-        // handleDrop: function (event, $draggable) {
-        //     var item = $draggable.data('content');
+            self.dropHandler = function (item) {
+                self.gameState.inventory.remove(item);
+            };
 
-		//     $draggable.off();
-		//     $draggable.chcDraggable('destroy');
-        //     $draggable.remove();
-
-		//     gameState.inventory.add(item);
-	    // },
-
-        // startDragItem: function (event) {
-        //     var item = gameState.inventory.get(event.target.dataset.uid);
-        //     gameState.draggingItem(item);
-        // }
+            self.acceptDrop = function (item) {
+                return item.type() === ContainerType.TUBE;
+            };
+        }
     });
 
     return MenuController;

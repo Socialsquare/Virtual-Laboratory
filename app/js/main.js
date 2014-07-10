@@ -7,6 +7,7 @@ var requireConfig = {
 	paths: {
 		cordova: '../cordova',
 		jquery: '../bower_components/jquery/dist/jquery',
+		jqueryui: '../bower_components/jquery-ui/jquery-ui',
 		lodash: '../bower_components/lodash/dist/lodash.compat',
 		knockout: '../bower_components/knockout/dist/knockout.debug',
 		mapping: '../bower_components/knockout-mapping/knockout.mapping',
@@ -24,6 +25,10 @@ var requireConfig = {
 
 		'jquery': {
 			exports: '$'
+		},
+
+		'jqueryui': {
+			deps: ['jquery']
 		},
 
 		'base': {
@@ -62,9 +67,7 @@ require([
 	'controller/App',
 
     // self-registering jquery plugins
-	'chcdraggable',
-	'chcdraggablespawner',
-	'chcdroppable',
+	'jqueryui',
 	'flot',
 
     // register knockout bindings and extensions

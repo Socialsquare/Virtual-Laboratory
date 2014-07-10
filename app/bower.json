@@ -5,6 +5,7 @@
     "lodash": "~2.4.1",
     "requirejs": "~2.1.14",
     "knockout": "~3.1.0",
-    "knockout-mapping": "~2.4.1"
+    "knockout-mapping": "~2.4.1",
+    "jquery-ui": "~1.11.0"
   }
 }
