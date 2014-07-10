@@ -1,7 +1,9 @@
 /* view/overview.scss */
 
+@import '../variables';
+
 .main-view {
-  background-image: url("../img/overview_base.png"); }
+  background-image: url(#{$img-path}/overview_base.png); }
 
 #overview-spectrophotometer-img {
   position: absolute;

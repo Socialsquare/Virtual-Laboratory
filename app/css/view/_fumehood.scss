@@ -1,7 +1,9 @@
 /* view/fumehood.scss */
 
+@import '../variables';
+
 .fumehood-view {
-  background-image: url("../img/fumehood_base.png");
+  background-image: url(#{$img-path}/fumehood_base.png);
 }
 
 #fumehood-table {

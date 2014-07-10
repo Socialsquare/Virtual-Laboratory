@@ -1,7 +1,9 @@
 /* view/incubator.scss */
 
+@import '../variables';
+
 .incubator-view {
-  background-image: url("../img/off_base.png"); }
+  background-image: url(#{$img-path}/off_base.png); }
   .incubator-view .cover {
     position: absolute;
     top: 0;
@@ -9,7 +11,7 @@
     width: 1024px;
     height: 644px;
     z-index: 100;
-    background-image: url("../img/on_base2.png"); }
+    background-image: url(#{$img-path}/on_base2.png); }
   .incubator-view button, .incubator-view .time, .incubator-view .temperature {
     z-index: 101; }
 

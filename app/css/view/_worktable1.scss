@@ -1,9 +1,10 @@
 /* view/worktable1.scss */
 
+@import '../variables';
 @import 'mixin/compositecontainer';
 
 .worktable1-view {
-  background-image: url("../img/work1_base.png");
+  background-image: url(#{$img-path}/work1_base.png);
 }
 
 #worktable1-micro {
@@ -27,7 +28,7 @@
 }
 
 #worktable1-bunsenflame {
-  background-image: url("../img/work1_bunsenFlame.png");
+  background-image: url(#{$img-path}/work1_bunsenFlame.png);
   position: absolute;
   top: 6px;
   left: 335px;

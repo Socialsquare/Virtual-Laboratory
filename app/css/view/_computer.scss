@@ -3,7 +3,7 @@
 @import '../variables';
 
 .computer-view {
-  background-image: url("../img/computer.png"); }
+  background-image: url(#{$img-path}/computer.png); }
 
 .computer-screen {
   position: absolute;
@@ -30,7 +30,7 @@
         width: 80px;
         height: 80px;
         margin: 0 auto 0 auto;
-        background-image: url("../img/computer_icon.png");
+        background-image: url(#{$img-path}/computer_icon.png);
         border-radius: 8px; }
       .computer-mainmenu ul li .text {
         margin-top: 4px;

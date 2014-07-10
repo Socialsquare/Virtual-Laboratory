@@ -1,7 +1,9 @@
 /* view/fermentor.scss */
 
+@import '../variables';
+
 .fermentor-view {
-  background-image: url("../img/fermkroma_base.png"); }
+  background-image: url(#{$img-path}/fermkroma_base.png); }
   .fermentor-view #fermentor-screen-link {
     position: absolute;
     left: 500px;

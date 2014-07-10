@@ -1,14 +1,16 @@
 /* view/mouse.scss */
 
+@import '../variables';
+
 .mouse-view {
   width: 1024px;
   height: 644px;
-  background-image: url("../img/mouse-view-background-sprite_sRGB.png");
+  background-image: url(#{$img-path}/mouse-view-background-sprite_sRGB.png);
   background-size: 1024px 1288px;
   background-position: 0 0; }
 
 .osxsafari .mouse-view {
-  background-image: url("../img/mouse-view-background-sprite_rec709.png"); }
+  background-image: url(#{$img-path}/mouse-view-background-sprite_rec709.png); }
 
 .mouse-view.no-bottle {
   background-position: 0 644px; }
@@ -61,7 +63,7 @@
   background-image: none;
   z-index: 11; }
   #water-bottle.visible {
-    background-image: url("../img/grab_drink.png"); }
+    background-image: url(#{$img-path}/grab_drink.png); }
 
 #mouse {
   position: absolute;
@@ -88,7 +90,7 @@
   top: 0;
   height: 500px;
   width: 480px;
-  background-image: url("../img/deadmouse_spleen_sprite.png");
+  background-image: url(#{$img-path}/deadmouse_spleen_sprite.png);
   background-position: 0 0;
   background-size: 480px 1500px;
   z-index: 4; }

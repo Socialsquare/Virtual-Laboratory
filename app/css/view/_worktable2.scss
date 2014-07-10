@@ -4,7 +4,7 @@
 @import 'mixin/compositecontainer';
 
 .worktable2-view {
-  background-image: url("../img/work2_base.png");
+  background-image: url(#{$img-path}/work2_base.png);
 }
 
 #worktable2-micro {
@@ -34,7 +34,7 @@
   width: 80px;
   height: 80px; }
   #worktable2-blender.on {
-    background-image: url("../img/work2_blender-on.png");
+    background-image: url(#{$img-path}/work2_blender-on.png);
 }
 
 #worktable2-od {

@@ -189,7 +189,7 @@ body {
 
 /* !DOOR VIEW */
 .door-view {
-  /*background-image: url('../img/worktable-view-background.jpg');*/
+  /*background-image: url(#{$img-path}/worktable-view-background.jpg);*/
 }
 
 /* !WORKTABLE2 VIEW */
@@ -203,7 +203,7 @@ body {
 
 /* !HPLC VIEW */
 .hplc-view {
-  /*background-image: url('../img/hplc-view-background.jpg');*/
+  /*background-image: url(#{$img-path}hplc-view-background.jpg);*/
 }
 
 /* !WORKTABLE1 VIEW */
@@ -220,12 +220,12 @@ body {
 
 /* !WASHING MACHINE VIEW */
 .washingmachine-view {
-  background-image: url("../img/wash_base.png");
+  background-image: url(#{$img-path}/wash_base.png);
 }
 
 /* UV ROOM VIEW */
 .uv-view {
-  background-image: url("../img/uv_base.png");
+  background-image: url(#{$img-path}/uv_base.png);
 }
 
 /* !COMPUTER VIEW */

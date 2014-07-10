@@ -1,5 +1,7 @@
 /* view/menu.scss */
 
+@import '../variables';
+
 .menu-container {
   position: absolute;
   width: 100%;
@@ -173,9 +175,9 @@
   width: 105px;
   height: 227px;
   z-index: 400;
-  background-image: url("../img/grab_pipette_notip.png");
+  background-image: url(#{$img-path}/grab_pipette_notip.png);
   background-size: 105px 227px; }
   .pipette.tip {
-    background-image: url("../img/grab_pipette_tip.png"); }
+    background-image: url(#{$img-path}/grab_pipette_tip.png); }
     .pipette.tip.full {
-      background-image: url("../img/grab_pipette_tip_click.png"); }
+      background-image: url(#{$img-path}/grab_pipette_tip_click.png); }
