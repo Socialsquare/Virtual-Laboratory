@@ -1,7 +1,19 @@
 /* view/spectropm.scss */
 
 @import '../variables';
+@import 'base';
 
 .spectrophotometer-view {
+  @extend .view;
   background-image: url(#{$img-path}/spectropm_view.png);
+
+  #micro-slot {
+    position: relative;
+    left: 204px;
+    top: 235px;
+    width: 381px;
+    height: 285px;
+
+    img { content:url(#{$img-path}/spectropm_micro.png); }
+  }
 }

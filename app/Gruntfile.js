@@ -25,10 +25,8 @@ module.exports = function (grunt) {
                     { expand: true, src: [ 'view/**' ], dest: '<%= dist_root %>' },
                     // index
                     { expand: true, src: [ 'index.html' ], dest: '<%= dist_root %>' },
-                    // images
-                    { expand: true, src: [ 'img/**' ], dest: '<%= dist_root %>' },
-                    // videos
-                    { expand: true, src: [ 'videos/**' ], dest: '<%= dist_root %>' },
+                    // assets
+                    { expand: true, src: [ 'assets/**' ], dest: '<%= dist_root %>' },
                     // css
                     { expand: true, src: [ 'css/**/*.css' ], dest: '<%= dist_root %>' },
                     // vendor

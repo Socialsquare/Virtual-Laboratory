@@ -12,9 +12,9 @@
 
     <button class="btn-none" id="worktable2-blender"></button>
 
-    <div class="droppable" id="worktable2-od" data-bind="if: worktable2.odMachine.hasTube()">
+    <div id="worktable2-od" data-bind="if: worktable2.odMachine.hasTube()">
         <div class="testtube draggable">
-            <img src="img/work2_od-on.png">
+            <img alt="Test tube">
         </div>
     </div>
 

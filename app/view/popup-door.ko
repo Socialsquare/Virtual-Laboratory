@@ -1,12 +1,24 @@
 <div class="popup popup-door">
-	<h1>Gå til</h1>
-	<hr />
-	<ul>
-		<li><a href="#computer"><img class="icon-img" src="img/icon_ext_computer.png" alt="Computer scene icon" /></a></li>
-		<li><a href="#uv"><img class="icon-img" src="img/icon_ext_uv.png" alt="UV room scene icon" /></a></li>
-		<li><a href="#washingroom"><img class="" src="img/icon_ext_wash.png" alt="Washing mashine scene icon" /></a></li>
-	</ul>
-	<div class="btn-row float-clear">
+    <h1>Gå til</h1>
+    <hr />
+    <ul>
+        <li>
+            <a href="#computer">
+                <img class="icon-img" id="computer-icon-img" alt="Computer scene icon">
+            </a>
+        </li>
+        <li>
+            <a href="#uv">
+                <img class="icon-img" id="uv-icon-img" alt="UV room scene icon" />
+            </a>
+        </li>
+        <li>
+            <a href="#washingroom">
+                <img class="" id="washingroom-icon-img" alt="Washing mashine scene icon" />
+            </a>
+        </li>
+    </ul>
+    <div class="btn-row float-clear">
         <button type="button"
                 class="popup-cancel-btn"
                 data-bind="click: $parent.hidePopup">Fortryd</button>

@@ -1,20 +1,20 @@
 /* view/fumehood.scss */
 
 @import '../variables';
+@import 'mixin/compositecontainer';
 
 .fumehood-view {
   background-image: url(#{$img-path}/fumehood_base.png);
 }
 
-#fumehood-table {
-  position: absolute;
-  top: 390px;
-  left: 0px;
-  width: 1020px;
-  height: 110px;
-  z-index: 9;
+#fumehood-micro {
+  @include tablespacemicro(160px, 380px);
 }
 
-#fumehood-testtubeholder {
+#fumehood-petri {
+  @include tablespacepetri(600px, 380px);
+}
+
+#fumehood-tuberack {
   @include tuberack(527px, 228px);
 }

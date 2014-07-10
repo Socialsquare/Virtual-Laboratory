@@ -1,68 +1,68 @@
-<div id="top-menu" class="top-menu">
+<div class="top-menu">
     <ul class="left">
-	    <li>
+        <li>
             <a id="view-back-link" href="#overview">
-                <img src="img/top-button_back.png" alt="Tilbage">
+                <img id="back-img" alt="Tilbage">
             </a>
         </li>
     </ul>
 
     <ul class="right">
-	    <li>
+        <li>
             <a id="menu-newexperiment-link" data-bind="click: selectExperiment">
-                <img src="img/top-button_menu.png" alt="Vælg nyt eksperiment">
+                <img id="newexperiment-img" alt="Vælg nyt eksperiment">
             </a>
         </li>
-	    <li>
+        <li>
             <a id="menu-fullscreen-link" data-bind="click: fullscreen">
-                <img src="img/top-button_fullscreen.png" alt="Full screen">
+                <img id="fullscreen-img" alt="Full screen">
             </a>
         </li>
     </ul>
 </div>
 
-<div id="menu" class="menu">
+<div class="menu">
     <ul>
-	    <li>
-            <a id="menu-experimentinstructions-link">
-                <img class="menu-left-icon" src="img/icon_main_notes.png" alt="Øvelsesvejledninger">
+        <li>
+            <a id="experimentinstructions-link">
+                <img class="left-icon" alt="Øvelsesvejledninger">
             </a>
         </li>
     </ul>
 
     <div class="logo-container">
-	    <img class="logo" src="img/logo-white.png" alt="Biotech Academy logo">
+        <img class="logo" alt="Biotech Academy logo">
     </div>
 
     <div class="menu-inventory-container">
-	    <div class="inventory droppable">
-		    <ul data-bind="foreach: gameState.inventory.items">
-		        <li class="menu-inventory-box">
+        <div class="inventory droppable">
+            <ul data-bind="foreach: gameState.inventory.items">
+                <li class="menu-inventory-box">
                     <div class="draggable" data-bind="drag: $data">
                         <img data-bind="attr: { src: $parent.Imager.inventoryIcon($data) }">
                     </div>
                 </li>
             </ul>
-	    </div>
+        </div>
     </div>
 
     <div class="menu-right-links">
-	    <ul>
-		    <li>
+        <ul>
+            <li>
                 <button class="btn-none" id="menu-pipette-btn">
-                    <img src="img/icon_big_pipette.png" alt="Pipette">
+                    <img id="pipette-img" alt="Pipette">
                 </button>
             </li>
-		    <li>
+            <li>
                 <button class="btn-none" id="menu-tips-btn">
-                    <img src="img/icon_big_tips.png" alt="Pipette spidser">
+                    <img id="pipette-tips-img" alt="Pipette spidser">
                 </button>
             </li>
-		    <li data-bind="drop: { handler: dropHandler, accept: acceptDrop }">
+            <li data-bind="drop: { handler: dropHandler, accept: acceptDrop }">
                 <button class="btn-none" id="menu-trash-btn">
-                    <img src="img/icon_big_biotrash.png" alt="Affald">
+                    <img id="trash-img" alt="Affald">
                 </button>
             </li>
-	    </ul>
+        </ul>
     </div>
 </div>

@@ -2,11 +2,6 @@
 
 @import '../variables';
 
-.menu-container {
-  position: absolute;
-  width: 100%;
-  height: 100%; }
-
 .top-menu {
   z-index: 100;
   position: absolute;
@@ -14,21 +9,28 @@
   top: 0;
   width: 1024px;
   /*height: 100px;*/
-  margin-left: -512px; }
-  .top-menu ul {
+  margin-left: -512px;
+
+  ul {
     padding: 0;
     margin: 14px 0 0 0;
-    list-style: none; }
-  .top-menu .left {
-    margin-left: 10px;
-    float: left; }
-  .top-menu .right {
-    margin-right: 10px;
-    float: right; }
-  .top-menu ul li {
-    float: left;
-    margin-left: 5px;
-    margin-right: 5px; }
+    list-style: none;
+
+    li {
+      float: left;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+
+  .left, .right { margin-left: 10px; }
+  .left { float: left; }
+  .right { float: right; }
+
+  #back-img { content:url(#{$img-path}/top-button_back.png); }
+  #newexperiment-img { content:url(#{$img-path}/top-button_menu.png); }
+  #fullscreen-img { content:url(#{$img-path}/top-button_fullscreen.png); }
+}
 
 .menu {
   z-index: 100;
@@ -39,6 +41,20 @@
   height: 122px;
   /* account for 2px top border */
   margin-left: -512px;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    float: left;
+    list-style: none;
+
+    li {
+      float: left;
+      margin: 0 5px 0 5px;
+      a { cursor: pointer; }
+    }
+  }
+
   background: #6e6e73;
   /* Old browsers */
   background: -moz-radial-gradient(center, ellipse cover, #6e6e73 0%, #433f46 100%);
@@ -57,117 +73,129 @@
   /* IE6-9 fallback on horizontal gradient */
   border-top-width: 2px;
   border-top-style: solid;
-  border-color: #555159; }
-  .menu ul {
-    padding: 0;
-    margin: 0 0 0 0;
+  border-color: #555159;
+
+  .left-icon {
+    width: 98px;
+    height: 101px;
+    content:url(#{$img-path}/icon_main_notes.png);
+  }
+
+
+  .logo-container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    .logo {
+      width: 100px;
+      height: 30px;
+      content:url(#{$img-path}/logo-white.png);
+    }
+  }
+
+  .menu-inventory-container {
     float: left;
-    list-style: none; }
-    .menu ul li {
-      float: left;
-      margin: 0 5px 0 5px; }
-      .menu ul li a {
-        cursor: pointer; }
+    height: 100px;
+    text-align: center;
+    ul {
+      margin: 0;
+      padding: 0;
+    }
 
-.menu-left-icon {
-  width: 98px;
-  height: 101px; }
+    .inventory {
+      margin: 10px 20px 0 20px;
+      width: 500px;
+      height: 90px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      border-width: 2px;
+      border-style: solid;
+      border-radius: 45px;
+      border-color: #1c1b1e;
+      background: #38363c;
+      /* Old browsers */
+      background: -moz-linear-gradient(left, #38363c 0%, #54565a 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, right top, color-stop(0%, #38363c), color-stop(100%, #54565a));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(left, #38363c 0%, #54565a 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(left, #38363c 0%, #54565a 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(left, #38363c 0%, #54565a 100%);
+      /* IE10+ */
+      background: linear-gradient(to right, #38363c 0%, #54565a 100%);
+      /* W3C */
 
-.menu .logo-container {
-  position: absolute;
-  left: 0;
-  bottom: 0; }
-  .menu .logo-container .logo {
-    width: 100px;
-    height: 30px; }
-.menu .menu-inventory-container {
-  float: left;
-  height: 100px;
-  text-align: center; }
+      ul {
+        width: 3000px;
+        height: 90px;
+        display: block;
+        list-style-type: none;
+        white-space: nowrap;
+        li {
+          display: inline-block;
+          width: 80px;
+          height: 80px;
+          margin: 0;
+        }
+      }
 
-.menu-inventory-container ul {
-  margin: 0;
-  padding: 0; }
+      .menu-inventory-box {
+        position: relative;
+        width: 80px;
+        height: 75px;
+        padding-top: 5px;
+        /*border-radius: 4px;
+          background-color: white;*/
+        .draggable {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+  }
 
-.inventory {
-  margin: 10px 20px 0 20px;
-  width: 500px;
-  height: 90px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 45px;
-  border-color: #1c1b1e;
-  background: #38363c;
-  /* Old browsers */
-  background: -moz-linear-gradient(left, #38363c 0%, #54565a 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #38363c), color-stop(100%, #54565a));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(left, #38363c 0%, #54565a 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(left, #38363c 0%, #54565a 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(left, #38363c 0%, #54565a 100%);
-  /* IE10+ */
-  background: linear-gradient(to right, #38363c 0%, #54565a 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#38363c', endColorstr='#54565a',GradientType=1 );
-  /* IE6-9 */ }
-  .inventory ul {
-    width: 3000px;
-    height: 90px;
-    display: block;
-    list-style-type: none;
-    white-space: nowrap; }
-    .inventory ul li {
-      display: inline-block;
-      width: 80px;
-      height: 80px;
-      margin: 0; }
+  .menu-right-links {
+    float: right;
+    ul {
+      height: 112px;
+      border-width: 2px;
+      border-style: solid;
+      border-color: #373A46;
+      border-top-left-radius: 56px;
+      border-bottom-left-radius: 56px;
+      img {
+        width: 106px;
+        height: 106px;
+        margin-top: 3px;
+      }
 
-.menu-inventory-box {
-  position: relative;
-  width: 80px;
-  height: 75px;
-  padding-top: 5px;
-  /*border-radius: 4px;
-  background-color: white;*/ }
-  .menu-inventory-box .draggable {
-    margin-left: auto;
-    margin-right: auto; }
+      #pipette-img { content:url(#{$img-path}/icon_big_pipette.png); }
+      #pipette-tips-img { content:url(#{$img-path}/icon_big_tips.png); }
+      #trash-img { content:url(#{$img-path}/icon_big_biotrash.png); }
 
-.menu-right-links {
-  float: right; }
-  .menu-right-links ul {
-    height: 112px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #373A46;
-    border-top-left-radius: 56px;
-    border-bottom-left-radius: 56px;
-    background: #424245;
-    /* Old browsers */
-    background: -moz-linear-gradient(left, #424245 0%, #373a46 100%);
-    /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #424245), color-stop(100%, #373a46));
-    /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left, #424245 0%, #373a46 100%);
-    /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left, #424245 0%, #373a46 100%);
-    /* Opera 11.10+ */
-    background: -ms-linear-gradient(left, #424245 0%, #373a46 100%);
-    /* IE10+ */
-    background: linear-gradient(to right, #424245 0%, #373a46 100%);
-    /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#424245', endColorstr='#373a46',GradientType=1 );
-    /* IE6-9 */ }
-  .menu-right-links img {
-    width: 106px;
-    height: 106px;
-    margin-top: 3px; }
+      background: #424245;
+      /* Old browsers */
+      background: -moz-linear-gradient(left, #424245 0%, #373a46 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, right top, color-stop(0%, #424245), color-stop(100%, #373a46));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(left, #424245 0%, #373a46 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(left, #424245 0%, #373a46 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(left, #424245 0%, #373a46 100%);
+      /* IE10+ */
+      background: linear-gradient(to right, #424245 0%, #373a46 100%);
+      /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#424245', endColorstr='#373a46',GradientType=1 );
+    /* IE6-9 */
+    }
+  }
+}
 
+/* TODO: unused? */
 .pipette {
   position: absolute;
   top: 400px;
@@ -177,7 +205,9 @@
   z-index: 400;
   background-image: url(#{$img-path}/grab_pipette_notip.png);
   background-size: 105px 227px; }
-  .pipette.tip {
-    background-image: url(#{$img-path}/grab_pipette_tip.png); }
-    .pipette.tip.full {
-      background-image: url(#{$img-path}/grab_pipette_tip_click.png); }
+.pipette.tip {
+  background-image: url(#{$img-path}/grab_pipette_tip.png);
+}
+.pipette.tip.full {
+  background-image: url(#{$img-path}/grab_pipette_tip_click.png);
+}

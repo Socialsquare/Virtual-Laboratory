@@ -2,38 +2,38 @@
  	<div class="video-container">
         <video id="mouse-video-runfast" preload="auto"
                data-bind="css: { offscreen: activeVideo() !== 'runfast'}, videoLoop: true">
-            <source src="videos/runFast.mp4" type="video/mp4"/>
-            <source src="videos/runFast.webm" type="video/webm"/>
+            <source src="assets/videos/runFast.mp4" type="video/mp4"/>
+            <source src="assets/videos/runFast.webm" type="video/webm"/>
         </video>
 
 		<video id="mouse-video-drinkstart" preload="auto"
                data-bind="css: { offscreen: activeVideo() !== 'drinkstart'}">
-            <source src="videos/runFast_drink_spawn.mp4" type="video/mp4"/>
-            <source src="videos/runFast_drink_spawn.webm" type="video/webm"/>
+            <source src="assets/videos/runFast_drink_spawn.mp4" type="video/mp4"/>
+            <source src="assets/videos/runFast_drink_spawn.webm" type="video/webm"/>
         </video>
 
         <video id="mouse-video-drinkloop" preload="auto"
                data-bind="css: { offscreen: activeVideo() !== 'drinkloop'}">
-            <source src="videos/runFast_drink_loop.mp4" type="video/mp4"/>
-            <source src="videos/runFast_drink_loop.webm" type="video/webm"/>
+            <source src="assets/videos/runFast_drink_loop.mp4" type="video/mp4"/>
+            <source src="assets/videos/runFast_drink_loop.webm" type="video/webm"/>
         </video>
 
         <video id="mouse-video-inj" preload="auto"
                data-bind="css: { offscreen: activeVideo() !== 'inj'}, videoLoop: true">
-            <source src="videos/runFast_inj.mp4" type="video/mp4"/>
-            <source src="videos/runFast_inj.webm" type="video/webm"/>
+            <source src="assets/videos/runFast_inj.mp4" type="video/mp4"/>
+            <source src="assets/videos/runFast_inj.webm" type="video/webm"/>
         </video>
 
         <video id="mouse-video-injdie" preload="auto"
                data-bind="css: { offscreen: activeVideo() !== 'injdie'}">
-            <source src="videos/poi1_inj.mp4" type="video/mp4"/>
-            <source src="videos/poi1_inj.webm" type="video/webm"/>
+            <source src="assets/videos/poi1_inj.mp4" type="video/mp4"/>
+            <source src="assets/videos/poi1_inj.webm" type="video/webm"/>
         </video>
 
 		<video id="mouse-video-cut" preload="auto"
                data-bind="css: { offscreen: activeVideo() !== 'cut'}">
-            <source src="videos/poi3_cut.mp4" type="video/mp4"/>
-            <source src="videos/poi3_cut.webm" type="video/webm"/>
+            <source src="assets/videos/poi3_cut.mp4" type="video/mp4"/>
+            <source src="assets/videos/poi3_cut.webm" type="video/webm"/>
         </video>
     </div>
 
