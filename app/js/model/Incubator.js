@@ -1,11 +1,12 @@
 define([
     'knockout',
+    'lodash',
     'base',
     'model/TubeRack',
     'model/TableSpace',
     'model/ContainerType',
     'model/GrowerType'
-], function(ko, Base, TubeRackModel, TableSpaceModel, ContainerType, GrowerType) {
+], function(ko, _, Base, TubeRackModel, TableSpaceModel, ContainerType, GrowerType) {
 
     var Incubator = Base.extend({
 
@@ -33,34 +34,28 @@ define([
             });
 
             self.activate = function() {
-                self.turnedOn(!self.turnedOn());// toggles self.turnedOn
+                self.turnedOn.toggle();// toggles self.turnedOn
 
-                if(self.turnedOn()) // User starts the run
-                {
-
-                    var timerID = _.delay(self.growOneHour(), 100);
+                // User starts the run
+                if (self.turnedOn()) {
+                    var timerID = setInterval(self.growOneHour, 100);
                     self.timerID(timerID);
 
                     // For-løkke med mindre steps?
-
-                }else // User stops the run
-                {
+                } else {
+                    // User stops the run
                     clearTimeout(self.timerID());
                     self.timerID(null);
 
-                    // TODO stop current run
+                    // TODO: stop current run
                 }
 
-                // TODO implement growth-caller
-
-
-                throw 'JegErHerIkke, Derfor: Undtagelsestilstand';
+                // TODO: implement growth-caller
             };
 
             self.growOneHour = function() //Grows all containers one hour
             {
-                if(self.timer() < 1)
-                {
+                if(self.timer() < 1) {
                     clearTimeout(self.timerID());
                     self.turnedOn(false);
                     self.timerID(null);
@@ -69,8 +64,7 @@ define([
 
                 var deltaTime = 1.0 / self.hourResolution();
 
-                for(var i = 0; i < self.hourResolution(); i++)
-                {
+                for(var i = 0; i < self.hourResolution(); i++) {
                     self.tableSpaceMicro.growContentsOnce(deltaTime, self.growerType(), 0, self.temperature());
                     self.tableSpacePetri.growContentsOnce(deltaTime, self.growerType(), 0, self.temperature());
                     self.tubeRack.growContentsOnce(deltaTime, self.growerType(), 0, self.temperature());

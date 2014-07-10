@@ -15,10 +15,6 @@ define([
             var self = this;
             self.base('incubator');
 
-            self.toggleState = function () {
-                self.incubator.turnedOn.toggle();
-            };
-
             self.changeTemp = function(val) {
                 self.incubator.temperature(self.incubator.temperature() + val);
             };

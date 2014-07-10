@@ -20,7 +20,7 @@ define([
     'model/Petridish',
     'model/Microtiterplate',
     'factory/Liquid'
-], function (Base, ko, Router, OverviewController, /* ComputerController, ChemicalController, MouseController*/  Fumehood, Worktable1, Worktable2, IncubatorController, MenuController, gameState, Tube, Petridish, Microtiterplate, LiquidFactory) {
+], function (Base, ko, Router, OverviewController, /* ComputerController, ChemicalController, MouseController*/  FumehoodController, Worktable1Controller, Worktable2Controller, IncubatorController, MenuController, gameState, Tube, Petridish, Microtiterplate, LiquidFactory) {
     var App = Base.extend({
         activeViewController: ko.observable(),
         activePopup: ko.observable(''),

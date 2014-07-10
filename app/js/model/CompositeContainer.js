@@ -1,7 +1,8 @@
 define([
     'knockout',
+    'lodash',
     'base'
-], function (ko, Base) {
+], function (ko, _, Base) {
 
     var CompositeContainer = Base.extend({
         constructor: function (capacity, acceptedType, type) {
@@ -49,10 +50,9 @@ define([
 
             self.growContentsOnce = function(deltaTime, growerType, pH, temperature) {
                 // deltaTime is in "hours"
-                _.forEach(self.containers(), function(container){
-                    //TODO check if null?
-                    container.growContentsOnce(deltaTime, growerType, pH, temperature);
-                });
+                _(self.containers())
+                    .compact()
+                    .invoke('growContentsOnce', [deltaTime, growerType, pH, temperature]);
             };
         },
     });
