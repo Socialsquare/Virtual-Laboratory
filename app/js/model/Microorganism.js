@@ -78,7 +78,7 @@ define([
                 var tempDiff = temp - self.optimalTemp();
                 if (tempDiff > 8) //tempDiff = [8; Inf]
                 {
-                    self.living(false);
+                    self.living(false); //TODO: let knockout track this state instead of having it in a getter
                     return 0;
                 }
                 else if(tempDiff > 0) //tempDiff = [0;8]

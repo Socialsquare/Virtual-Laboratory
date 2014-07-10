@@ -84,6 +84,8 @@ define([
             tubefull.add(LiquidFactory.microorganism.yeast());
 
             gameState.worktable1.tubeRack.addAt(0, tube);
+            gameState.worktable1.heater.addAt(0, tube);
+            gameState.worktable1.heater.addAt(2, tube);
             gameState.worktable1.tubeRack.addAt(5, tubefull);
 
             var petri = new Petridish();

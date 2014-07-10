@@ -42,11 +42,15 @@
     </button>
 
 	<div id="worktable1-heater-testtubeholder">
-		<ul>
-			<li class="droppable heater-slot" id="heatertube1"></li>
-			<li class="droppable heater-slot" id="heatertube2"></li>
-			<li class="droppable heater-slot" id="heatertube3"></li>
-		</ul>
+        <ul data-bind="foreach: worktable1.heater.containers">
+	        <li class="droppable heater-slot" data-bind="attr: { id: 'heatertube' + ($index() + 1) }">
+                <div class="testtube draggable" data-item-index="2">
+                    <img data-bind="visible: $parent.worktable1.heater.hasContainerAt($index()),
+                                    attr: { src: 'img/work1-heater_' + ($index() + 1) + '.png' }"
+                         alt="Heater tube">
+                </div>
+            </li>
+        </ul>
 	</div>
 	<button class="btn-none" id="worktable1-heater-btn" data-bind="click: toggleHeater">
         <img src="img/work1_dev2-on.png" alt="Heater button" data-bind="css: { hidden: !worktable1.heater.status() }"/>
