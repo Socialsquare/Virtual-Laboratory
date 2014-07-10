@@ -4,8 +4,8 @@
 	<div class="time" data-bind="text: incubator.timerText()"></div>
 	<div class="temperature" data-bind="text: incubator.temperatureText()"></div>
 
-	<button class="btn-none" id="incubator-timeup-btn" data-bind="click: changeTimer.bind(null, 1)"></button>
-	<button class="btn-none" id="incubator-timedown-btn" data-bind="click: changeTimer.bind(null, -1)"></button>
+	<button class="btn-none" id="incubator-timeup-btn" data-bind="click: changeTimer.bind(null, 2)"></button>
+	<button class="btn-none" id="incubator-timedown-btn" data-bind="click: changeTimer.bind(null, -2)"></button>
 	<button class="btn-none" id="incubator-tempup-btn" data-bind="click: changeTemp.bind(null, 0.5)"></button>
 	<button class="btn-none" id="incubator-tempdown-btn" data-bind="click: changeTemp.bind(null, -0.5)"></button>
 

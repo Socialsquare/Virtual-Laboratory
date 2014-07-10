@@ -55,10 +55,11 @@ define([
 
             self.growOneHour = function() //Grows all containers one hour
             {
-                if(self.timer() < 1) {
+                if(self.timer() < 1) { // If reaches 0-hours left
                     clearTimeout(self.timerID());
                     self.turnedOn(false);
                     self.timerID(null);
+                    self.timer(48);
                     return;
                 }
 
