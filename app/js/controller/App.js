@@ -122,7 +122,7 @@ define([
             gameState.incubator.tubeRack.addAt(4, tube);
             gameState.incubator.tubeRack.addAt(5, tube);
 
-            gameState.spectroPM.SpectroPMMachine.addAt(0, microtiter);
+            gameState.spectroPM.spectroPMMachine.addAt(0, microtiter);
 
         }
     });

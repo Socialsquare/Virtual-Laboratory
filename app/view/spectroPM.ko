@@ -1,3 +1,7 @@
-<div class="spectrophotometer-view-off view">
+<div class="spectrophotometer-view view">
+    <div style="position: relative; left: 85px; top: 9px; width: 833px; height: 633px;">
+    <!-- TODO: dropping on the spectroPM -->
+        <img src="img/spectroPM_on.png" data-bind="css: { hidden: !spectroPM.spectroPMMachine.hasMicrotiter() }">
+        <img src="img/spectroPM_off.png" data-bind="css: { hidden: spectroPM.spectroPMMachine.hasMicrotiter() }">
+    </div>
 </div>
-<div class="spectrophotometer-view-on" data-bind="css: { hidden: !spectroPM.SpectroPMMachine.hasMicrotiter()}"></div>

@@ -5,11 +5,12 @@ define([
 ], function(ko, Base, SpectroPMMachineModel) {
 
     var SpectroPM = Base.extend({
+        //TODO: remove inline CSS from $this.ko
 
         constructor: function () {
             var self = this;
 
-            self.SpectroPMMachine = new SpectroPMMachineModel();
+            self.spectroPMMachine = new SpectroPMMachineModel();
 
         }
     });
