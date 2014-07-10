@@ -1,0 +1,25 @@
+/* view/chemicalcloset.scss */
+
+.chemicalcloset-view {
+  background-image: url("../img/storage.png"); }
+
+#chemicalcloset-closet-link div {
+  position: absolute;
+  top: 50px;
+  left: 68px;
+  width: 440px;
+  height: 360px; }
+
+#chemicalcloset-fridge-link div {
+  position: absolute;
+  top: 10px;
+  left: 544px;
+  width: 310px;
+  height: 610px; }
+
+#chemicalcloset-drawer-link div {
+  position: absolute;
+  top: 428px;
+  left: 96px;
+  width: 416px;
+  height: 160px; }

@@ -1,0 +1,219 @@
+/* main.scss */
+
+@import 'variables';
+
+html {
+  height: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #000000;
+  font-size: 100%; }
+
+/* !DEVELOPMENT */
+.placeholder {
+  background-color: pink; }
+
+/* !SITE WIDE TYPOGRAPHY */
+body {
+  font-size: 100%;
+  line-height: 1.5em;
+  /* based out from the recommended 16px font-size standard */ }
+
+.popup {
+  font-family: $font;
+  font-size: 100%;
+  color: #ffffff;
+
+  h1 {
+    font-size: 100%;
+  }
+
+  p {
+    font-size: 80%;
+  }
+
+  .chc-select a:link {
+    font-family: $font;
+    font-size: 80%;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .chc-select a:visited {
+    color: #ffffff;
+  }
+
+  button {
+    font-size: 80%;
+  }
+}
+
+.popup-taskchecklist h1 {
+  font-size: 100%;
+}
+
+/* !GENERAL */
+.float-clear {
+  clear: both; }
+
+.hidden {
+  visibility: hidden; }
+
+.btn-row {
+  width: 100%;
+  text-align: center; }
+
+.btn-none {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  outline: none; }
+
+.right-align {
+  text-align: right; }
+
+/* !ANIMATIONS */
+@import 'animation';
+
+/* !MENU */
+@import 'view/menu';
+
+/* !VIEWS */
+.interface-container {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+
+.current-view {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+.view {
+  position: relative;
+  left: 50%;
+  width: 1024px;
+  height: 644px;
+  margin-left: -512px;
+  background-size: 1024px 644px; }
+
+.nightmode {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0;
+  z-index: 10;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-direction: alternate;
+  -webkit-animation-direction: alternate;
+  -moz-animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-timing-function: ease-in-out;
+  animation-name: nightfall;
+  -webkit-animation-name: nightfall;
+  -moz-animation-name: nightfall; }
+
+/* !POPUPS */
+@import 'popup/main';
+
+/* !FULL SCREEN VIDEO */
+#video-container {
+  display: none;
+  z-index: 100;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; }
+  #video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1024px;
+    height: 768px;
+    margin-left: -512px;
+    margin-top: -384px;
+    /* Vertical align hack */ }
+
+/* !DRAGGABLE */
+.draggable {
+  z-index: 10;
+  cursor: pointer; }
+
+.draggablespawner {
+  cursor: pointer; }
+
+/* !OVERVIEW VIEW */
+@import 'view/overview';
+
+/* !DOOR VIEW */
+.door-view {
+  /*background-image: url('../img/worktable-view-background.jpg');*/ }
+
+/* !WORKTABLE2 VIEW */
+@import 'view/worktable2';
+
+/* !FERMENTOR VIEW */
+@import 'view/fermentor';
+
+/* CHROMATOGRAPH SCREEN VIEW */
+@import 'view/chromograph';
+
+/* !HPLC VIEW */
+.hplc-view {
+  /*background-image: url('../img/hplc-view-background.jpg');*/ }
+
+/* !WORKTABLE1 VIEW */
+@import 'view/worktable1';
+
+/* !FUMEHOOD VIEW */
+@import 'view/fumehood';
+
+/* !CHEMICAL CLOSET VIEW */
+@import 'view/chemicalcloset';
+
+/* !MOUSE VIEW */
+@import 'view/mouse';
+
+/* !WASHING MACHINE VIEW */
+.washingmachine-view {
+  background-image: url("../img/wash_base.png"); }
+
+/* UV ROOM VIEW */
+.uv-view {
+  background-image: url("../img/uv_base.png"); }
+
+/* !COMPUTER VIEW */
+@import 'view/computer';
+
+/* !INCUBATOR VIEW */
+@import 'view/incubator';
+
+/* SPECTROPHOTOMETER VIEW */
+.spectrophotometer-view {
+  background-image: url("../img/spc_spektro_off.png"); }

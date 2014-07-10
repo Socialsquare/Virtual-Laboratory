@@ -1,0 +1,128 @@
+/* view/worktable1.scss */
+
+.worktable1-view {
+  background-image: url("../img/work1_base.png"); }
+
+#worktable1-table {
+  position: absolute;
+  top: 460px;
+  left: 220px;
+  width: 804px;
+  height: 100px;
+  z-index: 9;
+}
+
+#worktable1-testtubeholder {
+  position: absolute;
+  top: 315px;
+  left: 514px;
+  width: 242px;
+  height: 138px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      float: left;
+    }
+  }
+
+  #tube1 {
+    width: 51px;
+    imgwidth: 51px;
+    height: 138px;
+  }
+  #tube2, #tube2 img, #tube3, #tube3 img {
+    width: 36px;
+    height: 138px;
+  }
+  #tube4 {
+    width: 39px;
+    imgwidth: 39px;
+    height: 138px;
+  }
+  #tube5 {
+    width: 38px;
+    imgwidth: 38px;
+    height: 138px;
+  }
+  #tube6 {
+    width: 41px;
+    imgwidth: 41px;
+    height: 138px;
+  }
+}
+
+
+#worktable1-bunsen {
+  position: absolute;
+  top: 110px;
+  left: 340px;
+  width: 90px;
+  height: 180px; }
+
+#worktable1-bunsenflame {
+  background-image: url("../img/work1_bunsenFlame.png");
+  position: absolute;
+  top: 6px;
+  left: 335px;
+  width: 64px;
+  height: 128px; }
+
+#worktable1-electroporator {
+  position: absolute;
+  top: 230px;
+  left: 440px;
+  width: 170px;
+  height: 70px; }
+
+#worktable1-electroporator-btn {
+  position: absolute;
+  top: 198px;
+  left: 714px;
+  width: 74px;
+  height: 69px; }
+
+#worktable1-heater-btn {
+  position: absolute;
+  top: 273px;
+  left: 893px;
+  width: 78px;
+  height: 91px; }
+
+#worktable1-heater-testtubeholder {
+  position: absolute;
+  top: 229px;
+  left: 857px;
+  width: 105px;
+  height: 38px; }
+  #worktable1-heater-testtubeholder ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    #worktable1-heater-testtubeholder ul li {
+      float: left; }
+
+#heatertube1 {
+  width: 38px;
+  height: 38px; }
+
+#heatertube2 {
+  width: 26px;
+  height: 38px; }
+
+#heatertube3 {
+  width: 41px;
+  height: 38px; }
+
+.worktable1-view .video-container {
+  z-index: 0;
+  height: 100%;
+  width: 100%; }
+  .worktable1-view .video-container.playing {
+    z-index: 1000;
+    background-color: #000000; }
+  .worktable1-view .video-container video {
+    width: 100%; }

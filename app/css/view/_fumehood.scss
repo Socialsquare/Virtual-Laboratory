@@ -1,0 +1,55 @@
+/* view/fumehood.scss */
+
+.fumehood-view {
+  background-image: url("../img/fumehood_base.png"); }
+
+#fumehood-table {
+  position: absolute;
+  top: 390px;
+  left: 0px;
+  width: 1020px;
+  height: 110px;
+  z-index: 9; }
+
+#fumehood-testtubeholder {
+  position: absolute;
+  top: 228px;
+  left: 527px;
+  width: 242px;
+  height: 138px; }
+  #fumehood-testtubeholder ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    #fumehood-testtubeholder ul li {
+      float: left; }
+  #fumehood-testtubeholder #tube1 {
+    width: 51px;
+    height: 138px; }
+    #fumehood-testtubeholder #tube1 img {
+      width: 51px;
+      height: 138px; }
+  #fumehood-testtubeholder #tube2, #fumehood-testtubeholder #tube3 {
+    width: 36px;
+    height: 138px; }
+    #fumehood-testtubeholder #tube2 img, #fumehood-testtubeholder #tube3 img {
+      width: 36px;
+      height: 138px; }
+  #fumehood-testtubeholder #tube4 {
+    width: 39px;
+    height: 138px; }
+    #fumehood-testtubeholder #tube4 img {
+      width: 39px;
+      height: 138px; }
+  #fumehood-testtubeholder #tube5 {
+    width: 38px;
+    height: 138px; }
+    #fumehood-testtubeholder #tube5 img {
+      width: 38px;
+      height: 138px; }
+  #fumehood-testtubeholder #tube6 {
+    width: 41px;
+    height: 138px; }
+    #fumehood-testtubeholder #tube6 img {
+      width: 41px;
+      height: 138px; }

@@ -1,0 +1,20 @@
+/* popup/door.scss */
+
+.popup-door ul {
+  list-style: none;
+  width: 480px;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  clear: both; }
+  .popup-door ul li {
+    float: left; }
+    .popup-door ul li img {
+      height: 80px;
+      width: 80px;
+      margin: 0 40px 0 40px; }
+.popup-door .btn-row {
+  position: absolute;
+  bottom: 40px;
+  left: 0px; }

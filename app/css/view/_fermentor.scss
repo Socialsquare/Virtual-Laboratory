@@ -1,0 +1,17 @@
+/* view/fermentor.scss */
+
+.fermentor-view {
+  background-image: url("../img/fermkroma_base.png"); }
+  .fermentor-view #fermentor-screen-link {
+    position: absolute;
+    left: 500px;
+    top: 40px;
+    width: 273px;
+    height: 206px; }
+
+#fermentor {
+  position: absolute;
+  top: 90px;
+  left: 100px;
+  width: 230px;
+  height: 420px; }

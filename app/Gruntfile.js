@@ -30,7 +30,7 @@ module.exports = function (grunt) {
                     // videos
                     { expand: true, src: [ 'videos/**' ], dest: '<%= dist_root %>' },
                     // css
-                    { expand: true, src: [ 'css/**' ], dest: '<%= dist_root %>' },
+                    { expand: true, src: [ 'css/**/*.css' ], dest: '<%= dist_root %>' },
                     // vendor
                     { expand: true, src: [ 'bower_components/**' ], dest: '<%= dist_root %>' }
                 ]
@@ -41,7 +41,7 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    src: [ 'css/*.scss' ],
+                    src: [ 'css/main.scss' ],
                     dest: '<%= dist_root %>',
                     ext: '.css'
                 }]

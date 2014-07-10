@@ -1,0 +1,147 @@
+/* view/incubator.scss */
+
+.incubator-view {
+  background-image: url("../img/off_base.png"); }
+  .incubator-view .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1024px;
+    height: 644px;
+    z-index: 100;
+    background-image: url("../img/on_base2.png"); }
+  .incubator-view button, .incubator-view .time, .incubator-view .temperature {
+    z-index: 101; }
+
+#incubator-btn {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 62px;
+  left: 710px; }
+
+.incubator-view .time, .incubator-view .temperature {
+  font-size: 28px;
+  font-family: sans-serif;
+  opacity: 0.7; }
+.incubator-view .time {
+  position: absolute;
+  text-align: center;
+  width: 90px;
+  top: 94px;
+  left: 270px; }
+.incubator-view .temperature {
+  position: absolute;
+  top: 94px;
+  left: 495px; }
+
+#incubator-timeup-btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 58px;
+  left: 392px; }
+
+#incubator-timedown-btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 108px;
+  left: 392px; }
+
+#incubator-tempup-btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 58px;
+  left: 616px; }
+
+#incubator-tempdown-btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 108px;
+  left: 618px; }
+
+#incubator-testtube-holder {
+  position: absolute;
+  top: 240px;
+  left: 300px;
+  width: 400px;
+  height: 140px; }
+
+.incubator-view ul {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .incubator-view ul li {
+    position: absolute; }
+
+#incubator-testtube-holder ul #incubator-tubeslot-1 {
+  width: 61px;
+  height: 126px;
+  top: 20px;
+  left: 69px; }
+#incubator-testtube-holder ul #incubator-tubeslot-2 {
+  width: 35px;
+  height: 126px;
+  top: 20px;
+  left: 130px; }
+#incubator-testtube-holder ul #incubator-tubeslot-3 {
+  width: 36px;
+  height: 126px;
+  top: 20px;
+  left: 165px; }
+#incubator-testtube-holder ul #incubator-tubeslot-4 {
+  width: 38px;
+  height: 126px;
+  top: 20px;
+  left: 201px; }
+#incubator-testtube-holder ul #incubator-tubeslot-5 {
+  width: 39px;
+  height: 126px;
+  top: 20px;
+  left: 239px; }
+#incubator-testtube-holder ul #incubator-tubeslot-6 {
+  width: 62px;
+  height: 126px;
+  top: 20px;
+  left: 278px; }
+
+#incubator-petridish-level {
+  position: absolute;
+  top: 386px;
+  left: 300px;
+  width: 400px;
+  height: 120px; }
+  #incubator-petridish-level ul #incubator-dishslot-1 {
+    width: 136px;
+    height: 44px;
+    top: 0;
+    left: 2px; }
+  #incubator-petridish-level ul #incubator-dishslot-2 {
+    width: 114px;
+    height: 44px;
+    top: 0;
+    left: 138px; }
+  #incubator-petridish-level ul #incubator-dishslot-3 {
+    width: 152px;
+    height: 44px;
+    top: 0;
+    left: 252px; }
+  #incubator-petridish-level ul #incubator-dishslot-4 {
+    width: 136px;
+    height: 94px;
+    top: 44px;
+    left: 2px; }
+  #incubator-petridish-level ul #incubator-dishslot-5 {
+    width: 114px;
+    height: 94px;
+    top: 44px;
+    left: 138px; }
+  #incubator-petridish-level ul #incubator-dishslot-6 {
+    width: 152px;
+    height: 94px;
+    top: 44px;
+    left: 252px; }

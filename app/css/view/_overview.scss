@@ -1,0 +1,94 @@
+/* view/overview.scss */
+
+.main-view {
+  background-image: url("../img/overview_base.png"); }
+
+#overview-spectrophotometer-img {
+  position: absolute;
+  left: 365px;
+  top: 87px;
+  width: 138px;
+  height: 85px; }
+
+#overview-door-img {
+  position: absolute;
+  left: 499px;
+  top: 0;
+  width: 118px;
+  height: 192px; }
+
+#overview-chemicalcloset-img {
+  position: absolute;
+  left: 619px;
+  top: 0;
+  width: 307px;
+  height: 207px; }
+
+#overview-fumehood-img {
+  position: absolute;
+  left: 34px;
+  top: 120px;
+  width: 257px;
+  height: 284px; }
+
+#overview-mouse-img {
+  position: absolute;
+  left: 802px;
+  top: 206px;
+  width: 155px;
+  height: 106px; }
+
+#overview-worktable2-img {
+  position: absolute;
+  left: 446px;
+  top: 192px;
+  width: 244px;
+  height: 120px; }
+
+#overview-worktable1-img {
+  position: absolute;
+  left: 290px;
+  top: 355px;
+  width: 359px;
+  height: 130px; }
+
+#overview-fermentorchroma-img {
+  position: absolute;
+  left: 802px;
+  top: 313px;
+  width: 222px;
+  height: 301px; }
+
+#overview-incubator-img {
+  position: absolute;
+  left: 359px;
+  top: 485px;
+  width: 153px;
+  height: 129px; }
+
+#letter {
+  position: absolute;
+  left: 70px;
+  top: 220px;
+  perspective: 600px;
+  -webkit-transform: rotateX(80deg) rotateY(-10deg) rotateZ(-10deg);
+  -o-transform: rotateX(80deg) rotateY(-10deg) rotateZ(-10deg);
+  -moz-transform: rotateX(80deg) rotateY(-10deg) rotateZ(-10deg);
+  -ms-transform: rotateX(80deg) rotateY(-10deg) rotateZ(-10deg);
+  transform: rotateX(80deg) rotateY(-10deg) rotateZ(-10deg);
+  width: 50px;
+  height: 27px;
+  background-color: yellow; }
+  #letter.foreground {
+    position: absolute;
+    left: 155px;
+    top: 95px;
+    perspective: 600px;
+    -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -o-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    width: 650px;
+    height: 350px;
+    background-color: yellow; }

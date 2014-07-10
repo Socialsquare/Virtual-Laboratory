@@ -1,0 +1,55 @@
+/* view/chromograph.scss */
+
+@import '../variables';
+
+.chromatographscreen-view {
+  background-image: url("../img/zoom_kromatograf.png"); }
+
+.fermentor-screen {
+  position: absolute;
+  top: 84px;
+  left: 186px;
+  width: 632px;
+  height: 432px; }
+
+.fermentor-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-family: $font; }
+
+.fermentor-control {
+  float: left;
+  color: #ffffff;
+  background-color: #1b6d72;
+  border-radius: 4px;
+  margin: 0 10px 10px 10px;
+  height: 46px; }
+  .fermentor-control div {
+    float: left; }
+  .fermentor-control .label, .fermentor-control .value {
+    padding-top: 10px; }
+  .fermentor-control .label {
+    margin: 0 10px 0 10px; }
+  .fermentor-control .value {
+    margin: 0 5px 0 0; }
+
+.fermentor-footer button {
+  display: block;
+  height: 20px;
+  width: 40px;
+  margin: 2px;
+  background-color: #2bcb36;
+  border-radius: 2px; }
+
+#fermentor-start-btn {
+  float: right;
+  margin: 0 10px 10px 10px;
+  height: 46px;
+  width: 70px; }
+  #fermentor-start-btn.running {
+    background-color: #f03939; }
+
+.fermentor-graph {
+  width: 620px;
+  height: 360px; }
