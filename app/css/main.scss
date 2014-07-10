@@ -8,23 +8,27 @@ html {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 body {
   margin: 0;
   height: 100%;
   background-color: #000000;
-  font-size: 100%; }
+  font-size: 100%;
+}
 
 /* !DEVELOPMENT */
 .placeholder {
-  background-color: pink; }
+  background-color: pink;
+}
 
 /* !SITE WIDE TYPOGRAPHY */
 body {
   font-size: 100%;
   line-height: 1.5em;
-  /* based out from the recommended 16px font-size standard */ }
+  /* based out from the recommended 16px font-size standard */
+}
 
 .popup {
   font-family: $font;
@@ -61,14 +65,17 @@ body {
 
 /* !GENERAL */
 .float-clear {
-  clear: both; }
+  clear: both;
+}
 
 .hidden {
-  visibility: hidden; }
+  visibility: hidden;
+}
 
 .btn-row {
   width: 100%;
-  text-align: center; }
+  text-align: center;
+}
 
 .btn-none {
   background: none;
@@ -76,10 +83,12 @@ body {
   cursor: pointer;
   padding: 0;
   margin: 0;
-  outline: none; }
+  outline: none;
+}
 
 .right-align {
-  text-align: right; }
+  text-align: right;
+}
 
 /* !ANIMATIONS */
 @import 'animation';
@@ -91,7 +100,8 @@ body {
 .interface-container {
   position: absolute;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+}
 
 .current-view {
   z-index: 1;
@@ -105,7 +115,8 @@ body {
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0); }
+  transform: translate3d(0, 0, 0);
+}
 
 .view {
   position: relative;
@@ -113,7 +124,8 @@ body {
   width: 1024px;
   height: 644px;
   margin-left: -512px;
-  background-size: 1024px 644px; }
+  background-size: 1024px 644px;
+}
 
 .nightmode {
   position: absolute;
@@ -136,7 +148,8 @@ body {
   -moz-animation-timing-function: ease-in-out;
   animation-name: nightfall;
   -webkit-animation-name: nightfall;
-  -moz-animation-name: nightfall; }
+  -moz-animation-name: nightfall;
+}
 
 /* !POPUPS */
 @import 'popup/main';
@@ -158,22 +171,26 @@ body {
     height: 768px;
     margin-left: -512px;
     margin-top: -384px;
-    /* Vertical align hack */ }
+    /* Vertical align hack */
+}
 
 /* !DRAGGABLE */
 .draggable {
   z-index: 10;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .draggablespawner {
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 /* !OVERVIEW VIEW */
 @import 'view/overview';
 
 /* !DOOR VIEW */
 .door-view {
-  /*background-image: url('../img/worktable-view-background.jpg');*/ }
+  /*background-image: url('../img/worktable-view-background.jpg');*/
+}
 
 /* !WORKTABLE2 VIEW */
 @import 'view/worktable2';
@@ -186,7 +203,8 @@ body {
 
 /* !HPLC VIEW */
 .hplc-view {
-  /*background-image: url('../img/hplc-view-background.jpg');*/ }
+  /*background-image: url('../img/hplc-view-background.jpg');*/
+}
 
 /* !WORKTABLE1 VIEW */
 @import 'view/worktable1';
@@ -202,11 +220,13 @@ body {
 
 /* !WASHING MACHINE VIEW */
 .washingmachine-view {
-  background-image: url("../img/wash_base.png"); }
+  background-image: url("../img/wash_base.png");
+}
 
 /* UV ROOM VIEW */
 .uv-view {
-  background-image: url("../img/uv_base.png"); }
+  background-image: url("../img/uv_base.png");
+}
 
 /* !COMPUTER VIEW */
 @import 'view/computer';
@@ -216,4 +236,5 @@ body {
 
 /* SPECTROPHOTOMETER VIEW */
 .spectrophotometer-view {
-  background-image: url("../img/spc_spektro_off.png"); }
+  background-image: url("../img/spectropm_view.png");
+}

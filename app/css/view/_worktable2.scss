@@ -1,9 +1,11 @@
 /* view/worktable2.scss */
 
 @import '../variables';
+@import 'mixin/compositecontainer';
 
 .worktable2-view {
-  background-image: url("../img/work2_base.png"); }
+  background-image: url("../img/work2_base.png");
+}
 
 #worktable2-table {
   position: absolute;
@@ -11,57 +13,20 @@
   left: 0px;
   width: 1020px;
   height: 110px;
-  z-index: 9; }
+  z-index: 9;
+}
 
 #worktable2-testtubeholder {
-  position: absolute;
-  top: 318px;
-  left: 492px;
-  width: 242px;
-  height: 138px; }
-  #worktable2-testtubeholder ul {
-    list-style: none;
-    padding: 0;
-    margin: 0; }
-    #worktable2-testtubeholder ul li {
-      float: left; }
-  #worktable2-testtubeholder #tube1 {
-    width: 51px;
-    height: 138px; }
-    #worktable2-testtubeholder #tube1 img {
-      width: 51px;
-      height: 138px; }
-  #worktable2-testtubeholder #tube2, #worktable2-testtubeholder #tube3 {
-    width: 36px;
-    height: 138px; }
-    #worktable2-testtubeholder #tube2 img, #worktable2-testtubeholder #tube3 img {
-      width: 36px;
-      height: 138px; }
-  #worktable2-testtubeholder #tube4 {
-    width: 39px;
-    height: 138px; }
-    #worktable2-testtubeholder #tube4 img {
-      width: 39px;
-      height: 138px; }
-  #worktable2-testtubeholder #tube5 {
-    width: 38px;
-    height: 138px; }
-    #worktable2-testtubeholder #tube5 img {
-      width: 38px;
-      height: 138px; }
-  #worktable2-testtubeholder #tube6 {
-    width: 41px;
-    height: 138px; }
-    #worktable2-testtubeholder #tube6 img {
-      width: 41px;
-      height: 138px; }
+  @include compositecontainer(492px, 318px);
+}
 
 #worktable2-centrifuge {
   position: absolute;
   top: 203px;
   left: 113px;
   width: 117px;
-  height: 103px; }
+  height: 103px;
+}
 
 #worktable2-blender {
   position: absolute;
@@ -70,14 +35,16 @@
   width: 80px;
   height: 80px; }
   #worktable2-blender.on {
-    background-image: url("../img/work2_blender-on.png"); }
+    background-image: url("../img/work2_blender-on.png");
+}
 
 #worktable2-od {
   position: absolute;
   top: 195px;
   left: 817px;
   width: 181px;
-  height: 234px; }
+  height: 234px;
+}
 
 #worktable2-od-display {
   position: absolute;
@@ -91,4 +58,5 @@
   padding-top: 7px;
   text-align: center;
   font-family: $font;
-  opacity: 0.7; }
+  opacity: 0.7;
+}
