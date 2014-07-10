@@ -17,10 +17,11 @@ define([
                 micro.living(true);
 		        micro.extraGenes([]);
                 micro.extraProperties([]);
-		        micro.optimalpH(0);
-		        micro.optimalTemp(0);
+                micro.optimalPh(6.0);
+		        micro.optimalTemp(35);
                 //TODO: patty: log eller ikke log?
 		        micro.concentration(5);
+
 
                 return micro;
             },
@@ -32,8 +33,8 @@ define([
                 micro.living(true);
 		        micro.extraGenes([]);
                 micro.extraProperties([]);
-		        micro.optimalpH(0);
-		        micro.optimalTemp(0);
+		        micro.optimalPh(7.25); // http://en.wikipedia.org/wiki/Blood#Narrow_range_of_pH_values
+		        micro.optimalTemp(37);
 		        micro.concentration(0);
 
                 return micro;

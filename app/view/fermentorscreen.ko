@@ -1,28 +1,30 @@
 <div class="chromatographscreen-view view">
     <div class="fermentor-screen">
-        <div class="fermentor-graph"></div>
+        <div class="fermentor-graph">
+            <h1>TODO: Se vlab.dk og genbrug Chris'?</h1>
+
+        </div>
+
+
         <div class="fermentor-footer">
             <div class="fermentor-control">
-                <div class="label">pH:</div>
-                <div class="value" id="fermentor-ph">7.0</div>
+                <div class="label" data-bind="text: fermentor.phText()"></div>
                 <div class="buttons">
-                    <button class="btn-none" id="fermentor-phup-btn">+</button>
-                    <button class="btn-none" id="fermentor-phdown-btn">-</button>
+                    <button class="btn-none" data-bind="click: changePh.bind(null, 0.5)">+</button>
+                    <button class="btn-none" data-bind="click: changePh.bind(null, -0.5)">-</button>
                 </div>
             </div>
             <div class="fermentor-control">
-                <div class="label">Temperatur &deg;C:</div>
-                <div class="value" id="fermentor-temp">20.0</div>
+                <div class="label" data-bind="text: fermentor.temperatureText()"></div>
                 <div class="buttons">
-                    <button class="btn-none" id="fermentor-tempup-btn">+</button>
-                    <button class="btn-none" id="fermentor-tempdown-btn">-</button>
+                    <button class="btn-none" data-bind="click: changeTemp.bind(null, 0.5)" >+</button>
+                    <button class="btn-none" data-bind="click: changeTemp.bind(null, -0.5)">-</button>
                 </div>
             </div>
             <div class="fermentor-control">
-                <div class="label">Tid:</div>
-                <div class="value" id="fermentor-time">00:00</div>
+                <div class="label" data-bind="text: fermentor.timerText()"></div>
             </div>
-            <button class="btn-none" id="fermentor-start-btn">Start</button>
+            <button class="btn-none" data-bind="click: fermentor.activate.bind()" id="fermentor-start-btn">Start</button>
         </div>
     </div>
 </div>

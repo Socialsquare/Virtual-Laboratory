@@ -29,6 +29,14 @@ define([
             getConcentrationFromBiomass: function(biomass){
                 return biomass * Math.pow(10, 12);
             }
+        },
+
+        formatter: {
+            leadingZeros: function(number, size) {
+                var s = number+"";
+                while (s.length < size) s = "0" + s;
+                return s;
+            }
         }
     };
 });

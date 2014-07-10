@@ -170,8 +170,8 @@ function(_, Backbone, Microorganism, LabMath) {
 	}
 
 	function getGpH(microorganism) {
-		if(this.attributes.ph >= microorganism.optimalpH - 2 && this.attributes.ph <= microorganism.optimalpH + 2) {
-			return -1 / 4 * Math.pow(this.attributes.ph - microorganism.optimalpH, 2) + 1;
+		if(this.attributes.ph >= microorganism.optimalPh - 2 && this.attributes.ph <= microorganism.optimalPh + 2) {
+			return -1 / 4 * Math.pow(this.attributes.ph - microorganism.optimalPh, 2) + 1;
 		}
 		else {
 			microorganism.living = false;

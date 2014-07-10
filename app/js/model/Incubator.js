@@ -14,10 +14,10 @@ define([
             var self = this;
 
             self.temperature = ko.observable(30.0);
-            self.timer = ko.observable(48);
+            self.timer = ko.observable(48); // Time in hours
             self.turnedOn = ko.observable(false);
             self.timerID = ko.observable(null);
-            self.hourResolution = ko.observable(12); // This is used in the growth.
+            self.hourResolution = ko.observable(10); // This is used in the growth.
             self.growerType = ko.observable(GrowerType.INCUBATOR);
 
             self.tableSpacePetri = new TableSpaceModel(ContainerType.PETRI_DISH);
@@ -25,8 +25,7 @@ define([
             self.tubeRack = new TubeRackModel();
 
             self.temperatureText = ko.computed(function() {
-                //TODO when displaying, use parseFloat("123.456").toFixed(2); (see answer #2 in http://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-in-javascript)
-                return '' + self.temperature().toFixed(1) + ' °C'; // TODO
+                return '' + self.temperature().toFixed(1) + ' °C';
             });
 
             self.timerText = ko.computed(function() {
@@ -40,8 +39,6 @@ define([
                 if (self.turnedOn()) {
                     var timerID = setInterval(self.growOneHour, 100);
                     self.timerID(timerID);
-
-                    // For-løkke med mindre steps?
                 } else {
                     // User stops the run
                     clearTimeout(self.timerID());
@@ -54,7 +51,7 @@ define([
             };
 
             self.growOneHour = function() //Grows all containers one hour
-            {
+            {// For-løkke med mindre steps?
                 if(self.timer() < 1) { // If reaches 0-hours left
                     clearTimeout(self.timerID());
                     self.turnedOn(false);

@@ -16,30 +16,29 @@ define([
 		    self.name = ko.observable('');
 		    self.extraGenes = ko.observable(null);
             self.extraProperties = ko.observable(null);
-		    self.optimalpH = ko.observable(0);
-/*		    self.maxpH = ko.observable(0);
-		    self.minpH = ko.observable(0);*/
+		    self.optimalPh = ko.observable(0);
 		    self.optimalTemp = ko.observable(0);
-/*		    self.minTemp = ko.observable(0);
-		    self.maxTemp = ko.observable(0);*/
 		    self.concentration = ko.observable(0);
 
-            self.getGrowthRate = function(pH, temperature) {
+            self.getGrowthRate = function(ph, temperature) {
                 if(!self.living())
                 {return 0;}
 
-                return self.getPHGrowthFactor() * self.getTempGrowthFactor() * 0.6;
+                return self.getPHGrowthFactor() * self.getTempGrowthFactor() * 0.6; // TODO: optimize this magic number when the fermentor has plotting-implemented
             };
 
             self.grow = function(growthAmount){
                 self.concentration(self.concentration + growthAmount);
             };
 
-            self.getGrowthStep = function(deltaTime, containerMaxConc, containerPrevTotalConc, pH, temperature) {
+            self.getGrowthStep = function(deltaTime, containerMaxConc, containerPrevTotalConc, ph, temperature) {
+// TODO: check if microorganisms are alive
+// TODO: kill if conditions are too harsh
+
                 // Returns concentration
                 // Temporarily converts to biomass (has the real unit g/L)
                 // And back to concentration afterwards!
-                var a_i = self.getGrowthRate(pH, temperature);
+                var a_i = self.getGrowthRate(ph, temperature);
 
                 var n_i = Utils.math.getBiomassFromConcentration(self.concentration()); //This _is_ the previous, as it is not updated until afterwards
                 /*var k = Math.pow(10, container.maxConcentration()) * 1.01;
@@ -63,15 +62,15 @@ define([
                 return dN_i_concentration; // I know this is lame, but its _slightly_ better for readability
             };
 
-            self.getPHGrowthFactor = function(pH) {
-                var pHDiff = pH - self.optimalpH();
-                if(Math.abs(pHDiff) >= 2)
+            self.getPHGrowthFactor = function(ph) {
+                var phDiff = ph - self.optimalPh();
+                if(Math.abs(phDiff) >= 2)
                 {
                     self.living(false);
                     return 0;
                 }
 
-                return 1 - 1.0/4.0 * pHDiff * pHDiff;
+                return 1 - 1.0/4.0 * phDiff * phDiff;
             };
 
             self.getTempGrowthFactor = function(temp) { //TODO

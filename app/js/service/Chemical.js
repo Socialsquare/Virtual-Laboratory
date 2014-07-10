@@ -87,7 +87,7 @@ define([
 	// 				microorganisms:	[
 	// 					new Microorganism({
 	// 						name: 'yeastcells',
-	// 						optimalpH: 6,
+	// 						optimalPh: 6,
 	// 						maxpH: 7.5,
 	// 						minpH: 4,
 	// 						optimalTemp: 28,

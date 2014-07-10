@@ -48,11 +48,11 @@ define([
                 self.containers.setAt(position, null);
             };
 
-            self.growContentsOnce = function(deltaTime, growerType, pH, temperature) {
+            self.growContentsOnce = function(deltaTime, growerType, ph, temperature) {
                 // deltaTime is in "hours"
                 _(self.containers())
                     .compact()
-                    .invoke('growContentsOnce', [deltaTime, growerType, pH, temperature]);
+                    .invoke('growContentsOnce', [deltaTime, growerType, ph, temperature]);
             };
         },
     });

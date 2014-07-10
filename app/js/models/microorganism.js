@@ -16,7 +16,7 @@ define([
 			promoterName: string name of the promoter the extra DNA comes from
 		}*/
 		extraProperties: null,
-		optimalpH: 0,
+		optimalPh: 0,
 		maxpH: 0,
 		minpH: 0,
 		optimalTemp: 0,
@@ -76,7 +76,7 @@ define([
 		return (this.living === microorganism.living && 
 				this.hasSameExtraDNA(microorganism) && 
 				this.hasSameExtraPropertiesAs(microorganism) &&
-				this.optimalpH === microorganism.optimalpH &&
+				this.optimalPh === microorganism.optimalPh &&
 				this.maxpH === microorganism.maxpH &&
 				this.minpH === microorganism.minpH &&
 				this.optimalTemp === microorganism.optimalTemp &&
@@ -142,7 +142,7 @@ define([
 			name: this.name,
 			extraDNA: extraDNA,
 			extraProperties: extraProperties,
-			optimalpH: this.optimalpH,
+			optimalpH: this.optimalPh,
 			maxpH: this.maxpH,
 			minpH: this.minpH,
 			optimalTemp: this.optimalTemp,

@@ -9,8 +9,10 @@ define([
     'model/Worktable2',
     'model/Fumehood',
     'model/Incubator',
-    'model/SpectroPM'
-], function (ko, Base, Inventory, MouseModel, Worktable1Model, Worktable2Model, FumehoodModel, IncubatorModel, SpectroPMModel) {
+    'model/SpectroPM',
+    'model/Fermentor'
+], function (ko, Base, Inventory, MouseModel, Worktable1Model, Worktable2Model, FumehoodModel,
+             IncubatorModel, SpectroPMModel, FermentorModel) {
 
     var GameState = Base.extend({
 
@@ -22,7 +24,8 @@ define([
         worktable2: new Worktable2Model(),
         fumehood: new FumehoodModel(),
         incubator: new IncubatorModel(),
-        spectroPM: new SpectroPMModel()
+        spectroPM: new SpectroPMModel(),
+        fermentor: new FermentorModel()
 
     });
 

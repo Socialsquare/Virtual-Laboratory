@@ -51,8 +51,7 @@ define([
             };
 
 
-
-            self.growContentsOnce = function(deltaTime, growerType, pH, temperature) {
+            self.growContentsOnce = function(deltaTime, growerType, ph, temperature) {
                 // TODO return whether growth is performed. False = max is reached, True = grew once
                 // deltaTime is in hours!
                 if(self.getTotalConcentration() >= self.maxConcentration())
@@ -60,6 +59,8 @@ define([
 
 
 // TODO limit when reaches maxConcentration
+
+
 
                 var totalConc = self.getTotalConcentration();
 
@@ -74,11 +75,11 @@ define([
 
                     if(growerType === GrowerType.FERMENTOR)
                     {
-                        growthAmount = liquid.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, pH, temperature);
+                        growthAmount = liquid.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, ph, temperature);
                     }else if(growerType === GrowerType.INCUBATOR)
-                    { // Always choose the optimal pH
-                        pH = liquid.optimalpH();
-                        growthAmount = liquid.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, pH, temperature);
+                    { // Always choose the optimal ph
+                        ph = liquid.optimalPh();
+                        growthAmount = liquid.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, ph, temperature);
                     }else
                     {
                         throw 'wtf are you doing, developer-dude?';
@@ -90,40 +91,6 @@ define([
                 return true;
 
             };
-
-            /*self.growContents = function(deltaTime, growerType, pH, temperature) {
-                // deltaTime is in hours!
-
-// TODO limit when reaches maxConcentration
-
-                while(self.getTotalConcentration() < self.maxConcentration())
-                {
-                    var totalConc = self.getTotalConcentration();
-
-
-                    _.forEach(self.liquids(), function(liquid){
-                        if(! (liquid.type() === LiquidType.MICROORGANISM))
-                        { return; }
-
-                        var growthAmount = 0;
-
-                        if(growerType === GrowerType.FERMENTOR)
-                        {
-                            growthAmount = liquid.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, pH, temperature);
-                        }else if(growerType === GrowerType.INCUBATOR)
-                        { // Always choose the optimal pH
-                            pH = liquid.optimalpH();
-                            growthAmount = liquid.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, pH, temperature);
-                        }else
-                        {
-                            throw 'wtf are you doing, developer-dude?';
-                        }
-
-                        liquid.grow(growthAmount);
-                    });
-                }
-
-            };*/
         }
     });
 
