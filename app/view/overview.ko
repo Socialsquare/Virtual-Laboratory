@@ -1,5 +1,5 @@
 <div class="main-view view">
-    <a href="#spectrophotometer">
+	<a href="#spectroPM">
         <img id="overview-spectrophotometer-img"
              src="img/special_spektro.png"
              alt="Go to spectrophotometer">

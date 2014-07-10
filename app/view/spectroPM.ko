@@ -1,0 +1,3 @@
+<div class="spectrophotometer-view-off view">
+</div>
+<div class="spectrophotometer-view-on" data-bind="css: { hidden: !spectroPM.SpectroPMMachine.hasMicrotiter()}"></div>

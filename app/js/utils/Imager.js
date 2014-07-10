@@ -21,6 +21,7 @@ define([
             return 'img/work1-heater_' + (position + 1) + '.png';
         },
 
+
         inventoryIcon: function (item) {
             switch (item.type()) {
             case ContainerType.PETRI_DISH:

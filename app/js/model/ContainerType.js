@@ -16,7 +16,8 @@ define([], function () {
 
         // Composite machines
         HEATER: '12312312312355_SUCH_UNIQUE',
-        OD_MACHINE: 'yttappattyderpalurp'
+        OD_MACHINE: 'yttappattyderpalurp',
+        SPECTROPM_MACHINE: 'random: ostmelvandgiverpizza'
 
     };
 });

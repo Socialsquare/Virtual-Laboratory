@@ -12,6 +12,7 @@ define([
     'controller/Worktable1',
     'controller/Worktable2',
     'controller/Incubator',
+    'controller/SpectroPM',
     'controller/Menu',
 
     'model/GameState',
@@ -20,7 +21,11 @@ define([
     'model/Petridish',
     'model/Microtiterplate',
     'factory/Liquid'
-], function (Base, ko, Router, OverviewController, /* ComputerController, ChemicalController, MouseController*/  FumehoodController, Worktable1Controller, Worktable2Controller, IncubatorController, MenuController, gameState, Tube, Petridish, Microtiterplate, LiquidFactory) {
+
+], function (Base, ko, Router, OverviewController, /* ComputerController, ChemicalController, MouseController*/
+             FumehoodController, Worktable1Controller, Worktable2Controller, IncubatorController,
+             SpectroPMController,
+             MenuController, gameState, Tube, Petridish, Microtiterplate, LiquidFactory) {
     var App = Base.extend({
         activeViewController: ko.observable(),
         activePopup: ko.observable(''),
@@ -38,10 +43,12 @@ define([
                 // computer: new ComputerController(),
                 // 'chemical-closet': new ChemicalController(this),
                 // mouse: new MouseController(),
+
                 worktable1: new Worktable1Controller(),
                 worktable2: new Worktable2Controller(),
                 fumehood: new FumehoodController(),
                 incubator: new IncubatorController(),
+                spectroPM: new SpectroPMController()
             };
 
             self.triggerPopup = function (popupName, vm) {
@@ -84,6 +91,7 @@ define([
             //------------------------
             var tube = new Tube();
             var tubefull = new Tube();
+            var microtiter = new Microtiterplate();
 
             tubefull.add(LiquidFactory.microorganism.yeast());
 
@@ -104,6 +112,7 @@ define([
             gameState.worktable2.odMachine.addAt(0, tubefull);
             gameState.worktable2.tubeRack.addAt(0, tube);
 
+
             gameState.fumehood.tubeRack.addAt(0, tube);
             gameState.fumehood.tubeRack.addAt(5, tubefull);
 
@@ -112,6 +121,9 @@ define([
             gameState.incubator.tubeRack.addAt(2, tube);
             gameState.incubator.tubeRack.addAt(4, tube);
             gameState.incubator.tubeRack.addAt(5, tube);
+
+            gameState.spectroPM.SpectroPMMachine.addAt(0, microtiter);
+
         }
     });
 
