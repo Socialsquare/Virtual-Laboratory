@@ -15,7 +15,7 @@ define([
 
         constructor: function () {
             var self = this;
-            self.base('spectroPM');
+            self.base('spectropm');
 
         }
     });

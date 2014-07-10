@@ -2,6 +2,7 @@
  * Backbone router module for appOriginals.
  * @author: Chris Hjorth, www.chrishjorth.com
  */
+/*
 define([
 	'jquery',
 	'underscore',
@@ -103,3 +104,4 @@ define([
 
 	return router;
 });
+*/

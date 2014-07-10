@@ -39,6 +39,8 @@ define([
             var self = this;
 
             var viewControllers = {
+                // Patrick's bane: these fields will be matched with the hashes from the URL
+
                 overview: new OverviewController(),
                 // computer: new ComputerController(),
                 // 'chemical-closet': new ChemicalController(this),
@@ -48,11 +50,11 @@ define([
                 worktable2: new Worktable2Controller(),
                 fumehood: new FumehoodController(),
                 incubator: new IncubatorController(),
-                spectroPM: new SpectroPMController()
+                spectropm: new SpectroPMController()
             };
 
             self.triggerPopup = function (popupName, vm) {
-                self.activePopupVM(vm || {}),
+                self.activePopupVM(vm || {});
                 self.activePopup('popup-' + popupName);
                 self.hasActivePopup(true);
             };
