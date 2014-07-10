@@ -35,7 +35,6 @@
     </div>
 
     <div class="menu-inventory-container">
-        <!-- data-bind="droparea: handleDrop" -->
 	    <div class="inventory droppable">
 		    <ul data-bind="foreach: gameState.inventory.items">
 		        <li class="menu-inventory-box">

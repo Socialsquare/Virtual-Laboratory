@@ -28,7 +28,7 @@
 
 	<div class="droppable" id="worktable1-table"></div>
 
-	<div id="worktable1-testtubeholder" data-bind="template: { name:'tubeRack', data: { tubeRack: worktable1.tubeRack, Imager: Imager } }">
+	<div id="worktable1-testtubeholder" data-bind="template: { name:'tubeRack', data: { tubeRack: worktable1.tubeRack, Imager: Imager, dropHandler: handleTubeRackDrop, DragHelper: DragHelper } }">
 	</div>
 
 	<div id="worktable1-bunsenflame" data-bind="css: { hidden: !worktable1.bunsenBurner() }"></div>

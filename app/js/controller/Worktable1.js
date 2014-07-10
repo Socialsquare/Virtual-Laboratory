@@ -4,14 +4,17 @@ define([
     'controller/BaseView',
     'controller/Notifier',
     'model/GameState',
-    'utils/Imager'
-], function (ko, $, BaseViewController, Notifier, gameState, Imager) {
+    'utils/Imager',
+    'utils/DragHelper',
+    'model/ContainerType'
+], function (ko, $, BaseViewController, Notifier, gameState, Imager, DragHelper, ContainerType) {
 
     var Worktable1 = BaseViewController.extend({
 
         gameState: gameState,
         worktable1: gameState.worktable1,
         Imager: Imager,
+        DragHelper: DragHelper,
 
         constructor: function () {
             var self = this;
@@ -29,8 +32,13 @@ define([
                 self.worktable1.electroporator.activate();
             };
 
-            self.handleDrop = function () {
+            self.handleTubeRackDrop = function (position, tube) {
+                gameState.inventory.remove(tube);
+                self.worktable1.tubeRack.addAt(position, tube);
+            };
 
+            self.acceptDrop = function (item) {
+                return item.type() === ContainerType.TUBE;
             };
         }
     });

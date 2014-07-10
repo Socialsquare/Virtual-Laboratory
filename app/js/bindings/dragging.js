@@ -3,8 +3,6 @@ define([
     'knockout',
     'lodash'
 ], function ($, ko, _) {
-    var DRAG_DATA_ID = 'vlab.drag.data';
-
     var dragData = null;
 
     ko.bindingHandlers.drag = {
@@ -27,19 +25,19 @@ define([
 
     ko.bindingHandlers.drop = {
         init: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
-            var self = this;
 
             var options = valueAccessor();
-            self.accept = options.accept || _.constant(true);
-            self.handler = options.handler;
+
+            var accept = options.accept || _.constant(true);
+            var handler = options.handler;
 
             $(element).droppable({
                 tolerance: 'pointer',
                 accept: function (draggable) {
-                    return self.accept(dragData);
+                    return accept(dragData);
                 },
                 drop: function(evt, ui) {
-                    self.handler(dragData);
+                    handler(dragData);
                 }
             });
         }
