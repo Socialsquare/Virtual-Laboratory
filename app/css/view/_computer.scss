@@ -164,6 +164,17 @@
   margin-top: 10%;
   width: 60px;
   height: 60px;
+
+  .remove-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #666666;
+    color: #ffffff;
+    border: 0;
+  }
 }
 
 .dna-element-img {
@@ -180,16 +191,6 @@
   color: #333333;
   line-height: 120%;
   text-align: center;
-  .remove-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 10px;
-    height: 10px;
-    background-color: #666666;
-    color: #ffffff;
-    border: 0;
-  }
 }
 
 .sequence-container {

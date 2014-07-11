@@ -13,7 +13,7 @@ define([
             if (typeof options.dim !== 'undefined') {
                 item = options.item;
             } else {
-                options.dim = true;
+                options.dim = false;
             }
 
             $(element).draggable({

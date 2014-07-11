@@ -1,13 +1,16 @@
 define([
 	'knockout',
-    'lodash',
-    'base',
-	'model/DNAElement'
-], function(ko, _, Base, DNAElementModel) {
+    'model/Liquid',
+    'model/LiquidType',
+    'model/ReactionCount',
+], function(ko, LiquidModel, LiquidType, ReactionCount) {
 
-    var Gene = Base.extend({
+    var Gene = LiquidModel.extend({
         constructor: function (elements) {
-            this.dnaElements = ko.observableArray(elements || []);
+            var self = this;
+            // TODO: patty: correct reaction count?
+            self.base(LiquidType.GENE, ReactionCount.ALWAYS);
+            self.dnaElements = ko.observableArray(elements || []);
         }
     });
 

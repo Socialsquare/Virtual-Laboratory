@@ -3,7 +3,7 @@
 	<hr />
 	<ul data-bind="foreach: items">
         <li>
-            <div data-bind="text: name, drag: { item: item, dim: false}"></div>
+            <div data-bind="text: name, drag: item"></div>
         </li>
     </ul>
 	<div class="btn-row float-clear">

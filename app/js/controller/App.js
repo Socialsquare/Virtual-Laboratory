@@ -7,7 +7,7 @@ define([
     'controller/view/Overview',
     'controller/view/Mouse',
     'controller/view/Chemical',
-    //'controller/view/Computer',
+    'controller/view/Computer',
     'controller/view/Fumehood',
     'controller/view/Worktable1',
     'controller/view/Worktable2',
@@ -26,7 +26,7 @@ define([
     'factory/Liquid'
 
 ], function (Base, ko, Router, OverviewController, MouseController,
-             ChemicalController, //ComputerController,
+             ChemicalController, ComputerController,
              FumehoodController, Worktable1Controller, Worktable2Controller,
              IncubatorController, SpectroPMController, FermentorController,
              FermentorScreenController, MenuController, gameState, Tube,
@@ -47,7 +47,7 @@ define([
                 // Patrick's bane: these fields will be matched with the hashes from the URL
 
                 overview: new OverviewController(),
-                //computer: new ComputerController(),
+                computer: new ComputerController(),
                 chemical: new ChemicalController(this),
                 worktable1: new Worktable1Controller(),
                 worktable2: new Worktable2Controller(),

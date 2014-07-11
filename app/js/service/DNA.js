@@ -1,15 +1,18 @@
 define([
-    'jquery',
-    'mapping',
-    'service/Base'
-], function ($, mapping, BaseService) {
+    'lodash',
+    'service/Base',
+    'model/DNAElement'
+], function ( _, BaseService, DNAElement) {
     var DNAService = BaseService.extend({
         getDNAElements: function () {
 
             var promise = $.Deferred();
             this.get('dna_elements')
                 .done(function (elements) {
-                    promise.resolve(mapping.fromJS(elements)());
+                    var result = _.map(elements, function (element) {
+                        return new DNAElement(element);
+                    });
+                    promise.resolve(result);
                 });
 
             return promise;

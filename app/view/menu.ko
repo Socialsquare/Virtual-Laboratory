@@ -38,7 +38,7 @@
         <div class="inventory" data-bind="drop: { handler: inventoryDropHandler }">
             <ul data-bind="foreach: gameState.inventory.items">
                 <li class="menu-inventory-box">
-                    <div data-bind="drag: $data">
+                    <div data-bind="drag: { item: $data, dim: true }">
                         <img data-bind="attr: { src: $parent.Imager.inventoryIcon($data) }">
                     </div>
                 </li>

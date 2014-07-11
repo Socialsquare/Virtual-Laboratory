@@ -71,15 +71,12 @@
 
  		    <ul class="dna-element-list" data-bind="foreach: availableDNA">
                 <li>
-                    <div class="draggablespawner"
-                         data-bind="text: name, attr: { 'data-dnaelementid': id },
-                                    dragSpawner: { styleClass: 'draggablespawn-computer' }"></div>
+                    <div data-bind="text: name, drag: $data"></div>
                 </li>
             </ul>
 
  		    <div class="detail">
- 			    <div class="droparea droppable" data-bind="foreach: activeGene().dnaElements,
-                                                           droparea: handleDrop">
+ 			    <div class="droparea" data-bind="foreach: dnaSequence, drop: { handler: handleDrop, accept: DragHelper.acceptDNA }">
                     <div class="dna-element">
                         <div class="dna-element-img" data-bind="style: { 'background-color': color }"></div>
                         <div class="dna-element-name" data-bind="text: name"></div>
@@ -90,7 +87,7 @@
 
  			    <h3 class="computer-subheader">Sekvens:</h3>
  			    <div class="sequence-container">
- 				    <div class="sequence" id="computer-dnasequence" data-bind="foreach: activeGene().dnaElements">
+ 				    <div class="sequence" id="computer-dnasequence" data-bind="foreach: dnaSequence">
                         <span data-bind="style: { color: color }, text: sequence"></span>
                     </div>
  			    </div>

@@ -1,17 +1,17 @@
 define([
     'knockout',
     'mapping',
-    'jquery',
     'lodash',
 
     'controller/view/Base',
 
     'model/Gene',
+    'model/Tube',
     'model/GameState',
 
     'service/DNA',
     'utils/utils'
-], function (ko, mapping, $, _, BaseViewController, Gene, gameState, DNAService, utils) {
+], function (ko, mapping, _, BaseViewController, GeneModel, TubeModel, gameState, DNAService, utils) {
     var Computer = BaseViewController.extend({
 
         dnaService: new DNAService(),
@@ -19,12 +19,12 @@ define([
         availableDNA: ko.observableArray([]),
 
         activeScreen: ko.observable('menu'),
-        activeGene: ko.observable(new Gene()), // TODO: just make this an observableArray
+
+        dnaSequence: ko.observableArray([]),
 
         constructor: function () {
             var self = this;
             self.base('computer');
-
 
             self.changeScreen = function (name) {
                 self.activeScreen(name);
@@ -35,41 +35,27 @@ define([
                     self.availableDNA(elements);
                 });
 
-            self.handleDrop = function (event, $draggable) {
-                //On iPad there is a delay if we do not wait for last draw cycle to complete
-		        setTimeout(function() {
-                    var dna = _.find(self.availableDNA(), function (d) {
-                        return d.id() === $draggable.data('dnaelementid');
-                    });
-
-                    var clone = utils.klone(dna);
-                    self.activeGene().dnaElements.push(clone);
-
-			        $draggable.remove();
-		        }, 1);
-
-		        // DETECT MOUSE OVER ON DROPAREA ONLY WHEN IN DRAG MODE, THEN
-                // EITHER APPEND OR PREPEND CUE TO ELEMENT BASED ON MOUSE POSITION // TODO: wat?
+            self.handleDrop = function (dna) {
+                //TODO: On iPad there is a delay if we do not wait for last draw cycle to complete
+                var clone = utils.klone(dna);
+                self.dnaSequence.push(clone);
             };
 
             self.removeDNA = function (dna) {
-                self.activeGene().dnaElements.remove(dna);
+                self.dnaSequence.remove(dna);
             };
 
             self.orderDNA = function () {
-                //TODO: implement
-                // var geneClone = utils.klone(self.activeGene());
-                // var item = new InventoryItem({
-                //     type: "dna",
-                //     name: "dna",
-                //     icon: "img/icon_dna.png",
-                //     content: geneClone
-                // });
-                // gameState.addInventoryItem(item);
+                // clone sequence, add to gene, put in tube
+                var sequenceClone = ko.toJS(self.dnaSequence);
+                var gene = new GeneModel(sequenceClone);
+                var tube = new TubeModel();
+                tube.add(gene);
+                gameState.inventory.add(tube);
 
-                // // reset the gene and go to computer menu
-                // self.activeGene().dnaElements.removeAll();
-                // self.activeScreen('menu');
+                // reset the sequence and go to computer menu
+                self.dnaSequence.removeAll();
+                self.activeScreen('menu');
 	        };
 	    }
     });
