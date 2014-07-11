@@ -9,6 +9,7 @@
     "jquery-ui": "~1.11.0",
     "jquery-flot": "~0.8.3",
     "jqueryui-touch-punch": "*",
-    "fastclick": "~1.0.2"
+    "fastclick": "~1.0.2",
+    "screenfull": "~1.2.1"
   }
 }

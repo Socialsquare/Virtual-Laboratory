@@ -8,6 +8,7 @@ require.config({
         mapping: '../bower_components/knockout-mapping/knockout.mapping',
         jqueryuitouchpunch: '../bower_components/jqueryui-touch-punch/jquery.ui.touch-punch',
         fastclick: '../bower_components/fastclick/lib/fastclick',
+        screenfull: '../bower_components/screenfull/dist/screenfull',
 
         base: 'libs/Base'
     },
@@ -15,6 +16,7 @@ require.config({
         'jqueryui': ['jquery'],
         'jqueryuitouchpunch': ['jqueryui'],
         'flot': ['jquery'],
+        'screenfull': {exports: 'screenfull'},
 
         'base': { exports: 'Base' }
     }
