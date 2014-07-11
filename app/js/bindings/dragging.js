@@ -1,36 +1,42 @@
 define([
     'jquery',
     'knockout',
-    'lodash'
-], function ($, ko, _) {
+    'lodash',
+    'utils/ImageHelper'
+], function ($, ko, _, ImageHelper) {
     var dragData = null;
+    var dragConsume = null;
 
     ko.bindingHandlers.drag = {
         init: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
 
-            var options = valueAccessor();
-            var item = valueAccessor();
-            if (typeof options.dim !== 'undefined') {
-                item = options.item;
-            } else {
-                options.dim = false;
-            }
+            var options = _.defaults(valueAccessor(), {
+                dim: false,
+                consume: _.noop
+            });
 
             $(element).draggable({
                 containment: 'window',
                 revert: 'invalid',
                 zIndex: 100000,
-                helper: 'clone',
+                appendTo: 'body',
+
+                helper: function (event, ui) {
+                    return $('<img/>').attr({ src: ImageHelper.draggingIcon(options.item) });
+                },
+
                 start: function (event, ui) {
                     if (options.dim)
                         $(this).fadeTo(0, 0.3);
-                    dragData = item;
+
+                    dragData = options.item;
+                    dragConsume = options.consume;
                 },
+
                 stop: function (event, ui) {
                     if (options.dim)
                         $(this).fadeTo(0, 1);
-                },
-                appendTo: 'body'
+                }
             });
         }
     };
@@ -45,10 +51,13 @@ define([
 
             $(element).droppable({
                 tolerance: 'pointer',
+
                 accept: function (draggable) {
                     return accept(dragData);
                 },
+
                 drop: function(evt, ui) {
+                    dragConsume();
                     handler(dragData);
                 }
             });

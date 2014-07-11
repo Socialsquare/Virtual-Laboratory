@@ -1,12 +1,11 @@
 <div class="worktable2-view">
-    <div id="worktable2-micro" data-bind="template: { name:'tableSpaceMicro', data: { tableSpaceMicro: worktable2.tableSpaceMicro, Imager: Imager, DragHelper: DragHelper, dropHandler: function () {} } }">
+    <div id="worktable2-micro" data-bind="template: { name:'tableSpaceMicro', data: { tableSpaceMicro: worktable2.tableSpaceMicro, ImageHelper: ImageHelper, DragHelper: DragHelper, dropHandler: function () {} } }">
     </div>
 
-    <div id="worktable2-petri" data-bind="template: { name:'tableSpacePetri', data: { tableSpacePetri: worktable2.tableSpacePetri, Imager: Imager, DragHelper: DragHelper, dropHandler: function () {} } }">
+    <div id="worktable2-petri" data-bind="template: { name:'tableSpacePetri', data: { tableSpacePetri: worktable2.tableSpacePetri, ImageHelper: ImageHelper, DragHelper: DragHelper, dropHandler: function () {} } }">
     </div>
 
-
-    <div id="worktable2-tuberack" data-bind="template: { name:'tubeRack', data: { tubeRack: worktable2.tubeRack, Imager: Imager, DragHelper: DragHelper, dropHandler: function () {} } }">
+    <div id="worktable2-tuberack" data-bind="template: { name:'tubeRack', data: { tubeRack: worktable2.tubeRack, ImageHelper: ImageHelper, DragHelper: DragHelper, dropHandler: function () {} } }">
     </div>
 
     <div id="worktable2-centrifuge"></div>

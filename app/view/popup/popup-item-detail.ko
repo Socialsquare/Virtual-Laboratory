@@ -1,0 +1,11 @@
+<div class="popup popup-item-detail">
+    <h1 data-bind="text: title"></h1>
+
+    <hr />
+
+    <span data-bind="text: message"></span>
+
+    <div class="btn-row float-clear">
+        <button type="button" class="popup-cancel-btn" data-bind="click: popupController.hide">Luk</button>
+    </div>
+</div>

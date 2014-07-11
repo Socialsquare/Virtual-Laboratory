@@ -1,6 +1,6 @@
 <ul data-bind="foreach: tableSpaceMicro.containers">
     <li class="tablespace-slot" data-bind="attr: { id: 'micro' + ($index() + 1) }">
         <img data-bind="visible: $parent.tableSpaceMicro.hasContainerAt($index()),
-                        attr: { src: $parent.Imager.tableSpaceMicroImage($index(), $data) }">
+                        attr: { src: $parent.ImageHelper.tableSpaceMicroImage($index(), $data) }">
     </li>
 </ul>

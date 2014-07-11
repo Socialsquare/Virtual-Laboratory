@@ -5,7 +5,7 @@
 
 	<ul data-bind="foreach: data.items">
         <li>
-            <div data-bind="text: name, drag: item"></div>
+            <div data-bind="text: name, drag: { item: item() }"></div>
         </li>
     </ul>
 	<div class="btn-row float-clear">

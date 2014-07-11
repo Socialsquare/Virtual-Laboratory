@@ -26,13 +26,13 @@
         </video>
     </div>
 
-    <div id="worktable1-tuberack" data-bind="template: { name:'tubeRack', data: { tubeRack: worktable1.tubeRack, Imager: Imager, dropHandler: handleTubeRackDrop, DragHelper: DragHelper } }">
+    <div id="worktable1-tuberack" data-bind="template: { name:'tubeRack', data: { tubeRack: worktable1.tubeRack, ImageHelper: ImageHelper, dropHandler: handleTubeRackDrop, DragHelper: DragHelper } }">
     </div>
 
-    <div id="worktable1-petri" data-bind="template: { name:'tableSpacePetri', data: { tableSpacePetri: worktable1.tableSpacePetri, Imager: Imager } }">
+    <div id="worktable1-petri" data-bind="template: { name:'tableSpacePetri', data: { tableSpacePetri: worktable1.tableSpacePetri, ImageHelper: ImageHelper } }">
     </div>
 
-    <div id="worktable1-micro" data-bind="template: { name:'tableSpaceMicro', data: { tableSpaceMicro: worktable1.tableSpaceMicro, Imager: Imager } }">
+    <div id="worktable1-micro" data-bind="template: { name:'tableSpaceMicro', data: { tableSpaceMicro: worktable1.tableSpaceMicro, ImageHelper: ImageHelper } }">
     </div>
 
     <div id="worktable1-bunsenflame" data-bind="css: { hidden: !worktable1.bunsenBurner() }"></div>
@@ -50,7 +50,7 @@
             <li class="droppable heater-slot" data-bind="attr: { id: 'heatertube' + ($index() + 1) }">
                 <div class="testtube draggable" data-item-index="2">
                     <img data-bind="visible: $parent.worktable1.heater.hasContainerAt($index()),
-                         attr: { src: $parent.Imager.heaterTubeImage($index(), $data) }"
+                         attr: { src: $parent.ImageHelper.heaterTubeImage($index(), $data) }"
                          alt="Heater tube">
                 </div>
             </li>

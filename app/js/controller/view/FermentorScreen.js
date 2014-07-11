@@ -1,9 +1,7 @@
 define([
     'knockout',
-    'controller/view/Base',
-    'model/GameState',
-    'utils/Imager'
-], function (ko, BaseViewController, gameState, Imager) {
+    'controller/view/Base'
+], function (ko, BaseViewController, gameState) {
 
     var FermentorScreen = BaseViewController.extend({
 

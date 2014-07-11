@@ -1,10 +1,10 @@
 <div class="fumehood-view">
-    <div id="fumehood-tuberack" data-bind="template: { name:'tubeRack', data: { tubeRack: fumehood.tubeRack, Imager: Imager, dropHandler: function () {}, DragHelper: DragHelper } }">
+    <div id="fumehood-tuberack" data-bind="template: { name:'tubeRack', data: { tubeRack: fumehood.tubeRack, ImageHelper: ImageHelper, dropHandler: function () {}, DragHelper: DragHelper } }">
     </div>
 
-    <div id="fumehood-petri" data-bind="template: { name:'tableSpacePetri', data: { tableSpacePetri: fumehood.tableSpacePetri, Imager: Imager } }">
+    <div id="fumehood-petri" data-bind="template: { name:'tableSpacePetri', data: { tableSpacePetri: fumehood.tableSpacePetri, ImageHelper: ImageHelper } }">
     </div>
 
-    <div id="fumehood-micro" data-bind="template: { name:'tableSpaceMicro', data: { tableSpaceMicro: fumehood.tableSpaceMicro, Imager: Imager } }">
+    <div id="fumehood-micro" data-bind="template: { name:'tableSpaceMicro', data: { tableSpaceMicro: fumehood.tableSpaceMicro, ImageHelper: ImageHelper } }">
     </div>
 </div>

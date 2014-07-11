@@ -14,7 +14,7 @@
 			<li class="droppable testtube-holder-slot" data-bind="attr: { id: 'incubator-tubeslot-' + ($index() + 1) }">
                 <div class="testtube draggable">
                     <img data-bind="visible: $parent.incubator.tubeRack.hasContainerAt($index()),
-                        attr: { src: $parent.Imager.incubatorTubeRackImage($index(), $data) }">
+                        attr: { src: $parent.ImageHelper.incubatorTubeRackImage($index(), $data) }">
                 </div>
             </li>
 		</ul>

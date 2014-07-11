@@ -4,16 +4,16 @@ define([
     'base',
     'screenfull',
     'model/GameState',
-    'utils/Imager',
     'model/ContainerType',
-    'controller/Popup'
-], function (ko, $, Base, screenfull, gameState, Imager, ContainerType, popupController) {
+    'controller/Popup',
+    'utils/ImageHelper'
+], function (ko, $, Base, screenfull, gameState, ContainerType, popupController, ImageHelper) {
 
     var MenuController = Base.extend({
 
         gameState: gameState,
 
-        Imager: Imager,
+        ImageHelper: ImageHelper,
 
         constructor: function () {
             var self = this;

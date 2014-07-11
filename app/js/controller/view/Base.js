@@ -4,14 +4,14 @@ define([
     'model/GameState',
     'controller/Popup',
 
-    'utils/Imager',
+    'utils/ImageHelper',
     'utils/DragHelper'
-], function (Base, gameState, popupController, Imager, DragHelper) {
+], function (Base, gameState, popupController, ImageHelper, DragHelper) {
 
     var BaseViewController = Base.extend({
 
         gameState: gameState,
-        Imager: Imager,
+        ImageHelper: ImageHelper,
         DragHelper: DragHelper,
         popupController: popupController,
 

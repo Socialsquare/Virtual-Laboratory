@@ -1,7 +1,14 @@
 <ul data-bind="foreach: tubeRack.containers">
+    <!-- ko ifnot: $parent.tubeRack.hasContainerAt($index()) -->
     <li class="tuberack-slot" data-bind="attr: { id: 'tube' + ($index() + 1) },
                                          drop: { handler: $parent.dropHandler.bind(null, $index()), accept: $parent.DragHelper.acceptTube }">
-        <img data-bind="visible: $parent.tubeRack.hasContainerAt($index()),
-                        attr: { src: $parent.Imager.tubeRackImage($index(), $data) }">
     </li>
+    <!-- /ko -->
+
+    <!-- ko if: $parent.tubeRack.hasContainerAt($index()) -->
+    <li class="tuberack-slot" data-bind="attr: { id: 'tube' + ($index() + 1) }">
+        <img data-bind="attr: { src: $parent.ImageHelper.tubeRackImage($index(), $data) },
+                        drag: { item: $data, dim: false, consume: $parent.tubeRack.remove.bind(null, $index()) }">
+    </li>
+    <!-- /ko -->
 </ul>

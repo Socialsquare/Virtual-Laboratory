@@ -71,7 +71,7 @@
 
  		    <ul class="dna-element-list" data-bind="foreach: availableDNA">
                 <li>
-                    <div data-bind="text: name, drag: $data"></div>
+                    <div data-bind="text: name, drag: { item: $data }"></div>
                 </li>
             </ul>
 

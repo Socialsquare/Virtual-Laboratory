@@ -1,6 +1,7 @@
 define([
-    'model/ContainerType'
-], function (ContainerType) {
+    'model/ContainerType',
+    'model/LiquidType'
+], function (ContainerType, LiquidType) {
     var IMG_PATH = 'assets/images';
 
     return {
@@ -45,6 +46,25 @@ define([
                 return IMG_PATH + '/icon_cup_mkrt.png';
 
             case ContainerType.TUBE:
+                return IMG_PATH + '/icon_cup_tube.png';
+
+            default:
+                throw 'Unknown inventory item: ' + item.type();
+            }
+        },
+
+        draggingIcon: function (item) {
+            switch (item.type()) {
+            case ContainerType.PETRI_DISH:
+                return IMG_PATH + '/icon_cup_petri.png';
+
+            case ContainerType.MICROTITER:
+                return IMG_PATH + '/icon_cup_mkrt.png';
+
+            case ContainerType.TUBE:
+                return IMG_PATH + '/icon_cup_tube.png';
+
+            case LiquidType.DNA:
                 return IMG_PATH + '/icon_cup_tube.png';
 
             default:

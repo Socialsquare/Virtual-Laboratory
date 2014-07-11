@@ -1,10 +1,8 @@
 define([
     'knockout',
     'jquery',
-    'controller/view/Base',
-    'model/GameState',
-    'utils/Imager'
-], function (ko, $, BaseViewController, gameState, Imager) {
+    'controller/view/Base'
+], function (ko, $, BaseViewController) {
 
     var Fermentor = BaseViewController.extend({
 
