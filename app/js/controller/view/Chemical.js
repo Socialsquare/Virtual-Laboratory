@@ -4,6 +4,7 @@ define([
     'lodash',
 
     'controller/view/Base',
+    'controller/Popup',
 
     'model/Tube',
     'model/Petridish',
@@ -13,7 +14,7 @@ define([
     'factory/Liquid',
 
     'utils/utils'
-], function (ko, $, _, BaseViewController, TubeModel, PetridishModel, MicrotiterplateModel, ChemicalItemModel, LiquidFactory, utils) {
+], function (ko, $, _, BaseViewController, popupController, TubeModel, PetridishModel, MicrotiterplateModel, ChemicalItemModel, LiquidFactory, utils) {
     var Chemical = BaseViewController.extend({
 
         closetItems: ko.observableArray([]),
@@ -21,7 +22,7 @@ define([
         fridgeItems: ko.observableArray([]),
 
         // TODO: remove app dep and use ko.postbox or similar
-        constructor: function (app) {
+        constructor: function () {
             var self = this;
             self.base('chemical');
 
@@ -32,7 +33,7 @@ define([
             };
 
             self.showList = function (name) {
-                app.triggerPopup('list', {
+                popupController.show('popup-list', {
                     title: groups[name].name,
                     items: groups[name].items
                 });

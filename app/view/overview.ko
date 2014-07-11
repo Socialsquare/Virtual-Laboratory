@@ -3,8 +3,7 @@
         <img id="spectrophotometer-img" alt="Go to spectrophotometer">
     </a>
     <a id="door-link">
-        <img id="door-img" alt="Go to door"
-             data-bind="click: $parent.triggerPopup.bind(null, 'door')">
+        <img id="door-img" alt="Go to door" data-bind="click: handleDoorClick">
     </a>
     <a data-bind="route: 'chemical'">
         <img id="chemicalcloset-img" alt="Go to chemical closet">

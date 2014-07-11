@@ -15,6 +15,7 @@ define([
     'controller/view/Fermentor',
     'controller/view/FermentorScreen',
 
+    'controller/Popup',
     'controller/Menu',
     'controller/Router',
 
@@ -29,7 +30,7 @@ define([
              ChemicalController, ComputerController,
              FumehoodController, Worktable1Controller, Worktable2Controller,
              IncubatorController, SpectroPMController, FermentorController,
-             FermentorScreenController, MenuController, router, gameState, Tube,
+             FermentorScreenController, popupController, MenuController, router, gameState, Tube,
              Petridish, Microtiterplate, LiquidFactory) {
     var App = Base.extend({
         activeViewController: ko.observable(),
@@ -39,6 +40,7 @@ define([
         hasActivePopup: ko.observable(false),
 
         menuController: new MenuController(),
+        popupController: popupController,
 
         constructor: function (isWeb) {
             var self = this;
@@ -48,7 +50,7 @@ define([
 
                 overview: new OverviewController(),
                 computer: new ComputerController(),
-                chemical: new ChemicalController(this),
+                chemical: new ChemicalController(),
                 worktable1: new Worktable1Controller(),
                 worktable2: new Worktable2Controller(),
                 fumehood: new FumehoodController(),
@@ -59,19 +61,9 @@ define([
                 fermentorscreen: new FermentorScreenController()
             };
 
-            self.triggerPopup = function (popupName, vm) {
-                self.activePopupVM(vm || {});
-                self.activePopup('popup-' + popupName);
-                self.hasActivePopup(true);
-            };
-
-            self.hidePopup = function (popupName) {
-                self.hasActivePopup(false);
-            };
-
             self.viewChange = function (viewName) {
                 // hide any potential active popup
-                self.hidePopup();
+                self.popupController.hide();
 
                 // exit current controller
                 if (self.activeViewController()) {

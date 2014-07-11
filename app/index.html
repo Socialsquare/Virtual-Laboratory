@@ -18,8 +18,10 @@
                 <div data-bind="template: { name: 'menu', data: menuController }"></div>
             </div>
 
-            <div id="popup-container" data-bind="visible: hasActivePopup">
-                <div data-bind="template: { name: activePopup, data: activePopupVM, 'if': hasActivePopup }"></div>
+            <div id="popup-container" data-bind="visible: popupController.active">
+                <div data-bind="template: { name: popupController.templateName,
+                                data: popupController.viewModel,
+                                'if': popupController.active }"></div>
             </div>
 
             <div id="video-container"></div>

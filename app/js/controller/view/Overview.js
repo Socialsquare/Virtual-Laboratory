@@ -4,8 +4,13 @@ define([
 ], function (BaseViewController, ko) {
     var Overview = BaseViewController.extend({
         constructor: function () {
-            this.base('overview');
-        }
+            var self = this;
+            self.base('overview');
+
+            self.handleDoorClick = function () {
+                self.popupController.show('popup-door');
+            };
+        },
     });
 
     return Overview;

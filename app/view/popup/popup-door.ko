@@ -1,6 +1,8 @@
 <div class="popup popup-door">
     <h1>Gå til</h1>
+
     <hr />
+
     <ul>
         <li>
             <a data-bind="route: 'computer'">
@@ -18,9 +20,8 @@
             </a>
         </li>
     </ul>
+
     <div class="btn-row float-clear">
-        <button type="button"
-                class="popup-cancel-btn"
-                data-bind="click: $parent.hidePopup">Fortryd</button>
+        <button type="button" class="popup-cancel-btn" data-bind="click: popupController.hide">Fortryd</button>
     </div>
 </div>
