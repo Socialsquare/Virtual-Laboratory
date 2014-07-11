@@ -48,7 +48,6 @@ require.config(requireConfig);
 
 require([
     'knockout',
-    'Router',
 	'controller/App',
 
     // self-registering jquery plugins
@@ -59,8 +58,9 @@ require([
     'bindings/dragging',
     'bindings/video',
     'bindings/plotting',
+    'bindings/routing',
     'extensions/extensions'
-], function(ko, Router, App) {
+], function(ko, App) {
 	var isWeb = document.URL.match(/^https?:/);
 
     var app = new App(isWeb);

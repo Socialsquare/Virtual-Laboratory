@@ -1,7 +1,6 @@
 define([
     'base',
     'knockout',
-    'Router',
 
     // controllers
     'controller/view/Overview',
@@ -17,6 +16,7 @@ define([
     'controller/view/FermentorScreen',
 
     'controller/Menu',
+    'controller/Router',
 
     'model/GameState',
     'model/Tube',
@@ -25,11 +25,11 @@ define([
 
     'factory/Liquid'
 
-], function (Base, ko, Router, OverviewController, MouseController,
+], function (Base, ko, OverviewController, MouseController,
              ChemicalController, ComputerController,
              FumehoodController, Worktable1Controller, Worktable2Controller,
              IncubatorController, SpectroPMController, FermentorController,
-             FermentorScreenController, MenuController, gameState, Tube,
+             FermentorScreenController, MenuController, router, gameState, Tube,
              Petridish, Microtiterplate, LiquidFactory) {
     var App = Base.extend({
         activeViewController: ko.observable(),
@@ -85,12 +85,12 @@ define([
             };
 
             // setup routing
-            var router = new Router();
-            router.viewChangeHandler = self.viewChange.bind(this);
+            router.currentRoute.subscribe(function (routeName) {
+                self.viewChange(routeName);
+            });
 
             // bootstrap the app by going to 'overview'
-            window.location.hash = 'overview';
-            self.viewChange('overview');
+            router.navigate('overview');
 
             //------------------------
             // dummy data

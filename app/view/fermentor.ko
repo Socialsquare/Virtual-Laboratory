@@ -1,4 +1,4 @@
 <div class="fermentor-view">
-    <a href="#fermentorscreen" id="fermentor-screen-link"></a>
+    <a data-bind="route: 'fermentorscreen'" id="fermentor-screen-link"></a>
     <div class="droppable" id="fermentor"></div>
 </div>

@@ -1,30 +1,30 @@
 <div class="overview-view">
-    <a href="#spectropm">
+    <a data-bind="route: 'spectropm'">
         <img id="spectrophotometer-img" alt="Go to spectrophotometer">
     </a>
     <a id="door-link">
         <img id="door-img" alt="Go to door"
              data-bind="click: $parent.triggerPopup.bind(null, 'door')">
     </a>
-    <a href="#chemical">
+    <a data-bind="route: 'chemical'">
         <img id="chemicalcloset-img" alt="Go to chemical closet">
     </a>
-    <a href="#fumehood">
+    <a data-bind="route: 'fumehood'">
         <img id="fumehood-img" alt="Go to fumehood">
     </a>
-    <a href="#worktable2">
+    <a data-bind="route: 'worktable2'">
         <img id="worktable2-img" alt="Go to work table 2">
     </a>
-    <a href="#mouse">
+    <a data-bind="route: 'mouse'">
         <img id="mouse-img" alt="Go to mouse">
     </a>
-    <a href="#worktable1">
+    <a data-bind="route: 'worktable1'">
         <img id="worktable1-img" alt="Go to work table 1">
     </a>
-    <a href="#fermentor">
+    <a data-bind="route: 'fermentor'">
         <img id="fermentorchroma-img" alt="Go to fermentor and chromatograph">
     </a>
-    <a href="#incubator">
+    <a data-bind="route: 'incubator'">
         <img id="incubator-img" alt="Go to incubator">
     </a>
 

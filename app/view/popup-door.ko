@@ -3,17 +3,17 @@
     <hr />
     <ul>
         <li>
-            <a href="#computer">
+            <a data-bind="route: 'computer'">
                 <img class="icon-img" id="computer-icon-img" alt="Computer scene icon">
             </a>
         </li>
         <li>
-            <a href="#uv">
+            <a data-bind="route: 'uv'">
                 <img class="icon-img" id="uv-icon-img" alt="UV room scene icon" />
             </a>
         </li>
         <li>
-            <a href="#washingroom">
+            <a data-bind="route: 'washingroom'">
                 <img class="" id="washingroom-icon-img" alt="Washing mashine scene icon" />
             </a>
         </li>

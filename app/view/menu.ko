@@ -1,7 +1,7 @@
 <div class="top-menu">
     <ul class="left">
         <li>
-            <a id="view-back-link" href="#overview">
+            <a id="view-back-link" data-bind="route: 'overview'">
                 <img id="back-img" alt="Tilbage">
             </a>
         </li>
