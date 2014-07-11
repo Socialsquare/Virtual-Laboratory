@@ -2,9 +2,8 @@ define([
     'knockout',
     'jquery',
     'controller/view/Base',
-    'controller/Notifier',
     'model/ContainerType'
-], function (ko, $, BaseViewController, Notifier, ContainerType) {
+], function (ko, $, BaseViewController, ContainerType) {
 
     var Worktable1 = BaseViewController.extend({
 

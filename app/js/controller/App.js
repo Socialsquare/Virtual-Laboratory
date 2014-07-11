@@ -32,12 +32,10 @@ define([
              IncubatorController, SpectroPMController, FermentorController,
              FermentorScreenController, popupController, MenuController, router, gameState, Tube,
              Petridish, Microtiterplate, LiquidFactory) {
-    var App = Base.extend({
-        activeViewController: ko.observable(),
-        activePopup: ko.observable(''),
-        activePopupVM: ko.observable({}),
 
-        hasActivePopup: ko.observable(false),
+    var App = Base.extend({
+
+        activeViewController: ko.observable(),
 
         menuController: new MenuController(),
         popupController: popupController,
@@ -46,8 +44,6 @@ define([
             var self = this;
 
             var viewControllers = {
-                // Patrick's bane: these fields will be matched with the hashes from the URL
-
                 overview: new OverviewController(),
                 computer: new ComputerController(),
                 chemical: new ChemicalController(),
@@ -57,7 +53,7 @@ define([
                 incubator: new IncubatorController(),
                 mouse: new MouseController(),
                 spectropm: new SpectroPMController(),
-                fermentor: new FermentorController(), // TODO is it problematic that the view-controllers FermentorScreen and Fermentor both exist?
+                fermentor: new FermentorController(),
                 fermentorscreen: new FermentorScreenController()
             };
 

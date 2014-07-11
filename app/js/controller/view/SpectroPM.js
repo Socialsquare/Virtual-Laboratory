@@ -1,9 +1,8 @@
 define([
     'knockout',
     'jquery',
-    'controller/view/Base',
-    'controller/Notifier'
-], function (ko, $, BaseViewController, Notifier) {
+    'controller/view/Base'
+], function (ko, $, BaseViewController) {
 
     var SpectroPM = BaseViewController.extend({
 

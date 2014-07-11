@@ -2,13 +2,11 @@ define([
     'knockout',
     'base',
     'utils/utils',
-    'controller/Notifier',
     'model/FermentorTank',
     'model/GrowerType'
-], function(ko, Base, Utils, Notifier, FermentorTankModel, GrowerType) {
+], function(ko, Base, Utils, FermentorTankModel, GrowerType) {
 
     var Fermentor = Base.extend({
-
 
         constructor: function () {
             var self = this;
@@ -41,8 +39,8 @@ define([
             });
 
             self.activate = function() { //TODO: implement
-                Notifier.pop('TODO','Such TODO');
-            }
+                console.log('TODO','Such TODO');
+            };
         }
     });
 

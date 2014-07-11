@@ -27,6 +27,10 @@ define([
                 self.templateName('');
                 self.viewModel(null);
             };
+
+            self.message = function (title, message) {
+                self.show('popup-message', { title: title, message: message });
+            };
         }
     });
 
