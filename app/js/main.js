@@ -13,9 +13,6 @@ var requireConfig = {
 		mapping: '../bower_components/knockout-mapping/knockout.mapping',
 		base: 'libs/Base',
 
-		chcdraggable: 'libs/jquery/jquery.chcdraggable',
-		chcdraggablespawner: 'libs/jquery/jquery.chcdraggablespawner',
-		chcdroppable: 'libs/jquery/jquery.chcdroppable',
 		flot: 'libs/jquery/jquery.flot.min'
 	},
 	shim: {
@@ -40,18 +37,6 @@ var requireConfig = {
 			exports: 'ko'
 		},
 
-		'chcdraggable': {
-			deps: ['jquery'],
-			exports: 'chcdraggable'
-		},
-		'chcdraggablespawner': {
-			deps: ['jquery', 'chcdraggable'],
-			exports: 'chcdraggablespawner'
-		},
-		'chcdroppable': {
-			deps: ['jquery'],
-			exports: 'chcdroppable'
-		},
 		'flot': {
 			deps: ['jquery'],
 			exports: 'flot'
