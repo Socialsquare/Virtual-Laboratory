@@ -9,6 +9,12 @@ define([
 
         acceptDNA: function (item) {
             return item.type() === LiquidType.DNA;
+        },
+
+        consumeItemFrom: function (item, collection) {
+            return function () {
+                collection.remove(item);p
+            };
         }
     };
 });

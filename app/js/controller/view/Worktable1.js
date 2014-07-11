@@ -26,7 +26,6 @@ define([
             };
 
             self.handleTubeRackDrop = function (position, tube) {
-                self.gameState.inventory.remove(tube);
                 self.worktable1.tubeRack.addAt(position, tube);
             };
         }

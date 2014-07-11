@@ -7,14 +7,19 @@ define([
 
         items: ko.observableArray([]),
 
-        add: function(item) {
-            // TODO: validate that an item can be placed here
-            this.items.push(item);
+        constructor: function () {
+            var self = this;
+
+            self.add = function(item) {
+                // TODO: validate that an item can be placed here
+                self.items.push(item);
+            };
+
+            self.remove = function (item) {
+                self.items.remove(item);
+            };
         },
 
-        remove: function (item) {
-            this.items.remove(item);
-        }
     });
 
     return Inventory;
