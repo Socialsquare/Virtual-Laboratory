@@ -8,7 +8,13 @@ define([
     ko.bindingHandlers.drag = {
         init: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
 
+            var options = valueAccessor();
             var item = valueAccessor();
+            if (typeof options.dim !== 'undefined') {
+                item = options.item;
+            } else {
+                options.dim = true;
+            }
 
             $(element).draggable({
                 containment: 'window',
@@ -16,7 +22,13 @@ define([
                 zIndex: 100000,
                 helper: 'clone',
                 start: function (event, ui) {
+                    if (options.dim)
+                        $(this).fadeTo(0, 0.3);
                     dragData = item;
+                },
+                stop: function (event, ui) {
+                    if (options.dim)
+                        $(this).fadeTo(0, 1);
                 },
                 appendTo: 'body'
             });
