@@ -78,6 +78,13 @@ module.exports = function (grunt) {
                     changeOrigin: true,
                 }]
             }
+        },
+
+        shell: {
+            preload: {
+                options: { stdout: true },
+                command: 'utils/gen-preload-files.sh'
+            }
         }
     });
 
@@ -88,9 +95,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-connect-proxy');
+    grunt.loadNpmTasks('grunt-shell');
 
     // TODO: enable jshint when smellz is cleaned
-    grunt.registerTask('build', [ 'clean:dist', 'copy:dist', 'sass:dist' ]);
+    grunt.registerTask('build', [ 'clean:dist', 'shell:preload', 'copy:dist', 'sass:dist' ]);
 
     grunt.registerTask('default', [ 'build', 'configureProxies:dist', 'connect:dist', 'watch:dist' ]);
 };

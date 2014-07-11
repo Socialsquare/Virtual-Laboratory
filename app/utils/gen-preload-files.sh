@@ -22,7 +22,6 @@ clean() {
     echo "] }" >> $TMP
 
     cp -f $TMP ${PWD}/${ASSETS_PATH}/${PRELOAD_FILE}
-    echo "Wrote ${ASSETS_PATH}/${PRELOAD_FILE}"
     rm -f $TMP
 }
 
@@ -49,7 +48,7 @@ parse_img() {
         (( count++ ))
     done
 
-    echo "Parsed ${count} images..."
+    echo "Parsed ${count} images"
 }
 
 main() {
