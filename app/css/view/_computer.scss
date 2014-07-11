@@ -1,9 +1,12 @@
 /* view/computer.scss */
 
 @import '../variables';
+@import 'base';
 
 .computer-view {
-  background-image: url(#{$img-path}/computer.png); }
+  @include view;
+  background-image: url(#{$img-path}/computer.png);
+}
 
 .computer-screen {
   position: absolute;
@@ -11,40 +14,47 @@
   top: 46px;
   width: 893px;
   height: 524px;
-  background-color: #eeeeee; }
+  background-color: #eeeeee;
+}
 
 .computer-mainmenu {
   width: 100%;
-  height: 100%; }
-  .computer-mainmenu ul {
+  height: 100%;
+  ul {
     padding: 40px 0 0 140px;
     list-style: none;
-    clear: both; }
-    .computer-mainmenu ul li {
+    clear: both;
+    li {
       float: left;
       width: 100px;
-      margin: 50px; }
-      .computer-mainmenu ul li a:link {
-        text-decoration: none; }
-      .computer-mainmenu ul li .icon {
+      margin: 50px;
+      a:link { text-decoration: none; }
+      .icon {
         width: 80px;
         height: 80px;
         margin: 0 auto 0 auto;
         background-image: url(#{$img-path}/computer_icon.png);
-        border-radius: 8px; }
-      .computer-mainmenu ul li .text {
+        border-radius: 8px;
+      }
+      .text {
         margin-top: 4px;
         color: #333333;
         text-align: center;
         font-family: $font;
         font-size: 80%;
-        line-height: 120%; }
+        line-height: 120%;
+      }
+    }
+  }
+}
 
 .computer-header-container {
-  height: 10%; }
-  .computer-header-container .menu-link {
+  height: 10%;
+  .menu-link {
     float: left;
-    padding: 10px 0 0 10px; }
+    padding: 10px 0 0 10px;
+  }
+}
 
 .computer-header {
   margin: 0;
@@ -53,21 +63,23 @@
   font-size: 140%;
   font-weight: bold;
   text-align: center;
-  color: #333333; }
+  color: #333333;
+}
 
 .computer-subheader {
   padding-left: 10px;
   font-family: $font;
   font-size: 120%;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .computer-view-view {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; }
-  .computer-view-view ul {
+  height: 100%;
+  ul {
     padding: 0;
     margin: 0;
     width: 29.5%;
@@ -79,50 +91,61 @@
     border-top-color: #333333;
     border-right-style: solid;
     border-right-width: 1px;
-    border-right-color: #333333; }
-    .computer-view-view ul li div {
-      padding-left: 10px;
-      font-family: $font;
-      font-size: 100%;
-      color: #333333; }
-    .computer-view-view ul li a:link {
-      text-decoration: none; }
-    .computer-view-view ul li .selected {
-      color: #ffffff;
-      background-color: #005aff; }
-  .computer-view-view .detail {
+    border-right-color: #333333;
+    li {
+      div {
+        padding-left: 10px;
+        font-family: $font;
+        font-size: 100%;
+        color: #333333;
+      }
+      a:link { text-decoration: none; }
+      .selected {
+        color: #ffffff;
+        background-color: #005aff;
+      }
+    }
+  }
+  .detail {
     position: relative;
     width: 70%;
     height: 90%;
     float: left;
     border-top-style: solid;
     border-top-width: 1px;
-    border-top-color: #333333; }
-    .computer-view-view .detail .mouse {
+    border-top-color: #333333;
+    .mouse {
       position: absolute;
       top: 25%;
       left: 25%;
       height: 50%;
       width: 50%;
-      background-color: pink; }
-    .computer-view-view .detail .order-btn {
+      background-color: pink;
+    }
+    .order-btn {
       position: absolute;
       bottom: 4%;
       width: 10%;
-      margin: 0 45% 0 45%; }
-  .computer-view-view .droparea {
+      margin: 0 45% 0 45%;
+    }
+
+  }
+  .droparea {
     height: 40%;
     padding-left: 10px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-bottom-color: #333333; }
-    .computer-view-view .droparea p {
+    border-bottom-color: #333333;
+    p {
       position: relative;
       top: 40%;
       font-family: $font;
       font-size: 80%;
       color: #333333;
-      text-align: center; }
+      text-align: center;
+    }
+  }
+}
 
 .draggablespawn-computer {
   padding-left: 10px;
@@ -140,31 +163,34 @@
   float: left;
   margin-top: 10%;
   width: 60px;
-  height: 60px; }
+  height: 60px;
+}
 
 .dna-element-img {
   width: 60px;
   height: 20px;
   margin-top: 14px;
   border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px; }
+  border-bottom-right-radius: 10px;
+}
 
 .dna-element-name {
   font-family: $font;
   font-size: 50%;
   color: #333333;
   line-height: 120%;
-  text-align: center; }
-
-.dna-element .remove-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 10px;
-  height: 10px;
-  background-color: #666666;
-  color: #ffffff;
-  border: 0; }
+  text-align: center;
+  .remove-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #666666;
+    color: #ffffff;
+    border: 0;
+  }
+}
 
 .sequence-container {
   padding-left: 10px;
@@ -176,12 +202,13 @@
   border-bottom-color: #333333;
   border-top-style: solid;
   border-top-width: 1px;
-  border-top-color: #333333; }
+  border-top-color: #333333;
+}
 
 .sequence {
   font-family: $font;
   font-size: 80%;
   color: #333333;
-  line-height: 140%; }
-  .sequence span {
-    word-wrap: break-word; }
+  line-height: 140%;
+  span { word-wrap: break-word; }
+}

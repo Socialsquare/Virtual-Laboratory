@@ -1,4 +1,4 @@
-<div class="incubator-view view">
+<div class="incubator-view">
 	<button class="btn-none" id="incubator-btn" data-bind="click: incubator.activate.bind()"></button>
 
 	<div class="time" data-bind="text: incubator.timerText()"></div>

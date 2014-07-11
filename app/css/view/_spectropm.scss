@@ -4,7 +4,7 @@
 @import 'base';
 
 .spectrophotometer-view {
-  @extend .view;
+  @include view;
   background-image: url(#{$img-path}/spectropm_view.png);
 
   #micro-slot {

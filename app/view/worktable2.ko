@@ -1,4 +1,4 @@
-<div class="worktable2-view view">
+<div class="worktable2-view">
     <div id="worktable2-micro" data-bind="template: { name:'tableSpaceMicro', data: { tableSpaceMicro: worktable2.tableSpaceMicro, Imager: Imager } }">
     </div>
 

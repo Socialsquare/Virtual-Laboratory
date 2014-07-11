@@ -1,9 +1,11 @@
 /* view/fumehood.scss */
 
 @import '../variables';
-@import 'mixin/compositecontainer';
+@import '../mixin/compositecontainer';
+@import 'base';
 
 .fumehood-view {
+  @include view;
   background-image: url(#{$img-path}/fumehood_base.png);
 }
 

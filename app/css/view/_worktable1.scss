@@ -1,11 +1,11 @@
 /* view/worktable1.scss */
 
 @import '../variables';
-@import 'mixin/compositecontainer';
+@import '../mixin/compositecontainer';
 @import 'base';
 
 .worktable1-view {
-  @extend .view;
+  @include view;
   background-image: url(#{$img-path}/work1_base.png);
 }
 

@@ -21,7 +21,7 @@
   transform: translate3d(0, 0, 0);
 }
 
-.view {
+@mixin view {
   position: relative;
   left: 50%;
   width: 1024px;

@@ -1,4 +1,4 @@
-<div class="chemicalcloset-view view placeholder">
+<div class="chemicalcloset-view placeholder">
 	<a data-bind="click: showList.bind(null, 'closet')" class="chemicalcloset-link" id="chemicalcloset-closet-link">
         <div></div>
     </a>
