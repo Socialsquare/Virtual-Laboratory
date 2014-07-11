@@ -1,0 +1,25 @@
+/* view/loading.scss */
+
+@import '../variables';
+@import 'base';
+
+.loading-view {
+  @include view;
+
+  padding-top: 200px;
+  text-align: center;
+
+  #logo-img { content:url(#{$img-path}/logo-white.png); }
+
+  color: grey;
+
+  .outer {
+    height: 3px;
+    /* width: 80%; */
+    background-color: grey;
+    .inner {
+      height: 3px;
+      background-color: white;
+    }
+  }
+}

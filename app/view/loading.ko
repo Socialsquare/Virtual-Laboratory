@@ -1,0 +1,7 @@
+<div class="loading-view">
+    <img id="logo-img" alt="Biotech Academy">
+    <div data-bind="text: percent() + '%'"></div>
+    <div class="outer">
+        <div class="inner" data-bind="style: { width: percent() + '%' }"></div>
+    </div>
+</div>

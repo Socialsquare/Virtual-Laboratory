@@ -15,13 +15,14 @@
             <div class="interface-container">
                 <div data-bind="template: { name: activeViewController().templateName, data: activeViewController }"></div>
 
-                <div data-bind="template: { name: 'menu', data: menuController }"></div>
+                <div data-bind="visible: activeViewController().templateName !== 'loading',
+                                template: { name: 'menu', data: menuController }"></div>
             </div>
 
             <div id="popup-container" data-bind="visible: popupController.active">
                 <div data-bind="template: { name: popupController.templateName,
                                 data: popupController.viewModel,
-                                'if': popupController.active }"></div>
+                                'i<script type="text/javascr }"></div>
             </div>
 
             <div id="video-container"></div>
