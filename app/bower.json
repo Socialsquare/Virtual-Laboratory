@@ -8,6 +8,7 @@
     "knockout-mapping": "~2.4.1",
     "jquery-ui": "~1.11.0",
     "jquery-flot": "~0.8.3",
+    "jquery.html5loader": "~1.7.0",
     "jqueryui-touch-punch": "*",
     "fastclick": "~1.0.2",
     "screenfull": "~1.2.1"

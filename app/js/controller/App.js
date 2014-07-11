@@ -3,6 +3,7 @@ define([
     'knockout',
 
     // controllers
+    'controller/view/Loading',
     'controller/view/Overview',
     'controller/view/Mouse',
     'controller/view/Chemical',
@@ -26,8 +27,8 @@ define([
 
     'factory/Liquid'
 
-], function (Base, ko, OverviewController, MouseController,
-             ChemicalController, ComputerController,
+], function (Base, ko, LoadingController, OverviewController,
+             MouseController, ChemicalController, ComputerController,
              FumehoodController, Worktable1Controller, Worktable2Controller,
              IncubatorController, SpectroPMController, FermentorController,
              FermentorScreenController, popupController, MenuController, router, gameState, Tube,
@@ -44,6 +45,7 @@ define([
             var self = this;
 
             var viewControllers = {
+                loading: new LoadingController(),
                 overview: new OverviewController(),
                 computer: new ComputerController(),
                 chemical: new ChemicalController(),
@@ -77,8 +79,9 @@ define([
                 self.viewChange(routeName);
             });
 
-            // bootstrap the app by going to 'overview'
-            router.navigate('overview');
+            // bootstrap the app by going to loading view
+            router.navigate('loading');
+
 
             //------------------------
             // dummy data

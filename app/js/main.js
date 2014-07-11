@@ -3,6 +3,7 @@ require.config({
         jquery: '../bower_components/jquery/dist/jquery',
         jqueryui: '../bower_components/jquery-ui/jquery-ui',
         flot: '../bower_components/jquery-flot/jquery.flot',
+        html5Loader: '../bower_components/jquery.html5loader/src/jquery.html5Loader',
         lodash: '../bower_components/lodash/dist/lodash.compat',
         knockout: '../bower_components/knockout/dist/knockout.debug',
         mapping: '../bower_components/knockout-mapping/knockout.mapping',
@@ -13,10 +14,11 @@ require.config({
         base: 'libs/Base'
     },
     shim: {
+        'html5Loader': ['jquery'],
         'jqueryui': ['jquery'],
         'jqueryuitouchpunch': ['jqueryui'],
         'flot': ['jquery'],
-        'screenfull': {exports: 'screenfull'},
+        'screenfull': { exports: 'screenfull' },
 
         'base': { exports: 'Base' }
     }
@@ -32,6 +34,7 @@ require([
     'jqueryui',
     'jqueryuitouchpunch',
     'flot',
+    'html5Loader',
 
     // self-registering knockout bindings and extensions
     'bindings/dragging',
