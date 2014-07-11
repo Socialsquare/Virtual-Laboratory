@@ -7,7 +7,7 @@ define([
     'controller/view/Overview',
     //'controller/Computer',
   //  'controller/Chemical',
-//    'controller/Mouse',
+    'controller/view/Mouse',
     'controller/view/Fumehood',
     'controller/view/Worktable1',
     'controller/view/Worktable2',
@@ -25,10 +25,13 @@ define([
 
     'factory/Liquid'
 
-], function (Base, ko, Router, OverviewController, /* ComputerController, ChemicalController, MouseController*/
-             FumehoodController, Worktable1Controller, Worktable2Controller, IncubatorController,
-             SpectroPMController, FermentorController, FermentorScreenController,
-             MenuController, gameState, Tube, Petridish, Microtiterplate, LiquidFactory) {
+], function (Base, ko, Router, OverviewController, MouseController,
+             /* ComputerController, ChemicalController, MouseController*/
+             FumehoodController, Worktable1Controller, Worktable2Controller,
+             IncubatorController, SpectroPMController, FermentorController,
+             FermentorScreenController, MenuController, gameState, Tube,
+             Petridish, Microtiterplate, LiquidFactory) {
+
     var App = Base.extend({
         activeViewController: ko.observable(),
         activePopup: ko.observable(''),
@@ -47,12 +50,12 @@ define([
                 overview: new OverviewController(),
                 // computer: new ComputerController(),
                 // 'chemical-closet': new ChemicalController(this),
-                // mouse: new MouseController(),
 
                 worktable1: new Worktable1Controller(),
                 worktable2: new Worktable2Controller(),
                 fumehood: new FumehoodController(),
                 incubator: new IncubatorController(),
+                mouse: new MouseController(),
                 spectropm: new SpectroPMController(),
                 fermentor: new FermentorController(), // TODO is it problematic that the view-controllers FermentorScreen and Fermentor both exist?
                 fermentorscreen: new FermentorScreenController()
@@ -140,7 +143,6 @@ define([
             gameState.incubator.tubeRack.addAt(5, tube);
 
             gameState.spectroPM.spectroPMMachine.addAt(0, microtiter);
-
         }
     });
 
