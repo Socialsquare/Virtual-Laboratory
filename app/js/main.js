@@ -7,6 +7,7 @@ require.config({
         knockout: '../bower_components/knockout/dist/knockout.debug',
         mapping: '../bower_components/knockout-mapping/knockout.mapping',
         jqueryuitouchpunch: '../bower_components/jqueryui-touch-punch/jquery.ui.touch-punch',
+        fastclick: '../bower_components/fastclick/lib/fastclick',
 
         base: 'libs/Base'
     },
@@ -21,6 +22,8 @@ require.config({
 
 require([
     'knockout',
+    'fastclick',
+
     'controller/App',
 
     // self-registering jquery plugins
@@ -34,7 +37,10 @@ require([
     'bindings/plotting',
     'bindings/routing',
     'extensions/extensions'
-], function(ko, App) {
+], function(ko, FastClick, App) {
+
+    FastClick.attach(document.body);
+
     var isWeb = document.URL.match(/^https?:/);
 
     var app = new App(isWeb);
