@@ -35,10 +35,10 @@
     </div>
 
     <div class="menu-inventory-container">
-        <div class="inventory droppable">
+        <div class="inventory" data-bind="drop: { handler: inventoryDropHandler }">
             <ul data-bind="foreach: gameState.inventory.items">
                 <li class="menu-inventory-box">
-                    <div class="draggable" data-bind="drag: $data">
+                    <div data-bind="drag: $data">
                         <img data-bind="attr: { src: $parent.Imager.inventoryIcon($data) }">
                     </div>
                 </li>
@@ -58,7 +58,7 @@
                     <img id="pipette-tips-img" alt="Pipette spidser">
                 </button>
             </li>
-            <li data-bind="drop: { handler: dropHandler, accept: acceptDrop }">
+            <li data-bind="drop: { handler: trashDropHandler }">
                 <button class="btn-none" id="menu-trash-btn">
                     <img id="trash-img" alt="Affald">
                 </button>

@@ -5,9 +5,9 @@ define([
 
     // controllers
     'controller/view/Overview',
-    //'controller/Computer',
-  //  'controller/Chemical',
     'controller/view/Mouse',
+    'controller/view/Chemical',
+    //'controller/view/Computer',
     'controller/view/Fumehood',
     'controller/view/Worktable1',
     'controller/view/Worktable2',
@@ -26,12 +26,11 @@ define([
     'factory/Liquid'
 
 ], function (Base, ko, Router, OverviewController, MouseController,
-             /* ComputerController, ChemicalController, MouseController*/
+             ChemicalController, //ComputerController,
              FumehoodController, Worktable1Controller, Worktable2Controller,
              IncubatorController, SpectroPMController, FermentorController,
              FermentorScreenController, MenuController, gameState, Tube,
              Petridish, Microtiterplate, LiquidFactory) {
-
     var App = Base.extend({
         activeViewController: ko.observable(),
         activePopup: ko.observable(''),
@@ -48,9 +47,8 @@ define([
                 // Patrick's bane: these fields will be matched with the hashes from the URL
 
                 overview: new OverviewController(),
-                // computer: new ComputerController(),
-                // 'chemical-closet': new ChemicalController(this),
-
+                //computer: new ComputerController(),
+                chemical: new ChemicalController(this),
                 worktable1: new Worktable1Controller(),
                 worktable2: new Worktable2Controller(),
                 fumehood: new FumehoodController(),
@@ -93,8 +91,6 @@ define([
             // bootstrap the app by going to 'overview'
             window.location.hash = 'overview';
             self.viewChange('overview');
-
-
 
             //------------------------
             // dummy data

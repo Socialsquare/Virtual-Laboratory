@@ -23,13 +23,12 @@ define([
                 console.log('TODO: Select experiment');
             };
 
-            // dummy stuff
-            self.dropHandler = function (item) {
-                self.gameState.inventory.remove(item);
+            self.inventoryDropHandler = function (item) {
+                self.gameState.inventory.add(item);
             };
 
-            self.acceptDrop = function (item) {
-                return item.type() === ContainerType.TUBE;
+            self.trashDropHandler = function (item) {
+                console.log('TODO: trash drop handler', item);
             };
         }
     });

@@ -16,11 +16,9 @@ define([
             };
 
             self.changeTimer = function(val) {
-                if (self.incubator.timer() + val < 0) {
-                    self.incubator.timer(0);
-                } else {
-                    self.incubator.timer(self.incubator.timer() + val);
-                }
+                var newVal = self.incubator.timer() + val;
+                newVal = newVal < 0 ? 0 : newVal;
+                self.incubator.timer(newVal);
             };
         },
     });

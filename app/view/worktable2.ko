@@ -1,19 +1,19 @@
 <div class="worktable2-view">
-    <div id="worktable2-micro" data-bind="template: { name:'tableSpaceMicro', data: { tableSpaceMicro: worktable2.tableSpaceMicro, Imager: Imager } }">
+    <div id="worktable2-micro" data-bind="template: { name:'tableSpaceMicro', data: { tableSpaceMicro: worktable2.tableSpaceMicro, Imager: Imager, DragHelper: DragHelper, dropHandler: function () {} } }">
     </div>
 
-    <div id="worktable2-petri" data-bind="template: { name:'tableSpacePetri', data: { tableSpacePetri: worktable2.tableSpacePetri, Imager: Imager } }">
+    <div id="worktable2-petri" data-bind="template: { name:'tableSpacePetri', data: { tableSpacePetri: worktable2.tableSpacePetri, Imager: Imager, DragHelper: DragHelper, dropHandler: function () {} } }">
     </div>
 
-    <div id="worktable2-tuberack" data-bind="template: { name:'tubeRack', data: { tubeRack: worktable2.tubeRack, Imager: Imager } }">
+    <div id="worktable2-tuberack" data-bind="template: { name:'tubeRack', data: { tubeRack: worktable2.tubeRack, Imager: Imager, DragHelper: DragHelper, dropHandler: function () {} } }">
     </div>
 
-    <div class="droppable" id="worktable2-centrifuge"></div>
+    <div id="worktable2-centrifuge"></div>
 
     <button class="btn-none" id="worktable2-blender"></button>
 
     <div id="worktable2-od" data-bind="if: worktable2.odMachine.hasTube()">
-        <div class="testtube draggable">
+        <div class="testtube">
             <img alt="Test tube">
         </div>
     </div>

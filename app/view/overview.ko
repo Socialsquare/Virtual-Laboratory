@@ -6,7 +6,7 @@
         <img id="door-img" alt="Go to door"
              data-bind="click: $parent.triggerPopup.bind(null, 'door')">
     </a>
-    <a href="#chemical-closet">
+    <a href="#chemical">
         <img id="chemicalcloset-img" alt="Go to chemical closet">
     </a>
     <a href="#fumehood">

@@ -1,29 +1,29 @@
 define([
     'knockout',
-    'mapping',
     'jquery',
     'lodash',
 
     'controller/view/Base',
 
-    'model/GameState',
+    'model/Tube',
+    'model/Petridish',
+    'model/Microtiterplate',
+    'model/ChemicalItem',
 
-    'service/Chemical',
+    'factory/Liquid',
 
     'utils/utils'
-], function (ko, mapping, $, _, BaseViewController, gameState, ChemicalService, utils) {
+], function (ko, $, _, BaseViewController, TubeModel, PetridishModel, MicrotiterplateModel, ChemicalItemModel, LiquidFactory, utils) {
     var Chemical = BaseViewController.extend({
 
         closetItems: ko.observableArray([]),
         drawerItems: ko.observableArray([]),
         fridgeItems: ko.observableArray([]),
 
-        chemicalService: new ChemicalService(),
-
         // TODO: remove app dep and use ko.postbox or similar
         constructor: function (app) {
             var self = this;
-            self.base('chemical-closet');
+            self.base('chemical');
 
             var groups = {
                 closet: { name: 'Kemikalie skabet', items: self.closetItems },
@@ -38,18 +38,30 @@ define([
                 });
             };
 
-            self.chemicalService.getClosetItems().done(function (items) {
-                self.closetItems(items);
-            });
+            // TODO: consider refactoring this to somewhere else
+            ko.utils.arrayPushAll(self.closetItems, [
+                new ChemicalItemModel('Antibiotikum', self.inTube(LiquidFactory.antibiotic.a()))
+            ]);
 
-            self.chemicalService.getDrawerItems().done(function (items) {
-                self.drawerItems(items);
-            });
+            ko.utils.arrayPushAll(self.drawerItems, [
+                //new ChemicalItemModel('Kanyle', new Syringe()),
+                new ChemicalItemModel('Petriskål', new PetridishModel()),
+                new ChemicalItemModel('Reagensglas', new TubeModel()),
+                new ChemicalItemModel('Mikrotiterbakke', new MicrotiterplateModel()),
+                //new ChemicalItemModel('Skalpel', new Scalpel()),
+            ]);
 
-            self.chemicalService.getFridgeItems().done(function (items) {
-                self.fridgeItems(items);
-            });
-	    }
+            ko.utils.arrayPushAll(self.fridgeItems, [
+                new ChemicalItemModel('Gærceller', self.inTube(LiquidFactory.microorganism.yeast())),
+                new ChemicalItemModel('Myeloma', self.inTube(LiquidFactory.microorganism.myeloma())),
+            ]);
+	    },
+
+        inTube: function (liquid) {
+            var tube = new TubeModel();
+            tube.add(liquid);
+            return tube;
+        }
     });
 
     return Chemical;
