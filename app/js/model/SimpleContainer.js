@@ -54,13 +54,13 @@ define([
             self.growContentsOnce = function(deltaTime, growerType, ph, temperature) {
                 // TODO return whether growth is performed. False = max is reached, True = grew once
                 // deltaTime is in hours!
+
+
                 if(self.getTotalConcentration() >= self.maxConcentration())
                 { return false; }
 
 
 // TODO limit when reaches maxConcentration
-
-
 
                 var totalConc = self.getTotalConcentration();
 
@@ -89,7 +89,6 @@ define([
                 });
 
                 return true;
-
             };
         }
     });

@@ -8,7 +8,7 @@ define([
     var Electroporator = SimpleContainerModel.extend({
         constructor: function () {
             var self = this;
-            self.base(ContainerType.ELECTROPORATOR, 13);
+            self.base(ContainerType.ELECTROPORATOR, Math.pow(13));
 
             self.status = ko.observable(false);
 

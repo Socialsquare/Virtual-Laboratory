@@ -1,8 +1,9 @@
 define([
     'knockout',
+    'utils/utils',
     'model/CompositeContainer',
     'model/ContainerType'
-], function (ko, CompositeContainerModel, ContainerType) {
+], function (ko, Utils, CompositeContainerModel, ContainerType) {
 
     var ODMachine = CompositeContainerModel.extend({
         constructor: function () {
@@ -16,8 +17,8 @@ define([
             self.display = ko.computed(function() {
                 if(!self.hasTube())
                     return '';
-
-                return self.get(0).getTotalConcentration();
+                var logConc = Utils.math.getBaseLog(10, self.get(0).getTotalConcentration());
+                return '' + logConc.toFixed(1);
             });
         }
 

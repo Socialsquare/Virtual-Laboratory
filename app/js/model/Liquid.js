@@ -10,7 +10,9 @@ define([
             self.type = ko.observable(type);
             self.reactionCount = ko.observable(reactionCount);
             self.hasReacted = ko.observable(false);
-            self.react = function (container) {};
+            self.react = function (container) {
+                // TODO: implement
+            };
         }
     });
 

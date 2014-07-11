@@ -2,7 +2,7 @@
     <div class="fermentor-screen">
         <div class="fermentor-graph">
             <h1>TODO: Se vlab.dk og genbrug Chris'?</h1>
-
+            <h1>TODO: husk data-extraction. Gem hele grafens data, så det kan fyres til CSV.</h1>
         </div>
 
 

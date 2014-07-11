@@ -10,7 +10,7 @@ define([
 
         constructor: function () {
             var self = this;
-            self.base(ContainerType.FERMENTOR_TANK, 13);
+            self.base(ContainerType.FERMENTOR_TANK, Math.pow(10, 13));
 
             self.activate = function () {
                 throw 'Den er her ikke lige endnu';

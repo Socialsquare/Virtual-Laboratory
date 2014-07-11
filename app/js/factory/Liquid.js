@@ -13,14 +13,12 @@ define([
             yeast: function () {
                 var micro = new Microorganism(MicroorganismType.YEAST);
 
-                // TODO: temp values
                 micro.living(true);
 		        micro.extraGenes([]);
                 micro.extraProperties([]);
                 micro.optimalPh(6.0);
 		        micro.optimalTemp(35);
-                //TODO: patty: log eller ikke log?
-		        micro.concentration(5);
+		        micro.concentration(Math.pow(10, 3));
 
 
                 return micro;
@@ -29,13 +27,12 @@ define([
             myeloma: function () {
                 var micro = new Microorganism(MicroorganismType.MYELOMA);
 
-                // TODO: temp values
                 micro.living(true);
 		        micro.extraGenes([]);
                 micro.extraProperties([]);
 		        micro.optimalPh(7.25); // http://en.wikipedia.org/wiki/Blood#Narrow_range_of_pH_values
 		        micro.optimalTemp(37);
-		        micro.concentration(0);
+                micro.concentration(Math.pow(10, 3));
 
                 return micro;
             }

@@ -1,6 +1,6 @@
 define([], function () {
     return {
         YEAST: 'the BEAST',
-        MYELOMA: 'bae'
+        MYELOMA: 'myeloma_bae'
     };
 });

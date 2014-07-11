@@ -21,29 +21,24 @@ define([
 		    self.concentration = ko.observable(0);
 
             self.getGrowthRate = function(ph, temperature) {
-                if(!self.living())
-                {return 0;}
 
-                return self.getPHGrowthFactor() * self.getTempGrowthFactor() * 0.6; // TODO: optimize this magic number when the fermentor has plotting-implemented
+                return self.getPhGrowthFactor(ph) * self.getTempGrowthFactor(temperature) * 0.6; // TODO: optimize this magic number when the fermentor has plotting-implemented
             };
 
             self.grow = function(growthAmount){
-                self.concentration(self.concentration + growthAmount);
+                self.concentration(self.concentration() + growthAmount);
             };
 
             self.getGrowthStep = function(deltaTime, containerMaxConc, containerPrevTotalConc, ph, temperature) {
-// TODO: check if microorganisms are alive
+
+                if(!self.living())  {return 0;}
 // TODO: kill if conditions are too harsh
 
                 // Returns concentration
                 // Temporarily converts to biomass (has the real unit g/L)
                 // And back to concentration afterwards!
                 var a_i = self.getGrowthRate(ph, temperature);
-
                 var n_i = Utils.math.getBiomassFromConcentration(self.concentration()); //This _is_ the previous, as it is not updated until afterwards
-                /*var k = Math.pow(10, container.maxConcentration()) * 1.01;
-                var n = container.getTotalConcentration();*/
-
                 var k = Utils.math.getBiomassFromConcentration(containerMaxConc * 1.01); // Logarithmic asymptotic max-level
                 var n = Utils.math.getBiomassFromConcentration(containerPrevTotalConc);
 
@@ -59,10 +54,10 @@ define([
                 var dN_i = a_i * n_i * (k - n) / k * deltaTime;
                 // Converts back to actual concentration
                 dN_i_concentration = Utils.math.getConcentrationFromBiomass(dN_i);
-                return dN_i_concentration; // I know this is lame, but its _slightly_ better for readability
+                return dN_i_concentration; // I know this is lame, but it's _slightly_ better for readability
             };
 
-            self.getPHGrowthFactor = function(ph) {
+            self.getPhGrowthFactor = function(ph) {
                 var phDiff = ph - self.optimalPh();
                 if(Math.abs(phDiff) >= 2)
                 {
@@ -73,8 +68,8 @@ define([
                 return 1 - 1.0/4.0 * phDiff * phDiff;
             };
 
-            self.getTempGrowthFactor = function(temp) { //TODO
-                var tempDiff = temp - self.optimalTemp();
+            self.getTempGrowthFactor = function(temperature) { //TODO
+                var tempDiff = temperature - self.optimalTemp();
                 if (tempDiff > 8) //tempDiff = [8; Inf]
                 {
                     self.living(false); //TODO: let knockout track this state instead of having it in a getter

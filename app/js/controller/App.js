@@ -84,12 +84,10 @@ define([
             // dummy data
             //------------------------
             var tube = new Tube();
-            var microtiter = new Microtiterplate();
 
-            var tubefull = new Tube();
-            tubefull.add(LiquidFactory.microorganism.yeast());
+            var tubeYeast = new Tube();
+            tubeYeast.add(LiquidFactory.microorganism.yeast());
 
-            var tube1 = new Tube();
             gameState.inventory.add(tube);
 
             var petri = new Petridish();
@@ -99,7 +97,7 @@ define([
             gameState.inventory.add(micro);
 
             gameState.worktable1.tubeRack.addAt(0, tube);
-            gameState.worktable1.tubeRack.addAt(5, tubefull);
+            gameState.worktable1.tubeRack.addAt(5, tubeYeast);
             gameState.worktable1.heater.addAt(0, tube);
             gameState.worktable1.heater.addAt(2, tube);
             gameState.worktable1.tableSpaceMicro.addAt(2, micro);
@@ -110,7 +108,7 @@ define([
             gameState.worktable2.tableSpaceMicro.addAt(2, micro);
             gameState.worktable2.tableSpacePetri.addAt(0, petri);
             gameState.worktable2.tableSpacePetri.addAt(2, petri);
-            gameState.worktable2.odMachine.addAt(0, tubefull);
+            gameState.worktable2.odMachine.addAt(0, tubeYeast);
             gameState.worktable2.tubeRack.addAt(0, tube);
 
             gameState.fumehood.tableSpaceMicro.addAt(0, micro);
@@ -118,15 +116,16 @@ define([
             gameState.fumehood.tableSpacePetri.addAt(0, petri);
             gameState.fumehood.tableSpacePetri.addAt(2, petri);
             gameState.fumehood.tubeRack.addAt(0, tube);
-            gameState.fumehood.tubeRack.addAt(5, tubefull);
+            gameState.fumehood.tubeRack.addAt(5, tubeYeast);
 
-            gameState.incubator.tubeRack.addAt(0, tube);
-            gameState.incubator.tubeRack.addAt(1, tube);
+            gameState.incubator.tubeRack.addAt(0, tubeYeast);
+            /*gameState.incubator.tubeRack.addAt(1, tube);
             gameState.incubator.tubeRack.addAt(2, tube);
             gameState.incubator.tubeRack.addAt(4, tube);
-            gameState.incubator.tubeRack.addAt(5, tube);
+            gameState.incubator.tubeRack.addAt(5, tube);*/
 
-            gameState.spectroPM.spectroPMMachine.addAt(0, microtiter);
+            gameState.spectroPM.spectroPMMachine.addAt(0, micro);
+
         }
     });
 

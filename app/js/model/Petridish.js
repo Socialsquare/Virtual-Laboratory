@@ -7,7 +7,7 @@ define([
     var Petridish = SimpleContainerModel.extend({
         constructor: function () {
             var self = this;
-            self.base(ContainerType.PETRI_DISH, 12);
+            self.base(ContainerType.PETRI_DISH, Math.pow(10,12));
         }
     });
 

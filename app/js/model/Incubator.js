@@ -13,7 +13,7 @@ define([
         constructor: function () {
             var self = this;
 
-            self.temperature = ko.observable(30.0);
+            self.temperature = ko.observable(35.0);
             self.timer = ko.observable(48); // Time in hours
             self.turnedOn = ko.observable(false);
             self.timerID = ko.observable(null);

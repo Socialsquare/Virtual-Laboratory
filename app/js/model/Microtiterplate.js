@@ -7,7 +7,7 @@ define([
     var Microtiterplate = SimpleContainerModel.extend({
         constructor: function () {
             var self = this;
-            self.base(ContainerType.MICROTITER, 10);
+            self.base(ContainerType.MICROTITER, Math.pow(10, 10));
         }
     });
 
