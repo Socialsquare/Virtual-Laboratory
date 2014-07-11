@@ -7,6 +7,7 @@
     "knockout": "~3.1.0",
     "knockout-mapping": "~2.4.1",
     "jquery-ui": "~1.11.0",
-    "jquery-flot": "~0.8.3"
+    "jquery-flot": "~0.8.3",
+    "jqueryui-touch-punch": "*"
   }
 }

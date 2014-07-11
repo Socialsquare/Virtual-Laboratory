@@ -6,11 +6,13 @@ require.config({
         lodash: '../bower_components/lodash/dist/lodash.compat',
         knockout: '../bower_components/knockout/dist/knockout.debug',
         mapping: '../bower_components/knockout-mapping/knockout.mapping',
+        jqueryuitouchpunch: '../bower_components/jqueryui-touch-punch/jquery.ui.touch-punch',
 
         base: 'libs/Base'
     },
     shim: {
         'jqueryui': ['jquery'],
+        'jqueryuitouchpunch': ['jqueryui'],
         'flot': ['jquery'],
 
         'base': { exports: 'Base' }
@@ -23,6 +25,7 @@ require([
 
     // self-registering jquery plugins
     'jqueryui',
+    'jqueryuitouchpunch',
     'flot',
 
     // self-registering knockout bindings and extensions
