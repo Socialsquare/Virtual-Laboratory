@@ -23,6 +23,7 @@ define([
                 console.log('TODO: Select experiment');
             };
 
+            // dummy stuff
             self.dropHandler = function (item) {
                 self.gameState.inventory.remove(item);
             };

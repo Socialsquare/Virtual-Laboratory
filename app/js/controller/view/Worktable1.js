@@ -1,24 +1,18 @@
 define([
     'knockout',
     'jquery',
-    'controller/BaseView',
+    'controller/view/Base',
     'controller/Notifier',
-    'model/GameState',
-    'utils/Imager',
-    'utils/DragHelper',
     'model/ContainerType'
-], function (ko, $, BaseViewController, Notifier, gameState, Imager, DragHelper, ContainerType) {
+], function (ko, $, BaseViewController, Notifier, ContainerType) {
 
     var Worktable1 = BaseViewController.extend({
-
-        gameState: gameState,
-        worktable1: gameState.worktable1,
-        Imager: Imager,
-        DragHelper: DragHelper,
 
         constructor: function () {
             var self = this;
             self.base('worktable1');
+
+            self.worktable1 =  self.gameState.worktable1;
 
             self.toggleBunsen = function () {
                 self.worktable1.bunsenBurner.toggle();
@@ -33,12 +27,8 @@ define([
             };
 
             self.handleTubeRackDrop = function (position, tube) {
-                gameState.inventory.remove(tube);
+                self.gameState.inventory.remove(tube);
                 self.worktable1.tubeRack.addAt(position, tube);
-            };
-
-            self.acceptDrop = function (item) {
-                return item.type() === ContainerType.TUBE;
             };
         }
     });

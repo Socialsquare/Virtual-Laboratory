@@ -1,5 +1,5 @@
 define([
-    'controller/BaseView',
+    'controller/view/Base',
     'knockout'
 ], function (BaseViewController, ko) {
     var Overview = BaseViewController.extend({

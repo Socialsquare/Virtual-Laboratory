@@ -1,20 +1,15 @@
 define([
     'knockout',
-    'controller/BaseView',
-    'model/GameState',
-    'utils/Imager'
-], function (ko, BaseViewController, gameState, Imager) {
+    'controller/view/Base'
+], function (ko, BaseViewController) {
 
     var Worktable2 = BaseViewController.extend({
-
-        gameState: gameState,
-        worktable2: gameState.worktable2,
-        Imager: Imager,
 
         constructor: function () {
             var self = this;
             self.base('worktable2');
 
+            self.worktable2 = self.gameState.worktable2;
         }
 
     });

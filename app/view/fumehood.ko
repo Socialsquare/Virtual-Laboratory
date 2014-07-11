@@ -1,5 +1,5 @@
 <div class="fumehood-view view">
-    <div id="fumehood-tuberack" data-bind="template: { name:'tubeRack', data: { tubeRack: fumehood.tubeRack, Imager: Imager } }">
+    <div id="fumehood-tuberack" data-bind="template: { name:'tubeRack', data: { tubeRack: fumehood.tubeRack, Imager: Imager, dropHandler: function () {}, DragHelper: DragHelper } }">
     </div>
 
     <div id="fumehood-petri" data-bind="template: { name:'tableSpacePetri', data: { tableSpacePetri: fumehood.tableSpacePetri, Imager: Imager } }">

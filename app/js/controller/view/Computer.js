@@ -4,7 +4,7 @@ define([
     'jquery',
     'lodash',
 
-    'controller/BaseView',
+    'controller/view/Base',
 
     'model/Gene',
     'model/GameState',

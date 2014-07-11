@@ -1,7 +1,7 @@
 define([
     'knockout',
     'jquery',
-    'controller/BaseView',
+    'controller/view/Base',
     'controller/Notifier',
     'model/GameState',
     'utils/Imager'
@@ -9,17 +9,13 @@ define([
 
     var Fermentor = BaseViewController.extend({
 
-        gameState: gameState,
-        fermentor: gameState.fermentor,
-        Imager: Imager,
-
         constructor: function () {
             var self = this;
             self.base('fermentor');
 
+            self.fermentor = self.gameState.fermentor;
         }
     });
 
     return Fermentor;
 });
-

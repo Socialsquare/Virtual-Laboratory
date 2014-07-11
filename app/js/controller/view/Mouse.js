@@ -3,14 +3,10 @@ define([
     'knockout',
     'lodash',
 
-    'controller/BaseView',
-
-    'model/GameState'
-], function ($, ko, _, BaseViewController, gameState) {
+    'controller/view/Base'
+], function ($, ko, _, BaseViewController) {
 
     var MouseController = BaseViewController.extend({
-
-        gameState: gameState,
 
         activeVideo: ko.observable('runfast'),
 

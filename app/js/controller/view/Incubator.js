@@ -1,19 +1,15 @@
 define([
     'knockout',
-    'controller/BaseView',
-    'model/GameState',
-    'utils/Imager'
-], function (ko, BaseViewController, gameState, Imager) {
+    'controller/view/Base'
+], function (ko, BaseViewController) {
 
     var IncubatorController = BaseViewController.extend({
-
-        gameState: gameState,
-        incubator: gameState.incubator,
-        Imager: Imager,
 
         constructor: function () {
             var self = this;
             self.base('incubator');
+
+            self.incubator = self.gameState.incubator;
 
             self.changeTemp = function(val) {
                 self.incubator.temperature(self.incubator.temperature() + val);

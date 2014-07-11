@@ -4,25 +4,25 @@ define([
     'Router',
 
     // controllers
-    'controller/Overview',
+    'controller/view/Overview',
     //'controller/Computer',
   //  'controller/Chemical',
 //    'controller/Mouse',
-    'controller/Fumehood',
-    'controller/Worktable1',
-    'controller/Worktable2',
-    'controller/Incubator',
-    'controller/SpectroPM',
-    'controller/Fermentor',
-    'controller/FermentorScreen',
+    'controller/view/Fumehood',
+    'controller/view/Worktable1',
+    'controller/view/Worktable2',
+    'controller/view/Incubator',
+    'controller/view/SpectroPM',
+    'controller/view/Fermentor',
+    'controller/view/FermentorScreen',
 
     'controller/Menu',
 
     'model/GameState',
-
     'model/Tube',
     'model/Petridish',
     'model/Microtiterplate',
+
     'factory/Liquid'
 
 ], function (Base, ko, Router, OverviewController, /* ComputerController, ChemicalController, MouseController*/

@@ -1,6 +1,6 @@
 define([
     'knockout',
-    'controller/BaseView',
+    'controller/view/Base',
     'controller/Notifier',
     'model/GameState',
     'utils/Imager'
@@ -8,15 +8,11 @@ define([
 
     var FermentorScreen = BaseViewController.extend({
 
-        gameState: gameState,
-        fermentor: gameState.fermentor,
-        Imager: Imager,
-
         constructor: function () {
             var self = this;
             self.base('fermentorscreen');
 
-
+            self.fermentor = self.gameState.fermentor;
 
             self.changeTemp = function(val) {
                 self.fermentor.temperature(self.fermentor.temperature() + val);
@@ -30,5 +26,3 @@ define([
 
     return FermentorScreen;
 });
-
-
