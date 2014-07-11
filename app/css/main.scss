@@ -12,15 +12,30 @@ html {
 }
 
 body {
-  margin: 0;
-  height: 100%;
+  /*margin: 0;
+  height: 100%;*/
   background-color: #000000;
   font-size: 100%;
+
+  // Unedited StackOverflow-magic: http://stackoverflow.com/questions/18490334/responsive-image-full-screen-and-centered-maintain-aspect-ratio-not-exceed-wi
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    /*position: fixed;*/
+    right: 0;
+    top: 0;
 }
 
 /* !DEVELOPMENT */
 .placeholder {
   background-color: pink;
+}
+
+.fixed {
+  position: fixed;
 }
 
 /* !SITE WIDE TYPOGRAPHY */
