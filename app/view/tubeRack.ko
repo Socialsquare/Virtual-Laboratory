@@ -8,7 +8,7 @@
     <!-- ko if: $parent.tubeRack.hasContainerAt($index()) -->
     <li class="tuberack-slot" data-bind="attr: { id: 'tube' + ($index() + 1) }">
         <img data-bind="attr: { src: $parent.ImageHelper.tubeRackImage($index(), $data) },
-                        drag: { item: $data, dim: false, consume: $parent.tubeRack.remove.bind(null, $index()) }">
+                        drag: { item: $data, dim: true, consume: $parent.tubeRack.remove.bind(null, $index()) }">
     </li>
     <!-- /ko -->
 </ul>

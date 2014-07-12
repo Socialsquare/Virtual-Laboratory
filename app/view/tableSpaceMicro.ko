@@ -8,7 +8,7 @@
     <!-- ko if: $parent.tableSpaceMicro.hasContainerAt($index()) -->
     <li class="tablespace-slot" data-bind="attr: { id: 'micro' + ($index() + 1) }">
         <img data-bind="attr: { src: $parent.ImageHelper.tableSpaceMicroImage($index(), $data) },
-                        drag: { item: $data, dim: false, consume: $parent.tableSpaceMicro.remove.bind(null, $index()) }">
+                        drag: { item: $data, dim: true, consume: $parent.tableSpaceMicro.remove.bind(null, $index()) }">
     </li>
     <!-- /ko -->
 </ul>
