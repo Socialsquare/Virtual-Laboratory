@@ -26,21 +26,22 @@
         </video>
     </div>
 
-    <div id="worktable1-tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
-    <div id="worktable1-petri" data-bind="template: { name: 'compContainer', data: tableSpacePetriController }"></div>
-    <div id="worktable1-micro" data-bind="template: { name: 'compContainer', data: tableSpaceMicroController }"></div>
+    <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
+    <div class="petri" data-bind="template: { name: 'compContainer', data: tableSpacePetriController }"></div>
+    <div class="micro" data-bind="template: { name: 'compContainer', data: tableSpaceMicroController }"></div>
 
-    <div id="worktable1-bunsenflame" data-bind="css: { hidden: !worktable1.bunsenBurner() }"></div>
+    <div class="bunsenflame" data-bind="css: { hidden: !worktable1.bunsenBurner() }"></div>
 
-    <button class="btn-none" id="worktable1-bunsen" data-bind="click: toggleBunsen"></button>
+    <button class="btn-none bunsen" data-bind="click: toggleBunsen"></button>
 
-    <div class="droppable" id="worktable1-electroporator"></div>
+    <div class="electroporator"></div>
 
-    <button class="btn-none" id="worktable1-electroporator-btn" data-bind="click: activateElectroporator">
-        <img src="assets/images/work1_electroporator-on.png" alt="Electroporator button" data-bind="css: { hidden: !worktable1.electroporator.status() }">
+    <button class="btn-none electroporator-btn" data-bind="click: activateElectroporator">
+        <img src="assets/images/work1_electroporator-on.png" alt="Electroporator button"
+             data-bind="css: { hidden: !worktable1.electroporator.status() }">
     </button>
 
-    <div id="worktable1-heater-testtubeholder">
+    <div class="heater-testtubeholder">
         <ul data-bind="foreach: worktable1.heater.containers">
             <!-- ko if: $parent.worktable1.heater.hasContainerAt($index()) -->
             <li class="heater-slot" data-bind="attr: { id: 'heatertube' + ($index() + 1) }">
@@ -59,7 +60,9 @@
             <!-- /ko -->
         </ul>
     </div>
-    <button class="btn-none" id="worktable1-heater-btn" data-bind="click: toggleHeater">
-        <img src="assets/images/work1_heater-on.png" alt="Heater button" data-bind="css: { hidden: !worktable1.heater.status() }">
+
+    <button class="btn-none heater-btn" data-bind="click: toggleHeater">
+        <img src="assets/images/work1_heater-on.png" alt="Heater button"
+             data-bind="css: { hidden: !worktable1.heater.status() }">
     </button>
 </div>

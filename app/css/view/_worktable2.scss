@@ -5,59 +5,53 @@
 @import 'base';
 
 .worktable2-view {
-  @include view;
-  background-image: url(#{$img-path}/work2_base.png);
-}
+    @include view;
+    background-image: url(#{$img-path}/work2_base.png);
 
-#worktable2-micro {
-  @include tablespacemicro(160px, 460px);
-}
+    .micro { @include tablespacemicro(160px, 460px); }
+    .petri { @include tablespacepetri(600px, 460px); }
+    .tuberack { @include tuberack(492px, 318px); }
 
-#worktable2-petri {
-  @include tablespacepetri(600px, 460px);
-}
+    .centrifuge {
+        position: absolute;
+        top: 203px;
+        left: 113px;
+        width: 117px;
+        height: 103px;
+    }
 
-#worktable2-tuberack {
-  @include tuberack(492px, 318px);
-}
+    .blender {
+        position: absolute;
+        top: 224px;
+        left: 371px;
+        width: 80px;
+        height: 80px;
+    }
 
-#worktable2-centrifuge {
-  position: absolute;
-  top: 203px;
-  left: 113px;
-  width: 117px;
-  height: 103px;
-}
+    .blender.on {
+        background-image: url(#{$img-path}/work2_blender-on.png);
+    }
 
-#worktable2-blender {
-  position: absolute;
-  top: 224px;
-  left: 371px;
-  width: 80px;
-  height: 80px; }
-  #worktable2-blender.on {
-    background-image: url(#{$img-path}/work2_blender-on.png);
-}
+    .od {
+        position: absolute;
+        top: 195px;
+        left: 817px;
+        width: 181px;
+        height: 234px;
+    }
 
-#worktable2-od {
-  position: absolute;
-  top: 195px;
-  left: 817px;
-  width: 181px;
-  height: 234px;
-}
-
-#worktable2-od-display {
-  position: absolute;
-  top: 240px;
-  left: 870px;
-  height: 44px;
-  width: 70px;
-  z-index: 10;
-  font-size: 30px;
-  line-height: 30px;
-  padding-top: 7px;
-  text-align: center;
-  font-family: $font;
-  opacity: 0.7;
+    .od-display {
+        position: absolute;
+        top: 240px;
+        left: 870px;
+        height: 44px;
+        width: 70px;
+        z-index: 10;
+        font-size: 30px;
+        line-height: 30px;
+        padding-top: 7px;
+        text-align: center;
+        font-family: $font;
+        opacity: 0.7;
+    }
 }

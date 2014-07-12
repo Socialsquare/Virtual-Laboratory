@@ -5,18 +5,10 @@
 @import 'base';
 
 .fumehood-view {
-  @include view;
-  background-image: url(#{$img-path}/fumehood_base.png);
-}
+    @include view;
+    background-image: url(#{$img-path}/fumehood_base.png);
 
-#fumehood-micro {
-  @include tablespacemicro(160px, 380px);
-}
-
-#fumehood-petri {
-  @include tablespacepetri(600px, 380px);
-}
-
-#fumehood-tuberack {
-  @include tuberack(527px, 228px);
+    .micro { @include tablespacemicro(160px, 380px); }
+    .petri { @include tablespacepetri(600px, 380px); }
+    .tuberack { @include tuberack(527px, 228px); }
 }

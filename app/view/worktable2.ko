@@ -1,21 +1,20 @@
 <div class="worktable2-view">
 
-    <div id="worktable2-petri" data-bind="template: { name: 'compContainer', data: tableSpacePetriController }"></div>
+    <div class="petri" data-bind="template: { name: 'compContainer', data: tableSpacePetriController }"></div>
+    <div class="micro" data-bind="template: { name: 'compContainer', data: tableSpaceMicroController }"></div>
+    <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
 
-    <div id="worktable2-micro" data-bind="template: { name: 'compContainer', data: tableSpaceMicroController }"></div>
+    <div class="centrifuge"></div>
 
-    <div id="worktable2-tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
+    <button class="btn-none worktable2-blender"></button>
 
-    <div id="worktable2-centrifuge"></div>
-
-    <button class="btn-none" id="worktable2-blender"></button>
-
-    <div id="worktable2-od" data-bind="if: worktable2.odMachine.hasTube()">
+    <div class="od" data-bind="if: worktable2.odMachine.hasTube()">
         <div class="testtube">
             <img src="assets/images/work2_od-on.png" alt="Test tube">
         </div>
     </div>
 
-    <div id="worktable2-od-display" data-bind="css: { hidden: !worktable2.odMachine.hasTube() },
-         text: worktable2.odMachine.display()"></div>
+    <div class="od-display"
+         data-bind="css: { hidden: !worktable2.odMachine.hasTube() }, text: worktable2.odMachine.display()">
+    </div>
 </div>
