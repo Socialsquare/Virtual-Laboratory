@@ -8,6 +8,7 @@ define([
         constructor: function () {
             var self = this;
             self.base('loading');
+            self.hasMenu(false);
 
             self.percent = ko.observable(0);
 

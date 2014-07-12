@@ -15,7 +15,7 @@
             <div class="interface-container">
                 <div data-bind="template: { name: activeViewController().templateName, data: activeViewController }"></div>
 
-                <div data-bind="visible: activeViewController().templateName !== 'loading',
+                <div data-bind="visible: activeViewController().hasMenu,
                                 template: { name: 'menu', data: menuController }"></div>
             </div>
 
