@@ -2,8 +2,11 @@ define([
     'jquery',
     'knockout',
     'lodash',
-    'controller/view/Base'
-], function ($, ko, _, BaseViewController) {
+    'controller/view/Base',
+    'model/Bottle',
+    'model/Juice',
+    'model/type/Container'
+], function ($, ko, _, BaseViewController, BottleModel, JuiceModel, ContainerType) {
 
     var MouseController = BaseViewController.extend({
 
@@ -11,13 +14,15 @@ define([
 
         mouseData: ko.observableArray([]),
 
-        isDragginWaterBottle: ko.observable(false),
-
         graphTimer: null,
 
         constructor: function () {
             var self = this;
             self.base('mouse');
+
+            var bottle = new BottleModel();
+            bottle.add(new JuiceModel());
+            self.bottle = bottle;
 
             // TODO: fix correct data
             // dummy mouse data
@@ -36,63 +41,18 @@ define([
                 this.play();
             };
 
-            self.handleDropOnMouse = function (event, $draggable) {
-                var id = $draggable.prop('id'),
-                mouse = self.gameState.mouse();
+            self.handleDropOnMouse = function (item) {
 
-                switch(id) {
-                case 'water-bottle':
-                    $draggable.removeClass('visible');
-                    self.mouseDrinkingStart();
-                    return;
+                switch(item.type()) {
+                case ContainerType.BOTTLE:
+                    console.log('TODO: bottle on mouse');
+                    break;
+
+                // case SpecialType.SCALPEL:
+                // case SpecialType.SPLEEN:
+                // case SpecialType.NEEDLE:
+                //     break;
                 }
-
-                if($draggable.hasClass('needle')) {
-                    self.mouseNeedle($draggable.data('content'));
-                    $draggable.remove();
-                    return;
-                }
-                if($draggable.hasClass('scalpel')) {
-                    if(!mouse.alive()) {
-                        self.mouseScalpel();
-                        $draggable.remove();
-                        return;
-                    }
-                    else {
-                        // TODO: fix #13
-                        //view.popupOKView.show('Kan ikke udføres', 'Musen skal være død.');
-                    }
-                }
-
-                $draggable.chcDraggable('returnToOriginalPosition');
-            };
-
-            self.handleStartDrag = function (event) {
-                var $draggable = $(this);
-
-                if ($draggable.attr('id') === 'water-bottle') {
-                    self.isDragginWaterBottle(true);
-                    $draggable.addClass('visible');
-                }
-            };
-
-            self.handleDroppedOut = function (event) {
-                var $draggable = $(this);
-
-                if ($draggable.attr('id') === 'water-bottle') {
-                    self.isDragginWaterBottle(false);
-
-                    $draggable.removeClass('visible');
-                }
-
-                if ($draggable.hasClass('spleen') === true) {
-                    console.log('Dropped out spleen');
-                }
-            };
-
-            self.handleSpawnDroppedOut = function (event) {
-                self.gameState.mouse().spleen(true);
-                self.addDraggableSpleen();
             };
 
             /* !ANIMATION HANDLERS */

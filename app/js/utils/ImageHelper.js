@@ -64,11 +64,14 @@ define([
             case ContainerType.TUBE:
                 return IMG_PATH + '/icon_cup_tube.png';
 
+            case ContainerType.BOTTLE:
+                return IMG_PATH + '/grab_drink.png';
+
             case LiquidType.DNA:
                 return IMG_PATH + '/icon_cup_tube.png';
 
             default:
-                throw 'Unknown inventory item: ' + item.type();
+                throw 'Unknown dragging item: ' + item.type();
             }
         }
     };

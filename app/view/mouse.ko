@@ -1,50 +1,42 @@
-<div class="mouse-view" data-bind="css: { 'no-bottle': isDragginWaterBottle }">
-    <div class="video-container">
-        <video id="mouse-video-runfast" preload="auto"
-               data-bind="css: { offscreen: activeVideo() !== 'runfast'}, videoLoop: true">
+<div class="mouse-view">
+
+    <div class="video-container hidden">
+        <video class="mouse-video-runfast" preload="none">
             <source src="assets/videos/runFast.mp4" type="video/mp4"/>
             <source src="assets/videos/runFast.webm" type="video/webm"/>
         </video>
 
-        <video id="mouse-video-drinkstart" preload="auto"
-               data-bind="css: { offscreen: activeVideo() !== 'drinkstart'}">
+        <video class="mouse-video-drinkstart" preload="none">
             <source src="assets/videos/runFast_drink_spawn.mp4" type="video/mp4"/>
             <source src="assets/videos/runFast_drink_spawn.webm" type="video/webm"/>
         </video>
 
-        <video id="mouse-video-drinkloop" preload="auto"
-               data-bind="css: { offscreen: activeVideo() !== 'drinkloop'}">
+        <video class="mouse-video-drinkloop" preload="none">
             <source src="assets/videos/runFast_drink_loop.mp4" type="video/mp4"/>
             <source src="assets/videos/runFast_drink_loop.webm" type="video/webm"/>
         </video>
 
-        <video id="mouse-video-inj" preload="auto"
-               data-bind="css: { offscreen: activeVideo() !== 'inj'}, videoLoop: true">
+        <video class="mouse-video-inj" preload="none">
             <source src="assets/videos/runFast_inj.mp4" type="video/mp4"/>
             <source src="assets/videos/runFast_inj.webm" type="video/webm"/>
         </video>
 
-        <video id="mouse-video-injdie" preload="auto"
-               data-bind="css: { offscreen: activeVideo() !== 'injdie'}">
+        <video class="mouse-video-injdie" preload="none">
             <source src="assets/videos/poi1_inj.mp4" type="video/mp4"/>
             <source src="assets/videos/poi1_inj.webm" type="video/webm"/>
         </video>
 
-        <video id="mouse-video-cut" preload="auto"
-               data-bind="css: { offscreen: activeVideo() !== 'cut'}">
+        <video class="mouse-video-cut" preload="none">
             <source src="assets/videos/poi3_cut.mp4" type="video/mp4"/>
             <source src="assets/videos/poi3_cut.webm" type="video/webm"/>
         </video>
     </div>
 
-    <div id="water-bottle"
-         data-bind="draggable: {
-                    startHandler: handleStartDrag,
-                    droppedHandler: handleDroppedOut,
-                    spawnDroppedHandler: handleSpawnDroppedOut
-         }"></div>
+    <div class="water-bottle" data-bind="drag: { item: bottle, offset: { left: 84, top: 182 } }"></div>
 
-    <div class="hidden" id="dead_mouse"></div>
-    <div id="mouse" data-bind="droparea: handleDropOnMouse"></div>
+    <div class="hidden dead_mouse"></div>
+
+    <div class="mouse" data-bind="drop: { handler: handleDropOnMouse, accept: DragHelper.acceptedByMouse }"></div>
+
     <div class="mousegraph" data-bind="plot: mouseData"></div>
 </div>

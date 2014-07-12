@@ -5,6 +5,7 @@ define([], function () {
         MICROTITER: 'microtiter',
         TUBE: 'tube_fuckinglolwat',
         FERMENTOR_TANK: 'who the fuck are the boomtown rats?',
+        BOTTLE: 'hello yes bottle',
 
         // Composite
         TABLE_SPACE: 'table_fucking_space_OMG!',

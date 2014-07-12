@@ -4,99 +4,102 @@
 @import 'base';
 
 .mouse-view {
-  @include view;
+    @include view;
 
-  background-image: url(#{$img-path}/mouse-view-background-sprite_sRGB.png);
-  background-size: 1024px 1288px;
-  background-position: 0 0;
-  .no-bottle { background-position: 0 644px; }
-}
+    background-image: url(#{$img-path}/mouse-view-background-sprite_sRGB.png);
+    background-size: 1024px 1288px;
+    background-position: 0 0;
 
-.osxsafari .mouse-view { background-image: url(#{$img-path}/mouse-view-background-sprite_rec709.png); }
+    & .osxsafari { background-image: url(#{$img-path}/mouse-view-background-sprite_rec709.png); }
 
-.video-container {
-  position: absolute;
-  left: 0;
-  top: 0;
-  .offscreen {
-    position: absolute;
-    top: 0;
-    left: -3000px;
-  }
-}
+    .no-bottle { background-position: 0 644px; }
 
-#mouse-video-runfast {
-  position: absolute;
-  z-index: 5;
-  left: 350px;
-  top: 0;
-  width: 480px;
-  height: 500px;
-  .offscreen { left: -3000px; }
-}
+    .video-runfast {
+        position: absolute;
+        z-index: 5;
+        left: 350px;
+        top: 0;
+        width: 480px;
+        height: 500px;
+        .offscreen { left: -3000px; }
+    }
 
-#mouse-video-drinkstart, #mouse-video-drinkloop {
-  position: absolute;
-  z-index: 5;
-  left: 365px;
-  top: 0;
-  width: 660px;
-  height: 644px;
-}
-#mouse-video-drinkstart.offscreen, #mouse-video-drinkloop.offscreen { left: -3000px; }
+    .video-drinkstart, .video-drinkloop {
+        position: absolute;
+        z-index: 5;
+        left: 365px;
+        top: 0;
+        width: 660px;
+        height: 644px;
+    }
+    .video-drinkstart.offscreen, .video-drinkloop.offscreen { left: -3000px; }
 
-#mouse-video-inj, #mouse-video-rundie, #mouse-video-injdie, #mouse-video-cut {
-  position: absolute;
-  z-index: 5;
-  left: 350px;
-  top: 0;
-  width: 480px;
-  height: 500px;
-}
-#mouse-video-inj.offscreen, #mouse-video-rundie.offscreen, #mouse-video-injdie.offscreen, #mouse-video-cut.offscreen { left: -3000px; }
+    .video-inj, .video-rundie, .video-injdie, .video-cut {
+        position: absolute;
+        z-index: 5;
+        left: 350px;
+        top: 0;
+        width: 480px;
+        height: 500px;
+    }
 
-#water-bottle {
-  position: absolute;
-  left: 840px;
-  top: 260px;
-  width: 168px;
-  height: 365px;
-  background-image: none;
-  z-index: 11;
-  .visible { background-image: url(#{$img-path}/grab_drink.png); }
-}
+    .video-inj.offscreen, .video-rundie.offscreen, .video-injdie.offscreen, .video-cut.offscreen { left: -3000px; }
 
-#mouse {
-  position: absolute;
-  left: 450px;
-  top: 240px;
-  width: 300px;
-  height: 150px;
-  z-index: 10;
-}
+    .water-bottle {
+        position: absolute;
+        left: 840px;
+        top: 260px;
+        width: 168px;
+        height: 365px;
+        background-image: none;
+        z-index: 11;
+        .visible { background-image: url(#{$img-path}/grab_drink.png); }
+    }
 
-.mousegraph {
-  -webkit-transform: rotate(-4deg);
-  -moz-transform: rotate(-4deg);
-  -ms-transform: rotate(-4deg);
-  -o-transform: rotate(-4deg);
-  transform: rotate(-4deg);
-  left: 64px;
-  top: 348px;
-  width: 250px;
-  height: 200px;
-}
+    .mouse {
+        position: absolute;
+        left: 450px;
+        top: 240px;
+        width: 300px;
+        height: 150px;
+        z-index: 10;
+    }
 
-#dead_mouse {
-  position: absolute;
-  left: 350px;
-  top: 0;
-  height: 500px;
-  width: 480px;
-  background-image: url(#{$img-path}/deadmouse_spleen_sprite.png);
-  background-position: 0 0;
-  background-size: 480px 1500px;
-  z-index: 4;
-  .cut-with-spleen { background-position: 0 -500px; }
-  .cut { background-position: 0 -1000px; }
+    .mousegraph {
+        -webkit-transform: rotate(-4deg);
+        -moz-transform: rotate(-4deg);
+        -ms-transform: rotate(-4deg);
+        -o-transform: rotate(-4deg);
+        transform: rotate(-4deg);
+        left: 64px;
+        top: 348px;
+        width: 250px;
+        height: 200px;
+    }
+
+    .dead-mouse {
+        position: absolute;
+        left: 350px;
+        top: 0;
+        height: 500px;
+        width: 480px;
+        background-image: url(#{$img-path}/deadmouse_spleen_sprite.png);
+        background-position: 0 0;
+        background-size: 480px 1500px;
+        z-index: 4;
+        .cut-with-spleen { background-position: 0 -500px; }
+        .cut { background-position: 0 -1000px; }
+    }
+
+    .video-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        .offscreen {
+            position: absolute;
+            top: 0;
+            left: -3000px;
+        }
+    }
 }

@@ -19,6 +19,17 @@ define([
             return item.type() === LiquidType.DNA;
         },
 
+        acceptedByMouse: function (item) {
+            switch (item.type()) {
+            // case SpecialType.NEEDLE:
+            case ContainerType.BOTTLE:
+                return true;
+
+            default:
+                return false;
+            }
+        },
+
         consumeItemFrom: function (item, collection) {
             return function () {
                 collection.remove(item);p

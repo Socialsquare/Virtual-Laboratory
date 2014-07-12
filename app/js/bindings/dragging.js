@@ -12,7 +12,11 @@ define([
 
             var options = _.defaults(valueAccessor(), {
                 dim: false,
-                consume: _.noop
+                consume: _.noop,
+                offset: {
+                    left: 40,
+                    top: 40
+                }
             });
 
             $(element).draggable({
@@ -21,8 +25,10 @@ define([
                 zIndex: 100000,
                 appendTo: 'body',
 
+                cursorAt: options.offset,
+
                 helper: function (event, ui) {
-                    return $('<img/>').attr({ src: ImageHelper.draggingIcon(options.item) });
+                    return $('<img/>').attr({ src: ImageHelper.draggingIcon(options.item) });;
                 },
 
                 start: function (event, ui) {
