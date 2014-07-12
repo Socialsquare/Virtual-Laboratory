@@ -1,30 +1,30 @@
 <div class="overview-view">
     <a data-bind="route: 'spectropm'">
-        <img id="spectrophotometer-img" alt="Go to spectrophotometer">
+        <img src="assets/images/special_spektro.png" id="spectrophotometer-img" alt="Go to spectrophotometer">
     </a>
     <a id="door-link">
-        <img id="door-img" alt="Go to door" data-bind="click: handleDoorClick">
+        <img src="assets/images/overview_base-door.png" id="door-img" alt="Go to door" data-bind="click: handleDoorClick">
     </a>
     <a data-bind="route: 'chemical'">
-        <img id="chemicalcloset-img" alt="Go to chemical closet">
+        <img src="assets/images/overview_base-chemicalcloset.png" id="chemicalcloset-img" alt="Go to chemical closet">
     </a>
     <a data-bind="route: 'fumehood'">
-        <img id="fumehood-img" alt="Go to fumehood">
+        <img src="assets/images/overview_base-fumehood.png" id="fumehood-img" alt="Go to fumehood">
     </a>
     <a data-bind="route: 'worktable2'">
-        <img id="worktable2-img" alt="Go to work table 2">
+        <img src="assets/images/overview_base-worktable2.png" id="worktable2-img" alt="Go to work table 2">
     </a>
     <a data-bind="route: 'mouse'">
-        <img id="mouse-img" alt="Go to mouse">
+        <img src="assets/images/overview_base-mouse.png" id="mouse-img" alt="Go to mouse">
     </a>
     <a data-bind="route: 'worktable1'">
-        <img id="worktable1-img" alt="Go to work table 1">
+        <img src="assets/images/overview_base-worktable1.png" id="worktable1-img" alt="Go to work table 1">
     </a>
     <a data-bind="route: 'fermentor'">
-        <img id="fermentorchroma-img" alt="Go to fermentor and chromatograph">
+        <img src="assets/images/overview_base-fermentorchroma.png" id="fermentorchroma-img" alt="Go to fermentor and chromatograph">
     </a>
     <a data-bind="route: 'incubator'">
-        <img id="incubator-img" alt="Go to incubator">
+        <img src="assets/images/overview_base-incubator.png" id="incubator-img" alt="Go to incubator">
     </a>
 
     <div class="view-cover">

@@ -27,9 +27,6 @@
   .left { float: left; }
   .right { float: right; }
 
-  #back-img { content:url(#{$img-path}/top-button_back.png); }
-  #newexperiment-img { content:url(#{$img-path}/top-button_menu.png); }
-  #fullscreen-img { content:url(#{$img-path}/top-button_fullscreen.png); }
 }
 
 .menu {
@@ -78,7 +75,6 @@
   .left-icon {
     width: 98px;
     height: 101px;
-    content:url(#{$img-path}/icon_main_notes.png);
   }
 
 
@@ -89,7 +85,6 @@
     .logo {
       width: 100px;
       height: 30px;
-      content:url(#{$img-path}/logo-white.png);
     }
   }
 
@@ -171,10 +166,6 @@
         margin-top: 3px;
       }
 
-      #pipette-img { content:url(#{$img-path}/icon_big_pipette.png); }
-      #pipette-tips-img { content:url(#{$img-path}/icon_big_tips.png); }
-      #trash-img { content:url(#{$img-path}/icon_big_biotrash.png); }
-
       background: #424245;
       /* Old browsers */
       background: -moz-linear-gradient(left, #424245 0%, #373a46 100%);
@@ -195,7 +186,7 @@
   }
 }
 
-/* TODO: unused? */
+/* TODO: unused? But it has to be used! */
 .pipette {
   position: absolute;
   top: 400px;

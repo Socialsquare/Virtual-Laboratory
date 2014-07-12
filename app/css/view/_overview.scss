@@ -9,7 +9,6 @@
   background-image: url(#{$img-path}/overview_base.png);
 
   #spectrophotometer-img {
-    content:url(#{$img-path}/special_spektro.png);
     position: absolute;
     left: 365px;
     top: 87px;
@@ -17,7 +16,6 @@
     height: 85px;
   }
   #door-img {
-    content:url(#{$img-path}/overview_base-door.png);
     position: absolute;
     left: 499px;
     top: 0;
@@ -25,7 +23,6 @@
     height: 192px;
   }
   #chemicalcloset-img {
-    content:url(#{$img-path}/overview_base-chemicalcloset.png);
     position: absolute;
     left: 619px;
     top: 0;
@@ -33,7 +30,6 @@
     height: 207px;
   }
   #fumehood-img {
-    content:url(#{$img-path}/overview_base-fumehood.png);
     position: absolute;
     left: 34px;
     top: 120px;
@@ -41,7 +37,6 @@
     height: 284px;
   }
   #mouse-img {
-    content:url(#{$img-path}/overview_base-mouse.png);
     position: absolute;
     left: 802px;
     top: 206px;
@@ -49,7 +44,6 @@
     height: 106px;
   }
   #worktable1-img {
-    content:url(#{$img-path}/overview_base-worktable1.png);
     position: absolute;
     left: 290px;
     top: 355px;
@@ -57,7 +51,6 @@
     height: 130px;
   }
   #worktable2-img {
-    content:url(#{$img-path}/overview_base-worktable2.png);
     position: absolute;
     left: 446px;
     top: 192px;
@@ -65,7 +58,6 @@
     height: 120px;
   }
   #fermentorchroma-img {
-    content:url(#{$img-path}/overview_base-fermentorchroma.png);
     position: absolute;
     left: 802px;
     top: 313px;
@@ -73,7 +65,6 @@
     height: 301px;
   }
   #incubator-img {
-    content:url(#{$img-path}/overview_base-incubator.png);
     position: absolute;
     left: 359px;
     top: 485px;

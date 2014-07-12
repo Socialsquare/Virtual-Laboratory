@@ -2,7 +2,7 @@
     <ul class="left">
         <li>
             <a id="view-back-link" data-bind="route: 'overview'">
-                <img id="back-img" alt="Tilbage">
+                <img src="assets/images/top-button_back.png" alt="Tilbage">
             </a>
         </li>
     </ul>
@@ -10,12 +10,12 @@
     <ul class="right">
         <li>
             <a id="menu-newexperiment-link" data-bind="click: selectExperiment">
-                <img id="newexperiment-img" alt="Vælg nyt eksperiment">
+                <img src="assets/images/top-button_experiment.png" alt="Vælg nyt eksperiment">
             </a>
         </li>
         <li>
             <a id="menu-fullscreen-link" data-bind="click: fullscreen">
-                <img id="fullscreen-img" alt="Full screen">
+                <img src="assets/images/top-button_fullscreen.png" alt="Full screen">
             </a>
         </li>
     </ul>
@@ -25,13 +25,13 @@
     <ul>
         <li>
             <a id="experimentinstructions-link">
-                <img class="left-icon" alt="Øvelsesvejledninger">
+                <img src="assets/images/icon_main_instructions.png" alt="Øvelsesvejledninger">
             </a>
         </li>
     </ul>
 
     <div class="logo-container">
-        <img class="logo" alt="Biotech Academy logo">
+        <img class="logo" src="assets/images/logo-white.png" alt="Biotech Academy logo">
     </div>
 
     <div class="menu-inventory-container">
@@ -50,17 +50,17 @@
         <ul>
             <li>
                 <button class="btn-none" id="menu-pipette-btn">
-                    <img id="pipette-img" alt="Pipette">
+                    <img src="assets/images/icon_big_pipette.png" alt="Pipette">
                 </button>
             </li>
             <li>
                 <button class="btn-none" id="menu-tips-btn">
-                    <img id="pipette-tips-img" alt="Pipette spidser">
+                    <img src="assets/images/icon_big_tips.png" alt="Pipette spidser">
                 </button>
             </li>
             <li data-bind="drop: { handler: trashDropHandler }">
                 <button class="btn-none" id="menu-trash-btn">
-                    <img id="trash-img" alt="Affald">
+                    <img src="assets/images/icon_big_biotrash.png" alt="Affald">
                 </button>
             </li>
         </ul>

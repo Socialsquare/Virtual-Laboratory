@@ -12,7 +12,7 @@
 
     <div id="worktable2-od" data-bind="if: worktable2.odMachine.hasTube()">
         <div class="testtube">
-            <img alt="Test tube">
+            <img src="assets/images/work2_od-on.png" alt="Test tube">
         </div>
     </div>
 

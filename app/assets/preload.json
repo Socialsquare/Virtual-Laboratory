@@ -136,7 +136,7 @@
 }
 ,{
 "type": "IMAGE"
-,"source": "../assets/images/icon_main_notes.png"
+,"source": "../assets/images/icon_main_instructions.png"
 ,"size": 46240
 }
 ,{
@@ -356,13 +356,13 @@
 }
 ,{
 "type": "IMAGE"
-,"source": "../assets/images/top-button_fullscreen.png"
-,"size": 4882
+,"source": "../assets/images/top-button_experiment.png"
+,"size": 4229
 }
 ,{
 "type": "IMAGE"
-,"source": "../assets/images/top-button_menu.png"
-,"size": 4229
+,"source": "../assets/images/top-button_fullscreen.png"
+,"size": 4882
 }
 ,{
 "type": "IMAGE"
@@ -391,13 +391,8 @@
 }
 ,{
 "type": "IMAGE"
-,"source": "../assets/images/work1_dev1-on.png"
+,"source": "../assets/images/work1_electroporator-on.png"
 ,"size": 13034
-}
-,{
-"type": "IMAGE"
-,"source": "../assets/images/work1_dev2-on.png"
-,"size": 17202
 }
 ,{
 "type": "IMAGE"
@@ -413,6 +408,11 @@
 "type": "IMAGE"
 ,"source": "../assets/images/work1-heater_3.png"
 ,"size": 3058
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/work1_heater-on.png"
+,"size": 17202
 }
 ,{
 "type": "IMAGE"

@@ -37,7 +37,7 @@
     <div class="droppable" id="worktable1-electroporator"></div>
 
     <button class="btn-none" id="worktable1-electroporator-btn" data-bind="click: activateElectroporator">
-        <img alt="Electroporator button" data-bind="css: { hidden: !worktable1.electroporator.status() }">
+        <img src="assets/images/work1_electroporator-on.png" alt="Electroporator button" data-bind="css: { hidden: !worktable1.electroporator.status() }">
     </button>
 
     <div id="worktable1-heater-testtubeholder">
@@ -60,6 +60,6 @@
         </ul>
     </div>
     <button class="btn-none" id="worktable1-heater-btn" data-bind="click: toggleHeater">
-        <img alt="Heater button" data-bind="css: { hidden: !worktable1.heater.status() }">
+        <img src="assets/images/work1_heater-on.png" alt="Heater button" data-bind="css: { hidden: !worktable1.heater.status() }">
     </button>
 </div>
