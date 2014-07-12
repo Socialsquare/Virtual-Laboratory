@@ -1,30 +1,4 @@
 <div class="worktable1-view">
-    <div class="video-container">
-        <video id="electroporator1" class="offscreen" preload="auto">
-            <source src="assets/videos/electroporator01.mp4" type="video/mp4" />
-            <source src="assets/videos/electroporator01.webm" type="video/webm" />
-        </video>
-        <video id="electroporator2" class="offscreen" preload="auto">
-            <source src="assets/videos/electroporator02.mp4" type="video/mp4" />
-            <source src="assets/videos/electroporator02.webm" type="video/webm" />
-        </video>
-        <video id="electroporator3" class="offscreen" preload="auto">
-            <source src="assets/videos/electroporator03.mp4" type="video/mp4" />
-            <source src="assets/videos/electroporator03.webm" type="video/webm" />
-        </video>
-        <video id="electroporator4" class="offscreen" preload="auto">
-            <source src="assets/videos/electroporator04.mp4" type="video/mp4" />
-            <source src="assets/videos/electroporator04.webm" type="video/webm" />
-        </video>
-        <video id="electroporator5" class="offscreen" preload="auto">
-            <source src="assets/videos/electroporator05.mp4" type="video/mp4" />
-            <source src="assets/videos/electroporator05.webm" type="video/webm" />
-        </video>
-        <video id="electroporator6" class="offscreen" preload="auto">
-            <source src="assets/videos/electroporator06.mp4" type="video/mp4" />
-            <source src="assets/videos/electroporator06.webm" type="video/webm" />
-        </video>
-    </div>
 
     <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
     <div class="petri" data-bind="template: { name: 'compContainer', data: tableSpacePetriController }"></div>
