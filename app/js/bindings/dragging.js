@@ -27,7 +27,7 @@ define([
 
                 start: function (event, ui) {
                     if (options.dim)
-                        $(this).fadeTo(0, 0.3);
+                        $(this).addClass('dimmed');
 
                     dragData = options.item;
                     dragConsume = options.consume;
@@ -35,7 +35,7 @@ define([
 
                 stop: function (event, ui) {
                     if (options.dim)
-                        $(this).fadeTo(0, 1);
+                        $(this).removeClass('dimmed');
                 }
             });
         }

@@ -83,6 +83,14 @@ body {
   clear: both;
 }
 
+.dimmed {
+  opacity: 0.4;
+}
+
+.dimmed-most {
+  opacity: 0.2;
+}
+
 .hidden {
   visibility: hidden;
 }
@@ -135,16 +143,6 @@ body {
     margin-left: -512px;
     margin-top: -384px;
     /* Vertical align hack */
-}
-
-/* !DRAGGABLE */
-.draggable {
-  z-index: 10;
-  cursor: pointer;
-}
-
-.draggablespawner {
-  cursor: pointer;
 }
 
 /* !LOADING VIEW */
