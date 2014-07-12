@@ -24,7 +24,7 @@ define([
             return IMG_PATH + '/work1-heater_' + (position + 1) + '.png';
         },
 
-        tableSpacePetriImage: function (dish) {
+        tableSpacePetriImage: function (position, dish) {
             if (!dish) return '';
 
             var state = dish.isEmpty() ? 'empty' : 'full';

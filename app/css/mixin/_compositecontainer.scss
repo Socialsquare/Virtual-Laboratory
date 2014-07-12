@@ -18,14 +18,14 @@
   width: 242px;
   height: 138px;
 
-  #tube1 { width: 51px; }
-  #tube2 { width: 36px; }
-  #tube3 { width: 36px; }
-  #tube4 { width: 39px; }
-  #tube5 { width: 38px; }
-  #tube6 { width: 41px; }
+  .slot0 { width: 51px; }
+  .slot1 { width: 36px; }
+  .slot2 { width: 36px; }
+  .slot3 { width: 39px; }
+  .slot4 { width: 38px; }
+  .slot5 { width: 41px; }
 
-  #tube1, #tube2, #tube3, #tube4, #tube5 { height: 138px; }
+  .slot0, .slot1, .slot2, .slot3, .slot4, .slot5 { height: 138px; }
 }
 
 @mixin tablespacepetri($left, $top) {
@@ -38,7 +38,7 @@
   height: 100px;
   z-index: 9;
 
-  #petri1, #petri2, #petri3 {
+  .slot0, .slot1, .slot2 {
     width: 127px;
     height: 90px;
   }
@@ -54,14 +54,23 @@
   height: 100px;
   z-index: 9;
 
-  #micro3 {
-    position: absolute;
-    left: 120px;
-    top: -70px;
+  .slot0 {
+    width: 158px;
   }
 
-  #micro1, #micro2, #micro3 {
+  .slot1 {
+    left: 190px;
     width: 158px;
+  }
+
+  .slot2 {
+    left: 120px;
+    top: -70px;
+    width: 158px;
+  }
+
+  .slot0, .slot1, .slot2 {
+    position: absolute;
     height: 69px;
   }
 }

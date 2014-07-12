@@ -8,7 +8,7 @@ define([
     var dragConsume = null;
 
     ko.bindingHandlers.drag = {
-        init: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
+        update: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
 
             var options = _.defaults(valueAccessor(), {
                 dim: false,
@@ -42,7 +42,7 @@ define([
     };
 
     ko.bindingHandlers.drop = {
-        init: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
+        update: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
 
             var options = valueAccessor();
 

@@ -103,6 +103,8 @@ define([
             gameState.worktable1.tubeRack.addAt(5, tubeYeast);
             gameState.worktable1.heater.addAt(0, tube);
             gameState.worktable1.heater.addAt(2, tube);
+            gameState.worktable1.tableSpaceMicro.addAt(0, new Microtiterplate());
+            gameState.worktable1.tableSpaceMicro.addAt(1, new Microtiterplate());
             gameState.worktable1.tableSpaceMicro.addAt(2, new Microtiterplate());
             gameState.worktable1.tableSpacePetri.addAt(0, new Petridish());
             gameState.worktable1.tableSpacePetri.addAt(2, new Petridish());

@@ -2,8 +2,9 @@ define([
     'knockout',
     'jquery',
     'controller/view/Base',
-    'model/type/Container'
-], function (ko, $, BaseViewController, ContainerType) {
+    'model/type/Container',
+    'controller/CompositeContainer'
+], function (ko, $, BaseViewController, ContainerType, CompositeContainerController) {
 
     var Worktable1 = BaseViewController.extend({
 
@@ -12,6 +13,10 @@ define([
             self.base('worktable1');
 
             self.worktable1 =  self.gameState.worktable1;
+
+            self.tableSpacePetriController = new CompositeContainerController(self.worktable1.tableSpacePetri);
+            self.tableSpaceMicroController = new CompositeContainerController(self.worktable1.tableSpaceMicro);
+            self.tubeRackController = new CompositeContainerController(self.worktable1.tubeRack);
 
             self.toggleBunsen = function () {
                 self.worktable1.bunsenBurner.toggle();
@@ -25,21 +30,17 @@ define([
                 self.worktable1.electroporator.activate();
             };
 
-            self.handleTubeRackDrop = function (position, tube) {
-                if (!self.worktable1.bunsenBurner()) {
-                    self.popupController.message('Hov hov du',
-                                                 'Du skal tænde bunsenbrænderen før du arbejder ved bordet.');
-                    return false;
-                }
+            // self.handleTubeRackDrop = function (position, tube) {
+            //     if (!self.worktable1.bunsenBurner()) {
+            //         self.popupController.message('Hov hov du',
+            //                                      'Du skal tænde bunsenbrænderen før du arbejder ved bordet.');
+            //         return false;
+            //     }
 
-                self.worktable1.tubeRack.addAt(position, tube);
-            };
+            //     self.worktable1.tubeRack.addAt(position, tube);
+            // };
 
-            self.handlePetriDrop = function (position, dish) {
-                self.worktable1.tableSpacePetri.addAt(position, dish);
-            };
-
-            self.handleMicroDrop = function (position, plate) {
+            self.handleHeaterDrop = function (position, plate) {
                 self.worktable1.tableSpaceMicro.addAt(position, plate);
             };
         }

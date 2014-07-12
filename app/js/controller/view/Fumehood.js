@@ -1,7 +1,8 @@
 define([
     'knockout',
-    'controller/view/Base'
-], function (ko, BaseViewController, gameState) {
+    'controller/view/Base',
+    'controller/CompositeContainer'
+], function (ko, BaseViewController, CompositeContainerController) {
 
     var Fumehood = BaseViewController.extend({
 
@@ -10,6 +11,10 @@ define([
             self.base('fumehood');
 
             self.fumehood = self.gameState.fumehood;
+
+            self.tableSpacePetriController = new CompositeContainerController(self.fumehood.tableSpacePetri);
+            self.tableSpaceMicroController = new CompositeContainerController(self.fumehood.tableSpaceMicro);
+            self.tubeRackController = new CompositeContainerController(self.fumehood.tubeRack);
         }
 
     });

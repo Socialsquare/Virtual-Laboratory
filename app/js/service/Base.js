@@ -1,6 +1,7 @@
 define([
-    'jquery'
-], function ($) {
+    'jquery',
+    'base'
+], function ($, Base) {
     var BaseService = Base.extend({
         baseUrl: '/api/',
 
