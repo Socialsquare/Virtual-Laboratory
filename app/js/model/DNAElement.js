@@ -3,9 +3,9 @@
 define([
     'knockout',
     'model/Liquid',
-    'model/LiquidType',
+    'model/type/Liquid',
     'model/ReactionCount',
-    'model/DNAType'
+    'model/type/DNA'
 ], function(ko, LiquidModel, LiquidType, ReactionCount, DNAType) {
 
     // TODO: this should not be a liquid

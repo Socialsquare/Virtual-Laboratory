@@ -1,6 +1,6 @@
 define([
-    'model/ContainerType',
-    'model/LiquidType'
+    'model/type/Container',
+    'model/type/Liquid'
 ], function (ContainerType, LiquidType) {
     return {
         acceptTube: function (item) {

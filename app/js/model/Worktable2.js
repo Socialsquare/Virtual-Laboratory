@@ -3,7 +3,7 @@ define([
     'base',
     'model/TubeRack',
     'model/TableSpace',
-    'model/ContainerType',
+    'model/type/Container',
     'model/ODMachine'
 ], function(ko, Base, TubeRackModel, TableSpaceModel, ContainerType, ODMachineModel) {
 

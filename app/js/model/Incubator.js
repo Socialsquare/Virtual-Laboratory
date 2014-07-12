@@ -4,8 +4,8 @@ define([
     'base',
     'model/TubeRack',
     'model/TableSpace',
-    'model/ContainerType',
-    'model/GrowerType'
+    'model/type/Container',
+    'model/type/Grower'
 ], function(ko, _, Base, TubeRackModel, TableSpaceModel, ContainerType, GrowerType) {
 
     var Incubator = Base.extend({

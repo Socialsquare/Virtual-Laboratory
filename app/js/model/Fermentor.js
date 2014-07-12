@@ -3,7 +3,7 @@ define([
     'base',
     'utils/utils',
     'model/FermentorTank',
-    'model/GrowerType'
+    'model/type/Grower'
 ], function(ko, Base, Utils, FermentorTankModel, GrowerType) {
 
     var Fermentor = Base.extend({

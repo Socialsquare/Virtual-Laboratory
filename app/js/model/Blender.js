@@ -2,7 +2,7 @@ define([
     'knockout',
     'base',
     'model/SimpleContainer',
-    'model/ContainerType'
+    'model/type/Container'
 ], function (ko, Base, SimpleContainerModel, ContainerType) {
 
     var Blender = Base.extend({

@@ -2,8 +2,8 @@ define([
     'knockout',
     'base',
     'lodash',
-    'model/LiquidType',
-    'model/GrowerType'
+    'model/type/Liquid',
+    'model/type/Grower'
 ], function(ko, Base, _, LiquidType, GrowerType) {
 
     var SimpleContainer = Base.extend({

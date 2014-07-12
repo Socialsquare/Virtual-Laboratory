@@ -3,7 +3,7 @@ define([
     'base',
     'model/TubeRack',
     'model/TableSpace',
-    'model/ContainerType',
+    'model/type/Container',
     'model/Heater',
     'model/Electroporator'
 ], function(ko, Base, TubeRackModel, TableSpaceModel,

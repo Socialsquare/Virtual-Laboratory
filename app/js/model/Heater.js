@@ -1,7 +1,7 @@
 define([
     'knockout',
     'model/CompositeContainer',
-    'model/ContainerType'
+    'model/type/Container'
 ], function (ko, CompositeContainerModel, ContainerType) {
 
     var HeaterModel = CompositeContainerModel.extend({

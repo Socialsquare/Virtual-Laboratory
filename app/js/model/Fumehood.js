@@ -3,7 +3,7 @@ define([
     'base',
     'model/TubeRack',
     'model/TableSpace',
-    'model/ContainerType'
+    'model/type/Container'
 ], function(ko, Base, TubeRackModel, TableSpaceModel, ContainerType) {
 
     var Fumehood = Base.extend({

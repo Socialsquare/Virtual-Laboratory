@@ -1,7 +1,7 @@
 define([
 	'knockout',
     'model/Liquid',
-    'model/LiquidType',
+    'model/type/Liquid',
     'model/ReactionCount',
 ], function(ko, LiquidModel, LiquidType, ReactionCount) {
 

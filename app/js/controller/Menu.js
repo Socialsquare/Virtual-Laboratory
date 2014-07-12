@@ -4,7 +4,7 @@ define([
     'base',
     'screenfull',
     'model/GameState',
-    'model/ContainerType',
+    'model/type/Container',
     'controller/Popup',
     'utils/ImageHelper'
 ], function (ko, $, Base, screenfull, gameState, ContainerType, popupController, ImageHelper) {

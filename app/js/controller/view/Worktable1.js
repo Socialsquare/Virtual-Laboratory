@@ -2,7 +2,7 @@ define([
     'knockout',
     'jquery',
     'controller/view/Base',
-    'model/ContainerType'
+    'model/type/Container'
 ], function (ko, $, BaseViewController, ContainerType) {
 
     var Worktable1 = BaseViewController.extend({

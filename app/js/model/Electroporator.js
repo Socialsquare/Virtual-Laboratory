@@ -2,7 +2,7 @@ define([
     'knockout',
     'lodash',
     'model/SimpleContainer',
-    'model/ContainerType'
+    'model/type/Container'
 ], function (ko, _, SimpleContainerModel, ContainerType) {
 
     var Electroporator = SimpleContainerModel.extend({

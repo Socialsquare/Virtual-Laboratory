@@ -2,7 +2,7 @@ define([
     'knockout',
     'utils/utils',
     'model/CompositeContainer',
-    'model/ContainerType'
+    'model/type/Container'
 ], function (ko, Utils, CompositeContainerModel, ContainerType) {
 
     var ODMachine = CompositeContainerModel.extend({

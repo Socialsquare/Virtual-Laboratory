@@ -1,9 +1,9 @@
 define([
     'knockout',
     'model/Liquid',
-    'model/LiquidType',
+    'model/type/Liquid',
     'model/ReactionCount',
-    'model/AntibioticType'
+    'model/type/Antibiotic'
 ], function (ko, LiquidModel, LiquidType, ReactionCount, AntibioticType) {
 
     var Antibiotic = LiquidModel.extend({

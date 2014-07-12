@@ -1,7 +1,7 @@
 define([
     'knockout',
     'model/SimpleContainer',
-    'model/ContainerType'
+    'model/type/Container'
 ], function (ko, SimpleContainerModel, ContainerType) {
 
     var Microtiterplate = SimpleContainerModel.extend({
