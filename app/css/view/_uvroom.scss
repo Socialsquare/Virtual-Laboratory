@@ -1,0 +1,10 @@
+/* view/uvroom.scss */
+
+@import '../variables';
+@import 'base';
+
+.uv-view {
+  @include view;
+
+  background-image: url(#{$img-path}/uv_base.png);
+}

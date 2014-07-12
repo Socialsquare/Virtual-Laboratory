@@ -10,12 +10,12 @@
             </a>
         </li>
         <li>
-            <a data-bind="route: 'uv'">
+            <a data-bind="route: 'uvroom'">
                 <img class="icon-img" src="assets/images/icon_ext_uv.png" alt="UV room scene icon" />
             </a>
         </li>
         <li>
-            <a data-bind="route: 'washingroom'">
+            <a data-bind="route: 'washing'">
                 <img class="" src="assets/images/icon_ext_wash.png" alt="Washing mashine scene icon" />
             </a>
         </li>

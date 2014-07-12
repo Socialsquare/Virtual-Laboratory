@@ -183,14 +183,10 @@ body {
 @import 'view/mouse';
 
 /* !WASHING MACHINE VIEW */
-.washingmachine-view {
-  background-image: url(#{$img-path}/wash_base.png);
-}
+@import 'view/washing';
 
-/* UV ROOM VIEW */
-.uv-view {
-  background-image: url(#{$img-path}/uv_base.png);
-}
+/* !UVROOM VIEW */
+@import 'view/uvroom';
 
 /* !COMPUTER VIEW */
 @import 'view/computer';

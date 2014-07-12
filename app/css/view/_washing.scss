@@ -1,0 +1,11 @@
+/* view/washing.scss */
+
+@import '../variables';
+@import 'base';
+
+.washingmachine-view {
+  @include view;
+
+  background-image: url(#{$img-path}/wash_base.png);
+}
+

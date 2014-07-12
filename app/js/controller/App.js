@@ -15,6 +15,8 @@ define([
     'controller/view/SpectroPM',
     'controller/view/Fermentor',
     'controller/view/FermentorScreen',
+    'controller/view/UvRoom',
+    'controller/view/Washing',
 
     'controller/Popup',
     'controller/Menu',
@@ -31,7 +33,8 @@ define([
              MouseController, ChemicalController, ComputerController,
              FumehoodController, Worktable1Controller, Worktable2Controller,
              IncubatorController, SpectroPMController, FermentorController,
-             FermentorScreenController, popupController, MenuController, router, gameState, Tube,
+             FermentorScreenController, UvRoomController, WashingController,
+             popupController, MenuController, router, gameState, Tube,
              Petridish, Microtiterplate, LiquidFactory) {
 
     var App = Base.extend({
@@ -56,7 +59,9 @@ define([
                 mouse: new MouseController(),
                 spectropm: new SpectroPMController(),
                 fermentor: new FermentorController(),
-                fermentorscreen: new FermentorScreenController()
+                fermentorscreen: new FermentorScreenController(),
+                uvroom: new UvRoomController(),
+                washing: new WashingController()
             };
 
             self.viewChange = function (viewName) {
