@@ -22,7 +22,7 @@
             <div id="popup-container" data-bind="visible: popupController.active">
                 <div data-bind="template: { name: popupController.templateName,
                                 data: popupController.viewModel,
-                                'i<script type="text/javascr }"></div>
+                                if: popupController.active}"></div>
             </div>
 
             <div id="video-container"></div>
