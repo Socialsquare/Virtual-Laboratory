@@ -26,6 +26,12 @@ define([
             };
 
             self.handleTubeRackDrop = function (position, tube) {
+                if (!self.worktable1.bunsenBurner()) {
+                    self.popupController.message('Hov hov du',
+                                                 'Du skal tænde bunsenbrænderen før du arbejder ved bordet.');
+                    return false;
+                }
+
                 self.worktable1.tubeRack.addAt(position, tube);
             };
 

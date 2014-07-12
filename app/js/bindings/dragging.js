@@ -57,8 +57,9 @@ define([
                 },
 
                 drop: function(evt, ui) {
-                    dragConsume();
-                    handler(dragData);
+                    var accepted = handler(dragData);
+                    if (accepted !== false)
+                        dragConsume();
                 }
             });
         }
