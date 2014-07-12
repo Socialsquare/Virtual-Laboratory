@@ -7,6 +7,14 @@ define([
             return item.type() === ContainerType.TUBE;
         },
 
+        acceptPetri: function (item) {
+            return item.type() === ContainerType.PETRI_DISH;
+        },
+
+        acceptMicro: function (item) {
+            return item.type() === ContainerType.MICROTITER;
+        },
+
         acceptDNA: function (item) {
             return item.type() === LiquidType.DNA;
         },

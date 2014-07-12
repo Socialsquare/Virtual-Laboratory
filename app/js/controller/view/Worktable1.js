@@ -28,6 +28,14 @@ define([
             self.handleTubeRackDrop = function (position, tube) {
                 self.worktable1.tubeRack.addAt(position, tube);
             };
+
+            self.handlePetriDrop = function (position, dish) {
+                self.worktable1.tableSpacePetri.addAt(position, dish);
+            };
+
+            self.handleMicroDrop = function (position, plate) {
+                self.worktable1.tableSpaceMicro.addAt(position, plate);
+            };
         }
     });
 

@@ -1,14 +1,15 @@
 define([
     'knockout',
-	'base',
-	'model/TubeRack',
-	'model/TableSpace',
+    'base',
+    'model/TubeRack',
+    'model/TableSpace',
     'model/ContainerType',
     'model/Heater',
     'model/Electroporator'
-], function(ko, Base, TubeRackModel, TableSpaceModel, ContainerTypeModel, HeaterModel, ElectroporatorModel) {
+], function(ko, Base, TubeRackModel, TableSpaceModel,
+            ContainerTypeModel, HeaterModel, ElectroporatorModel) {
 
-	var Worktable1 = Base.extend({
+    var Worktable1 = Base.extend({
 
         constructor: function () {
             var self = this;
