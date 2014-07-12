@@ -13,6 +13,7 @@ define([
         activeVideo: ko.observable('runfast'),
 
         mouseData: ko.observableArray([]),
+        plotData: ko.observableArray([]),
 
         graphTimer: null,
 
@@ -20,18 +21,37 @@ define([
             var self = this;
             self.base('mouse');
 
+
             var bottle = new BottleModel();
             bottle.add(new JuiceModel());
             self.bottle = bottle;
+            // Initializing the mouseData
+
+// TODO: Patrick testing. One array for data, then zipping it with the indices
+            var mouseData = _.map(_.range(0, 250), function (i) {
+                return Math.random() * 100;
+            });
+            self.mouseData(mouseData);
+
+            var plotData = _.map(_.range(0, 250), function (i) {
+                return [i, self.mouseData()[i]];
+            });
+            self.plotData(plotData);
 
             // TODO: fix correct data
             // dummy mouse data
             self.graphTimer = window.setInterval(function () {
-                var mouseData = _.map(_.range(0, 250), function (i) {
-                    return [i, Math.random() * 100];
-                });
+                var mouseData = self.mouseData();
+                var first = mouseData.shift();
+                mouseData.push(first);
                 self.mouseData(mouseData);
-            }, 500);
+
+                var plotData = _.map(_.range(0, 250), function (i) {
+                    return [i, self.mouseData()[i]];
+                });
+                self.plotData(plotData);
+
+            }, 30);
 
             self.exit = function () {
                 window.clearInterval(self.graphTimer);
@@ -201,7 +221,7 @@ define([
             // };
 
             /* GRAPH MANIPULATION */
-            self.getMouseData = function (mouseData) {
+            /*self.getMouseData = function (mouseData) {
                 if(mouseData.length > 0) {
                     mouseData = mouseData.slice(1);
                 }
@@ -227,10 +247,10 @@ define([
                     res.push([i, data[i]]);
                 }
                 return res;
-            };
-        },
+            };*/
+        }
 
-        getMouseData: function (mouseData) {
+        /*getMouseData: function (mouseData) {
             if(mouseData.length > 0) {
                 mouseData = mouseData.slice(1);
             }
@@ -248,7 +268,7 @@ define([
             }
 
             return mouseData;
-        },
+        },*/
     });
 
     return MouseController;
