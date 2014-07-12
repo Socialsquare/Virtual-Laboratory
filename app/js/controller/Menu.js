@@ -43,6 +43,9 @@ define([
             };
 
             self.inventoryDropHandler = function (item) {
+                if (self.gameState.inventory.hasItem(item))
+                    return false;
+
                 self.gameState.inventory.add(item);
             };
 
