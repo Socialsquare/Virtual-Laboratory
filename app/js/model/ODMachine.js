@@ -17,7 +17,13 @@ define([
             self.display = ko.computed(function() {
                 if(!self.hasTube())
                     return '';
-                var logConc = Utils.math.getBaseLog(10, self.get(0).getTotalConcentration());
+
+                var conc = self.get(0).getTotalConcentration();
+
+                if (conc === 0)
+                    return '0.0';
+
+                var logConc = Utils.math.getBaseLog(10, conc);
                 return '' + logConc.toFixed(1);
             });
         }
