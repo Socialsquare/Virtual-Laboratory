@@ -10,11 +10,13 @@ define([
     'model/Petridish',
     'model/Microtiterplate',
     'model/ChemicalItem',
+    'model/Syringe',
+    'model/Scalpel',
 
     'factory/Liquid',
 
     'utils/utils'
-], function (ko, $, _, BaseViewController, popupController, TubeModel, PetridishModel, MicrotiterplateModel, ChemicalItemModel, LiquidFactory, utils) {
+], function (ko, $, _, BaseViewController, popupController, TubeModel, PetridishModel, MicrotiterplateModel, ChemicalItemModel, SyringeModel, ScalpelModel, LiquidFactory, utils) {
     var Chemical = BaseViewController.extend({
 
         closetItems: ko.observableArray([]),
@@ -45,11 +47,11 @@ define([
             ]);
 
             ko.utils.arrayPushAll(self.drawerItems, [
-                //new ChemicalItemModel('Kanyle', new Syringe()),
+                new ChemicalItemModel('Kanyle', new SyringeModel()),
+                new ChemicalItemModel('Skalpel', new ScalpelModel()),
                 new ChemicalItemModel('Petriskål', new PetridishModel()),
                 new ChemicalItemModel('Reagensglas', new TubeModel()),
                 new ChemicalItemModel('Mikrotiterbakke', new MicrotiterplateModel()),
-                //new ChemicalItemModel('Skalpel', new Scalpel()),
             ]);
 
             ko.utils.arrayPushAll(self.fridgeItems, [

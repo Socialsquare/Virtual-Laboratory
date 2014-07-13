@@ -1,7 +1,8 @@
 define([
     'model/type/Container',
-    'model/type/Liquid'
-], function (ContainerType, LiquidType) {
+    'model/type/Liquid',
+    'model/type/SpecialItem'
+], function (ContainerType, LiquidType, SpecialItemType) {
     var IMG_PATH = 'assets/images';
 
     return {
@@ -60,6 +61,12 @@ define([
             case ContainerType.TUBE:
                 return IMG_PATH + '/icon_cup_tube.png';
 
+            case SpecialItemType.SYRINGE:
+                return IMG_PATH + '/icon_med_inj.png';
+
+            case SpecialItemType.SCALPEL:
+                return IMG_PATH + '/icon_scalpel.png';
+
             default:
                 throw 'Unknown inventory item: ' + item.type();
             }
@@ -81,6 +88,12 @@ define([
 
             case LiquidType.DNA:
                 return IMG_PATH + '/icon_cup_tube.png';
+
+            case SpecialItemType.SYRINGE:
+                return IMG_PATH + '/icon_med_inj.png';
+
+            case SpecialItemType.SCALPEL:
+                return IMG_PATH + '/icon_scalpel.png';
 
             default:
                 throw 'Unknown dragging item: ' + item.type();
