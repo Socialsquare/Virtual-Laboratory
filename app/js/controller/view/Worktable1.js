@@ -25,7 +25,8 @@ define([
 
             self.tableSpacePetriController = new CompositeContainerController(self.worktable1.tableSpacePetri);
             self.tableSpaceMicroController = new CompositeContainerController(self.worktable1.tableSpaceMicro);
-            self.tubeRackController = new CompositeContainerController(self.worktable1.tubeRack, tubeRackGuard);
+            self.tubeRackController = new CompositeContainerController(self.worktable1.tubeRack);
+            self.tubeRackController.dropGuard = tubeRackGuard;
             self.heaterController = new CompositeContainerController(self.worktable1.heater);
 
             self.toggleBunsen = function () {

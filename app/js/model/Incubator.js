@@ -21,8 +21,7 @@ define([
             self.hourResolution = ko.observable(10); // This is used in the growth.
             self.growerType = ko.observable(GrowerType.INCUBATOR);
 
-            self.tableSpacePetri = new PetriSpaceModel();
-            self.tableSpaceMicro = new MicroSpaceModel();
+            self.tableSpacePetri = new PetriSpaceModel(6);
             self.tubeRack = new TubeRackModel();
 
             self.temperatureText = ko.computed(function() {
@@ -64,7 +63,6 @@ define([
                 var deltaTime = 1.0 / self.hourResolution();
 
                 for(var i = 0; i < self.hourResolution(); i++) {
-                    self.tableSpaceMicro.growContentsOnce(deltaTime, self.growerType(), 0, self.temperature());
                     self.tableSpacePetri.growContentsOnce(deltaTime, self.growerType(), 0, self.temperature());
                     self.tubeRack.growContentsOnce(deltaTime, self.growerType(), 0, self.temperature());
                 }

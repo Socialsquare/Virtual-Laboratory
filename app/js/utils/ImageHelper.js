@@ -12,6 +12,16 @@ define([
             return IMG_PATH + '/incubator_tube' + (position + 1) + '.png';
         },
 
+        incubatorPetriImage: function (position, dish) {
+            if (!dish) return '';
+
+            return IMG_PATH + '/incubator_dish' + (position + 1) + '.png';
+        },
+
+        incubatorPetriPlaceholderImage: function (position, dish) {
+            return IMG_PATH + '/incubator_dish' + (position + 1) + '_placeholder.png';
+        },
+
         tubeRackImage: function (position, tube) {
             if (!tube) return '';
 

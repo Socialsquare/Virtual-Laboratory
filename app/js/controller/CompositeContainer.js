@@ -9,11 +9,13 @@ define([
 
     var CompositeContainerController = Base.extend({
 
-        constructor: function (compContainer, dropGuard) {
+        constructor: function (compContainer) {
             var self = this;
 
             self.compContainer = compContainer;
-            self.dropGuard = dropGuard || _.constant(true);
+
+            // defaults
+            self.dropGuard = _.constant(true);
             self.imagePlaceholderGetter = _.constant('');
             self.showPlaceholder = ko.observable(false);
 

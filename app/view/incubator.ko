@@ -1,35 +1,16 @@
 <div class="incubator-view">
-	<button class="btn-none" id="incubator-btn" data-bind="click: incubator.activate.bind()"></button>
+	<button class="btn-none btn" data-bind="click: incubator.activate.bind()"></button>
 
 	<div class="time" data-bind="text: incubator.timerText()"></div>
 	<div class="temperature" data-bind="text: incubator.temperatureText()"></div>
 
-	<button class="btn-none" id="incubator-timeup-btn" data-bind="click: changeTimer.bind(null, 2)"></button>
-	<button class="btn-none" id="incubator-timedown-btn" data-bind="click: changeTimer.bind(null, -2)"></button>
-	<button class="btn-none" id="incubator-tempup-btn" data-bind="click: changeTemp.bind(null, 0.5)"></button>
-	<button class="btn-none" id="incubator-tempdown-btn" data-bind="click: changeTemp.bind(null, -0.5)"></button>
+	<button class="btn-none timeup-btn" data-bind="click: changeTimer.bind(null, 2)"></button>
+	<button class="btn-none timedown-btn" data-bind="click: changeTimer.bind(null, -2)"></button>
+	<button class="btn-none tempup-btn" data-bind="click: changeTemp.bind(null, 0.5)"></button>
+	<button class="btn-none tempdown-btn" data-bind="click: changeTemp.bind(null, -0.5)"></button>
 
-	<div id="incubator-testtube-holder">
-		<ul data-bind="foreach: incubator.tubeRack.containers">
-			<li class="droppable testtube-holder-slot" data-bind="attr: { id: 'incubator-tubeslot-' + ($index() + 1) }">
-                <div class="testtube draggable">
-                    <img data-bind="visible: $parent.incubator.tubeRack.hasContainerAt($index()),
-                        attr: { src: $parent.ImageHelper.incubatorTubeRackImage($index(), $data) }">
-                </div>
-            </li>
-		</ul>
-	</div>
-
-	<div id="incubator-petridish-level">
-		<ul>
-			<li class="droppable petridish-slot" id="incubator-dishslot-1"></li>
-			<li class="droppable petridish-slot" id="incubator-dishslot-2"></li>
-			<li class="droppable petridish-slot" id="incubator-dishslot-3"></li>
-			<li class="droppable petridish-slot" id="incubator-dishslot-4"></li>
-			<li class="droppable petridish-slot" id="incubator-dishslot-5"></li>
-			<li class="droppable petridish-slot" id="incubator-dishslot-6"></li>
-		</ul>
-	</div>
+    <div class="testtube-holder" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
+    <div class="petridish-level" data-bind="template: { name: 'compContainer', data: petriSpaceController }"></div>
 
     <div class="cover" data-bind="visible: incubator.turnedOn()"></div>
 </div>

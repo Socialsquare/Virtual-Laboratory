@@ -156,8 +156,18 @@
 }
 ,{
 "type": "IMAGE"
+,"source": "../assets/images/incubator_dish1_placeholder.png"
+,"size": 14210
+}
+,{
+"type": "IMAGE"
 ,"source": "../assets/images/incubator_dish1.png"
 ,"size": 13906
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/incubator_dish2_placeholder.png"
+,"size": 11282
 }
 ,{
 "type": "IMAGE"
@@ -166,8 +176,18 @@
 }
 ,{
 "type": "IMAGE"
+,"source": "../assets/images/incubator_dish3_placeholder.png"
+,"size": 17353
+}
+,{
+"type": "IMAGE"
 ,"source": "../assets/images/incubator_dish3.png"
 ,"size": 16413
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/incubator_dish4_placeholder.png"
+,"size": 25453
 }
 ,{
 "type": "IMAGE"
@@ -176,8 +196,18 @@
 }
 ,{
 "type": "IMAGE"
+,"source": "../assets/images/incubator_dish5_placeholder.png"
+,"size": 19451
+}
+,{
+"type": "IMAGE"
 ,"source": "../assets/images/incubator_dish5.png"
 ,"size": 19853
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/incubator_dish6_placeholder.png"
+,"size": 29800
 }
 ,{
 "type": "IMAGE"

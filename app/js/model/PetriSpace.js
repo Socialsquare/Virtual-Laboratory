@@ -5,9 +5,9 @@ define([
 ], function (ko, CompositeContainerModel, ContainerType) {
 
     var PetriSpace = CompositeContainerModel.extend({
-        constructor: function () {
+        constructor: function (capacity) {
             var self = this;
-            self.base(3, ContainerType.PETRI_DISH, ContainerType.PETRI_SPACE);
+            self.base(capacity || 3, ContainerType.PETRI_DISH, ContainerType.PETRI_SPACE);
         }
     });
 
