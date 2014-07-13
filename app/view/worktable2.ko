@@ -11,4 +11,5 @@
     <div class="od" data-bind="template: { name: 'compContainer', data: odController }"></div>
 
     <div class="od-display" data-bind="visible: worktable2.odMachine.hasTube(), text: worktable2.odMachine.display()"></div>
+
 </div>

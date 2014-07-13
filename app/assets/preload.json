@@ -226,13 +226,28 @@
 }
 ,{
 "type": "IMAGE"
+,"source": "../assets/images/micro1_placeholder.png"
+,"size": 39227
+}
+,{
+"type": "IMAGE"
 ,"source": "../assets/images/micro1.png"
 ,"size": 41440
 }
 ,{
 "type": "IMAGE"
+,"source": "../assets/images/micro2_placeholder.png"
+,"size": 36522
+}
+,{
+"type": "IMAGE"
 ,"source": "../assets/images/micro2.png"
 ,"size": 38963
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/micro3_placeholder.png"
+,"size": 26507
 }
 ,{
 "type": "IMAGE"
@@ -328,6 +343,11 @@
 "type": "IMAGE"
 ,"source": "../assets/images/petri_full.png"
 ,"size": 20904
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/petri_placeholder.png"
+,"size": 19907
 }
 ,{
 "type": "IMAGE"

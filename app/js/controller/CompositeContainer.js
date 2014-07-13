@@ -14,21 +14,29 @@ define([
 
             self.compContainer = compContainer;
             self.dropGuard = dropGuard || _.constant(true);
+            self.imagePlaceholderGetter = _.constant('');
+            self.showPlaceholder = ko.observable(false);
 
             switch (compContainer.type()) {
             case ContainerType.PETRI_SPACE:
+                self.imagePlaceholderGetter = ImageHelper.tableSpacePetriPlaceholderImage;
+                self.showPlaceholder(true);
+
                 self.imageGetter = ImageHelper.tableSpacePetriImage;
                 self.accepter = DragHelper.acceptPetri;
+                break;
+
+            case ContainerType.MICRO_SPACE:
+                self.imagePlaceholderGetter = ImageHelper.tableSpaceMicroPlaceholderImage;
+                self.showPlaceholder(true);
+
+                self.imageGetter = ImageHelper.tableSpaceMicroImage;
+                self.accepter = DragHelper.acceptMicro;
                 break;
 
             case ContainerType.TUBE_RACK:
                 self.imageGetter = ImageHelper.tubeRackImage;
                 self.accepter = DragHelper.acceptTube;
-                break;
-
-            case ContainerType.MICRO_SPACE:
-                self.imageGetter = ImageHelper.tableSpaceMicroImage;
-                self.accepter = DragHelper.acceptMicro;
                 break;
 
             case ContainerType.HEATER:

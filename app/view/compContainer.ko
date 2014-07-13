@@ -1,7 +1,10 @@
 <ul data-bind="foreach: compContainer.containers">
     <!-- ko ifnot: $parent.compContainer.hasContainerAt($index()) -->
     <li data-bind="css: 'slot' + $index(),
-                   drop: { handler: $parent.dropHandler.bind(null, $index()), accept: $parent.accepter }">
+                   drop: { handler: $parent.dropHandler.bind(null, $index()), accept: $parent.accepter },
+                   if: $parent.showPlaceholder">
+
+        <img data-bind="attr: { src: $parent.imagePlaceholderGetter($index()) }">
     </li>
     <!-- /ko -->
 

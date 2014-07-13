@@ -31,6 +31,14 @@ define([
             return IMG_PATH + '/petri_' + state + '.png';
         },
 
+        tableSpacePetriPlaceholderImage: function (position) {
+            return IMG_PATH + '/petri_placeholder.png';
+        },
+
+        tableSpaceMicroPlaceholderImage: function (position) {
+            return IMG_PATH + '/micro' + (position + 1) + '_placeholder.png';
+        },
+
         tableSpaceMicroImage: function (position, plate) {
             if (!plate) return '';
 
