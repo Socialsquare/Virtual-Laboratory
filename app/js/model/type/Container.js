@@ -8,7 +8,8 @@ define([], function () {
         BOTTLE: 'hello yes bottle',
 
         // Composite
-        TABLE_SPACE: 'table_fucking_space_OMG!',
+        PETRI_SPACE: 'table_fucking_space_OMG!petridish',
+        MICRO_SPACE: 'table_fucking_space_OMG!microtiter',
         TUBE_RACK: 'BIG_RACKS_LOL!',
 
         // Simple machines

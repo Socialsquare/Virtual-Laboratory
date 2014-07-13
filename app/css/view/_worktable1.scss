@@ -60,10 +60,10 @@
         width: 105px;
         height: 38px;
 
-        #heatertube1, #heatertube2, #heatertube3 { height: 38px; }
-        #heatertube1 { width: 38px; }
-        #heatertube2 { width: 26px; }
-        #heatertube3 { height: 41px; }
+        .slot0, .slot1, .slot2 { height: 38px; }
+        .slot0 { width: 38px; }
+        .slot1 { width: 26px; }
+        .slot2 { height: 41px; }
     }
 
     .video-container {

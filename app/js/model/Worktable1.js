@@ -2,20 +2,20 @@ define([
     'knockout',
     'base',
     'model/TubeRack',
-    'model/TableSpace',
+    'model/PetriSpace',
+    'model/MicroSpace',
     'model/type/Container',
     'model/Heater',
     'model/Electroporator'
-], function(ko, Base, TubeRackModel, TableSpaceModel,
-            ContainerTypeModel, HeaterModel, ElectroporatorModel) {
+], function(ko, Base, TubeRackModel, PetriSpaceModel, MicroSpaceModel, ContainerTypeModel, HeaterModel, ElectroporatorModel) {
 
     var Worktable1 = Base.extend({
 
         constructor: function () {
             var self = this;
 
-            self.tableSpacePetri = new TableSpaceModel(ContainerTypeModel.PETRI_DISH);
-            self.tableSpaceMicro = new TableSpaceModel(ContainerTypeModel.MICROTITER);
+            self.tableSpacePetri = new PetriSpaceModel();
+            self.tableSpaceMicro = new MicroSpaceModel();
             self.tubeRack = new TubeRackModel();
             self.bunsenBurner = ko.observable(false);
             self.electroporator = new ElectroporatorModel();

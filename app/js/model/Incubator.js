@@ -3,10 +3,11 @@ define([
     'lodash',
     'base',
     'model/TubeRack',
-    'model/TableSpace',
+    'model/PetriSpace',
+    'model/MicroSpace',
     'model/type/Container',
     'model/type/Grower'
-], function(ko, _, Base, TubeRackModel, TableSpaceModel, ContainerType, GrowerType) {
+], function(ko, _, Base, TubeRackModel, PetriSpaceModel, MicroSpaceModel, ContainerType, GrowerType) {
 
     var Incubator = Base.extend({
 
@@ -20,8 +21,8 @@ define([
             self.hourResolution = ko.observable(10); // This is used in the growth.
             self.growerType = ko.observable(GrowerType.INCUBATOR);
 
-            self.tableSpacePetri = new TableSpaceModel(ContainerType.PETRI_DISH);
-            self.tableSpaceMicro = new TableSpaceModel(ContainerType.MICROTITER);
+            self.tableSpacePetri = new PetriSpaceModel();
+            self.tableSpaceMicro = new MicroSpaceModel();
             self.tubeRack = new TubeRackModel();
 
             self.temperatureText = ko.computed(function() {

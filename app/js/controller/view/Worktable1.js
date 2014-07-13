@@ -12,11 +12,12 @@ define([
             var self = this;
             self.base('worktable1');
 
-            self.worktable1 =  self.gameState.worktable1;
+            self.worktable1 = self.gameState.worktable1;
 
             self.tableSpacePetriController = new CompositeContainerController(self.worktable1.tableSpacePetri);
             self.tableSpaceMicroController = new CompositeContainerController(self.worktable1.tableSpaceMicro);
             self.tubeRackController = new CompositeContainerController(self.worktable1.tubeRack);
+            self.heaterController = new CompositeContainerController(self.worktable1.heater);
 
             self.toggleBunsen = function () {
                 self.worktable1.bunsenBurner.toggle();
@@ -39,10 +40,6 @@ define([
 
             //     self.worktable1.tubeRack.addAt(position, tube);
             // };
-
-            self.handleHeaterDrop = function (position, plate) {
-                self.worktable1.tableSpaceMicro.addAt(position, plate);
-            };
         }
     });
 

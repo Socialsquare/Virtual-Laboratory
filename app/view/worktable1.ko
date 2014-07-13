@@ -15,25 +15,7 @@
              data-bind="css: { hidden: !worktable1.electroporator.status() }">
     </button>
 
-    <div class="heater-testtubeholder">
-        <ul data-bind="foreach: worktable1.heater.containers">
-            <!-- ko if: $parent.worktable1.heater.hasContainerAt($index()) -->
-            <li class="heater-slot" data-bind="attr: { id: 'heatertube' + ($index() + 1) }">
-                <div class="testtube">
-                    <img data-bind="attr: { src: $parent.ImageHelper.heaterTubeImage($index(), $data) },
-                                    drag: { item: $data, dim: true, consume: $parent.worktable1.heater }"
-                         alt="Heater tube">
-                </div>
-            </li>
-            <!-- /ko -->
-
-            <!-- ko ifnot: $parent.worktable1.heater.hasContainerAt($index()) -->
-            <li class="heater-slot" data-bind="attr: { id: 'heatertube' + ($index() + 1) },
-                                               drop: { handler: $parent.handleHeaterDrop.bind(null, $index()), accept: $parent.DragHelper.acceptTube }">
-            </li>
-            <!-- /ko -->
-        </ul>
-    </div>
+    <div class="heater-testtubeholder" data-bind="template: { name: 'compContainer', data: heaterController }"></div>
 
     <button class="btn-none heater-btn" data-bind="click: toggleHeater">
         <img src="assets/images/work1_heater-on.png" alt="Heater button"

@@ -2,9 +2,10 @@ define([
     'knockout',
     'base',
     'model/TubeRack',
-    'model/TableSpace',
+    'model/PetriSpace',
+    'model/MicroSpace',
     'model/type/Container'
-], function(ko, Base, TubeRackModel, TableSpaceModel, ContainerType) {
+], function(ko, Base, TubeRackModel, PetriSpaceModel, MicroSpaceModel, ContainerType) {
 
     var UvRoom = Base.extend({
         constructor: function () {
