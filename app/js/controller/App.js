@@ -91,50 +91,47 @@ define([
             //------------------------
             // dummy data
             //------------------------
-            var tube = new Tube();
 
             var tubeYeast = new Tube();
             tubeYeast.add(LiquidFactory.microorganism.yeast());
 
-            gameState.inventory.add(tube);
+            gameState.inventory.add(new Tube());
 
-            var petri = new Petridish();
-            gameState.inventory.add(petri);
+            gameState.inventory.add(new Petridish());
 
-            var micro = new Microtiterplate();
-            gameState.inventory.add(micro);
 
-            gameState.worktable1.tubeRack.addAt(0, tube);
+            gameState.inventory.add(new Microtiterplate());
+
+            gameState.worktable1.tubeRack.addAt(0, new Tube());
             gameState.worktable1.tubeRack.addAt(5, tubeYeast);
-            gameState.worktable1.heater.addAt(0, tube);
-            gameState.worktable1.heater.addAt(2, tube);
+            gameState.worktable1.heater.addAt(0, new Tube());
+            gameState.worktable1.heater.addAt(2, new Tube());
             gameState.worktable1.tableSpaceMicro.addAt(0, new Microtiterplate());
             gameState.worktable1.tableSpaceMicro.addAt(1, new Microtiterplate());
             gameState.worktable1.tableSpaceMicro.addAt(2, new Microtiterplate());
             gameState.worktable1.tableSpacePetri.addAt(0, new Petridish());
             gameState.worktable1.tableSpacePetri.addAt(2, new Petridish());
 
-            gameState.worktable2.tableSpaceMicro.addAt(0, micro);
-            gameState.worktable2.tableSpaceMicro.addAt(2, micro);
-            gameState.worktable2.tableSpacePetri.addAt(0, petri);
-            gameState.worktable2.tableSpacePetri.addAt(2, petri);
-            gameState.worktable2.odMachine.addAt(0, tubeYeast);
-            gameState.worktable2.tubeRack.addAt(0, tube);
+            gameState.worktable2.tableSpaceMicro.addAt(0, new Microtiterplate());
+            gameState.worktable2.tableSpaceMicro.addAt(2, new Microtiterplate());
+            gameState.worktable2.tableSpacePetri.addAt(0, new Petridish());
+            gameState.worktable2.tableSpacePetri.addAt(2, new Petridish());
+            tubeYeast = new Tube();
+            tubeYeast.add(LiquidFactory.microorganism.yeast());
+            gameState.worktable2.tubeRack.addAt(0, tubeYeast);
+            gameState.worktable2.tubeRack.addAt(0, new Tube());
 
-            gameState.fumehood.tableSpaceMicro.addAt(0, micro);
-            gameState.fumehood.tableSpaceMicro.addAt(2, micro);
-            gameState.fumehood.tableSpacePetri.addAt(0, petri);
-            gameState.fumehood.tableSpacePetri.addAt(2, petri);
-            gameState.fumehood.tubeRack.addAt(0, tube);
+
+            gameState.fumehood.tableSpaceMicro.addAt(0, new Microtiterplate());
+            gameState.fumehood.tableSpaceMicro.addAt(2, new Microtiterplate());
+            gameState.fumehood.tableSpacePetri.addAt(0, new Petridish());
+            gameState.fumehood.tableSpacePetri.addAt(2, new Petridish());
+            gameState.fumehood.tubeRack.addAt(0, new Tube());
+            tubeYeast = new Tube();
+            tubeYeast.add(LiquidFactory.microorganism.yeast());
             gameState.fumehood.tubeRack.addAt(5, tubeYeast);
 
-            gameState.incubator.tubeRack.addAt(0, tubeYeast);
-            /*gameState.incubator.tubeRack.addAt(1, tube);
-            gameState.incubator.tubeRack.addAt(2, tube);
-            gameState.incubator.tubeRack.addAt(4, tube);
-            gameState.incubator.tubeRack.addAt(5, tube);*/
-
-            gameState.spectroPM.spectroPMMachine.addAt(0, micro);
+            gameState.spectroPM.spectroPMMachine.addAt(0, new Microtiterplate());
 
         }
     });
