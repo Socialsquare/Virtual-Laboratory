@@ -14,7 +14,7 @@ define([
             var data = ko.unwrap(valueAccessor());
 
             var plot = $.plot($(element), [data], {
-	            yaxis: { min: 0, max: 100 },
+	            yaxis: { min: 0, max: 15 },
 	            xaxis: { show: false }
             });
         }

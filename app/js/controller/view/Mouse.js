@@ -3,58 +3,85 @@ define([
     'knockout',
     'lodash',
     'controller/view/Base',
+    'model/Mouse',
     'model/Bottle',
     'model/Juice',
-    'model/type/Container'
-], function ($, ko, _, BaseViewController, BottleModel, JuiceModel, ContainerType) {
+    'model/type/Container',
+    'model/type/MouseBlood'
+], function ($, ko, _, BaseViewController, MouseModel, BottleModel, JuiceModel, ContainerType, MouseBloodType) {
 
     var MouseController = BaseViewController.extend({
 
         activeVideo: ko.observable('runfast'),
 
-        mouseData: ko.observableArray([]),
-        plotData: ko.observableArray([]),
-
-        graphTimer: null,
-
         constructor: function () {
             var self = this;
             self.base('mouse');
+
+            self.mouse = new MouseModel(MouseBloodType.DIABETIC);
+
+            // Begin: Notifications
+
+            self.mouse.alive.subscribe(function(isAlive) {
+                if((! isAlive) && self.mouse.blodSukker() < self.mouse.minBlodSukker()) {
+                    self.popupController.message('Musen er død', 'Du har dræbt musen ved at give den for meget insulin.');
+                }
+                // TODO: there are more ways to kill the poor mouse (well, at least one: The lethal injection)
+            });
+
+            self.lowBloodSugarWarningToggle = ko.observable(false); // Such name. Wow.
+            self.highBloodSugarWarningToggle = ko.observable(false);
+            self.mouse.blodSukker.subscribe(function(blodSukker) {
+                if(blodSukker < 2.5 && !self.lowBloodSugarWarningToggle()) {
+                    self.lowBloodSugarWarningToggle(true);
+                    self.popupController.message('Pas på', 'Du risikerer at dræbe musen ved at give den for meget insulin.');
+                } else if(blodSukker > self.mouse.maxBlodSukker() * 0.8 && !self.highBloodSugarWarningToggle() &&
+                    self.mouse.mouseBloodType() === MouseBloodType.NORMAL) {
+                    self.highBloodSugarWarningToggle(true);
+                    self.popupController.message('Pas på', 'Du risikerer at give musen sukkersyge ved at give den for meget juice.');
+                } else if(blodSukker >= self.mouse.maxBlodSukker()
+                    && self.mouse.mouseBloodType() === MouseBloodType.NORMAL) {
+                    self.popupController.message('Advarsel', 'Musen har nu udviklet sukkersyge.');
+                }
+            });
+
+            // End: Notifications
+
+            self.plotData = ko.observableArray([]);
+            self.graphTimer = ko.observable(null);
 
 
             var bottle = new BottleModel();
             bottle.add(new JuiceModel());
             self.bottle = bottle;
-            // Initializing the mouseData
-
-// TODO: Patrick testing. One array for data, then zipping it with the indices
-            var mouseData = _.map(_.range(0, 250), function (i) {
-                return Math.random() * 100;
-            });
-            self.mouseData(mouseData);
 
             var plotData = _.map(_.range(0, 250), function (i) {
-                return [i, self.mouseData()[i]];
+                return [i, self.mouse.bloodData()[i]];
             });
             self.plotData(plotData);
 
             // TODO: fix correct data
-            // dummy mouse data
-            self.graphTimer = window.setInterval(function () {
-                var mouseData = self.mouseData();
-                var first = mouseData.shift();
-                mouseData.push(first);
-                self.mouseData(mouseData);
+
+            self.nextPlotStep = function() {
+                /*var graphTimer = window.setInterval(function () {*/
+                self.mouse.nextBloodStep();
 
                 var plotData = _.map(_.range(0, 250), function (i) {
-                    return [i, self.mouseData()[i]];
+                    return [i, self.mouse.bloodData()[i]];
                 });
                 self.plotData(plotData);
 
-            }, 30);
+            };
+
+            self.enter = function() {
+                var graphTimer = setInterval(self.nextPlotStep, 100);
+                self.graphTimer(graphTimer);
+            };
 
             self.exit = function () {
-                window.clearInterval(self.graphTimer);
+                clearTimeout(self.graphTimer());
+                /*window.clearInterval(self.graphTimer());*/
+                /*self.graphTimer*/
             };
 
             self.handleVideoEnd = function (event) {
