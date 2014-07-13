@@ -1,6 +1,6 @@
 <div class="spectrophotometer-view">
     <div id="micro-slot">
         <!-- TODO: dropping on the spectroPM -->
-        <img src="assets/images/spectropm_micro.png" alt="Microtiter slot" data-bind="css: { hidden: !spectroPM.spectroPMMachine.hasMicrotiter() }">
+        <img src="assets/images/spectropm_micro.png" alt="Microtiter slot" data-bind="visible: spectroPM.spectroPMMachine.hasMicrotiter()">
     </div>
 </div>

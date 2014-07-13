@@ -4,7 +4,7 @@
     <div class="petri" data-bind="template: { name: 'compContainer', data: tableSpacePetriController }"></div>
     <div class="micro" data-bind="template: { name: 'compContainer', data: tableSpaceMicroController }"></div>
 
-    <div class="bunsenflame" data-bind="css: { hidden: !worktable1.bunsenBurner() }"></div>
+    <div class="bunsenflame" data-bind="visible: worktable1.bunsenBurner()"></div>
 
     <button class="btn-none bunsen" data-bind="click: toggleBunsen"></button>
 
@@ -12,13 +12,12 @@
 
     <button class="btn-none electroporator-btn" data-bind="click: activateElectroporator">
         <img src="assets/images/work1_electroporator-on.png" alt="Electroporator button"
-             data-bind="css: { hidden: !worktable1.electroporator.status() }">
+             data-bind="visible: worktable1.electroporator.status()">
     </button>
 
     <div class="heater-testtubeholder" data-bind="template: { name: 'compContainer', data: heaterController }"></div>
 
     <button class="btn-none heater-btn" data-bind="click: toggleHeater">
-        <img src="assets/images/work1_heater-on.png" alt="Heater button"
-             data-bind="css: { hidden: !worktable1.heater.status() }">
+        <img src="assets/images/work1_heater-on.png" alt="Heater button" data-bind="visible: worktable1.heater.status()">
     </button>
 </div>

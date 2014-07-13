@@ -14,7 +14,6 @@
         </div>
     </div>
 
-    <div class="od-display"
-         data-bind="css: { hidden: !worktable2.odMachine.hasTube() }, text: worktable2.odMachine.display()">
+    <div class="od-display" data-bind="visible: worktable2.odMachine.hasTube(), text: worktable2.odMachine.display()">
     </div>
 </div>
