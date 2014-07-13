@@ -37,6 +37,10 @@ define([
             return IMG_PATH + '/micro' + (position + 1) + '.png';
         },
 
+        odMachineTubeImage: function (position, tube) {
+            return IMG_PATH + '/work2_od-on.png';
+        },
+
         inventoryIcon: function (item) {
             switch (item.type()) {
             case ContainerType.PETRI_DISH:

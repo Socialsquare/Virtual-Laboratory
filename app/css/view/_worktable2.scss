@@ -33,6 +33,18 @@
     }
 
     .od {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-image: none;
+            list-style-type: none;
+
+            li {
+                width: 181px;
+                height: 241px;
+            }
+        }
+
         position: absolute;
         top: 195px;
         left: 817px;

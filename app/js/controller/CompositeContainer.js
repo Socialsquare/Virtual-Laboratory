@@ -34,6 +34,11 @@ define([
                 self.accepter = DragHelper.acceptTube;
                 break;
 
+            case ContainerType.OD_MACHINE:
+                self.imageGetter = ImageHelper.odMachineTubeImage;
+                self.accepter = DragHelper.acceptTube;
+                break;
+
             default:
                 throw 'Unsupported container type: ' + compContainer.type();
             }

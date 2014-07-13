@@ -8,12 +8,7 @@
 
     <button class="btn-none worktable2-blender"></button>
 
-    <div class="od" data-bind="if: worktable2.odMachine.hasTube()">
-        <div class="testtube">
-            <img src="assets/images/work2_od-on.png" alt="Test tube">
-        </div>
-    </div>
+    <div class="od" data-bind="template: { name: 'compContainer', data: odController }"></div>
 
-    <div class="od-display" data-bind="visible: worktable2.odMachine.hasTube(), text: worktable2.odMachine.display()">
-    </div>
+    <div class="od-display" data-bind="visible: worktable2.odMachine.hasTube(), text: worktable2.odMachine.display()"></div>
 </div>

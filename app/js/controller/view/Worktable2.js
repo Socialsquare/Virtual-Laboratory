@@ -15,8 +15,8 @@ define([
             self.tableSpacePetriController = new CompositeContainerController(self.worktable2.tableSpacePetri);
             self.tableSpaceMicroController = new CompositeContainerController(self.worktable2.tableSpaceMicro);
             self.tubeRackController = new CompositeContainerController(self.worktable2.tubeRack);
+            self.odController = new CompositeContainerController(self.worktable2.odMachine);
         }
-
     });
 
     return Worktable2;
