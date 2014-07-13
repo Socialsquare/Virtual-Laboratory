@@ -1,17 +1,19 @@
 define([
     'knockout',
+    'lodash',
     'base',
     'model/type/Container',
     'utils/ImageHelper',
     'utils/DragHelper'
-], function (ko, Base, ContainerType, ImageHelper, DragHelper) {
+], function (ko, _, Base, ContainerType, ImageHelper, DragHelper) {
 
     var CompositeContainerController = Base.extend({
 
-        constructor: function (compContainer) {
+        constructor: function (compContainer, dropGuard) {
             var self = this;
 
             self.compContainer = compContainer;
+            self.dropGuard = dropGuard || _.constant(true);
 
             switch (compContainer.type()) {
             case ContainerType.PETRI_SPACE:
@@ -44,6 +46,9 @@ define([
             }
 
             self.dropHandler = function (position, tube) {
+                if (!self.dropGuard())
+                    return false;
+
                 self.compContainer.addAt(position, tube);
             };
         },

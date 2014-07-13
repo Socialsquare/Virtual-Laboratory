@@ -14,9 +14,18 @@ define([
 
             self.worktable1 = self.gameState.worktable1;
 
+            var tubeRackGuard = function () {
+                if (!self.worktable1.bunsenBurner()) {
+                    self.popupController.message('Hov hov du', 'Du skal tænde bunsenbrænderen før du arbejder ved bordet.');
+                    return false;
+                }
+
+                return true;
+            };
+
             self.tableSpacePetriController = new CompositeContainerController(self.worktable1.tableSpacePetri);
             self.tableSpaceMicroController = new CompositeContainerController(self.worktable1.tableSpaceMicro);
-            self.tubeRackController = new CompositeContainerController(self.worktable1.tubeRack);
+            self.tubeRackController = new CompositeContainerController(self.worktable1.tubeRack, tubeRackGuard);
             self.heaterController = new CompositeContainerController(self.worktable1.heater);
 
             self.toggleBunsen = function () {
@@ -30,16 +39,6 @@ define([
             self.activateElectroporator = function () {
                 self.worktable1.electroporator.activate();
             };
-
-            // self.handleTubeRackDrop = function (position, tube) {
-            //     if (!self.worktable1.bunsenBurner()) {
-            //         self.popupController.message('Hov hov du',
-            //                                      'Du skal tænde bunsenbrænderen før du arbejder ved bordet.');
-            //         return false;
-            //     }
-
-            //     self.worktable1.tubeRack.addAt(position, tube);
-            // };
         }
     });
 
