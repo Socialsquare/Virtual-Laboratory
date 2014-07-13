@@ -1,17 +1,14 @@
 define([
     'knockout',
     'jquery',
-    'base',
+    'controller/view/Base',
     'screenfull',
-    'model/GameState',
     'model/type/Container',
     'controller/Popup',
     'utils/ImageHelper'
-], function (ko, $, Base, screenfull, gameState, ContainerType, popupController, ImageHelper) {
+], function (ko, $, BaseViewController, screenfull, ContainerType, popupController, ImageHelper) {
 
-    var MenuController = Base.extend({
-
-        gameState: gameState,
+    var MenuController = BaseViewController.extend({
 
         ImageHelper: ImageHelper,
 

@@ -1,9 +1,8 @@
 define([
     'knockout',
     'controller/view/Base',
-    'controller/Router',
     'service/Exercise'
-], function (ko, BaseViewController, router, exerciseService) {
+], function (ko, BaseViewController, exerciseService) {
 
     var ExerciseSelector = BaseViewController.extend({
 
@@ -23,7 +22,7 @@ define([
 
             self.start = function () {
                 self.gameState.currentExercise(self.selected());
-                router.navigate('overview');
+                self.router.navigate('overview');
             };
         },
     });

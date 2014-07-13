@@ -1,8 +1,7 @@
 define([
     'knockout',
-    'controller/view/Base',
-    'controller/Router'
-], function (ko, BaseViewController, router) {
+    'controller/view/Base'
+], function (ko, BaseViewController) {
 
     var Loading = BaseViewController.extend({
         constructor: function () {
@@ -17,7 +16,7 @@ define([
                 // debugMode: true,
                 onUpdate: function (progress) { self.percent(progress); },
                 onComplete: function () {
-                    setTimeout(function () { router.navigate('welcome'); }, 500);
+                    setTimeout(function () { self.router.navigate('welcome'); }, 500);
                 }
             });
         },

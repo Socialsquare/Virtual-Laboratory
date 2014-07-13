@@ -3,15 +3,17 @@ define([
     'base',
 
     'model/GameState',
+    'controller/Router',
     'controller/Popup',
 
     'utils/ImageHelper',
     'utils/DragHelper'
-], function (ko, Base, gameState, popupController, ImageHelper, DragHelper) {
+], function (ko, Base, gameState, router, popupController, ImageHelper, DragHelper) {
 
-    var BaseViewController = Base.extend({
+    var Base = Base.extend({
 
         gameState: gameState,
+        router: router,
         ImageHelper: ImageHelper,
         DragHelper: DragHelper,
         popupController: popupController,
@@ -26,5 +28,5 @@ define([
         exit: function () {}
     });
 
-    return BaseViewController;
+    return Base;
 });

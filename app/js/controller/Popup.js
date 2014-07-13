@@ -4,7 +4,7 @@ define([
     'model/Popup'
 ], function (ko, Base, PopupModel) {
 
-    var PopupController = Base.extend({
+    var Popup = Base.extend({
 
         active: ko.observable(false),
 
@@ -34,5 +34,5 @@ define([
         }
     });
 
-    return new PopupController();
+    return new Popup();
 });

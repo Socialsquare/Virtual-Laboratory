@@ -1,6 +1,6 @@
 define([
-    'base',
     'knockout',
+    'controller/view/Base',
 
     // controllers
     'controller/view/Loading',
@@ -21,23 +21,23 @@ define([
 
     'controller/Popup',
     'controller/Menu',
-    'controller/Router',
 
-    'model/GameState',
     'model/Tube',
     'model/Petridish',
     'model/Microtiterplate',
 
     'factory/Liquid'
-], function (Base, ko, LoadingController, WelcomeController,
+
+], function (ko, BaseViewController, LoadingController, WelcomeController,
              OverviewController, MouseController, ChemicalController,
              ComputerController, FumehoodController, Worktable1Controller,
              Worktable2Controller, IncubatorController, SpectroPMController,
              FermentorController, FermentorScreenController, UvRoomController,
-             WashingController, popupController, MenuController, router,
-             gameState, Tube, Petridish, Microtiterplate, LiquidFactory) {
+             WashingController, popupController, MenuController, Tube,
+             Petridish, Microtiterplate, LiquidFactory) {
 
-    var App = Base.extend({
+
+    var App = BaseViewController.extend({
 
         activeViewController: ko.observable(),
 
@@ -81,12 +81,12 @@ define([
             };
 
             // setup routing
-            router.currentRoute.subscribe(function (routeName) {
+            self.router.currentRoute.subscribe(function (routeName) {
                 self.viewChange(routeName);
             });
 
             // bootstrap the app by going to loading view
-            router.navigate('loading');
+            self.router.navigate('loading');
 
 
             //------------------------
@@ -96,43 +96,43 @@ define([
             var tubeYeast = new Tube();
             tubeYeast.add(LiquidFactory.microorganism.yeast());
 
-            gameState.inventory.add(new Tube());
+            self.gameState.inventory.add(new Tube());
 
-            gameState.inventory.add(new Petridish());
+            self.gameState.inventory.add(new Petridish());
 
 
-            gameState.inventory.add(new Microtiterplate());
+            self.gameState.inventory.add(new Microtiterplate());
 
-            gameState.worktable1.tubeRack.addAt(0, new Tube());
-            gameState.worktable1.tubeRack.addAt(5, tubeYeast);
-            gameState.worktable1.heater.addAt(0, new Tube());
-            gameState.worktable1.heater.addAt(2, new Tube());
-            gameState.worktable1.tableSpaceMicro.addAt(0, new Microtiterplate());
-            gameState.worktable1.tableSpaceMicro.addAt(1, new Microtiterplate());
-            gameState.worktable1.tableSpaceMicro.addAt(2, new Microtiterplate());
-            gameState.worktable1.tableSpacePetri.addAt(0, new Petridish());
-            gameState.worktable1.tableSpacePetri.addAt(2, new Petridish());
+            self.gameState.worktable1.tubeRack.addAt(0, new Tube());
+            self.gameState.worktable1.tubeRack.addAt(5, tubeYeast);
+            self.gameState.worktable1.heater.addAt(0, new Tube());
+            self.gameState.worktable1.heater.addAt(2, new Tube());
+            self.gameState.worktable1.tableSpaceMicro.addAt(0, new Microtiterplate());
+            self.gameState.worktable1.tableSpaceMicro.addAt(1, new Microtiterplate());
+            self.gameState.worktable1.tableSpaceMicro.addAt(2, new Microtiterplate());
+            self.gameState.worktable1.tableSpacePetri.addAt(0, new Petridish());
+            self.gameState.worktable1.tableSpacePetri.addAt(2, new Petridish());
 
-            gameState.worktable2.tableSpaceMicro.addAt(0, new Microtiterplate());
-            gameState.worktable2.tableSpaceMicro.addAt(2, new Microtiterplate());
-            gameState.worktable2.tableSpacePetri.addAt(0, new Petridish());
-            gameState.worktable2.tableSpacePetri.addAt(2, new Petridish());
+            self.gameState.worktable2.tableSpaceMicro.addAt(0, new Microtiterplate());
+            self.gameState.worktable2.tableSpaceMicro.addAt(2, new Microtiterplate());
+            self.gameState.worktable2.tableSpacePetri.addAt(0, new Petridish());
+            self.gameState.worktable2.tableSpacePetri.addAt(2, new Petridish());
             tubeYeast = new Tube();
             tubeYeast.add(LiquidFactory.microorganism.yeast());
-            gameState.worktable2.tubeRack.addAt(0, tubeYeast);
-            gameState.worktable2.tubeRack.addAt(0, new Tube());
+            self.gameState.worktable2.tubeRack.addAt(0, tubeYeast);
+            self.gameState.worktable2.tubeRack.addAt(0, new Tube());
 
 
-            gameState.fumehood.tableSpaceMicro.addAt(0, new Microtiterplate());
-            gameState.fumehood.tableSpaceMicro.addAt(2, new Microtiterplate());
-            gameState.fumehood.tableSpacePetri.addAt(0, new Petridish());
-            gameState.fumehood.tableSpacePetri.addAt(2, new Petridish());
-            gameState.fumehood.tubeRack.addAt(0, new Tube());
+            self.gameState.fumehood.tableSpaceMicro.addAt(0, new Microtiterplate());
+            self.gameState.fumehood.tableSpaceMicro.addAt(2, new Microtiterplate());
+            self.gameState.fumehood.tableSpacePetri.addAt(0, new Petridish());
+            self.gameState.fumehood.tableSpacePetri.addAt(2, new Petridish());
+            self.gameState.fumehood.tubeRack.addAt(0, new Tube());
             tubeYeast = new Tube();
             tubeYeast.add(LiquidFactory.microorganism.yeast());
-            gameState.fumehood.tubeRack.addAt(5, tubeYeast);
+            self.gameState.fumehood.tubeRack.addAt(5, tubeYeast);
 
-            gameState.spectroPM.spectroPMMachine.addAt(0, new Microtiterplate());
+            self.gameState.spectroPM.spectroPMMachine.addAt(0, new Microtiterplate());
 
         }
     });
