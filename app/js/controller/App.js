@@ -4,6 +4,7 @@ define([
 
     // controllers
     'controller/view/Loading',
+    'controller/view/Welcome',
     'controller/view/Overview',
     'controller/view/Mouse',
     'controller/view/Chemical',
@@ -28,14 +29,13 @@ define([
     'model/Microtiterplate',
 
     'factory/Liquid'
-
-], function (Base, ko, LoadingController, OverviewController,
-             MouseController, ChemicalController, ComputerController,
-             FumehoodController, Worktable1Controller, Worktable2Controller,
-             IncubatorController, SpectroPMController, FermentorController,
-             FermentorScreenController, UvRoomController, WashingController,
-             popupController, MenuController, router, gameState, Tube,
-             Petridish, Microtiterplate, LiquidFactory) {
+], function (Base, ko, LoadingController, WelcomeController,
+             OverviewController, MouseController, ChemicalController,
+             ComputerController, FumehoodController, Worktable1Controller,
+             Worktable2Controller, IncubatorController, SpectroPMController,
+             FermentorController, FermentorScreenController, UvRoomController,
+             WashingController, popupController, MenuController, router,
+             gameState, Tube, Petridish, Microtiterplate, LiquidFactory) {
 
     var App = Base.extend({
 
@@ -49,6 +49,7 @@ define([
 
             var viewControllers = {
                 loading: new LoadingController(),
+                welcome: new WelcomeController(),
                 overview: new OverviewController(),
                 computer: new ComputerController(),
                 chemical: new ChemicalController(),

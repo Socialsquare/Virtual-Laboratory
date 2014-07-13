@@ -10,23 +10,23 @@ class Experiments extends REST_Controller {
 
 	public function index_get() {
 		$this->load->database();
-		$query = $this->db->query("SELECT id, title, description FROM experiments");
+		$query = $this->db->query("SELECT * FROM experiments");
 		if(!$query) {
 			echo '{"error": "Error selecting experiments."}';
 			return;
 		}
-		
+
 		header('Access-Control-Allow-Origin: *');
-		
+
 		echo json_encode($query->result());
 	}
-	
-	public function index_post() {		
+
+	public function index_post() {
 		$title = $this->post('title', TRUE);
 		$description = $this->post('description', TRUE);
-		
+
 		$this->load->database();
-		
+
 		$query = $this->db->query("SELECT id FROM experiments WHERE title=? LIMIT 1", array($title));
 		if(!$query) {
 			echo '{"error": "Error selecting experiment."}';
@@ -36,7 +36,7 @@ class Experiments extends REST_Controller {
 			echo '{"error": "An experiment with title \'' . $title . '\' already exists."}';
 			return;
 		}
-		
+
 		//Insert experiment and get new id
 		$query = $this->db->query("INSERT INTO experiments(title,description) VALUES(?,?)", array($title, $description));
 		if(!$query) {
@@ -53,18 +53,18 @@ class Experiments extends REST_Controller {
 			return;
 		}
 		$experiment_id = $query->row()->id;
-		
+
 		//For each task insert task and assign has_task relationship
-		
+
 		$tasks = $this->post('tasks', TRUE);
 		if(!$tasks) {
 			echo '{"id": "' . $experiment_id . '"}';
 			return;
 		}
-		
+
 		foreach($tasks as $task) {
 			$task_id = $this->create_task($task, $experiment_id);
-			
+
 			//For each task element assign has_input and has_output
 			foreach($task['inputs'] as $input) {
 				$query = $this->db->query("INSERT INTO has_inputs(task_id,element_id) VALUES(?,?)", array($task_id, $input));
@@ -74,7 +74,7 @@ class Experiments extends REST_Controller {
 				}
 			}
 			unset($input);
-			
+
 			foreach($task['outputs'] as $output) {
 				$query = $this->db->query("INSERT INTO has_outputs(task_id,element_id) VALUES(?,?)", array($task_id, $output));
 				if(!$query) {
@@ -85,20 +85,20 @@ class Experiments extends REST_Controller {
 			unset($output);
 		}
 		unset($task);
-		
+
 		echo '{"id": "' . $experiment_id . '"}';
 	}
-	
+
 	public function experiment_get($id) {
 		$this->load->database();
-		
+
 		$query = $this->db->query("SELECT * FROM experiments WHERE id=? LIMIT 1", array($id));
 		if(!$query) {
 			echo '{"error": "Error selecting experiment with id \'' . $id . '\'."}';
 			return;
 		}
 		$experiment = $query->row();
-		
+
 		//Select tasks
 		$query = $this->db->query("SELECT tasks.id, tasks.description, tasks.instrument_id, tasks.action_id, tasks.video_id, tasks.question, tasks.answer1, tasks.answer1explanation, tasks.answer2, tasks.answer2explanation, tasks.answer3, tasks.answer3explanation, tasks.correct_answer FROM tasks, has_tasks WHERE has_tasks.experiment_id=? AND tasks.id=has_tasks.task_id", array($experiment->id));
 		if(!$query) {
@@ -106,7 +106,7 @@ class Experiments extends REST_Controller {
 			return;
 		}
 		$experiment->tasks = $query->result();
-		
+
 		//For each task select inputs and outputs
 		foreach($experiment->tasks as $task) {
 			$query = $this->db->query("SELECT elements.id, elements.name FROM elements, has_inputs WHERE has_inputs.task_id=? AND elements.id=has_inputs.element_id", array($task->id));
@@ -115,7 +115,7 @@ class Experiments extends REST_Controller {
 				return;
 			}
 			$task->inputs = $query->result();
-			
+
 			$query = $this->db->query("SELECT elements.id, elements.name FROM elements, has_outputs WHERE has_outputs.task_id=? AND elements.id=has_outputs.element_id", array($task->id));
 			if(!$query) {
 				echo '{"error": "Error selecting outputs for task with id \'' . $task['id'] . '\'."}';
@@ -126,22 +126,22 @@ class Experiments extends REST_Controller {
 		unset($task);
 
 		header('Access-Control-Allow-Origin: *');
-		
+
 		echo json_encode($experiment);
 	}
-	
+
 	public function experiment_put($id) {
 		$title = $this->put('title', TRUE);
 		$description = $this->put('description', TRUE);
-		
+
 		$this->load->database();
-		
+
 		$query = $this->db->query("UPDATE experiments SET title=?, description=? WHERE id=? LIMIT 1", array($title, $description, $id));
 		if(!$query) {
 			echo '{"error": "Error updating experiment with id \'' . $id . '\'."}';
 			return;
 		}
-		
+
 		//For each task insert task and assign has_task relationship
 		$tasks = $this->put('tasks', TRUE);
 
@@ -158,7 +158,7 @@ class Experiments extends REST_Controller {
 			$task_answer3 = $task['answer3'];
 			$task_answer3explanation = $task['answer3explanation'];
 			$task_correct_answer = $task['correct_answer'];
-			
+
 			if(isset($task['id'])) {
 				$task_id = $task['id'];
 				$query = $this->db->query("UPDATE tasks SET description=?, instrument_id=?, action_id=?,  video_id=?, question=?, answer1=?, answer1explanation=?, answer2=?, answer2explanation=?, answer3=?, answer3explanation=?, correct_answer=? WHERE id=? LIMIT 1", array($task_description, $task_instrument, $task_action, $task_video, $task_question, $task_answer1, $task_answer1explanation, $task_answer2, $task_answer2explanation, $task_answer3, $task_answer3explanation, $task_correct_answer, $task_id));
@@ -171,14 +171,14 @@ class Experiments extends REST_Controller {
 				//A new task has been added
 				$task_id = $this->create_task($task, $id);
 			}
-			
+
 			//Delete all inputs for this task
 			$query = $this->db->query("DELETE FROM has_inputs WHERE task_id=?", $task_id);
 			if(!$query) {
 				echo '{"error": "Error deleting has_inputs relationships for task with id \'' . $task_id . '\'"}';
 				return;
 			}
-			
+
 			//Insert inputs
 			foreach($task['inputs'] as $input) {
 				$query = $this->db->query("INSERT INTO has_inputs(task_id,element_id) VALUES(?,?)", array($task_id, $input));
@@ -188,14 +188,14 @@ class Experiments extends REST_Controller {
 				}
 			}
 			unset($input);
-			
+
 			//Delete all outputs for this task
 			$query = $this->db->query("DELETE FROM has_outputs WHERE task_id=?", $task_id);
 			if(!$query) {
 				echo '{"error": "Error deleting has_outputs relationships for task with id \'' . $task_id . '\'"}';
 				return;
 			}
-			
+
 			//Insert outputs
 			foreach($task['outputs'] as $output) {
 				$query = $this->db->query("INSERT INTO has_outputs(task_id,element_id) VALUES(?,?)", array($task_id, $output));
@@ -207,7 +207,7 @@ class Experiments extends REST_Controller {
 			unset($output);
 		}
 		unset($task);
-		
+
 		echo '{"id": "' . $id . '"}';
 	}
 
@@ -243,7 +243,7 @@ class Experiments extends REST_Controller {
 
 		echo '{}';
 	}
-	
+
 	private function create_task($task, $experiment_id) {
 		$task_description = $task['description'];
 		$task_instrument = $task['instrument'];

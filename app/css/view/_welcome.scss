@@ -1,0 +1,28 @@
+/* view/welcome.scss */
+
+@import '../variables';
+@import 'base';
+
+.welcome-view {
+  @include view;
+
+  color: white;
+  padding-top: 100px;
+  text-align: center;
+
+  table, th, td {
+    border: 1px solid grey;
+    text-align: left;
+    /* th { background-color: grey; } */
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    th, td { padding: 15px; }
+
+    tr.highlight td {
+      background-color: grey;
+    }
+  }
+}

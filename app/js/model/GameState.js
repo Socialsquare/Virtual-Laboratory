@@ -13,11 +13,13 @@ define([
     'model/Fermentor',
     'model/UvRoom',
     'model/Washing'
-], function (ko, Base, Inventory, MouseModel, Worktable1Model, Worktable2Model, FumehoodModel,
-             IncubatorModel, SpectroPMModel, FermentorModel, UvRoomModel, WashingModel) {
+], function (ko, Base, Inventory, MouseModel, Worktable1Model,
+             Worktable2Model, FumehoodModel, IncubatorModel,
+             SpectroPMModel, FermentorModel, UvRoomModel, WashingModel) {
 
     var GameState = Base.extend({
 
+        currentExercise: ko.observable(),
         inventory: new Inventory(),
         //draggingItem: ko.observable(null),
 
@@ -30,7 +32,6 @@ define([
         fermentor: new FermentorModel(),
         uvroom: new UvRoomModel(),
         washing: new WashingModel()
-
     });
 
     // Note that we're returning an instance

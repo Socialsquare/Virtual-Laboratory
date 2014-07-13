@@ -1,0 +1,6 @@
+<div class="welcome-view">
+    Velkommen til VLab
+    <hr />
+
+    <div data-bind="template: { name: 'exerciseSelector', data: exerciseSelectorController }"></div>
+</div>

@@ -17,7 +17,7 @@ define([
                 // debugMode: true,
                 onUpdate: function (progress) { self.percent(progress); },
                 onComplete: function () {
-                    setTimeout(function () { router.navigate('overview'); }, 500);
+                    setTimeout(function () { router.navigate('welcome'); }, 500);
                 }
             });
         },

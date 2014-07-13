@@ -79,21 +79,13 @@ body {
 }
 
 /* !GENERAL */
-.float-clear {
-  clear: both;
-}
+.float-clear { clear: both; }
 
-.dimmed {
-  opacity: 0.4;
-}
+.dimmed { opacity: 0.4; }
 
-.dimmed-most {
-  opacity: 0.2;
-}
+.dimmed-most { opacity: 0.2; }
 
-.hidden {
-  visibility: hidden;
-}
+.hidden { visibility: hidden; }
 
 .btn-row {
   width: 100%;
@@ -144,6 +136,9 @@ body {
     margin-top: -384px;
     /* Vertical align hack */
 }
+
+/* !WELCOME VIEW */
+@import 'view/welcome';
 
 /* !LOADING VIEW */
 @import 'view/loading';
