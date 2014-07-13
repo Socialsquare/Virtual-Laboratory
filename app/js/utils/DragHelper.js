@@ -1,7 +1,9 @@
 define([
+    'lodash',
     'model/type/Container',
-    'model/type/Liquid'
-], function (ContainerType, LiquidType) {
+    'model/type/Liquid',
+    'model/type/SpecialItem'
+], function (_, ContainerType, LiquidType, SpecialItemType) {
     return {
         acceptTube: function (item) {
             return item.type() === ContainerType.TUBE;
@@ -20,19 +22,18 @@ define([
         },
 
         acceptedByMouse: function (item) {
-            switch (item.type()) {
-            // case SpecialType.NEEDLE:
-            case ContainerType.BOTTLE:
-                return true;
+            var accepted = [
+                SpecialItemType.SYRINGE,
+                SpecialItemType.SCALPEL,
+                ContainerType.BOTTLE
+            ];
 
-            default:
-                return false;
-            }
+            return _.contains(accepted, item.type());
         },
 
         consumeItemFrom: function (item, collection) {
             return function () {
-                collection.remove(item);p
+                collection.remove(item);
             };
         }
     };

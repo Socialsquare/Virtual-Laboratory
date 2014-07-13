@@ -7,8 +7,9 @@ define([
     'model/Bottle',
     'model/Juice',
     'model/type/Container',
-    'model/type/MouseBlood'
-], function ($, ko, _, BaseViewController, MouseModel, BottleModel, JuiceModel, ContainerType, MouseBloodType) {
+    'model/type/MouseBlood',
+    'model/type/SpecialItem'
+], function ($, ko, _, BaseViewController, MouseModel, BottleModel, JuiceModel, ContainerType, MouseBloodType, SpecialItemType) {
 
     var MouseController = BaseViewController.extend({
 
@@ -95,10 +96,13 @@ define([
                     console.log('TODO: bottle on mouse');
                     break;
 
-                // case SpecialType.SCALPEL:
-                // case SpecialType.SPLEEN:
-                // case SpecialType.NEEDLE:
-                //     break;
+                case SpecialItemType.SCALPEL:
+                    console.log('TODO: scalpel on mouse');
+                    break;
+
+                case SpecialItemType.SYRINGE:
+                    console.log('TODO: syringe on mouse');
+                    break;
                 }
             };
 
