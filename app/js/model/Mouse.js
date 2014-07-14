@@ -2,8 +2,9 @@ define([
     'knockout',
     'base',
     'lodash',
+    'model/Spleen',
     'model/type/MouseBlood'
-], function (ko, Base, _, MouseBloodType) {
+], function (ko, Base, _, SpleenModel, MouseBloodType) {
 
     var Mouse = Base.extend({
         constructor: function (mouseBloodType) {
@@ -11,6 +12,7 @@ define([
             //TODO: all the things!
 
             self.alive = ko.observable(true);
+            self.spleen = new SpleenModel();
             self.mouseBloodType = ko.observable(null);
             self.description = ko.computed(function () {
                 switch (self.mouseBloodType()) {

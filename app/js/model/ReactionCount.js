@@ -1,7 +1,7 @@
 define([], function () {
     return {
-        NEVER: 'naw',
-        ONCE: 'haz onze',
-        ALWAYS: 'ya'
+        NEVER:  'ReactionCount.NEVER',
+        ONCE:   'ReactionCount.ONCE',
+        ALWAYS: 'ReactionCount.ALWAYS'
     };
 });

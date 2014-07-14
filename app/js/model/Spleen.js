@@ -9,6 +9,8 @@ define([
         constructor: function (type) {
             var self = this;
             self.base(SpecialItemType.SPLEEN);
+
+            self.antibodiesFor = ko.observableArray([]);
         }
     });
 
