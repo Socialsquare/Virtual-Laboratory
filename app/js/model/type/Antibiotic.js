@@ -1,6 +1,6 @@
 define([], function () {
     return {
-        A: 'zpr',
-        B: 'awzm'
+        A: 'AntibioticType.A',
+        B: 'AntibioticType.B'
     };
 });

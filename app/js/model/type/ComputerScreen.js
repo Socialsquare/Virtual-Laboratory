@@ -1,7 +1,7 @@
 define([], function () {
     return {
-        MENU: 'much choosing between things',
-        DESIGN_DNA: 'organisk prol eller art',
-        ORDER_MOUSE: 'miav meow hallo pip pip'
+        MENU:        'ComputerScreenType.MENU',
+        DESIGN_DNA:  'ComputerScreenType.DESIGN_DNA',
+        ORDER_MOUSE: 'ComputerScreenType.ORDER_MOUSE'
     };
 });

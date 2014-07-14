@@ -1,6 +1,6 @@
 define([], function () {
     return {
-        SCALPEL: 'En på skalden',
-        SPLEEN: 'MESSI VINDER VM'
+        SCALPEL: 'SpecialItemType.SCALPEL',
+        SPLEEN:  'SpecialItemType.SPLEEN'
     };
 });

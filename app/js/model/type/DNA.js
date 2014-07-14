@@ -1,15 +1,15 @@
-define([
+define[
     'base'
 ], function (Base) {
 
     var DNAType = Base.extend({
 
-        PROMOTER: "DNA_PROMOTER",
-        RIBOSOME_BINDING_SITE: "DNA_RIBOSOME_BINDING_SITE",
-        START_CODON: "DNA_START_CODON",
-        PROTEINKODENDE_SEKVENS: "DNA_PROTEINKODENDE_SEKVENS",
-        STOP_CODON: "DNA_STOP_CODON",
-        TERMINATOR: "DNA_TERMINATOR",
+        PROMOTER:               'DNAType.PROMOTER',
+        RIBOSOME_BINDING_SITE:  'DNAType.RIBOSOME_BINDING_SITE',
+        START_CODON:            'DNAType.START_CODON',
+        PROTEINKODENDE_SEKVENS: 'DNAType.PROTEINKODENDE_SEKVENS',
+        STOP_CODON:             'DNAType.STOP_CODON',
+        TERMINATOR:             'DNAType.TERMINATOR',
 
         fromInt: function (val) {
             var self = this;
@@ -28,4 +28,4 @@ define([
     });
 
     return new DNAType();
-});
+};

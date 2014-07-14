@@ -1,26 +1,26 @@
 define([], function () {
     return {
         // Simple
-        PETRI_DISH: 'petri_dish_type!!!111LOL',
-        MICROTITER: 'microtiter',
-        TUBE: 'tube_fuckinglolwat',
-        FERMENTOR_TANK: 'who the fuck are the boomtown rats?',
-        BOTTLE: 'hello yes bottle',
-        SYRINGE: 'stik stik det er myggen',
+        PETRI_DISH:        'ContainType.PETRI_DISH',
+        MICROTITER:        'ContainType.MICROTITER',
+        TUBE:              'ContainType.TUBE',
+        FERMENTOR_TANK:    'ContainType.FERMENTOR_TANK',
+        BOTTLE:            'ContainType.BOTTLE',
+        SYRINGE:           'ContainType.SYRINGE',
 
         // Composite
-        PETRI_SPACE: 'table_fucking_space_OMG!petridish',
-        MICRO_SPACE: 'table_fucking_space_OMG!microtiter',
-        TUBE_RACK: 'BIG_RACKS_LOL!',
-        UV: 'ahmed halibibi',
+        PETRI_SPACE:       'ContainType.PETRI_SPACE',
+        MICRO_SPACE:       'ContainType.MICRO_SPACE',
+        TUBE_RACK:         'ContainType.TUBE_RACK',
+        UV:                'ContainType.UV',
 
         // Simple machines
-        ELECTROPORATOR: 'faceroll',
-        BLENDER: 'kaffe m. mælk, tak',
+        ELECTROPORATOR:    'ContainType.ELECTROPORATOR',
+        BLENDER:           'ContainType.BLENDER',
 
         // Composite machines
-        HEATER: '12312312312355_SUCH_UNIQUE',
-        OD_MACHINE: 'yttappattyderpalurp',
-        SPECTROPM_MACHINE: 'random: ostmelvandgiverpizza'
+        HEATER:            'ContainType.HEATER',
+        OD_MACHINE:        'ContainType.OD_MACHINE',
+        SPECTROPM_MACHINE: 'ContainType.SPECTROPM_MACHINE'
     };
 });
