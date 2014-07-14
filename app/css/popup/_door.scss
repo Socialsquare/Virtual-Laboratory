@@ -3,28 +3,24 @@
 @import '../variables';
 
 .popup-door {
-  ul {
-    list-style: none;
-    width: 480px;
-    padding: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 80px;
-    clear: both;
+    ul {
+        padding: 0;
+        text-align: center;
+        margin-top: 110px;
 
-    li {
-      float: left;
-      img {
-        height: 80px;
-        width: 80px;
-        margin: 0 40px 0 40px;
-      }
+        li {
+            margin: 0 40px;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            display: inline-block;
+            width: 80px;
+
+            img {
+                height: 80px;
+                width: 80px;
+                margin-bottom: 20px;
+            }
+        }
     }
-  }
-
-  .btn-row {
-    position: absolute;
-    bottom: 40px;
-    left: 0px;
-  }
 }

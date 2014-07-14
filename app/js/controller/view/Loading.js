@@ -1,7 +1,9 @@
 define([
     'knockout',
-    'controller/view/Base'
-], function (ko, BaseViewController) {
+    'jquery',
+    'controller/view/Base',
+    'controller/ExerciseSelector'
+], function (ko, $, BaseViewController, ExerciseSelectorController) {
 
     var Loading = BaseViewController.extend({
         constructor: function () {
@@ -10,16 +12,19 @@ define([
             self.hasMenu(false);
 
             self.percent = ko.observable(0);
+            self.isLoaded = ko.observable(false);
 
             $.html5Loader({
                 filesToLoad: '../../assets/preload.json',
                 // debugMode: true,
                 onUpdate: function (progress) { self.percent(progress); },
                 onComplete: function () {
-                    setTimeout(function () { self.router.navigate('welcome'); }, 500);
+                    self.isLoaded(true);
                 }
             });
-        },
+
+            self.exerciseSelectorController = new ExerciseSelectorController();
+        }
     });
 
     return Loading;

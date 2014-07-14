@@ -4,7 +4,6 @@ define([
 
     // controllers
     'controller/view/Loading',
-    'controller/view/Welcome',
     'controller/view/Overview',
     'controller/view/Mouse',
     'controller/view/Chemical',
@@ -26,7 +25,7 @@ define([
     'factory/Container',
     'factory/SpecialItem'
 
-], function (ko, BaseViewController, LoadingController, WelcomeController,
+], function (ko, BaseViewController, LoadingController,
              OverviewController, MouseController, ChemicalController,
              ComputerController, FumehoodController, Worktable1Controller,
              Worktable2Controller, IncubatorController, SpectroPMController,
@@ -47,7 +46,6 @@ define([
 
             var viewControllers = {
                 loading: new LoadingController(),
-                welcome: new WelcomeController(),
                 overview: new OverviewController(),
                 computer: new ComputerController(),
                 chemical: new ChemicalController(),

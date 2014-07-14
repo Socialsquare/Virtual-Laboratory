@@ -1,7 +1,8 @@
 define([
     'knockout',
-    'base'
-], function (ko, Base, popupController) {
+    'base',
+    'utils/ImageHelper'
+], function (ko, Base, ImageHelper) {
 
     var PopupModel = Base.extend({
 
@@ -9,6 +10,7 @@ define([
             var self = this;
 
             self.data = data;
+            self.ImageHelper = ImageHelper;
             self.popupController = popupController;
         }
     });

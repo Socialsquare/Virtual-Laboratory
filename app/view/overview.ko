@@ -1,34 +1,29 @@
 <div class="overview-view">
-    <a data-bind="route: 'spectropm'">
-        <img src="assets/images/special_spektro.png" id="spectrophotometer-img" alt="Go to spectrophotometer">
-    </a>
-    <a id="door-link">
-        <img src="assets/images/overview_base-door.png" id="door-img" alt="Go to door" data-bind="click: handleDoorClick">
-    </a>
-    <a data-bind="route: 'chemical'">
-        <img src="assets/images/overview_base-chemicalcloset.png" id="chemicalcloset-img" alt="Go to chemical closet">
-    </a>
-    <a data-bind="route: 'fumehood'">
-        <img src="assets/images/overview_base-fumehood.png" id="fumehood-img" alt="Go to fumehood">
-    </a>
-    <a data-bind="route: 'worktable2'">
-        <img src="assets/images/overview_base-worktable2.png" id="worktable2-img" alt="Go to work table 2">
-    </a>
-    <a data-bind="route: 'mouse'">
-        <img src="assets/images/overview_base-mouse.png" id="mouse-img" alt="Go to mouse">
-    </a>
-    <a data-bind="route: 'worktable1'">
-        <img src="assets/images/overview_base-worktable1.png" id="worktable1-img" alt="Go to work table 1">
-    </a>
-    <a data-bind="route: 'fermentor'">
-        <img src="assets/images/overview_base-fermentorchroma.png" id="fermentorchroma-img" alt="Go to fermentor and chromatograph">
-    </a>
-    <a data-bind="route: 'incubator'">
-        <img src="assets/images/overview_base-incubator.png" id="incubator-img" alt="Go to incubator">
-    </a>
-
-    <div class="view-cover">
+    <div data-bind="route: 'spectropm'">
+        <img src="assets/images/special_spektro.png" class="spectrophotometer" alt="Go to spectrophotometer">
     </div>
-
-    <div class="hidden" id="letter">Hello</div>
+    <div data-bind="click: handleDoorClick">
+        <img src="assets/images/overview_base-door.png" class="door" alt="Go to door">
+    </div>
+    <div data-bind="route: 'chemical'">
+        <img src="assets/images/overview_base-chemicalcloset.png" class="chemicalcloset" alt="Go to chemical closet">
+    </div>
+    <div data-bind="route: 'fumehood'">
+        <img src="assets/images/overview_base-fumehood.png" class="fumehood" alt="Go to fumehood">
+    </div>
+    <div data-bind="route: 'worktable2'">
+        <img src="assets/images/overview_base-worktable2.png" class="worktable2" alt="Go to work table 2">
+    </div>
+    <div data-bind="route: 'mouse'">
+        <img src="assets/images/overview_base-mouse.png" class="mouse" alt="Go to mouse">
+    </div>
+    <div data-bind="route: 'worktable1'">
+        <img src="assets/images/overview_base-worktable1.png" class="worktable1" alt="Go to work table 1">
+    </div>
+    <div data-bind="route: 'fermentor'">
+        <img src="assets/images/overview_base-fermentorchroma.png" class="fermentorchroma" alt="Go to fermentor and chromatograph">
+    </div>
+    <div data-bind="route: 'incubator'">
+        <img src="assets/images/overview_base-incubator.png" class="incubator" alt="Go to incubator">
+    </div>
 </div>

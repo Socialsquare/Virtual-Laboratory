@@ -4,20 +4,53 @@
 @import 'base';
 
 .loading-view {
-  @include view;
+    @include view;
 
-  padding-top: 200px;
-  text-align: center;
+    padding-top: 50px;
+    text-align: center;
 
-  color: grey;
+    color: white;
 
-  .outer {
-    height: 3px;
-    /* width: 80%; */
-    background-color: grey;
-    .inner {
-      height: 3px;
-      background-color: white;
+    h1 {
+        margin-bottom: 50px;
     }
-  }
+
+    .logo {
+        position: absolute;
+        bottom: 35px;
+        left: 0;
+
+        width: 200px;
+    }
+
+    .loader-text {
+        font-size: 20px;
+        margin-top: 50px
+    }
+
+    .progress-bar {
+        margin-bottom: 30px;
+        height: 3px;
+        background-color: grey;
+
+        .inner {
+            height: 3px;
+            background-color: white;
+        }
+    }
+
+    table, th, td {
+        border: 1px solid grey;
+        text-align: left;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        th, td { padding: 15px; }
+
+        tr.highlight td {
+            background-color: grey;
+        }
+    }
 }

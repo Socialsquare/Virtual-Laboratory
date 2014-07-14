@@ -1,7 +1,40 @@
 <div class="loading-view">
-    <img src="assets/images/logo-white.png" alt="Biotech Academy">
-    <div data-bind="text: percent() + '%'"></div>
-    <div class="outer">
+
+    <h1>Det virtuelle laboratorium</h1>
+
+    <div class="progress-bar">
         <div class="inner" data-bind="style: { width: percent() + '%' }"></div>
     </div>
+
+    <!-- ko ifnot: isLoaded -->
+    <div class="loader-text">Henter: <span data-bind="text: percent() + '%'"></span></div>
+    <!-- /ko -->
+
+    <!-- ko if: isLoaded -->
+    <h3>Start med at vælge en øvelse</h3>
+
+    <!-- ko with: exerciseSelectorController -->
+    <table>
+        <thead>
+            <tr>
+                <th>Øvelse</th>
+                <th>Beskrivelse</th>
+            </tr>
+        </thead>
+
+        <tbody data-bind="foreach: exercises">
+            <tr class="hand" data-bind="click: $parent.select, css: { highlight: $parent.selected() === $data }">
+                <td data-bind="text: title"></td>
+                <td data-bind="text: description"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="btn-row">
+        <button data-bind="click: start, enable: selected">Start øvelse</button>
+    </div>
+    <!-- /ko -->
+    <!-- /ko -->
+
+    <img class="logo" src="assets/images/logo-white.png" alt="Biotech Academy">
 </div>

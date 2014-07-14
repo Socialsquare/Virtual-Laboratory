@@ -4,12 +4,15 @@
 	<hr />
 
 	<ul data-bind="foreach: data.items">
-        <li>
-            <div data-bind="text: name, drag: { item: $parent.data.klone.bind(null, item()) }"></div>
+        <li data-bind="drag: { item: $parent.data.klone.bind(null, item()) }">
+            <div>
+                <img data-bind="attr: { src: $parent.ImageHelper.draggingIcon(item())}">
+                <span data-bind="text: name"></span>
+            </div>
         </li>
     </ul>
 
-	<div class="btn-row float-clear">
-        <button data-bind="click: popupController.hide" type="button" class="popup-cancel-btn">Luk</button>
+	<div class="btn-row">
+        <button data-bind="click: popupController.hide">Luk</button>
     </div>
 </div>

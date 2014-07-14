@@ -1,0 +1,33 @@
+/* buttons.scss */
+
+@import 'mixin/color';
+
+button {
+    @include gradient-bg(#8A8A8A, #353535);
+    @include border(solid, 0, black, 4px);
+
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+
+    &:disabled {
+        @include opacity(0.5);
+    }
+
+    &.btn-none {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        outline: none;
+    }
+}
+
+.btn-row {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}

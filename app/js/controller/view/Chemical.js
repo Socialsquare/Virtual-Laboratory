@@ -29,9 +29,9 @@ define([
             self.base('chemical');
 
             var groups = {
-                closet: { name: 'Kemikalie skabet', items: self.closetItems },
+                closet: { name: 'Kemikalieskabet', items: self.closetItems },
                 fridge: { name: 'Køleskabet', items: self.fridgeItems },
-                drawer: { name: 'Kemikalie skuffen', items: self.drawerItems }
+                drawer: { name: 'Redskabsskuffen', items: self.drawerItems }
             };
 
             self.showList = function (name) {

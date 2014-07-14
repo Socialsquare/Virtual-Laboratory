@@ -4,6 +4,7 @@ define([
     'lodash',
     'utils/ImageHelper'
 ], function ($, ko, _, ImageHelper) {
+
     var dragData = null;
     var dragConsume = null;
 
