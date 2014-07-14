@@ -35,12 +35,11 @@ define([
             return IMG_PATH + '/work1-heater_' + (position + 1) + '.png';
         },
 
-        uvTubeImage: function (position, tube) {
+        uvTubeRackImage: function (position, tube) {
             if (!tube) return '';
 
-            // TODO: conditional glowing image
-            var state = tube.isEmpty() ? 'empty' : 'full';
-            return IMG_PATH + '/worktable1_testtube_' + (position + 1) + '_' + state + '.png';
+            var state = tube.isEmpty() ? 'empty' : (tube.isFluorescent() ? 'glow' : 'full');
+            return IMG_PATH + '/uv_tube' + (position + 1) + '_' + state + '.png';
         },
 
         tableSpacePetriImage: function (position, dish) {
@@ -54,14 +53,27 @@ define([
             return IMG_PATH + '/petri_placeholder.png';
         },
 
-        tableSpaceMicroPlaceholderImage: function (position) {
-            return IMG_PATH + '/micro' + (position + 1) + '_placeholder.png';
+        uvTableSpacePetriImage: function (position, dish) {
+            if (!dish) return '';
+
+            var state = dish.isEmpty() ? 'empty' : (dish.isFluorescent() ? 'glow' : 'full');
+            return IMG_PATH + '/uv_petri' + (position + 1) + '_' + state + '.png';
         },
 
         tableSpaceMicroImage: function (position, plate) {
             if (!plate) return '';
 
             return IMG_PATH + '/micro' + (position + 1) + '.png';
+        },
+
+        tableSpaceMicroPlaceholderImage: function (position) {
+            return IMG_PATH + '/micro' + (position + 1) + '_placeholder.png';
+        },
+
+        uvTableSpaceMicroImage: function (position, plate) {
+            if (!plate) return '';
+
+            return IMG_PATH + '/uv_micro' + (position + 1) + '.png';
         },
 
         odMachineTubeImage: function (position, tube) {

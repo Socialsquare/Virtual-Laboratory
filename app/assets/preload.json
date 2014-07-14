@@ -421,6 +421,156 @@
 }
 ,{
 "type": "IMAGE"
+,"source": "../assets/images/uv_micro1.png"
+,"size": 49107
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_micro2.png"
+,"size": 46781
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_micro3.png"
+,"size": 28716
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_petri1_empty.png"
+,"size": 37494
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_petri1_full.png"
+,"size": 37118
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_petri1_glow.png"
+,"size": 32065
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_petri2_empty.png"
+,"size": 37494
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_petri2_full.png"
+,"size": 37118
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_petri2_glow.png"
+,"size": 32065
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_petri3_empty.png"
+,"size": 37494
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_petri3_full.png"
+,"size": 37118
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_petri3_glow.png"
+,"size": 32065
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube1_empty.png"
+,"size": 40497
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube1_full.png"
+,"size": 39775
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube1_glow.png"
+,"size": 38779
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube2_empty.png"
+,"size": 22201
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube2_full.png"
+,"size": 21742
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube2_glow.png"
+,"size": 21201
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube3_empty.png"
+,"size": 19792
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube3_full.png"
+,"size": 19439
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube3_glow.png"
+,"size": 19027
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube4_empty.png"
+,"size": 21760
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube4_full.png"
+,"size": 21357
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube4_glow.png"
+,"size": 21150
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube5_empty.png"
+,"size": 20786
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube5_full.png"
+,"size": 20457
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube5_glow.png"
+,"size": 20508
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube6_empty.png"
+,"size": 22479
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube6_full.png"
+,"size": 21926
+}
+,{
+"type": "IMAGE"
+,"source": "../assets/images/uv_tube6_glow.png"
+,"size": 22268
+}
+,{
+"type": "IMAGE"
 ,"source": "../assets/images/wash_base.png"
 ,"size": 797969
 }

@@ -2,12 +2,15 @@ define([
     'knockout',
     'model/CompositeContainer',
     'model/type/Container'
+
 ], function (ko, CompositeContainerModel, ContainerType) {
 
     var MicroSpace = CompositeContainerModel.extend({
-        constructor: function () {
+        constructor: function (type) {
             var self = this;
-            self.base(3, ContainerType.MICROTITER, ContainerType.MICRO_SPACE);
+
+            var type = type || ContainerType.MICRO_SPACE;
+            self.base(3, ContainerType.MICROTITER, type);
         }
     });
 

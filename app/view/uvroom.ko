@@ -1,3 +1,5 @@
 <div class="uv-view view">
     <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
+    <div class="petri" data-bind="template: { name: 'compContainer', data: tableSpacePetriController }"></div>
+    <div class="micro" data-bind="template: { name: 'compContainer', data: tableSpaceMicroController }"></div>
 </div>

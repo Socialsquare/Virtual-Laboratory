@@ -54,6 +54,11 @@
   height: 100px;
   z-index: 9;
 
+  .slot0, .slot1, .slot2 {
+    position: absolute;
+    height: 69px;
+  }
+
   .slot0 {
     width: 158px;
   }
@@ -67,10 +72,5 @@
     left: 120px;
     top: -70px;
     width: 158px;
-  }
-
-  .slot0, .slot1, .slot2 {
-    position: absolute;
-    height: 69px;
   }
 }

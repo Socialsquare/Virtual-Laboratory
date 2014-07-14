@@ -52,14 +52,24 @@ define([
                 self.accepter = DragHelper.acceptTube;
                 break;
 
-            case ContainerType.UV:
-                self.imageGetter = ImageHelper.uvTubeImage;
-                self.accepter = DragHelper.acceptTube;
-                break;
-
             case ContainerType.OD_MACHINE:
                 self.imageGetter = ImageHelper.odMachineTubeImage;
                 self.accepter = DragHelper.acceptTube;
+                break;
+
+            case ContainerType.UV_TUBE_RACK:
+                self.imageGetter = ImageHelper.uvTubeRackImage;
+                self.accepter = DragHelper.acceptTube;
+                break;
+
+            case ContainerType.UV_PETRI_SPACE:
+                self.imageGetter = ImageHelper.uvTableSpacePetriImage;
+                self.accepter = DragHelper.acceptPetri;
+                break;
+
+            case ContainerType.UV_MICRO_SPACE:
+                self.imageGetter = ImageHelper.uvTableSpaceMicroImage;
+                self.accepter = DragHelper.acceptMicro;
                 break;
 
             default:

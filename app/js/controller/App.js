@@ -127,12 +127,12 @@ define([
 
             self.gameState.spectroPM.spectroPMMachine.addAt(0, ContainerFactory.micro());
 
-            self.gameState.uvroom.tubeRack.addAt(0, ContainerFactory.tube());
-            self.gameState.uvroom.tubeRack.addAt(1, ContainerFactory.tube());
-            self.gameState.uvroom.tubeRack.addAt(2, ContainerFactory.tube());
-            self.gameState.uvroom.tubeRack.addAt(3, ContainerFactory.tube());
-            self.gameState.uvroom.tubeRack.addAt(4, ContainerFactory.tube());
+            self.gameState.uvroom.tubeRack.addAt(0, tubeYeast);
             self.gameState.uvroom.tubeRack.addAt(5, ContainerFactory.tube());
+            self.gameState.uvroom.tableSpaceMicro.addAt(0, ContainerFactory.micro());
+            self.gameState.uvroom.tableSpaceMicro.addAt(2, ContainerFactory.micro());
+            self.gameState.uvroom.tableSpacePetri.addAt(0, ContainerFactory.petri());
+            self.gameState.uvroom.tableSpacePetri.addAt(2, ContainerFactory.petri());
         }
     });
 

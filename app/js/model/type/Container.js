@@ -12,7 +12,9 @@ define([], function () {
         PETRI_SPACE:       'ContainerType.PETRI_SPACE',
         MICRO_SPACE:       'ContainerType.MICRO_SPACE',
         TUBE_RACK:         'ContainerType.TUBE_RACK',
-        UV:                'ContainerType.UV',
+        UV_PETRI_SPACE:    'ContainerType.UV_PETRI_SPACE',
+        UV_MICRO_SPACE:    'ContainerType.UV_MICRO_SPACE',
+        UV_TUBE_RACK:      'ContainerType.UV_TUBE_RACK',
 
         // Simple machines
         ELECTROPORATOR_TANK:    'ContainerType.ELECTROPORATOR_TANK',

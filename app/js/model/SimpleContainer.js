@@ -56,6 +56,11 @@ define([
                 return self.liquids.isEmpty();
             };
 
+            // TODO: implement
+            self.isFluorescent = function () {
+                return true;
+            };
+
             self.growContentsOnce = function(deltaTime, growerType, ph, temperature) {
                 // TODO return whether growth is performed. False = max is reached, True = grew once
                 // deltaTime is in hours!

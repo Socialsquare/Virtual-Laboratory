@@ -3,9 +3,9 @@ define([
     'base',
     'model/TubeRack',
     'model/PetriSpace',
-    'model/MicroSpace',
-    'model/type/Container'
-], function(ko, Base, TubeRackModel, PetriSpaceModel, MicroSpaceModel, ContainerType) {
+    'model/MicroSpace'
+
+], function(ko, Base, TubeRackModel, PetriSpaceModel, MicroSpaceModel) {
 
     var Fumehood = Base.extend({
         constructor: function () {

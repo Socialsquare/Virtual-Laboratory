@@ -9,5 +9,60 @@
 
   background-image: url(#{$img-path}/uv_base.png);
 
-  .tuberack { @include tuberack(502px, 334px); }
+  .tuberack {
+    @include tuberack(479px, 288px);
+
+    .slot0, .slot1, .slot2, .slot3, .slot4, .slot5 { position: absolute; }
+
+    .slot0 {
+      width: 100px;
+      height: 209px;
+    }
+    .slot1 {
+      width: 72px;
+      height: 125px;
+      left: 59px;
+      top: 40px;
+    }
+    .slot2 {
+      width: 63px;
+      height: 125px;
+      left: 101px;
+      top: 44px;
+    }
+    .slot3 {
+      width: 69px;
+      height: 133px;
+      left: 140px;
+      top: 41px;
+    }
+    .slot4 {
+      width: 68px;
+      height: 132px;
+      left: 184px;
+      top: 44px;
+    }
+    .slot5 {
+      width: 74px;
+      height: 137px;
+      left: 225px;
+      top: 46px;
+    }
+  }
+
+  .micro {
+    @include tablespacemicro(100px, 490px);
+
+    .slot1 {
+      left: 230px;
+      width: 158px;
+    }
+
+    .slot2 {
+      left: 150px;
+      top: -80px;
+      width: 158px;
+    }
+  }
+  .petri { @include tablespacepetri(560px, 470px); }
 }

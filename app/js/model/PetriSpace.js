@@ -2,12 +2,16 @@ define([
     'knockout',
     'model/CompositeContainer',
     'model/type/Container'
+
 ], function (ko, CompositeContainerModel, ContainerType) {
 
     var PetriSpace = CompositeContainerModel.extend({
-        constructor: function (capacity) {
+        constructor: function (capacity, type) {
             var self = this;
-            self.base(capacity || 3, ContainerType.PETRI_DISH, ContainerType.PETRI_SPACE);
+
+            var type = type || ContainerType.PETRI_SPACE;
+            var capacity = capacity || 3;
+            self.base(capacity, ContainerType.PETRI_DISH, type);
         }
     });
 
