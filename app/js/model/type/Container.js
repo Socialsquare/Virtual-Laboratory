@@ -17,20 +17,16 @@ define([], function () {
         UV_TUBE_RACK:      'ContainerType.UV_TUBE_RACK',
 
         // Simple machines
-        ELECTROPORATOR_TANK:    'ContainerType.ELECTROPORATOR_TANK',
         BLENDER:           'ContainerType.BLENDER',
+        ELECTROPORATOR:    'ContainerType.ELECTROPORATOR',
         FERMENTOR_TANK:    'ContainerType.FERMENTOR_TANK',
-        WASHING_TANK:      'ContainerType.WASHING_TANK',
-        //TODO: washing machine-tank
+        WASHING:           'ContainerType.WASHING',
 
         // Composite machines
         HEATER:            'ContainerType.HEATER',
         OD_MACHINE:        'ContainerType.OD_MACHINE',
         SPECTROPM_MACHINE: 'ContainerType.SPECTROPM_MACHINE',
         PIPETTE:           'ContainerType.PIPETTE',
-        ELECTROPORATOR:    'ContainerType.ELECTROPORATOR',
-        FERMENTOR:         'ContainerType.FERMENTOR',
-        WASHING:           'ContainerType.WASHING'
-        //TODO: washing machine
+        FERMENTOR:         'ContainerType.FERMENTOR'
     };
 });

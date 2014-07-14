@@ -125,7 +125,7 @@ define([
 
             self.gameState.spectroPM.spectroPMMachine.addAt(0, ContainerFactory.micro());
 
-            self.gameState.uvroom.tubeRack.addAt(0, tubeYeast);
+            self.gameState.uvroom.tubeRack.addAt(0, ContainerFactory.tube().add(LiquidFactory.microorganism.yeast()));
             self.gameState.uvroom.tubeRack.addAt(5, ContainerFactory.tube());
             self.gameState.uvroom.tableSpaceMicro.addAt(0, ContainerFactory.micro());
             self.gameState.uvroom.tableSpaceMicro.addAt(2, ContainerFactory.micro());

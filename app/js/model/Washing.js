@@ -1,16 +1,13 @@
 define([
     'knockout',
-    'model/CompositeContainer',
-    'model/WashingTank',
-    'model/type/Container'
-], function(ko, CompositeContainerModel, WashingTankModel, ContainerType) {
-    var Washing = CompositeContainerModel.extend({
+    'base',
+    'model/WashingTank'
+], function(ko, Base, WashingTankModel) {
+    var Washing = Base.extend({ //TODO: this is a view.
         constructor: function () {
             var self = this;
-            self.base(1, ContainerType.WASHING_TANK, ContainerType.WASHING);
-            self.addAt(0, new WashingTankModel());
-            // TODO: This is a special case, as the tubes are not allowed to leave the room
-            /*self.tubeRack = new TubeRackModel();*/
+            self.washingTank = new WashingTankModel();
+            // TODO: Ask for the user to choose a level of dilution
         }
     });
 
