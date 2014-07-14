@@ -85,6 +85,9 @@ define([
             case SpecialItemType.SCALPEL:
                 return IMG_PATH + '/icon_scalpel.png';
 
+            case SpecialItemType.SPLEEN:
+                return IMG_PATH + '/icon_spleen.png';
+
             default:
                 throw 'Unknown inventory item: ' + item.type();
             }
@@ -109,6 +112,9 @@ define([
 
             case ContainerType.SYRINGE:
                 return IMG_PATH + '/icon_med_inj.png';
+
+            case SpecialItemType.SPLEEN:
+                return IMG_PATH + '/icon_spleen.png';
 
             case SpecialItemType.SCALPEL:
                 return IMG_PATH + '/icon_scalpel.png';

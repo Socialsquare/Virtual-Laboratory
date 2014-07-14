@@ -4,32 +4,28 @@ define([
     'model/type/Liquid',
     'model/type/SpecialItem'
 ], function (_, ContainerType, LiquidType, SpecialItemType) {
+    var accepter = function (types) {
+        return function (item) {
+            return _.contains(types, item.type());
+        };
+    };
+
     return {
-        acceptTube: function (item) {
-            return item.type() === ContainerType.TUBE;
-        },
+        acceptTube: accepter([ContainerType.TUBE]),
 
-        acceptPetri: function (item) {
-            return item.type() === ContainerType.PETRI_DISH;
-        },
+        acceptPetri: accepter([ContainerType.PETRI_DISH]),
 
-        acceptMicro: function (item) {
-            return item.type() === ContainerType.MICROTITER;
-        },
+        acceptMicro: accepter([ContainerType.MICROTITER]),
 
-        acceptDNA: function (item) {
-            return item.type() === LiquidType.DNA;
-        },
+        acceptDNA: accepter([LiquidType.DNA]),
 
-        acceptedByMouse: function (item) {
-            var accepted = [
-                ContainerType.SYRINGE,
-                ContainerType.BOTTLE,
-                SpecialItemType.SCALPEL
-            ];
+        acceptedByBlender: accepter([SpecialItemType.SPLEEN]),
 
-            return _.contains(accepted, item.type());
-        },
+        acceptedByMouse: accepter([
+            ContainerType.SYRINGE,
+            ContainerType.BOTTLE,
+            SpecialItemType.SCALPEL
+        ]),
 
         consumeItemFrom: function (item, collection) {
             return function () {

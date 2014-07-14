@@ -8,11 +8,10 @@ define([
     var Blender = Base.extend({
         constructor: function () {
             var self = this;
-            throw 'Such todo';
-            // TODO !
+
+            self.status = ko.observable(false);
         }
     });
 
     return Blender;
 });
-
