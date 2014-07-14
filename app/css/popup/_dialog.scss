@@ -1,0 +1,18 @@
+/* popup/dialog.scss */
+
+.popup-dialog {
+    $width: 400px;
+
+    padding: 30px;
+
+    left: 290px;
+    top: 150px;
+    width: $width;
+    height: 250px;
+
+    color: white;
+
+    .btn-row {
+        width: $width;
+    }
+}

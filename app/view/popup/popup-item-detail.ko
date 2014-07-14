@@ -1,9 +1,12 @@
-<div class="popup">
+<div class="popup popup-item-details">
     <!-- ko with: data.item -->
     <h1 data-bind="text: type"></h1>
+
     <hr />
 
-    <textarea rows="30" cols="63" data-bind="value: label"></textarea>
+    <h4>Her kan du skrive noter</h4>
+
+    <textarea rows="10" cols="40" data-bind="value: label"></textarea>
     <!-- /ko -->
 
     <div class="btn-row float-clear">

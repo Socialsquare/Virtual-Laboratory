@@ -1,4 +1,4 @@
-<div class="popup">
+<div class="popup popup-dialog">
     <!-- ko with: data -->
     <h1 data-bind="text: title"></h1>
     <hr />

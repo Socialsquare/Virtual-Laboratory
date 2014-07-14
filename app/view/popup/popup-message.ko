@@ -1,9 +1,9 @@
-<div class="popup">
+<div class="popup popup-dialog">
     <!-- ko with: data -->
     <h1 data-bind="text: title"></h1>
     <hr />
 
-    <span data-bind="text: message"></span>
+    <span class="message" data-bind="text: message"></span>
     <!-- /ko -->
 
     <div class="btn-row float-clear">

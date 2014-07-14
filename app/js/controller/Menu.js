@@ -88,7 +88,9 @@ define([
             };
 
             self.showItemDetails = function (item) {
-                if (item.type() == SpecialItemType.SCALPEL || item.type() == SpecialItemType.MILT)
+                var accepted = [SpecialItemType.SCALPEL, SpecialItemType.SPLEEN];
+
+                if (_.contains(accepted, item.type()))
                     self.popupController.message(item.type(), '');
                 else
                     self.popupController.itemDetail(item);

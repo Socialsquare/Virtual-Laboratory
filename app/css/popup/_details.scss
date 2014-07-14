@@ -1,0 +1,26 @@
+/* popup/details.scss */
+
+.popup-item-details {
+    $width: 400px;
+
+    padding: 30px;
+
+    left: 290px;
+    top: 50px;
+    width: $width;
+    height: 480px;
+
+    color: white;
+
+    textarea {
+        width: 375px;
+        height: 260px;
+        resize: none;
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .btn-row {
+        width: $width;
+    }
+}

@@ -6,6 +6,9 @@
     @include gradient-bg(#2f2f2f, #0f0f0f);
 
     position: absolute;
+
+    z-index: 2000;
+
     left: 82px;
     top: 50px;
     padding: 30px;
@@ -34,3 +37,5 @@
 @import 'quiz';
 @import 'door';
 @import 'list';
+@import 'details';
+@import 'dialog';
