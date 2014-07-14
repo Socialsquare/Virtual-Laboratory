@@ -63,7 +63,7 @@ define([
                 },
 
                 drop: function(evt, ui) {
-                    var accepted = handler(dragData);
+                    var accepted = handler(dragData, dragConsume);
                     if (accepted !== false)
                         dragConsume();
                 }

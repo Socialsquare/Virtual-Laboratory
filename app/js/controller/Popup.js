@@ -31,6 +31,13 @@ define([
             self.message = function (title, message) {
                 self.show('popup-message', { title: title, message: message });
             };
+
+            self.confirm = function (title, message, cb) {
+                self.show('popup-dialog', { title: title, message: message, cb: function (answer) {
+                    cb(answer);
+                    self.hide();
+                } });
+            };
         }
     });
 

@@ -49,7 +49,8 @@
     <div class="menu-right-links">
         <ul>
             <li>
-                <button class="btn-none" id="menu-pipette-btn">
+                <button class="btn-none" id="menu-pipette-btn"
+                        data-bind="click: togglePipette.bind(null, $parent.activeViewController())">
                     <img src="assets/images/icon_big_pipette.png" alt="Pipette">
                 </button>
             </li>

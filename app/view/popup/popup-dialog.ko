@@ -6,7 +6,8 @@
     <span data-bind="text: message"></span>
 
     <div class="btn-row float-clear">
-        <button type="button" data-bind="click: $parent.popupController.hide">Luk</button>
+        <button type="button" data-bind="click: cb.bind(null, true)">Ok</button>
+        <button type="button" data-bind="click: cb.bind(null, false)">Fortryd</button>
     </div>
     <!-- /ko -->
 </div>
