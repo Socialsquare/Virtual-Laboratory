@@ -13,6 +13,7 @@ define([
             self.type = ko.observable(type);
             self.maxConcentration = ko.observable(maxConcentration);
             self.liquids = ko.observableArray([]);
+            self.label = ko.observable('');
 
             self._addAll = function (liquids) {
                 ko.utils.arrayPushAll(self.liquids, liquids);

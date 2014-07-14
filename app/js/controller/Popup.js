@@ -32,6 +32,10 @@ define([
                 self.show('popup-message', { title: title, message: message });
             };
 
+            self.itemDetail = function (item) {
+                self.show('popup-item-detail', { item: item });
+            };
+
             self.confirm = function (title, message, cb) {
                 self.show('popup-dialog', { title: title, message: message, cb: function (answer) {
                     cb(answer);

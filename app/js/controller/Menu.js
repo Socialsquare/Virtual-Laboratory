@@ -3,10 +3,13 @@ define([
     'jquery',
     'controller/view/Base',
     'screenfull',
-    'model/type/Container',
     'controller/Popup',
+    'model/type/Container',
+    'model/type/SpecialItem',
     'utils/ImageHelper'
-], function (ko, $, BaseViewController, screenfull, ContainerType, popupController, ImageHelper) {
+
+], function (ko, $, BaseViewController, screenfull, popupController,
+             ContainerType, SpecialItemType, ImageHelper) {
 
     var MenuController = BaseViewController.extend({
 
@@ -68,7 +71,10 @@ define([
             };
 
             self.showItemDetails = function (item) {
-                self.popupController.message(item.type(), 'Jeg er beskrivelsen. Ret sygt alligevel.');
+                if (item.type() == SpecialItemType.SCALPEL || item.type() == SpecialItemType.MILT)
+                    self.popupController.message(item.type(), '');
+                else
+                    self.popupController.itemDetail(item);
             };
         }
     });

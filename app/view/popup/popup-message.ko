@@ -4,9 +4,9 @@
     <hr />
 
     <span data-bind="text: message"></span>
+    <!-- /ko -->
 
     <div class="btn-row float-clear">
-        <button type="button" data-bind="click: $parent.popupController.hide">Luk</button>
+        <button type="button" data-bind="click: popupController.hide">Luk</button>
     </div>
-    <!-- /ko -->
 </div>
