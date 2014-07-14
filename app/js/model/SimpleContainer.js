@@ -25,6 +25,7 @@ define([
 
             self.add = function (liquid) {
                 self._addAll([liquid]);
+                return self;
             };
 
             self.contains = function (liquidType) {

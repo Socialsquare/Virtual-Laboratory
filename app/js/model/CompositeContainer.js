@@ -29,6 +29,7 @@ define([
 
             self.addAt = function(position, container) {
                 self._addAt(position, container);
+                return self;
             };
 
             self.anyContainsAll = function (liquidTypes) {
