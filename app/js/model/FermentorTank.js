@@ -6,7 +6,7 @@ define([
 
     var FermentorTank = SimpleContainerModel.extend({
 
-// TODO only organisms with a concentration of
+// TODO only organisms with a "has been in high concentration"-flag. This imitates IRL...
 
         constructor: function () {
             var self = this;

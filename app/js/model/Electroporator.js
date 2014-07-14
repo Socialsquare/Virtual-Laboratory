@@ -1,16 +1,14 @@
 define([
     'knockout',
     'lodash',
-    'model/CompositeContainer',
-    'model/ElectroporatorTank',
+    'model/SimpleContainer',
     'model/type/Container'
-], function (ko, _, CompositeContainerModel, ElectroporatorTankModel, ContainerType) {
-// TODO : let it extend composite
-    var Electroporator = CompositeContainerModel.extend({
+], function (ko, _, SimpleContainerModel, ContainerType) {
+
+    var Electroporator = SimpleContainerModel.extend({
         constructor: function () {
             var self = this;
-            self.base(1, ContainerType.ELECTROPORATOR_TANK, ContainerType.ELECTROPORATOR);
-            self.addAt(0, new ElectroporatorTankModel());
+            self.base(ContainerType.ELECTROPORATOR, Math.pow(10, 13));
 
             self.status = ko.observable(false);
 
@@ -19,9 +17,7 @@ define([
 
                 _.delay(self.status, 1000, false);
 
-
-// TODO: self.get(0)
-                _.each(self.liquids(), function(gene){
+                /*_.each(self.liquids(), function(gene){
                     if(gene.type() === LiquidType.GENE) {// TODO: 1) For hver liquid som er et "Gene"
 
                         alert('Such gene!');
@@ -32,7 +28,7 @@ define([
                         // TODO: 1.2) Kontrollér om det er korrekt designet
                         var newProperties = self.verifyGene(gene);
                     }
-                });
+                });*/
 
                 //TODO: implement
             };
