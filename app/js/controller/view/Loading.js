@@ -24,7 +24,13 @@ define([
             });
 
             self.exerciseSelectorController = new ExerciseSelectorController();
+
+            self.enter = function () {
+                self.exerciseSelectorController.selected(null);
+            };
         }
+
+
     });
 
     return Loading;

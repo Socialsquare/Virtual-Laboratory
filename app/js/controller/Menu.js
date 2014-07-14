@@ -5,6 +5,7 @@ define([
 
     'controller/view/Base',
     'controller/Popup',
+    'controller/Router',
 
     'model/GameState',
     'model/Tip',
@@ -13,36 +14,31 @@ define([
 
     'utils/ImageHelper',
     'utils/TextHelper'
-], function (ko, $, screenfull, BaseViewController, popupController,
+], function (ko, $, screenfull, BaseViewController, popupController, router,
              gameState, TipModel, ContainerType, SpecialItemType, ImageHelper, TextHelper) {
 
     var MenuController = BaseViewController.extend({
 
         constructor: function () {
             var self = this;
-            /*self.isFullscreen = ko.observable(false);*/
 
             self.ImageHelper = ImageHelper;
             self.popupController = popupController;
             self.gameState = gameState;
+            self.router = router;
 
             self.selectExperiment = function () {
-                console.log('TODO: Select experiment');
+                self.router.navigate('loading');
             };
 
             self.fullscreen = function () {
                 var body = document.getElementsByTagName('body')[0];
 
                 if (screenfull.enabled) {
-
                     screenfull.toggle(body);
 
-                    if(screenfull.isFullscreen) {
-                        $(body).addClass('fixed');
-                    }else {
-                        $(body).removeClass('fixed');
-                    }
-                }else {
+                    $(body).toggleClass('fixed', screenfull.isFullscreen);
+                } else {
                     alert('Full screen is not supported on your device :( - let me guess, it is an Apple device?');
                 }
             };

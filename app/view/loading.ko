@@ -32,6 +32,9 @@
 
     <div class="btn-row">
         <button data-bind="click: start, enable: selected">Start øvelse</button>
+        <!-- ko if: gameState.currentExercise() -->
+        <button data-bind="click: goBack">Tilbage til spillet</button>
+        <!-- /ko -->
     </div>
     <!-- /ko -->
     <!-- /ko -->

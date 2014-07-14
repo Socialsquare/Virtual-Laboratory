@@ -6,7 +6,7 @@
 <div class="top-menu">
     <ul class="left">
         <li>
-            <a id="view-back-link" data-bind="route: 'overview'">
+            <a id="view-back-link" data-bind="click: router.back, visible: router.hasBack">
                 <img src="assets/images/top-button_back.png" alt="Tilbage">
             </a>
         </li>
