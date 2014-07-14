@@ -21,6 +21,8 @@ define([
 
         acceptedByBlender: accepter([SpecialItemType.SPLEEN]),
 
+        acceptedByComposite: accepter([ContainerType.PIPETTE]),
+
         acceptedByMouse: accepter([
             ContainerType.SYRINGE,
             ContainerType.BOTTLE,

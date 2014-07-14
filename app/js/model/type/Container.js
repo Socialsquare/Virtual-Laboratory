@@ -7,6 +7,7 @@ define([], function () {
         FERMENTOR_TANK:    'ContainerType.FERMENTOR_TANK',
         BOTTLE:            'ContainerType.BOTTLE',
         SYRINGE:           'ContainerType.SYRINGE',
+        PIPETTE_TIP:       'ContainerType.PIPETTE_TIP',
 
         // Composite
         PETRI_SPACE:       'ContainerType.PETRI_SPACE',
@@ -21,6 +22,7 @@ define([], function () {
         // Composite machines
         HEATER:            'ContainerType.HEATER',
         OD_MACHINE:        'ContainerType.OD_MACHINE',
-        SPECTROPM_MACHINE: 'ContainerType.SPECTROPM_MACHINE'
+        SPECTROPM_MACHINE: 'ContainerType.SPECTROPM_MACHINE',
+        PIPETTE:           'ContainerType.PIPETTE'
     };
 });

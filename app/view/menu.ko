@@ -1,3 +1,8 @@
+<div class="pipette"
+     data-bind="drag: { item: gameState.pipette, helper: 'original', revert: false, offset: { top: 180, left: 20 } },
+                visible: gameState.pipette.active,
+                css: { tip: gameState.pipette.hasTip(), full: !gameState.pipette.isEmpty() }"></div>
+
 <div class="top-menu">
     <ul class="left">
         <li>
@@ -21,7 +26,7 @@
     </ul>
 </div>
 
-<div class="menu">
+<div class="menu-bar">
     <ul>
         <li>
             <a id="experimentinstructions-link">
@@ -34,10 +39,10 @@
         <img class="logo" src="assets/images/logo-white.png" alt="Biotech Academy logo">
     </div>
 
-    <div class="menu-inventory-container">
+    <div class="inventory-container">
         <div class="inventory" data-bind="drop: { handler: inventoryDropHandler }">
             <ul data-bind="foreach: gameState.inventory.items">
-                <li class="menu-inventory-box" data-bind="click: $parent.showItemDetails.bind(null, $data)">
+                <li class="inventory-box" data-bind="click: $parent.showItemDetails.bind(null, $data)">
                     <div data-bind="drag: { item: $data, dim: true, consume: $parent.gameState.inventory.remove.bind(null, $data) }">
                         <img data-bind="attr: { src: $parent.ImageHelper.inventoryIcon($data) }">
                     </div>
@@ -55,7 +60,8 @@
                 </button>
             </li>
             <li>
-                <button class="btn-none" id="menu-tips-btn">
+                <button class="btn-none" id="menu-tips-btn"
+                        data-bind="click: handlePipetteTip.bind(null, $parent.activeViewController())">
                     <img src="assets/images/icon_big_tips.png" alt="Pipette spidser">
                 </button>
             </li>

@@ -16,21 +16,21 @@ define([
                 offset: {
                     left: 40,
                     top: 40
+                },
+                revert: 'invalid',
+                helper: function (event, ui) {
+                    var item = dragData = _.isFunction(options.item) ? options.item() : options.item;
+                    return $('<img/>').attr({ src: ImageHelper.draggingIcon(item) });;
                 }
             });
 
             $(element).draggable({
                 containment: 'window',
-                revert: 'invalid',
+                revert: options.revert,
                 zIndex: 100000,
                 appendTo: 'body',
-
                 cursorAt: options.offset,
-
-                helper: function (event, ui) {
-                    var item = dragData = _.isFunction(options.item) ? options.item() : options.item;
-                    return $('<img/>').attr({ src: ImageHelper.draggingIcon(item) });;
-                },
+                helper: options.helper,
 
                 start: function (event, ui) {
                     if (options.dim)

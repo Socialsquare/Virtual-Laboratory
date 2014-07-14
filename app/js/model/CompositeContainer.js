@@ -48,11 +48,6 @@ define([
                 self.containers.setAt(position, null);
             };
 
-            self.remove2 = function (item) {
-                var idx = self.containers().indexOf(item);
-                self.remove(idx);
-            };
-
             self.growContentsOnce = function(deltaTime, growerType, ph, temperature) {
                 // deltaTime is in "hours"
                 _.forEach(self.containers(), function(container){

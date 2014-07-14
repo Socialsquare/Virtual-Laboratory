@@ -2,15 +2,22 @@ define([
     'knockout',
     'lodash',
     'base',
+
+    'controller/Popup',
+
     'model/type/Container',
+
     'utils/ImageHelper',
     'utils/DragHelper'
-], function (ko, _, Base, ContainerType, ImageHelper, DragHelper) {
+], function (ko, _, Base, popupController, ContainerType, ImageHelper, DragHelper) {
 
     var CompositeContainerController = Base.extend({
 
         constructor: function (compContainer) {
             var self = this;
+
+            self.DragHelper = DragHelper;
+            self.popupController = popupController;
 
             self.compContainer = compContainer;
 
@@ -65,6 +72,14 @@ define([
                     return false;
 
                 self.compContainer.addAt(position, tube);
+            };
+
+            self.handleContainerDrop = function (position, item) {
+                if (item.type() === ContainerType.PIPETTE) {
+                    if (!item.hasTip()) {
+                        self.popupController.message('Dumt', 'Der er ingen spids på pipetten');
+                    }
+                }
             };
         },
     });

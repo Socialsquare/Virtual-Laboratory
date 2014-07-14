@@ -1,25 +1,29 @@
 define([
     'knockout',
     'jquery',
-    'controller/view/Base',
     'screenfull',
+
+    'controller/view/Base',
     'controller/Popup',
+
+    'model/GameState',
+    'model/Tip',
     'model/type/Container',
     'model/type/SpecialItem',
-    'utils/ImageHelper'
 
-], function (ko, $, BaseViewController, screenfull, popupController,
-             ContainerType, SpecialItemType, ImageHelper) {
+    'utils/ImageHelper'
+], function (ko, $, screenfull, BaseViewController, popupController,
+             gameState, TipModel, ContainerType, SpecialItemType, ImageHelper) {
 
     var MenuController = BaseViewController.extend({
-
-        ImageHelper: ImageHelper,
 
         constructor: function () {
             var self = this;
             /*self.isFullscreen = ko.observable(false);*/
 
+            self.ImageHelper = ImageHelper;
             self.popupController = popupController;
+            self.gameState = gameState;
 
             self.selectExperiment = function () {
                 console.log('TODO: Select experiment');
@@ -49,24 +53,37 @@ define([
                 self.gameState.inventory.add(item);
             };
 
-            self.togglePipette = function (activeViewController) {
-                var acceptedViews = [
-                    'worktable1',
-                    'worktable2',
-                    'fumehood'
-                ];
-
-                if (acceptedViews.indexOf(activeViewController.templateName) < 0) {
-                    console.log('Can\'t use pipette here, dumdum');
-                    return;
+            self.handlePipetteTip = function () {
+                if (!self.gameState.pipette.hasTip()) {
+                    self.gameState.pipette.addAt(0, new TipModel());
                 }
+            };
 
-                console.log('TODO: pipette');
+            self.togglePipette = function (activeViewController) {
+                // var acceptedViews = [
+                //     'worktable1',
+                //     'worktable2',
+                //     'fumehood'
+                // ];
+
+                // if (acceptedViews.indexOf(activeViewController.templateName) < 0) {
+                //     console.log('Can\'t use pipette here, dumdum');
+                //     return;
+                // }
+
+                self.gameState.pipette.active.toggle();
             };
 
             self.trashDropHandler = function (item, consume) {
-                self.popupController.confirm("Bekreft", "Er du sikker på du vil slette?",
-                                             function (answer) { if (answer) consume(); });
+                if (item.type() === ContainerType.PIPETTE) {
+                    self.popupController.confirm("Bekræft", "Vil du fjerne pipette spidsen?", function (answer) {
+                        self.gameState.pipette.removeTip();
+                    });
+                } else {
+                    self.popupController.confirm("Bekræft", "Er du sikker på du vil slette?", function (answer) {
+                        if (answer) consume();
+                    });
+                }
                 return false;
             };
 

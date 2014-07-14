@@ -5,6 +5,7 @@ define([
     'base',
     'model/Inventory',
     'model/Mouse',
+    'model/Pipette',
     'model/Worktable1',
     'model/Worktable2',
     'model/Fumehood',
@@ -15,7 +16,7 @@ define([
     'model/Washing',
     'model/type/MouseBlood',
     'model/type/ComputerScreen'
-], function (ko, Base, Inventory, MouseModel, Worktable1Model,
+], function (ko, Base, Inventory, MouseModel, PipetteModel, Worktable1Model,
              Worktable2Model, FumehoodModel, IncubatorModel,
              SpectroPMModel, FermentorModel, UvRoomModel, WashingModel, MouseBloodType, ComputerScreenType) {
 
@@ -27,6 +28,7 @@ define([
         inventory: new Inventory(),
 
         mouse: ko.observable(new MouseModel(MouseBloodType.DIABETIC)),
+        pipette: new PipetteModel(),
 
         worktable1: new Worktable1Model(),
         worktable2: new Worktable2Model(),
