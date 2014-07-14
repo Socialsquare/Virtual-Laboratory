@@ -8,11 +8,13 @@
 
     background-image: url(#{$img-path}/mouse-view-background-sprite_sRGB.png);
     background-size: 1024px 1288px;
-    background-position: 0 0;
+    background-position: 0 644px;
+
+    /* background-position: 0 0; */
+    /* .no-bottle { background-position: 0 644px; } */
 
     & .osxsafari { background-image: url(#{$img-path}/mouse-view-background-sprite_rec709.png); }
 
-    .no-bottle { background-position: 0 644px; }
 
     .video {
         position: absolute;

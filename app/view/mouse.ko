@@ -2,7 +2,9 @@
 
     <div class="video-container" data-bind="template: { name: 'video', data: videoController }"></div>
 
-    <div class="water-bottle" data-bind="drag: { item: bottle, offset: { left: 84, top: 182 } }"></div>
+    <img class="water-bottle" src="assets/images/grab_drink.png" alt="Juiceflaske"
+         data-bind="visible: !mouseDrinking(),
+                    drag: { dim: true, item: bottle, offset: { left: 84, top: 182 } }">
 
     <div class="dead-mouse" data-bind="visible: !mouse().alive()"></div>
 

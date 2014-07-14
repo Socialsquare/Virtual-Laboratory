@@ -25,6 +25,7 @@ define([
             self.videoController = new VideoController();
 
             self.mouse = self.gameState.mouse;
+            self.mouseDrinking = ko.observable(false);
 
             // Begin: Notifications
 
@@ -101,7 +102,12 @@ define([
                     if (!self.mouse().alive())
                         return false;
 
-                    self.videoController.play(['drink-start', 'run'], true);
+                    self.mouseDrinking(true);
+                    self.videoController.play('drink-start', false)
+                        .done(function () {
+                            self.mouseDrinking(false);
+                            self.videoController.play('run', true);
+                        });
                     break;
 
                 case SpecialItemType.SCALPEL:

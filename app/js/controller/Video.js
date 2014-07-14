@@ -66,10 +66,10 @@ define([
             };
 
             self.handleVideoEnd = function () {
+                self.consumeQueue();
+
                 if (self.queue.isEmpty())
                     self.promise.resolve();
-
-                self.consumeQueue();
             };
         }
     });
