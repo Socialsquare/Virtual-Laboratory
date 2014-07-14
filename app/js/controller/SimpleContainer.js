@@ -38,9 +38,10 @@ define([
                     throw 'Unsupported container type: ' + simpleContainer.type();
             }
 
-            self.dropHandler = function (item) { //TODO: Implement.
+            /*self.dropHandler = function (item) { //TODO: Implement.
+
                 return false;
-            };
+            };*/
 
             self.handleContainerDrop = function (item) { //TODO: Implement.
                 if (item.type() === ContainerType.PIPETTE) {

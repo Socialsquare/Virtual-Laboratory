@@ -8,7 +8,7 @@
 
     <button class="btn-none bunsen" data-bind="click: toggleBunsen"></button>
 
-    <!--<div class="electroporator" data-bind="template: { name: 'simpleContainer', data: electroporatorController }"></div>-->
+    <div class="electroporator" data-bind="drop: { handler: electroporatorController.handleContainerDrop, accept: DragHelper.acceptPipette }"></div>
 
     <button class="btn-none electroporator-btn" data-bind="click: activateElectroporator">
         <img src="assets/images/work1_electroporator-on.png" alt="Electroporator button"
