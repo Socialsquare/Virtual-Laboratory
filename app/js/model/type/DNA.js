@@ -1,4 +1,4 @@
-define[
+define([
     'base'
 ], function (Base) {
 
@@ -28,4 +28,4 @@ define[
     });
 
     return new DNAType();
-};
+});
