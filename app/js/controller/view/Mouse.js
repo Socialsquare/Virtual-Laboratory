@@ -118,15 +118,20 @@ define([
 
                 case SpecialItemType.SCALPEL:
                     if (self.mouse().alive()) {
-                        //TODO: uncomment /*self.popupController.message('Nej', 'Musen skal være død.');*/
+                        self.popupController.message('Nej.', 'Musen skal være død før du begynder at skære i den. Andet er jo ren dyreplageri...');
                         return false;
                     } else {
-                        self.videoController.play('cut', false);
+                        self.videoController.play('cut', false)
+                            .done(function() {
+                                self.popupController.message('Milt ekstraheret.', 'Du milten ligger nu i dit inventory.');
 
-                        var spleenContents = self.mouse().spleen.antibodiesFor();
-                        var newSpleen = new SpleenModel();
-                        newSpleen.antibodiesFor.pushAll(spleenContents);
-                        self.gameState.inventory.add(newSpleen);
+                                var spleenContents = self.mouse().spleen.antibodiesFor();
+                                var newSpleen = new SpleenModel();
+                                newSpleen.antibodiesFor.pushAll(spleenContents);
+                                self.gameState.inventory.add(newSpleen);
+                            });
+
+
                     }
                     break;
 
@@ -135,7 +140,7 @@ define([
                         self.videoController.play('injection-die', false)
                             .done(function () {
                                 self.mouse().alive(false);
-                                //TODO: uncomment  self.popupController.message('Satans', 'Musen døde');
+                                self.popupController.message('Du har dræbt musen.', 'Good job!');
                             });
                     }
                     else if (item.contains(LiquidType.INSULIN)) {
@@ -148,12 +153,18 @@ define([
                         (item.contains(LiquidType.ANTIGEN_GOUT) || item.contains(LiquidType.ANTIGEN_SMALLPOX) )) {
                         if(!self.mouse().alive()) { return false; }
 
-                        self.videoController.play(['injection-run', 'run'], true);
-                        if(item.contains(LiquidType.ANTIGEN_GOUT)) { self.mouse().vaccinate(LiquidType.ANTIGEN_GOUT); }
-                        if(item.contains(LiquidType.ANTIGEN_SMALLPOX)) { self.mouse().vaccinate(LiquidType.ANTIGEN_SMALLPOX); }
+                        self.videoController.play(['injection-run', 'run'], true)
+                            .done(function() {
+                                if(item.contains(LiquidType.ANTIGEN_GOUT)) {
+                                    self.mouse().vaccinate(LiquidType.ANTIGEN_GOUT);
+                                    self.popupController.message('Musen blev vaccineret.','Du har nu givet musen antigener for gigt');
+                                }
 
-
-                        //TODO: uncomment  self.popupController.message('Musen blev vaccineret.','Du har nu givet musen antigener for gigt');
+                                if(item.contains(LiquidType.ANTIGEN_SMALLPOX)) {
+                                    self.mouse().vaccinate(LiquidType.ANTIGEN_SMALLPOX);
+                                    self.popupController.message('Musen blev vaccineret.','Du har nu givet musen antigener for kopper');
+                                }
+                            });
                     }
                     else
                         self.videoController.play(['injection-run', 'run'], true);

@@ -22,16 +22,17 @@ define([
             self.handleBlenderDrop = function (item) {
                 self.worktable2.blender.status(true);
                 _.delay(function () {
+
+                    if(item.type() === SpecialItemType.SPLEEN) {
+                        var antibodies = item.antibodiesFor();
+                        var homogenizedSpleen = self.liquidFactory.homoSpleen(antibodies);
+
+                        self.gameState.inventory.add(self.containerFactory.tube().add(homogenizedSpleen));
+                        self.popupController.message('Milt blendet','Der er tilføjet et reagensglas i dit inventory med homogeniseret milt.');
+                    }
+
                     self.worktable2.blender.status(false);
-                    console.log('TODO: add homogenized spleen to inventory');
                 }, 1500);
-
-                if(item.type() === SpecialItemType.SPLEEN) {
-                    var antibodies = item.antibodiesFor();
-                    var homogenizedSpleen = self.liquidFactory.homoSpleen(antibodies);
-
-                    self.gameState.inventory.add(self.containerFactory.tube().add(homogenizedSpleen));
-                }
             };
         }
     });
