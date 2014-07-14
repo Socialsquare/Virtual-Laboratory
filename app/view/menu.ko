@@ -1,5 +1,5 @@
-<div class="pipette hand"
-     data-bind="drag: { item: gameState.pipette, helper: 'original', revert: false, offset: { top: 180, left: 20 } },
+<div class="pipette"
+     data-bind="drag: { item: gameState.pipette, helper: 'original', revert: false, offset: { top: 185, left: 15 } },
                 visible: gameState.pipette.active,
                 css: { tip: gameState.pipette.hasTip(), full: !gameState.pipette.isEmpty() }"></div>
 
