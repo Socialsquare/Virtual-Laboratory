@@ -12,6 +12,18 @@ define([
 
             self.alive = ko.observable(true);
             self.mouseBloodType = ko.observable(null);
+            self.description = ko.computed(function () {
+                switch (self.mouseBloodType()) {
+                case MouseBloodType.NORMAL:
+                    return 'Rask mus';
+
+                case MouseBloodType.DIABETIC:
+                    return 'Mus med diabetes';
+
+                default:
+                    return '';
+                }
+            });
 
             self.bloodData = ko.observableArray([]);
 

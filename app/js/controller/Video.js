@@ -49,6 +49,10 @@ define([
                 return self.promise;
             };
 
+            self.stop = function () {
+                self.activeVideo(null);
+            };
+
             self.consumeQueue = function () {
                 var id = self.queue.shift();
 

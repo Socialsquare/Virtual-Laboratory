@@ -26,7 +26,8 @@ define([
 
         inventory: new Inventory(),
 
-        mouse: new MouseModel(MouseBloodType.DIABETIC),
+        mouse: ko.observable(new MouseModel(MouseBloodType.DIABETIC)),
+
         worktable1: new Worktable1Model(),
         worktable2: new Worktable2Model(),
         fumehood: new FumehoodModel(),

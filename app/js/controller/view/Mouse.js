@@ -23,14 +23,13 @@ define([
             self.base('mouse');
 
             self.videoController = new VideoController();
-            self.videoController.play('run', true);
 
             self.mouse = self.gameState.mouse;
 
             // Begin: Notifications
 
-            self.mouse.alive.subscribe(function(isAlive) {
-                if((! isAlive) && self.mouse.blodSukker() < self.mouse.minBlodSukker()) {
+            self.mouse().alive.subscribe(function(isAlive) {
+                if((! isAlive) && self.mouse().blodSukker() < self.mouse().minBlodSukker()) {
                     self.popupController.message('Musen er død', 'Du har dræbt musen ved at give den for meget insulin.');
                 }
                 // TODO: there are more ways to kill the poor mouse (well, at least one: The lethal injection)
@@ -38,16 +37,16 @@ define([
 
             self.lowBloodSugarWarningToggle = ko.observable(false); // Such name. Wow.
             self.highBloodSugarWarningToggle = ko.observable(false);
-            self.mouse.blodSukker.subscribe(function(blodSukker) {
+            self.mouse().blodSukker.subscribe(function(blodSukker) {
                 if(blodSukker < 2.5 && !self.lowBloodSugarWarningToggle()) {
                     self.lowBloodSugarWarningToggle(true);
                     self.popupController.message('Pas på', 'Du risikerer at dræbe musen ved at give den for meget insulin.');
-                } else if(blodSukker > self.mouse.maxBlodSukker() * 0.8 && !self.highBloodSugarWarningToggle() &&
-                    self.mouse.mouseBloodType() === MouseBloodType.NORMAL) {
+                } else if(blodSukker > self.mouse().maxBlodSukker() * 0.8 && !self.highBloodSugarWarningToggle() &&
+                    self.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
                     self.highBloodSugarWarningToggle(true);
                     self.popupController.message('Pas på', 'Du risikerer at give musen sukkersyge ved at give den for meget juice.');
-                } else if(blodSukker >= self.mouse.maxBlodSukker()
-                    && self.mouse.mouseBloodType() === MouseBloodType.NORMAL) {
+                } else if(blodSukker >= self.mouse().maxBlodSukker()
+                    && self.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
                     self.popupController.message('Advarsel', 'Musen har nu udviklet sukkersyge.');
                 }
             });
@@ -62,7 +61,7 @@ define([
             self.bottle = bottle;
 
             var plotData = _.map(_.range(0, 250), function (i) {
-                return [i, self.mouse.bloodData()[i]];
+                return [i, self.mouse().bloodData()[i]];
             });
             self.plotData(plotData);
 
@@ -70,21 +69,26 @@ define([
 
             self.nextPlotStep = function() {
                 /*var graphTimer = window.setInterval(function () {*/
-                self.mouse.nextBloodStep();
+                self.mouse().nextBloodStep();
 
                 var plotData = _.map(_.range(0, 250), function (i) {
-                    return [i, self.mouse.bloodData()[i]];
+                    return [i, self.mouse().bloodData()[i]];
                 });
                 self.plotData(plotData);
 
             };
 
             self.enter = function() {
+                if (self.mouse().alive())
+                    self.videoController.play('run', true);
+
                 var graphTimer = setInterval(self.nextPlotStep, 100);
                 self.graphTimer(graphTimer);
             };
 
             self.exit = function () {
+                self.videoController.stop();
+
                 clearTimeout(self.graphTimer());
                 /*window.clearInterval(self.graphTimer());*/
                 /*self.graphTimer*/
@@ -94,14 +98,14 @@ define([
 
                 switch(item.type()) {
                 case ContainerType.BOTTLE:
-                    if (!self.mouse.alive())
+                    if (!self.mouse().alive())
                         return false;
 
                     self.videoController.play(['drink-start', 'run'], true);
                     break;
 
                 case SpecialItemType.SCALPEL:
-                    if (self.gameState.mouse.alive()) {
+                    if (self.gameState.mouse().alive()) {
                         self.popupController.message('Nej', 'Musen skal være død.');
                         return false;
                     } else {
@@ -113,7 +117,7 @@ define([
                     if (item.contains(LiquidType.DEADLY)) {
                         self.videoController.play('injection-die', false)
                             .done(function () {
-                                self.mouse.alive(false);
+                                self.mouse().alive(false);
                                 self.popupController.message('Satans', 'Musen døde');
                             });
                     }
