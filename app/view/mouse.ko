@@ -4,7 +4,7 @@
 
     <div class="water-bottle" data-bind="drag: { item: bottle, offset: { left: 84, top: 182 } }"></div>
 
-    <div class="hidden dead_mouse"></div>
+    <div class="dead-mouse" data-bind="visible: !mouse.alive()"></div>
 
     <div class="mouse" data-bind="drop: { handler: handleDropOnMouse, accept: DragHelper.acceptedByMouse }"></div>
 

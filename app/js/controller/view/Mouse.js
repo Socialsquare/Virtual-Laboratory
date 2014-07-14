@@ -94,6 +94,9 @@ define([
 
                 switch(item.type()) {
                 case ContainerType.BOTTLE:
+                    if (!self.mouse.alive())
+                        return false;
+
                     self.videoController.play(['drink-start', 'run'], true);
                     break;
 
@@ -110,6 +113,7 @@ define([
                     if (item.contains(LiquidType.DEADLY)) {
                         self.videoController.play('injection-die', false)
                             .done(function () {
+                                self.mouse.alive(false);
                                 self.popupController.message('Satans', 'Musen døde');
                             });
                     }
