@@ -14,11 +14,19 @@ define([
             self.microorganismType = ko.observable(microorganismType);
             self.living = ko.observable(true);
 		    self.name = ko.observable('');
-		    self.extraGenes = ko.observable(null);
-            self.extraProperties = ko.observable(null);
+		    self.extraGenes = ko.observable(null); //TODO: implement
+            self.extraProperties = ko.observable(null); //TODO: implement
 		    self.optimalPh = ko.observable(0);
 		    self.optimalTemp = ko.observable(0);
 		    self.concentration = ko.observable(0);
+
+            self.addGene = function(gene) {
+                self.extraGenes.push(gene);
+            };
+
+            self.addExtraProperties = function(properties) {
+
+            };
 
             self.getGrowthRate = function(ph, temperature) {
 

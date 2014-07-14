@@ -2,8 +2,9 @@ define([
     'knockout',
     'lodash',
     'controller/view/Base',
-    'controller/CompositeContainer'
-], function (ko, _, BaseViewController, CompositeContainerController) {
+    'controller/CompositeContainer',
+    'model/type/SpecialItem'
+], function (ko, _, BaseViewController, CompositeContainerController, SpecialItemType) {
 
     var Worktable2 = BaseViewController.extend({
 
@@ -23,7 +24,14 @@ define([
                 _.delay(function () {
                     self.worktable2.blender.status(false);
                     console.log('TODO: add homogenized spleen to inventory');
-                }, 3000);
+                }, 1500);
+
+                if(item.type() === SpecialItemType.SPLEEN) {
+                    var antibodies = item.antibodiesFor();
+                    var homogenizedSpleen = self.liquidFactory.homoSpleen(antibodies);
+
+                    self.gameState.inventory.add(self.containerFactory.tube().add(homogenizedSpleen));
+                }
             };
         }
     });

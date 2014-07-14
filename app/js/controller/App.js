@@ -91,20 +91,18 @@ define([
             // dummy data
             //------------------------
 
-            var tubeYeast = ContainerFactory.tube().add(LiquidFactory.microorganism.yeast());
-
-            self.gameState.inventory.add(SpecialItemFactory.spleen());
+            /*self.gameState.inventory.add(SpecialItemFactory.spleen());
 
             self.gameState.inventory.add(ContainerFactory.tube());
             self.gameState.inventory.add(ContainerFactory.petri());
-            self.gameState.inventory.add(ContainerFactory.micro());
+            self.gameState.inventory.add(ContainerFactory.micro());*/
             self.gameState.inventory.add(SpecialItemFactory.scalpel());
 
-            var syringe = SpecialItemFactory.syringe().add(LiquidFactory.deadly());
-            self.gameState.inventory.add(syringe);
+            self.gameState.inventory.add(SpecialItemFactory.syringe().add(LiquidFactory.deadly()));
+            self.gameState.inventory.add(SpecialItemFactory.syringe().add(LiquidFactory.adjuvans()).add(LiquidFactory.antigen_smallpox()));
 
             self.gameState.worktable1.tubeRack.addAt(0, ContainerFactory.tube());
-            self.gameState.worktable1.tubeRack.addAt(5, tubeYeast);
+            self.gameState.worktable1.tubeRack.addAt(5, ContainerFactory.tube().add(LiquidFactory.microorganism.yeast()));
             self.gameState.worktable1.heater.addAt(0, ContainerFactory.tube());
             self.gameState.worktable1.heater.addAt(2, ContainerFactory.tube());
             self.gameState.worktable1.tableSpaceMicro.addAt(0, ContainerFactory.micro());
@@ -117,9 +115,7 @@ define([
             self.gameState.worktable2.tableSpaceMicro.addAt(2, ContainerFactory.micro());
             self.gameState.worktable2.tableSpacePetri.addAt(0, ContainerFactory.petri());
             self.gameState.worktable2.tableSpacePetri.addAt(2, ContainerFactory.petri());
-            tubeYeast = ContainerFactory.tube();
-            tubeYeast.add(LiquidFactory.microorganism.yeast());
-            self.gameState.worktable2.tubeRack.addAt(0, tubeYeast);
+            self.gameState.worktable2.tubeRack.addAt(0, ContainerFactory.tube().add(LiquidFactory.microorganism.yeast()));
             self.gameState.worktable2.tubeRack.addAt(0, ContainerFactory.tube());
 
 
@@ -128,9 +124,7 @@ define([
             self.gameState.fumehood.tableSpacePetri.addAt(0, ContainerFactory.petri());
             self.gameState.fumehood.tableSpacePetri.addAt(2, ContainerFactory.petri());
             self.gameState.fumehood.tubeRack.addAt(0, ContainerFactory.tube());
-            tubeYeast = ContainerFactory.tube();
-            tubeYeast.add(LiquidFactory.microorganism.yeast());
-            self.gameState.fumehood.tubeRack.addAt(5, tubeYeast);
+            self.gameState.fumehood.tubeRack.addAt(5, ContainerFactory.tube().add(LiquidFactory.microorganism.yeast()));
 
             self.gameState.spectroPM.spectroPMMachine.addAt(0, ContainerFactory.micro());
 

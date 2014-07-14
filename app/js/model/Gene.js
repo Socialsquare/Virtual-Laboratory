@@ -9,7 +9,7 @@ define([
         constructor: function (elements) {
             var self = this;
             // TODO: patty: correct reaction count?
-            self.base(LiquidType.GENE, ReactionCount.ALWAYS);
+            self.base(LiquidType.GENE, ReactionCount.NEVER);
             self.dnaElements = ko.observableArray(elements || []);
         }
     });

@@ -4,11 +4,12 @@ define([
     'model/ReactionCount',
     'model/Microorganism',
     'model/Antibiotic',
+    'model/HomogenizedSpleen',
     'model/type/Microorganism',
     'model/type/Antibiotic',
     'model/type/Liquid'
 
-], function (ko, Liquid, ReactionCount, Microorganism, Antibiotic,
+], function (ko, Liquid, ReactionCount, Microorganism, Antibiotic, HomogenizedSpleen,
              MicroorganismType, AntibioticType, LiquidType) {
 
     var LiquidFactory = {
@@ -51,12 +52,35 @@ define([
             }
         },
 
+        homoSpleen: function(antibodies) {
+            var homogenizedSpleen = new HomogenizedSpleen();
+            homogenizedSpleen.antibodiesFor.pushAll(antibodies);
+            return homogenizedSpleen;
+        },
+
         growthMedium: function () {
             return new Liquid(LiquidType.GROWTH_MEDIUM, ReactionCount.NEVER);
         },
 
         deadly: function () {
             return new Liquid(LiquidType.DEADLY, ReactionCount.ALWAYS);
+        },
+
+        insulin: function () {
+            return new Liquid(LiquidType.INSULIN, ReactionCount.NEVER);
+        },
+
+        antigen_gout: function () {
+
+            return new Liquid(LiquidType.ANTIGEN_GOUT, ReactionCount.NEVER);
+        },
+
+        antigen_smallpox: function () {
+            return new Liquid(LiquidType.ANTIGEN_SMALLPOX, ReactionCount.NEVER);
+        },
+
+        adjuvans: function () {
+            return new Liquid(LiquidType.ADJUVANS, ReactionCount.NEVER);
         }
     };
 

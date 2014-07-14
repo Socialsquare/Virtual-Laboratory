@@ -9,12 +9,14 @@ define([
     'model/Mouse',
     'model/Bottle',
     'model/Juice',
+    'model/Spleen',
 
     'model/type/Container',
     'model/type/Liquid',
     'model/type/MouseBlood',
     'model/type/SpecialItem'
-], function ($, ko, _, BaseViewController, VideoController, MouseModel, BottleModel, JuiceModel, ContainerType, LiquidType, MouseBloodType, SpecialItemType) {
+], function ($, ko, _, BaseViewController, VideoController, MouseModel, BottleModel, JuiceModel,
+             SpleenModel, ContainerType, LiquidType, MouseBloodType, SpecialItemType) {
 
     var MouseController = BaseViewController.extend({
 
@@ -91,31 +93,40 @@ define([
                 self.videoController.stop();
 
                 clearTimeout(self.graphTimer());
-                /*window.clearInterval(self.graphTimer());*/
-                /*self.graphTimer*/
             };
 
-            self.handleDropOnMouse = function (item) {
+            self.handleDropOnMouse = function(item) {
 
                 switch(item.type()) {
                 case ContainerType.BOTTLE:
                     if (!self.mouse().alive())
                         return false;
 
+/*<<<<<<< Updated upstream*/
                     self.mouseDrinking(true);
                     self.videoController.play('drink-start', false)
                         .done(function () {
                             self.mouseDrinking(false);
                             self.videoController.play('run', true);
                         });
+/*=======*/
+                    self.mouse().givJuice();
+
+                    /*self.videoController.play(['drink-start', 'run'], true);*/
+/*>>>>>>> Stashed changes*/
                     break;
 
                 case SpecialItemType.SCALPEL:
-                    if (self.gameState.mouse().alive()) {
-                        self.popupController.message('Nej', 'Musen skal være død.');
+                    if (self.mouse().alive()) {
+                        //TODO: uncomment /*self.popupController.message('Nej', 'Musen skal være død.');*/
                         return false;
                     } else {
                         self.videoController.play('cut', false);
+
+                        var spleenContents = self.mouse().spleen.antibodiesFor();
+                        var newSpleen = new SpleenModel();
+                        newSpleen.antibodiesFor.pushAll(spleenContents);
+                        self.gameState.inventory.add(newSpleen);
                     }
                     break;
 
@@ -124,8 +135,25 @@ define([
                         self.videoController.play('injection-die', false)
                             .done(function () {
                                 self.mouse().alive(false);
-                                self.popupController.message('Satans', 'Musen døde');
+                                //TODO: uncomment  self.popupController.message('Satans', 'Musen døde');
                             });
+                    }
+                    else if (item.contains(LiquidType.INSULIN)) {
+
+                        if(!self.mouse().alive()) { return false; }
+
+                        self.mouse().givInsulin();
+                    }
+                    else if (item.contains(LiquidType.ADJUVANS) &&
+                        (item.contains(LiquidType.ANTIGEN_GOUT) || item.contains(LiquidType.ANTIGEN_SMALLPOX) )) {
+                        if(!self.mouse().alive()) { return false; }
+
+                        self.videoController.play(['injection-run', 'run'], true);
+                        if(item.contains(LiquidType.ANTIGEN_GOUT)) { self.mouse().vaccinate(LiquidType.ANTIGEN_GOUT); }
+                        if(item.contains(LiquidType.ANTIGEN_SMALLPOX)) { self.mouse().vaccinate(LiquidType.ANTIGEN_SMALLPOX); }
+
+
+                        //TODO: uncomment  self.popupController.message('Musen blev vaccineret.','Du har nu givet musen antigener for gigt');
                     }
                     else
                         self.videoController.play(['injection-run', 'run'], true);
@@ -133,55 +161,9 @@ define([
                 }
             };
 
-            /* GRAPH MANIPULATION */
-            /*self.getMouseData = function (mouseData) {
-                if(mouseData.length > 0) {
-                    mouseData = mouseData.slice(1);
-                }
 
-                while(mouseData.length < 250) {
-                    var prev = mouseData.length > 0 ? mouseData[mouseData.length - 1] : 50;
-                    var y = prev + Math.random() * 10 - 5;
-                    if (y < 0) {
-                        y = 0;
-                    }
-                    else if (y > 100) {
-                        y = 100;
-                    }
-                    mouseData.push(y);
-                }
-
-                return mouseData;
-            };
-
-            self.getPlotData = function (data) {
-                var res = [];
-                for (var i = 0; i < data.length; i++) {
-                    res.push([i, data[i]]);
-                }
-                return res;
-            };*/
         }
 
-        /*getMouseData: function (mouseData) {
-            if(mouseData.length > 0) {
-                mouseData = mouseData.slice(1);
-            }
-
-            while(mouseData.length < 250) {
-                var prev = mouseData.length > 0 ? mouseData[mouseData.length - 1] : 50;
-                var y = prev + Math.random() * 10 - 5;
-                if (y < 0) {
-                    y = 0;
-                }
-                else if (y > 100) {
-                    y = 100;
-                }
-                mouseData.push(y);
-            }
-
-            return mouseData;
-        },*/
     });
 
     return MouseController;

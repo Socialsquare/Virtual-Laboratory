@@ -5,8 +5,7 @@ define([
     'model/ReactionCount',
     'model/type/DNA'
 ], function(ko, LiquidModel, LiquidType, ReactionCount, DNAType) {
-
-    // TODO: this should not be a liquid
+// TODO: DNAElement bør ikke være en liquid. Spørg S & M om det har nogle implikationer at ændre
 	var DNAElement = LiquidModel.extend({
         constructor: function (values) {
             var self = this;

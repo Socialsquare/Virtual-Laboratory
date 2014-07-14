@@ -42,7 +42,7 @@ define([
                         $(body).removeClass('fixed');
                     }
                 }else {
-                    alert('Full screen is not supported on your decide :( - let me guess, it is an Apple device?');
+                    alert('Full screen is not supported on your device :( - let me guess, it is an Apple device?');
                 }
             };
 

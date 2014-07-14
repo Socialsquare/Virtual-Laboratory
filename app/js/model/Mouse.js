@@ -70,6 +70,14 @@ define([
             // END: Initializing stuff for the bloodsugar simulation
 
 
+            // BEGIN: Functions for exercise 3: Antibodies
+
+            self.vaccinate = function(antibodyType) {
+                self.spleen.antibodiesFor.push(antibodyType);
+            };
+
+            // END: Functions for exercise 3: Antibodies
+
 
             // BEGIN: Functions for the bloodsugar simulation
             self.storeBloodStep = function() {
@@ -92,16 +100,6 @@ define([
 
 
             self.nextBloodStep = function() {
-                //TODO: dummy stuff
-                if(Math.random() < 0.01) {
-                    self.givJuice();
-                    console.log('Gave the mouse juice');
-                }
-
-                if(Math.random() < 0.004) {
-                    self.givInsulin();
-                    console.log('Gave the mouse insulin');
-                }
 
                 //1. kontrolleres om musen er i live
 
@@ -109,6 +107,8 @@ define([
                     self.alive(false);
                     return;
                 }
+
+                if(!self.alive()) { return; }
 
                 if(self.mouseBloodType() === MouseBloodType.NORMAL && self.blodSukker() >= self.maxBlodSukker()) {
                     self.setBloodType(MouseBloodType.DIABETIC);
