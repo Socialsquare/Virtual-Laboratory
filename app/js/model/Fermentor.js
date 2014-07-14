@@ -1,17 +1,19 @@
 define([
     'knockout',
-    'base',
+    'model/CompositeContainer',
     'utils/utils',
     'model/FermentorTank',
-    'model/type/Grower'
-], function(ko, Base, Utils, FermentorTankModel, GrowerType) {
+    'model/type/Grower',
+    'model/type/Container'
+], function(ko, CompositeContainerModel, Utils, FermentorTankModel, GrowerType, ContainerType) {
 
-    var Fermentor = Base.extend({
-
+    var Fermentor = CompositeContainerModel.extend({
+/*//TODO: make composite        self.base(1, ContainerType.MICROTITER, ContainerType.SPECTROPM_MACHINE);*/
         constructor: function () {
             var self = this;
+            self.base(1, ContainerType.FERMENTOR_TANK, ContainerType.FERMENTOR);
+            self.addAt(0, new FermentorTankModel());
 
-            self.fermentorTank = new FermentorTankModel();
             // TODO fermentor-computer - should define the ph and temperature of the fermentor, and activate it.
             // TODO chromatograph - should be able to get some contents from the fermentor
 

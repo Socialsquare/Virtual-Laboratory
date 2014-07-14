@@ -4,7 +4,6 @@ define([], function () {
         PETRI_DISH:        'ContainerType.PETRI_DISH',
         MICROTITER:        'ContainerType.MICROTITER',
         TUBE:              'ContainerType.TUBE',
-        FERMENTOR_TANK:    'ContainerType.FERMENTOR_TANK',
         BOTTLE:            'ContainerType.BOTTLE',
         SYRINGE:           'ContainerType.SYRINGE',
         PIPETTE_TIP:       'ContainerType.PIPETTE_TIP',
@@ -16,13 +15,20 @@ define([], function () {
         UV:                'ContainerType.UV',
 
         // Simple machines
-        ELECTROPORATOR:    'ContainerType.ELECTROPORATOR',
+        ELECTROPORATOR_TANK:    'ContainerType.ELECTROPORATOR_TANK',
         BLENDER:           'ContainerType.BLENDER',
+        FERMENTOR_TANK:    'ContainerType.FERMENTOR_TANK',
+        WASHING_TANK:      'ContainerType.WASHING_TANK',
+        //TODO: washing machine-tank
 
         // Composite machines
         HEATER:            'ContainerType.HEATER',
         OD_MACHINE:        'ContainerType.OD_MACHINE',
         SPECTROPM_MACHINE: 'ContainerType.SPECTROPM_MACHINE',
-        PIPETTE:           'ContainerType.PIPETTE'
+        PIPETTE:           'ContainerType.PIPETTE',
+        ELECTROPORATOR:    'ContainerType.ELECTROPORATOR',
+        FERMENTOR:         'ContainerType.FERMENTOR',
+        WASHING:           'ContainerType.WASHING'
+        //TODO: washing machine
     };
 });

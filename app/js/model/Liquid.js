@@ -13,6 +13,10 @@ define([
             self.react = function (container) {
                 // TODO: implement
             };
+
+            self.isEqualTo = function(liquid) {
+                // TODO: to compare chemicals and microorganisms, to avoid complexity explosion
+            }
         }
     });
 

@@ -1,14 +1,16 @@
 define([
     'knockout',
     'lodash',
-    'model/SimpleContainer',
+    'model/CompositeContainer',
+    'model/ElectroporatorTank',
     'model/type/Container'
-], function (ko, _, SimpleContainerModel, ContainerType) {
-
-    var Electroporator = SimpleContainerModel.extend({
+], function (ko, _, CompositeContainerModel, ElectroporatorTankModel, ContainerType) {
+// TODO : let it extend composite
+    var Electroporator = CompositeContainerModel.extend({
         constructor: function () {
             var self = this;
-            self.base(ContainerType.ELECTROPORATOR, Math.pow(13));
+            self.base(1, ContainerType.ELECTROPORATOR_TANK, ContainerType.ELECTROPORATOR);
+            self.addAt(0, new ElectroporatorTankModel());
 
             self.status = ko.observable(false);
 
@@ -18,7 +20,7 @@ define([
                 _.delay(self.status, 1000, false);
 
 
-
+// TODO: self.get(0)
                 _.each(self.liquids(), function(gene){
                     if(gene.type() === LiquidType.GENE) {// TODO: 1) For hver liquid som er et "Gene"
 

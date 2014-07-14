@@ -96,10 +96,9 @@ define([
             self.gameState.inventory.add(ContainerFactory.tube());
             self.gameState.inventory.add(ContainerFactory.petri());
             self.gameState.inventory.add(ContainerFactory.micro());*/
-            self.gameState.inventory.add(SpecialItemFactory.scalpel());
-
+            /*self.gameState.inventory.add(SpecialItemFactory.scalpel());
             self.gameState.inventory.add(SpecialItemFactory.syringe().add(LiquidFactory.deadly()));
-            self.gameState.inventory.add(SpecialItemFactory.syringe().add(LiquidFactory.adjuvans()).add(LiquidFactory.antigen_smallpox()));
+            self.gameState.inventory.add(SpecialItemFactory.syringe().add(LiquidFactory.adjuvans()).add(LiquidFactory.antigen_smallpox()));*/
 
             self.gameState.worktable1.tubeRack.addAt(0, ContainerFactory.tube());
             self.gameState.worktable1.tubeRack.addAt(5, ContainerFactory.tube().add(LiquidFactory.microorganism.yeast()));

@@ -18,7 +18,6 @@ define([
 
             self.DragHelper = DragHelper;
             self.popupController = popupController;
-
             self.compContainer = compContainer;
 
             // defaults
@@ -72,12 +71,17 @@ define([
                     return false;
 
                 self.compContainer.addAt(position, tube);
+
+                return true;
             };
 
             self.handleContainerDrop = function (position, item) {
                 if (item.type() === ContainerType.PIPETTE) {
                     if (!item.hasTip()) {
                         self.popupController.message('Dumt', 'Der er ingen spids på pipetten');
+                    }else {
+//TODO: such implementation
+                        alert('Pipettespids på: ' +self.compContainer.get(position).type());
                     }
                 }
             };
