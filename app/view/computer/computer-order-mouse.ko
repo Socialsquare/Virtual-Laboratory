@@ -1,0 +1,18 @@
+<div class="computer-view-view" id="computer-ordermouse">
+
+ 	<div class="computer-header-container">
+        <a class="menu-link" data-bind="click: goToMenu">Menu</a>
+
+        <h2 class="computer-header">Bestil mus</h2>
+    </div>
+
+ 	<ul>
+ 		<li><a data-mouse="healthy"><div class="selected">Rask mus</div></a></li>
+ 		<li><a data-mouse="diabetes"><div>Mus med diabetes</div></a></li>
+ 	</ul>
+ 	<div class="detail">
+ 		<div class="mouse healthy">HEALTHY MOUSE</div>
+ 		<div class="mouse diabetes hidden">DIABETES MOUSE</div>
+ 		<button>Bestil</button>
+ 	</div>
+</div>

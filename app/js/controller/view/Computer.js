@@ -4,59 +4,30 @@ define([
     'lodash',
 
     'controller/view/Base',
+    'controller/view/computer/Menu',
+    'controller/view/computer/DesignDNA',
+    'controller/view/computer/OrderMouse',
 
-    'model/Gene',
-    'model/Tube',
-    'model/GameState',
+    'model/type/ComputerScreen'
+], function (ko, mapping, _, BaseViewController, MenuScreen, DesignDNAScreen, OrderMouseScreen, ComputerScreenType) {
 
-    'service/DNA',
-    'utils/utils'
-], function (ko, mapping, _, BaseViewController, GeneModel, TubeModel, gameState, DNAService, utils) {
     var Computer = BaseViewController.extend({
-
-        dnaService: new DNAService(),
-
-        availableDNA: ko.observableArray([]),
-
-        activeScreen: ko.observable('menu'),
-
-        dnaSequence: ko.observableArray([]),
 
         constructor: function () {
             var self = this;
             self.base('computer');
 
-            self.changeScreen = function (name) {
-                self.activeScreen(name);
-            };
+            self.activeScreenController = ko.observable(null);
 
-            self.dnaService.getDNAElements()
-                .done(function (elements) {
-                    self.availableDNA(elements);
-                });
+            var screenControllers = {};
+            screenControllers[ComputerScreenType.MENU] = new MenuScreen();
+            screenControllers[ComputerScreenType.DESIGN_DNA] = new DesignDNAScreen();
+            screenControllers[ComputerScreenType.ORDER_MOUSE] = new OrderMouseScreen();
 
-            self.handleDrop = function (dna) {
-                //TODO: On iPad there is a delay if we do not wait for last draw cycle to complete
-                var clone = utils.klone(dna);
-                self.dnaSequence.push(clone);
-            };
-
-            self.removeDNA = function (dna) {
-                self.dnaSequence.remove(dna);
-            };
-
-            self.orderDNA = function () {
-                // clone sequence, add to gene, put in tube
-                var sequenceClone = ko.toJS(self.dnaSequence);
-                var gene = new GeneModel(sequenceClone);
-                var tube = new TubeModel();
-                tube.add(gene);
-                gameState.inventory.add(tube);
-
-                // reset the sequence and go to computer menu
-                self.dnaSequence.removeAll();
-                self.activeScreen('menu');
-	        };
+            // TODO: subscription seemed to fail
+            self.activeScreenController = ko.computed(function () {
+                return screenControllers[self.gameState.activeComputerScreen()];
+            });
 	    }
     });
 

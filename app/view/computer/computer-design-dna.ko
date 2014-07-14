@@ -1,0 +1,33 @@
+<div id="computer-designdna" class="computer-view-view">
+
+ 	<div class="computer-header-container">
+        <a class="menu-link" data-bind="click: goToMenu">Menu</a>
+
+        <h2 class="computer-header">Design DNA</h2>
+    </div>
+
+ 	<ul class="dna-element-list" data-bind="foreach: availableDNA">
+        <li>
+            <div data-bind="text: name, drag: { item: $data }"></div>
+        </li>
+    </ul>
+
+ 	<div class="detail">
+ 		<div class="droparea" data-bind="foreach: dnaSequence, drop: { handler: handleDrop, accept: DragHelper.acceptDNA }">
+            <div class="dna-element">
+                <div class="dna-element-img" data-bind="style: { 'background-color': color }"></div>
+                <div class="dna-element-name" data-bind="text: name"></div>
+
+                <button class="remove-btn" data-bind="click: $parent.removeDNA">X</button>
+            </div>
+ 		</div>
+
+ 		<h3 class="computer-subheader">Sekvens:</h3>
+ 		<div class="sequence-container">
+ 			<div class="sequence" id="computer-dnasequence" data-bind="foreach: dnaSequence">
+                <span data-bind="style: { color: color }, text: sequence"></span>
+            </div>
+ 		</div>
+ 		<button class="order-btn" data-bind="click: orderDNA">Bestil</button>
+ 	</div>
+</div>
