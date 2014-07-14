@@ -1,3 +1,3 @@
 <div class="computer-view">
-    <div class="computer-screen" data-bind="template: { name: activeScreenController().templateName, data: activeScreenController, if: !!activeScreenController() }"></div>
+    <div class="screen" data-bind="template: { name: activeScreenController().templateName, data: activeScreenController, if: !!activeScreenController() }"></div>
 </div>

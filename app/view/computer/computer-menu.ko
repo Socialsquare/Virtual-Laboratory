@@ -1,4 +1,4 @@
-<div id="computer-mainmenu" class="computer-mainmenu">
+<div class="mainmenu">
  	<ul>
  		<li data-bind="click: screenChanger(Screens.ORDER_MOUSE)">
  			<div class="icon order-mouse"></div>
