@@ -6,18 +6,17 @@ define([
 
     var WashingTank = SimpleContainerModel.extend({
 
-// TODO only organisms with a concentration of
+        // TODO: only organisms with a concentration of
 
         constructor: function () {
             var self = this;
             self.base(ContainerType.WASHING_TANK, Math.pow(10, 13));
 
             self.activate = function () {
-                throw 'Den er her ikke lige endnu';
+                console.log('TODO: WashingTank');
             };
         }
     });
 
     return WashingTank;
 });
-

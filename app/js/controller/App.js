@@ -131,6 +131,9 @@ define([
             self.gameState.uvroom.tableSpaceMicro.addAt(2, ContainerFactory.micro());
             self.gameState.uvroom.tableSpacePetri.addAt(0, ContainerFactory.petri());
             self.gameState.uvroom.tableSpacePetri.addAt(2, ContainerFactory.petri());
+
+            self.gameState.washing.tubeRack.addAt(0, ContainerFactory.tube().add(LiquidFactory.microorganism.yeast()));
+            self.gameState.washing.tubeRack.addAt(5, ContainerFactory.tube());
         }
     });
 

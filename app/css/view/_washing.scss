@@ -1,11 +1,16 @@
 /* view/washing.scss */
 
 @import '../variables';
+@import '../mixin/compositecontainer';
 @import 'base';
 
 .washingmachine-view {
   @include view;
 
   background-image: url(#{$img-path}/wash_base.png);
-}
 
+  .tuberack {
+    @include tuberack(633px, -1px);
+    z-index: 5000;
+  }
+}

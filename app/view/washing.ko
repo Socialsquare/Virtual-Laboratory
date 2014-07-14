@@ -1,2 +1,3 @@
-<div class="washingmachine-view view">
+<div class="washingmachine-view">
+    <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
 </div>
