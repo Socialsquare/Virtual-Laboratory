@@ -1,6 +1,6 @@
 <div class="loading-view">
 
-    <h1>Det virtuelle laboratorium</h1>
+    <h1>Det Virtuelle Laboratorium 2.0</h1>
 
     <div class="progress-bar">
         <div class="inner" data-bind="style: { width: percent() + '%' }"></div>
