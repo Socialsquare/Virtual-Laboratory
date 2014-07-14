@@ -14,8 +14,6 @@ define([
             self.maxConcentration = ko.observable(maxConcentration);
             self.liquids = ko.observableArray([]);
 
-            //self.inventoryConfig = ko.observable(null);
-
             self._addAll = function (liquids) {
                 ko.utils.arrayPushAll(self.liquids, liquids);
             };
@@ -28,10 +26,16 @@ define([
                 self._addAll([liquid]);
             };
 
-            self.containsAll = function (liquidTypes) {
-                // TODO: LiquidType.WHATEVER_TYPE
+            self.contains = function (liquidType) {
+                return _.any(self.liquids(), function (liquid) {
+                    return liquid.type() === liquidType;
+                });
+            };
 
-                throw 'NotYetImplementedException';
+            self.containsAll = function (liquidTypes) {
+                return _.reduce(liquidTypes, function (hasAll, liquidType) {
+                    return hasAll && self.contains(liquidType);
+                }, true);
             };
 
             self.getTotalConcentration = function() {

@@ -1,0 +1,9 @@
+<!-- ko if: !!activeVideo() -->
+<video autoplay class="video" preload="auto"
+       data-bind="css: 'video-' + activeVideo().name(),
+                  attr: { loop: isLooping },
+                  event: { ended: handleVideoEnd }">
+    <source data-bind="attr: { src: 'assets/videos/' + activeVideo().filePath() + '.mp4' }" type="video/mp4"/>
+    <source data-bind="attr: { src: 'assets/videos/' + activeVideo().filePath() + '.webm' }" type="video/webm"/>
+</video>
+<!-- /ko -->

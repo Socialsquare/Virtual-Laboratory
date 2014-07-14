@@ -51,6 +51,10 @@ define([
 
         growthMedium: function () {
             return new Liquid(LiquidType.GROWTH_MEDIUM, ReactionCount.NEVER);
+        },
+
+        deadly: function () {
+            return new Liquid(LiquidType.DEADLY, ReactionCount.ALWAYS);
         }
     };
 

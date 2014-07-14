@@ -2,24 +2,30 @@ define([
     'jquery',
     'knockout',
     'lodash',
+
     'controller/view/Base',
+    'controller/Video',
+
     'model/Mouse',
     'model/Bottle',
     'model/Juice',
+
     'model/type/Container',
+    'model/type/Liquid',
     'model/type/MouseBlood',
     'model/type/SpecialItem'
-], function ($, ko, _, BaseViewController, MouseModel, BottleModel, JuiceModel, ContainerType, MouseBloodType, SpecialItemType) {
+], function ($, ko, _, BaseViewController, VideoController, MouseModel, BottleModel, JuiceModel, ContainerType, LiquidType, MouseBloodType, SpecialItemType) {
 
     var MouseController = BaseViewController.extend({
-
-        activeVideo: ko.observable('runfast'),
 
         constructor: function () {
             var self = this;
             self.base('mouse');
 
-            self.mouse = new MouseModel(MouseBloodType.DIABETIC);
+            self.videoController = new VideoController();
+            self.videoController.play('run', true);
+
+            self.mouse = self.gameState.mouse;
 
             // Begin: Notifications
 
@@ -50,7 +56,6 @@ define([
 
             self.plotData = ko.observableArray([]);
             self.graphTimer = ko.observable(null);
-
 
             var bottle = new BottleModel();
             bottle.add(new JuiceModel());
@@ -85,171 +90,34 @@ define([
                 /*self.graphTimer*/
             };
 
-            self.handleVideoEnd = function (event) {
-                this.play();
-            };
-
             self.handleDropOnMouse = function (item) {
 
                 switch(item.type()) {
                 case ContainerType.BOTTLE:
-                    console.log('TODO: bottle on mouse');
+                    self.videoController.play(['drink-start', 'run'], true);
                     break;
 
                 case SpecialItemType.SCALPEL:
-                    console.log('TODO: scalpel on mouse');
+                    if (self.gameState.mouse.alive()) {
+                        self.popupController.message('Nej', 'Musen skal være død.');
+                        return false;
+                    } else {
+                        self.videoController.play('cut', false);
+                    }
                     break;
 
-                case SpecialItemType.SYRINGE:
-                    console.log('TODO: syringe on mouse');
+                case ContainerType.SYRINGE:
+                    if (item.contains(LiquidType.DEADLY)) {
+                        self.videoController.play('injection-die', false)
+                            .done(function () {
+                                self.popupController.message('Satans', 'Musen døde');
+                            });
+                    }
+                    else
+                        self.videoController.play(['injection-run', 'run'], true);
                     break;
                 }
             };
-
-            /* !ANIMATION HANDLERS */
-            //TODO: Complete this one
-            self.stopAnimations = function () {
-                self.mouseRunStop();
-            };
-
-            self.mouseRunStart = function () {
-                var $video = $('#mouse-video-runfast');
-                var video = $video.get(0);
-                $video.removeClass('offscreen');
-                video.play();
-                self.mouseRunLoop();
-            };
-
-            self.mouseRunLoop = function () {
-                var $video = $('#mouse-video-runfast');
-                $video.on('ended', self.handleVideoEnd);
-            };
-
-            self.mouseRunStop = function () {
-                var $video = $('#mouse-video-runfast');
-                var video = $video.get(0);
-                video.pause();
-                video.currentTime = '0';
-                $video.off('ended', self.handleVideoEnd);
-                $video.addClass('offscreen');
-            };
-
-            self.mouseDrinkingStart = function () {
-                var $video = $('#mouse-video-drinkstart');
-                var video = $video.get(0);
-                var $loopVideo = $('#mouse-video-drinkloop');
-                var loopVideo = $loopVideo.get(0);
-
-                self.mouseRunStop();
-
-                $video.removeClass('offscreen');
-                video.play();
-                $video.one('ended', function() {
-                    self.mouseDrinkingLoop();
-                });
-            };
-
-            self.mouseDrinkingLoop = function () {
-                var $video = $('#mouse-video-drinkloop');
-                var video = $video.get(0);
-                var $startVideo = $('#mouse-video-drinkstart');
-                var startVideo = $startVideo.get(0);
-                $startVideo.addClass('offscreen');
-                $video.removeClass('offscreen');
-                video.play();
-                startVideo.pause();
-                $video.on('ended', function() {
-                    self.mouseDrinkingStop();
-                    self.mouseRunStart();
-                    var $bottle = $('#water-bottle');
-                    $bottle.addClass('visible');
-                    $bottle.chcDraggable('returnToOriginalPosition', function() {
-                        $bottle.removeClass('visible');
-                        self.isDragginWaterBottle(false);
-                        $('.mouse-view').removeClass('no-bottle');
-                        $(document.body).trigger('task:INST_BOTTLE:ACTION_DRINK');
-                    });
-                });
-            };
-
-            self.mouseDrinkingStop = function () {
-                var $video = $('#mouse-video-drinkloop');
-                $video.get(0).pause();
-                $video.off('ended', self.handleVideoEnd);
-                $video.addClass('offscreen');
-            };
-
-            self.mouseNeedle = function (content) {
-                var $video, video;
-                self.mouseRunStop();
-                if(content && content.hasOther('death')) {
-                    $video = $('#mouse-video-injdie');
-                    video = $video.get(0);
-                    $video.removeClass('offscreen');
-                    $video.one('ended', function(event) {
-                        var mouse = gameState.mouse();
-                        mouse.attributes.alive = false;
-                        video.pause();
-                        video.currentTime = 0;
-                        $video.addClass('offscreen');
-                        $('#dead_mouse').removeClass('hidden');
-                    });
-                }
-                else {
-                    $video = $('#mouse-video-inj');
-                    video = $video.get(0);
-                    $video.removeClass('offscreen');
-                    $video.one('ended', function(event) {
-                        video.pause();
-                        video.currentTime = 0;
-                        $video.addClass('offscreen');
-                        self.mouseRunStart();
-                    });
-                }
-
-                video.play();
-            };
-
-            // self.mouseScalpel = function () {
-            //   var $video = $('#mouse-video-cut'),
-            //     video = $video.get(0);
-            //   $video.removeClass('offscreen');
-            //   $video.one('ended', function(event) {
-            //     var $mouseDroppable = $('#mouse'),
-            //       $deadMouse = $('#dead_mouse'),
-            //       mouse = gameState.mouse();
-            //     video.pause();
-            //     video.currentTime = 0;
-            //     $video.addClass('offscreen');
-            //     mouse.attributes.cut = true;
-            //     self.addDraggableSpleen();
-            //   });
-            //   video.play();
-            // };
-
-            // self.addDraggableSpleen = function () {
-            //   var $mouseDroppable = $('#mouse'),
-            //     $deadMouse = $('#dead_mouse');
-            //   $deadMouse.removeClass('cut');
-            //   $deadMouse.addClass('cut-with-spleen');
-            //   $mouseDroppable.addClass('draggablespawner');
-            //   $mouseDroppable.chcDraggableSpawner({
-            //     styleClass: 'draggablespawn-popuplist',
-            //     additionalClasses: 'spleen',
-            //     spawnHTML: '<img src="img/icon_spleen.png" />',
-            //     content: new ContainerContent({
-            //       other: ['spleen']
-            //     })
-            //   });
-            //   $mouseDroppable.one('chcDraggableSpawned.chcEvent', function(event) {
-            //     var mouse = gameState.mouse();
-            //     $deadMouse.removeClass('cut-with-spleen');
-            //     $deadMouse.addClass('cut');
-            //     $mouseDroppable.chcDraggableSpawner('destroy');
-            //     $mouseDroppable.removeClass('draggablespawner');
-            //     mouse.attributes.spleen = false;
-            //   });
-            // };
 
             /* GRAPH MANIPULATION */
             /*self.getMouseData = function (mouseData) {

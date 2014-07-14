@@ -71,7 +71,7 @@ define([
             case ContainerType.TUBE:
                 return IMG_PATH + '/icon_cup_tube.png';
 
-            case SpecialItemType.SYRINGE:
+            case ContainerType.SYRINGE:
                 return IMG_PATH + '/icon_med_inj.png';
 
             case SpecialItemType.SCALPEL:
@@ -99,7 +99,7 @@ define([
             case LiquidType.DNA:
                 return IMG_PATH + '/icon_cup_tube.png';
 
-            case SpecialItemType.SYRINGE:
+            case ContainerType.SYRINGE:
                 return IMG_PATH + '/icon_med_inj.png';
 
             case SpecialItemType.SCALPEL:

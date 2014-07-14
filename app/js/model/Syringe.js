@@ -1,14 +1,15 @@
 define([
     'knockout',
-    'model/SpecialItem',
-    'model/type/SpecialItem'
-], function (ko, SpecialItemModel, SpecialItemType) {
+    'model/SimpleContainer',
+    'model/type/Container'
+], function (ko, SimpleContainerModel, ContainerType) {
 
-    var Syringe = SpecialItemModel.extend({
+    var Syringe = SimpleContainerModel.extend({
 
         constructor: function (type) {
             var self = this;
-            self.base(SpecialItemType.SYRINGE);
+            // TODO: correct concentration?
+            self.base(ContainerType.SYRINGE, 100);
         }
     });
 

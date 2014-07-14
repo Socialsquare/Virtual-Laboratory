@@ -14,36 +14,31 @@
 
     .no-bottle { background-position: 0 644px; }
 
-    .video-runfast {
+    .video {
         position: absolute;
         z-index: 5;
+    }
+
+    .video-run {
         left: 350px;
         top: 0;
         width: 480px;
         height: 500px;
-        .offscreen { left: -3000px; }
     }
 
-    .video-drinkstart, .video-drinkloop {
-        position: absolute;
-        z-index: 5;
+    .video-drink-start, .video-drink-loop {
         left: 365px;
         top: 0;
         width: 660px;
         height: 644px;
     }
-    .video-drinkstart.offscreen, .video-drinkloop.offscreen { left: -3000px; }
 
-    .video-inj, .video-rundie, .video-injdie, .video-cut {
-        position: absolute;
-        z-index: 5;
+    .video-injection-run, .video-injection-die, .video-run-die, .video-cut {
         left: 350px;
         top: 0;
         width: 480px;
         height: 500px;
     }
-
-    .video-inj.offscreen, .video-rundie.offscreen, .video-injdie.offscreen, .video-cut.offscreen { left: -3000px; }
 
     .water-bottle {
         position: absolute;
@@ -95,11 +90,5 @@
         position: absolute;
         left: 0;
         top: 0;
-
-        .offscreen {
-            position: absolute;
-            top: 0;
-            left: -3000px;
-        }
     }
 }

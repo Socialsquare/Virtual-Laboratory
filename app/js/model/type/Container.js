@@ -6,6 +6,7 @@ define([], function () {
         TUBE: 'tube_fuckinglolwat',
         FERMENTOR_TANK: 'who the fuck are the boomtown rats?',
         BOTTLE: 'hello yes bottle',
+        SYRINGE: 'stik stik det er myggen',
 
         // Composite
         PETRI_SPACE: 'table_fucking_space_OMG!petridish',
@@ -20,6 +21,5 @@ define([], function () {
         HEATER: '12312312312355_SUCH_UNIQUE',
         OD_MACHINE: 'yttappattyderpalurp',
         SPECTROPM_MACHINE: 'random: ostmelvandgiverpizza'
-
     };
 });

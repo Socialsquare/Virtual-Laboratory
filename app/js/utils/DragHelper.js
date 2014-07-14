@@ -23,9 +23,9 @@ define([
 
         acceptedByMouse: function (item) {
             var accepted = [
-                SpecialItemType.SYRINGE,
-                SpecialItemType.SCALPEL,
-                ContainerType.BOTTLE
+                ContainerType.SYRINGE,
+                ContainerType.BOTTLE,
+                SpecialItemType.SCALPEL
             ];
 
             return _.contains(accepted, item.type());

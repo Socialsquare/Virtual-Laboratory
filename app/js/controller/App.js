@@ -25,6 +25,8 @@ define([
     'model/Tube',
     'model/Petridish',
     'model/Microtiterplate',
+    'model/Scalpel',
+    'model/Syringe',
 
     'factory/Liquid'
 
@@ -34,7 +36,7 @@ define([
              Worktable2Controller, IncubatorController, SpectroPMController,
              FermentorController, FermentorScreenController, UvRoomController,
              WashingController, popupController, MenuController, Tube,
-             Petridish, Microtiterplate, LiquidFactory) {
+             Petridish, Microtiterplate, Scalpel, Syringe, LiquidFactory) {
 
 
     var App = BaseViewController.extend({
@@ -97,11 +99,13 @@ define([
             tubeYeast.add(LiquidFactory.microorganism.yeast());
 
             self.gameState.inventory.add(new Tube());
-
             self.gameState.inventory.add(new Petridish());
-
-
             self.gameState.inventory.add(new Microtiterplate());
+            self.gameState.inventory.add(new Scalpel());
+
+            var syringe = new Syringe();
+            syringe.add(LiquidFactory.deadly());
+            self.gameState.inventory.add(syringe);
 
             self.gameState.worktable1.tubeRack.addAt(0, new Tube());
             self.gameState.worktable1.tubeRack.addAt(5, tubeYeast);
