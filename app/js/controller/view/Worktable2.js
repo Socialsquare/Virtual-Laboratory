@@ -24,7 +24,7 @@ define([
                 _.delay(function () {
 
                     if(item.type() === SpecialItemType.SPLEEN) {
-                        var antibodies = item.antibodiesFor();
+                        var antibodies = utils.klone(item.antibodiesFor());
                         var homogenizedSpleen = self.liquidFactory.homoSpleen(antibodies);
 
                         self.gameState.inventory.add(self.containerFactory.tube().add(homogenizedSpleen));

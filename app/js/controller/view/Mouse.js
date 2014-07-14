@@ -2,6 +2,7 @@ define([
     'jquery',
     'knockout',
     'lodash',
+    'utils/utils',
 
     'controller/view/Base',
     'controller/Video',
@@ -15,7 +16,7 @@ define([
     'model/type/Liquid',
     'model/type/MouseBlood',
     'model/type/SpecialItem'
-], function ($, ko, _, BaseViewController, VideoController, MouseModel, BottleModel, JuiceModel,
+], function ($, ko, _, utils, BaseViewController, VideoController, MouseModel, BottleModel, JuiceModel,
              SpleenModel, ContainerType, LiquidType, MouseBloodType, SpecialItemType) {
 
     var MouseController = BaseViewController.extend({
@@ -126,7 +127,7 @@ define([
                                 self.popupController.message('Milt ekstraheret.', 'Du milten ligger nu i dit inventory.');
                                 self.mouse().isCut(true);
 
-                                var spleenContents = self.mouse().spleen.antibodiesFor();
+                                var spleenContents = utils.klone(self.mouse().spleen.antibodiesFor());
                                 var newSpleen = new SpleenModel();
                                 newSpleen.antibodiesFor.pushAll(spleenContents);
                                 self.gameState.inventory.add(newSpleen);

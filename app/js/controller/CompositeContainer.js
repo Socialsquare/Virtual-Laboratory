@@ -91,7 +91,8 @@ define([
                         self.popupController.message('Dumt', 'Der er ingen spids på pipetten');
                     }else {
 //TODO: such implementation
-                        alert('Pipettespids på: ' +self.compContainer.get(position).type());
+                        var container = self.compContainer.get(position);
+
                     }
                 }
             };

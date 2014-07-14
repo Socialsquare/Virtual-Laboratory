@@ -42,7 +42,7 @@ define([
             self.transferGeneToAllOrganisms = function (gene) {
                 _.each(self.liquids(), function(microorganism) {
                     if(microorganism.type() === LiquidType.MICROORGANISM) {
-                        // TODO: clone? what will happen if we don't clone?
+                        // TODO: klone! Else we will
                         microorganism.addGene(gene);
                     }
                 });
