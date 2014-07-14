@@ -6,3 +6,4 @@ logs
 /app/node_modules/
 .sass-cache
 /app/bower_components/
+/app/assets/preload.json

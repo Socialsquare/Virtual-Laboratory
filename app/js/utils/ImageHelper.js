@@ -26,7 +26,7 @@ define([
             if (!tube) return '';
 
             var state = tube.isEmpty() ? 'empty' : 'full';
-            return IMG_PATH + '/worktable1_testtube_' + (position + 1) + '_' + state + '.png';
+            return IMG_PATH + '/tube' + (position + 1) + '_' + state + '.png';
         },
 
         heaterTubeImage: function (position, tube) {
