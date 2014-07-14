@@ -37,7 +37,8 @@ define([
             self.showList = function (name) {
                 popupController.show('popup-list', {
                     title: groups[name].name,
-                    items: groups[name].items
+                    items: groups[name].items,
+                    klone: utils.klone
                 });
             };
 

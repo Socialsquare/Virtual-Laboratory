@@ -1,13 +1,14 @@
 <div class="popup popup-list">
-	<h1 data-bind="text: data.title"></h1>
+    <h1 data-bind="text: data.title"></h1>
 
 	<hr />
 
 	<ul data-bind="foreach: data.items">
         <li>
-            <div data-bind="text: name, drag: { item: item() }"></div>
+            <div data-bind="text: name, drag: { item: $parent.data.klone.bind(null, item()) }"></div>
         </li>
     </ul>
+
 	<div class="btn-row float-clear">
         <button data-bind="click: popupController.hide" type="button" class="popup-cancel-btn">Luk</button>
     </div>

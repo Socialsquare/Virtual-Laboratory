@@ -28,14 +28,15 @@ define([
                 cursorAt: options.offset,
 
                 helper: function (event, ui) {
-                    return $('<img/>').attr({ src: ImageHelper.draggingIcon(options.item) });;
+                    var item = dragData = _.isFunction(options.item) ? options.item() : options.item;
+                    return $('<img/>').attr({ src: ImageHelper.draggingIcon(item) });;
                 },
 
                 start: function (event, ui) {
                     if (options.dim)
                         $(this).addClass('dimmed');
 
-                    dragData = options.item;
+                    dragData = _.isFunction(options.item) ? options.item() : options.item;
                     dragConsume = options.consume;
                 },
 
