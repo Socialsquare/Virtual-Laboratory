@@ -10,14 +10,14 @@
 
     <div class="electroporator" data-bind="drop: { handler: electroporatorController.handleContainerDrop, accept: DragHelper.acceptPipette }"></div>
 
-    <button class="btn-none electroporator-btn" data-bind="click: activateElectroporator">
+    <div class="electroporator-btn" data-bind="click: activateElectroporator">
         <img src="assets/images/work1_electroporator-on.png" alt="Electroporator button"
              data-bind="visible: worktable1.electroporator.status()">
-    </button>
+    </div>
 
     <div class="heater-testtubeholder" data-bind="template: { name: 'compContainer', data: heaterController }"></div>
 
-    <button class="btn-none heater-btn" data-bind="click: toggleHeater">
+    <div class="heater-btn" data-bind="click: toggleHeater">
         <img src="assets/images/work1_heater-on.png" alt="Heater button" data-bind="visible: worktable1.heater.status()">
-    </button>
+    </div>
 </div>

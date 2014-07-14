@@ -6,7 +6,7 @@
 
     <div class="centrifuge"></div>
 
-    <div class="btn-none blender" data-bind="css: { on: worktable2.blender.status() }"></div>
+    <div class="blender" data-bind="css: { on: worktable2.blender.status() }"></div>
     <div class="blender-hit" data-bind="drop: { handler: handleBlenderDrop, accept: DragHelper.acceptedByBlender }"></div>
 
     <div class="od" data-bind="template: { name: 'compContainer', data: odController }"></div>
