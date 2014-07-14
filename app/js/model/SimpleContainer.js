@@ -16,7 +16,7 @@ define([
             self.label = ko.observable('');
 
             self._addAll = function (liquids) {
-                ko.utils.arrayPushAll(self.liquids, liquids);
+                self.liquids.pushAll(liquids);
             };
 
             self.addAll = function (liquids) {

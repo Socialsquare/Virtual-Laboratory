@@ -43,11 +43,11 @@ define([
             };
 
             // TODO: consider refactoring this to somewhere else
-            ko.utils.arrayPushAll(self.closetItems, [
+            self.closetItems.pushAll([
                 new ChemicalItemModel('Antibiotikum', self.inTube(LiquidFactory.antibiotic.a()))
             ]);
 
-            ko.utils.arrayPushAll(self.drawerItems, [
+            self.drawerItems.pushAll([
                 new ChemicalItemModel('Kanyle', new SyringeModel()),
                 new ChemicalItemModel('Skalpel', new ScalpelModel()),
                 new ChemicalItemModel('Petriskål', new PetridishModel()),
@@ -55,7 +55,7 @@ define([
                 new ChemicalItemModel('Mikrotiterbakke', new MicrotiterplateModel()),
             ]);
 
-            ko.utils.arrayPushAll(self.fridgeItems, [
+            self.fridgeItems.pushAll([
                 new ChemicalItemModel('Gærceller', self.inTube(LiquidFactory.microorganism.yeast())),
                 new ChemicalItemModel('Myeloma', self.inTube(LiquidFactory.microorganism.myeloma())),
             ]);

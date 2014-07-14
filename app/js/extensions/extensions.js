@@ -12,6 +12,10 @@ define([
         return _.isEmpty(this());
     };
 
+    ko.observableArray.fn.pushAll = function(values) {
+        return ko.utils.arrayPushAll(this, values);
+    };
+
     // toggle bools
     ko.observable.fn.toggle = function() {
         return this(!this());
