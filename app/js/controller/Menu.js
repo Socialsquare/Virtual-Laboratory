@@ -11,9 +11,10 @@ define([
     'model/type/Container',
     'model/type/SpecialItem',
 
-    'utils/ImageHelper'
+    'utils/ImageHelper',
+    'utils/TextHelper'
 ], function (ko, $, screenfull, BaseViewController, popupController,
-             gameState, TipModel, ContainerType, SpecialItemType, ImageHelper) {
+             gameState, TipModel, ContainerType, SpecialItemType, ImageHelper, TextHelper) {
 
     var MenuController = BaseViewController.extend({
 
@@ -91,7 +92,7 @@ define([
                 var accepted = [SpecialItemType.SCALPEL, SpecialItemType.SPLEEN];
 
                 if (_.contains(accepted, item.type()))
-                    self.popupController.message(item.type(), '');
+                    self.popupController.message(TextHelper.prettyName(item), TextHelper.description(item));
                 else
                     self.popupController.itemDetail(item);
             };

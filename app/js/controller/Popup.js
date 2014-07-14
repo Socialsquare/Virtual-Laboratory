@@ -1,18 +1,18 @@
 define([
     'knockout',
     'base',
-    'model/Popup'
-], function (ko, Base, PopupModel) {
+    'model/Popup',
+    'utils/TextHelper'
+], function (ko, Base, PopupModel, TextHelper) {
 
     var Popup = Base.extend({
 
-        active: ko.observable(false),
-
-        templateName: ko.observable(''),
-        viewModel: ko.observable(null),
-
         constructor: function () {
             var self = this;
+
+            self.active = ko.observable(false);
+            self.templateName = ko.observable('');
+            self.viewModel = ko.observable(null);
 
             self.show = function (name, viewData) {
                 var vm = new PopupModel(viewData, this);

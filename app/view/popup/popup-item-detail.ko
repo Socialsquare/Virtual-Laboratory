@@ -1,13 +1,11 @@
 <div class="popup popup-item-details">
-    <!-- ko with: data.item -->
-    <h1 data-bind="text: type"></h1>
+    <h1 data-bind="text: TextHelper.prettyName(data.item)"></h1>
 
     <hr />
 
     <h4>Her kan du skrive noter</h4>
 
-    <textarea rows="10" cols="40" data-bind="value: label"></textarea>
-    <!-- /ko -->
+    <textarea rows="10" cols="40" data-bind="value: data.item.label"></textarea>
 
     <div class="btn-row float-clear">
         <button type="button" data-bind="click: popupController.hide">Luk</button>
