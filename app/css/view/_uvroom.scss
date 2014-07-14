@@ -1,10 +1,13 @@
 /* view/uvroom.scss */
 
 @import '../variables';
+@import '../mixin/compositecontainer';
 @import 'base';
 
 .uv-view {
   @include view;
 
   background-image: url(#{$img-path}/uv_base.png);
+
+  .tuberack { @include tuberack(502px, 334px); }
 }

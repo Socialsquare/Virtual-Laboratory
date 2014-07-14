@@ -35,6 +35,14 @@ define([
             return IMG_PATH + '/work1-heater_' + (position + 1) + '.png';
         },
 
+        uvTubeImage: function (position, tube) {
+            if (!tube) return '';
+
+            // TODO: conditional glowing image
+            var state = tube.isEmpty() ? 'empty' : 'full';
+            return IMG_PATH + '/worktable1_testtube_' + (position + 1) + '_' + state + '.png';
+        },
+
         tableSpacePetriImage: function (position, dish) {
             if (!dish) return '';
 

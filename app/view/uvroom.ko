@@ -1,2 +1,3 @@
 <div class="uv-view view">
+    <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
 </div>

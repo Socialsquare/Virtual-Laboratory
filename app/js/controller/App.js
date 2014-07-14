@@ -138,6 +138,12 @@ define([
 
             self.gameState.spectroPM.spectroPMMachine.addAt(0, new Microtiterplate());
 
+            self.gameState.uvroom.tubeRack.addAt(0, new Tube());
+            self.gameState.uvroom.tubeRack.addAt(1, new Tube());
+            self.gameState.uvroom.tubeRack.addAt(2, new Tube());
+            self.gameState.uvroom.tubeRack.addAt(3, new Tube());
+            self.gameState.uvroom.tubeRack.addAt(4, new Tube());
+            self.gameState.uvroom.tubeRack.addAt(5, new Tube());
         }
     });
 

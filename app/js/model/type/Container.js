@@ -12,6 +12,7 @@ define([], function () {
         PETRI_SPACE: 'table_fucking_space_OMG!petridish',
         MICRO_SPACE: 'table_fucking_space_OMG!microtiter',
         TUBE_RACK: 'BIG_RACKS_LOL!',
+        UV: 'ahmed halibibi',
 
         // Simple machines
         ELECTROPORATOR: 'faceroll',
