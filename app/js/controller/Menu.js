@@ -27,25 +27,57 @@ define([
             self.gameState = gameState;
             self.router = router;
 
+            self.inventoryWidth = 462;
             self.scrollInterval = null;
             self.scrollRight = false;
+            self.scrollValue = ko.observable(0);
 
             self.scrollInventory = function (scrollRight) {
+                self.stopScroll();
+
+                if (!self.canScroll())
+                    return;
+
                 self.scrollRight = scrollRight;
-                self.scrollInterval = window.setInterval(self.doScroll, 20);
+                self.scrollInterval = window.setInterval(self.scrollStep, 20);
             };
 
-            self.doScroll = function () {
-                var pos = parseInt($('.hud .inventory ul').css('left'), 10);
-                var width = parseInt($('.hud .inventory ul').width(), 10);
-                var containerWidth = parseInt($('.hud .inventory').width(), 10);
-                if (self.scrollRight && pos > -width)
-                    $('.hud .inventory ul').css('left', '-=3');
-                if (!self.scrollRight && pos < 0)
-                    $('.hud .inventory ul').css('left', '+=3');
-                // && $('.hud .inventory ul').css('left') < 0
-                // && $('.hud .inventory ul').css('left') > $('.hud .inventory ul').width()
+            self.scrollStep = function () {
+                var diff = self.scrollRight ? -3 : 3;
+                self.scrollValue(self.scrollValue() + diff);
+
+                self.boundScroll();
             };
+
+            self.boundScroll = function () {
+                if (!self.canScroll()) {
+                    self.scrollValue(0);
+                    self.stopScroll();
+                }
+
+                if (self.scrollValue() > 0) {
+                    self.scrollValue(0);
+                    self.stopScroll();
+                }
+
+                var maxVal = self.inventoryWidth - self.inventoryItemsWidth();
+                if (self.scrollValue() < maxVal) {
+                    self.scrollValue(maxVal);
+                    self.stopScroll();
+                }
+            };
+
+            self.gameState.inventory.items.subscribe(function () {
+                self.boundScroll();
+            });
+
+            self.inventoryItemsWidth = ko.computed(function () {
+                return self.gameState.inventory.items().length * 91;
+            });
+
+            self.canScroll = ko.computed(function () {
+                return self.inventoryItemsWidth() > self.inventoryWidth;
+            });
 
             self.stopScroll = function () {
                 window.clearInterval(self.scrollInterval);

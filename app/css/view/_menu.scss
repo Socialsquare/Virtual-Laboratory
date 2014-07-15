@@ -57,16 +57,17 @@
                 position: absolute;
                 cursor: pointer;
 
-                width: 50px;
-                height: 100px;
+                width: 48px;
+                height: 80px;
+                top: 19px;
             }
 
             .arrow-left {
-                left: 10px;
+                left: -5px;
             }
 
             .arrow-right {
-                left: 520px;
+                left: 510px;
             }
 
             .inventory {
@@ -75,7 +76,7 @@
 
                 position: absolute;
                 left: 20px;
-                margin: 13px 0 0 35px;
+                margin: 13px 0 0 30px;
                 width: 448px;
                 height: 90px;
                 overflow: hidden;

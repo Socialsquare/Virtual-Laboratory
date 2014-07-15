@@ -25,11 +25,12 @@
         </div>
 
         <div class="inventory-container">
-            <img class="arrow-left" src="assets/images/arrow.png"
-                 data-bind="event: { mousedown: scrollInventory.bind(null, false), mouseup: stopScroll}">
+            <img class="arrow-left" src="assets/images/arrow_left.png"
+                 data-bind="event: { mousedown: scrollInventory.bind(null, false), mouseup: stopScroll},
+                            css: { dimmed: !canScroll() }">
 
             <div class="inventory" data-bind="drop: { handler: inventoryDropHandler }">
-                <ul data-bind="foreach: gameState.inventory.items">
+                <ul data-bind="foreach: gameState.inventory.items, style: { left: scrollValue() + 'px' }">
                     <li data-bind="click: $parent.showItemDetails.bind(null, $data)">
                         <div data-bind="drag: { item: $data, dim: true, consume: $parent.gameState.inventory.remove.bind(null, $data) }">
                             <img data-bind="attr: { src: $parent.ImageHelper.inventoryIcon($data) }">
@@ -38,8 +39,9 @@
                 </ul>
             </div>
 
-            <img class="arrow-right" src="assets/images/arrow.png"
-                 data-bind="event: { mousedown: scrollInventory.bind(null, true), mouseup: stopScroll}">
+            <img class="arrow-right" src="assets/images/arrow_right.png"
+                 data-bind="event: { mousedown: scrollInventory.bind(null, true), mouseup: stopScroll},
+                            css: { dimmed: !canScroll() }">
         </div>
 
         <div class="menu-right-links">
