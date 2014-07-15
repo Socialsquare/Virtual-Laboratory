@@ -1,7 +1,9 @@
 define([
     'knockout',
-    'mapping'
-], function (ko, mapping) {
+    'lodash',
+    'mapping',
+    'model/type/Liquid'
+], function (ko, _, mapping, LiquidType) {
     return {
         // Clone a knockout object by making it a plain object and
         // mapping it back to observables
@@ -9,15 +11,25 @@ define([
             return mapping.fromJS(ko.toJS(obj));
         },
 
+        biology: {
+            dilute: function(factor, liquids) {
+                var clone = mapping.fromJS(ko.toJS(liquids()));
+
+                _.map(clone(), function(liquid) {
+                    if(liquid.type() === LiquidType.MICROORGANISM) {//TODO: dilute by factor if organism
+                        console.log('Concentration before: ' + liquid.concentration());
+                        liquid.concentration(liquid.concentration() / factor);
+                        console.log('Concentration after: ' + liquid.concentration());
+                    }
+
+                    return liquid;
+                });
+
+                return clone;
+            }
+        },
+
         math: {
-	        /*getBiomassFromLogConcentration: function(logConcentration) {
-		        return Math.pow(10, logConcentration - 12);
-	        },
-
-	        getLogConcentrationFromBiomass: function (biomass) {
-		        return this.getBaseLog(10, biomass) + 12;
-	        },*/
-
 	        getBaseLog: function (base, num) {
 		        return Math.log(num) / Math.log(base);
 	        },

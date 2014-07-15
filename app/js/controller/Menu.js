@@ -130,9 +130,7 @@ define([
 
             self.trashDropHandler = function (item, consume) {
                 if (item.type() === ContainerType.PIPETTE) {
-                    self.popupController.confirm("Bekræft", "Vil du fjerne pipette spidsen?", function (answer) {
-                        self.gameState.pipette.removeTip();
-                    });
+                    self.gameState.pipette.removeTip();
                 } else {
                     self.popupController.confirm("Bekræft", "Er du sikker på du vil slette?", function (answer) {
                         if (answer) consume();

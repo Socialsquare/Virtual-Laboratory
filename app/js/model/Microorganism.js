@@ -20,6 +20,8 @@ define([
 		    self.optimalTemp = ko.observable(0);
 		    self.concentration = ko.observable(0);
 
+
+
             self.addGene = function(gene) {
                 self.extraGenes.push(gene);
             };

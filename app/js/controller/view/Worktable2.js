@@ -25,7 +25,7 @@ define([
 
                     if(item.type() === SpecialItemType.SPLEEN) {
                         var antibodies = utils.klone(item.antibodiesFor());
-                        var homogenizedSpleen = self.liquidFactory.homoSpleen(antibodies);
+                        var homogenizedSpleen = self.liquidFactory.homoSpleen(antibodies());
 
                         self.gameState.inventory.add(self.containerFactory.tube().add(homogenizedSpleen));
                         self.popupController.message('Milt blendet','Der er tilføjet et reagensglas i dit inventory med homogeniseret milt.');

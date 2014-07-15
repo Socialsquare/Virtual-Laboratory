@@ -28,6 +28,10 @@ define([
                 return self;
             };
 
+            self.clearContents = function() {
+                self.liquids = ko.observableArray([]);
+            };
+
             self.contains = function (liquidType) {
                 return _.any(self.liquids(), function (liquid) {
                     return liquid.type() === liquidType;

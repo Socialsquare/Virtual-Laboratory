@@ -129,7 +129,7 @@ define([
 
                                 var spleenContents = utils.klone(self.mouse().spleen.antibodiesFor());
                                 var newSpleen = new SpleenModel();
-                                newSpleen.antibodiesFor.pushAll(spleenContents);
+                                newSpleen.antibodiesFor.pushAll(spleenContents());
                                 self.gameState.inventory.add(newSpleen);
                             });
 

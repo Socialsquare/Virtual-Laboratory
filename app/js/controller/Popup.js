@@ -32,6 +32,8 @@ define([
                 self.show('popup-message', { title: title, message: message });
             };
 
+            //TODO: implement discrete message (i.e. top left corner, fades after X seconds)
+
             self.itemDetail = function (item) {
                 self.show('popup-item-detail', { item: item });
             };

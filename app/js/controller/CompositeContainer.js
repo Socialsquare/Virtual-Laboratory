@@ -2,6 +2,7 @@ define([
     'knockout',
     'lodash',
     'base',
+    'utils/utils',
 
     'controller/Popup',
 
@@ -9,7 +10,7 @@ define([
 
     'utils/ImageHelper',
     'utils/DragHelper'
-], function (ko, _, Base, popupController, ContainerType, ImageHelper, DragHelper) {
+], function (ko, _, Base, utils, popupController, ContainerType, ImageHelper, DragHelper) {
 
     var CompositeContainerController = Base.extend({
 
@@ -89,10 +90,17 @@ define([
                 if (item.type() === ContainerType.PIPETTE) {
                     if (!item.hasTip()) {
                         self.popupController.message('Dumt', 'Der er ingen spids på pipetten');
-                    }else {
+                    }else if(item.getTip().isEmpty()) {
 //TODO: such implementation
-                        var container = self.compContainer.get(position);
+                        if(item.getTip().used())  {
+                            self.popupController.message('Dumt', 'Pipetten skal have en ren spids, ellers forurener du dine prøver.');
+                        }else {
+                            item.fillPipette(self.compContainer.get(position));
+                        }
 
+
+                    }else { //TODO: empty the pipette
+                        item.emptyPipetteInto(self.compContainer.get(position));
                     }
                 }
             };
