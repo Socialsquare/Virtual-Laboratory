@@ -5,10 +5,10 @@ define([
 ], function ( _, BaseService, ExerciseModel) {
 
     var ExerciseService = BaseService.extend({
-        getExercises: function () {
 
+        getExercises: function () {
             var promise = $.Deferred();
-            this.get('experiments')
+            this.get('/api/experiments')
                 .done(function (elements) {
                     var result = _.map(elements, function (element) {
                         return new ExerciseModel(element);

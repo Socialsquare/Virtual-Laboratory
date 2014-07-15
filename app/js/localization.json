@@ -1,0 +1,53 @@
+{
+    "dk": {
+        "loading.header": "Velkommen til VLab 2.0",
+        "loading.choose_exercise": "Start med at vælge en øvelse",
+        "loading.choose_new_exercise": "Vælg en ny øvelse",
+        "loading.start_exercise": "Start øvelse",
+        "loading.back_to_game": "Tilbage til spillet",
+
+        "popup.details.notes": "Her kan du skrive noter",
+
+        "item.description.scalpel": "Du kan bruge skalpelen til at skære i ting",
+        "item.description.spleen": "Milten er rød. Messi vinder næste VM.",
+
+        "item.name.petri_dish": "Petriskål",
+        "item.name.microtiter": "Microtiterbakke",
+        "item.name.tube": "Reagensglas",
+        "item.name.syringe": "Kanyle",
+        "item.name.scalpel": "Skalpel",
+        "item.name.spleen": "Milt",
+
+        "common.loading": "Henter",
+        "common.close": "Luk",
+        "common.cancel": "Fortryd",
+        "common.exercise": "Øvelse",
+        "common.description": "Beskrivelse"
+    },
+
+    "en": {
+        "loading.header": "EN: Velkommen til VLab 2.0",
+        "loading.choose_exercise": "EN: Start med at vælge en øvelse",
+        "loading.choose_new_exercise": "EN: Vælg en ny øvelse",
+        "loading.start_exercise": "EN: Start øvelse",
+        "loading.back_to_game": "EN: Tilbage til spillet",
+
+        "popup.details.notes": "EN: Her kan du skrive noter",
+
+        "item.description.scalpel": "EN: Du kan bruge skalpelen til at skære i ting",
+        "item.description.spleen": "EN: Milten er rød. Messi vinder næste VM.",
+
+        "item.name.petri_dish": "EN: Petriskål",
+        "item.name.microtiter": "EN: Microtiterbakke",
+        "item.name.tube": "EN: Reagensglas",
+        "item.name.syringe": "EN: Kanyle",
+        "item.name.scalpel": "EN: Skalpel",
+        "item.name.spleen": "EN: Milt",
+
+        "common.loading": "EN: Henter",
+        "common.close": "EN: Luk",
+        "common.cancel": "EN: Fortryd",
+        "common.exercise": "EN: Øvelse",
+        "common.description": "EN: Beskrivelse"
+    }
+}

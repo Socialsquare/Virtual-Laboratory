@@ -1,12 +1,12 @@
 <div class="popup popup-dialog">
     <!-- ko with: data -->
-    <h1 data-bind="text: title"></h1>
+    <h1 data-bind="i18n: title"></h1>
     <hr />
 
-    <span class="message" data-bind="text: message"></span>
+    <span class="message" data-bind="i18n: message"></span>
     <!-- /ko -->
 
     <div class="btn-row float-clear">
-        <button data-bind="click: popupController.hide">Luk</button>
+        <button data-bind="click: popupController.hide, i18n: 'common.close'"></button>
     </div>
 </div>

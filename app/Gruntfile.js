@@ -19,6 +19,8 @@ module.exports = function (grunt) {
         copy: {
             dist: {
                 files: [
+                    // localization
+                    { expand: true, src: [ 'js/localization.json' ], dest: '<%= dist_root %>' },
                     // js
                     { expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
                     // views
@@ -52,7 +54,7 @@ module.exports = function (grunt) {
 
         watch: {
             dist: {
-                files: [ 'js/**/*.js', 'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**' ],
+                files: [ 'js/localization.json', 'js/**/*.js', 'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**' ],
                 tasks: [ 'build' ]
             }
         },

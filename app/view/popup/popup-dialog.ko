@@ -1,13 +1,14 @@
 <div class="popup popup-dialog">
     <!-- ko with: data -->
-    <h1 data-bind="text: title"></h1>
+    <h1 data-bind="i18n: title"></h1>
+
     <hr />
 
-    <span data-bind="text: message"></span>
+    <span data-bind="i18n: message"></span>
 
     <div class="btn-row float-clear">
-        <button type="button" data-bind="click: cb.bind(null, true)">Ok</button>
-        <button type="button" data-bind="click: cb.bind(null, false)">Fortryd</button>
+        <button type="button" data-bind="click: cb.bind(null, true), i18n: 'common.ok'"></button>
+        <button type="button" data-bind="click: cb.bind(null, false), i18n: 'common.cancel'"></button>
     </div>
     <!-- /ko -->
 </div>

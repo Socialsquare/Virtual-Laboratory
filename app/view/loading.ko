@@ -1,31 +1,33 @@
 <div class="loading-view">
 
-    <h1>Det Virtuelle Laboratorium 2.0</h1>
+    <h1 data-bind="i18n: 'loading.header'"></h1>
 
     <div class="progress-bar">
         <div class="inner" data-bind="style: { width: percent() + '%' }"></div>
     </div>
 
     <!-- ko ifnot: isLoaded -->
-    <div class="loader-text">Henter: <span data-bind="text: percent() + '%'"></span></div>
+    <div class="loader-text">
+        <span data-bind="i18n: 'common.loading'"></span>: <span data-bind="text: percent() + '%'"></span>
+    </div>
     <!-- /ko -->
 
     <!-- ko if: isLoaded -->
 
     <!-- ko ifnot: gameState.currentExercise() -->
-    <h3>Start med at vælge en øvelse</h3>
+    <h3 data-bind="i18n: 'loading.choose_exercise'"></h3>
     <!-- /ko -->
 
     <!-- ko if: gameState.currentExercise() -->
-    <h3>Vælg en ny øvelse</h3>
+    <h3 data-bind="i18n: 'loading.choose_new_exercise'"></h3>
     <!-- /ko -->
 
     <!-- ko with: exerciseSelectorController -->
     <table>
         <thead>
             <tr>
-                <th>Øvelse</th>
-                <th>Beskrivelse</th>
+                <th data-bind="i18n: 'common.exercise'"></th>
+                <th data-bind="i18n: 'common.description'"></th>
             </tr>
         </thead>
 
@@ -38,13 +40,18 @@
     </table>
 
     <div class="btn-row">
-        <button data-bind="click: start, enable: selected">Start øvelse</button>
+        <button data-bind="click: start, enable: selected, i18n: 'loading.start_exercise'"></button>
         <!-- ko if: gameState.currentExercise() -->
-        <button data-bind="click: goBack">Tilbage til spillet</button>
+        <button data-bind="click: goBack, i18n: 'loading.back_to_game'"></button>
         <!-- /ko -->
     </div>
     <!-- /ko -->
     <!-- /ko -->
+
+    <div class="flags">
+        <img data-bind="click: selectLang.bind(null, 'dk')" src="assets/images/flag_dk.png">
+        <img data-bind="click: selectLang.bind(null, 'en')" src="assets/images/flag_en.png">
+    </div>
 
     <img class="logo" src="assets/images/logo-white.png" alt="Biotech Academy">
 </div>

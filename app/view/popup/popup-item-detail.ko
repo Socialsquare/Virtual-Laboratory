@@ -1,9 +1,9 @@
 <div class="popup popup-item-details">
-    <h1 data-bind="text: TextHelper.prettyName(data.item)"></h1>
+    <h1 data-bind="i18n: TextHelper.prettyName(data.item)"></h1>
 
     <hr />
 
-    <h4>Her kan du skrive noter</h4>
+    <h4 data-bind="i18n: 'popup.details.notes'"></h4>
 
     <textarea rows="10" cols="40" data-bind="value: data.item.label"></textarea>
 

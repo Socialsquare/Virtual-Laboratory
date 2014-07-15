@@ -15,6 +15,16 @@
         margin-bottom: 50px;
     }
 
+    .flags {
+        position: absolute;
+        right: 0px;
+        bottom: 40px;
+
+        img {
+            cursor: pointer;
+        }
+    }
+
     .logo {
         position: absolute;
         bottom: 35px;

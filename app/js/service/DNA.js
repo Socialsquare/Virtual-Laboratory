@@ -7,7 +7,7 @@ define([
         getDNAElements: function () {
 
             var promise = $.Deferred();
-            this.get('dna_elements')
+            this.get('/api/dna_elements')
                 .done(function (elements) {
                     var result = _.map(elements, function (element) {
                         return new DNAElement(element);

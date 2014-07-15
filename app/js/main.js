@@ -10,6 +10,8 @@ require.config({
         jqueryuitouchpunch: '../bower_components/jqueryui-touch-punch/jquery.ui.touch-punch',
         fastclick: '../bower_components/fastclick/lib/fastclick',
         screenfull: '../bower_components/screenfull/dist/screenfull',
+        text: '../bower_components/requirejs-text/text',
+        json: '../bower_components/requirejs-plugins/src/json',
 
         base: 'libs/Base'
     },
@@ -19,7 +21,6 @@ require.config({
         'jqueryuitouchpunch': ['jqueryui'],
         'flot': ['jquery'],
         'screenfull': { exports: 'screenfull' },
-
         'base': { exports: 'Base' }
     }
 });
@@ -41,6 +42,7 @@ require([
     'bindings/video',
     'bindings/plotting',
     'bindings/routing',
+    'bindings/localization',
     'extensions/extensions'
 ], function(ko, FastClick, App) {
 

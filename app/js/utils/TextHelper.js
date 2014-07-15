@@ -1,16 +1,17 @@
 define([
     'model/type/Container',
-    'model/type/SpecialItem'
-], function (ContainerType, SpecialItemType) {
+    'model/type/SpecialItem',
+    'service/Localization'
+], function (ContainerType, SpecialItemType, localizationService) {
 
     return {
         description: function (item) {
             switch (item.type()) {
             case SpecialItemType.SCALPEL:
-                return 'Du kan bruge skalpelen til at skære i ting';
+                return 'item.description.scalpel';
 
             case SpecialItemType.SPLEEN:
-                return 'Milten er rød. Messi vinder næste VM.';
+                return 'item.description.spleen';
 
             default:
                 throw 'Unknown inventory item: ' + item.type();
@@ -20,22 +21,22 @@ define([
         prettyName: function (item) {
             switch (item.type()) {
             case ContainerType.PETRI_DISH:
-                return 'Petriskål';
+                return 'item.name.petri_dish';
 
             case ContainerType.MICROTITER:
-                return 'Microtiterbakke';
+                return 'item.name.microtiter';
 
             case ContainerType.TUBE:
-                return 'Reagensglas';
+                return 'item.name.tube';
 
             case ContainerType.SYRINGE:
-                return 'Kanyle';
+                return 'item.name.syringe';
 
             case SpecialItemType.SCALPEL:
-                return 'Skalpel';
+                return 'item.name.scalpel';
 
             case SpecialItemType.SPLEEN:
-                return 'Milt';
+                return 'item.name.spleen';
 
             default:
                 throw 'Unknown inventory item: ' + item.type();

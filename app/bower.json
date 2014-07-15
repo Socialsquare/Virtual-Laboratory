@@ -11,6 +11,8 @@
     "jquery.html5loader": "~1.7.0",
     "jqueryui-touch-punch": "*",
     "fastclick": "~1.0.2",
-    "screenfull": "~1.2.1"
+    "screenfull": "~1.2.1",
+    "requirejs-text": "~2.0.12",
+    "requirejs-plugins": "~1.0.2"
   }
 }

@@ -2,8 +2,9 @@ define([
     'knockout',
     'jquery',
     'controller/view/Base',
-    'controller/ExerciseSelector'
-], function (ko, $, BaseViewController, ExerciseSelectorController) {
+    'controller/ExerciseSelector',
+    'service/Localization'
+], function (ko, $, BaseViewController, ExerciseSelectorController, localizationService) {
 
     var Loading = BaseViewController.extend({
         constructor: function () {
@@ -13,6 +14,11 @@ define([
 
             self.percent = ko.observable(0);
             self.isLoaded = ko.observable(false);
+            self.localizationService = localizationService;
+
+            self.selectLang = function (langCode) {
+                self.localizationService.setLanguage(langCode);
+            };
 
             $.html5Loader({
                 filesToLoad: '../../assets/preload.json',
