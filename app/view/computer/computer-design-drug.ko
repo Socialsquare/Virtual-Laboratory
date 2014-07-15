@@ -1,0 +1,17 @@
+<div class="view">
+    <div class="header-container">
+        <a class="menu-link" data-bind="click: goToMenu">Menu</a>
+        <h2>Design drug</h2>
+    </div>
+
+     <ul data-bind="foreach: sidegroups">
+         <li>
+             <div class="hand" data-bind="text: name"></div>
+         </li>
+    </ul>
+
+    <div class="detail">
+
+        <button class="order-btn" data-bind="i18n: 'common.order', click: order"></button>
+    </div>
+</div>

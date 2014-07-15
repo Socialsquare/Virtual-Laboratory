@@ -1,28 +1,24 @@
 <div class="mainmenu">
- 	<ul>
- 		<li class="hand" data-bind="click: screenChanger(Screens.ORDER_MOUSE)">
- 			<div class="icon order-mouse"></div>
- 			<div class="text">Bestil mus</div>
- 		</li>
- 		<li>
- 			<div class="icon order-drug"></div>
- 			<div class="text">Bestil lægemiddel</div>
- 		</li>
- 		<li>
- 			<div class="icon order-cleansedprotein"></div>
- 			<div class="text">Bestil oprænset protein</div>
- 		</li>
- 		<li>
- 			<div class="icon send-tubesequencing"></div>
- 			<div class="text">Send til sekvensering</div>
- 		</li>
- 		<li class="hand" data-bind="click: screenChanger(Screens.DESIGN_DNA)">
- 			<div class="icon design-dna"></div>
- 			<div class="text">Design DNA</div>
- 		</li>
- 		<li>
- 			<div class="icon design-drug"></div>
- 			<div class="text">Design lægemiddel</div>
- 		</li>
- 	</ul>
+    <ul>
+        <li class="hand" data-bind="click: screenChanger(Screens.ORDER_MOUSE)">
+            <div class="icon order-mouse"></div>
+            <div class="text">Bestil mus</div>
+        </li>
+        <li>
+            <div class="icon order-cleansedprotein"></div>
+            <div class="text">Bestil oprænset protein</div>
+        </li>
+        <li>
+            <div class="icon send-tubesequencing"></div>
+            <div class="text">Send til sekvensering</div>
+        </li>
+        <li class="hand" data-bind="click: screenChanger(Screens.DESIGN_DNA)">
+            <div class="icon design-dna"></div>
+            <div class="text">Design DNA</div>
+        </li>
+        <li class="hand" data-bind="click: screenChanger(Screens.DESIGN_DRUG)">
+            <div class="icon design-drug"></div>
+            <div class="text">Design lægemiddel</div>
+        </li>
+    </ul>
 </div>

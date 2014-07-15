@@ -17,6 +17,7 @@
     }
 
     .mainmenu {
+        position: absolute;
         width: 100%;
         height: 100%;
         ul {
@@ -26,6 +27,7 @@
             li {
                 float: left;
                 width: 100px;
+                height: 100px;
                 margin: 50px;
                 a:link { text-decoration: none; }
                 .icon {
@@ -130,8 +132,8 @@
                 width: 10%;
                 margin: 0 45% 0 45%;
             }
-
         }
+
         .droparea {
             height: 40%;
             padding-left: 10px;

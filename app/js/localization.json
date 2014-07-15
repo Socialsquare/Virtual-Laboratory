@@ -32,6 +32,7 @@
         "common.close": "Luk",
         "common.cancel": "Fortryd",
         "common.exercise": "Øvelse",
+        "common.order": "Bestil",
         "common.description": "Beskrivelse"
     },
 
@@ -68,6 +69,7 @@
         "common.close": "Close",
         "common.cancel": "Cancel",
         "common.exercise": "Exercise",
+        "common.order": "Order",
         "common.description": "Description"
     }
 }
