@@ -19,6 +19,8 @@ module.exports = function (grunt) {
         copy: {
             dist: {
                 files: [
+                    // dummy quiz data TODO: remove
+                    { expand: true, src: [ 'data/quiz.json' ], dest: '<%= dist_root %>' },
                     // localization
                     { expand: true, src: [ 'js/localization.json' ], dest: '<%= dist_root %>' },
                     // js
@@ -54,7 +56,7 @@ module.exports = function (grunt) {
 
         watch: {
             dist: {
-                files: [ 'js/localization.json', 'js/**/*.js', 'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**' ],
+                files: [ 'data/quiz.json', 'js/localization.json', 'js/**/*.js', 'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**' ],
                 tasks: [ 'build' ]
             }
         },

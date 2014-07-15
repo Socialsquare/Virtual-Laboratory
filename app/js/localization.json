@@ -25,6 +25,7 @@
         "popup.confirm_delete_header": "Bekræft",
         "popup.confirm_delete_body": "Er du sikker på at du vil slette?",
         "popup.details.notes": "Her kan du tage noter om beholderen",
+        "popup.quiz.header": "Quiz!",
 
         "item.description.scalpel": "Du kan bruge skalpelen til at skære i ting",
         "item.description.spleen": "Milten er rød. Messi vinder næste VM.",
@@ -73,6 +74,7 @@
         "popup.confirm_delete_header": "Confirm",
         "popup.confirm_delete_body": "Are you sure you want to delete this item?",
         "popup.details.notes": "Here you can take notes about the container",
+        "popup.quiz.header": "Quiz!",
 
         "item.description.scalpel": "The scalpel is used for cutting.",
         "item.description.spleen": "This is a spleen",

@@ -1,0 +1,26 @@
+<div class="popup popup-quiz">
+    <!-- ko if: data.quizController.hasQuiz -->
+    <!-- ko with: data.quizController -->
+    <h1 data-bind="i18n: 'popup.quiz.header'"></h1>
+
+    <hr />
+
+    <h4 data-bind="text: activeQuiz().question"></h4>
+
+    <ul class="answers" data-bind="foreach: activeQuiz().answers">
+        <li data-bind="click: $parent.tryAnswer">
+            <div class="answer" data-bind="css: { correct: $parent.isCorrect($data),
+                                           incorrect: !$parent.isCorrect($data),
+                                           tried: tried }">
+                <span data-bind="text: answer"></span>
+            </div>
+            <span data-bind="visible: tried, text: message"></span>
+        </li>
+    </ul>
+
+    <div class="btn-row">
+        <button data-bind="click: $parent.popupController.hide, visible: quizFinished, i18n: 'common.close'"></button>
+    </div>
+    <!-- /ko -->
+    <!-- /ko -->
+</div>

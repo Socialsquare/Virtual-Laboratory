@@ -1,8 +1,9 @@
 define([
     'lodash',
+    'jquery',
     'service/Base',
     'model/DNAElement'
-], function ( _, BaseService, DNAElement) {
+], function (_, $, BaseService, DNAElement) {
     var DNAService = BaseService.extend({
         getDNAElements: function () {
 

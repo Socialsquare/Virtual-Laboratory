@@ -112,6 +112,10 @@ define([
                 }
             };
 
+            self.testQuiz = function () {
+                self.popupController.quiz(0);
+            };
+
             self.togglePipette = function (activeViewController) {
                 // var acceptedViews = [
                 //     'worktable1',

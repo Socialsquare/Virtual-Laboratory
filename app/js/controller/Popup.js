@@ -3,8 +3,10 @@ define([
     'base',
     'lodash',
     'model/Popup',
-    'utils/TextHelper'
-], function (ko, Base, _, PopupModel, TextHelper) {
+    'utils/TextHelper',
+
+    'controller/Quiz'
+], function (ko, Base, _, PopupModel, TextHelper, QuizController) {
 
     var Popup = Base.extend({
 
@@ -51,6 +53,10 @@ define([
                     cb(answer);
                     self.hide();
                 } });
+            };
+
+            self.quiz = function (id) {
+                self.show('popup-quiz', { quizController: new QuizController(id) });
             };
 
             self.select = function (title, message, options, cb) {
