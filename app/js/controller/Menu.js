@@ -27,6 +27,7 @@ define([
             self.gameState = gameState;
             self.router = router;
 
+            // TODO: hardcoded width :*(
             self.inventoryWidth = 462;
             self.scrollInterval = null;
             self.scrollRight = false;

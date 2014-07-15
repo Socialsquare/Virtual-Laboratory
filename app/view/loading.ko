@@ -11,7 +11,14 @@
     <!-- /ko -->
 
     <!-- ko if: isLoaded -->
+
+    <!-- ko ifnot: gameState.currentExercise() -->
     <h3>Start med at vælge en øvelse</h3>
+    <!-- /ko -->
+
+    <!-- ko if: gameState.currentExercise() -->
+    <h3>Vælg en ny øvelse</h3>
+    <!-- /ko -->
 
     <!-- ko with: exerciseSelectorController -->
     <table>

@@ -12,9 +12,9 @@
 
     .top-menu {
         position: absolute;
-        top: 0;
-        padding-top: 15px;
-        width: 1024px;
+        top: 15px;
+        left: 15px;
+        width: 994px;
 
         ul {
             padding: 0;
@@ -27,7 +27,10 @@
         }
 
         .right {
-            float: right;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
         }
     }
 
