@@ -12,6 +12,7 @@ define([
             //TODO: all the things!
 
             self.alive = ko.observable(true);
+            self.isCut = ko.observable(false);
             self.spleen = new SpleenModel();
             self.mouseBloodType = ko.observable(null);
             self.description = ko.computed(function () {

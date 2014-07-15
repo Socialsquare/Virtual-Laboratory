@@ -84,8 +84,8 @@
         background-position: 0 0;
         background-size: 480px 1500px;
         z-index: 4;
-        .cut-with-spleen { background-position: 0 -500px; }
-        .cut { background-position: 0 -1000px; }
+        &.cut-with-spleen { background-position: 0 -500px; }
+        &.cut { background-position: 0 -1000px; }
     }
 
     .video-container {

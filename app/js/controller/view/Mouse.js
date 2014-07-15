@@ -124,6 +124,7 @@ define([
                         self.videoController.play('cut', false)
                             .done(function() {
                                 self.popupController.message('Milt ekstraheret.', 'Du milten ligger nu i dit inventory.');
+                                self.mouse().isCut(true);
 
                                 var spleenContents = self.mouse().spleen.antibodiesFor();
                                 var newSpleen = new SpleenModel();

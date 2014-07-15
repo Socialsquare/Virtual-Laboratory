@@ -6,7 +6,7 @@
          data-bind="visible: !mouseDrinking(),
                     drag: { dim: true, item: bottle, offset: { left: 84, top: 182 } }">
 
-    <div class="dead-mouse" data-bind="visible: !mouse().alive()"></div>
+    <div class="dead-mouse" data-bind="visible: !mouse().alive(), css: { cut: mouse().isCut() }"></div>
 
     <div class="mouse" data-bind="drop: { handler: handleDropOnMouse, accept: DragHelper.acceptedByMouse }"></div>
 
