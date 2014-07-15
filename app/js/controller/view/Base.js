@@ -8,10 +8,14 @@ define([
 
     'factory/Liquid',
     'factory/Container',
+    'factory/SpecialItem',
 
     'utils/ImageHelper',
     'utils/DragHelper'
-], function (ko, Base, gameState, router, popupController, LiquidFactory, ContainerFactory, ImageHelper, DragHelper) {
+
+], function (ko, Base, gameState, router, popupController,
+             LiquidFactory, ContainerFactory, SpecialItemFactory,
+             ImageHelper, DragHelper) {
 
     var Base = Base.extend({
 
@@ -22,6 +26,7 @@ define([
         popupController: popupController,
         liquidFactory: LiquidFactory,
         containerFactory: ContainerFactory,
+        specialItemFactory: SpecialItemFactory,
 
         constructor: function (templateName) {
             this.templateName = templateName;

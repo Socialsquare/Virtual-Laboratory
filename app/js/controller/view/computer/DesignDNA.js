@@ -4,20 +4,17 @@ define([
 
     'model/Gene',
     'model/Tube',
-    'model/GameState',
 
     'service/DNA',
     'utils/utils',
-    'utils/DragHelper'
-], function (ko, BaseComputer, GeneModel, TubeModel, gameState, DNAService, utils, DragHelper) {
+
+], function (ko, BaseComputer, GeneModel, TubeModel, DNAService, utils) {
 
     var DesignDNA = BaseComputer.extend({
 
         constructor: function () {
             var self = this;
             self.base('computer-design-dna');
-
-            self.DragHelper = DragHelper;
 
             self.dnaService = new DNAService();
             self.availableDNA = ko.observableArray([]);
@@ -44,13 +41,13 @@ define([
                 var gene = new GeneModel(sequenceClone);
                 var tube = new TubeModel();
                 tube.add(gene);
-                gameState.inventory.add(tube);
+                self.gameState.inventory.add(tube);
 
                 // reset the sequence and go to computer menu
                 self.dnaSequence.removeAll();
 
                 self.goToMenu();
-	        };
+            };
         }
     });
 

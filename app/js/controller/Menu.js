@@ -5,7 +5,6 @@ define([
 
     'controller/view/Base',
     'controller/Popup',
-    'controller/Router',
 
     'model/GameState',
     'model/Tip',
@@ -14,8 +13,8 @@ define([
 
     'utils/ImageHelper',
     'utils/TextHelper'
-], function (ko, $, screenfull, BaseViewController, popupController, router,
-             gameState, TipModel, ContainerType, SpecialItemType, ImageHelper, TextHelper) {
+], function (ko, $, screenfull, BaseViewController, popupController, gameState,
+             TipModel, ContainerType, SpecialItemType, ImageHelper, TextHelper) {
 
     var MenuController = BaseViewController.extend({
 
@@ -25,7 +24,6 @@ define([
             self.ImageHelper = ImageHelper;
             self.popupController = popupController;
             self.gameState = gameState;
-            self.router = router;
 
             // TODO: hardcoded width :*(
             self.inventoryWidth = 462;

@@ -1,16 +1,16 @@
 define([
     'knockout',
-    'base',
-    'model/GameState',
-    'model/type/ComputerScreen',
-], function (ko, Base, gameState, ComputerScreenType) {
+    'controller/view/Base',
+    'model/type/ComputerScreen'
 
-    var BaseComputer = Base.extend({
+], function (ko, BaseViewController, ComputerScreenType) {
+
+    var BaseComputer = BaseViewController.extend({
 
         constructor: function (templateName) {
             var self = this;
 
-            self.gameState = gameState;
+            self.computer = self.gameState.computer;
 
             self.templateName = ko.observable(templateName);
 
@@ -21,7 +21,7 @@ define([
             self.goToMenu = function () {
                 self.gameState.activeComputerScreen(ComputerScreenType.MENU);
             };
-	    }
+        }
     });
 
     return BaseComputer;
