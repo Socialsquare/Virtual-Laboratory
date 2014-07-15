@@ -6,7 +6,7 @@
 
  	<ul class="dna-element-list" data-bind="foreach: availableDNA">
         <li>
-            <div data-bind="text: name, drag: { item: $data }"></div>
+            <div class="hand" data-bind="text: name, drag: { item: $data, helper: 'clone', offset: { left: 10, top: 10} }"></div>
         </li>
     </ul>
 
@@ -16,7 +16,7 @@
                 <div class="dna-element-img" data-bind="style: { 'background-color': color }"></div>
                 <div class="dna-element-name" data-bind="text: name"></div>
 
-                <button class="remove-btn" data-bind="click: $parent.removeDNA">X</button>
+                <div class="hand remove-btn" data-bind="click: $parent.removeDNA"></div>
             </div>
  		</div>
 
