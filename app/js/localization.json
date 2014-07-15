@@ -10,6 +10,18 @@
         "supply.drawer_header": "Redskabsskuffen",
         "supply.fridge_header": "Køleskabet",
 
+        "computer.order": "Bestil",
+        "computer.menu": "Menu",
+        "computer.sequence": "Sekvens: ",
+        "computer.screen.protein": "Bestil oprænset protein",
+        "computer.screen.sequencing": "Send til sekvensering",
+        "computer.screen.dna": "Design DNA",
+        "computer.screen.drug": "Design lægemiddel",
+        "computer.screen.mouse": "Bestil mus",
+        "computer.screen.mouse.bloodsugar": "Musens blodsukker: ",
+        "computer.screen.mouse.insulin.prod": "Insulin produktivitet: ",
+        "computer.screen.mouse.insulin.effect": "Insulin effektivitet: ",
+
         "popup.confirm_delete_header": "Bekræft",
         "popup.confirm_delete_body": "Er du sikker på at du vil slette?",
         "popup.details.notes": "Her kan du tage noter om beholderen",
@@ -32,7 +44,6 @@
         "common.close": "Luk",
         "common.cancel": "Fortryd",
         "common.exercise": "Øvelse",
-        "common.order": "Bestil",
         "common.description": "Beskrivelse"
     },
 
@@ -46,6 +57,18 @@
         "supply.closet_header": "Chemical closet",
         "supply.drawer_header": "Tool drawer",
         "supply.fridge_header": "Fridge",
+
+        "computer.order": "Order",
+        "computer.menu": "Menu",
+        "computer.sequence": "Sequence: ",
+        "computer.screen.protein": "Order purified protein",
+        "computer.screen.sequencing": "Send to sequencing",
+        "computer.screen.dna": "Design DNA",
+        "computer.screen.drug": "Design drug",
+        "computer.screen.mouse": "Order mouse",
+        "computer.screen.mouse.bloodsugar": "Mouse blood glucose: ",
+        "computer.screen.mouse.insulin.prod": "Insulin productivity: ",
+        "computer.screen.mouse.insulin.effect": "Insulin effectivity: ",
 
         "popup.confirm_delete_header": "Confirm",
         "popup.confirm_delete_body": "Are you sure you want to delete this item?",
@@ -69,7 +92,6 @@
         "common.close": "Close",
         "common.cancel": "Cancel",
         "common.exercise": "Exercise",
-        "common.order": "Order",
         "common.description": "Description"
     }
 }

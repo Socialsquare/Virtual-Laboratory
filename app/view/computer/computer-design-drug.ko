@@ -1,7 +1,7 @@
 <div class="view">
     <div class="header-container">
-        <a class="menu-link" data-bind="click: goToMenu">Menu</a>
-        <h2>Design drug</h2>
+        <a class="menu-link" data-bind="i18n: 'computer.order', click: goToMenu"></a>
+        <h2 data-bind="i18n: 'computer.screen.drug'"></h2>
     </div>
 
      <ul data-bind="foreach: sidegroups">

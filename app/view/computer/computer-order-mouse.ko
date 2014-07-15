@@ -1,27 +1,28 @@
 <div class="view ordermouse">
-
- 	<div class="header-container">
-        <a class="menu-link" data-bind="click: goToMenu">Menu</a>
-
-        <h2>Bestil mus</h2>
+    <div class="header-container">
+        <a class="menu-link" data-bind="i18n: 'computer.menu', click: goToMenu"></a>
+        <h2 data-bind="i18n: 'computer.screen.mouse'"></h2>
     </div>
 
- 	<ul data-bind="foreach: availableMice">
- 		<li><span data-bind="text: description, click: $parent.selectMouse.bind(null, $data)"></span> </li>
- 	</ul>
+    <ul data-bind="foreach: availableMice">
+        <li><span data-bind="text: description, click: $parent.selectMouse.bind(null, $data)"></span> </li>
+    </ul>
 
- 	<div class="detail">
+    <div class="detail">
         <ul>
-            <li>
-                Musens blodsukker: <span data-bind="text: selectedMouse().meanBlodSukker"></span>
+            <li >
+                <span data-bind="i18n: 'computer.screen.mouse.bloodsugar'"></span>
+                <span data-bind="text: selectedMouse().meanBlodSukker"></span>
             </li>
             <li>
-                Insulin produktivitet: <span data-bind="text: selectedMouse().insulinProduktivitet"></span>
+                <span data-bind="i18n: 'computer.screen.mouse.insulin.prod'"></span>
+                <span data-bind="text: selectedMouse().insulinProduktivitet"></span>
             </li>
             <li>
-                Insulin effektivitet: <span data-bind="text: selectedMouse().insulinEffektivitet"></span>
+                <span data-bind="i18n: 'computer.screen.mouse.insulin.effect'"></span>
+                <span data-bind="text: selectedMouse().insulinEffektivitet"></span>
             </li>
         </ul>
- 		<button class="order-btn" data-bind="click: orderMouse">Bestil</button>
- 	</div>
+        <button class="order-btn" data-bind="i18n: 'computer.order', click: orderMouse"></button>
+    </div>
 </div>

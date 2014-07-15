@@ -2,23 +2,23 @@
     <ul>
         <li class="hand" data-bind="click: screenChanger(Screens.ORDER_MOUSE)">
             <div class="icon order-mouse"></div>
-            <div class="text">Bestil mus</div>
+            <div class="text" data-bind="i18n: 'computer.screen.mouse'"></div>
         </li>
         <li>
             <div class="icon order-cleansedprotein"></div>
-            <div class="text">Bestil oprænset protein</div>
+            <div class="text" data-bind="i18n: 'computer.screen.protein'"></div>
         </li>
         <li>
             <div class="icon send-tubesequencing"></div>
-            <div class="text">Send til sekvensering</div>
+            <div class="text" data-bind="i18n: 'computer.screen.sequencing'"></div>
         </li>
         <li class="hand" data-bind="click: screenChanger(Screens.DESIGN_DNA)">
             <div class="icon design-dna"></div>
-            <div class="text">Design DNA</div>
+            <div class="text" data-bind="i18n: 'computer.screen.dna'"></div>
         </li>
         <li class="hand" data-bind="click: screenChanger(Screens.DESIGN_DRUG)">
             <div class="icon design-drug"></div>
-            <div class="text">Design lægemiddel</div>
+            <div class="text" data-bind="i18n: 'computer.screen.drug'"></div>
         </li>
     </ul>
 </div>
