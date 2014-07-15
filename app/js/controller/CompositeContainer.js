@@ -95,12 +95,13 @@ define([
                         if(item.getTip().used())  {
                             self.popupController.message('Dumt', 'Pipetten skal have en ren spids, ellers forurener du dine prøver.');
                         }else {
+
                             item.fillPipette(self.compContainer.get(position));
+                            self.popupController.notify('Test', 'Du har suget indhold op med pipetten.', 2000);
                         }
-
-
                     }else { //TODO: empty the pipette
                         item.emptyPipetteInto(self.compContainer.get(position));
+                        self.popupController.notify('Test', 'Du har tømt pipetten.', 2000);
                     }
                 }
             };

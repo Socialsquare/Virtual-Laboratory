@@ -1,0 +1,12 @@
+<div class="popup popup-notify">
+    <!-- ko with: data -->
+    <h3 data-bind="text: title"></h3>
+    <hr />
+
+    <span class="message" data-bind="text: message"></span>
+    <!-- /ko -->
+
+    <!--<div class="btn-row float-clear">
+&lt;!&ndash;        <button type="button" data-bind="click: popupController.hide">Luk</button>&ndash;&gt;
+    </div>-->
+</div>

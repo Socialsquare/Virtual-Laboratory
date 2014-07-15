@@ -1,0 +1,22 @@
+/* popup/notify.scss */
+
+// TODO: top: 70px; left: 20px; width: 300px; height: 100px;
+// h3, margin: 0px;
+
+.popup-notify {
+  $width: 300px;
+
+  padding: 30px;
+
+  left: 70px;
+  top: 20px;
+  width: $width;
+  height: 100px;
+
+  color: white;
+  opacity: 0.85;
+
+  h3 {
+    margin: 0px;
+  }
+}

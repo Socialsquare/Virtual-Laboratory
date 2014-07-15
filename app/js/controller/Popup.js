@@ -1,9 +1,10 @@
 define([
     'knockout',
     'base',
+    'lodash',
     'model/Popup',
     'utils/TextHelper'
-], function (ko, Base, PopupModel, TextHelper) {
+], function (ko, Base, _, PopupModel, TextHelper) {
 
     var Popup = Base.extend({
 
@@ -32,6 +33,12 @@ define([
                 self.show('popup-message', { title: title, message: message });
             };
 
+            self.notify = function(title, message, closingTime) {
+                self.show('popup-notify', { title: title, message: message});
+                _.delay(function(){
+                    self.hide();
+                    }, closingTime);
+            };
             //TODO: implement discrete message (i.e. top left corner, fades after X seconds)
 
             self.itemDetail = function (item) {
