@@ -17,7 +17,7 @@ define([
 
             var tubeRackGuard = function () {// TODO: Fyr på hele worktable 1.
                 if (!self.worktable1.bunsenBurner()) {
-                    self.popupController.message('Hov hov du', 'Du skal tænde bunsenbrænderen før du arbejder ved bordet.');
+                    self.popupController.message('worktable1.bunsen_required.header', 'worktable1.bunsen_required.body');
                     return false;
                 }
                 return true;

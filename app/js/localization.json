@@ -22,6 +22,9 @@
         "computer.screen.mouse.insulin.prod": "Insulin produktivitet: ",
         "computer.screen.mouse.insulin.effect": "Insulin effektivitet: ",
 
+        "worktable1.bunsen_required.header": "Forbudt",
+        "worktable1.bunsen_required.body": "Bunsenbrænderen skal være tændt før du kan arbejde ved bordet",
+
         "popup.confirm_delete_header": "Bekræft",
         "popup.confirm_delete_body": "Er du sikker på at du vil slette?",
         "popup.details.notes": "Her kan du tage noter om beholderen",
@@ -70,6 +73,9 @@
         "computer.screen.mouse.bloodsugar": "Mouse blood glucose: ",
         "computer.screen.mouse.insulin.prod": "Insulin productivity: ",
         "computer.screen.mouse.insulin.effect": "Insulin effectivity: ",
+
+        "worktable1.bunsen_required.header": "Denied",
+        "worktable1.bunsen_required.body": "Bunsen burner must be on before working at the table",
 
         "popup.confirm_delete_header": "Confirm",
         "popup.confirm_delete_body": "Are you sure you want to delete this item?",
