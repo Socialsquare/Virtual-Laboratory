@@ -22,6 +22,9 @@
         "computer.screen.mouse.insulin.prod": "Insulin produktivitet: ",
         "computer.screen.mouse.insulin.effect": "Insulin effektivitet: ",
 
+        "washing.detergent_required.header": "Forbudt",
+        "washing.detergent_required.body": "Du mangler vaskemiddel",
+
         "worktable1.bunsen_required.header": "Forbudt",
         "worktable1.bunsen_required.body": "Bunsenbrænderen skal være tændt før du kan arbejde ved bordet",
 
@@ -73,6 +76,9 @@
         "computer.screen.mouse.bloodsugar": "Mouse blood glucose: ",
         "computer.screen.mouse.insulin.prod": "Insulin productivity: ",
         "computer.screen.mouse.insulin.effect": "Insulin effectivity: ",
+
+        "washing.detergent_required.header": "Denied",
+        "washing.detergent_required.body": "You need detergent",
 
         "worktable1.bunsen_required.header": "Denied",
         "worktable1.bunsen_required.body": "Bunsen burner must be on before working at the table",

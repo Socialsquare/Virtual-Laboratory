@@ -19,7 +19,7 @@ define([
 
             self.activate = function () {
                 if (!self.washing.agent())
-                    self.popupController.message('Hov hov du', 'Du mangler vaskemiddel');
+                    self.popupController.message('washing.detergent_required.header', 'washing.detergent_required.body');
                 else
                     self.status.toggle();
             };
