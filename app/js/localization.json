@@ -1,12 +1,18 @@
 {
     "dk": {
-        "loading.header": "Velkommen til VLab 2.0",
+        "loading.header": "Det Virtuelle Laboratorium 2",
         "loading.choose_exercise": "Start med at vælge en øvelse",
         "loading.choose_new_exercise": "Vælg en ny øvelse",
         "loading.start_exercise": "Start øvelse",
         "loading.back_to_game": "Tilbage til spillet",
 
-        "popup.details.notes": "Her kan du skrive noter",
+        "supply.closet_header": "Kemikalieskabet",
+        "supply.drawer_header": "Redskabsskuffen",
+        "supply.fridge_header": "Køleskabet",
+
+        "popup.confirm_delete_header": "Bekræft",
+        "popup.confirm_delete_body": "Er du sikker på at du vil slette?",
+        "popup.details.notes": "Her kan du tage noter om beholderen",
 
         "item.description.scalpel": "Du kan bruge skalpelen til at skære i ting",
         "item.description.spleen": "Milten er rød. Messi vinder næste VM.",
@@ -17,8 +23,12 @@
         "item.name.syringe": "Kanyle",
         "item.name.scalpel": "Skalpel",
         "item.name.spleen": "Milt",
+        "item.name.antibiotic": "Antibiotikum",
+        "item.name.yeast": "Gærceller",
+        "item.name.myeloma": "Myeloma",
 
         "common.loading": "Henter",
+        "common.ok": "Okay",
         "common.close": "Luk",
         "common.cancel": "Fortryd",
         "common.exercise": "Øvelse",
@@ -26,28 +36,38 @@
     },
 
     "en": {
-        "loading.header": "EN: Velkommen til VLab 2.0",
-        "loading.choose_exercise": "EN: Start med at vælge en øvelse",
-        "loading.choose_new_exercise": "EN: Vælg en ny øvelse",
-        "loading.start_exercise": "EN: Start øvelse",
-        "loading.back_to_game": "EN: Tilbage til spillet",
+        "loading.header": "The Virtual Laboratorium 2",
+        "loading.choose_exercise": "Start by choosing an exercise",
+        "loading.choose_new_exercise": "Choose a new exercise",
+        "loading.start_exercise": "Start exercise",
+        "loading.back_to_game": "Back to game",
 
-        "popup.details.notes": "EN: Her kan du skrive noter",
+        "supply.closet_header": "Chemical closet",
+        "supply.drawer_header": "Tool drawer",
+        "supply.fridge_header": "Fridge",
 
-        "item.description.scalpel": "EN: Du kan bruge skalpelen til at skære i ting",
-        "item.description.spleen": "EN: Milten er rød. Messi vinder næste VM.",
+        "popup.confirm_delete_header": "Confirm",
+        "popup.confirm_delete_body": "Are you sure you want to delete this item?",
+        "popup.details.notes": "Here you can take notes about the container",
 
-        "item.name.petri_dish": "EN: Petriskål",
-        "item.name.microtiter": "EN: Microtiterbakke",
-        "item.name.tube": "EN: Reagensglas",
-        "item.name.syringe": "EN: Kanyle",
-        "item.name.scalpel": "EN: Skalpel",
-        "item.name.spleen": "EN: Milt",
+        "item.description.scalpel": "The scalpel is used for cutting.",
+        "item.description.spleen": "This is a spleen",
 
-        "common.loading": "EN: Henter",
-        "common.close": "EN: Luk",
-        "common.cancel": "EN: Fortryd",
-        "common.exercise": "EN: Øvelse",
-        "common.description": "EN: Beskrivelse"
+        "item.name.petri_dish": "Petri dish",
+        "item.name.microtiter": "Microtiter plate",
+        "item.name.tube": "Test tube",
+        "item.name.syringe": "Syringe",
+        "item.name.scalpel": "Scalpel",
+        "item.name.spleen": "Spleen",
+        "item.name.antibiotic": "Antibiotica",
+        "item.name.yeast": "Yeast cells",
+        "item.name.myeloma": "Myeloma",
+
+        "common.loading": "Loading",
+        "common.ok": "Okay",
+        "common.close": "Close",
+        "common.cancel": "Cancel",
+        "common.exercise": "Exercise",
+        "common.description": "Description"
     }
 }

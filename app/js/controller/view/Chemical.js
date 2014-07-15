@@ -29,12 +29,13 @@ define([
             self.base('chemical');
 
             var groups = {
-                closet: { name: 'Kemikalieskabet', items: self.closetItems },
-                fridge: { name: 'Køleskabet', items: self.fridgeItems },
-                drawer: { name: 'Redskabsskuffen', items: self.drawerItems }
+                closet: { name: 'supply.closet_header', items: self.closetItems },
+                fridge: { name: 'supply.fridge_header', items: self.fridgeItems },
+                drawer: { name: 'supply.drawer_header', items: self.drawerItems }
             };
 
             self.showList = function (name) {
+                console.log(groups[name].items());
                 popupController.show('popup-list', {
                     title: groups[name].name,
                     items: groups[name].items,
@@ -44,20 +45,20 @@ define([
 
             // TODO: consider refactoring this to somewhere else
             self.closetItems.pushAll([
-                new ChemicalItemModel('Antibiotikum', self.inTube(LiquidFactory.antibiotic.a()))
+                new ChemicalItemModel('item.name.antibiotic', self.inTube(LiquidFactory.antibiotic.a()))
             ]);
 
             self.drawerItems.pushAll([
-                new ChemicalItemModel('Kanyle', new SyringeModel()),
-                new ChemicalItemModel('Skalpel', new ScalpelModel()),
-                new ChemicalItemModel('Petriskål', new PetridishModel()),
-                new ChemicalItemModel('Reagensglas', new TubeModel()),
-                new ChemicalItemModel('Mikrotiterbakke', new MicrotiterplateModel()),
+                new ChemicalItemModel('item.name.syringe', new SyringeModel()),
+                new ChemicalItemModel('item.name.scalpel', new ScalpelModel()),
+                new ChemicalItemModel('item.name.petri_dish', new PetridishModel()),
+                new ChemicalItemModel('item.name.tube', new TubeModel()),
+                new ChemicalItemModel('item.name.microtiter', new MicrotiterplateModel())
             ]);
 
             self.fridgeItems.pushAll([
-                new ChemicalItemModel('Gærceller', self.inTube(LiquidFactory.microorganism.yeast())),
-                new ChemicalItemModel('Myeloma', self.inTube(LiquidFactory.microorganism.myeloma())),
+                new ChemicalItemModel('item.name.yeast', self.inTube(LiquidFactory.microorganism.yeast())),
+                new ChemicalItemModel('item.name.myeloma', self.inTube(LiquidFactory.microorganism.myeloma()))
             ]);
 	    },
 

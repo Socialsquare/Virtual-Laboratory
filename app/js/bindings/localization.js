@@ -7,7 +7,7 @@ define([
 
     ko.bindingHandlers.i18n = {
         update: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
-            var id = valueAccessor();
+            var id = ko.unwrap(valueAccessor());
             $(element).text(localizationService.text(id));
         }
     };

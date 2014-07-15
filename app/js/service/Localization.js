@@ -10,16 +10,16 @@ define([
             var self = this;
 
             self.langData = ko.observable(localizationData);
-            self.langCode = ko.observable('dk');
+            self.selectedLanguage = ko.observable('dk');
 
-            self.setLanguage = function (langCode) {
-                self.langCode(langCode);
+            self.setLanguage = function (lang) {
+                self.selectedLanguage(lang);
             };
 
             self.text = function (id) {
-                var text = self.langData()[self.langCode()][id];
+                var text = self.langData()[self.selectedLanguage()][id];
 
-                if (!text) throw 'Unknown localization: ' + id + ' for language ' + self.langCode();
+                if (!text) throw 'Unknown localization: ' + id + ' for language ' + self.selectedLanguage();
 
                 return text;
             };

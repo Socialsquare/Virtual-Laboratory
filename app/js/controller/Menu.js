@@ -133,7 +133,7 @@ define([
                 if (item.type() === ContainerType.PIPETTE) {
                     self.gameState.pipette.removeTip();
                 } else {
-                    self.popupController.confirm("Bekræft", "Er du sikker på du vil slette?", function (answer) {
+                    self.popupController.confirm('popup.confirm_delete_header', 'popup.confirm_delete_body', function (answer) {
                         if (answer) consume();
                     });
                 }

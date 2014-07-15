@@ -1,5 +1,5 @@
 <div class="popup popup-list">
-    <h1 data-bind="text: data.title"></h1>
+    <h1 data-bind="i18n: data.title"></h1>
 
 	<hr />
 
@@ -7,12 +7,12 @@
         <li data-bind="drag: { item: $parent.data.klone.bind(null, item()) }">
             <div>
                 <img data-bind="attr: { src: $parent.ImageHelper.draggingIcon(item())}">
-                <span data-bind="text: name"></span>
+                <span data-bind="i18n: name"></span>
             </div>
         </li>
     </ul>
 
 	<div class="btn-row">
-        <button data-bind="click: popupController.hide">Luk</button>
+        <button data-bind="click: popupController.hide, i18n: 'common.close'"></button>
     </div>
 </div>
