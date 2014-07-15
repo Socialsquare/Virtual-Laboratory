@@ -9,7 +9,7 @@
     <!-- /ko -->
 
     <!-- ko if: $parent.compContainer.hasContainerAt($index()) -->
-    <li data-bind="css: 'slot' + $index()">
+    <li class="hand" data-bind="css: 'slot' + $index()">
         <img data-bind="attr: { src: $parent.imageGetter($index(), $data) },
                         drag: { item: $data, dim: true, consume: $parent.compContainer.remove.bind(null, $index()) },
                         drop: { handler: $parent.handleContainerDrop.bind(null, $index()), accept: $parent.DragHelper.acceptedByComposite }">

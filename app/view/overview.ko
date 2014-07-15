@@ -1,29 +1,29 @@
 <div class="overview-view">
-    <div data-bind="route: 'spectropm'">
+    <div class="hand" data-bind="route: 'spectropm'">
         <img src="assets/images/special_spektro.png" class="spectrophotometer" alt="Go to spectrophotometer">
     </div>
-    <div data-bind="click: handleDoorClick">
+    <div class="hand" data-bind="click: handleDoorClick">
         <img src="assets/images/overview_base-door.png" class="door" alt="Go to door">
     </div>
-    <div data-bind="route: 'chemical'">
+    <div class="hand" data-bind="route: 'chemical'">
         <img src="assets/images/overview_base-chemicalcloset.png" class="chemicalcloset" alt="Go to chemical closet">
     </div>
-    <div data-bind="route: 'fumehood'">
+    <div class="hand" data-bind="route: 'fumehood'">
         <img src="assets/images/overview_base-fumehood.png" class="fumehood" alt="Go to fumehood">
     </div>
-    <div data-bind="route: 'worktable2'">
+    <div class="hand" data-bind="route: 'worktable2'">
         <img src="assets/images/overview_base-worktable2.png" class="worktable2" alt="Go to work table 2">
     </div>
-    <div data-bind="route: 'mouse'">
+    <div class="hand" data-bind="route: 'mouse'">
         <img src="assets/images/overview_base-mouse.png" class="mouse" alt="Go to mouse">
     </div>
-    <div data-bind="route: 'worktable1'">
+    <div class="hand" data-bind="route: 'worktable1'">
         <img src="assets/images/overview_base-worktable1.png" class="worktable1" alt="Go to work table 1">
     </div>
-    <div data-bind="route: 'fermentor'">
+    <div class="hand" data-bind="route: 'fermentor'">
         <img src="assets/images/overview_base-fermentorchroma.png" class="fermentorchroma" alt="Go to fermentor and chromatograph">
     </div>
-    <div data-bind="route: 'incubator'">
+    <div class="hand" data-bind="route: 'incubator'">
         <img src="assets/images/overview_base-incubator.png" class="incubator" alt="Go to incubator">
     </div>
 </div>

@@ -1,37 +1,37 @@
-<div class="pipette"
+<div class="pipette hand"
      data-bind="drag: { item: gameState.pipette, helper: 'original', revert: false, offset: { top: 180, left: 20 } },
                 visible: gameState.pipette.active,
                 css: { tip: gameState.pipette.hasTip(), full: !gameState.pipette.isEmpty() }"></div>
 
 <div class="hud">
     <div class="top-menu">
-        <div class="back-button" data-bind="click: router.back, visible: router.hasBack">
+        <div class="back-button hand" data-bind="click: router.back, visible: router.hasBack">
             <img src="assets/images/top-button_back.png" alt="Tilbage">
         </div>
 
         <ul class="right">
-            <li data-bind="click: selectExperiment">
+            <li class="hand" data-bind="click: selectExperiment">
                 <img src="assets/images/top-button_experiment.png" alt="Vælg nyt eksperiment">
             </li>
-            <li data-bind="click: fullscreen">
+            <li class="hand" data-bind="click: fullscreen">
                 <img src="assets/images/top-button_fullscreen.png" alt="Full screen">
             </li>
         </ul>
     </div>
 
     <div class="menu-bar">
-        <div class="guide">
+        <div class="hand guide">
             <img src="assets/images/icon_main_instructions.png" alt="Øvelsesvejledninger">
         </div>
 
         <div class="inventory-container">
-            <img class="arrow-left" src="assets/images/arrow_left.png"
+            <img class="hand arrow-left" src="assets/images/arrow_left.png"
                  data-bind="event: { mousedown: scrollInventory.bind(null, false), mouseup: stopScroll},
                             css: { dimmed: !canScroll() }">
 
             <div class="inventory" data-bind="drop: { handler: inventoryDropHandler }">
                 <ul data-bind="foreach: gameState.inventory.items, style: { left: scrollValue() + 'px' }">
-                    <li data-bind="click: $parent.showItemDetails.bind(null, $data)">
+                    <li class="hand" data-bind="click: $parent.showItemDetails.bind(null, $data)">
                         <div data-bind="drag: { item: $data, dim: true, consume: $parent.gameState.inventory.remove.bind(null, $data) }">
                             <img data-bind="attr: { src: $parent.ImageHelper.inventoryIcon($data) }">
                         </div>
@@ -39,28 +39,27 @@
                 </ul>
             </div>
 
-            <img class="arrow-right" src="assets/images/arrow_right.png"
+            <img class="hand arrow-right" src="assets/images/arrow_right.png"
                  data-bind="event: { mousedown: scrollInventory.bind(null, true), mouseup: stopScroll},
                             css: { dimmed: !canScroll() }">
         </div>
 
         <div class="menu-right-links">
             <ul>
-                <li data-bind="click: togglePipette.bind(null, $parent.activeViewController())">
+                <li class="hand" data-bind="click: togglePipette.bind(null, $parent.activeViewController())">
                     <img src="assets/images/icon_big_pipette.png" alt="Pipette">
                 </li>
-                <li data-bind="click: handlePipetteTip.bind(null, $parent.activeViewController())">
+                <li class="hand" data-bind="click: handlePipetteTip.bind(null, $parent.activeViewController())">
                     <img src="assets/images/icon_big_tips.png" alt="Pipette spidser">
                 </li>
-                <li data-bind="drop: { handler: trashDropHandler }">
+                <li class="hand" data-bind="drop: { handler: trashDropHandler }">
                     <img src="assets/images/icon_big_biotrash.png" alt="Affald">
                 </li>
             </ul>
         </div>
     </div>
 
-
-        <div class="logo">
-            <img src="assets/images/logo-white.png" alt="Biotech Academy logo" width="100px" height="30px">
-        </div>
+    <div class="logo">
+        <img src="assets/images/logo-white.png" alt="Biotech Academy logo" width="100px" height="30px">
+    </div>
 </div>

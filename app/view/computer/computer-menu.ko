@@ -1,6 +1,6 @@
 <div class="mainmenu">
  	<ul>
- 		<li data-bind="click: screenChanger(Screens.ORDER_MOUSE)">
+ 		<li class="hand" data-bind="click: screenChanger(Screens.ORDER_MOUSE)">
  			<div class="icon order-mouse"></div>
  			<div class="text">Bestil mus</div>
  		</li>
@@ -16,7 +16,7 @@
  			<div class="icon send-tubesequencing"></div>
  			<div class="text">Send til sekvensering</div>
  		</li>
- 		<li data-bind="click: screenChanger(Screens.DESIGN_DNA)">
+ 		<li class="hand" data-bind="click: screenChanger(Screens.DESIGN_DNA)">
  			<div class="icon design-dna"></div>
  			<div class="text">Design DNA</div>
  		</li>
