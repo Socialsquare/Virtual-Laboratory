@@ -14,8 +14,8 @@ define([
             self.microorganismType = ko.observable(microorganismType);
             self.living = ko.observable(true);
 		    self.name = ko.observable('');
-		    self.extraGenes = ko.observable(null); //TODO: implement
-            self.extraProperties = ko.observable(null); //TODO: implement
+		    self.extraGenes = ko.observableArray([]); //TODO: implement
+            self.extraProperties = ko.observableArray([]); //TODO: implement
 		    self.optimalPh = ko.observable(0);
 		    self.optimalTemp = ko.observable(0);
 		    self.concentration = ko.observable(0);

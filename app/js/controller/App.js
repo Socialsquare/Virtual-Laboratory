@@ -17,6 +17,7 @@ define([
     'controller/view/FermentorScreen',
     'controller/view/UvRoom',
     'controller/view/Washing',
+    'controller/view/computer/DesignDNA', //TODO: remove, just for dummy-data
 
     'controller/Popup',
     'controller/Menu',
@@ -30,7 +31,7 @@ define([
              ComputerController, FumehoodController, Worktable1Controller,
              Worktable2Controller, IncubatorController, SpectroPMController,
              FermentorController, FermentorScreenController, UvRoomController,
-             WashingController, popupController, MenuController,
+             WashingController, DesignDNAController, popupController, MenuController,
              LiquidFactory, ContainerFactory, SpecialItemFactory) {
 
 
@@ -58,7 +59,8 @@ define([
                 fermentor: new FermentorController(),
                 fermentorscreen: new FermentorScreenController(),
                 uvroom: new UvRoomController(),
-                washing: new WashingController()
+                washing: new WashingController(),
+                designDNA: new DesignDNAController() //TODO: remove
             };
 
             self.viewChange = function (viewName) {
@@ -134,6 +136,36 @@ define([
             self.gameState.washing.tubeRack.addAt(0, ContainerFactory.tube().add(LiquidFactory.lipase()));
             self.gameState.washing.tubeRack.addAt(3, ContainerFactory.tube().add(LiquidFactory.microorganism.yeast()));
             self.gameState.washing.tubeRack.addAt(5, ContainerFactory.tube());
+
+// Dummy-data with DNA. Much shaky.
+            var dnaDesign = viewControllers['designDNA'];
+            dnaDesign.dnaService.getDNAElements()
+                .done(function(){
+                    console.log('shit should be loaded, but it ain\'t... Therefore: delay. Much shaky');
+                    _.delay(function(dnaDesign, self){
+                        console.log('Delayed function..');
+                        dnaDesign.handleDrop(dnaDesign.availableDNA()[8]);
+                        dnaDesign.handleDrop(dnaDesign.availableDNA()[3]);
+                        dnaDesign.handleDrop(dnaDesign.availableDNA()[1]);
+                        dnaDesign.handleDrop(dnaDesign.availableDNA()[5]);
+                        dnaDesign.handleDrop(dnaDesign.availableDNA()[4]);
+                        dnaDesign.handleDrop(dnaDesign.availableDNA()[7]);
+                        dnaDesign.handleDrop(dnaDesign.availableDNA()[2]);
+                        dnaDesign.handleDrop(dnaDesign.availableDNA()[0]);
+                        dnaDesign.handleDrop(dnaDesign.availableDNA()[0]);
+
+                        dnaDesign.orderDNA();
+
+                        var len = self.gameState.inventory.items().length;
+                        var dnaTube = self.gameState.inventory.items()[len-1];
+
+                        self.gameState.worktable1.electroporator.addAll(dnaTube.liquids());
+                        self.gameState.worktable1.electroporator.add(LiquidFactory.microorganism.yeast());
+                    }, 3500, dnaDesign, self);
+
+                });
+
+            /*debugger;*/
         }
     });
 
