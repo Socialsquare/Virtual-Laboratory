@@ -54,6 +54,7 @@ define([
                 if (!self.canScroll()) {
                     self.scrollValue(0);
                     self.stopScroll();
+                    return;
                 }
 
                 if (self.scrollValue() > 0) {
