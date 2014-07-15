@@ -53,11 +53,14 @@ define([
 
                             } else if(self.simpleContainer.isEmpty()) { //TODO: 1) hvis elektro er tom --> tilføj all the things
                                 item.emptyPipetteInto(self.simpleContainer);
+                                self.popupController.notify('Info', 'Du har tømt pipetten.', 2000);
+
                             } else if(!self.simpleContainer.isEmpty() && item.getTip().isEmpty()){ // 2) hvis elektro har contents && pipette er tom --> sug alt
 
                                 if(item.getTip().used()) {
                                     self.popupController.message('Dumt', 'Pipetten skal have en ren spids, ellers forurener du dine prøver.');
                                 } else {
+                                    self.popupController.notify('Info', 'Du har suget indhold op med pipetten.', 2000);
                                     item.fillPipette(self.simpleContainer);
                                 }
                                 //TODO: tom elektroporator - eller nej? Det kommer i næste case
@@ -68,6 +71,7 @@ define([
                                     if (answer) {
                                         self.simpleContainer.clearContents();
                                         item.emptyPipetteInto(self.simpleContainer);
+                                        self.popupController.notify('Info', 'Du har tømt pipetten.', 2000);
                                     }
                                 });
 

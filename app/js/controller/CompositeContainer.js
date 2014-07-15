@@ -97,11 +97,11 @@ define([
                         }else {
 
                             item.fillPipette(self.compContainer.get(position));
-                            self.popupController.notify('Test', 'Du har suget indhold op med pipetten.', 2000);
+                            self.popupController.notify('Info', 'Du har suget indhold op med pipetten.', 2000);
                         }
                     }else { //TODO: empty the pipette
                         item.emptyPipetteInto(self.compContainer.get(position));
-                        self.popupController.notify('Test', 'Du har tømt pipetten.', 2000);
+                        self.popupController.notify('Info', 'Du har tømt pipetten.', 2000);
                     }
                 }
             };
