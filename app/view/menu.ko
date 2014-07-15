@@ -3,73 +3,62 @@
                 visible: gameState.pipette.active,
                 css: { tip: gameState.pipette.hasTip(), full: !gameState.pipette.isEmpty() }"></div>
 
-<div class="top-menu">
-    <ul class="left">
-        <li>
-            <a id="view-back-link" data-bind="click: router.back, visible: router.hasBack">
-                <img src="assets/images/top-button_back.png" alt="Tilbage">
-            </a>
-        </li>
-    </ul>
+<div class="hud">
+    <div class="top-menu">
+        <div class="back-button" data-bind="click: router.back, visible: router.hasBack">
+            <img src="assets/images/top-button_back.png" alt="Tilbage">
+        </div>
 
-    <ul class="right">
-        <li>
-            <a id="menu-newexperiment-link" data-bind="click: selectExperiment">
+        <ul class="right">
+            <li data-bind="click: selectExperiment">
                 <img src="assets/images/top-button_experiment.png" alt="Vælg nyt eksperiment">
-            </a>
-        </li>
-        <li>
-            <a id="menu-fullscreen-link" data-bind="click: fullscreen">
+            </li>
+            <li data-bind="click: fullscreen">
                 <img src="assets/images/top-button_fullscreen.png" alt="Full screen">
-            </a>
-        </li>
-    </ul>
-</div>
-
-<div class="menu-bar">
-    <ul>
-        <li>
-            <a id="experimentinstructions-link">
-                <img src="assets/images/icon_main_instructions.png" alt="Øvelsesvejledninger">
-            </a>
-        </li>
-    </ul>
-
-    <div class="logo-container">
-        <img class="logo" src="assets/images/logo-white.png" alt="Biotech Academy logo">
+            </li>
+        </ul>
     </div>
 
-    <div class="inventory-container">
-        <div class="inventory" data-bind="drop: { handler: inventoryDropHandler }">
-            <ul data-bind="foreach: gameState.inventory.items">
-                <li class="inventory-box" data-bind="click: $parent.showItemDetails.bind(null, $data)">
-                    <div data-bind="drag: { item: $data, dim: true, consume: $parent.gameState.inventory.remove.bind(null, $data) }">
-                        <img data-bind="attr: { src: $parent.ImageHelper.inventoryIcon($data) }">
-                    </div>
+    <div class="menu-bar">
+        <div class="guide">
+            <img src="assets/images/icon_main_instructions.png" alt="Øvelsesvejledninger">
+        </div>
+
+        <div class="inventory-container">
+            <img class="arrow-left" src="assets/images/arrow.png"
+                 data-bind="event: { mousedown: scrollInventory.bind(null, false), mouseup: stopScroll}">
+
+            <div class="inventory" data-bind="drop: { handler: inventoryDropHandler }">
+                <ul data-bind="foreach: gameState.inventory.items">
+                    <li data-bind="click: $parent.showItemDetails.bind(null, $data)">
+                        <div data-bind="drag: { item: $data, dim: true, consume: $parent.gameState.inventory.remove.bind(null, $data) }">
+                            <img data-bind="attr: { src: $parent.ImageHelper.inventoryIcon($data) }">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <img class="arrow-right" src="assets/images/arrow.png"
+                 data-bind="event: { mousedown: scrollInventory.bind(null, true), mouseup: stopScroll}">
+        </div>
+
+        <div class="menu-right-links">
+            <ul>
+                <li data-bind="click: togglePipette.bind(null, $parent.activeViewController())">
+                    <img src="assets/images/icon_big_pipette.png" alt="Pipette">
+                </li>
+                <li data-bind="click: handlePipetteTip.bind(null, $parent.activeViewController())">
+                    <img src="assets/images/icon_big_tips.png" alt="Pipette spidser">
+                </li>
+                <li data-bind="drop: { handler: trashDropHandler }">
+                    <img src="assets/images/icon_big_biotrash.png" alt="Affald">
                 </li>
             </ul>
         </div>
     </div>
 
-    <div class="menu-right-links">
-        <ul>
-            <li>
-                <button class="btn-none" id="menu-pipette-btn"
-                        data-bind="click: togglePipette.bind(null, $parent.activeViewController())">
-                    <img src="assets/images/icon_big_pipette.png" alt="Pipette">
-                </button>
-            </li>
-            <li>
-                <button class="btn-none" id="menu-tips-btn"
-                        data-bind="click: handlePipetteTip.bind(null, $parent.activeViewController())">
-                    <img src="assets/images/icon_big_tips.png" alt="Pipette spidser">
-                </button>
-            </li>
-            <li data-bind="drop: { handler: trashDropHandler }">
-                <button class="btn-none" id="menu-trash-btn">
-                    <img src="assets/images/icon_big_biotrash.png" alt="Affald">
-                </button>
-            </li>
-        </ul>
-    </div>
+
+        <div class="logo">
+            <img src="assets/images/logo-white.png" alt="Biotech Academy logo" width="100px" height="30px">
+        </div>
 </div>

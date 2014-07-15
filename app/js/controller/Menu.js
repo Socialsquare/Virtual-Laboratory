@@ -27,6 +27,30 @@ define([
             self.gameState = gameState;
             self.router = router;
 
+            self.scrollInterval = null;
+            self.scrollRight = false;
+
+            self.scrollInventory = function (scrollRight) {
+                self.scrollRight = scrollRight;
+                self.scrollInterval = window.setInterval(self.doScroll, 20);
+            };
+
+            self.doScroll = function () {
+                var pos = parseInt($('.hud .inventory ul').css('left'), 10);
+                var width = parseInt($('.hud .inventory ul').width(), 10);
+                var containerWidth = parseInt($('.hud .inventory').width(), 10);
+                if (self.scrollRight && pos > -width)
+                    $('.hud .inventory ul').css('left', '-=3');
+                if (!self.scrollRight && pos < 0)
+                    $('.hud .inventory ul').css('left', '+=3');
+                // && $('.hud .inventory ul').css('left') < 0
+                // && $('.hud .inventory ul').css('left') > $('.hud .inventory ul').width()
+            };
+
+            self.stopScroll = function () {
+                window.clearInterval(self.scrollInterval);
+            };
+
             self.selectExperiment = function () {
                 self.router.navigate('loading');
             };

@@ -1,192 +1,131 @@
 /* view/menu.scss */
 
 @import '../variables';
+@import '../mixin/color';
 
-.top-menu {
-    z-index: 100;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    width: 1024px;
-    /*height: 100px;*/
-    margin-left: -512px;
-
-    ul {
-        padding: 0;
-        margin: 14px 0 0 0;
-        list-style: none;
-
-        li {
-            float: left;
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-    }
-
-    .left, .right { margin-left: 10px; }
-    .left { float: left; }
-    .right { float: right; }
-
-}
-
-.menu-bar {
-    z-index: 100;
-    position: absolute;
-    left: 50%;
-    top: 644px;
-    width: 1024px;
-    height: 122px;
-    /* account for 2px top border */
-    margin-left: -512px;
-
-    ul {
-        padding: 0;
-        margin: 0;
-        float: left;
-        list-style: none;
-
-        li {
-            float: left;
-            margin: 0 5px 0 5px;
-            a { cursor: pointer; }
-        }
-    }
-
-    background: #6e6e73;
-    /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover, #6e6e73 0%, #433f46 100%);
-    /* FF3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #6e6e73), color-stop(100%, #433f46));
-    /* Chrome,Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover, #6e6e73 0%, #433f46 100%);
-    /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover, #6e6e73 0%, #433f46 100%);
-    /* Opera 12+ */
-    background: -ms-radial-gradient(center, ellipse cover, #6e6e73 0%, #433f46 100%);
-    /* IE10+ */
-    background: radial-gradient(ellipse at center, #6e6e73 0%, #433f46 100%);
-    /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6e6e73', endColorstr='#433f46',GradientType=1 );
-    /* IE6-9 fallback on horizontal gradient */
-    border-top-width: 2px;
-    border-top-style: solid;
-    border-color: #555159;
-
-    .left-icon {
-        width: 98px;
-        height: 101px;
-    }
-
-
-    .logo-container {
+.hud {
+    .logo {
         position: absolute;
         left: 0;
-        bottom: 0;
-        .logo {
-            width: 100px;
-            height: 30px;
+        bottom: -4px;
+    }
+
+    .top-menu {
+        position: absolute;
+        top: 0;
+        padding-top: 15px;
+        width: 1024px;
+
+        ul {
+            padding: 0;
+            list-style: none;
+
+            li {
+                margin: 0 5px;
+                display: inline-block;
+            }
+        }
+
+        .right {
+            float: right;
         }
     }
 
-    .inventory-container {
-        float: left;
-        height: 100px;
-        text-align: center;
-        ul {
-            margin: 0;
-            padding: 0;
+    .menu-bar {
+        @include gradient-bg(#6e6e73, #433f46);
+
+        position: absolute;
+        bottom: 0;
+        width: 1024px;
+        height: 122px;
+
+        border-top-width: 2px;
+        border-top-style: solid;
+        border-color: #555159;
+
+        .guide {
+            float: left;
         }
 
-        .inventory {
-            margin: 10px 20px 0 20px;
-            width: 500px;
-            height: 90px;
-            overflow-x: scroll;
-            overflow-y: hidden;
-            border-width: 2px;
-            border-style: solid;
-            border-radius: 45px;
-            border-color: #1c1b1e;
-            background: #38363c;
-            /* Old browsers */
-            background: -moz-linear-gradient(left, #38363c 0%, #54565a 100%);
-            /* FF3.6+ */
-            background: -webkit-gradient(linear, left top, right top, color-stop(0%, #38363c), color-stop(100%, #54565a));
-            /* Chrome,Safari4+ */
-            background: -webkit-linear-gradient(left, #38363c 0%, #54565a 100%);
-            /* Chrome10+,Safari5.1+ */
-            background: -o-linear-gradient(left, #38363c 0%, #54565a 100%);
-            /* Opera 11.10+ */
-            background: -ms-linear-gradient(left, #38363c 0%, #54565a 100%);
-            /* IE10+ */
-            background: linear-gradient(to right, #38363c 0%, #54565a 100%);
-            /* W3C */
+        .inventory-container {
+            float: left;
+            height: 100px;
+            position: relative;
+            margin-left: 25px;
+
+            .arrow-left, .arrow-right {
+                position: absolute;
+                cursor: pointer;
+
+                width: 50px;
+                height: 100px;
+            }
+
+            .arrow-left {
+                left: 10px;
+            }
+
+            .arrow-right {
+                left: 520px;
+            }
+
+            .inventory {
+                @include gradient-bg(#38363c, #54565a);
+                @include border(solid, 2px, #1c1b1e, 45px);
+
+                position: absolute;
+                left: 20px;
+                margin: 13px 0 0 35px;
+                width: 448px;
+                height: 90px;
+                overflow: hidden;
+
+                ul {
+                    display: block;
+                    position: relative;
+                    top: -15px;
+                    left: 0;
+                    padding: 0;
+                    margin-left: 3px;
+
+                    height: 90px;
+                    list-style-type: none;
+                    white-space: nowrap;
+
+                    li {
+                        display: inline-block;
+                        width: 80px;
+                        height: 80px;
+                        margin-left: 4px;
+                    }
+                }
+            }
+        }
+
+        .menu-right-links {
+            float: right;
+            margin-top: 10px;
+            overflow: hidden;
 
             ul {
-                width: 3000px;
-                height: 90px;
-                display: block;
-                list-style-type: none;
-                white-space: nowrap;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+
                 li {
                     display: inline-block;
-                    width: 80px;
-                    height: 80px;
-                    margin: 0;
+                    margin: 0 5px;
+
+                    img {
+                        width: 100px;
+                        height: 100px;
+                    }
                 }
             }
-
-            .inventory-box {
-                position: relative;
-                width: 80px;
-                height: 75px;
-                padding-top: 5px;
-                /*border-radius: 4px;
-                  background-color: white;*/
-                .draggable {
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-            }
-        }
-    }
-
-    .menu-right-links {
-        float: right;
-        ul {
-            height: 112px;
-            border-width: 2px;
-            border-style: solid;
-            border-color: #373A46;
-            border-top-left-radius: 56px;
-            border-bottom-left-radius: 56px;
-            img {
-                width: 106px;
-                height: 106px;
-                margin-top: 3px;
-            }
-
-            background: #424245;
-            /* Old browsers */
-            background: -moz-linear-gradient(left, #424245 0%, #373a46 100%);
-            /* FF3.6+ */
-            background: -webkit-gradient(linear, left top, right top, color-stop(0%, #424245), color-stop(100%, #373a46));
-            /* Chrome,Safari4+ */
-            background: -webkit-linear-gradient(left, #424245 0%, #373a46 100%);
-            /* Chrome10+,Safari5.1+ */
-            background: -o-linear-gradient(left, #424245 0%, #373a46 100%);
-            /* Opera 11.10+ */
-            background: -ms-linear-gradient(left, #424245 0%, #373a46 100%);
-            /* IE10+ */
-            background: linear-gradient(to right, #424245 0%, #373a46 100%);
-            /* W3C */
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#424245', endColorstr='#373a46',GradientType=1 );
-        /* IE6-9 */
         }
     }
 }
 
-/* TODO: unused? But it has to be used! */
 .pipette {
     position: absolute;
     top: 400px;
@@ -195,12 +134,13 @@
     height: 227px;
     z-index: 400;
     background-image: url(#{$img-path}/grab_pipette_notip.png);
-    background-size: 105px 227px; }
+    background-size: 105px 227px;
 
-.pipette.tip {
-    background-image: url(#{$img-path}/grab_pipette_tip.png);
-}
+    &.tip {
+        background-image: url(#{$img-path}/grab_pipette_tip.png);
 
-.pipette.tip.full {
-    background-image: url(#{$img-path}/grab_pipette_tip_click.png);
+        &.full {
+            background-image: url(#{$img-path}/grab_pipette_tip_click.png);
+        }
+    }
 }
