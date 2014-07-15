@@ -13,4 +13,30 @@
     @include tuberack(633px, -1px);
     z-index: 5000;
   }
+
+  .washing-button {
+    position: absolute;
+    left: 618px;
+    top: 159px;
+    width: 108px;
+    height: 99px;
+  }
+
+  .drawer {
+    position: absolute;
+    left: 754px;
+    top: 149px;
+    width: 219px;
+    height: 190px;
+  }
+
+  .shirt {
+    z-index: 4900;
+
+    .overlay {
+      position: absolute;
+      left: 486px;
+      top: 262px;
+    }
+  }
 }

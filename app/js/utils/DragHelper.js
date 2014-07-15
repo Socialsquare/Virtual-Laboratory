@@ -23,6 +23,8 @@ define([
 
         acceptPipette: accepter([ContainerType.PIPETTE]),
 
+        acceptedByWashing: accepter([ContainerType.TUBE]),
+
         acceptedByComposite: accepter([ContainerType.PIPETTE]),
 
         acceptedByMouse: accepter([

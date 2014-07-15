@@ -4,9 +4,12 @@
     <hr />
 
     <span class="message" data-bind="text: message"></span>
-    <!-- /ko -->
+
+    <br />
+    <select data-bind="options: options, value: selected"></select>
 
     <div class="btn-row float-clear">
-        <button data-bind="click: popupController.hide">Luk</button>
+        <button data-bind="click: cb">Bekreft</button>
     </div>
+    <!-- /ko -->
 </div>

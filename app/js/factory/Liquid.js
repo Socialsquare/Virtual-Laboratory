@@ -81,6 +81,10 @@ define([
 
         adjuvans: function () {
             return new Liquid(LiquidType.ADJUVANS, ReactionCount.NEVER);
+        },
+
+        lipase: function () {
+            return new Liquid(LiquidType.LIPASE_ENZYME, ReactionCount.NEVER);
         }
     };
 

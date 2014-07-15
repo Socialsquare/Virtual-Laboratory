@@ -34,12 +34,13 @@ define([
             };
 
             self.notify = function(title, message, closingTime) {
-                self.show('popup-notify', { title: title, message: message});
-                _.delay(function(){
+                var delay = closingTime || 3000;
+
+                self.show('popup-notify', { title: title, message: message });
+                _.delay(function () {
                     self.hide();
-                    }, closingTime);
+                }, delay);
             };
-            //TODO: implement discrete message (i.e. top left corner, fades after X seconds)
 
             self.itemDetail = function (item) {
                 self.show('popup-item-detail', { item: item });
@@ -50,6 +51,20 @@ define([
                     cb(answer);
                     self.hide();
                 } });
+            };
+
+            self.select = function (title, message, options, cb) {
+                var selected = ko.observable();
+                var fn = function () {
+                    cb(selected());
+                    self.hide();
+                };
+
+                self.show('popup-select', { title: title,
+                                            message: message,
+                                            options: ko.observableArray(options),
+                                            selected: selected,
+                                            cb: fn });
             };
         }
     });
