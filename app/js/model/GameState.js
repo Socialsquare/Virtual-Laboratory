@@ -14,11 +14,12 @@ define([
     'model/Fermentor',
     'model/UvRoom',
     'model/Washing',
+    'model/type/Mouse',
     'model/type/MouseBlood',
     'model/type/ComputerScreen'
 ], function (ko, Base, Inventory, MouseModel, PipetteModel, Worktable1Model,
              Worktable2Model, FumehoodModel, IncubatorModel,
-             SpectroPMModel, FermentorModel, UvRoomModel, WashingModel, MouseBloodType, ComputerScreenType) {
+             SpectroPMModel, FermentorModel, UvRoomModel, WashingModel, MouseType, MouseBloodType, ComputerScreenType) {
 
     var GameState = Base.extend({
 
@@ -27,7 +28,7 @@ define([
 
         inventory: new Inventory(),
 
-        mouse: ko.observable(new MouseModel(MouseBloodType.DIABETIC)),
+        mouse: ko.observable(new MouseModel(MouseType.HEALTHY, MouseBloodType.DIABETIC)),
         pipette: new PipetteModel(),
 
         worktable1: new Worktable1Model(),

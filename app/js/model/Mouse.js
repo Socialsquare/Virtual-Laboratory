@@ -8,7 +8,7 @@ define([
 ], function (ko, Base, _, SpleenModel, MouseBloodType, MouseType) {
 
     var Mouse = Base.extend({
-        constructor: function (mouseBloodType) {
+        constructor: function (mouseType, mouseBloodType) {
             var self = this;
             //TODO: all the things!
 
@@ -16,7 +16,7 @@ define([
             self.isCut = ko.observable(false);
             self.spleen = new SpleenModel();
             self.mouseBloodType = ko.observable(null);
-            self.mouseType = ko.observable(null);
+            self.mouseType = ko.observable(mouseType);
             self.description = ko.computed(function () {
                 switch (self.mouseType()) {
                 case MouseType.GOUT:
@@ -37,7 +37,7 @@ define([
                     return 'mouse.description.diabetic';
 
                 default:
-                    throw 'Unknown mouse configuration: ' + self.mouseType() + ', ' + self.mouseBloodType();
+                    return '';
                 }
             });
 

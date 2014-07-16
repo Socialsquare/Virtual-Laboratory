@@ -5,7 +5,9 @@
     </div>
 
     <ul data-bind="foreach: availableMice">
-        <li><span data-bind="text: description, click: $parent.selectMouse.bind(null, $data)"></span> </li>
+        <li>
+            <span class="hand" data-bind="i18n: description, click: $parent.selectMouse.bind(null, $data)"></span>
+        </li>
     </ul>
 
     <div class="detail">

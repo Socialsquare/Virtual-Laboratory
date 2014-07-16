@@ -6,11 +6,12 @@ define([
     'model/GameState',
     'model/Mouse',
 
+    'model/type/Mouse',
     'model/type/MouseBlood',
     'model/type/ComputerScreen',
 
     'utils/utils'
-], function (ko, BaseComputer, gameState, MouseModel, MouseBloodType, ComputerScreenType, utils) {
+], function (ko, BaseComputer, gameState, MouseModel, MouseType, MouseBloodType, ComputerScreenType, utils) {
 
     var OrderMouse = BaseComputer.extend({
 
@@ -18,12 +19,15 @@ define([
             var self = this;
             self.base('computer-order-mouse');
 
-            self.selectedMouse = ko.observable(new MouseModel(MouseBloodType.DIABETIC));
-
             self.availableMice = ko.observableArray([
-                new MouseModel(MouseBloodType.DIABETIC),
-                new MouseModel(MouseBloodType.NORMAL)
+                new MouseModel(MouseType.HEALTHY,  MouseBloodType.DIABETIC),
+                new MouseModel(MouseType.HEALTHY,  MouseBloodType.NORMAL),
+                new MouseModel(MouseType.GOUT,     MouseBloodType.NORMAL),
+                new MouseModel(MouseType.SMALLPOX, MouseBloodType.NORMAL),
+                new MouseModel(MouseType.INSOMNIA, MouseBloodType.NORMAL)
             ]);
+
+            self.selectedMouse = ko.observable(self.availableMice()[0]);
 
             self.selectMouse = function (mouse) {
                 self.selectedMouse(mouse);
