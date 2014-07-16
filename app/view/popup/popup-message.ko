@@ -7,6 +7,6 @@
     <!-- /ko -->
 
     <div class="btn-row float-clear">
-        <button data-bind="click: popupController.hide, i18n: 'common.close'"></button>
+        <button data-bind="click: hide, i18n: 'common.close'"></button>
     </div>
 </div>

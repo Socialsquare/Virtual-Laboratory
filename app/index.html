@@ -20,9 +20,9 @@
             </div>
 
             <div id="popup-container" data-bind="visible: popupController.active">
-                <div data-bind="template: { name: popupController.templateName,
-                                data: popupController.viewModel,
-                                if: popupController.active}"></div>
+                <div data-bind="foreach: popupController.activePopups">
+                    <div data-bind="template: { name: templateName, data: $data}"></div>
+                </div>
             </div>
 
             <!-- OFFSCREEN PRELOADS -->

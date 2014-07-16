@@ -14,22 +14,19 @@ define([
         constructor: function () {
             var self = this;
 
-            self.active = ko.observable(false);
-            self.templateName = ko.observable('');
-            self.viewModel = ko.observable(null);
+            self.activePopups = ko.observableArray([]);
+            self.active = ko.computed(function () {
+                return !self.activePopups.isEmpty();
+            });
 
             self.show = function (name, viewData) {
-                var vm = new PopupModel(viewData, this);
-
-                self.templateName(name);
-                self.viewModel(vm);
-                self.active(true);
+                var vm = new PopupModel(name, viewData, self);
+                self.activePopups.push(vm);
+                return vm;
             };
 
-            self.hide = function () {
-                self.active(false);
-                self.templateName('');
-                self.viewModel(null);
+            self.hide = function (popup) {
+                self.activePopups.remove(popup);
             };
 
             self.message = function (title, message) {
@@ -39,9 +36,9 @@ define([
             self.notify = function(title, message, closingTime) {
                 var delay = closingTime || 3000;
 
-                self.show('popup-notify', { title: title, message: message });
+                var vm = self.show('popup-notify', { title: title, message: message });
                 _.delay(function () {
-                    self.hide();
+                    self.hide(vm);
                 }, delay);
             };
 
@@ -50,10 +47,10 @@ define([
             };
 
             self.confirm = function (title, message, cb) {
-                self.show('popup-dialog', { title: title, message: message, cb: function (answer) {
+                var vm = self.show('popup-dialog', { title: title, message: message, cb: function (answer) {
                     cb(answer);
-                    self.hide();
-                } });
+                    self.hide(vm);
+                }});
             };
 
             self.quiz = function (id) {

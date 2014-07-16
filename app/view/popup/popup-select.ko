@@ -1,15 +1,15 @@
 <div class="popup popup-dialog">
     <!-- ko with: data -->
-    <h1 data-bind="text: title"></h1>
+    <h1 data-bind="i18n: title"></h1>
     <hr />
 
-    <span class="message" data-bind="text: message"></span>
+    <span class="message" data-bind="i18n: message"></span>
 
     <br />
     <select data-bind="options: options, value: selected"></select>
 
     <div class="btn-row float-clear">
-        <button data-bind="click: cb">Bekreft</button>
+        <button data-bind="click: cb, i18n: 'common.ok'"></button>
     </div>
     <!-- /ko -->
 </div>

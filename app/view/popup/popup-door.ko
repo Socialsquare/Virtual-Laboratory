@@ -25,6 +25,6 @@
     </ul>
 
     <div class="btn-row">
-        <button type="button" class="popup-cancel-btn" data-bind="click: popupController.hide">Luk</button>
+        <button type="button" class="popup-cancel-btn" data-bind="click: hide">Luk</button>
     </div>
 </div>

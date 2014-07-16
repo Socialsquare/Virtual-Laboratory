@@ -19,7 +19,7 @@
     </ul>
 
     <div class="btn-row">
-        <button data-bind="click: $parent.popupController.hide, visible: quizFinished, i18n: 'common.close'"></button>
+        <button data-bind="click: $parent.hide, visible: quizFinished, i18n: 'common.close'"></button>
     </div>
     <!-- /ko -->
     <!-- /ko -->

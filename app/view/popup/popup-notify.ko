@@ -5,8 +5,4 @@
 
     <span class="message" data-bind="i18n: message"></span>
     <!-- /ko -->
-
-    <!--<div class="btn-row float-clear">
-&lt;!&ndash;        <button type="button" data-bind="click: popupController.hide">Luk</button>&ndash;&gt;
-    </div>-->
 </div>

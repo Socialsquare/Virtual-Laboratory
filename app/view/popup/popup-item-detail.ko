@@ -8,6 +8,6 @@
     <textarea rows="10" cols="40" data-bind="value: data.item.label"></textarea>
 
     <div class="btn-row float-clear">
-        <button type="button" data-bind="click: popupController.hide">Luk</button>
+        <button type="button" data-bind="click: hide">Luk</button>
     </div>
 </div>
