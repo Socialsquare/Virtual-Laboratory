@@ -1,9 +1,9 @@
 <div class="popup popup-notify">
     <!-- ko with: data -->
-    <h3 data-bind="text: title"></h3>
+    <h3 data-bind="i18n: title"></h3>
     <hr />
 
-    <span class="message" data-bind="text: message"></span>
+    <span class="message" data-bind="i18n: message"></span>
     <!-- /ko -->
 
     <!--<div class="btn-row float-clear">

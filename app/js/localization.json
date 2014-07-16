@@ -22,16 +22,41 @@
         "computer.screen.mouse.insulin.prod": "Insulin produktivitet: ",
         "computer.screen.mouse.insulin.effect": "Insulin effektivitet: ",
 
+        "mouse.vaccinated_smallpox.header": "Musen blev vaccineret",
+        "mouse.vaccinated_smallpox.body": "Du har nu givet musen antigener for kopper",
+        "mouse.vaccinated_gout.header": "Musen blev vaccineret",
+        "mouse.vaccinated_gout.body": "Du har nu givet musen antigener for gigt",
+        "mouse.died.header": "Musen er død",
+        "mouse.died.body": "Musen døde af det der",
+        "mouse.spleen_extracted.header": "Milt ekstraheret",
+        "mouse.spleen_extracted.body": "Milten ligger nu i din taske",
+        "mouse.cut_alive.header": "Lidt sygt",
+        "mouse.cut_alive.body": "Musen skal være død før du begynder at skære i den. Andet er jo ren dyreplageri...",
+
+        "washing.empty_tube.header": "Forbudt",
+        "washing.empty_tube.body": "Dit reagensglas er tomt",
         "washing.detergent_required.header": "Forbudt",
         "washing.detergent_required.body": "Du mangler vaskemiddel",
 
         "worktable1.bunsen_required.header": "Forbudt",
         "worktable1.bunsen_required.body": "Bunsenbrænderen skal være tændt før du kan arbejde ved bordet",
 
+        "worktable2.spleen_blended.header": "Milten er blended",
+        "worktable2.spleen_blended.body": "Der er tilføjet et reagensglas i dit inventory med homogeniseret milt.",
+
         "popup.confirm_delete_header": "Bekræft",
         "popup.confirm_delete_body": "Er du sikker på at du vil slette?",
         "popup.details.notes": "Her kan du tage noter om beholderen",
         "popup.quiz.header": "Quiz!",
+
+        "pipette.sucked.header": "Info",
+        "pipette.sucked.body": "Du har suget indhold op med pipetten.",
+        "pipette.emptied.header": "Info",
+        "pipette.emptied.body": "Du har tømt pipetten.",
+        "pipette.dirty_tip.body": "Beskidt spidst",
+        "pipette.dirty_tip.header": "Pipetten skal have en ren spids, ellers forurener du dine prøver.",
+        "pipette.missing_tip.body": "Spids mangler",
+        "pipette.missing_tip.header": "Der er ingen spids på pipetten",
 
         "item.description.scalpel": "Du kan bruge skalpelen til at skære i ting",
         "item.description.spleen": "Milten er rød. Messi vinder næste VM.",
@@ -77,16 +102,41 @@
         "computer.screen.mouse.insulin.prod": "Insulin productivity: ",
         "computer.screen.mouse.insulin.effect": "Insulin effectivity: ",
 
+        "mouse.vaccinated_smallpox.header": "Mouse vaccinated",
+        "mouse.vaccinated_smallpox.body": "You have vaccinated the mouse for smallpox",
+        "mouse.vaccinated_gout.header": "Mouse vaccinated",
+        "mouse.vaccinated_gout.body": "You have vaccinated the mouse for gout",
+        "mouse.died.header": "Mouse died",
+        "mouse.died.body": "You have killed the mouse",
+        "mouse.spleen_extracted.header": "Spleen extracted",
+        "mouse.spleen_extracted.body": "The spleen has been added to your inventory",
+        "mouse.cut_alive.header": "Denied",
+        "mouse.cut_alive.body": "Kill the mouse before cutting in it",
+
+        "washing.empty_tube.header": "Denied",
+        "washing.empty_tube.body": "The test tube is empty",
         "washing.detergent_required.header": "Denied",
         "washing.detergent_required.body": "You need detergent",
 
         "worktable1.bunsen_required.header": "Denied",
         "worktable1.bunsen_required.body": "Bunsen burner must be on before working at the table",
 
+        "worktable2.spleen_blended.header": "Spleen blended",
+        "worktable2.spleen_blended.body": "The blended spleen has been added to your inventory",
+
         "popup.confirm_delete_header": "Confirm",
         "popup.confirm_delete_body": "Are you sure you want to delete this item?",
         "popup.details.notes": "Here you can take notes about the container",
         "popup.quiz.header": "Quiz!",
+
+        "pipette.sucked.header": "Info",
+        "pipette.sucked.body": "You have sucked stuff up into the pipette",
+        "pipette.emptied.header": "Info",
+        "pipette.emptied.body": "You have emptied the pipette",
+        "pipette.dirty_tip.body": "Dirty pipette tip",
+        "pipette.dirty_tip.header": "The pipette must be clean or it can contaminate the sample",
+        "pipette.missing_tip.body": "Missing pipette tip",
+        "pipette.missing_tip.header": "There is no tip on the pipette",
 
         "item.description.scalpel": "The scalpel is used for cutting.",
         "item.description.spleen": "This is a spleen",

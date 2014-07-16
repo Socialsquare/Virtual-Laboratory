@@ -119,12 +119,12 @@ define([
 
                 case SpecialItemType.SCALPEL:
                     if (self.mouse().alive()) {
-                        self.popupController.message('Nej.', 'Musen skal være død før du begynder at skære i den. Andet er jo ren dyreplageri...');
+                        self.popupController.message('mouse.cut_alive.header', 'mouse.cut_alive.body');
                         return false;
                     } else {
                         self.videoController.play('cut', false)
                             .done(function() {
-                                self.popupController.message('Milt ekstraheret.', 'Du milten ligger nu i dit inventory.');
+                                self.popupController.message('mouse.spleen_extracted.header', 'mouse.spleen_extracted.body');
                                 self.mouse().isCut(true);
 
                                 var spleenContents = utils.klone(self.mouse().spleen.antibodiesFor());
@@ -142,7 +142,7 @@ define([
                         self.videoController.play('injection-die', false)
                             .done(function () {
                                 self.mouse().alive(false);
-                                self.popupController.message('Du har dræbt musen.', 'Good job!');
+                                self.popupController.message('mouse.died.header', 'mouse.died.body');
                             });
                     }
                     else if (item.contains(LiquidType.INSULIN)) {
@@ -159,12 +159,12 @@ define([
                             .done(function() {
                                 if(item.contains(LiquidType.ANTIGEN_GOUT)) {
                                     self.mouse().vaccinate(LiquidType.ANTIGEN_GOUT);
-                                    self.popupController.message('Musen blev vaccineret.','Du har nu givet musen antigener for gigt');
+                                    self.popupController.message('mouse.vaccinated_gout.header','mouse.vaccinated_gout.body');
                                 }
 
                                 if(item.contains(LiquidType.ANTIGEN_SMALLPOX)) {
                                     self.mouse().vaccinate(LiquidType.ANTIGEN_SMALLPOX);
-                                    self.popupController.message('Musen blev vaccineret.','Du har nu givet musen antigener for kopper');
+                                    self.popupController.message('mouse.vaccinated_smallpox.header','mouse.vaccinated_smallpox.body');
                                 }
                             });
                     }

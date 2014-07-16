@@ -89,19 +89,19 @@ define([
             self.handleContainerDrop = function (position, item) {
                 if (item.type() === ContainerType.PIPETTE) {
                     if (!item.hasTip()) {
-                        self.popupController.message('Dumt', 'Der er ingen spids på pipetten');
-                    }else if(item.getTip().isEmpty()) {
+                        self.popupController.message('pipette.missing_tip.body', 'pipette.missing_tip.header');
+                    } else if (item.getTip().isEmpty()) {
 //TODO: such implementation
-                        if(item.getTip().used())  {
-                            self.popupController.message('Dumt', 'Pipetten skal have en ren spids, ellers forurener du dine prøver.');
-                        }else {
+                        if (item.getTip().used())  {
+                            self.popupController.message('pipette.dirty_tip.body', 'pipette.dirty_tip.header');
+                        } else {
 
                             item.fillPipette(self.compContainer.get(position));
-                            self.popupController.notify('Info', 'Du har suget indhold op med pipetten.', 2000);
+                            self.popupController.notify('pipette.sucked.header', 'pipette.sucked.body', 2000);
                         }
-                    }else { //TODO: empty the pipette
+                    } else { //TODO: empty the pipette
                         item.emptyPipetteInto(self.compContainer.get(position));
-                        self.popupController.notify('Info', 'Du har tømt pipetten.', 2000);
+                        self.popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
                     }
                 }
             };

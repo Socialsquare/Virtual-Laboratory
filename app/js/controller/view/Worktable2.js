@@ -28,7 +28,7 @@ define([
                         var homogenizedSpleen = self.liquidFactory.homoSpleen(antibodies());
 
                         self.gameState.inventory.add(self.containerFactory.tube().add(homogenizedSpleen));
-                        self.popupController.message('Milt blendet','Der er tilføjet et reagensglas i dit inventory med homogeniseret milt.');
+                        self.popupController.message('worktable2.spleen_blended.header','worktable2.spleen_blended.body');
                     }
 
                     self.worktable2.blender.status(false);

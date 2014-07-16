@@ -36,7 +36,7 @@ define([
                 if (self.status()) return false;
 
                 if (item.isEmpty()) {
-                    self.popupController.message('Hov hov du', 'Ditt reagensglas er tomt...');
+                    self.popupController.message('washing.empty_tube.header', 'washing.empty_tube.body');
                     return false;
                 }
 
