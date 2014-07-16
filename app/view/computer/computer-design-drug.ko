@@ -21,7 +21,8 @@
                 <!-- ko if: hasSidegroup() -->
                 <img src="" alt="" data-bind="attr: { src: $parent.ImageHelper.sidegroupImage(sidegroup().name())},
                                               style: { '-webkit-transform': 'rotate(' + rotation() + 'deg)',
-                                                       '-webkit-transform-origin': sidegroup().origin().x + 'px ' + sidegroup().origin().y + 'px'}">
+                                                       '-webkit-transform-origin': sidegroup().origin().x + 'px ' + sidegroup().origin().y + 'px',
+                                                       'margin': (-sidegroup().origin().y / 2) + 'px 0 0 ' + (-sidegroup().origin().x / 2) + 'px'}">
                 <!-- /ko -->
 
                 <!-- ko ifnot: hasSidegroup() -->
