@@ -4,19 +4,19 @@
     <hr />
 
     <ul>
-        <li class="hand" data-bind="route: 'computer'">
+        <li class="hand" data-bind="click: data.goto.bind(null, 'computer')">
             <div>
                 <img src="assets/images/icon_ext_computer.png" alt="Computer">
                 <span>Computer</span>
             </div>
         </li>
-        <li class="hand" data-bind="route: 'uvroom'">
+        <li class="hand" data-bind="click: data.goto.bind(null, 'uvroom')">
             <div>
                 <img src="assets/images/icon_ext_uv.png" alt="UV room" />
                 <span>UV rum</span>
             </div>
         </li>
-        <li class="hand" data-bind="route: 'washing'">
+        <li class="hand" data-bind="click: data.goto.bind(null, 'washing')">
             <div>
                 <img src="assets/images/icon_ext_wash.png" alt="Washing machine" />
                 <span>Vaskerum</span>

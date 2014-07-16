@@ -9,7 +9,12 @@ define([
             self.base('overview');
 
             self.handleDoorClick = function () {
-                self.popupController.show('popup-door');
+                var vm = self.popupController.show('popup-door', {
+                    goto: function (name) {
+                        self.popupController.hide(vm);
+                        self.router.navigate(name);
+                    }
+                });
             };
         },
     });
