@@ -1,4 +1,4 @@
 <div class="fermentor-view">
     <a data-bind="route: 'fermentorscreen'" id="fermentor-screen-link"></a>
-    <div class="droppable" id="fermentor"></div>
+    <div class="droppable" id="fermentor" data-bind="drop: { handler: fermentorTankController.handleContainerDrop, accept: DragHelper.acceptSyringe }"></div>
 </div>

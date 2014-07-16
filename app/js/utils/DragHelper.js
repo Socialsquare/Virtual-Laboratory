@@ -19,13 +19,15 @@ define([
 
         acceptDNA: accepter([LiquidType.DNA]),
 
-        acceptedByBlender: accepter([SpecialItemType.SPLEEN]),
-
         acceptPipette: accepter([ContainerType.PIPETTE]),
+
+        acceptSyringe: accepter([ContainerType.SYRINGE]),
+
+        acceptedByBlender: accepter([SpecialItemType.SPLEEN]),
 
         acceptedByWashing: accepter([ContainerType.TUBE]),
 
-        acceptedByComposite: accepter([ContainerType.PIPETTE]),
+        acceptedByComposite: accepter([ContainerType.PIPETTE, ContainerType.SYRINGE]),
 
         acceptedByMouse: accepter([
             ContainerType.SYRINGE,

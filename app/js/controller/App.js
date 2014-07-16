@@ -82,16 +82,8 @@ define([
             // dummy data
             //------------------------
 
-            /*self.gameState.inventory.add(self.specialItemFactory.spleen());
-             self.gameState.inventory.add(self.containerFactory.tube());
-             self.gameState.inventory.add(self.containerFactory.petri());
-             self.gameState.inventory.add(self.containerFactory.micro());*/
-            self.gameState.inventory.add(self.specialItemFactory.scalpel());
-            self.gameState.inventory.add(self.specialItemFactory.syringe()
-                                         .add(self.liquidFactory.deadly()));
-            self.gameState.inventory.add(self.specialItemFactory.syringe()
-                                         .add(self.liquidFactory.adjuvans())
-                                         .add(self.liquidFactory.antigenSmallpox()));
+            self.gameState.inventory.add(self.containerFactory.tube());
+            self.gameState.inventory.add(self.containerFactory.petri());
 
             self.gameState.worktable1.tubeRack.addAt(0, self.containerFactory.tube());
             self.gameState.worktable1.tubeRack.addAt(5, self.containerFactory.tube()
@@ -140,7 +132,9 @@ define([
                                                   .add(self.liquidFactory.microorganism.yeast()));
             self.gameState.washing.tubeRack.addAt(5, self.containerFactory.tube());
 
-            // Dummy-data with DNA. Much shaky.
+
+// Dummy-data with DNA. Much shaky.
+
             var dnaDesign = viewControllers['designDNA'];
             dnaDesign.dnaService.getDNAElements()
                 .done(function(elements) {

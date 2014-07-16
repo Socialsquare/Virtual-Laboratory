@@ -18,6 +18,11 @@ define([
             self.changePh = function(val) {
                 self.fermentor.ph(self.fermentor.ph() + val);
             };
+
+            self.activateFermentor = function () {
+                self.fermentor.activate();
+            };
+
         }
     });
 

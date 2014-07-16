@@ -1,8 +1,9 @@
 define([
     'knockout',
     'jquery',
+    'controller/SimpleContainer',
     'controller/view/Base'
-], function (ko, $, BaseViewController) {
+], function (ko, $, SimpleContainerController, BaseViewController) {
 
     var Fermentor = BaseViewController.extend({
 
@@ -11,6 +12,7 @@ define([
             self.base('fermentor');
 
             self.fermentor = self.gameState.fermentor;
+            self.fermentorTankController = new SimpleContainerController(self.fermentor.fermentorTank);
         }
     });
 

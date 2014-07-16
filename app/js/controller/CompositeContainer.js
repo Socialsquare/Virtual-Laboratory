@@ -87,22 +87,57 @@ define([
             };
 
             self.handleContainerDrop = function (position, item) {
-                if (item.type() === ContainerType.PIPETTE) {
+                /*if (item.type() === ContainerType.PIPETTE) {
                     if (!item.hasTip()) {
                         self.popupController.message('pipette.missing_tip.body', 'pipette.missing_tip.header');
                     } else if (item.getTip().isEmpty()) {
-//TODO: such implementation
+
                         if (item.getTip().used())  {
                             self.popupController.message('pipette.dirty_tip.body', 'pipette.dirty_tip.header');
                         } else {
 
                             item.fillPipette(self.compContainer.get(position));
-                            self.popupController.notify('pipette.sucked.header', 'pipette.sucked.body', 2000);
+                            self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
                         }
-                    } else { //TODO: empty the pipette
+                    } else {
                         item.emptyPipetteInto(self.compContainer.get(position));
                         self.popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
-                    }
+                    }*/
+
+                switch(item.type()) {
+                    case ContainerType.PIPETTE:
+
+                        if (!item.hasTip()) {
+                            self.popupController.message('pipette.missing_tip.header', 'pipette.missing_tip.body');
+                        }else if(item.getTip().isEmpty()) {
+//TODO: such implementation
+                            if(item.getTip().used())  {
+                                self.popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
+                            }else if(! self.compContainer.get(position).isEmpty()){
+
+                                item.fillPipette(self.compContainer.get(position));
+                                self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
+                            }
+                        }else { //TODO: empty the pipette
+                            item.emptyPipetteInto(self.compContainer.get(position));
+                            self.popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
+                        }
+                        break;
+                    case ContainerType.SYRINGE:
+                        if(item.isEmpty()) {
+                            item.fillSyringe(self.compContainer.get(position));
+                            self.popupController.notify('Info', 'Du har fyldt kanylen.', 2000);
+                            return false;
+                        }else {
+                            /*debugger;*/
+                            item.emptySyringeInto(self.compContainer.get(position));
+                            self.popupController.notify('Info', 'Du har tømt kanylen.', 2000);
+                            return true;
+                        }
+                        break;
+
+                    default:
+                        break;
                 }
             };
         },

@@ -25,18 +25,6 @@ define([
             self.imagePlaceholderGetter = _.constant('');
             self.showPlaceholder = ko.observable(false);
 
-            switch (simpleContainer.type()) {
-                case ContainerType.ELECTROPORATOR:
-                    self.imagePlaceholderGetter = ImageHelper.tableSpacePetriPlaceholderImage;
-                    self.showPlaceholder(true);
-
-                    self.imageGetter = ImageHelper.tableSpacePetriImage;
-                    self.accepter = DragHelper.acceptPetri;
-                    break;
-
-                default:
-                    throw 'Unsupported container type: ' + simpleContainer.type();
-            }
 
             /*self.dropHandler = function (item) { //TODO: Implement.
 
@@ -63,7 +51,6 @@ define([
                                     self.popupController.notify('Info', 'Du har suget indhold op med pipetten.', 2000);
                                     item.fillPipette(self.simpleContainer);
                                 }
-                                //TODO: tom elektroporator - eller nej? Det kommer i næste case
 
                             } else if(!self.simpleContainer.isEmpty() && !item.getTip().isEmpty()){ //TODO:3) hvis elektro har contents && pipette har contents --> spørg: Vil du tømme elektro og tilføje?
 
@@ -77,8 +64,33 @@ define([
 
                             }
                         }
-                        break
-                            ;
+                        break;
+                    case ContainerType.FERMENTOR_TANK:
+                        //TODO: test
+                        if (item.type() === ContainerType.SYRINGE) {
+                            if(item.isEmpty()) {// 1) Check of syringe er tom? (gør intet)
+                                debugger;
+                                return false;
+                            }else {
+                                if(self.simpleContainer.isEmpty()) {// 2) Check om syringe har contents og ferm_tank er tom (tøm kanyle)
+                                    item.emptySyringeInto(self.simpleContainer);
+                                    self.popupController.notify('Info', 'Du har tømt kanylen.', 2000);
+                                    debugger;
+                                    return true;
+                                }else {// 3) Check om begge har contents og prompt brugern (tøm fermentor og kanylen efter)
+                                    self.popupController.confirm("Bekræft", "Vil du tømme fermentoren og tilføje indholdet fra kanylen?", function (answer) {
+                                        if (answer) {
+                                            self.simpleContainer.clearContents();
+                                            item.emptySyringeInto(self.simpleContainer);
+                                            self.popupController.notify('Info', 'Du har tømt kanylen.', 2000);
+                                        }
+                                    });
+                                    debugger;
+                                    return true;
+                                }
+                            }
+                        }
+                        break;
                     default:
                         throw 'Happy implementation! :D';
                         break;

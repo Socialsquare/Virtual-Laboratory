@@ -24,18 +24,25 @@ define([
                 self.remove(0);
             };
 
-            self.emptyPipetteInto = function(container) { //TODO: implement
+            self.emptyPipetteInto = function(container) {
                 var cloned_liqs = utils.klone(self.getTip().liquids);
 
                 container.addAll(cloned_liqs());
                 self.getTip().clearContents();
             };
 
-            self.fillPipette = function(container) { // TODO: dilute the contents of the container
+            self.fillPipette = function(container) { // TODO: dilute the container slightly
+// 1st modify the syringe
                 var cloned_liqs = utils.klone(container.liquids);
-                var modified_liqs = utils.biology.dilute(20, cloned_liqs); //TODO: is this the correct factor?
-
+                var modified_liqs = utils.biology.dilute(50, cloned_liqs);
                 self.getTip().addAll(modified_liqs());
+
+// 2nd modify the container
+                modified_liqs = utils.biology.dilute(50/49, container.liquids);
+                container.clearContents();
+                container.addAll(modified_liqs());
+
+                debugger;
 
                 if(!modified_liqs.isEmpty()) {  self.getTip().used(true); }
             };

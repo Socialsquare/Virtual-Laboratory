@@ -16,7 +16,7 @@ define([
                 var clone = mapping.fromJS(ko.toJS(liquids()));
 
                 _.map(clone(), function(liquid) {
-                    if(liquid.type() === LiquidType.MICROORGANISM) {//TODO: dilute by factor if organism
+                    if(liquid.type() === LiquidType.MICROORGANISM) {
                         console.log('Concentration before: ' + liquid.concentration());
                         liquid.concentration(liquid.concentration() / factor);
                         console.log('Concentration after: ' + liquid.concentration());

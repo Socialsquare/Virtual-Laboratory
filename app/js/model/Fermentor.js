@@ -13,8 +13,9 @@ define([
             var self = this;
             self.fermentorTank = new FermentorTankModel();
 
-            // TODO fermentor-computer - should define the ph and temperature of the fermentor, and activate it.
-            // TODO chromatograph - should be able to get some contents from the fermentor
+            //TODO: fermentor-computer - should define the ph and temperature of the fermentor, and activate it.
+            //TODO: chromatograph - should be able to get some contents from the fermentor
+            //TODO: implement field on organisms: microOrganism.hasBeenInHighConcentration.JavaNamingConventions().
 
             self.temperature = ko.observable(30.0);
             self.ph = ko.observable(7.0);
@@ -39,8 +40,9 @@ define([
                 return 'Tid: ' + Utils.formatter.leadingZeros(hours, 2) + ':' + Utils.formatter.leadingZeros(minutes, 2);
             });
 
-            self.activate = function() { //TODO: implement
-                console.log('TODO','Such TODO');
+            self.activate = function() {
+                //TODO:
+                self.popupController.notify('Info', 'Du har startet en fermentering.');
             };
         }
     });

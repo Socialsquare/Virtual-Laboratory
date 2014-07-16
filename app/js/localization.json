@@ -49,8 +49,8 @@
         "popup.details.notes": "Her kan du tage noter om beholderen",
         "popup.quiz.header": "Quiz!",
 
-        "pipette.sucked.header": "Info",
-        "pipette.sucked.body": "Du har suget indhold op med pipetten.",
+        "pipette.filled.header": "Info",
+        "pipette.filled.body": "Du har suget indhold op med pipetten.",
         "pipette.emptied.header": "Info",
         "pipette.emptied.body": "Du har tømt pipetten.",
         "pipette.dirty_tip.body": "Beskidt spidst",
@@ -135,8 +135,8 @@
         "popup.details.notes": "Here you can take notes about the container",
         "popup.quiz.header": "Quiz!",
 
-        "pipette.sucked.header": "Info",
-        "pipette.sucked.body": "You have sucked stuff up into the pipette",
+        "pipette.filled.header": "Info",
+        "pipette.filled.body": "You have filled the pipette",
         "pipette.emptied.header": "Info",
         "pipette.emptied.body": "You have emptied the pipette",
         "pipette.dirty_tip.body": "Dirty pipette tip",
