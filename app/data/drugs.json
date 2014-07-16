@@ -1,0 +1,39 @@
+{
+    "scaffolds": [
+        {
+            "name": "1",
+            "slots": [
+                {
+                    "rotation": 180,
+                    "position": { "x": 40, "y": 35 }
+                },
+                {
+                    "rotation": 123,
+                    "position": { "x": 70, "y": 125 }
+                },
+                {
+                    "rotation": 90,
+                    "position": { "x": 219, "y": 167 }
+                }
+            ]
+        }
+    ],
+    "sidegroups": [
+        {
+            "name": "4",
+            "origin": { "x": 29, "y": 30 }
+        },
+        {
+            "name": "5",
+            "origin": { "x": 26, "y": 20 }
+        },
+        {
+            "name": "14",
+            "origin": { "x": 47, "y": 26 }
+        },
+        {
+            "name": "15",
+            "origin": { "x": 27, "y": 10 }
+        }
+    ]
+}

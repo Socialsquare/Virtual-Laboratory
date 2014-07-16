@@ -59,9 +59,9 @@ define([
 
             self.video = function (sequence) {
                 var videoController = new VideoController();
-                self.show('popup-video', { videoController: videoController });
+                var vm = self.show('popup-video', { videoController: videoController });
                 videoController.play(sequence).done(function () {
-                    self.hide();
+                    self.hide(vm);
                 });
             };
 

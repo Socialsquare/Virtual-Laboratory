@@ -80,6 +80,18 @@ define([
             return IMG_PATH + '/work2_od-on.png';
         },
 
+        scaffoldImage: function (name) {
+            return IMG_PATH + '/scaffold_' + name + '.png';
+        },
+
+        sidegroupImage: function (name) {
+            return IMG_PATH + '/sidegroup_' + name + '.png';
+        },
+
+        sidegroupEmptySlot: function (position) {
+            return IMG_PATH + '/scaffold_R' + (position + 1) + '.png';
+        },
+
         inventoryIcon: function (item) {
             switch (item.type()) {
             case ContainerType.PETRI_DISH:

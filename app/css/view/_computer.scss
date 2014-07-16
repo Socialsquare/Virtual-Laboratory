@@ -7,6 +7,30 @@
     @include view;
     background-image: url(#{$img-path}/computer.png);
 
+    .sidegroups {
+        img {
+            width: 260px;
+        }
+    }
+
+    .design-drug {
+        .detail{
+            .slots {
+                position: absolute;
+                top: 90px;
+                left: 120px;
+
+                .slot {
+                    $width: 30px;
+                    position: absolute;
+                    margin: (-$width / 2) 0 0 (-$width / 2);
+                    width: $width;
+                    height: $width;
+                }
+            }
+        }
+    }
+
     .screen {
         position: absolute;
         left: 62px;
@@ -23,11 +47,7 @@
 
         .icon {
           text-align: center;
-          /* width: 80px; */
-          /* height: 80px; */
           margin: 0 auto 0 auto;
-          /* background-image: url(#{$img-path}/computer_icon.png); */
-          /* border-radius: 8px; */
           img { height: 100px; }
         }
 
@@ -154,17 +174,6 @@
             }
         }
     }
-
-    .draggablespawn-computer {
-        padding-left: 10px;
-        font-family: $font;
-        font-size: 100%;
-        color: #333333;
-        background-color: #bbbbbb;
-        opacity: 0.5;
-        border-radius: 6px;
-        cursor: pointer;
-        z-index: 1000; }
 
     .dna-element {
         position: relative;

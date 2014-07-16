@@ -31,6 +31,7 @@ define([
                 return false;
             };*/
 
+            // TODO: this is an almost exact copy of the composite container drop handler
             self.handleContainerDrop = function (item) { //TODO: Implement.
 
                 switch (simpleContainer.type()) {

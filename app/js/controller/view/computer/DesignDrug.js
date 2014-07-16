@@ -1,8 +1,11 @@
 define([
     'knockout',
-    'controller/view/computer/Base'
-
-], function (ko, BaseComputer) {
+    'controller/view/computer/Base',
+    'utils/utils',
+    'service/Drug',
+    'factory/Container',
+    'model/GameState'
+], function (ko, BaseComputer, utils, drugService, ContainerFactory, gameState) {
 
     var DesignDrug = BaseComputer.extend({
 
@@ -10,38 +13,24 @@ define([
             var self = this;
             self.base('computer-design-drug');
 
-            self.imageGetter = self.ImageHelper.drugSideGroup;
+            self.drugService = drugService;
+            self.sidegroups = drugService.sidegroups;
 
-            self.sidegroups = [
-                { name: '14' },
-                { name: '14R' },
-                { name: '15' },
-                { name: '15R' },
-                { name: '4' },
-                { name: '4R' },
-                { name: '5' },
-                { name: '5R' }
-            ];
+            self.getEmptyScaffold = function () {
+                return self.drugService.getScaffold("1");
+            };
 
-            self.handleDrop = function (group) {
-                // var clone = utils.klone(group);
-                // self.sequence.push(clone);
+            self.selectedScaffold = ko.observable(self.getEmptyScaffold());
+
+            self.handleDrop = function (slot, group) {
+                slot.sidegroup(group);
             };
 
             self.order = function () {
-                console.log('TODO: order drugz');
+                var drug = ContainerFactory.tube().add(self.selectedScaffold());
+                self.gameState.inventory.add(drug);
 
-                // clone sequence, add to gene, put in tube
-                // var sequenceClone = ko.toJS(self.dnaSequence);
-                // var gene = new GeneModel(sequenceClone);
-                // var tube = new TubeModel();
-                // tube.add(gene);
-                // self.gameState.inventory.add(tube);
-
-                // // reset the sequence and go to computer menu
-                // self.dnaSequence.removeAll();
-
-                // self.goToMenu();
+                self.selectedScaffold(self.getEmptyScaffold());
             };
         }
     });
