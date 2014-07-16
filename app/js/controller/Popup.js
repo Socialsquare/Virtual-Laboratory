@@ -5,8 +5,9 @@ define([
     'model/Popup',
     'utils/TextHelper',
 
-    'controller/Quiz'
-], function (ko, Base, _, PopupModel, TextHelper, QuizController) {
+    'controller/Quiz',
+    'controller/Video'
+], function (ko, Base, _, PopupModel, TextHelper, QuizController, VideoController) {
 
     var Popup = Base.extend({
 
@@ -57,6 +58,14 @@ define([
 
             self.quiz = function (id) {
                 self.show('popup-quiz', { quizController: new QuizController(id) });
+            };
+
+            self.video = function (sequence) {
+                var videoController = new VideoController();
+                self.show('popup-video', { videoController: videoController });
+                videoController.play(sequence).done(function () {
+                    self.hide();
+                });
             };
 
             self.select = function (title, message, options, cb) {

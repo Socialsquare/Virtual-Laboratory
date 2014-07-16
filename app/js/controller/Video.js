@@ -13,7 +13,15 @@ define([
         new VideoModel('drink-loop', 'runFast_drink_loop'),
         new VideoModel('injection-run', 'runFast_inj'),
         new VideoModel('injection-die', 'poi1_inj'),
-        new VideoModel('cut', 'poi3_cut')
+        new VideoModel('cut', 'poi3_cut'),
+
+        new VideoModel('electroporator1', 'electroporator01'),
+        new VideoModel('electroporator2', 'electroporator02'),
+        new VideoModel('electroporator3', 'electroporator03'),
+        new VideoModel('electroporator4', 'electroporator04'),
+        new VideoModel('electroporator5', 'electroporator05'),
+        new VideoModel('electroporator6', 'electroporator06'),
+        new VideoModel('electroporator7', 'electroporator07')
     ];
 
     var VideoController = Base.extend({
@@ -66,10 +74,10 @@ define([
             };
 
             self.handleVideoEnd = function () {
-                self.consumeQueue();
-
                 if (self.queue.isEmpty())
                     self.promise.resolve();
+                else
+                    self.consumeQueue();
             };
         }
     });

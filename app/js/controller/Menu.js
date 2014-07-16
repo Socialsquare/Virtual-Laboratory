@@ -113,7 +113,8 @@ define([
             };
 
             self.testQuiz = function () {
-                self.popupController.quiz(0);
+                //self.popupController.quiz(0);
+                self.popupController.video(['electroporator1', 'electroporator2', 'electroporator3']);
             };
 
             self.togglePipette = function (activeViewController) {

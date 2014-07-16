@@ -1,0 +1,3 @@
+<div class="popup popup-video">
+    <div class="video" data-bind="template: { name: 'video', data: data.videoController }"></div>
+</div>
