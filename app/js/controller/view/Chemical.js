@@ -45,7 +45,9 @@ define([
 
             // TODO: consider refactoring this to somewhere else
             self.closetItems.pushAll([
-                new ChemicalItemModel('item.name.antibiotic', self.inTube(LiquidFactory.antibiotic.a()))
+                new ChemicalItemModel('item.name.deadly', self.inTube(LiquidFactory.deadly())),
+                new ChemicalItemModel('item.name.growth_medium', self.inTube(LiquidFactory.growthMedium())),
+                new ChemicalItemModel('item.name.growth_medium', self.inPetridish(LiquidFactory.growthMedium()))
             ]);
 
             self.drawerItems.pushAll([
@@ -58,14 +60,24 @@ define([
 
             self.fridgeItems.pushAll([
                 new ChemicalItemModel('item.name.yeast', self.inTube(LiquidFactory.microorganism.yeast())),
-                new ChemicalItemModel('item.name.myeloma', self.inTube(LiquidFactory.microorganism.myeloma()))
+                new ChemicalItemModel('item.name.myeloma', self.inTube(LiquidFactory.microorganism.myeloma())),
+
+                new ChemicalItemModel('item.name.antibiotic_a', self.inTube(LiquidFactory.antibiotic.a())),
+                new ChemicalItemModel('item.name.antibiotic_b', self.inTube(LiquidFactory.antibiotic.b())),
+
+                new ChemicalItemModel('item.name.adjuvans', self.inTube(LiquidFactory.adjuvans())),
+                new ChemicalItemModel('item.name.antigen_gout', self.inTube(LiquidFactory.antigenGout())),
+                new ChemicalItemModel('item.name.antigen_smallpox', self.inTube(LiquidFactory.antigenSmallpox()))
+
             ]);
 	    },
 
         inTube: function (liquid) {
-            var tube = new TubeModel();
-            tube.add(liquid);
-            return tube;
+            return new TubeModel().add(liquid);
+        },
+
+        inPetridish: function (liquid) {
+            return new PetridishModel().add(liquid);
         }
     });
 

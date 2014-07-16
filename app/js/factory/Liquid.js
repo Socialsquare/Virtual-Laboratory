@@ -49,6 +49,14 @@ define([
                 // TODO: temp values
 
                 return anti;
+            },
+
+            b: function () {
+                var anti = new Antibiotic(AntibioticType.B);
+
+                // TODO: temp values
+
+                return anti;
             }
         },
 
@@ -70,12 +78,11 @@ define([
             return new Liquid(LiquidType.INSULIN, ReactionCount.NEVER);
         },
 
-        antigen_gout: function () {
-
+        antigenGout: function () {
             return new Liquid(LiquidType.ANTIGEN_GOUT, ReactionCount.NEVER);
         },
 
-        antigen_smallpox: function () {
+        antigenSmallpox: function () {
             return new Liquid(LiquidType.ANTIGEN_SMALLPOX, ReactionCount.NEVER);
         },
 

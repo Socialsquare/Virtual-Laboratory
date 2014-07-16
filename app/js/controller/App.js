@@ -83,15 +83,15 @@ define([
             //------------------------
 
             /*self.gameState.inventory.add(self.specialItemFactory.spleen());
-            self.gameState.inventory.add(self.containerFactory.tube());
-            self.gameState.inventory.add(self.containerFactory.petri());
-            self.gameState.inventory.add(self.containerFactory.micro());*/
+             self.gameState.inventory.add(self.containerFactory.tube());
+             self.gameState.inventory.add(self.containerFactory.petri());
+             self.gameState.inventory.add(self.containerFactory.micro());*/
             self.gameState.inventory.add(self.specialItemFactory.scalpel());
             self.gameState.inventory.add(self.specialItemFactory.syringe()
                                          .add(self.liquidFactory.deadly()));
             self.gameState.inventory.add(self.specialItemFactory.syringe()
                                          .add(self.liquidFactory.adjuvans())
-                                         .add(self.liquidFactory.antigen_smallpox()));
+                                         .add(self.liquidFactory.antigenSmallpox()));
 
             self.gameState.worktable1.tubeRack.addAt(0, self.containerFactory.tube());
             self.gameState.worktable1.tubeRack.addAt(5, self.containerFactory.tube()
@@ -143,28 +143,24 @@ define([
             // Dummy-data with DNA. Much shaky.
             var dnaDesign = viewControllers['designDNA'];
             dnaDesign.dnaService.getDNAElements()
-                .done(function(){
-                    console.log('shit should be loaded, but it ain\'t... Therefore: delay. Much shaky');
-                    _.delay(function(dnaDesign, self){
-                        console.log('Delayed function..');
-                        dnaDesign.handleDrop(dnaDesign.availableDNA()[8]);
-                        dnaDesign.handleDrop(dnaDesign.availableDNA()[3]);
-                        dnaDesign.handleDrop(dnaDesign.availableDNA()[1]);
-                        dnaDesign.handleDrop(dnaDesign.availableDNA()[5]);
-                        dnaDesign.handleDrop(dnaDesign.availableDNA()[4]);
-                        dnaDesign.handleDrop(dnaDesign.availableDNA()[7]);
-                        dnaDesign.handleDrop(dnaDesign.availableDNA()[2]);
-                        dnaDesign.handleDrop(dnaDesign.availableDNA()[0]);
-                        dnaDesign.handleDrop(dnaDesign.availableDNA()[0]);
+                .done(function(elements) {
+                    dnaDesign.handleDrop(elements[8]);
+                    dnaDesign.handleDrop(elements[3]);
+                    dnaDesign.handleDrop(elements[1]);
+                    dnaDesign.handleDrop(elements[5]);
+                    dnaDesign.handleDrop(elements[4]);
+                    dnaDesign.handleDrop(elements[7]);
+                    dnaDesign.handleDrop(elements[2]);
+                    dnaDesign.handleDrop(elements[0]);
+                    dnaDesign.handleDrop(elements[0]);
 
-                        dnaDesign.orderDNA();
+                    dnaDesign.orderDNA();
 
-                        var len = self.gameState.inventory.items().length;
-                        var dnaTube = self.gameState.inventory.items()[len-1];
+                    var len = self.gameState.inventory.items().length;
+                    var dnaTube = self.gameState.inventory.items()[len-1];
 
-                        self.gameState.worktable1.electroporator.addAll(dnaTube.liquids());
-                        self.gameState.worktable1.electroporator.add(self.liquidFactory.microorganism.yeast());
-                    }, 3500, dnaDesign, self);
+                    self.gameState.worktable1.electroporator.addAll(dnaTube.liquids());
+                    self.gameState.worktable1.electroporator.add(self.liquidFactory.microorganism.yeast());
                 });
 
         }
