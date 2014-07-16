@@ -17,9 +17,7 @@ define([
 
                 _.map(clone(), function(liquid) {
                     if(liquid.type() === LiquidType.MICROORGANISM) {
-                        console.log('Concentration before: ' + liquid.concentration());
                         liquid.concentration(liquid.concentration() / factor);
-                        console.log('Concentration after: ' + liquid.concentration());
                     }
 
                     return liquid;

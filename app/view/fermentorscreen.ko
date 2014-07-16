@@ -24,7 +24,7 @@
             <div class="fermentor-control">
                 <div class="label" data-bind="text: fermentor.timerText()"></div>
             </div>
-            <button class="btn-none" data-bind="click: fermentor.activate.bind()" id="fermentor-start-btn">Start</button>
+            <button class="btn-none" data-bind="click: activateFermentor.bind()" id="fermentor-start-btn">Start</button>
         </div>
     </div>
 </div>

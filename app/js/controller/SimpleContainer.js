@@ -74,19 +74,23 @@ define([
                             }else {
                                 if(self.simpleContainer.isEmpty()) {// 2) Check om syringe har contents og ferm_tank er tom (tøm kanyle)
                                     item.emptySyringeInto(self.simpleContainer);
-                                    self.popupController.notify('Info', 'Du har tømt kanylen.', 2000);
-                                    debugger;
+                                    self.popupController.notify('syringe.emptied.header', 'syringe.emptied.body', 2000);
                                     return true;
                                 }else {// 3) Check om begge har contents og prompt brugern (tøm fermentor og kanylen efter)
-                                    self.popupController.confirm("Bekræft", "Vil du tømme fermentoren og tilføje indholdet fra kanylen?", function (answer) {
+
+
+                                    console.log('bugs when confirming - TODO: ');
+
+                                    var answer = self.popupController.confirm("fermentor.empty_tank.header", "fermentor.empty_tank.body", function (answer) {
                                         if (answer) {
                                             self.simpleContainer.clearContents();
                                             item.emptySyringeInto(self.simpleContainer);
-                                            self.popupController.notify('Info', 'Du har tømt kanylen.', 2000);
+                                            self.popupController.notify('syringe.emptied.header', 'syringe.emptied.header', 2000);
                                         }
+
+                                        return answer;
                                     });
-                                    debugger;
-                                    return true;
+                                    return answer;
                                 }
                             }
                         }

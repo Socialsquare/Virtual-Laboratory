@@ -86,33 +86,18 @@ define([
             self.gameState.inventory.add(self.containerFactory.petri());
 
             self.gameState.worktable1.tubeRack.addAt(0, self.containerFactory.tube());
-            self.gameState.worktable1.tubeRack.addAt(5, self.containerFactory.tube()
-                                                     .add(self.liquidFactory.microorganism.yeast())
-                                                     .add(self.liquidFactory.insulin()));
-            self.gameState.worktable1.heater.addAt(0, self.containerFactory.tube()
-                                                   .add(self.liquidFactory.microorganism.yeast())
-                                                   .add(self.liquidFactory.insulin()));
             self.gameState.worktable1.heater.addAt(2, self.containerFactory.tube());
             self.gameState.worktable1.tableSpaceMicro.addAt(0, self.containerFactory.micro());
-            self.gameState.worktable1.tableSpaceMicro.addAt(1, self.containerFactory.micro());
-            self.gameState.worktable1.tableSpaceMicro.addAt(2, self.containerFactory.micro());
             self.gameState.worktable1.tableSpacePetri.addAt(0, self.containerFactory.petri());
-            self.gameState.worktable1.tableSpacePetri.addAt(2, self.containerFactory.petri());
 
-            self.gameState.worktable2.tableSpaceMicro.addAt(0, self.containerFactory.micro());
             self.gameState.worktable2.tableSpaceMicro.addAt(2, self.containerFactory.micro());
-            self.gameState.worktable2.tableSpacePetri.addAt(0, self.containerFactory.petri());
             self.gameState.worktable2.tableSpacePetri.addAt(2, self.containerFactory.petri());
             self.gameState.worktable2.tubeRack.addAt(0, self.containerFactory.tube()
                                                      .add(self.liquidFactory.microorganism.yeast()));
-            self.gameState.worktable2.tubeRack.addAt(0, self.containerFactory.tube());
 
 
             self.gameState.fumehood.tableSpaceMicro.addAt(0, self.containerFactory.micro());
-            self.gameState.fumehood.tableSpaceMicro.addAt(2, self.containerFactory.micro());
             self.gameState.fumehood.tableSpacePetri.addAt(0, self.containerFactory.petri());
-            self.gameState.fumehood.tableSpacePetri.addAt(2, self.containerFactory.petri());
-            self.gameState.fumehood.tubeRack.addAt(0, self.containerFactory.tube());
             self.gameState.fumehood.tubeRack.addAt(5, self.containerFactory.tube()
                                                    .add(self.liquidFactory.microorganism.yeast()));
 
@@ -122,8 +107,6 @@ define([
                                                  .add(self.liquidFactory.microorganism.yeast()));
             self.gameState.uvroom.tubeRack.addAt(5, self.containerFactory.tube());
             self.gameState.uvroom.tableSpaceMicro.addAt(0, self.containerFactory.micro());
-            self.gameState.uvroom.tableSpaceMicro.addAt(2, self.containerFactory.micro());
-            self.gameState.uvroom.tableSpacePetri.addAt(0, self.containerFactory.petri());
             self.gameState.uvroom.tableSpacePetri.addAt(2, self.containerFactory.petri());
 
             self.gameState.washing.tubeRack.addAt(0, self.containerFactory.tube()
@@ -155,6 +138,8 @@ define([
 
                     self.gameState.worktable1.electroporator.addAll(dnaTube.liquids());
                     self.gameState.worktable1.electroporator.add(self.liquidFactory.microorganism.yeast());
+
+                    self.gameState.inventory.remove(self.gameState.inventory.items()[len-1]);
                 });
 
         }

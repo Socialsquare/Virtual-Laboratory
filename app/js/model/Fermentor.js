@@ -42,7 +42,7 @@ define([
 
             self.activate = function() {
                 //TODO:
-                self.popupController.notify('Info', 'Du har startet en fermentering.');
+
             };
         }
     });

@@ -126,12 +126,11 @@ define([
                     case ContainerType.SYRINGE:
                         if(item.isEmpty()) {
                             item.fillSyringe(self.compContainer.get(position));
-                            self.popupController.notify('Info', 'Du har fyldt kanylen.', 2000);
+                            self.popupController.notify('syringe.filled.header', 'syringe.filled.body', 2000);
                             return false;
                         }else {
-                            /*debugger;*/
                             item.emptySyringeInto(self.compContainer.get(position));
-                            self.popupController.notify('Info', 'Du har tømt kanylen.', 2000);
+                            self.popupController.notify('syringe.emptied.header', 'syringe.emptied.body', 2000);
                             return true;
                         }
                         break;
