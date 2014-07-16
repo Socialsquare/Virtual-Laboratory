@@ -3,8 +3,9 @@ define([
     'base',
     'lodash',
     'model/Spleen',
-    'model/type/MouseBlood'
-], function (ko, Base, _, SpleenModel, MouseBloodType) {
+    'model/type/MouseBlood',
+    'model/type/Mouse'
+], function (ko, Base, _, SpleenModel, MouseBloodType, MouseType) {
 
     var Mouse = Base.extend({
         constructor: function (mouseBloodType) {
@@ -15,16 +16,28 @@ define([
             self.isCut = ko.observable(false);
             self.spleen = new SpleenModel();
             self.mouseBloodType = ko.observable(null);
+            self.mouseType = ko.observable(null);
             self.description = ko.computed(function () {
+                switch (self.mouseType()) {
+                case MouseType.GOUT:
+                    return 'mouse.description.gout';
+
+                case MouseType.SMALLPOX:
+                    return 'mouse.description.smallpox';
+
+                case MouseType.INSOMNIA:
+                    return 'mouse.description.insomnia';
+                }
+
                 switch (self.mouseBloodType()) {
                 case MouseBloodType.NORMAL:
-                    return 'Rask mus';
+                    return 'mouse.description.healthy';
 
                 case MouseBloodType.DIABETIC:
-                    return 'Mus med diabetes';
+                    return 'mouse.description.diabetic';
 
                 default:
-                    return '';
+                    throw 'Unknown mouse configuration: ' + self.mouseType() + ', ' + self.mouseBloodType();
                 }
             });
 
@@ -72,6 +85,13 @@ define([
 
 
             // BEGIN: Functions for exercise 3: Antibodies
+
+            self.cure = function(antibodyType) {
+                if ((self.mouseType() === MouseType.GOUT && antibodyType === AntibodyType.GOUT)
+                    || (self.mouseType() === MouseType.SMALLPOX && antibodyType === AntibodyType.SMALLPOX)) {
+                    self.mouseType(MouseType.HEALTHY);
+                }
+            };
 
             self.vaccinate = function(antibodyType) {
                 self.spleen.antibodiesFor.push(antibodyType);

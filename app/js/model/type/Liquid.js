@@ -10,6 +10,8 @@ define([], function () {
         DEADLY:           'LiquidType.DEADLY',
         HOMO_SPLEEN:      'LiquidType.HOMO_SPLEEN',
         INSULIN:          'LiquidType.INSULIN',
+        ANTIBODY_GOUT:    'LiquidType.ANTIBODY_GOUT',
+        ANTIBODY_SMALLPOX:'LiquidType.ANTIBODY_SMALLPOX',
         ANTIGEN_GOUT:     'LiquidType.ANTIGEN_GOUT',
         ANTIGEN_SMALLPOX: 'LiquidType.ANTIGEN_SMALLPOX',
         ADJUVANS:         'LiquidType.ADJUVANS',

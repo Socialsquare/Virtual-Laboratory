@@ -147,24 +147,34 @@ define([
                     }
                     else if (item.contains(LiquidType.INSULIN)) {
 
-                        if(!self.mouse().alive()) { return false; }
+                        if (!self.mouse().alive()) { return false; }
 
                         self.mouse().givInsulin();
                     }
                     else if (item.contains(LiquidType.ADJUVANS) &&
-                        (item.contains(LiquidType.ANTIGEN_GOUT) || item.contains(LiquidType.ANTIGEN_SMALLPOX) )) {
-                        if(!self.mouse().alive()) { return false; }
+                             (item.contains(LiquidType.ANTIGEN_GOUT) || item.contains(LiquidType.ANTIGEN_SMALLPOX) )) {
+                        if (!self.mouse().alive()) { return false; }
 
                         self.videoController.play(['injection-run', 'run'], true)
                             .done(function() {
-                                if(item.contains(LiquidType.ANTIGEN_GOUT)) {
+                                if (item.contains(LiquidType.ANTIGEN_GOUT)) {
                                     self.mouse().vaccinate(LiquidType.ANTIGEN_GOUT);
                                     self.popupController.message('mouse.vaccinated_gout.header','mouse.vaccinated_gout.body');
                                 }
 
-                                if(item.contains(LiquidType.ANTIGEN_SMALLPOX)) {
+                                if (item.contains(LiquidType.ANTIGEN_SMALLPOX)) {
                                     self.mouse().vaccinate(LiquidType.ANTIGEN_SMALLPOX);
                                     self.popupController.message('mouse.vaccinated_smallpox.header','mouse.vaccinated_smallpox.body');
+                                }
+
+                                if (item.contains(LiquidType.ANTIBODY_GOUT)) {
+                                    self.mouse().cure(LiquidType.ANTIBODY_GOUT);
+                                    self.popupController.message('mouse.cured_gout.header','mouse.cured_gout.body');
+                                }
+
+                                if (item.contains(LiquidType.ANTIBODY_SMALLPOX)) {
+                                    self.mouse().cure(LiquidType.ANTIBODY_SMALLPOX);
+                                    self.popupController.message('mouse.cured_smallpox.header','mouse.cured_smallpox.body');
                                 }
                             });
                     }
