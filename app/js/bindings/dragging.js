@@ -19,6 +19,7 @@ define([
                     top: 40
                 },
                 revert: 'invalid',
+                hide: false,
                 helper: function (event, ui) {
                     var item = dragData = _.isFunction(options.item) ? options.item() : options.item;
                     return $('<img/>').attr({ src: ImageHelper.draggingIcon(item) });;
@@ -36,6 +37,8 @@ define([
                 start: function (event, ui) {
                     if (options.dim)
                         $(this).addClass('dimmed');
+                    else if (options.hide)
+                        $(this).addClass('hidden');
 
                     dragData = _.isFunction(options.item) ? options.item() : options.item;
                     dragConsume = options.consume;
@@ -44,6 +47,8 @@ define([
                 stop: function (event, ui) {
                     if (options.dim)
                         $(this).removeClass('dimmed');
+                    else if (options.hide)
+                        $(this).removeClass('hidden');
                 }
             });
         }

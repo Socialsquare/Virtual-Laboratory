@@ -4,7 +4,7 @@
 
     <img class="water-bottle" src="assets/images/grab_drink.png" alt="Juiceflaske"
          data-bind="visible: !mouseDrinking(),
-                    drag: { dim: true, item: bottle, offset: { left: 84, top: 182 } }">
+                    drag: { hide: true, item: bottle, offset: { left: 84, top: 182 } }">
 
     <div class="dead-mouse" data-bind="visible: !mouse().alive(), css: { cut: mouse().isCut() }"></div>
 
