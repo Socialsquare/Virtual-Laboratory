@@ -1,13 +1,13 @@
 <div class="incubator-view">
 	<button class="btn-none btn" data-bind="click: incubator.activate.bind()"></button>
 
-	<div class="time" data-bind="text: incubator.timerText()"></div>
-	<div class="temperature" data-bind="text: incubator.temperatureText()"></div>
+	<div class="hand time" data-bind="text: incubator.timerText()"></div>
+	<div class="hand temperature" data-bind="text: incubator.temperatureText()"></div>
 
-	<button class="btn-none timeup-btn" data-bind="click: changeTimer.bind(null, 2)"></button>
-	<button class="btn-none timedown-btn" data-bind="click: changeTimer.bind(null, -2)"></button>
-	<button class="btn-none tempup-btn" data-bind="click: changeTemp.bind(null, 0.5)"></button>
-	<button class="btn-none tempdown-btn" data-bind="click: changeTemp.bind(null, -0.5)"></button>
+	<div class="hand timeup-btn" data-bind="click: changeTimer.bind(null, 2)"></div>
+	<div class="hand timedown-btn" data-bind="click: changeTimer.bind(null, -2)"></div>
+	<div class="hand tempup-btn" data-bind="click: changeTemp.bind(null, 0.5)"></div>
+	<div class="hand tempdown-btn" data-bind="click: changeTemp.bind(null, -0.5)"></div>
 
     <div class="testtube-holder" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
     <div class="petridish-level" data-bind="template: { name: 'compContainer', data: petriSpaceController }"></div>
