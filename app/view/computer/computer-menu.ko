@@ -12,7 +12,7 @@
             </div>
             <div class="text" data-bind="i18n: 'computer.screen.protein'"></div>
         </li>
-        <li>
+        <li class="hand" data-bind="click: screenChanger(Screens.SEQUENCING)">
             <div class="icon send-tubesequencing">
                 <img src="assets/images/icon_sequence.png" alt="Test tube icon">
             </div>

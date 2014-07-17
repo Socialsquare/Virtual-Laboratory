@@ -1,5 +1,6 @@
 define([
     'knockout',
+    'lodash',
     'controller/view/computer/Base',
 
     'model/Gene',
@@ -8,7 +9,7 @@ define([
     'service/DNA',
     'utils/utils',
 
-], function (ko, BaseComputer, GeneModel, TubeModel, DNAService, utils) {
+], function (ko, _, BaseComputer, GeneModel, TubeModel, DNAService, utils) {
 
     var DesignDNA = BaseComputer.extend({
 
@@ -17,12 +18,16 @@ define([
             self.base('computer-design-dna');
 
             self.dnaService = new DNAService();
-            self.availableDNA = ko.observableArray([]);
+            self.defaultAvailableDNA = ko.observableArray([]);
             self.dnaSequence = ko.observableArray([]);
+
+            self.availableDNA = ko.computed(function () {
+                return _.union(self.defaultAvailableDNA(), self.gameState.sequencedDNA());
+            });
 
             self.dnaService.getDNAElements()
                 .done(function (elements) {
-                    self.availableDNA(elements);
+                    self.defaultAvailableDNA(elements);
                 });
 
             self.handleDrop = function (dna) {

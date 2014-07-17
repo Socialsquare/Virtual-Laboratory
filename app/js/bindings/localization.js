@@ -8,7 +8,8 @@ define([
     ko.bindingHandlers.i18n = {
         update: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
             var id = ko.unwrap(valueAccessor());
-            $(element).text(localizationService.text(id));
+            var translated = !id ? '' : localizationService.text(id);
+            $(element).text(translated);
         }
     };
 });

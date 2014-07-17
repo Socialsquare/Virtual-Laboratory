@@ -1,0 +1,14 @@
+<div class="view">
+    <div class="header-container">
+        <a class="menu-link" data-bind="i18n: 'computer.menu', click: goToMenu"></a>
+        <h2 data-bind="i18n: 'computer.screen.sequencing'"></h2>
+    </div>
+
+    <div class="detail">
+        <div class="droparea" data-bind="drop: { handler: handleDrop, accept: DragHelper.acceptTube }">
+            <span data-bind="i18n: 'computer.screen.sequencing.droparea'"></span>
+        </div>
+
+        <span data-bind="i18n: message"></span>
+    </div>
+</div>

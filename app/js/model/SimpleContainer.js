@@ -38,6 +38,16 @@ define([
                 });
             };
 
+            self.containsMicroorganism = function (microorganismType) {
+                return _(self.liquids())
+                    .filter(function (liquid) {
+                        return liquid.type() === LiquidType.MICROORGANISM;
+                    })
+                    .any(function (microorganism) {
+                        return microorganism.microorganismType() === microorganismType;
+                    });
+            };
+
             self.containsAll = function (liquidTypes) {
                 return _.reduce(liquidTypes, function (hasAll, liquidType) {
                     return hasAll && self.contains(liquidType);

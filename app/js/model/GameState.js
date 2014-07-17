@@ -26,6 +26,8 @@ define([
         currentExercise: ko.observable(),
         activeComputerScreen: ko.observable(ComputerScreenType.MENU),
 
+        sequencedDNA: ko.observableArray([]),
+
         inventory: new Inventory(),
 
         mouse: ko.observable(new MouseModel(MouseType.SMALLPOX, MouseBloodType.DIABETIC)),
