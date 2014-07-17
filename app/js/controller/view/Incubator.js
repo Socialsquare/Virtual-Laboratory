@@ -28,6 +28,10 @@ define([
                 newVal = newVal < 0 ? 0 : newVal;
                 self.incubator.timer(newVal);
             };
+
+            self.activateIncubator = function() {
+                self.incubator.activate();
+            };
         },
     });
 

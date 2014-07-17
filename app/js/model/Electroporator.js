@@ -37,6 +37,7 @@ define([
                         _(self.liquids()).each(function(organism) {
                             if(organism.type() === LiquidType.MICROORGANISM) {
                                 organism.extraProperties.pushAll(newProperties);
+                                console.log('Modified organism.');
                             }
                         });
                     }

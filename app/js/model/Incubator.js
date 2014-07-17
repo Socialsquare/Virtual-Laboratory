@@ -43,11 +43,7 @@ define([
                     // User stops the run
                     clearTimeout(self.timerID());
                     self.timerID(null);
-
-                    // TODO: stop current run
                 }
-
-                // TODO: implement growth-caller
             };
 
             self.growOneHour = function() //Grows all containers one hour

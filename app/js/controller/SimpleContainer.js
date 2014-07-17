@@ -70,7 +70,6 @@ define([
                         //TODO: test
                         if (item.type() === ContainerType.SYRINGE) {
                             if(item.isEmpty()) {// 1) Check of syringe er tom? (gør intet)
-                                debugger;
                                 return false;
                             } else {
                                 if (self.simpleContainer.isEmpty()) {// 2) Check om syringe har contents og ferm_tank er tom (tøm kanyle)

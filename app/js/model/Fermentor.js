@@ -24,6 +24,7 @@ define([
             self.timerID = ko.observable(null);
             self.hourResolution = ko.observable(10); // This is used in the growth.
             self.growerType = ko.observable(GrowerType.FERMENTOR);
+            self.substrate = ko.observable(20); //TODO: subtrate
 
             self.temperatureText = ko.computed(function() {
                 return 'Temperatur: ' + self.temperature().toFixed(1) + ' °C';
@@ -43,6 +44,42 @@ define([
             self.activate = function() {
                 //TODO:
 
+                // User starts the run
+                if (!self.turnedOn()) {
+                    var timerID = setInterval(self.growOneHour, 100);
+                    self.timerID(timerID);
+                    self.turnedOn(true);
+                } else {
+                    // User stops the run
+                    clearTimeout(self.timerID());
+                    self.timerID(null);
+                    self.turnedOn(false);
+                }
+            };
+
+            self.growOneHour = function() //Grows all containers one hour
+            {// For-løkke med mindre steps?
+                if(self.timer() >= 48) { //If reaches ran for 48 hours
+                    clearTimeout(self.timerID());
+                    self.turnedOn(false);
+                    self.timerID(null);
+                    self.timer(0);
+
+                    console.log('TODO: implement the Chromatograph');
+                    return;
+                }
+
+                var deltaTime = 1.0 / self.hourResolution();
+
+                console.log('Total concentration before: ' + self.fermentorTank.getTotalConcentration());
+
+                for(var i = 0; i < self.hourResolution(); i++) {
+                    self.fermentorTank.growContentsOnce(deltaTime, self.growerType(), self.ph(), self.temperature());
+                }
+
+                console.log('Total concentration after: ' + self.fermentorTank.getTotalConcentration());
+
+                self.timer(self.timer() + 1);
             };
         }
     });

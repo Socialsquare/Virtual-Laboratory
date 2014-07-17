@@ -142,9 +142,13 @@ define([
                     self.gameState.worktable1.electroporator.addAll(dnaTube.liquids());
                     self.gameState.worktable1.electroporator.add(self.liquidFactory.microorganism.yeast());
 
+                    self.gameState.worktable1.electroporator.activate();
+
+                    var electro_contents = self.gameState.worktable1.electroporator.liquids(); //TODO:
+                    self.gameState.fermentor.fermentorTank.addAll(electro_contents);
+
                     self.gameState.inventory.remove(self.gameState.inventory.items()[len-1]);
                 });
-
         }
     });
 

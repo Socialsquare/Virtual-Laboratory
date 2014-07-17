@@ -1,5 +1,5 @@
 <div class="incubator-view">
-	<button class="btn-none btn" data-bind="click: incubator.activate.bind()"></button>
+	<button class="btn-none btn" data-bind="click: activateIncubator.bind()"></button>
 
 	<div class="hand time" data-bind="text: incubator.timerText()"></div>
 	<div class="hand temperature" data-bind="text: incubator.temperatureText()"></div>

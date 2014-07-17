@@ -20,7 +20,6 @@ define([
             };
 
             self.activateFermentor = function () {
-                alert('wat');
                 self.popupController.notify('fermentor.start.header', 'fermentor.start.body');
                 self.fermentor.activate();
             };

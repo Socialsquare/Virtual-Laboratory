@@ -54,8 +54,9 @@ define([
                 _.forEach(self.containers(), function(container){
 
                     if(!container) {return;}
-
+                    console.log('Total concentration before: ' + container.getTotalConcentration());
                     container.growContentsOnce(deltaTime, growerType, ph, temperature);
+                    console.log('Total concentration after: ' + container.getTotalConcentration());
                 });
             };
         },
