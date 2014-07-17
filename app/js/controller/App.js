@@ -149,7 +149,9 @@ define([
                     var dnaTube = self.gameState.inventory.items()[len-1];
 
                     self.gameState.worktable1.electroporator.addAll(dnaTube.liquids());
-                    self.gameState.worktable1.electroporator.add(self.liquidFactory.microorganism.yeast());
+                    var yeastbeast =self.liquidFactory.microorganism.yeast();
+                    yeastbeast.concentration(Math.pow(10,9));
+                    self.gameState.worktable1.electroporator.add(yeastbeast);
 
                     self.gameState.worktable1.electroporator.activate();
 

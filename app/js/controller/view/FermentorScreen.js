@@ -23,27 +23,27 @@ define([
                 self.fermentor.ph(self.fermentor.ph() + val);
             };
 
-            var biomassData =_.map(_.range(0, 250), function (i) {
-                return [i, 20];
-            });
 
-            var substrateData =_.map(_.range(0, 250), function (i) {
-                return [i, 19];
-            });
+            self.updatePlotData = function() {
+                //TODO: convert data to PLOTdata (pair with an index)
 
-            var productData =_.map(_.range(0, 250), function (i) {
-                return [i, 0.2];
-            });
+                var biomassData =  _.map(_.range(0, 250), function (i) {
+                    return [i, self.fermentor.biomassData()[i]];
+                });
+                var substrateData =  _.map(_.range(0, 250), function (i) {
+                    return [i, self.fermentor.substrateData()[i]];
+                });
 
-            self.plotData({biomass: biomassData, substrate: substrateData, product: productData});
+                self.plotData({biomass: biomassData, substrate: substrateData, product: self.fermentor.productData()});
+            };
+            self.updatePlotData();
 
             self.activateFermentor = function () {
                 self.popupController.notify('fermentor.start.header', 'fermentor.start.body');
-                /*self.fermentor.activate();*/
 
                 // User starts the run
                  if (!self.turnedOn()) {
-                     var graphTimer = setInterval(self.nextPlotStep, 100);
+                     var graphTimer = setInterval(self.nextTimeStep, 100);
                      self.graphTimer(graphTimer);
                      self.turnedOn(true);
                  } else {
@@ -54,37 +54,23 @@ define([
                  }
             };
 
+            self.nextTimeStep = function() {
+                if(self.fermentor.timer() >= 60 || self.fermentor.substrate() <= 0) { //If reaches ran for 48 hours
+                    // TODO: reset fermentor
+                     clearTimeout(self.graphTimer());
+                     self.turnedOn(false);
+                     self.graphTimer(null);
+                     self.fermentor.timer(0);
 
+                    debugger;
 
-            self.nextPlotStep = function() {
-                if(self.fermentor.timer() >= 48) { //If reaches ran for 48 hours
-                 clearTimeout(self.graphTimer());
-                 self.turnedOn(false);
-                 self.graphTimer(null);
-                 self.fermentor.timer(0);
-
-                 console.log('TODO: implement the Chromatograph');
-                 return;
+                     console.log('TODO: implement the Chromatograph');
+                     return;
                  }
 
                 self.fermentor.growOneHour();
 
-                //TODO: update plotData
-                var biomassData =_.map(_.range(0, 250), function (i) {
-                    return [i, 20];
-                });
-
-                var substrateData =_.map(_.range(0, 250), function (i) {
-                    return [i, 19];
-                });
-
-                var productData =_.map(_.range(0, 250), function (i) {
-                    return [i, 0.2];
-                });
-
-                self.plotData({biomass: biomassData, substrate: substrateData, product: productData});
-
-                //TODO: when time is over 48 hours, kill it.
+                self.updatePlotData();
             };
 
         }

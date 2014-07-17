@@ -69,7 +69,7 @@ define([
                 return [i, self.mouse().bloodData()[i]];
             }));
 
-            self.nextPlotStep = function() {
+            self.nextTimeStep = function() {
                 self.mouse().nextBloodStep();
 
                 self.plotData(_.map(_.range(0, 250), function (i) {
@@ -98,7 +98,7 @@ define([
             self.enter = function() {
                 self.runFromState();
 
-                var graphTimer = setInterval(self.nextPlotStep, 100);
+                var graphTimer = setInterval(self.nextTimeStep, 100);
                 self.graphTimer(graphTimer);
             };
 

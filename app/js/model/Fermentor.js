@@ -4,14 +4,13 @@ define([
     'utils/utils',
     'model/FermentorTank',
     'model/type/Grower'
-], function(ko, Base, Utils, FermentorTankModel, GrowerType) {
+], function(ko, Base, utils, FermentorTankModel, GrowerType) {
 
     var Fermentor = Base.extend({
         constructor: function () {
             var self = this;
             self.fermentorTank = new FermentorTankModel();
 
-            //TODO: fermentor-computer - should define the ph and temperature of the fermentor, and activate it.
             //TODO: chromatograph - should be able to get some contents from the fermentor
             //TODO: implement field on organisms: microOrganism.hasBeenInHighConcentration.JavaNamingConventions().
 
@@ -22,26 +21,27 @@ define([
             self.timerID = ko.observable(null);*/
             self.hourResolution = ko.observable(10); // This is used in the growth.
             self.growerType = ko.observable(GrowerType.FERMENTOR);
-            self.substrate = ko.observable(20); //TODO: subtrate
+
+            self.substrate = ko.observable(19.0);
 
             self.biomassData = ko.observableArray([]);
-            self.substratData = ko.observableArray([]);
+            self.substrateData = ko.observableArray([]);
             self.productData = ko.observableArray([]);
 
             var biomassData =_.map(_.range(0, 250), function (i) {
-                return [i, 20];
+                return utils.math.getBiomassFromConcentration(self.fermentorTank.getTotalConcentration());
             });
 
             var substrateData =_.map(_.range(0, 250), function (i) {
-                return [i, 19];
+                return self.substrate();
             });
 
             var productData =_.map(_.range(0, 250), function (i) {
-                return [i, 0.2];
+                return [i, 0.0];
             });
 
             self.biomassData(biomassData);
-            self.substratData(substrateData);
+            self.substrateData(substrateData);
             self.productData(productData);
 
             self.temperatureText = ko.computed(function() {
@@ -56,61 +56,45 @@ define([
                 var hours = Math.floor(self.timer());
                 var minutes = Math.round((self.timer() - hours) * 60);
 
-                return 'Tid: ' + Utils.formatter.leadingZeros(hours, 2) + ':' + Utils.formatter.leadingZeros(minutes, 2);
+                return 'Tid: ' + utils.formatter.leadingZeros(hours, 2) + ':' + utils.formatter.leadingZeros(minutes, 2);
             });
 
             self.activate = function() {
-                //TODO: Move to fermentorScreenControllerG
-
-                /*// User starts the run
-                if (!self.turnedOn()) {
-                    var timerID = setInterval(self.growOneHour, 100);
-                    self.timerID(timerID);
-                    self.turnedOn(true);
-                } else {
-                    // User stops the run
-                    clearTimeout(self.timerID());
-                    self.timerID(null);
-                    self.turnedOn(false);
-                }*/
+                //TODO: config-file
             };
 
-            self.storeGrowthStep = function(){
+            self.storeGrowthStep = function() { //TODO:
+// Biomass
+                var biomassData = self.biomassData();
+                var first = biomassData.shift();
+                biomassData.push(utils.math.getBiomassFromConcentration(self.fermentorTank.getTotalConcentration()));
+                self.biomassData(biomassData);
 
+// Substrate
+                var substrateData = self.substrateData();
+                first = substrateData.shift();
+                substrateData.push(self.substrate());
+                self.substrateData(substrateData);
             };
-
-            /*self.storeBloodStep = function() {
-                // TODO: use simulation
-                var bloodData = self.bloodData();
-                var first = bloodData.shift();
-
-                bloodData.push(self.blodSukker());
-                self.bloodData(bloodData);
-            };*/
 
             self.growOneHour = function() //Grows all containers one hour
-            {// For-løkke med mindre steps?
-                /*if(self.timer() >= 48) { //If reaches ran for 48 hours
-                    clearTimeout(self.timerID());
-                    self.turnedOn(false);
-                    self.timerID(null);
-                    self.timer(0);
-
-                    console.log('TODO: implement the Chromatograph');
-                    return;
-                }*/
-
+            {// For-løkke med mindre steps
+                var sugarConsumption = 1.8;
                 var deltaTime = 1.0 / self.hourResolution();
 
-                console.log('Total concentration before: ' + self.fermentorTank.getTotalConcentration());
+                var concBefore = self.fermentorTank.getTotalConcentration();
 
                 for(var i = 0; i < self.hourResolution(); i++) {
                     self.fermentorTank.growContentsOnce(deltaTime, self.growerType(), self.ph(), self.temperature());
                 }
 
-                console.log('Total concentration after: ' + self.fermentorTank.getTotalConcentration());
+                var concAfter = self.fermentorTank.getTotalConcentration();
+                var biomassDiff = utils.math.getBiomassFromConcentration(concAfter - concBefore);
+                self.substrate(self.substrate() - biomassDiff * sugarConsumption);
 
                 self.timer(self.timer() + 1);
+
+                self.storeGrowthStep();
             };
         }
     });
