@@ -20,8 +20,12 @@ define([
 
     'factory/Container',
     'factory/Liquid'
-], function ($, ko, _, utils, DataHelper, DropOnMouseHelper, BaseViewController, VideoController, MouseModel,
-             SpleenModel, ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType, ContainerFactory, LiquidFactory) {
+
+], function ($, ko, _, utils, DataHelper, DropOnMouseHelper,
+             BaseViewController, VideoController, MouseModel,
+             SpleenModel, ContainerType, LiquidType, MouseType,
+             MouseBloodType, SpecialItemType, ContainerFactory,
+             LiquidFactory) {
 
     var MouseController = BaseViewController.extend({
 

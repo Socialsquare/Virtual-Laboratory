@@ -14,8 +14,7 @@ define([
             self.antibodiesFor = ko.observableArray([]);
 
             self.react = function (container) {
-                // TODO: implement
-                throw 'JegErHerIKKE... maaske';
+                console.log('TODO: Spleen.react');
             };
 
             self.hashCode = function () {

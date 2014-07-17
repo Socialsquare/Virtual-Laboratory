@@ -5,12 +5,14 @@ define([
     'model/Microorganism',
     'model/Antibiotic',
     'model/HomogenizedSpleen',
+
     'model/type/Microorganism',
     'model/type/Antibiotic',
     'model/type/Liquid'
 
-], function (ko, Liquid, ReactionCount, Microorganism, Antibiotic, HomogenizedSpleen,
-             MicroorganismType, AntibioticType, LiquidType) {
+], function (ko, Liquid, ReactionCount, Microorganism, Antibiotic,
+             HomogenizedSpleen, MicroorganismType, AntibioticType,
+             LiquidType) {
 
     var LiquidFactory = {
         microorganism: {
