@@ -65,22 +65,16 @@ define([
             bottle.add(new JuiceModel());
             self.bottle = bottle;
 
-            var plotData = _.map(_.range(0, 250), function (i) {
+            self.plotData(_.map(_.range(0, 250), function (i) {
                 return [i, self.mouse().bloodData()[i]];
-            });
-            self.plotData(plotData);
-
-            // TODO: fix correct data
+            }));
 
             self.nextPlotStep = function() {
-                /*var graphTimer = window.setInterval(function () {*/
                 self.mouse().nextBloodStep();
 
-                var plotData = _.map(_.range(0, 250), function (i) {
+                self.plotData(_.map(_.range(0, 250), function (i) {
                     return [i, self.mouse().bloodData()[i]];
-                });
-                self.plotData(plotData);
-
+                }));
             };
 
             self.runFromState = function () {
