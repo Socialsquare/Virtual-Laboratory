@@ -69,12 +69,12 @@ define([
                 var selected = ko.observable();
                 var fn = function () {
                     cb(selected());
-                    self.hide();
+                    self.hide(vm);
                 };
 
-                self.show('popup-select', { title: title,
+                var vm = self.show('popup-select', { title: title,
                                             message: message,
-                                            options: ko.observableArray(options),
+                                            options: options,
                                             selected: selected,
                                             cb: fn });
             };

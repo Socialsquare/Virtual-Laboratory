@@ -46,6 +46,9 @@
         "washing.empty_tube.body": "Dit reagensglas er tomt",
         "washing.detergent_required.header": "Forbudt",
         "washing.detergent_required.body": "Du mangler vaskemiddel",
+        "washing.detergent_contaminated": "Ditt vaskemiddel var forurenet",
+        "washing.concentration": "Konsentration",
+        "washing.concentration.choose": "Bestem konsentrationen av vaskemiddelet (mg / L):",
 
         "fermentor.empty_tank.header": "Bekræft",
         "fermentor.empty_tank.body": "Vil du tømme fermentoren og tilføje indholdet fra kanylen?",
@@ -101,6 +104,7 @@
         "common.close": "Luk",
         "common.cancel": "Fortryd",
         "common.exercise": "Øvelse",
+        "common.result": "Resultat",
         "common.description": "Beskrivelse"
     },
 
@@ -151,6 +155,9 @@
         "washing.empty_tube.body": "The test tube is empty",
         "washing.detergent_required.header": "Denied",
         "washing.detergent_required.body": "You need detergent",
+        "washing.detergent_contaminated": "Your detergent was contaminated",
+        "washing.concentration": "Concentration",
+        "washing.concentration.choose": "Choose concentration of the detergent (mg / L):",
 
         "fermentor.empty_tank.header": "Bekræft",
         "fermentor.empty_tank.body": "Vil du tømme fermentoren og tilføje indholdet fra kanylen?",
@@ -206,6 +213,7 @@
         "common.close": "Close",
         "common.cancel": "Cancel",
         "common.exercise": "Exercise",
+        "common.result": "Resultat",
         "common.description": "Description"
     }
 }

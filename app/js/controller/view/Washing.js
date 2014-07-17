@@ -29,7 +29,7 @@ define([
 
                 self.result(0);
                 self.status(false);
-                self.washing.agents([]);
+                self.washing.washingTank.clearContents();
             };
 
             self.handleWashingDrop = function (item) {
@@ -40,10 +40,10 @@ define([
                     return false;
                 }
 
-                self.washing.agents(item.liquids());
+                self.washing.washingTank.addAll(item.liquids());
                 self.status(true);
 
-                var options = [0.0, 0.5, 1.0];
+                var options = [ 1.0, 3.0, 10.0, 30.0, 100.0, 300.0, 1000.0 ];
 
                 var cb = function (concentration) {
                     setTimeout(function () {
@@ -52,12 +52,12 @@ define([
                         self.result(res.result);
                         self.status(false);
 
-                        if (res.feedback) self.popupController.notify('Resultat', res.feedback);
+                        if (res.feedback) self.popupController.notify('common.result', res.feedback);
                     }, 500);
                 }
 
-                self.popupController.select('Konsentration',
-                                            'Bestem konsentrationen av middelet:',
+                self.popupController.select('washing.concentration',
+                                            'washing.concentration.choose',
                                             options,
                                             cb);
             };

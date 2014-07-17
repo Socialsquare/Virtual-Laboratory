@@ -6,41 +6,46 @@ define([
     'model/WashingTank',
     'model/TubeRack',
 
-    'model/type/Liquid'
+    'model/type/Liquid',
 
-], function(ko, _, Base, WashingTankModel, TubeRackModel, LiquidType) {
+    'utils/utils'
+
+], function(ko, _, Base, WashingTankModel, TubeRackModel, LiquidType, utils) {
 
     var Washing = Base.extend({
 
         constructor: function () {
             var self = this;
 
-            self.agents = ko.observableArray([]);
+            self.washingTank = new WashingTankModel();
 
             self.action = function (concentration) {
-                console.log('TODO: implement proper washing action');
-
+                var liquids = self.washingTank.liquids();
                 var result = 0;
                 var feedback = '';
 
                 // check if agents contain other stuff
-                var indexOfOther = _.findIndex(self.agents(), function(agent) {
-                    return agent.type() != LiquidType.LIPASE_ENZYME;
+                var indexOfOther = _.findIndex(liquids, function(liquid) {
+                    return liquid.type() != LiquidType.LIPASE_ENZYME;
                 });
 
-                if (indexOfOther < 0) {
-                    // do not return 0
-                    result = 0.1;
+                // if found other, bad result
+                if (indexOfOther >= 0) {
+                    result = 0.99;
+                    feedback = 'washing.detergent_contaminated';
+
                 } else {
-                    result = 0.9;
-                    feedback = 'Din prøvde var forurenet';
+                    var log = utils.math.getBaseLog(10, concentration);
+                    if (log > 2) {
+                        result = 0.01;
+                    } else {
+                        result = 1 - log / 2;
+                    }
                 }
 
+                if (result === 0) result = 0.01;
                 return { result: result, feedback: feedback };
             };
-
-            // TODO: remove?
-            // self.washingTank = new WashingTankModel();
 
             self.tubeRack = new TubeRackModel();
         }
