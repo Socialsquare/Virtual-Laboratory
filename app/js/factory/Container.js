@@ -2,9 +2,10 @@ define([
     'knockout',
     'model/Tube',
     'model/Petridish',
-    'model/Microtiterplate'
+    'model/Microtiterplate',
+    'model/Syringe'
 
-], function (ko, Tube, Petridish, Microtiterplate) {
+], function (ko, Tube, Petridish, Microtiterplate, Syringe) {
 
     var Container = {
         tube: function () {
@@ -17,6 +18,10 @@ define([
 
         micro: function () {
             return new Microtiterplate();
+        },
+
+        syringe: function () {
+            return new Syringe();
         }
     };
 

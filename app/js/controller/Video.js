@@ -14,6 +14,9 @@ define([
         new VideoModel('injection-run', 'runFast_inj'),
         new VideoModel('injection-die', 'poi1_inj'),
         new VideoModel('cut', 'poi3_cut'),
+        new VideoModel('injection-cure-smallpox', 'runSlow_cure_pox'),
+        new VideoModel('injection-smallpox', 'runSlow_inj_pox'),
+        new VideoModel('run-slow', 'runSlow_pox'),
 
         new VideoModel('electroporator1', 'electroporator01'),
         new VideoModel('electroporator2', 'electroporator02'),

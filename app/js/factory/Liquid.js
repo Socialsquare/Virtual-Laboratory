@@ -86,6 +86,14 @@ define([
             return new Liquid(LiquidType.ANTIGEN_SMALLPOX, ReactionCount.NEVER);
         },
 
+        antibodySmallpox: function () {
+            return new Liquid(LiquidType.ANTIBODY_SMALLPOX, ReactionCount.NEVER);
+        },
+
+        antibodyGout: function () {
+            return new Liquid(LiquidType.ANTIBODY_GOUT, ReactionCount.NEVER);
+        },
+
         adjuvans: function () {
             return new Liquid(LiquidType.ADJUVANS, ReactionCount.NEVER);
         },

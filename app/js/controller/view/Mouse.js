@@ -14,10 +14,11 @@ define([
 
     'model/type/Container',
     'model/type/Liquid',
+    'model/type/Mouse',
     'model/type/MouseBlood',
     'model/type/SpecialItem'
 ], function ($, ko, _, utils, BaseViewController, VideoController, MouseModel, BottleModel, JuiceModel,
-             SpleenModel, ContainerType, LiquidType, MouseBloodType, SpecialItemType) {
+             SpleenModel, ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType) {
 
     var MouseController = BaseViewController.extend({
 
@@ -83,8 +84,17 @@ define([
             };
 
             self.enter = function() {
-                if (self.mouse().alive())
-                    self.videoController.play('run', true);
+                if (self.mouse().alive()) {
+                    switch (self.mouse().mouseType()) {
+                    case MouseType.HEALTHY:
+                        self.videoController.play('run', true);
+                        break;
+
+                    case MouseType.SMALLPOX:
+                        self.videoController.play('run-slow', true);
+                        break;
+                    }
+                }
 
                 var graphTimer = setInterval(self.nextPlotStep, 100);
                 self.graphTimer(graphTimer);
@@ -103,18 +113,13 @@ define([
                     if (!self.mouse().alive())
                         return false;
 
-/*<<<<<<< Updated upstream*/
                     self.mouseDrinking(true);
                     self.videoController.play('drink-start', false)
                         .done(function () {
                             self.mouseDrinking(false);
                             self.videoController.play('run', true);
                         });
-/*=======*/
                     self.mouse().givJuice();
-
-                    /*self.videoController.play(['drink-start', 'run'], true);*/
-/*>>>>>>> Stashed changes*/
                     break;
 
                 case SpecialItemType.SCALPEL:
@@ -138,7 +143,10 @@ define([
                     break;
 
                 case ContainerType.SYRINGE:
-                    if (item.contains(LiquidType.DEADLY)) {
+                    if (!self.mouse().alive()) {
+                        return false;
+                    }
+                    else if (item.contains(LiquidType.DEADLY)) {
                         self.videoController.play('injection-die', false)
                             .done(function () {
                                 self.mouse().alive(false);
@@ -146,14 +154,10 @@ define([
                             });
                     }
                     else if (item.contains(LiquidType.INSULIN)) {
-
-                        if (!self.mouse().alive()) { return false; }
-
                         self.mouse().givInsulin();
                     }
                     else if (item.contains(LiquidType.ADJUVANS) &&
-                             (item.contains(LiquidType.ANTIGEN_GOUT) || item.contains(LiquidType.ANTIGEN_SMALLPOX) )) {
-                        if (!self.mouse().alive()) { return false; }
+                             (item.contains(LiquidType.ANTIGEN_GOUT) || item.contains(LiquidType.ANTIGEN_SMALLPOX))) {
 
                         self.videoController.play(['injection-run', 'run'], true)
                             .done(function() {
@@ -166,16 +170,20 @@ define([
                                     self.mouse().vaccinate(LiquidType.ANTIGEN_SMALLPOX);
                                     self.popupController.message('mouse.vaccinated_smallpox.header','mouse.vaccinated_smallpox.body');
                                 }
-
-                                if (item.contains(LiquidType.ANTIBODY_GOUT)) {
-                                    self.mouse().cure(LiquidType.ANTIBODY_GOUT);
-                                    self.popupController.message('mouse.cured_gout.header','mouse.cured_gout.body');
-                                }
-
-                                if (item.contains(LiquidType.ANTIBODY_SMALLPOX)) {
-                                    self.mouse().cure(LiquidType.ANTIBODY_SMALLPOX);
-                                    self.popupController.message('mouse.cured_smallpox.header','mouse.cured_smallpox.body');
-                                }
+                            });
+                    }
+                    else if (item.contains(LiquidType.ANTIBODY_SMALLPOX) && self.mouse().mouseType() === MouseType.SMALLPOX) {
+                        self.videoController.play(['injection-cure-smallpox', 'run'], true)
+                            .done(function() {
+                                self.mouse().cure(LiquidType.ANTIBODY_SMALLPOX);
+                                self.popupController.message('mouse.cured_smallpox.header','mouse.cured_smallpox.body');
+                            });
+                    }
+                    else if (item.contains(LiquidType.ANTIBODY_GOUT) && self.mouse().mouseType() === MouseType.GOUT) {
+                        self.videoController.play(['injection-cure-gout', 'run'], true)
+                            .done(function() {
+                                self.mouse().cure(LiquidType.ANTIBODY_GOUT);
+                                self.popupController.message('mouse.cured_gout.header','mouse.cured_gout.body');
                             });
                     }
                     else

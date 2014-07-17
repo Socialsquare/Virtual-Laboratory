@@ -18,14 +18,16 @@ define([
     'controller/view/FermentorScreen',
     'controller/view/UvRoom',
     'controller/view/Washing',
-    'controller/view/computer/DesignDNA' //TODO: remove, just for dummy-data
+    'controller/view/computer/DesignDNA', //TODO: remove, just for dummy-data
+    'factory/Container', //TODO: remove, just for dummy-data
+    'factory/Liquid' //TODO: remove, just for dummy-data
 
 ], function (ko, BaseViewController, MenuController, LoadingController,
              OverviewController, MouseController, ChemicalController,
              ComputerController, FumehoodController, Worktable1Controller,
              Worktable2Controller, IncubatorController, SpectroPMController,
              FermentorController, FermentorScreenController, UvRoomController,
-             WashingController, DesignDNAController) {
+             WashingController, DesignDNAController, ContainerFactory, LiquidFactory) {
 
 
     var App = BaseViewController.extend({
@@ -82,38 +84,39 @@ define([
             // dummy data
             //------------------------
 
-            self.gameState.inventory.add(self.containerFactory.tube());
-            self.gameState.inventory.add(self.containerFactory.petri());
+            self.gameState.inventory.add(ContainerFactory.tube());
+            self.gameState.inventory.add(ContainerFactory.petri());
+            self.gameState.inventory.add(ContainerFactory.syringe().add(LiquidFactory.antibodyGout()));
 
-            self.gameState.worktable1.tubeRack.addAt(0, self.containerFactory.tube());
-            self.gameState.worktable1.heater.addAt(2, self.containerFactory.tube());
-            self.gameState.worktable1.tableSpaceMicro.addAt(0, self.containerFactory.micro());
-            self.gameState.worktable1.tableSpacePetri.addAt(0, self.containerFactory.petri());
+            self.gameState.worktable1.tubeRack.addAt(0, ContainerFactory.tube());
+            self.gameState.worktable1.heater.addAt(2, ContainerFactory.tube());
+            self.gameState.worktable1.tableSpaceMicro.addAt(0, ContainerFactory.micro());
+            self.gameState.worktable1.tableSpacePetri.addAt(0, ContainerFactory.petri());
 
-            self.gameState.worktable2.tableSpaceMicro.addAt(2, self.containerFactory.micro());
-            self.gameState.worktable2.tableSpacePetri.addAt(2, self.containerFactory.petri());
-            self.gameState.worktable2.tubeRack.addAt(0, self.containerFactory.tube()
-                                                     .add(self.liquidFactory.microorganism.yeast()));
+            self.gameState.worktable2.tableSpaceMicro.addAt(2, ContainerFactory.micro());
+            self.gameState.worktable2.tableSpacePetri.addAt(2, ContainerFactory.petri());
+            self.gameState.worktable2.tubeRack.addAt(0, ContainerFactory.tube()
+                                                     .add(LiquidFactory.microorganism.yeast()));
 
 
-            self.gameState.fumehood.tableSpaceMicro.addAt(0, self.containerFactory.micro());
-            self.gameState.fumehood.tableSpacePetri.addAt(0, self.containerFactory.petri());
-            self.gameState.fumehood.tubeRack.addAt(5, self.containerFactory.tube()
-                                                   .add(self.liquidFactory.microorganism.yeast()));
+            self.gameState.fumehood.tableSpaceMicro.addAt(0, ContainerFactory.micro());
+            self.gameState.fumehood.tableSpacePetri.addAt(0, ContainerFactory.petri());
+            self.gameState.fumehood.tubeRack.addAt(5, ContainerFactory.tube()
+                                                   .add(LiquidFactory.microorganism.yeast()));
 
-            self.gameState.spectroPM.spectroPMMachine.addAt(0, self.containerFactory.micro());
+            self.gameState.spectroPM.spectroPMMachine.addAt(0, ContainerFactory.micro());
 
-            self.gameState.uvroom.tubeRack.addAt(0, self.containerFactory.tube()
-                                                 .add(self.liquidFactory.microorganism.yeast()));
-            self.gameState.uvroom.tubeRack.addAt(5, self.containerFactory.tube());
-            self.gameState.uvroom.tableSpaceMicro.addAt(0, self.containerFactory.micro());
-            self.gameState.uvroom.tableSpacePetri.addAt(2, self.containerFactory.petri());
+            self.gameState.uvroom.tubeRack.addAt(0, ContainerFactory.tube()
+                                                 .add(LiquidFactory.microorganism.yeast()));
+            self.gameState.uvroom.tubeRack.addAt(5, ContainerFactory.tube());
+            self.gameState.uvroom.tableSpaceMicro.addAt(0, ContainerFactory.micro());
+            self.gameState.uvroom.tableSpacePetri.addAt(2, ContainerFactory.petri());
 
-            self.gameState.washing.tubeRack.addAt(0, self.containerFactory.tube()
-                                                  .add(self.liquidFactory.lipase()));
-            self.gameState.washing.tubeRack.addAt(3, self.containerFactory.tube()
-                                                  .add(self.liquidFactory.microorganism.yeast()));
-            self.gameState.washing.tubeRack.addAt(5, self.containerFactory.tube());
+            self.gameState.washing.tubeRack.addAt(0, ContainerFactory.tube()
+                                                  .add(LiquidFactory.lipase()));
+            self.gameState.washing.tubeRack.addAt(3, ContainerFactory.tube()
+                                                  .add(LiquidFactory.microorganism.yeast()));
+            self.gameState.washing.tubeRack.addAt(5, ContainerFactory.tube());
 
 
 // Dummy-data with DNA. Much shaky.
