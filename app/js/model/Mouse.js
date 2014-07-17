@@ -4,8 +4,9 @@ define([
     'lodash',
     'model/Spleen',
     'model/type/MouseBlood',
-    'model/type/Mouse'
-], function (ko, Base, _, SpleenModel, MouseBloodType, MouseType) {
+    'model/type/Mouse',
+    'model/type/Liquid'
+], function (ko, Base, _, SpleenModel, MouseBloodType, MouseType, LiquidType) {
 
     var Mouse = Base.extend({
         constructor: function (mouseType, mouseBloodType) {
@@ -87,10 +88,12 @@ define([
             // BEGIN: Functions for exercise 3: Antibodies
 
             self.cure = function(antibodyType) {
-                if ((self.mouseType() === MouseType.GOUT && antibodyType === AntibodyType.GOUT)
-                    || (self.mouseType() === MouseType.SMALLPOX && antibodyType === AntibodyType.SMALLPOX)) {
-                    self.mouseType(MouseType.HEALTHY);
-                }
+                var cured = (self.mouseType() === MouseType.GOUT && antibodyType === LiquidType.ANTIBODY_GOUT)
+                        || (self.mouseType() === MouseType.SMALLPOX && antibodyType === LiquidType.ANTIBODY_SMALLPOX);
+
+                if (cured) self.mouseType(MouseType.HEALTHY);
+
+                return cured;
             };
 
             self.vaccinate = function(antibodyType) {
@@ -173,24 +176,3 @@ define([
 
     return Mouse;
 });
-/*define([
-	'knockout',
-    'base',
-	'lodash'
-],
-function(ko, Base, _) {
-    var MouseModel = Base.extend({
-		id: ko.observable(null),
-		type: ko.observable(null),
-		alive: ko.observable(true),
-		cut: ko.observable(false),
-		spleen: ko.observable(true)
-    });
-
-    return MouseModel;
-
-    // TODO: what was this for?
-	// var HEALTHY = 1;
-	// var DIABETES = 2;
-	// var DEAD = 3;
-});*/

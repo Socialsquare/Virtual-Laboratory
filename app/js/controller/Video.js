@@ -14,9 +14,14 @@ define([
         new VideoModel('injection-run', 'runFast_inj'),
         new VideoModel('injection-die', 'poi1_inj'),
         new VideoModel('cut', 'poi3_cut'),
-        new VideoModel('injection-cure-smallpox', 'runSlow_cure_pox'),
+
+        new VideoModel('cure-smallpox', 'runSlow_cure_pox'),
         new VideoModel('injection-smallpox', 'runSlow_inj_pox'),
-        new VideoModel('run-slow', 'runSlow_pox'),
+        new VideoModel('run-smallpox', 'runSlow_pox'),
+
+        new VideoModel('cure-gout', 'runSlow_cure_gout'),
+        new VideoModel('injection-gout', 'runSlow_inj_gout'),
+        new VideoModel('run-gout', 'runSlow_gout'),
 
         new VideoModel('electroporator1', 'electroporator01'),
         new VideoModel('electroporator2', 'electroporator02'),

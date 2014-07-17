@@ -19,10 +19,6 @@
     .video {
         position: absolute;
         z-index: 5;
-    }
-
-    .video-injection-cure-smallpox, .video-injection-smallpox, .video-run-slow,
-    .video-run {
         left: 350px;
         top: 0;
         width: 480px;
@@ -34,13 +30,6 @@
         top: 0;
         width: 660px;
         height: 644px;
-    }
-
-    .video-injection-run, .video-injection-die, .video-run-die, .video-cut {
-        left: 350px;
-        top: 0;
-        width: 480px;
-        height: 500px;
     }
 
     .water-bottle {

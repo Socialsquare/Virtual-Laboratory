@@ -86,7 +86,7 @@ define([
 
             self.gameState.inventory.add(ContainerFactory.tube());
             self.gameState.inventory.add(ContainerFactory.petri());
-            self.gameState.inventory.add(ContainerFactory.syringe().add(LiquidFactory.antibodyGout()));
+            self.gameState.inventory.add(ContainerFactory.syringe().add(LiquidFactory.antibodySmallpox()));
 
             self.gameState.worktable1.tubeRack.addAt(0, ContainerFactory.tube());
             self.gameState.worktable1.heater.addAt(2, ContainerFactory.tube());

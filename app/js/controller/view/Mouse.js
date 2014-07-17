@@ -34,8 +34,8 @@ define([
             // Begin: Notifications
 
             self.mouse().alive.subscribe(function(isAlive) {
-                if((! isAlive) && self.mouse().blodSukker() < self.mouse().minBlodSukker()) {
-                    self.popupController.message('Musen er død', 'Du har dræbt musen ved at give den for meget insulin.');
+                if (!isAlive && self.mouse().blodSukker() < self.mouse().minBlodSukker()) {
+                    self.popupController.message('mouse.died_insuling.header', 'mouse.died_insulin.body');
                 }
                 // TODO: there are more ways to kill the poor mouse (well, at least one: The lethal injection)
             });
@@ -43,16 +43,16 @@ define([
             self.lowBloodSugarWarningToggle = ko.observable(false); // Such name. Wow.
             self.highBloodSugarWarningToggle = ko.observable(false);
             self.mouse().blodSukker.subscribe(function(blodSukker) {
-                if(blodSukker < 2.5 && !self.lowBloodSugarWarningToggle()) {
+                if (blodSukker < 2.5 && !self.lowBloodSugarWarningToggle()) {
                     self.lowBloodSugarWarningToggle(true);
-                    self.popupController.message('Pas på', 'Du risikerer at dræbe musen ved at give den for meget insulin.');
-                } else if(blodSukker > self.mouse().maxBlodSukker() * 0.8 && !self.highBloodSugarWarningToggle() &&
+                    self.popupController.message('mouse.warning_insuling.header', 'mouse.warning_insuling.body');
+                } else if (blodSukker > self.mouse().maxBlodSukker() * 0.8 && !self.highBloodSugarWarningToggle() &&
                     self.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
                     self.highBloodSugarWarningToggle(true);
-                    self.popupController.message('Pas på', 'Du risikerer at give musen sukkersyge ved at give den for meget juice.');
-                } else if(blodSukker >= self.mouse().maxBlodSukker()
+                    self.popupController.message('mouse.warning_diabetes_risk.header', 'mouse.warning_diabetes_risk.body');
+                } else if (blodSukker >= self.mouse().maxBlodSukker()
                     && self.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
-                    self.popupController.message('Advarsel', 'Musen har nu udviklet sukkersyge.');
+                    self.popupController.message('mouse.warning_diabetes.header', 'mouse.warning_diabetes.body');
                 }
             });
 
@@ -83,7 +83,7 @@ define([
 
             };
 
-            self.enter = function() {
+            self.runFromState = function () {
                 if (self.mouse().alive()) {
                     switch (self.mouse().mouseType()) {
                     case MouseType.HEALTHY:
@@ -91,10 +91,18 @@ define([
                         break;
 
                     case MouseType.SMALLPOX:
-                        self.videoController.play('run-slow', true);
+                        self.videoController.play('run-smallpox', true);
+                        break;
+
+                    case MouseType.GOUT:
+                        self.videoController.play('run-gout', true);
                         break;
                     }
                 }
+            };
+
+            self.enter = function() {
+                self.runFromState();
 
                 var graphTimer = setInterval(self.nextPlotStep, 100);
                 self.graphTimer(graphTimer);
@@ -159,7 +167,7 @@ define([
                     else if (item.contains(LiquidType.ADJUVANS) &&
                              (item.contains(LiquidType.ANTIGEN_GOUT) || item.contains(LiquidType.ANTIGEN_SMALLPOX))) {
 
-                        self.videoController.play(['injection-run', 'run'], true)
+                        self.videoController.play('injection-run')
                             .done(function() {
                                 if (item.contains(LiquidType.ANTIGEN_GOUT)) {
                                     self.mouse().vaccinate(LiquidType.ANTIGEN_GOUT);
@@ -170,24 +178,43 @@ define([
                                     self.mouse().vaccinate(LiquidType.ANTIGEN_SMALLPOX);
                                     self.popupController.message('mouse.vaccinated_smallpox.header','mouse.vaccinated_smallpox.body');
                                 }
+
+                                self.runFromState();
                             });
                     }
                     else if (item.contains(LiquidType.ANTIBODY_SMALLPOX) && self.mouse().mouseType() === MouseType.SMALLPOX) {
-                        self.videoController.play(['injection-cure-smallpox', 'run'], true)
+                        self.videoController.play(['injection-smallpox', 'cure-smallpox'])
                             .done(function() {
                                 self.mouse().cure(LiquidType.ANTIBODY_SMALLPOX);
                                 self.popupController.message('mouse.cured_smallpox.header','mouse.cured_smallpox.body');
+
+                                self.runFromState();
                             });
                     }
                     else if (item.contains(LiquidType.ANTIBODY_GOUT) && self.mouse().mouseType() === MouseType.GOUT) {
-                        self.videoController.play(['injection-cure-gout', 'run'], true)
+                        self.videoController.play(['injection-gout', 'cure-gout'], true)
                             .done(function() {
                                 self.mouse().cure(LiquidType.ANTIBODY_GOUT);
                                 self.popupController.message('mouse.cured_gout.header','mouse.cured_gout.body');
+
+                                self.runFromState();
                             });
                     }
-                    else
-                        self.videoController.play(['injection-run', 'run'], true);
+                    else {
+                        var video = 'injection-run';
+                        switch (self.mouse().mouseType()) {
+                        case MouseType.SMALLPOX:
+                            video = 'injection-smallpox';
+                            break;
+
+                        case MouseType.GOUT:
+                            video = 'injection-gout';
+                            break;
+                        }
+                        self.videoController.play(video).done(function () {
+                            self.runFromState();
+                        });
+                    }
                     break;
                 }
             };
