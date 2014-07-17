@@ -78,10 +78,6 @@ define([
 
                 return new DNAElementModel(dnaData);
             };
-
-            self.sendForSequencing = function () {
-
-            };
         }
     });
 

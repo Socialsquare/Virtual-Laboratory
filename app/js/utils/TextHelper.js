@@ -1,46 +1,69 @@
 define([
+    'base',
+
     'model/type/Container',
     'model/type/SpecialItem',
-    'service/Localization'
-], function (ContainerType, SpecialItemType, localizationService) {
+    'model/type/Liquid'
+], function (Base, ContainerType, SpecialItemType, LiquidType) {
+    var TextHelper = Base.extend({
+        constructor: function () {
+            var self = this;
 
-    return {
-        description: function (item) {
-            switch (item.type()) {
-            case SpecialItemType.SCALPEL:
-                return 'item.description.scalpel';
+            self.description = function (item) {
+                switch (item.type()) {
+                case SpecialItemType.SCALPEL:
+                    return 'item.description.scalpel';
 
-            case SpecialItemType.SPLEEN:
-                return 'item.description.spleen';
+                case SpecialItemType.SPLEEN:
+                    return 'item.description.spleen';
 
-            default:
-                throw 'Unknown inventory item: ' + item.type();
-            }
-        },
+                default:
+                    throw 'Unknown inventory item: ' + item.type();
+                }
+            };
 
-        prettyName: function (item) {
-            switch (item.type()) {
-            case ContainerType.PETRI_DISH:
-                return 'item.name.petri_dish';
+            self.prettyName = function (item) {
+                self.prettyNameFromType(item.type());
+            };
 
-            case ContainerType.MICROTITER:
-                return 'item.name.microtiter';
+            self.prettyNameFromType = function (type) {
+                switch (type) {
+                case ContainerType.PETRI_DISH:
+                    return 'item.name.petri_dish';
 
-            case ContainerType.TUBE:
-                return 'item.name.tube';
+                case ContainerType.MICROTITER:
+                    return 'item.name.microtiter';
 
-            case ContainerType.SYRINGE:
-                return 'item.name.syringe';
+                case ContainerType.TUBE:
+                    return 'item.name.tube';
 
-            case SpecialItemType.SCALPEL:
-                return 'item.name.scalpel';
+                case ContainerType.SYRINGE:
+                    return 'item.name.syringe';
 
-            case SpecialItemType.SPLEEN:
-                return 'item.name.spleen';
+                case SpecialItemType.SCALPEL:
+                    return 'item.name.scalpel';
 
-            default:
-                throw 'Unknown inventory item: ' + item.type();
-            }
+                case SpecialItemType.SPLEEN:
+                    return 'item.name.spleen';
+
+                case LiquidType.INSULIN:
+                    return 'liquid.name.insulin';
+
+                case LiquidType.LIPASE_ENZYME:
+                    return 'liquid.name.lipase';
+
+                case LiquidType.ANTIBODY_GOUT:
+                    return 'liquid.name.antibody_gout';
+
+                case LiquidType.ANTIBODY_SMALLPOX:
+                    return 'liquid.name.antibody_smallpox';
+
+                default:
+                    throw 'TextHelper.prettyNameFromType: Unknown type: ' + type;
+                }
+            };
         }
-    };
+
+    });
+    return new TextHelper;
 });

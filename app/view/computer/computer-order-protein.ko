@@ -1,0 +1,13 @@
+<div class="view order-protein">
+    <div class="header-container">
+        <a class="menu-link" data-bind="i18n: 'computer.menu', click: goToMenu"></a>
+
+        <h2 data-bind="i18n: 'computer.screen.protein'"></h2>
+    </div>
+
+    <ul data-bind="foreach: availableProteins">
+        <li>
+            <span class="hand" data-bind="i18n: $parent.TextHelper.prettyNameFromType($data), click: $parent.orderProtein"></span>
+        </li>
+    </ul>
+</div>

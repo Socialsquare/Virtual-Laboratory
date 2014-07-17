@@ -9,11 +9,12 @@ define([
     'controller/view/computer/DesignDrug',
     'controller/view/computer/OrderMouse',
     'controller/view/computer/Sequencing',
+    'controller/view/computer/Protein',
 
     'model/type/ComputerScreen'
 
 ], function (ko, mapping, _, BaseViewController, MenuScreen,
-             DesignDNAScreen, DesignDrugScreen, OrderMouseScreen, SequencingScreen,
+             DesignDNAScreen, DesignDrugScreen, OrderMouseScreen, SequencingScreen, ProteinScreen,
              ComputerScreenType) {
 
     var Computer = BaseViewController.extend({
@@ -30,6 +31,7 @@ define([
             screenControllers[ComputerScreenType.DESIGN_DRUG] = new DesignDrugScreen();
             screenControllers[ComputerScreenType.ORDER_MOUSE] = new OrderMouseScreen();
             screenControllers[ComputerScreenType.SEQUENCING] = new SequencingScreen();
+            screenControllers[ComputerScreenType.PROTEIN] = new ProteinScreen();
 
             // TODO: subscription seemed to fail
             self.activeScreenController = ko.computed(function () {

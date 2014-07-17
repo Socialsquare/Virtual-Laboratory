@@ -116,6 +116,11 @@
         "item.name.antigen_gout": "Antigen (gigt)",
         "item.name.antigen_smallpox": "Antigen (kopper)",
 
+        "liquid.name.insulin": "Insulin",
+        "liquid.name.lipase": "Lipase",
+        "liquid.name.antibody_gout": "Antistof (gigt)",
+        "liquid.name.antibody_smallpox": "Antistof (kopper)",
+
         "common.loading": "Henter",
         "common.ok": "Okay",
         "common.close": "Luk",
@@ -240,6 +245,11 @@
         "item.name.adjuvans": "Adjuvant",
         "item.name.antigen_gout": "Antigen (gout)",
         "item.name.antigen_smallpox": "Antigen (smallpox)",
+
+        "liquid.name.insulin": "Insulin",
+        "liquid.name.lipase": "Lipase",
+        "liquid.name.antibody_gout": "Antibody (gout)",
+        "liquid.name.antibody_smallpox": "Antibody (smallpox)",
 
         "common.loading": "Loading",
         "common.ok": "Okay",
