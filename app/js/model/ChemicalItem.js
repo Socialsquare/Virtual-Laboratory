@@ -3,11 +3,12 @@ define([
     'base'
 ], function (ko, Base) {
     var ChemicalItemModel = Base.extend({
-        constructor: function (name, item) {
+        constructor: function (name, itemGetter) {
             var self = this;
 
             self.name = ko.observable(name);
-            self.item = ko.observable(item);
+            self.itemGetter = itemGetter;
+            self.item = ko.observable(itemGetter());
         }
     });
 

@@ -37,37 +37,33 @@ define([
             self.showList = function (name) {
                 popupController.show('popup-list', {
                     title: groups[name].name,
-                    items: groups[name].items,
-                    klone: utils.klone
+                    items: groups[name].items
                 });
             };
 
             // TODO: consider refactoring this to somewhere else
             self.closetItems.pushAll([
-                new ChemicalItemModel('item.name.deadly', self.inTube(LiquidFactory.deadly())),
-                new ChemicalItemModel('item.name.growth_medium', self.inTube(LiquidFactory.growthMedium())),
-                new ChemicalItemModel('item.name.growth_medium', self.inPetridish(LiquidFactory.growthMedium()))
+                new ChemicalItemModel('item.name.deadly', function () { return self.inTube(LiquidFactory.deadly()); }),
+                new ChemicalItemModel('item.name.growth_medium', function () { return self.inTube(LiquidFactory.growthMedium()); }),
+                new ChemicalItemModel('item.name.growth_medium', function () { return self.inPetridish(LiquidFactory.growthMedium()); })
             ]);
 
             self.drawerItems.pushAll([
-                new ChemicalItemModel('item.name.syringe', new SyringeModel()),
-                new ChemicalItemModel('item.name.scalpel', new ScalpelModel()),
-                new ChemicalItemModel('item.name.petri_dish', new PetridishModel()),
-                new ChemicalItemModel('item.name.tube', new TubeModel()),
-                new ChemicalItemModel('item.name.microtiter', new MicrotiterplateModel())
+                new ChemicalItemModel('item.name.syringe', function () { return new SyringeModel(); }),
+                new ChemicalItemModel('item.name.scalpel', function () { return new ScalpelModel(); }),
+                new ChemicalItemModel('item.name.petri_dish', function () { return new PetridishModel(); }),
+                new ChemicalItemModel('item.name.tube', function () { return new TubeModel(); }),
+                new ChemicalItemModel('item.name.microtiter', function () { return new MicrotiterplateModel(); }),
             ]);
 
             self.fridgeItems.pushAll([
-                new ChemicalItemModel('item.name.yeast', self.inTube(LiquidFactory.microorganism.yeast())),
-                new ChemicalItemModel('item.name.myeloma', self.inTube(LiquidFactory.microorganism.myeloma())),
-
-                new ChemicalItemModel('item.name.antibiotic_a', self.inTube(LiquidFactory.antibiotic.a())),
-                new ChemicalItemModel('item.name.antibiotic_b', self.inTube(LiquidFactory.antibiotic.b())),
-
-                new ChemicalItemModel('item.name.adjuvans', self.inTube(LiquidFactory.adjuvans())),
-                new ChemicalItemModel('item.name.antigen_gout', self.inTube(LiquidFactory.antigenGout())),
-                new ChemicalItemModel('item.name.antigen_smallpox', self.inTube(LiquidFactory.antigenSmallpox()))
-
+                new ChemicalItemModel('item.name.yeast', function () { return self.inTube(LiquidFactory.microorganism.yeast()); }),
+                new ChemicalItemModel('item.name.myeloma', function () { return self.inTube(LiquidFactory.microorganism.myeloma()); }),
+                new ChemicalItemModel('item.name.antibiotic_a', function () { return self.inTube(LiquidFactory.antibiotic.a()); }),
+                new ChemicalItemModel('item.name.antibiotic_b', function () { return self.inTube(LiquidFactory.antibiotic.b()); }),
+                new ChemicalItemModel('item.name.adjuvans', function () { return self.inTube(LiquidFactory.adjuvans()); }),
+                new ChemicalItemModel('item.name.antigen_gout', function () { return self.inTube(LiquidFactory.antigenGout()); }),
+                new ChemicalItemModel('item.name.antigen_smallpox', function () { return self.inTube(LiquidFactory.antigenSmallpox()); }),
             ]);
 	    },
 
