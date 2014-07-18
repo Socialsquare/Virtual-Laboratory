@@ -11,6 +11,8 @@ define([
 
             var type = type || ContainerType.MICRO_SPACE;
             self.base(3, ContainerType.MICROTITER, type);
+
+            self.location = ko.observable();
         }
     });
 

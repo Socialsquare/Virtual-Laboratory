@@ -12,6 +12,8 @@ define([
             var type = type || ContainerType.PETRI_SPACE;
             var capacity = capacity || 3;
             self.base(capacity, ContainerType.PETRI_DISH, type);
+
+            self.location = ko.observable();
         }
     });
 

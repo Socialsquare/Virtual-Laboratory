@@ -6,8 +6,9 @@ define([
     'model/PetriSpace',
     'model/MicroSpace',
     'model/type/Container',
-    'model/type/Grower'
-], function(ko, _, Base, TubeRackModel, PetriSpaceModel, MicroSpaceModel, ContainerType, GrowerType) {
+    'model/type/Grower',
+    'model/type/Location'
+], function(ko, _, Base, TubeRackModel, PetriSpaceModel, MicroSpaceModel, ContainerType, GrowerType, LocationType) {
 
     var Incubator = Base.extend({
 
@@ -22,7 +23,9 @@ define([
             self.growerType = ko.observable(GrowerType.INCUBATOR);
 
             self.tableSpacePetri = new PetriSpaceModel(6);
+            self.tableSpacePetri.location(LocationType.INCUBATOR);
             self.tubeRack = new TubeRackModel();
+            self.tubeRack.location(LocationType.INCUBATOR);
 
             self.temperatureText = ko.computed(function() {
                 return '' + self.temperature().toFixed(1) + ' °C';

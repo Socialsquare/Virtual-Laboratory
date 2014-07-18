@@ -6,8 +6,9 @@ define([
     'model/MicroSpace',
     'model/type/Container',
     'model/Heater',
-    'model/Electroporator'
-], function(ko, Base, TubeRackModel, PetriSpaceModel, MicroSpaceModel, ContainerTypeModel, HeaterModel, ElectroporatorModel) {
+    'model/Electroporator',
+    'model/type/Location'
+], function(ko, Base, TubeRackModel, PetriSpaceModel, MicroSpaceModel, ContainerTypeModel, HeaterModel, ElectroporatorModel, LocationType) {
 
     var Worktable1 = Base.extend({
 
@@ -15,8 +16,14 @@ define([
             var self = this;
 
             self.tableSpacePetri = new PetriSpaceModel();
+            self.tableSpacePetri.location(LocationType.WORKTABLE1);
+
             self.tableSpaceMicro = new MicroSpaceModel();
+            self.tableSpaceMicro.location(LocationType.WORKTABLE1);
+
             self.tubeRack = new TubeRackModel();
+            self.tubeRack.location(LocationType.WORKTABLE1);
+
             self.bunsenBurner = ko.observable(false);
             self.electroporator = new ElectroporatorModel();
             self.heater = new HeaterModel();

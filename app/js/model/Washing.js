@@ -8,9 +8,10 @@ define([
 
     'model/type/Liquid',
 
-    'utils/utils'
+    'utils/utils',
+    'model/type/Location'
 
-], function(ko, _, Base, WashingTankModel, TubeRackModel, LiquidType, utils) {
+], function(ko, _, Base, WashingTankModel, TubeRackModel, LiquidType, utils, LocationType) {
 
     var Washing = Base.extend({
 
@@ -18,6 +19,8 @@ define([
             var self = this;
 
             self.washingTank = new WashingTankModel();
+            self.tubeRack = new TubeRackModel();
+            self.tubeRack.location(LocationType.WASHING);
 
             self.action = function (concentration) {
                 var liquids = self.washingTank.liquids();
@@ -47,7 +50,6 @@ define([
                 return { result: result, feedback: feedback };
             };
 
-            self.tubeRack = new TubeRackModel();
         }
     });
 
