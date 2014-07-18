@@ -119,7 +119,7 @@ define([
                     self.videoController.play('drink-start', false)
                         .done(function () {
                             self.mouseDrinking(false);
-                            self.videoController.play('run', true);
+                            self.runFromState();
                         });
                     self.mouse().givJuice();
                     break;
