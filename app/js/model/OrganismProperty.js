@@ -11,9 +11,12 @@ define([
             self.base(LiquidType.ORGANISM_PROPERTY, ReactionCount.NEVER);
             self.promoter = promoter;
             self.proteinCodingSequence = proteinCodingSequence;
+
+            self.hashCode = function () {
+                return self._hashCode() + ':' + self.promoter.hashCode() + ':' + self.proteinCodingSequence.hashCode();
+            };
         }
     });
 
     return OrganismProperty;
 });
-

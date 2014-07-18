@@ -1,10 +1,11 @@
 define([
     'knockout',
+    'lodash',
     'model/Liquid',
     'model/type/Liquid',
     'model/ReactionCount',
     'utils/utils'
-], function(ko, LiquidModel, LiquidType, ReactionCount, Utils) {
+], function(ko, _, LiquidModel, LiquidType, ReactionCount, Utils) {
 
     var Microorganism = LiquidModel.extend({
         constructor: function (microorganismType) {
@@ -95,13 +96,21 @@ define([
             };
 
             self.hashCode = function () {
+                var geneHash = _.map(self.extraGenes(), function (gene) {
+                    return gene.hashCode();
+                }).join(',');
+
+                var propHash = _.map(self.extraGenes(), function (prop) {
+                    return prop.hashCode();
+                }).join(',');
+
                 return self._hashCode()
-                    + ":" + self.microorganismType()
-                    + ":" + self.living()
-                    + ":" + self.extraGenes()
-                    + ":" + self.extraProperties()
-                    + ":" + self.optimalPh()
-                    + ":" + self.optimalTemp();
+                    + ':' + self.microorganismType()
+                    + ':' + self.living()
+                    + ':' + geneHash
+                    + ':' + propHash
+                    + ':' + self.optimalPh()
+                    + ':' + self.optimalTemp();
             };
         }
     });
