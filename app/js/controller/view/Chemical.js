@@ -35,7 +35,6 @@ define([
             };
 
             self.showList = function (name) {
-                console.log(groups[name].items());
                 popupController.show('popup-list', {
                     title: groups[name].name,
                     items: groups[name].items,

@@ -19,8 +19,9 @@
 
         img {
             cursor: pointer;
+            @include opacity(0.4);
             &.active {
-                border: 2px solid white;
+                @include opacity(1);
             }
         }
     }

@@ -7,7 +7,7 @@
         <li data-bind="drag: { item: $parent.data.klone.bind(null, item()) }">
             <div>
                 <img data-bind="attr: { src: $parent.ImageHelper.draggingIcon(item())}">
-                <span data-bind="i18n: name"></span>
+                <div data-bind="i18n: name"></div>
             </div>
         </li>
     </ul>
