@@ -12,7 +12,7 @@
         <img alt="Scaffold" data-bind="attr: { src: ImageHelper.scaffoldImage(selectedScaffold().name()) }"/>
         <!-- ko foreach: selectedScaffold().slots -->
         <div class="slot" data-bind="style: { left: position().x + 'px', top: position().y + 'px' },
-                                     drop: { handler: $parent.handleDrop }">
+                                     drop: { handler: $parent.handleDrop.bind(null, $data) }">
             <!-- ko if: hasSidegroup() -->
             <img src="" alt="" data-bind="attr: { src: $parent.ImageHelper.sidegroupImage(sidegroup().name())},
                                           style: { '-webkit-transform': 'rotate(' + rotation() + 'deg)',
