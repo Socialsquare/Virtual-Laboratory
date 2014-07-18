@@ -1,6 +1,7 @@
 define([
     'knockout',
     'jquery',
+    'lodash',
     'screenfull',
 
     'controller/view/Base',
@@ -13,7 +14,7 @@ define([
 
     'utils/ImageHelper',
     'utils/TextHelper'
-], function (ko, $, screenfull, BaseViewController, popupController, gameState,
+], function (ko, $, _, screenfull, BaseViewController, popupController, gameState,
              TipModel, ContainerType, SpecialItemType, ImageHelper, TextHelper) {
 
     var MenuController = BaseViewController.extend({
@@ -91,6 +92,7 @@ define([
                 var body = document.getElementsByTagName('body')[0];
                 if (screenfull.enabled) {
                     screenfull.toggle(body);
+                    $("#app").toggleClass('fullscreen', screenfull.isFullscreen);
                 } else {
                     alert('Full screen is not supported on your device :( - let me guess, it is an Apple device?');
                 }

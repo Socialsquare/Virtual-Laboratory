@@ -50,8 +50,10 @@ body {
 }
 
 #app {
-    position: relative;
-    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: (-1024px / 2);
     width: 1024px;
     height: 768px;
 }

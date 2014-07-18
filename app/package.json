@@ -8,6 +8,11 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-sass": "^0.7.3",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-shell": "^0.7.0"
+    "grunt-shell": "^0.7.0",
+    "karma": "^0.12.17",
+    "karma-cli": "0.0.4",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-requirejs": "^0.2.2"
   }
 }
