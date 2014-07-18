@@ -16,6 +16,11 @@ define([], function () {
         ANTIGEN_SMALLPOX: 'LiquidType.ANTIGEN_SMALLPOX',
         ADJUVANS:         'LiquidType.ADJUVANS',
         LIPASE_ENZYME:    'LiquidType.LIPASE_ENZYME',
-        DESIGNED_DRUG:    'LiquidType.DESIGNED_DRUG'
+        GFP:              'LiquidType.GFP',
+        DESIGNED_DRUG:    'LiquidType.DESIGNED_DRUG',
+        PRODUCED_INSULIN: 'LiquidType.PRODUCED_INSULIN',
+        PRODUCED_LIPASE:  'LiquidType.PRODUCED_LIPASE',
+        PRODUCED_ANTIBODY_GOUT:      'LiquidType.PRODUCED_ANTIBODY_GOUT',
+        PRODUCED_ANTIBODY_POX:       'LiquidType.PRODUCED_ANTIBODY_POX'
     };
 });

@@ -3,8 +3,9 @@ define([
     'base',
     'utils/utils',
     'model/FermentorTank',
-    'model/type/Grower'
-], function(ko, Base, utils, FermentorTankModel, GrowerType) {
+    'model/type/Grower',
+    'model/type/Liquid'
+], function(ko, Base, utils, FermentorTankModel, GrowerType, LiquidType) {
 
     var Fermentor = Base.extend({
         constructor: function () {
@@ -21,6 +22,7 @@ define([
             self.timerID = ko.observable(null);*/
             self.hourResolution = ko.observable(10); // This is used in the growth.
             self.growerType = ko.observable(GrowerType.FERMENTOR);
+            self.products = ko.observableArray([]);
 
             self.substrate = ko.observable(19.0);
 
@@ -37,7 +39,7 @@ define([
             });
 
             var productData =_.map(_.range(0, 250), function (i) {
-                return [i, 0.0];
+                return 0.0;
             });
 
             self.biomassData(biomassData);
@@ -63,7 +65,7 @@ define([
                 //TODO: config-file
             };
 
-            self.storeGrowthStep = function() { //TODO:
+            self.storeGrowthStep = function() {
 // Biomass
                 var biomassData = self.biomassData();
                 var first = biomassData.shift();
@@ -75,17 +77,58 @@ define([
                 first = substrateData.shift();
                 substrateData.push(self.substrate());
                 self.substrateData(substrateData);
+
+// Products //TODO:
+
+                var productConcentration = 0;
+                _.each(self.products(), function(producedEnzyme) {
+                    productConcentration += producedEnzyme.amount;
+                });
+                first = productData.shift();
+                productData.push(utils.math.getBiomassFromConcentration(productConcentration));
+                self.productData(productData);
             };
 
             self.growOneHour = function() //Grows all containers one hour
             {// For-løkke med mindre steps
-                var sugarConsumption = 1.8;
+                var sugarConsumption = 1.87;  //Magic number, but it corresponds to the amount of sugar an organism consumes per unit of growth.
                 var deltaTime = 1.0 / self.hourResolution();
 
                 var concBefore = self.fermentorTank.getTotalConcentration();
 
                 for(var i = 0; i < self.hourResolution(); i++) {
+                    console.log('Growth iteration #' + i);
                     self.fermentorTank.growContentsOnce(deltaTime, self.growerType(), self.ph(), self.temperature());
+
+                    //self.fermentorTank.liquids()[1].producedEnzymes()[0]
+                    _.each(self.fermentorTank.liquids(), function(organism) {
+                        if(! (organism.type() === LiquidType.MICROORGANISM))
+                        { return; }
+
+
+                        // 1) find products and add to fermentor
+                        _.each(organism.producedEnzymes(), function(producedEnzyme) {
+
+                            var match = _.find(self.products(), function(product) { return product.enzymeType === producedEnzyme.enzymeType });
+
+
+                            if(!match) {
+                                self.products.push(producedEnzyme);
+                            }else { //if in fermentorProducts --> update concentration
+                                match.amount += producedEnzyme.amount;
+                            }
+
+                        });
+
+                        // 2) Set products to []
+                        organism.producedEnzymes([]);
+
+                    });
+                    //TODO: for each organism -> for each producedEnzyme
+
+                    /*debugger;*/
+                    //TODO: produce enzymes
+                    /*self.products;*/
                 }
 
                 var concAfter = self.fermentorTank.getTotalConcentration();

@@ -135,8 +135,6 @@ define([
             self.gameState.washing.tubeRack.addAt(5, ContainerFactory.tube());
 
 
-// Dummy-data with DNA. Much shaky.
-
             var dnaDesign = viewControllers['designDNA'];
             var elements = dnaDesign.dnaService.getDNAElements();
 
@@ -157,15 +155,21 @@ define([
 
             self.gameState.worktable1.electroporator.addAll(dnaTube.liquids());
             var yeastbeast =self.liquidFactory.microorganism.yeast();
-            yeastbeast.concentration(Math.pow(10,9));
+            yeastbeast.concentration(Math.pow(10,8));
             self.gameState.worktable1.electroporator.add(yeastbeast);
+
 
             self.gameState.worktable1.electroporator.activate();
 
             var electro_contents = self.gameState.worktable1.electroporator.liquids(); //TODO:
             self.gameState.fermentor.fermentorTank.addAll(electro_contents);
+            var yeastNormal = self.liquidFactory.microorganism.yeast();
+            yeastNormal.concentration(Math.pow(10,9.5));
+            self.gameState.fermentor.fermentorTank.addAll([yeastNormal]);
+            yeastNormal.living(false);
 
             self.gameState.inventory.remove(self.gameState.inventory.items()[len-1]);
+
         }
     });
 

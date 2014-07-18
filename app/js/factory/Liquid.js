@@ -100,6 +100,10 @@ define([
 
         lipase: function () {
             return new Liquid(LiquidType.LIPASE_ENZYME, ReactionCount.NEVER);
+        },
+
+        gfp: function () {
+            return new Liquid(LiquidType.GFP, ReactionCount.NEVER);
         }
     };
 

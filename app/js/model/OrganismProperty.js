@@ -9,12 +9,13 @@ define([
         constructor: function (promoter, proteinCodingSequence) {
             var self = this;
             self.base(LiquidType.ORGANISM_PROPERTY, ReactionCount.NEVER);
-            self.promoter = promoter;
-            self.proteinCodingSequence = proteinCodingSequence;
+            self.promoter = promoter; // is a DNAelement
+            self.proteinCodingSequence = proteinCodingSequence; //is a DNAelement
 
             self.hashCode = function () {
                 return self._hashCode() + ':' + self.promoter.hashCode() + ':' + self.proteinCodingSequence.hashCode();
             };
+
         }
     });
 

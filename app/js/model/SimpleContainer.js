@@ -2,9 +2,10 @@ define([
     'knockout',
     'base',
     'lodash',
+    'model/ProducedEnzyme',
     'model/type/Liquid',
     'model/type/Grower'
-], function(ko, Base, _, LiquidType, GrowerType) {
+], function(ko, Base, _, ProducedEnzymeModel, LiquidType, GrowerType) {
 
     var SimpleContainer = Base.extend({
         constructor: function (type, maxConcentration) {
@@ -92,43 +93,58 @@ define([
             };
 
             self.growContentsOnce = function(deltaTime, growerType, ph, temperature) {
-                // TODO return whether growth is performed. False = max is reached, True = grew once
                 // deltaTime is in hours!
-
-
-                if(self.getTotalConcentration() >= self.maxConcentration())
-                { return false; }
-
-
-// TODO limit when reaches maxConcentration
-
+                var producedEnzymes = [];
                 var totalConc = self.getTotalConcentration();
 
+                if(self.getTotalConcentration() >= self.maxConcentration())
+                { return producedEnzymes; }
 
-                _.forEach(self.liquids(), function(liquid){
-                    if(! (liquid.type() === LiquidType.MICROORGANISM))
+
+                _.forEach(self.liquids(), function(organism){
+                    if(! (organism.type() === LiquidType.MICROORGANISM))
                     { return; }
-
-                    //TODO check if null?
 
                     var growthAmount = 0;
 
                     if(growerType === GrowerType.FERMENTOR)
                     {
-                        growthAmount = liquid.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, ph, temperature);
+                        //TODO: produce enzymes
+                        growthAmount = organism.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, ph, temperature);
+
+
+                        if(organism.producedEnzymes().length == 0) {
+
+                            var extraLen = organism.extraProperties().length;
+                            //For-each
+                            _.each(organism.extraProperties(), function(extraProperty) {
+                                var productGrowthRatio = 7.654321; //Magic number, but it corresponds to the ratio Growth:Production per organism
+                                var productAmount = growthAmount / extraLen / productGrowthRatio;
+
+                                //TODO: implement sugar-concentration and promoter-check
+                                var product = new ProducedEnzymeModel(extraProperty.proteinCodingSequence.name(), productAmount);
+
+                                organism.producedEnzymes.push(product);
+
+                            });
+
+                        }else {
+                            throw 'Error. The point is that organism.producedEnzymes() should always be reset when read.';
+                        }
+
                     }else if(growerType === GrowerType.INCUBATOR)
                     { // Always choose the optimal ph
-                        ph = liquid.optimalPh();
-                        growthAmount = liquid.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, ph, temperature);
+                        ph = organism.optimalPh();
+                        growthAmount = organism.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, ph, temperature);
                     }else
                     {
                         throw 'wtf are you doing, developer-dude?';
                     }
 
-                    liquid.grow(growthAmount);
+                    organism.grow(growthAmount);
                 });
 
-                return true;
+                return producedEnzymes;
             };
         }
     });

@@ -15,18 +15,16 @@ define([
             self.microorganismType = ko.observable(microorganismType);
             self.living = ko.observable(true);
 		    self.name = ko.observable('');
-		    self.extraGenes = ko.observableArray([]); //TODO: implement
-            self.extraProperties = ko.observableArray([]); //TODO: implement
+		    self.extraGenes = ko.observableArray([]);
+            self.extraProperties = ko.observableArray([]);
 		    self.optimalPh = ko.observable(0);
 		    self.optimalTemp = ko.observable(0);
 		    self.concentration = ko.observable(0);
+            self.producedEnzymes = ko.observableArray([]);
+
 
             self.addGene = function(gene) {
                 self.extraGenes.push(gene);
-            };
-
-            self.addExtraProperties = function(properties) {
-
             };
 
             self.getGrowthRate = function(ph, temperature) {
@@ -41,7 +39,6 @@ define([
             self.getGrowthStep = function(deltaTime, containerMaxConc, containerPrevTotalConc, ph, temperature) {
 
                 if(!self.living())  {return 0;}
-// TODO: kill if conditions are too harsh
 
                 // Returns concentration
                 // Temporarily converts to biomass (has the real unit g/L)
