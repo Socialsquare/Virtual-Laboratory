@@ -46,7 +46,7 @@ define([
             };
 
             self.clearContents = function() {
-                self.liquids = ko.observableArray([]);
+                self.liquids.removeAll();
             };
 
             self.contains = function (liquidType) {
@@ -66,9 +66,9 @@ define([
             };
 
             self.containsAll = function (liquidTypes) {
-                return _.reduce(liquidTypes, function (hasAll, liquidType) {
-                    return hasAll && self.contains(liquidType);
-                }, true);
+                return _.all(liquidTypes, function (liquidType) {
+                    return self.contains(liquidType);
+                });
             };
 
             self.getTotalConcentration = function() {
@@ -100,9 +100,8 @@ define([
                 if(self.getTotalConcentration() >= self.maxConcentration())
                 { return producedEnzymes; }
 
-
                 _.forEach(self.liquids(), function(organism){
-                    if(! (organism.type() === LiquidType.MICROORGANISM))
+                    if (organism.type() !== LiquidType.MICROORGANISM)
                     { return; }
 
                     var growthAmount = 0;
@@ -111,7 +110,6 @@ define([
                     {
                         //TODO: produce enzymes
                         growthAmount = organism.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, ph, temperature);
-
 
                         if(organism.producedEnzymes().length == 0) {
 
@@ -136,9 +134,8 @@ define([
                     { // Always choose the optimal ph
                         ph = organism.optimalPh();
                         growthAmount = organism.getGrowthStep(deltaTime, self.maxConcentration(), totalConc, ph, temperature);
-                    }else
-                    {
-                        throw 'wtf are you doing, developer-dude?';
+                    }else {
+                        throw 'Unknown grower type: ' + growerType;
                     }
 
                     organism.grow(growthAmount);
