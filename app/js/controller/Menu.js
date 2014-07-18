@@ -88,8 +88,7 @@ define([
             };
 
             self.fullscreen = function () {
-                var body = document.getElementsByTagName('body').get(0);
-
+                var body = document.getElementsByTagName('body')[0];
                 if (screenfull.enabled) {
                     screenfull.toggle(body);
                 } else {
