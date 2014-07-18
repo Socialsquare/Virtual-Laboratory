@@ -77,11 +77,26 @@ define([
                 }));
             };
 
+            self.injectionFromState = function () {
+                if (self.mouse().alive()) {
+                    switch (self.mouse().mouseType()) {
+                    case MouseType.HEALTHY:
+                        return self.videoController.play('injection-healthy', false);
+
+                    case MouseType.SMALLPOX:
+                        return self.videoController.play('injection-smallpox', false);
+
+                    case MouseType.GOUT:
+                        return self.videoController.play('injection-gout', false);
+                    }
+                }
+            };
+
             self.runFromState = function () {
                 if (self.mouse().alive()) {
                     switch (self.mouse().mouseType()) {
                     case MouseType.HEALTHY:
-                        self.videoController.play('run', true);
+                        self.videoController.play('run-healthy', true);
                         break;
 
                     case MouseType.SMALLPOX:
@@ -156,25 +171,27 @@ define([
                             });
                     }
                     else if (item.contains(LiquidType.INSULIN)) {
-                        self.mouse().givInsulin();
+                        self.injectionFromState().done(function () {
+                            self.mouse().givInsulin();
+
+                            self.runFromState();
+                        });
                     }
                     else if (item.contains(LiquidType.ADJUVANS) &&
                              (item.contains(LiquidType.ANTIGEN_GOUT) || item.contains(LiquidType.ANTIGEN_SMALLPOX))) {
+                        self.injectionFromState().done(function () {
+                            if (item.contains(LiquidType.ANTIGEN_GOUT)) {
+                                self.mouse().vaccinate(LiquidType.ANTIGEN_GOUT);
+                                self.popupController.message('mouse.vaccinated_gout.header','mouse.vaccinated_gout.body');
+                            }
 
-                        self.videoController.play('injection-run')
-                            .done(function() {
-                                if (item.contains(LiquidType.ANTIGEN_GOUT)) {
-                                    self.mouse().vaccinate(LiquidType.ANTIGEN_GOUT);
-                                    self.popupController.message('mouse.vaccinated_gout.header','mouse.vaccinated_gout.body');
-                                }
+                            if (item.contains(LiquidType.ANTIGEN_SMALLPOX)) {
+                                self.mouse().vaccinate(LiquidType.ANTIGEN_SMALLPOX);
+                                self.popupController.message('mouse.vaccinated_smallpox.header','mouse.vaccinated_smallpox.body');
+                            }
 
-                                if (item.contains(LiquidType.ANTIGEN_SMALLPOX)) {
-                                    self.mouse().vaccinate(LiquidType.ANTIGEN_SMALLPOX);
-                                    self.popupController.message('mouse.vaccinated_smallpox.header','mouse.vaccinated_smallpox.body');
-                                }
-
-                                self.runFromState();
-                            });
+                            self.runFromState();
+                        });
                     }
                     else if (item.contains(LiquidType.ANTIBODY_SMALLPOX) && self.mouse().mouseType() === MouseType.SMALLPOX) {
                         self.videoController.play(['injection-smallpox', 'cure-smallpox'])
@@ -195,17 +212,7 @@ define([
                             });
                     }
                     else {
-                        var video = 'injection-run';
-                        switch (self.mouse().mouseType()) {
-                        case MouseType.SMALLPOX:
-                            video = 'injection-smallpox';
-                            break;
-
-                        case MouseType.GOUT:
-                            video = 'injection-gout';
-                            break;
-                        }
-                        self.videoController.play(video).done(function () {
+                        self.injectionFromState().done(function () {
                             self.runFromState();
                         });
                     }

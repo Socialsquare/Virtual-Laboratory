@@ -39,12 +39,16 @@ define([
                 switch (self.selectedProtein().type()) {
                 case LiquidType.INSULIN:
                     liquid = LiquidFactory.insulin();
+                    break;
                 case LiquidType.LIPASE_ENZYME:
                     liquid = LiquidFactory.lipase();
+                    break;
                 case LiquidType.ANTIBODY_GOUT:
                     liquid = LiquidFactory.antibodyGout();
+                    break;
                 case LiquidType.ANTIBODY_SMALLPOX:
                     liquid = LiquidFactory.antibodySmallpox();
+                    break;
                 }
 
                 var item = ContainerFactory.tube().add(liquid);

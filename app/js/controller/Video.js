@@ -8,17 +8,21 @@ define([
 ], function (ko, $, _, Base, VideoModel) {
 
     var videos = [
-        new VideoModel('run', 'runFast'),
         new VideoModel('drink-start', 'runFast_drink_spawn'),
         new VideoModel('drink-loop', 'runFast_drink_loop'),
-        new VideoModel('injection-run', 'runFast_inj'),
         new VideoModel('injection-die', 'poi1_inj'),
         new VideoModel('cut', 'poi3_cut'),
 
+        // Healthy mouse
+        new VideoModel('run-healthy', 'runFast'),
+        new VideoModel('injection-healthy', 'runFast_inj'),
+
+        // Mouse with smallpox
         new VideoModel('cure-smallpox', 'runSlow_cure_pox'),
         new VideoModel('injection-smallpox', 'runSlow_inj_pox'),
         new VideoModel('run-smallpox', 'runSlow_pox'),
 
+        // Mouse with gout
         new VideoModel('cure-gout', 'runSlow_cure_gout'),
         new VideoModel('injection-gout', 'runSlow_inj_gout'),
         new VideoModel('run-gout', 'runSlow_gout'),
@@ -45,7 +49,11 @@ define([
             self.promise = null;
 
             self.findVideo = function (id) {
-                return _.find(videos, function (v) { return v.name() === id; });
+                var video = _.find(videos, function (v) { return v.name() === id; });
+                if (!video)
+                    throw 'Unknown video: ' + id;
+
+                return video;
             };
 
             self.play = function (ids, loopLast) {
