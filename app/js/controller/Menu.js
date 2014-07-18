@@ -116,17 +116,6 @@ define([
             };
 
             self.togglePipette = function (activeViewController) {
-                // var acceptedViews = [
-                //     'worktable1',
-                //     'worktable2',
-                //     'fumehood'
-                // ];
-
-                // if (acceptedViews.indexOf(activeViewController.templateName) < 0) {
-                //     console.log('Can\'t use pipette here, dumdum');
-                //     return;
-                // }
-
                 self.gameState.pipette.active.toggle();
             };
 

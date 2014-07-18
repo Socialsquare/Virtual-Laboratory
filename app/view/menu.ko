@@ -31,8 +31,8 @@
 
             <div class="inventory" data-bind="drop: { handler: inventoryDropHandler }">
                 <ul data-bind="foreach: gameState.inventory.items, style: { left: scrollValue() + 'px' }">
-                    <li class="hand" data-bind="click: $parent.showItemDetails.bind(null, $data)">
-                        <div data-bind="drag: { item: $data, dim: true, consume: $parent.gameState.inventory.remove.bind(null, $data) }">
+                    <li class="hand" data-bind="click: $parent.showItemDetails">
+                        <div data-bind="drag: { item: $data, dim: true, consume: $parent.gameState.inventory.remove }">
                             <img data-bind="attr: { src: $parent.ImageHelper.inventoryIcon($data) }">
                         </div>
                     </li>
@@ -46,10 +46,10 @@
 
         <div class="menu-right-links">
             <ul>
-                <li class="hand" data-bind="click: togglePipette.bind(null, $parent.activeViewController())">
+                <li class="hand" data-bind="click: togglePipette">
                     <img src="assets/images/icon_big_pipette.png" alt="Pipette">
                 </li>
-                <li class="hand" data-bind="click: handlePipetteTip.bind(null, $parent.activeViewController())">
+                <li class="hand" data-bind="click: handlePipetteTip">
                     <img src="assets/images/icon_big_tips.png" alt="Pipette spidser">
                 </li>
                 <li class="hand" data-bind="drop: { handler: trashDropHandler }">
