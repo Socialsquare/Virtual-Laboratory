@@ -1,14 +1,14 @@
 define([
-    'model/Tube'
-], function (Tube) {
-    describe("A suite", function() {
+    'factory/Container'
+], function (ContainerFactory) {
+    describe("A suite 2", function() {
         it("contains spec with an expectation", function() {
-            expect(true).toBe(true);
+            var t = ContainerFactory.tube();
+            expect(t.liquids().length).toBe(0);
         });
-
 
         it("contains spec with an expectation", function() {
             expect(true).toBe(true);
         });
     });
-})
+});

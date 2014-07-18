@@ -92,8 +92,6 @@ define([
             mye2.concentration(3);
             tube.add(mye);
             tube.add(mye2);
-            tube.add(LiquidFactory.antibiotic.a());
-            tube.add(LiquidFactory.antibiotic.b());
 
             var yea = LiquidFactory.microorganism.yeast();
             yea.concentration(5);

@@ -8,7 +8,7 @@ var pathToModule = function(path) {
 Object.keys(window.__karma__.files).forEach(function(file) {
     if (TEST_REGEXP.test(file)) {
         // Normalize paths to RequireJS module names.
-        allTestFiles.push(pathToModule(file));
+        allTestFiles.push('../' + pathToModule(file));
     }
 });
 
@@ -39,73 +39,34 @@ Object.keys(window.__karma__.files).forEach(function(file) {
 
 require.config({
     // Karma serves files under /base, which is the basePath from your config file
-
     paths: {
-		cordova: '../cordova',
-		text: 'libs/requirejs/text',
-		jquery: 'libs/jquery/jquery-2.0.3.min',
-		underscore: 'libs/underscore.js/underscore-min',
-		lodash: 'libs/lodash.compat',
-		knockout: 'libs/knockout.js/knockout-3.1.0',
-		mapping: 'libs/knockout.mapping',
-		base: 'libs/Base',
+        jquery: '../bower_components/jquery/dist/jquery',
+        jqueryui: '../bower_components/jquery-ui/jquery-ui',
+        flot: '../bower_components/jquery-flot/jquery.flot',
+        html5Loader: '../bower_components/jquery.html5loader/src/jquery.html5Loader',
+        lodash: '../bower_components/lodash/dist/lodash.compat',
+        knockout: '../bower_components/knockout/dist/knockout.debug',
+        mapping: '../bower_components/knockout-mapping/knockout.mapping',
+        jqueryuitouchpunch: '../bower_components/jqueryui-touch-punch/jquery.ui.touch-punch',
+        fastclick: '../bower_components/fastclick/lib/fastclick',
+        screenfull: '../bower_components/screenfull/dist/screenfull',
+        text: '../bower_components/requirejs-text/text',
+        json: '../bower_components/requirejs-plugins/src/json',
 
-		chcdraggable: 'libs/jquery/plugins/jquery.chcdraggable',
-		chcdraggablespawner: 'libs/jquery/plugins/jquery.chcdraggablespawner',
-		chcdroppable: 'libs/jquery/plugins/jquery.chcdroppable',
-		flot: 'libs/jquery/plugins/jquery.flot.min'
-	},
-	shim: {
-		'cordova': {
-			exports: 'cordova'
-		},
-		'jquery': {
-			exports: '$'
-		},
-		'underscore': {
-			deps: ['jquery'],
-			exports: '_',
-			init: function() {
-				//Tell Underscore template engine to use {{...}} for inserting values
-				this._.templateSettings = {
-					interpolate: /\{\{(.+?)\}\}/g
-				};
-				return _;
-			}
-		},
-		'backbone': {
-			deps: ['underscore'],
-			exports: 'Backbone'
-		},
+        base: 'libs/Base',
 
-		'base': {
-			exports: 'Base'
-		},
+        datadir: '../data'
+    },
+    shim: {
+        'html5Loader': ['jquery'],
+        'jqueryui': ['jquery'],
+        'jqueryuitouchpunch': ['jqueryui'],
+        'flot': ['jquery'],
+        'screenfull': { exports: 'screenfull' },
+        'base': { exports: 'Base' }
+    },
 
-		'knockout': {
-			deps: ['jquery'],
-			exports: 'ko'
-		},
-
-		'chcdraggable': {
-			deps: ['jquery'],
-			exports: 'chcdraggable'
-		},
-		'chcdraggablespawner': {
-			deps: ['jquery', 'chcdraggable'],
-			exports: 'chcdraggablespawner'
-		},
-		'chcdroppable': {
-			deps: ['jquery'],
-			exports: 'chcdroppable'
-		},
-		'flot': {
-			deps: ['jquery'],
-			exports: 'flot'
-		}
-	},
-
-    baseUrl: '/base',
+    baseUrl: '/base/js',
     //baseUrl: '/home/simon/dev/vlab/app/js',
 
     // dynamically load all test files
