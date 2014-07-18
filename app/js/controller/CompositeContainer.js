@@ -139,6 +139,19 @@ define([
                         break;
                 }
             };
+
+            self.showDeveloperDetails = function(item) {
+                console.log('Total concentration: ' + item.getTotalConcentration());
+            };
+
+              /*  self.showItemDetails = function (item) {
+                var accepted = [SpecialItemType.SCALPEL, SpecialItemType.SPLEEN];
+
+                if (_.contains(accepted, item.type()))
+                    self.popupController.message(TextHelper.prettyName(item), TextHelper.description(item));
+                else
+                    self.popupController.itemDetail(item);
+            };*/
         },
     });
 
