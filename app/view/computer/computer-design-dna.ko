@@ -1,31 +1,37 @@
-<div class="view">
-    <div class="header-container">
-        <a class="menu-link" data-bind="i18n: 'computer.menu', click: goToMenu"></a>
-        <h2 data-bind="i18n: 'computer.screen.dna'"></h2>
-    </div>
-
+<div class="sidebar">
     <ul class="dna-element-list" data-bind="foreach: availableDNA">
         <li>
             <div class="hand" data-bind="text: name, drag: { item: $data, helper: 'clone', offset: { left: 10, top: 10} }"></div>
         </li>
     </ul>
+</div>
 
-    <div class="detail">
-        <div class="droparea" data-bind="foreach: dnaSequence, drop: { handler: handleDrop, accept: DragHelper.acceptDNA }">
-            <div class="dna-element">
-                <div class="dna-element-img" data-bind="style: { 'background-color': color }"></div>
-                <div class="dna-element-name" data-bind="text: name"></div>
+<div class="content">
+    <div class="elements" data-bind="drop: { handler: handleDrop, accept: DragHelper.acceptDNA }">
 
-                <div class="hand remove-btn" data-bind="click: $parent.removeDNA"></div>
+        <div data-bind="visible: dnaSequence.isEmpty(), i18n: 'computer.screen.dna.drop_here'"></div>
+
+        <!-- ko foreach: dnaSequence -->
+        <div class="dna-element">
+            <div class="hand remove-btn" data-bind="click: $parent.removeDNA">
+                <img src="assets/images/icon_trash.png" width="">
             </div>
-        </div>
 
-        <h3 class="subheader" data-bind="i18n: 'computer.sequence'"></h3>
-        <div class="sequence-container">
-            <div class="sequence" data-bind="foreach: dnaSequence">
-                <span data-bind="style: { color: color }, text: sequence"></span>
-            </div>
+            <div class="dna-element-img" data-bind="style: { 'background-color': color }"></div>
+            <div class="dna-element-name" data-bind="text: name"></div>
         </div>
+        <!-- /ko -->
+    </div>
+
+    <h4 class="subheader" data-bind="i18n: 'computer.sequence'"></h4>
+
+    <div class="sequence-container">
+        <div class="sequence" data-bind="foreach: dnaSequence">
+            <font data-bind="style: { color: color }, text: sequence"></font>
+        </div>
+    </div>
+
+    <div class="btn-bar">
         <button class="order-btn" data-bind="i18n: 'computer.order', click: orderDNA"></button>
     </div>
 </div>

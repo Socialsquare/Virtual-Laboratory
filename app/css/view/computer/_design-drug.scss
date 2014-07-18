@@ -1,0 +1,24 @@
+/* view/computer/design-drug.scss */
+
+.screen.computer-design-drug {
+
+    .sidebar .sidegroups .sidegroup img {
+        width: 260px;
+    }
+
+    .content{
+        .slots {
+            position: absolute;
+            top: 90px;
+            left: 120px;
+
+            .slot {
+                $width: 30px;
+                position: absolute;
+                margin: (-$width / 2) 0 0 (-$width / 2);
+                width: $width;
+                height: $width;
+            }
+        }
+    }
+}

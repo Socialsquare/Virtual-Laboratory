@@ -17,7 +17,7 @@ define([
 
         constructor: function () {
             var self = this;
-            self.base('computer-order-mouse');
+            self.base('computer-order-mouse', 'computer.screen.mouse');
 
             self.availableMice = ko.observableArray([
                 new MouseModel(MouseType.HEALTHY,  MouseBloodType.DIABETIC),
@@ -27,11 +27,10 @@ define([
                 new MouseModel(MouseType.INSOMNIA, MouseBloodType.NORMAL)
             ]);
 
-            self.selectedMouse = ko.observable(self.availableMice()[0]);
-
-            self.selectMouse = function (mouse) {
-                self.selectedMouse(mouse);
-            };
+            self.selectedIndex = ko.observable(0);
+            self.selectedMouse = ko.computed(function () {
+                return self.availableMice()[self.selectedIndex()];
+            });
 
             self.orderMouse = function () {
                 var mouse = self.selectedMouse();

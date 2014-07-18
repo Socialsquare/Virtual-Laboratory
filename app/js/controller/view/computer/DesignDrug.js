@@ -11,7 +11,7 @@ define([
 
         constructor: function () {
             var self = this;
-            self.base('computer-design-drug');
+            self.base('computer-design-drug', 'computer.screen.drug');
 
             self.drugService = drugService;
             self.sidegroups = drugService.sidegroups;

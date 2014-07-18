@@ -17,13 +17,25 @@ define([
                 case SpecialItemType.SPLEEN:
                     return 'item.description.spleen';
 
+                case LiquidType.INSULIN:
+                    return 'liquid.description.insulin';
+
+                case LiquidType.LIPASE_ENZYME:
+                    return 'liquid.description.lipase';
+
+                case LiquidType.ANTIBODY_GOUT:
+                    return 'liquid.description.antibody_gout';
+
+                case LiquidType.ANTIBODY_SMALLPOX:
+                    return 'liquid.description.antibody_smallpox';
+
                 default:
                     throw 'Unknown inventory item: ' + item.type();
                 }
             };
 
             self.prettyName = function (item) {
-                self.prettyNameFromType(item.type());
+                return self.prettyNameFromType(item.type());
             };
 
             self.prettyNameFromType = function (type) {

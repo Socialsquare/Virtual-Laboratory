@@ -1,0 +1,34 @@
+.screen .main-menu {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .icon {
+        text-align: center;
+        margin: 0 auto 0 auto;
+
+        img {
+            height: 100px;
+        }
+    }
+
+    ul {
+        padding: 40px 0 0 140px;
+        list-style: none;
+        clear: both;
+        li {
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            a:link { text-decoration: none; }
+            .text {
+                margin-top: 4px;
+                color: #333333;
+                text-align: center;
+                font-size: 80%;
+                line-height: 120%;
+            }
+        }
+    }
+}

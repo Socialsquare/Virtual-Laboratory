@@ -1,30 +1,30 @@
-<div class="view ordermouse">
-    <div class="header-container">
-        <a class="menu-link" data-bind="i18n: 'computer.menu', click: goToMenu"></a>
-        <h2 data-bind="i18n: 'computer.screen.mouse'"></h2>
-    </div>
+<div class="order-mouse">
+    <div class="sidebar">
 
-    <ul data-bind="foreach: availableMice">
-        <li>
-            <span class="hand" data-bind="i18n: description, click: $parent.selectMouse.bind(null, $data)"></span>
-        </li>
-    </ul>
+        <h3>Available mice</h3>
 
-    <div class="detail">
-        <ul>
-            <li >
-                <span data-bind="i18n: 'computer.screen.mouse.bloodsugar'"></span>
-                <span data-bind="text: selectedMouse().meanBlodSukker"></span>
-            </li>
-            <li>
-                <span data-bind="i18n: 'computer.screen.mouse.insulin.prod'"></span>
-                <span data-bind="text: selectedMouse().insulinProduktivitet"></span>
-            </li>
-            <li>
-                <span data-bind="i18n: 'computer.screen.mouse.insulin.effect'"></span>
-                <span data-bind="text: selectedMouse().insulinEffektivitet"></span>
+        <ul data-bind="foreach: availableMice">
+            <li data-bind="css: { selected: $parent.selectedIndex() === $index() }">
+                <span class="hand" data-bind="i18n: description, click: $parent.selectedIndex.bind(null, $index())"></span>
             </li>
         </ul>
-        <button class="order-btn" data-bind="i18n: 'computer.order', click: orderMouse"></button>
+    </div>
+
+    <div class="content">
+        <ul>
+            <li>
+                <span data-bind="i18n: 'computer.screen.mouse.bloodsugar'"></span>: <span data-bind="text: selectedMouse().meanBlodSukker"></span>
+            </li>
+            <li>
+                <span data-bind="i18n: 'computer.screen.mouse.insulin.prod'"></span>: <span data-bind="text: selectedMouse().insulinProduktivitet"></span>
+            </li>
+            <li>
+                <span data-bind="i18n: 'computer.screen.mouse.insulin.effect'"></span>: <span data-bind="text: selectedMouse().insulinEffektivitet"></span>
+            </li>
+        </ul>
+
+        <div class="btn-bar">
+            <button class="order-btn" data-bind="i18n: 'computer.order', click: orderMouse"></button>
+        </div>
     </div>
 </div>

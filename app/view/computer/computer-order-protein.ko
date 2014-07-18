@@ -1,13 +1,21 @@
-<div class="view order-protein">
-    <div class="header-container">
-        <a class="menu-link" data-bind="i18n: 'computer.menu', click: goToMenu"></a>
+<div class="order-protein">
+    <div class="sidebar">
 
-        <h2 data-bind="i18n: 'computer.screen.protein'"></h2>
+        <h3>Available proteins</h3>
+
+        <ul data-bind="foreach: availableProteins">
+            <li data-bind="css: { selected: $parent.selectedIndex() === $index() }">
+                <span class="hand" data-bind="i18n: $parent.TextHelper.prettyName($data), click: $parent.selectedIndex.bind(null, $index())"></span>
+            </li>
+        </ul>
     </div>
 
-    <ul data-bind="foreach: availableProteins">
-        <li>
-            <span class="hand" data-bind="i18n: $parent.TextHelper.prettyNameFromType($data), click: $parent.orderProtein"></span>
-        </li>
-    </ul>
+    <div class="content">
+        <h3 data-bind="i18n: TextHelper.prettyName(selectedProtein())"></h3>
+        <p data-bind="i18n: TextHelper.description(selectedProtein())"></p>
+
+        <div class="btn-bar">
+            <button data-bind="click: orderProtein, i18n: 'computer.order'"></button>
+        </div>
+    </div>
 </div>

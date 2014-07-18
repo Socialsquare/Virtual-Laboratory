@@ -15,7 +15,7 @@ define([
 
         constructor: function () {
             var self = this;
-            self.base('computer-design-dna');
+            self.base('computer-design-dna', 'computer.screen.dna');
 
             self.dnaService = new DNAService();
             self.defaultAvailableDNA = ko.observableArray([]);
@@ -51,7 +51,7 @@ define([
                 // reset the sequence and go to computer menu
                 self.dnaSequence.removeAll();
 
-                self.goToMenu();
+                self.changeScreen(self.Screens.MENU);
             };
         }
     });

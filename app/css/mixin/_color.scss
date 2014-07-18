@@ -38,3 +38,14 @@
     -moz-border-radius: $angle;
     border-radius: $angle;
 }
+
+@mixin abs-pos($top, $left) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}
+
+@mixin size($w, $h) {
+    width: $w;
+    height: $h;
+}

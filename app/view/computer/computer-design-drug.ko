@@ -1,37 +1,33 @@
-<div class="view design-drug">
-    <div class="header-container">
-        <a class="menu-link" data-bind="i18n: 'computer.menu', click: goToMenu"></a>
-        <h2 data-bind="i18n: 'computer.screen.drug'"></h2>
-    </div>
-
-     <ul class="sidegroups" data-bind="foreach: sidegroups">
-         <li>
-             <img alt="Sidegroup" data-bind="attr: { src: $parent.ImageHelper.sidegroupImage(name()) },
-                                             drag: { item: $data, helper: 'clone' }"/>
-         </li>
+<div class="sidebar">
+    <ul class="sidegroups" data-bind="foreach: sidegroups">
+        <li>
+            <img class="sidegroup" data-bind="attr: { src: $parent.ImageHelper.sidegroupImage(name()) },
+                                            drag: { item: $data, helper: 'clone' }"/>
+        </li>
     </ul>
+</div>
 
-    <div class="detail">
+<div class="content">
+    <div class="slots">
+        <img alt="Scaffold" data-bind="attr: { src: ImageHelper.scaffoldImage(selectedScaffold().name()) }"/>
+        <!-- ko foreach: selectedScaffold().slots -->
+        <div class="slot" data-bind="style: { left: position().x + 'px', top: position().y + 'px' },
+                                     drop: { handler: $parent.handleDrop.bind(null, $data) }">
+            <!-- ko if: hasSidegroup() -->
+            <img src="" alt="" data-bind="attr: { src: $parent.ImageHelper.sidegroupImage(sidegroup().name())},
+                                          style: { '-webkit-transform': 'rotate(' + rotation() + 'deg)',
+                                          '-webkit-transform-origin': sidegroup().origin().x + 'px ' + sidegroup().origin().y + 'px',
+                                          'margin': (-sidegroup().origin().y / 2) + 'px 0 0 ' + (-sidegroup().origin().x / 2) + 'px'}">
+            <!-- /ko -->
 
-        <div class="slots">
-            <img alt="Scaffold" data-bind="attr: { src: ImageHelper.scaffoldImage(selectedScaffold().name()) }"/>
-            <!-- ko foreach: selectedScaffold().slots -->
-            <div class="slot" data-bind="style: { left: position().x + 'px', top: position().y + 'px' },
-                                         drop: { handler: $parent.handleDrop.bind(null, $data) }">
-                <!-- ko if: hasSidegroup() -->
-                <img src="" alt="" data-bind="attr: { src: $parent.ImageHelper.sidegroupImage(sidegroup().name())},
-                                              style: { '-webkit-transform': 'rotate(' + rotation() + 'deg)',
-                                                       '-webkit-transform-origin': sidegroup().origin().x + 'px ' + sidegroup().origin().y + 'px',
-                                                       'margin': (-sidegroup().origin().y / 2) + 'px 0 0 ' + (-sidegroup().origin().x / 2) + 'px'}">
-                <!-- /ko -->
-
-                <!-- ko ifnot: hasSidegroup() -->
-                <img alt="" data-bind="attr: { src: $parent.ImageHelper.sidegroupEmptySlot($index()) }">
-                <!-- /ko -->
-            </div>
+            <!-- ko ifnot: hasSidegroup() -->
+            <img alt="" data-bind="attr: { src: $parent.ImageHelper.sidegroupEmptySlot($index()) }">
             <!-- /ko -->
         </div>
+        <!-- /ko -->
+    </div>
 
+    <div class="btn-bar">
         <button class="order-btn" data-bind="i18n: 'computer.order', click: order"></button>
     </div>
 </div>

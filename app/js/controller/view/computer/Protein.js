@@ -17,21 +17,26 @@ define([
 
         constructor: function () {
             var self = this;
-            self.base('computer-order-protein');
+            self.base('computer-order-protein', 'computer.screen.protein');
 
             self.TextHelper = TextHelper;
 
             self.availableProteins = ko.observableArray([
-                LiquidType.INSULIN,
-                LiquidType.LIPASE_ENZYME,
-                LiquidType.ANTIBODY_GOUT,
-                LiquidType.ANTIBODY_SMALLPOX
+                LiquidFactory.insulin(),
+                LiquidFactory.lipase(),
+                LiquidFactory.antibodyGout(),
+                LiquidFactory.antibodySmallpox()
             ]);
 
-            self.orderProtein = function (type) {
+            self.selectedIndex = ko.observable(0);
+            self.selectedProtein = ko.computed(function () {
+               return self.availableProteins()[self.selectedIndex()];
+            });
+
+            self.orderProtein = function () {
                 var liquid = null;
 
-                switch (type) {
+                switch (self.selectedProtein().type()) {
                 case LiquidType.INSULIN:
                     liquid = LiquidFactory.insulin();
                 case LiquidType.LIPASE_ENZYME:

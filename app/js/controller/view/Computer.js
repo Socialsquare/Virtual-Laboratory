@@ -37,6 +37,14 @@ define([
             self.activeScreenController = ko.computed(function () {
                 return screenControllers[self.gameState.activeComputerScreen()];
             });
+
+            self.hasHeader = ko.computed(function () {
+                return self.gameState.activeComputerScreen() !== ComputerScreenType.MENU;
+            });
+
+            self.goToMenu = function () {
+                self.gameState.activeComputerScreen(ComputerScreenType.MENU);
+            };
         }
     });
 

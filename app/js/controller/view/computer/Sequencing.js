@@ -14,7 +14,7 @@ define([
 
         constructor: function () {
             var self = this;
-            self.base('computer-sequencing');
+            self.base('computer-sequencing', 'computer.screen.sequencing');
 
             self.message = ko.observable('');
 

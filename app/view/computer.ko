@@ -1,3 +1,13 @@
 <div class="computer-view">
-    <div class="screen" data-bind="template: { name: activeScreenController().templateName, data: activeScreenController, if: !!activeScreenController() }"></div>
+
+    <div class="screen" data-bind="css: activeScreenController().templateName">
+
+        <div class="header" data-bind="visible: hasHeader">
+            <div class="menu-link" data-bind="click: goToMenu"></div>
+            <h2 data-bind="i18n: activeScreenController().title"></h2>
+        </div>
+
+        <!-- ko template: { name: activeScreenController().templateName, data: activeScreenController, if: !!activeScreenController() } --><!-- /ko -->
+    </div>
+
 </div>

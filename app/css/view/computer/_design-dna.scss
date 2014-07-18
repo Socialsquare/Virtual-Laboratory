@@ -1,0 +1,55 @@
+/* view/computer/design-dna.scss */
+
+.screen.computer-design-dna {
+
+    .subheader {
+        font-weight: bold;
+    }
+
+    .sidebar .dna-element-list li {
+        margin-top: 5px;
+    }
+
+    .elements {
+        height: 220px;
+    }
+
+    .dna-element {
+        $elementWidth: 60px;
+        @include size($elementWidth, 85px);
+        //position: relative;
+        float: left;
+
+        .remove-btn {
+            @include size($elementWidth, 20px);
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .dna-element-img {
+            width: $elementWidth;
+            height: 20px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .dna-element-name {
+            font-size: 11px;
+            color: #333333;
+            line-height: 120%;
+            text-align: center;
+        }
+
+    }
+
+    .sequence-container {
+        height: 150px;
+        overflow-y: scroll;
+    }
+
+    .sequence {
+        font-size: 14px;
+        line-height: 1.4;
+        word-break: break-all;
+    }
+}
