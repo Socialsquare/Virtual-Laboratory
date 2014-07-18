@@ -1,9 +1,5 @@
 /* view/uvroom.scss */
 
-@import '../variables';
-@import '../mixin/compositecontainer';
-@import 'base';
-
 .uv-view {
   @include view;
 

@@ -1,8 +1,5 @@
 /* view/spectropm.scss */
 
-@import '../variables';
-@import 'base';
-
 .spectrophotometer-view {
   @include view;
   background-image: url(#{$img-path}/spectropm_view.png);

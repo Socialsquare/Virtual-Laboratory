@@ -1,8 +1,5 @@
 /* view/incubator.scss */
 
-@import '../variables';
-@import 'base';
-
 .incubator-view {
     @include view;
     background-image: url(#{$img-path}/off_base.png);

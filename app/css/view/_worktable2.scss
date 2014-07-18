@@ -1,9 +1,5 @@
 /* view/worktable2.scss */
 
-@import '../variables';
-@import '../mixin/compositecontainer';
-@import 'base';
-
 .worktable2-view {
     @include view;
     background-image: url(#{$img-path}/work2_base.png);

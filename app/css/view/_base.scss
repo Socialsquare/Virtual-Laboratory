@@ -1,5 +1,7 @@
 /* view/base.scss */
 
+@import '../mixin/compositecontainer';
+
 .interface-container {
     position: absolute;
     width: 100%;

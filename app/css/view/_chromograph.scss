@@ -1,8 +1,5 @@
 /* view/chromograph.scss */
 
-@import '../variables';
-@import 'base';
-
 .chromatographscreen-view {
   @include view;
   background-image: url(#{$img-path}/zoom_kromatograf.png);

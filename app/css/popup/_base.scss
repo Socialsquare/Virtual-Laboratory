@@ -1,7 +1,5 @@
 /* popup/base.scss */
 
-@import '../mixin/color';
-
 .popup {
     @include gradient-bg(#2f2f2f, #0f0f0f);
 

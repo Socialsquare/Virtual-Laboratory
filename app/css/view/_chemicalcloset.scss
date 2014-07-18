@@ -1,8 +1,5 @@
 /* view/chemicalcloset.scss */
 
-@import '../variables';
-@import 'base';
-
 .chemicalcloset-view {
     @include view;
     background-image: url(#{$img-path}/storage.png);
