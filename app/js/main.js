@@ -13,7 +13,9 @@ require.config({
         text: '../bower_components/requirejs-text/text',
         json: '../bower_components/requirejs-plugins/src/json',
 
-        base: 'libs/Base'
+        base: 'libs/Base',
+
+        datadir: '../data'
     },
     shim: {
         'html5Loader': ['jquery'],

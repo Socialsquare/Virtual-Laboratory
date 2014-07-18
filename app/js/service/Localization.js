@@ -2,7 +2,7 @@ define([
     'knockout',
     'lodash',
     'service/Base',
-    'json!localization.json'
+    'json!datadir/localization.json'
 ], function (ko, _, BaseService, localizationData) {
 
     var Localization = BaseService.extend({

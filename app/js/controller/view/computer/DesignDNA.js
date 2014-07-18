@@ -25,10 +25,7 @@ define([
                 return _.union(self.defaultAvailableDNA(), self.gameState.sequencedDNA());
             });
 
-            self.dnaService.getDNAElements()
-                .done(function (elements) {
-                    self.defaultAvailableDNA(elements);
-                });
+            self.defaultAvailableDNA(self.dnaService.getDNAElements());
 
             self.handleDrop = function (dna) {
                 //TODO: On iPad there is a delay if we do not wait for last draw cycle to complete

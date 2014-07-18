@@ -2,21 +2,14 @@ define([
     'lodash',
     'jquery',
     'service/Base',
-    'model/DNAElement'
-], function (_, $, BaseService, DNAElement) {
+    'model/DNAElement',
+    'json!datadir/dna.json'
+], function (_, $, BaseService, DNAElement, DNAData) {
     var DNAService = BaseService.extend({
         getDNAElements: function () {
-
-            var promise = $.Deferred();
-            this.get('/api/dna_elements')
-                .done(function (elements) {
-                    var result = _.map(elements, function (element) {
-                        return new DNAElement(element);
-                    });
-                    promise.resolve(result);
-                });
-
-            return promise;
+            return _.map(DNAData, function (element) {
+                return new DNAElement(element);
+            });
         }
     });
 
