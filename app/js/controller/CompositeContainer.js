@@ -118,7 +118,7 @@ define([
                                 item.fillPipette(self.compContainer.get(position));
                                 self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
                             }
-                        }else { //TODO: empty the pipette
+                        }else {
                             item.emptyPipetteInto(self.compContainer.get(position));
                             self.popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
                         }

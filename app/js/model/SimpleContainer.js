@@ -42,7 +42,7 @@ define([
 
             self.add = function (liquid) {
                 self._addAll([liquid]);
-                return self;
+                return self; //TODO:
             };
 
             self.clearContents = function() {
