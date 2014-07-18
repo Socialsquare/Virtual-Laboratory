@@ -1,4 +1,6 @@
 <div class="sidebar">
+    <h3>Available elements</h3>
+
     <ul class="dna-element-list" data-bind="foreach: availableDNA">
         <li>
             <div class="hand" data-bind="text: name, drag: { item: $data, helper: 'clone', offset: { left: 10, top: 10} }"></div>

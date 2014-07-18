@@ -30,6 +30,9 @@
         "computer.screen.sequencing.created_smallpox.header": "DNA sekvenseret",
         "computer.screen.sequencing.created_smallpox.body": "Du har lavet anti kopper dna, det kan bruges fra dna designere, tillykke med det",
         "computer.screen.sequencing.droparea": "Kast et reagensglas herhen",
+        "computer.screen.sequencing.send": "Send til sekvensering",
+        "computer.screen.sequencing.valid.gout": "Det er korrekt og vil lave gigt ting",
+        "computer.screen.sequencing.valid.smallpox": "Det er fino og vil lave anti kopper DNA",
 
         "mouse.vaccinated_smallpox.header": "Musen blev vaccineret",
         "mouse.vaccinated_smallpox.body": "Du har nu givet musen antigener for kopper",

@@ -1,0 +1,21 @@
+/* view/computer/sequencing.scss */
+
+.screen.computer-sequencing {
+
+    .content-full {
+        .droparea {
+            text-align: center;
+            margin-top: 40px;
+
+            span {
+                padding:20px;
+                background-color: white;
+                @include border-radius(5deg);
+            }
+
+            .message {
+                margin-top: 60px;
+            }
+        }
+    }
+}

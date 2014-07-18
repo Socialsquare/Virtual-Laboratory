@@ -49,14 +49,14 @@
             }
 
             ul {
-                margin: 10px 0 0 20px;
-
                 li {
                     list-style: none;
-                    margin-top: 20px;
+                    margin-top: 10px;
+                    padding: 5px 0 5px 10px;
 
                     &.selected {
                         font-weight: bold;
+                        background-color: white;
                     }
                 }
             }
@@ -64,6 +64,8 @@
 
         .content-full {
             @include abs-pos($headerHeight, 0);
+            width: $screenWidth - 20px;
+            height: $screenHeight - $headerHeight - 20px;
 
             padding: 10px;
 
@@ -100,3 +102,4 @@
 @import 'computer/menu';
 @import 'computer/design-dna';
 @import 'computer/design-drug';
+@import 'computer/sequencing';
