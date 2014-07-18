@@ -88,12 +88,10 @@ define([
             };
 
             self.fullscreen = function () {
-                var body = document.getElementsByTagName('body')[0];
+                var body = document.getElementsByTagName('body').get(0);
 
                 if (screenfull.enabled) {
                     screenfull.toggle(body);
-
-                    $(body).toggleClass('fixed', screenfull.isFullscreen);
                 } else {
                     alert('Full screen is not supported on your device :( - let me guess, it is an Apple device?');
                 }
