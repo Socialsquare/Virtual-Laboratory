@@ -38,29 +38,30 @@ define([
                     case ContainerType.ELECTROPORATOR:
                         if (item.type() === ContainerType.PIPETTE) {
                             if (!item.hasTip()) {
-                                self.popupController.message('Dumt', 'Der er ingen spids på pipetten');
-
+                                self.popupController.message('pipette.missing_tip.header', 'pipette.missing_tip.body');
                             } else if (self.simpleContainer.isEmpty()) { //TODO: 1) hvis elektro er tom --> tilføj all the things
                                 item.emptyPipetteInto(self.simpleContainer);
-                                self.popupController.notify('Info', 'Du har tømt pipetten.', 2000);
+                                self.popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
 
                             } else if (!self.simpleContainer.isEmpty() && item.getTip().isEmpty()){ // 2) hvis elektro har contents && pipette er tom --> sug alt
 
                                 if (item.getTip().used()) {
-                                    self.popupController.message('Dumt', 'Pipetten skal have en ren spids, ellers forurener du dine prøver.');
+                                    self.popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
+
                                 } else {
-                                    self.popupController.notify('Info', 'Du har suget indhold op med pipetten.', 2000);
+                                    self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
                                     item.fillPipette(self.simpleContainer);
                                 }
 
                             } else if (!self.simpleContainer.isEmpty() && !item.getTip().isEmpty()) { //TODO:3) hvis elektro har contents && pipette har contents --> spørg: Vil du tømme elektro og tilføje?
 
-                                self.popupController.confirm("Bekræft", "Vil du tømme elektroporatoren og tilføje indholdet fra pipetten?", function (answer) {
-                                    if (answer) {
-                                        self.simpleContainer.clearContents();
-                                        item.emptyPipetteInto(self.simpleContainer);
-                                        self.popupController.notify('Info', 'Du har tømt pipetten.', 2000);
-                                    }
+                                self.popupController.confirm("worktable1.electroporator_refill.header",
+                                    "worktable1.electroporator_refill.body", function (answer) {
+                                        if (answer) {
+                                            self.simpleContainer.clearContents();
+                                            item.emptyPipetteInto(self.simpleContainer);
+                                            self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
+                                        }
                                 });
 
                             }
@@ -69,9 +70,13 @@ define([
                     case ContainerType.FERMENTOR_TANK:
                         //TODO: test
                         if (item.type() === ContainerType.SYRINGE) {
+
                             if(item.isEmpty()) {// 1) Check of syringe er tom? (gør intet)
+                                console.log('yo dog fermentor + (empty) syringe! ');
                                 return false;
                             } else {
+                                console.log('yo dog fermentor + (full) syringe! ');
+
                                 if (self.simpleContainer.isEmpty()) {// 2) Check om syringe har contents og ferm_tank er tom (tøm kanyle)
                                     item.emptySyringeInto(self.simpleContainer);
                                     self.popupController.notify('syringe.emptied.header', 'syringe.emptied.body', 2000);
@@ -96,7 +101,7 @@ define([
                         }
                         break;
                     default:
-                        throw 'Happy implementation! :D';
+                        throw 'Needs implementation';
                         break;
                 }
             };

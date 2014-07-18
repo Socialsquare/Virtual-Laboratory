@@ -85,7 +85,7 @@ define([
             //------------------------
 
 
-            var tube = ContainerFactory.tube();
+/*            var tube = ContainerFactory.tube();
             var mye = LiquidFactory.microorganism.myeloma();
             mye.concentration(5);
             var mye2 = LiquidFactory.microorganism.myeloma();
@@ -168,7 +168,7 @@ define([
             self.gameState.fermentor.fermentorTank.addAll([yeastNormal]);
             yeastNormal.living(false);
 
-            self.gameState.inventory.remove(self.gameState.inventory.items()[len-1]);
+            self.gameState.inventory.remove(self.gameState.inventory.items()[len-1]);*/
 
         }
     });

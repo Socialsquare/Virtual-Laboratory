@@ -22,7 +22,7 @@ define([
                 micro.extraProperties([]);
                 micro.optimalPh(6.0);
                 micro.optimalTemp(35);
-                micro.concentration(Math.pow(10, 3));
+                micro.concentration(Math.pow(10, 8));
 
 
                 return micro;
@@ -36,7 +36,7 @@ define([
                 micro.extraProperties([]);
                 micro.optimalPh(7.25); // http://en.wikipedia.org/wiki/Blood#Narrow_range_of_pH_values
                 micro.optimalTemp(37);
-                micro.concentration(Math.pow(10, 3));
+                micro.concentration(Math.pow(10, 8));
 
                 return micro;
             }
