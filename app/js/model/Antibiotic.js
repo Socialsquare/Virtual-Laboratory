@@ -17,6 +17,10 @@ define([
                 // TODO: implement
                 throw 'JegErHerIKKE... maaske';
             };
+
+            self.hashCode = function () {
+                return self._hashCode() + ":" + self.antibioticType();
+            };
         }
     });
 

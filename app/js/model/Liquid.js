@@ -14,9 +14,13 @@ define([
                 // TODO: implement
             };
 
-            self.isEqualTo = function(liquid) {
-                // TODO: to compare chemicals and microorganisms, to avoid complexity explosion
-            }
+            self._hashCode = function() {
+                return self.type() + ":" + self.reactionCount() + ":" + self.hasReacted();
+            };
+
+            self.hashCode = function() {
+                return self._hashCode();
+            };
         }
     });
 

@@ -18,17 +18,11 @@ define([
 			self.description = ko.observable(values.description);
 			self.link = ko.observable(values.link);
 			self.comment = ko.observable(values.comment);
+
+            self.hashCode = function () {
+                return self._hashCode() + ":" + self.name() + ":" + self.DNAType();
+            };
         },
-
-		parse: function(response) {
-			response.type = parseInt(response.type, 10);
-			return response;
-		},
-
-		equals: function(other) {
-			return this.attributes.type === other.attributes.type
-                && this.attributes.sequence === other.attributes.sequence;
-		}
 	});
 
 	return DNAElement;

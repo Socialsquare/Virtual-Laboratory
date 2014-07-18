@@ -84,8 +84,17 @@ define([
             // dummy data
             //------------------------
 
+
+            var tube = ContainerFactory.tube();
             var mye = LiquidFactory.microorganism.myeloma();
             mye.concentration(5);
+            var mye2 = LiquidFactory.microorganism.myeloma();
+            mye2.concentration(3);
+            tube.add(mye);
+            tube.add(mye2);
+            tube.add(LiquidFactory.antibiotic.a());
+            tube.add(LiquidFactory.antibiotic.b());
+
             var yea = LiquidFactory.microorganism.yeast();
             yea.concentration(5);
 

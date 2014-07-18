@@ -78,6 +78,10 @@ define([
 
                 return mRNAPairs;
             };
+
+            self.hashCode = function () {
+                return self._hashCode() + ":" + _.invoke(self.dnaElements, 'hashCode').join(',');
+            };
         }
     });
 

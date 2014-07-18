@@ -20,8 +20,6 @@ define([
 		    self.optimalTemp = ko.observable(0);
 		    self.concentration = ko.observable(0);
 
-
-
             self.addGene = function(gene) {
                 self.extraGenes.push(gene);
             };
@@ -69,8 +67,7 @@ define([
 
             self.getPhGrowthFactor = function(ph) {
                 var phDiff = ph - self.optimalPh();
-                if(Math.abs(phDiff) >= 2)
-                {
+                if(Math.abs(phDiff) >= 2) {
                     self.living(false);
                     return 0;
                 }
@@ -85,16 +82,26 @@ define([
                     self.living(false); //TODO: let knockout track this state instead of having it in a getter
                     return 0;
                 }
-                else if(tempDiff > 0) //tempDiff = [0;8]
+                else if (tempDiff > 0) //tempDiff = [0;8]
                 {
                     return 1 - 1.0/64.0 * tempDiff*tempDiff;
                 }
-                else if(tempDiff < -20) //tempDiff = [-Inf; -20]
+                else if (tempDiff < -20) //tempDiff = [-Inf; -20]
                 { // "Frozen", just survive and wait for better times
                     return 0;
-                }else{ //tempDiff = [-20;0]
+                } else { //tempDiff = [-20;0]
                     return 1 + tempDiff / 20.0;
                 }
+            };
+
+            self.hashCode = function () {
+                return self._hashCode()
+                    + ":" + self.microorganismType()
+                    + ":" + self.living()
+                    + ":" + self.extraGenes()
+                    + ":" + self.extraProperties()
+                    + ":" + self.optimalPh()
+                    + ":" + self.optimalTemp();
             };
         }
     });

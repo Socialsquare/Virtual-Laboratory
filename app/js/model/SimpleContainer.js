@@ -16,7 +16,23 @@ define([
             self.label = ko.observable('');
 
             self._addAll = function (liquids) {
-                self.liquids.pushAll(liquids);
+                _.each(liquids, function (liquid) {
+                    var exists = false;
+
+                    _.each(self.liquids(), function (_liquid) {
+                        if (_liquid.hashCode() === liquid.hashCode()) {
+                            exists = true;
+
+                            // sum microorganism's concentration
+                            if (_liquid.type() === LiquidType.MICROORGANISM) {
+                                _liquid.concentration(_liquid.concentration() + liquid.concentration());
+                            }
+                        }
+                    });
+
+                    if (!exists)
+                        self.liquids.push(liquid);
+                });
             };
 
             self.addAll = function (liquids) {
