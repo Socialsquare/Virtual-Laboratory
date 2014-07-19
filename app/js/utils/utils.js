@@ -13,9 +13,9 @@ define([
 
         biology: {
             dilute: function(factor, liquids) {
-                var clone = mapping.fromJS(ko.toJS(liquids()));
+                var clones = _.invoke(liquids, 'clone');
 
-                _.map(clone(), function(liquid) {
+                _.map(clones, function(liquid) {
                     if(liquid.type() === LiquidType.MICROORGANISM) {
                         liquid.concentration(liquid.concentration() / factor);
                     }
@@ -23,7 +23,7 @@ define([
                     return liquid;
                 });
 
-                return clone;
+                return clones;
             }
         },
 
@@ -32,11 +32,11 @@ define([
 		        return Math.log(num) / Math.log(base);
 	        },
 
-            getBiomassFromConcentration: function(concentration){ //Converts from concentration to biomass (g/L)
+            getBiomassFromConcentration: function(concentration) { //Converts from concentration to biomass (g/L)
                 return concentration / Math.pow(10, 12);
             },
 
-            getConcentrationFromBiomass: function(biomass){
+            getConcentrationFromBiomass: function(biomass) {
                 return biomass * Math.pow(10, 12);
             }
         },

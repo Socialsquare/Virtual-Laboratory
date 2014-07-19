@@ -84,7 +84,7 @@ define([
             };
 
             self.clone = function () {
-                var clone = new Gene(_.invoke('clone', self.dnaElements()));
+                var clone = new Gene(_.invoke(self.dnaElements(), 'clone'));
 
                 clone.hasReacted(self.hasReacted());
 

@@ -117,12 +117,12 @@ define([
 
                 clone.living(self.living());
 		        clone.name(self.name());
-		        clone.extraGenes(_.invoke('clone', self.extraGenes()));
-                clone.extraProperties(_.invoke('clone', self.extraProperties()));
+		        clone.extraGenes(_.invoke(self.extraGenes(), 'clone'));
+                clone.extraProperties(_.invoke(self.extraProperties(), 'clone'));
 		        clone.optimalPh(self.optimalPh());
 		        clone.optimalTemp(self.optimalTemp());
 		        clone.concentration(self.concentration());
-                clone.producedEnzymes(_.invoke('clone', self.producedEnzymes()));
+                clone.producedEnzymes(_.invoke(self.producedEnzymes(), 'clone'));
 
                 return clone;
             };
