@@ -1,0 +1,12 @@
+<div class="popup popup-export-data">
+    <h1 data-bind="i18n: 'popup.data_export'"></h1>
+
+    <hr />
+
+    <div data-bind="i18n: 'popup.data_export_message'"></div>
+    <textarea rows="10" cols="40" data-bind="text: data.csvData"></textarea>
+
+    <div class="btn-row float-clear">
+        <button type="button" data-bind="click: hide">Luk</button>
+    </div>
+</div>

@@ -89,6 +89,8 @@
         "popup.confirm_delete_body": "Er du sikker på at du vil slette?",
         "popup.details.notes": "Her kan du tage noter om beholderen",
         "popup.quiz.header": "Quiz!",
+        "popup.data_export": "Eksportér data",
+        "popup.data_export_message": "Kopier teksten i feltet nedenfor og gem det som en CSV-fil.",
 
         "pipette.filled.header": "Info",
         "pipette.filled.body": "Du har suget indhold op med pipetten.",

@@ -10,6 +10,6 @@
 
     <div class="mouse" data-bind="drop: { handler: handleDropOnMouse, accept: DragHelper.acceptedByMouse }"></div>
 
-    <div class="mousegraph" data-bind="plotMouse: plotData"></div>
+    <div class="mousegraph" data-bind="plotMouse: plotData, click: exportData"></div>
 
 </div>

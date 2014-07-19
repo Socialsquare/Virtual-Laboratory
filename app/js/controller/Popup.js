@@ -33,6 +33,10 @@ define([
                 self.show('popup-message', { title: title, message: message });
             };
 
+            self.dataExport = function (data) {
+                self.show('popup-data-export', { csvData: data });
+            };
+
             self.notify = function(title, message, closingTime) {
                 var delay = closingTime || 3000;
 

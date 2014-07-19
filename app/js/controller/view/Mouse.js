@@ -3,6 +3,7 @@ define([
     'knockout',
     'lodash',
     'utils/utils',
+    'utils/DataHelper',
 
     'controller/view/Base',
     'controller/Video',
@@ -17,7 +18,7 @@ define([
     'model/type/Mouse',
     'model/type/MouseBlood',
     'model/type/SpecialItem'
-], function ($, ko, _, utils, BaseViewController, VideoController, MouseModel, BottleModel, JuiceModel,
+], function ($, ko, _, utils, DataHelper, BaseViewController, VideoController, MouseModel, BottleModel, JuiceModel,
              SpleenModel, ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType) {
 
     var MouseController = BaseViewController.extend({
@@ -60,6 +61,11 @@ define([
 
             self.plotData = ko.observableArray([]);
             self.graphTimer = ko.observable(null);
+
+            self.exportData =  function () {
+                var data = DataHelper.toCSV(self.plotData(), 'time', 'bloodsugar');
+                self.popupController.dataExport(data);
+            };
 
             var bottle = new BottleModel();
             bottle.add(new JuiceModel());

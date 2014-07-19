@@ -7,7 +7,7 @@ define([
     'model/Tube',
 
     'service/DNA',
-    'utils/utils',
+    'utils/utils'
 
 ], function (ko, _, BaseComputer, GeneModel, TubeModel, DNAService, utils) {
 
