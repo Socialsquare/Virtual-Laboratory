@@ -26,31 +26,47 @@ define([
             };
 
             self.emptyPipetteInto = function(container) {
-                var cloned_liqs = utils.klone(self.getTip().liquids);
+                var clonedLiqs = _.invoke(self.getTip().liquids(), 'clone');
 
                 console.log('Total concentration before: ' + container.getTotalConcentration());
-                container.addAll(cloned_liqs());
+                container.addAll(clonedLiqs);
                 self.getTip().clearContents();
                 console.log('Total concentration after: ' + container.getTotalConcentration());
             };
 
             self.fillPipette = function(container) {
 // 1st modify the syringe
-                debugger;
-                var cloned_liqs = _.invoke(container.liquids(), 'clone');
-                var modified_liqs = utils.biology.dilute(50, cloned_liqs);
-                self.getTip().addAll(modified_liqs);
+/*<<<<<<< Updated upstream*/
+
+                var clonedLiqs = _.invoke(container.liquids(), 'clone');
+                var modifiedLiqs = utils.biology.dilute(50, clonedLiqs);
+                self.getTip().addAll(modifiedLiqs);
+
+// 2nd modify the container
+                console.log('Filled pipette. Total concentration before: ' + container.getTotalConcentration());
+                modifiedLiqs = utils.biology.dilute(50/49, container.liquids());
+                container.clearContents();
+                container.addAll(modifiedLiqs);
+                console.log('Filled pipette. Total concentration after: ' + container.getTotalConcentration());
+
+                if (modifiedLiqs.length !== 0) {
+                    self.getTip().used(true);
+                }
+
+/*=======*//*
+                var clonedLiqs = utils.klone(container.liquids);
+                var modifiedLiqs = utils.biology.dilute(50, clonedLiqs);
+                self.getTip().addAll(modifiedLiqs());
 
 // 2nd modify the container
                 console.log('Total concentration before: ' + container.getTotalConcentration());
-                modified_liqs = utils.biology.dilute(50/49, container.liquids());
+                modifiedLiqs = utils.biology.dilute(50/49, container.liquids);
                 container.clearContents();
-                container.addAll(modified_liqs);
+                container.addAll(modifiedLiqs());
                 console.log('Total concentration after: ' + container.getTotalConcentration());
 
-                if (!modified_liqs.length === 0) {
-                    self.getTip().used(true);
-                }
+                if(!modifiedLiqs.isEmpty()) {  self.getTip().used(true); }
+*//*>>>>>>> Stashed changes*/
             };
 
             self.isEmpty = ko.computed(function () {

@@ -68,8 +68,6 @@ define([
                      self.fermentor.timer(0);
 
 
-                    /*debugger;*/
-
                     var chromatographString = 'Congratulations, you have succesfully produced some proteins.'
                         + ' Do you want to extract the purified proteins? You can select from:';
                     _.each(self.fermentor.products(), function(producedEnzyme) {

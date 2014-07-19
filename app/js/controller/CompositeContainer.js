@@ -110,7 +110,7 @@ define([
                         if (!item.hasTip()) {
                             self.popupController.message('pipette.missing_tip.header', 'pipette.missing_tip.body');
                         }else if(item.getTip().isEmpty()) {
-//TODO: such implementation
+
                             if(item.getTip().used())  {
                                 self.popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
                             }else if(! self.compContainer.get(position).isEmpty()){
@@ -119,7 +119,9 @@ define([
                                 self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
                             }
                         }else {
-                            item.emptyPipetteInto(self.compContainer.get(position));
+                            //TODO: check
+                            console.log('TODO: can add content'+self.compContainer.get(position).canAddLiquids(item.getTip().liquids()));
+                            item.emptyPipetteInto(self.compContainer.get(position)); //TODO: search for more usages
                             self.popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
                         }
                         break;
@@ -129,7 +131,9 @@ define([
                             self.popupController.notify('syringe.filled.header', 'syringe.filled.body', 2000);
                             return false;
                         }else {
-                            item.emptySyringeInto(self.compContainer.get(position));
+                            //TODO: check
+                            console.log('TODO: can add content'+self.compContainer.get(position).canAddLiquids(item.liquids()));
+                            item.emptySyringeInto(self.compContainer.get(position)); //TODO: search for more usages
                             self.popupController.notify('syringe.emptied.header', 'syringe.emptied.body', 2000);
                             return true;
                         }
@@ -140,8 +144,8 @@ define([
                 }
             };
 
-            self.showDeveloperDetails = function(item) {
-                console.log('Total concentration: ' + item.getTotalConcentration());
+            self.showDeveloperDetails = function(index, item) {
+                console.log('Total concentration in item #'+ index +': ' + item.getTotalConcentration());
             };
 
               /*  self.showItemDetails = function (item) {

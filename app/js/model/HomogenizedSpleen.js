@@ -26,7 +26,7 @@ define([
                 var clone = new HomogenizedSpleen();
 
                 clone.hasReacted(self.hasReacted());
-                clone.antibodiesFor(self.antibodiesFor);
+                clone.antibodiesFor(self.antibodiesFor());
 
                 return clone;
             };

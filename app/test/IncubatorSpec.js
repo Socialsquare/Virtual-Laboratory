@@ -33,20 +33,20 @@ define([
 
 
         it('should grow orignal and klone', function () {
-            var kloned = CF.tube();
-            kloned.addAll(tubeYeast.cloneLiquids());
+            var cloned = CF.tube();
+            cloned.addAll(tubeYeast.cloneLiquids());
             incubator.tubeRack.addAt(1, tubeYeast);
-            incubator.tubeRack.addAt(3, kloned);
+            incubator.tubeRack.addAt(3, cloned);
 
             var concBefore = tubeYeast.getTotalConcentration();
-            var concBeforeKlone = kloned.getTotalConcentration();
+            var concBeforeClone = cloned.getTotalConcentration();
 
             incubator.growOneHour();
 
             expect(concBefore).toBeLessThan(incubator.tubeRack.get(1).getTotalConcentration());
             expect(concBefore).toBeLessThan(tubeYeast.getTotalConcentration());
-            expect(concBeforeKlone).toBeLessThan(incubator.tubeRack.get(3).getTotalConcentration());
-            expect(concBeforeKlone).toBeLessThan(kloned.getTotalConcentration());
+            expect(concBeforeClone).toBeLessThan(incubator.tubeRack.get(3).getTotalConcentration());
+            expect(concBeforeClone).toBeLessThan(cloned.getTotalConcentration());
         });
 
         it('should grow orignal and klone by pipette', function () {
@@ -68,6 +68,7 @@ define([
             expect(concBefore).toBeLessThan(tubeYeast.getTotalConcentration());
             expect(concBeforeKlone).toBeLessThan(incubator.tubeRack.get(3).getTotalConcentration());
             expect(concBeforeKlone).toBeLessThan(tube.getTotalConcentration());
+            expect(tube.getTotalConcentration()).toBeLessThan(10 * tubeYeast.getTotalConcentration());
         });
 
 

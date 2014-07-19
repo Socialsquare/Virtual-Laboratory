@@ -74,7 +74,10 @@ define([
                     var promoter = mRNA.shift();
 
                     _(mRNA).each(function(DNAelement){
+                        console.log('DNAtype:' + DNAelement.DNAType);
+
                         if(DNAelement.DNAType === DNAType.PROTEINKODENDE_SEKVENS) {
+                            debugger;
                             var promoter_clone = utils.klone(promoter);
                             var dna_clone = utils.klone(DNAelement);
 
@@ -89,7 +92,9 @@ define([
             self.transferGeneToAllOrganisms = function (gene) {
                 _.each(self.liquids(), function(microorganism) {
                     if(microorganism.type() === LiquidType.MICROORGANISM) {
-                        var cloned = utils.klone(gene);
+                        /*debugger;*/
+                        var cloned = gene.clone();
+                        /*var cloned = utils.klone(gene);*/
                         microorganism.addGene(cloned);
                     }
                 });

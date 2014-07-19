@@ -24,6 +24,18 @@ define([
             };
 
             self.clone = function () {
+                var clone = new DNAElement({type: 0,name: self.name(),color: self.color(),
+                    sequence: self.sequence(),description: self.description(),
+                    link: self.link(),comment: self.comment()});
+
+                clone.DNAType(self.DNAType());
+                clone.hasReacted(self.hasReacted());
+
+                return clone;
+            };
+
+
+            /*self.clone = function () {
                 var clone = new DNAElement();
 
                 clone.hasReacted(self.hasReacted());
@@ -37,7 +49,7 @@ define([
 			    clone.comment(self.comment());
 
                 return clone;
-            };
+            };*/
         },
 	});
 

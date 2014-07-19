@@ -20,6 +20,7 @@ define([
 		    self.optimalPh = ko.observable(0);
 		    self.optimalTemp = ko.observable(0);
 		    self.concentration = ko.observable(0);
+            self.randomVal = ko.observable(Math.random());
             self.producedEnzymes = ko.observableArray([]);
 
 
@@ -122,6 +123,7 @@ define([
 		        clone.optimalPh(self.optimalPh());
 		        clone.optimalTemp(self.optimalTemp());
 		        clone.concentration(self.concentration());
+                clone.randomVal(self.randomVal());
                 clone.producedEnzymes(_.invoke(self.producedEnzymes(), 'clone'));
 
                 return clone;

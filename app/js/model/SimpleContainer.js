@@ -17,6 +17,9 @@ define([
             self.label = ko.observable('');
 
             self._addAll = function (liquids) {
+                if(! self.canAddLiquids(liquids))
+                    return;
+
                 _.each(liquids, function (liquid) {
                     var exists = false;
 
@@ -42,7 +45,19 @@ define([
 
             self.add = function (liquid) {
                 self._addAll([liquid]);
-                return self; //TODO:
+                return self;
+            };
+
+            self.canAddLiquids = function (liquids) {
+                //TODO: check if self.maxConcentration is reached, and if liquids contains microorganisms.
+                var concentrationToBeAdded = 0; //Such javaNamingConventions. Wow.
+                _.each(liquids, function(liquid) {
+                    if(liquid.type() !== LiquidType.MICROORGANISM) {     return;   }
+
+                    concentrationToBeAdded += liquid.concentration();
+                });
+
+                return self.getTotalConcentration() + concentrationToBeAdded < self.maxConcentration();
             };
 
             self.clearContents = function() {

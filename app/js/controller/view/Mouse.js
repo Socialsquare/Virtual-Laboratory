@@ -149,10 +149,12 @@ define([
                                 self.popupController.message('mouse.spleen_extracted.header', 'mouse.spleen_extracted.body');
                                 self.mouse().isCut(true);
 
-                                var spleenContents = utils.klone(self.mouse().spleen.antibodiesFor());
+                                var clonedSpleen = self.mouse().spleen.clone();
+                                self.gameState.inventory.add(clonedSpleen); //TODO: test!
+                                /*var spleenContents = utils.klone(self.mouse().spleen.antibodiesFor());
                                 var newSpleen = new SpleenModel();
                                 newSpleen.antibodiesFor.pushAll(spleenContents());
-                                self.gameState.inventory.add(newSpleen);
+                                self.gameState.inventory.add(newSpleen);*/
                             });
 
 
