@@ -23,7 +23,6 @@ define([
 
     var GameState = Base.extend({
 
-        currentExercise: ko.observable(),
         activeComputerScreen: ko.observable(ComputerScreenType.MENU),
 
         sequencedDNA: ko.observableArray([]),

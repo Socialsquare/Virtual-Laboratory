@@ -4,8 +4,9 @@ define([
     'lodash',
     'model/ProducedEnzyme',
     'model/type/Liquid',
-    'model/type/Grower'
-], function(ko, Base, _, ProducedEnzymeModel, LiquidType, GrowerType) {
+    'model/type/Grower',
+    'controller/Experiment'
+], function(ko, Base, _, ProducedEnzymeModel, LiquidType, GrowerType, experimentController) {
 
     var SimpleContainer = Base.extend({
         constructor: function (type, maxConcentration) {
@@ -37,6 +38,8 @@ define([
                     if (!exists)
                         self.liquids.push(liquid);
                 });
+
+                experimentController.triggerMix(liquids, self);
             };
 
             self.addAll = function (liquids) {

@@ -2,8 +2,9 @@ define([
     'knockout',
     'controller/view/Base',
     'controller/Popup',
+    'controller/Experiment',
     'service/Exercise'
-], function (ko, BaseViewController, popupController, exerciseService) {
+], function (ko, BaseViewController, popupController, experimentController, exerciseService) {
 
     var ExerciseSelector = BaseViewController.extend({
 
@@ -26,7 +27,7 @@ define([
             };
 
             self.start = function () {
-                if (self.gameState.currentExercise()) {
+                if (self.experimentController.hasExperiment()) {
                     popupController.confirm('Skift øvelse', 'Er du sikker?', function (answer) {
                         if (answer) self.gameState.currentExercise(self.selected());
                     });
@@ -34,7 +35,7 @@ define([
                     return;
                 }
 
-                self.gameState.currentExercise(self.selected());
+                self.experimentController.startExperiment(self.selected());
 
                 self.router.navigate('overview');
             };

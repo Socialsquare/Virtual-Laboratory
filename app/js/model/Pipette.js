@@ -36,8 +36,6 @@ define([
 
             self.fillPipette = function(container) {
 // 1st modify the syringe
-/*<<<<<<< Updated upstream*/
-
                 var clonedLiqs = _.invoke(container.liquids(), 'clone');
                 var modifiedLiqs = utils.biology.dilute(50, clonedLiqs);
                 self.getTip().addAll(modifiedLiqs);

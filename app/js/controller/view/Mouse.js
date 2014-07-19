@@ -35,7 +35,7 @@ define([
 
             self.mouse().alive.subscribe(function(isAlive) {
                 if (!isAlive && self.mouse().blodSukker() < self.mouse().minBlodSukker()) {
-                    self.popupController.message('mouse.died_insuling.header', 'mouse.died_insulin.body');
+                    self.popupController.message('mouse.died_insulin.header', 'mouse.died_insulin.body');
                 }
                 // TODO: there are more ways to kill the poor mouse (well, at least one: The lethal injection)
             });
@@ -45,7 +45,7 @@ define([
             self.mouse().blodSukker.subscribe(function(blodSukker) {
                 if (blodSukker < 2.5 && !self.lowBloodSugarWarningToggle()) {
                     self.lowBloodSugarWarningToggle(true);
-                    self.popupController.message('mouse.warning_insuling.header', 'mouse.warning_insuling.body');
+                    self.popupController.message('mouse.warning_insulin.header', 'mouse.warning_insulin.body');
                 } else if (blodSukker > self.mouse().maxBlodSukker() * 0.8 && !self.highBloodSugarWarningToggle() &&
                     self.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
                     self.highBloodSugarWarningToggle(true);
@@ -133,8 +133,10 @@ define([
                     self.mouseDrinking(true);
                     self.videoController.play('drink-start', false)
                         .done(function () {
+                            //self.experimentController.triggerMouse(MouseEvent.)
                             self.mouseDrinking(false);
                             self.runFromState();
+                            self.experimentController.triggerMouse('drink', item);
                         });
                     self.mouse().givJuice();
                     break;
@@ -155,6 +157,8 @@ define([
                                 var newSpleen = new SpleenModel();
                                 newSpleen.antibodiesFor.pushAll(spleenContents());
                                 self.gameState.inventory.add(newSpleen);*/
+
+                                self.experimentController.triggerMouse('cut');
                             });
 
 
@@ -170,6 +174,8 @@ define([
                             .done(function () {
                                 self.mouse().alive(false);
                                 self.popupController.message('mouse.died.header', 'mouse.died.body');
+
+                                self.experimentController.triggerMouse('injection', item);
                             });
                     }
                     else if (item.contains(LiquidType.INSULIN)) {
@@ -177,6 +183,8 @@ define([
                             self.mouse().givInsulin();
 
                             self.runFromState();
+
+                            self.experimentController.triggerMouse('injection', item);
                         });
                     }
                     else if (item.contains(LiquidType.ADJUVANS) &&
@@ -192,6 +200,7 @@ define([
                                 self.popupController.message('mouse.vaccinated_smallpox.header','mouse.vaccinated_smallpox.body');
                             }
 
+                            self.experimentController.triggerMouse('injection', item);
                             self.runFromState();
                         });
                     }
@@ -201,6 +210,7 @@ define([
                                 self.mouse().cure(LiquidType.ANTIBODY_SMALLPOX);
                                 self.popupController.message('mouse.cured_smallpox.header','mouse.cured_smallpox.body');
 
+                                self.experimentController.triggerMouse('injection', item);
                                 self.runFromState();
                             });
                     }
@@ -210,12 +220,14 @@ define([
                                 self.mouse().cure(LiquidType.ANTIBODY_GOUT);
                                 self.popupController.message('mouse.cured_gout.header','mouse.cured_gout.body');
 
+                                self.experimentController.triggerMouse('injection', item);
                                 self.runFromState();
                             });
                     }
                     else {
                         self.injectionFromState().done(function () {
                             self.runFromState();
+                            self.experimentController.triggerMouse('injection', item);
                         });
                     }
                     break;

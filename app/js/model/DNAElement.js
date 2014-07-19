@@ -41,12 +41,7 @@ define([
                 clone.hasReacted(self.hasReacted());
 
                 clone.DNAType(self.DNAType());
-			    clone.name(self.name());
-			    clone.color(self.color());
-			    clone.sequence(self.sequence());
-			    clone.description(self.description());
-			    clone.link(self.link());
-			    clone.comment(self.comment());
+                clone.hasReacted(self.hasReacted());
 
                 return clone;
             };*/

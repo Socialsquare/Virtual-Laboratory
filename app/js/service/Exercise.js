@@ -8,7 +8,7 @@ define([
 
         getExercises: function () {
             var promise = $.Deferred();
-            this.get('/api/experiments')
+            this.get('/data/experiments.json')
                 .done(function (elements) {
                     var result = _.map(elements, function (element) {
                         return new ExerciseModel(element);

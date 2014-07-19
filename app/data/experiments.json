@@ -1,0 +1,42 @@
+[
+    {
+        "title": "The Meth Cooker Vol. 1",
+        "description": "You will get rich doing this, bitch. Yo.",
+        "tasks": [
+            {
+                "description": "Mix the base",
+                "trigger": {
+                    "type": "mix",
+                    "container": "tube",
+                    "location": "fumehood",
+                    "liquids": [
+                        "microorganism.yeast",
+                        "antibiotic.a"
+                    ]
+                }
+            },
+            {
+                "description": "Kill the mouse",
+                "trigger": {
+                    "type": "mouse",
+                    "alive": false
+                }
+            },
+            {
+                "description": "Get a tube",
+                "trigger": {
+                    "type": "acquire",
+                    "item": "tube.empty"
+                }
+            },
+            {
+                "description": "Incubate the meth",
+                "trigger": {
+                    "type": "action",
+                    "item": "incubator",
+                    "time": 24
+                }
+            }
+        ]
+    }
+]

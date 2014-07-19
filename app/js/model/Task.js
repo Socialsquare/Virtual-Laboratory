@@ -10,8 +10,8 @@ define([
 
             self.id = ko.observable(values.id);
             self.description = ko.observable(values.description);
+            self.finished = ko.observable(false);
         },
-
     });
 
     return Task;

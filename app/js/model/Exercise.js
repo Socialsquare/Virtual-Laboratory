@@ -1,8 +1,9 @@
 define([
     'knockout',
     'lodash',
-    'base'
-], function(ko, _, Base) {
+    'base',
+    'model/Task'
+], function(ko, _, Base, TaskModel) {
 
     var Exercise = Base.extend({
 
@@ -13,7 +14,7 @@ define([
             self.title = ko.observable(values.title);
             self.description = ko.observable(values.description);
             self.tasks = ko.observableArray(_.map(values.tasks, function (task) {
-                return new Task(task);
+                return new TaskModel(task);
             }));
         },
     });
