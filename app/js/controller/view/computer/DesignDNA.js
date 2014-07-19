@@ -44,7 +44,7 @@ define([
                 var sequenceClone = ko.toJS(self.dnaSequence);
                 var gene = new GeneModel(sequenceClone);
                 var tube = new TubeModel();
-                tube.add(gene);
+                tube.add(gene, true);
                 self.gameState.inventory.add(tube);
 
                 // reset the sequence and go to computer menu

@@ -6,6 +6,7 @@ define([], function () {
         COMPUTER_ORDER_MOUSE: "ActivationType.COMPUTER_ORDER_MOUSE",
         COMPUTER_ORDER_PROTEIN: "ActivationType.COMPUTER_ORDER_PROTEIN",
         COMPUTER_ORDER_SEQUENCE: "ActivationType.COMPUTER_ORDER_SEQUENCE",
+        COMPUTER_ORDER_DRUG: "ActivationType.COMPUTER_ORDER_DRUG",
         SUPPLY: "ActivationType.SUPPLY",
         BUNSEN: "ActivationType.BUNSEN",
         ELECTROPORATOR: "ActivationType.ELECTROPORATOR",

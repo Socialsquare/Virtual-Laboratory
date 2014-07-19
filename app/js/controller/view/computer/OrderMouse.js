@@ -37,6 +37,8 @@ define([
                 self.gameState.mouse(utils.klone(mouse));
 
                 self.changeScreen(self.Screens.MENU);
+
+                self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_MOUSE, mouse);
             };
         }
     });

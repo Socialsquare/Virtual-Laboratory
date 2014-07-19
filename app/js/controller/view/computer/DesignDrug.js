@@ -27,10 +27,12 @@ define([
             };
 
             self.order = function () {
-                var drug = ContainerFactory.tube().add(self.selectedScaffold());
+                var drug = ContainerFactory.tube().add(self.selectedScaffold(), true);
                 self.gameState.inventory.add(drug);
 
                 self.selectedScaffold(self.getEmptyScaffold());
+
+                self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_DRUG, drug);
             };
         }
     });

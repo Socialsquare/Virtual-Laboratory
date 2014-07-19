@@ -51,8 +51,10 @@ define([
                     break;
                 }
 
-                var item = ContainerFactory.tube().add(liquid);
+                var item = ContainerFactory.tube().add(liquid, true);
                 self.gameState.inventory.add(item);
+
+                self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_PROTEIN, liquid);
             };
         }
     });

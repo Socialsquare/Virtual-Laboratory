@@ -71,6 +71,8 @@ define([
                 self.gameState.sequencedDNA.push(dna);
                 self.consumeItem();
                 self.message('');
+
+                self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_SEQUENCE, dna);
             };
 
             self.createDNAElement = function (type) {
