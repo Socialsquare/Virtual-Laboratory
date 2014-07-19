@@ -34,17 +34,6 @@ define([
                 return clone;
             };
 
-
-            /*self.clone = function () {
-                var clone = new DNAElement();
-
-                clone.hasReacted(self.hasReacted());
-
-                clone.DNAType(self.DNAType());
-                clone.hasReacted(self.hasReacted());
-
-                return clone;
-            };*/
         },
 	});
 

@@ -68,8 +68,6 @@ define([
 
                 MRNAs = gene.getMRNAs(promoterPositions, terminatorPositions);
 
-                debugger;
-
                 //TODO: this is a temporary shortcut to get OrganismProperties into play. Do the rest of the flowchart!
 
                 _(MRNAs).each(function(mRNA){
@@ -79,9 +77,9 @@ define([
                         console.log('DNAtype:' + DNAelement.DNAType());
 
                         if(DNAelement.DNAType() === DNAType.PROTEINKODENDE_SEKVENS) {
-                            debugger;
-                            var promoter_clone = utils.klone(promoter); //TODO: replace klone with .clone()
-                            var dna_clone = utils.klone(DNAelement);
+
+                            var promoter_clone = promoter.clone();
+                            var dna_clone = DNAelement.clone();
 
                             newProperties.push(new OrganismPropertyModel(promoter_clone, dna_clone));
                         }

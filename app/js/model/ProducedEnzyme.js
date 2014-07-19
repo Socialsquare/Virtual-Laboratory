@@ -37,7 +37,7 @@ define([
                     break;
             }
 
-            self.base(self.enzymeType, ReactionCount.NEVER);//TODO: change to OrganismProperty
+            self.base(self.enzymeType, ReactionCount.NEVER);//TODO: change to OrganismProperty... hmm why?
 
             self.clone = function () {
                 var clone = new ProducedEnzyme(self.dnaName, self.amount);

@@ -143,7 +143,7 @@ define([
                                 var productAmount = growthAmount / extraLen / productGrowthRatio;
 
                                 //TODO: implement sugar-concentration and promoter-check
-                                var product = new ProducedEnzymeModel(extraProperty.proteinCodingSequence.name(), productAmount);
+                                var product = new ProducedEnzymeModel(extraProperty.proteinCodingSequence().name(), productAmount);
 
                                 organism.producedEnzymes.push(product);
 

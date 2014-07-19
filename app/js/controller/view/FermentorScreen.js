@@ -81,8 +81,6 @@ define([
                     });
                     alert(chromatographString);
 
-                    debugger;
-
                     //TODO: allow the user to select the liquids with amount (to biomass), greater than 0.2 (?) g/L
                      console.log('TODO: implement the Chromatograph');
                      return;

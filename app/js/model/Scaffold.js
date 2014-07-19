@@ -20,6 +20,10 @@ define([
                 return new SidegroupSlotModel(sidegroupSlot);
             });
             self.slots = ko.observableArray(slots);
+
+            self.clone = function() {
+                throw 'TODO: !';
+            }
         }
     });
 
