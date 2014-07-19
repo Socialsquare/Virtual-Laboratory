@@ -61,6 +61,20 @@ module.exports = function (grunt) {
             }
         },
 
+        requirejs: {
+            compile: {
+                options: {
+                    baseUrl: "js",
+                    mainConfigFile: "js/config.js",
+                    name: '../node_modules/almond/almond',
+                    mainConfigFile: 'js/config.js',
+                    findNestedDependencies: true,
+                    preserveLicenseComments: false,
+                    out: "dist/script.js"
+                }
+            }
+        },
+
         // TODO: livereload
         connect: {
             dist: {
@@ -98,6 +112,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-connect-proxy');
     grunt.loadNpmTasks('grunt-shell');
 
