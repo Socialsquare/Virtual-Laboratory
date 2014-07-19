@@ -28,11 +28,15 @@ define([
             });
 
             self.triggerMix = function (addition, result) {
-                console.log('Mix triggered in ' + result.type() + ': ', addition, result);
+                console.log('Mix triggered in ' + result.type());
             };
 
             self.triggerMouse = function (action) {
                 console.log('Mouse triggered: ' + action);
+            };
+
+            self.triggerActivation = function (action) {
+                console.log('Action triggered: ' + action);
             };
         }
     });

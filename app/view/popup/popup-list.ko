@@ -4,7 +4,7 @@
 	<hr />
 
 	<ul data-bind="foreach: data.items">
-        <li data-bind="drag: { item: itemGetter }">
+        <li data-bind="drag: { item: itemGetter, consume: $parent.data.itemTaken.bind(null, $data)  }">
             <div>
                 <img data-bind="attr: { src: $parent.ImageHelper.draggingIcon(item())}">
                 <div data-bind="i18n: name"></div>

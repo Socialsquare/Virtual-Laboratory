@@ -51,6 +51,8 @@ define([
                 self.dnaSequence.removeAll();
 
                 self.changeScreen(self.Screens.MENU);
+
+                self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_DNA);
             };
         }
     });

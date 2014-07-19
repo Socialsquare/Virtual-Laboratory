@@ -31,6 +31,8 @@ define([
 
             self.activateIncubator = function() {
                 self.incubator.activate();
+                // TODO: wait for completion?
+                self.experimentController.triggerActivation(self.ActivationType.INCUBATOR);
             };
         },
     });

@@ -17,7 +17,7 @@ define([
             self.liquids = ko.observableArray([]);
             self.label = ko.observable('');
 
-            self._addAll = function (liquids) {
+            self._addAll = function (liquids, preventTrigger) {
                 if(! self.canAddLiquids(liquids))
                     return;
 
@@ -39,15 +39,16 @@ define([
                         self.liquids.push(liquid);
                 });
 
-                experimentController.triggerMix(liquids, self);
+                if (!preventTrigger)
+                    experimentController.triggerMix(liquids, self);
             };
 
-            self.addAll = function (liquids) {
-                self._addAll(liquids);
+            self.addAll = function (liquids, preventTrigger) {
+                self._addAll(liquids, preventTrigger);
             };
 
-            self.add = function (liquid) {
-                self._addAll([liquid]);
+            self.add = function (liquid, preventTrigger) {
+                self._addAll([liquid], preventTrigger);
                 return self;
             };
 

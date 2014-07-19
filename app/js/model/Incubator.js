@@ -2,6 +2,7 @@ define([
     'knockout',
     'lodash',
     'base',
+
     'model/TubeRack',
     'model/PetriSpace',
     'model/MicroSpace',
@@ -36,7 +37,7 @@ define([
             });
 
             self.activate = function() {
-                self.turnedOn.toggle();// toggles self.turnedOn
+                self.turnedOn.toggle();
 
                 // User starts the run
                 if (self.turnedOn()) {

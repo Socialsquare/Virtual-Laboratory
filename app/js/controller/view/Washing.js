@@ -22,6 +22,8 @@ define([
                     self.popupController.message('washing.detergent_required.header', 'washing.detergent_required.body');
                 else
                     self.status.toggle();
+
+                self.experimentController.triggerActivation(self.ActivationType.WASHING);
             };
 
             self.reset = function () {

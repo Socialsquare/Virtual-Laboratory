@@ -17,6 +17,7 @@ define([
             self.tableSpacePetriController = new CompositeContainerController(self.worktable2.tableSpacePetri);
             self.tableSpaceMicroController = new CompositeContainerController(self.worktable2.tableSpaceMicro);
             self.tubeRackController = new CompositeContainerController(self.worktable2.tubeRack);
+            // TODO: trigger activation when dropping in od machine
             self.odController = new CompositeContainerController(self.worktable2.odMachine);
 
             self.handleBlenderDrop = function (item) {
@@ -32,6 +33,8 @@ define([
                     }
 
                     self.worktable2.blender.status(false);
+
+                    self.experimentController.triggerActivation(self.ActivationType.BLENDER);
                 }, 1500);
             };
         }

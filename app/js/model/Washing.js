@@ -7,11 +7,11 @@ define([
     'model/TubeRack',
 
     'model/type/Liquid',
+    'model/type/Location',
 
-    'utils/utils',
-    'model/type/Location'
+    'utils/utils'
 
-], function(ko, _, Base, WashingTankModel, TubeRackModel, LiquidType, utils, LocationType) {
+], function(ko, _, Base, WashingTankModel, TubeRackModel, LiquidType, LocationType, utils) {
 
     var Washing = Base.extend({
 

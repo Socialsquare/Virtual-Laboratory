@@ -24,7 +24,6 @@ define([
                 self.fermentor.ph(self.fermentor.ph() + val);
             };
 
-
             self.updatePlotData = function() {
                 //TODO: convert data to PLOTdata (pair with an index)
 
@@ -51,6 +50,8 @@ define([
                      var graphTimer = setInterval(self.nextTimeStep, 100);
                      self.graphTimer(graphTimer);
                      self.turnedOn(true);
+
+                     self.experimentController.triggerActivation(self.ActivationType.FERMENTOR);
                  } else {
                  // User stops the run
                      clearTimeout(self.graphTimer());

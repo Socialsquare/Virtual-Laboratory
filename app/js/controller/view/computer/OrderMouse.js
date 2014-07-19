@@ -36,7 +36,7 @@ define([
                 var mouse = self.selectedMouse();
                 self.gameState.mouse(utils.klone(mouse));
 
-                self.goToMenu();
+                self.changeScreen(self.Screens.MENU);
             };
         }
     });

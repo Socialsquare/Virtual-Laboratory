@@ -3,6 +3,8 @@ define([
     'base',
 
     'model/GameState',
+    'model/type/Activation',
+
     'controller/Router',
     'controller/Popup',
     'controller/Experiment',
@@ -14,7 +16,7 @@ define([
     'utils/ImageHelper',
     'utils/DragHelper'
 
-], function (ko, Base, gameState, router, popupController, experimentController,
+], function (ko, Base, gameState, ActivationType, router, popupController, experimentController,
              LiquidFactory, ContainerFactory, SpecialItemFactory,
              ImageHelper, DragHelper) {
 
@@ -29,10 +31,13 @@ define([
         liquidFactory: LiquidFactory,
         containerFactory: ContainerFactory,
         specialItemFactory: SpecialItemFactory,
+        ActivationType: ActivationType,
 
         constructor: function (templateName) {
-            this.templateName = templateName;
-            this.hasMenu = ko.observable(true);
+            var self = this;
+
+            self.templateName = templateName;
+            self.hasMenu = ko.observable(true);
         },
 
         enter: function () {},

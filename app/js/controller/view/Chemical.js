@@ -34,10 +34,15 @@ define([
                 drawer: { name: 'supply.drawer_header', items: self.drawerItems }
             };
 
+            self.itemTaken = function(item) {
+                self.experimentController.triggerActivation(self.ActivationType.SUPPLY, item);
+            };
+
             self.showList = function (name) {
                 popupController.show('popup-list', {
                     title: groups[name].name,
-                    items: groups[name].items
+                    items: groups[name].items,
+                    itemTaken: self.itemTaken
                 });
             };
 
@@ -53,7 +58,7 @@ define([
                 new ChemicalItemModel('item.name.scalpel', function () { return new ScalpelModel(); }),
                 new ChemicalItemModel('item.name.petri_dish', function () { return new PetridishModel(); }),
                 new ChemicalItemModel('item.name.tube', function () { return new TubeModel(); }),
-                new ChemicalItemModel('item.name.microtiter', function () { return new MicrotiterplateModel(); }),
+                new ChemicalItemModel('item.name.microtiter', function () { return new MicrotiterplateModel(); })
             ]);
 
             self.fridgeItems.pushAll([
@@ -63,16 +68,16 @@ define([
                 new ChemicalItemModel('item.name.antibiotic_b', function () { return self.inTube(LiquidFactory.antibiotic.b()); }),
                 new ChemicalItemModel('item.name.adjuvans', function () { return self.inTube(LiquidFactory.adjuvans()); }),
                 new ChemicalItemModel('item.name.antigen_gout', function () { return self.inTube(LiquidFactory.antigenGout()); }),
-                new ChemicalItemModel('item.name.antigen_smallpox', function () { return self.inTube(LiquidFactory.antigenSmallpox()); }),
+                new ChemicalItemModel('item.name.antigen_smallpox', function () { return self.inTube(LiquidFactory.antigenSmallpox()); })
             ]);
 	    },
 
         inTube: function (liquid) {
-            return new TubeModel().add(liquid);
+            return new TubeModel().add(liquid, true);
         },
 
         inPetridish: function (liquid) {
-            return new PetridishModel().add(liquid);
+            return new PetridishModel().add(liquid, true);
         }
     });
 
