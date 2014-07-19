@@ -28,7 +28,7 @@ define([
             };
 
             self.emptySyringeInto = function(container) {
-                var cloned_liqs = _.invoke(self.getTip().liquids(), 'clone');
+                var cloned_liqs = _.invoke(self.liquids(), 'clone');
 
                 /*console.log('Total concentration before: ' + container.getTotalConcentration());
                 container.addAll(clonedLiqs);

@@ -18,7 +18,7 @@ define([
             self.getPromoterPositions = function() {
                 var positions = [];
                 _(self.dnaElements()).each(function(dna, index){
-                    if(dna.DNAType === DNAType.PROMOTER) {
+                    if(dna.DNAType() === DNAType.PROMOTER) {
                         positions.push(index);
                     }
                 });
@@ -30,7 +30,7 @@ define([
             self.getTerminatorPositions = function() {
                 var positions = [];
                 _(self.dnaElements()).each(function(dna, index){
-                    if(dna.DNAType === DNAType.TERMINATOR) {
+                    if(dna.DNAType() === DNAType.TERMINATOR) {
                         positions.push(index);
                     }
                 });
