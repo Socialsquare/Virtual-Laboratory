@@ -87,6 +87,10 @@ define([
                 return self.liquids.isEmpty();
             };
 
+            self.cloneLiquids = function () {
+                return _.invoke(self.liquids(), 'clone');
+            };
+
             // TODO: implement
             self.isFluorescent = function () {
                 return true;

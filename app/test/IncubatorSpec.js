@@ -20,7 +20,7 @@ define([
             incubator = new IncubatorModel();
         });
 
-        it('Should grow', function () {
+        it('should grow', function () {
             incubator.tubeRack.addAt(1, tubeYeast);
 
             var concBefore = tubeYeast.getTotalConcentration();
@@ -32,8 +32,9 @@ define([
         });
 
 
-        it('Grow orignal and klone', function () {
-            var kloned = utils.klone(tubeYeast);
+        it('should grow orignal and klone', function () {
+            var kloned = CF.tube();
+            kloned.addAll(tubeYeast.cloneLiquids());
             incubator.tubeRack.addAt(1, tubeYeast);
             incubator.tubeRack.addAt(3, kloned);
 
@@ -41,18 +42,15 @@ define([
             var concBeforeKlone = kloned.getTotalConcentration();
 
             incubator.growOneHour();
-            console.log('Total conc: ' + tubeYeast.getTotalConcentration());
 
-            expect(concBefore < incubator.tubeRack.get(1).getTotalConcentration()).toBeTruthy();
-            expect(concBefore < tubeYeast.getTotalConcentration()).toBeTruthy();
-            expect(concBeforeKlone < incubator.tubeRack.get(3).getTotalConcentration()).toBeTruthy();
-            expect(concBeforeKlone < kloned.getTotalConcentration()).toBeTruthy();
+            expect(concBefore).toBeLessThan(incubator.tubeRack.get(1).getTotalConcentration());
+            expect(concBefore).toBeLessThan(tubeYeast.getTotalConcentration());
+            expect(concBeforeKlone).toBeLessThan(incubator.tubeRack.get(3).getTotalConcentration());
+            expect(concBeforeKlone).toBeLessThan(kloned.getTotalConcentration());
         });
 
-        it('Grow orignal and klone by pipette', function () {
-            console.log('Grow original and klone by pipette');
+        it('should grow orignal and klone by pipette', function () {
             var pipette = new PipetteModel();
-            console.log('yo dawg');
             pipette.addAt(0, new TipModel());
 
             pipette.fillPipette(tubeYeast);
@@ -65,23 +63,21 @@ define([
             var concBeforeKlone = tube.getTotalConcentration();
 
             incubator.growOneHour();
-            console.log('Total conc: ' + tubeYeast.getTotalConcentration());
 
-            expect(concBefore < incubator.tubeRack.get(1).getTotalConcentration()).toBeTruthy();
-            expect(concBefore < tubeYeast.getTotalConcentration()).toBeTruthy();
-            expect(concBeforeKlone < incubator.tubeRack.get(3).getTotalConcentration()).toBeTruthy();
-            expect(concBeforeKlone < tube.getTotalConcentration()).toBeTruthy();
+            expect(concBefore).toBeLessThan(incubator.tubeRack.get(1).getTotalConcentration());
+            expect(concBefore).toBeLessThan(tubeYeast.getTotalConcentration());
+            expect(concBeforeKlone).toBeLessThan(incubator.tubeRack.get(3).getTotalConcentration());
+            expect(concBeforeKlone).toBeLessThan(tube.getTotalConcentration());
         });
 
 
-        it('Do not grow much beyond limit', function () {
+        it('should not grow much beyond limit', function () {
             incubator.tubeRack.addAt(1, tubeYeast);
 
             var concBefore = tubeYeast.getTotalConcentration();
 
             for(var i = 0; i < 48; i++) {
                 incubator.growOneHour();
-                console.log('Total conc: ' + tubeYeast.getTotalConcentration());
             }
 
             expect(concBefore < incubator.tubeRack.get(1).getTotalConcentration()).toBeTruthy();
@@ -90,4 +86,3 @@ define([
     });
 
 });
-
