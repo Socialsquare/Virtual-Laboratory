@@ -22,6 +22,22 @@ define([
             self.hashCode = function () {
                 return self._hashCode() + ":" + self.name() + ":" + self.DNAType();
             };
+
+            self.clone = function () {
+                var clone = new DNAElement();
+
+                clone.hasReacted(self.hasReacted());
+
+                clone.DNAType(self.DNAType());
+			    clone.name(self.name());
+			    clone.color(self.color());
+			    clone.sequence(self.sequence());
+			    clone.description(self.description());
+			    clone.link(self.link());
+			    clone.comment(self.comment());
+
+                return clone;
+            };
         },
 	});
 

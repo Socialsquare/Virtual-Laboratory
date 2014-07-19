@@ -82,6 +82,14 @@ define([
             self.hashCode = function () {
                 return self._hashCode() + ":" + _.invoke(self.dnaElements, 'hashCode').join(',');
             };
+
+            self.clone = function () {
+                var clone = new Gene(_.invoke('clone', self.dnaElements()));
+
+                clone.hasReacted(self.hasReacted());
+
+                return clone;
+            };
         }
     });
 

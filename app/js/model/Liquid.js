@@ -21,6 +21,14 @@ define([
             self.hashCode = function() {
                 return self._hashCode();
             };
+
+            self.clone = function () {
+                var clone = new Liquid(self.type(), self.reactionCount());
+
+                clone.hasReacted(self.hasReacted());
+
+                return clone;
+            };
         }
     });
 

@@ -7,13 +7,21 @@ define([
 
     var Juice = LiquidModel.extend({
 
-        constructor: function (antibioticType) {
+        constructor: function () {
             var self = this;
             self.base(LiquidType.JUICE, ReactionCount.ALWAYS);
 
             self.react = function (container) {
                 // TODO: implement
                 throw 'JegErHerIKKE... maaske';
+            };
+
+            self.clone = function () {
+                var clone = new Juice();
+
+                clone.hasReacted(self.hasReacted());
+
+                return clone;
             };
         }
     });

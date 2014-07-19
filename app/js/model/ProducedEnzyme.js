@@ -5,16 +5,13 @@ define([
     'model/type/Liquid'
 ], function (ko, LiquidModel, ReactionCount, LiquidType) {
 
-    /*var Juice = LiquidModel.extend({
-
-        constructor: function (antibioticType) {
-            var self = this;
-            self.base(LiquidType.JUICE, ReactionCount.ALWAYS);*/
-
     var ProducedEnzyme = LiquidModel.extend({
         constructor: function (dnaName, parentGrowthAmount) {
 
             var self = this;
+
+            self.dnaName = dnaName;
+            self.amount = parentGrowthAmount; //TODO: modify by a factor of X?
 
             switch (dnaName) {  //TODO: change to OrganismProperty
                 case 'TODO: ANTIBODY_GOUT':
@@ -42,7 +39,13 @@ define([
 
             self.base(self.enzymeType, ReactionCount.NEVER);//TODO: change to OrganismProperty
 
-            self.amount = parentGrowthAmount; //TODO: modify by a factor of X?
+            self.clone = function () {
+                var clone = new ProducedEnzyme(self.dnaName, self.amount);
+
+                clone.hasReacted(self.hasReacted());
+
+                return clone;
+            };
         }
     });
 

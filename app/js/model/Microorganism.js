@@ -109,6 +109,23 @@ define([
                     + ':' + self.optimalPh()
                     + ':' + self.optimalTemp();
             };
+
+            self.clone = function () {
+                var clone = new Microorganism(self.microorganismType());
+
+                clone.hasReacted(self.hasReacted());
+
+                clone.living(self.living());
+		        clone.name(self.name());
+		        clone.extraGenes(_.invoke('clone', self.extraGenes()));
+                clone.extraProperties(_.invoke('clone', self.extraProperties()));
+		        clone.optimalPh(self.optimalPh());
+		        clone.optimalTemp(self.optimalTemp());
+		        clone.concentration(self.concentration());
+                clone.producedEnzymes(_.invoke('clone', self.producedEnzymes()));
+
+                return clone;
+            };
         }
     });
 

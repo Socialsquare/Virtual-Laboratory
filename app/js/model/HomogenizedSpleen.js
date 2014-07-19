@@ -21,6 +21,15 @@ define([
             self.hashCode = function () {
                 return self._hashCode() + ":" + self.antibodiesFor().join(',');
             };
+
+            self.clone = function () {
+                var clone = new HomogenizedSpleen();
+
+                clone.hasReacted(self.hasReacted());
+                clone.antibodiesFor(self.antibodiesFor);
+
+                return clone;
+            };
         }
     });
 

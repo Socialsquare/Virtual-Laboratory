@@ -21,6 +21,14 @@ define([
             self.hashCode = function () {
                 return self._hashCode() + ":" + self.antibioticType();
             };
+
+            self.clone = function () {
+                var clone = new Antibiotic(self.antibioticType());
+
+                clone.hasReacted(self.hasReacted());
+
+                return clone;
+            };
         }
     });
 
