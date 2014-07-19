@@ -10,7 +10,7 @@ define([
             var self = this;
             self.base(SpecialItemType.SPLEEN);
 
-            self.antibodiesFor = ko.observableArray([]);
+            self.antibodiesFor = ko.observableArray([]); //Is just an array with strings
         }
     });
 

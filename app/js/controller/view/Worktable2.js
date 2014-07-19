@@ -17,7 +17,6 @@ define([
             self.tableSpacePetriController = new CompositeContainerController(self.worktable2.tableSpacePetri);
             self.tableSpaceMicroController = new CompositeContainerController(self.worktable2.tableSpaceMicro);
             self.tubeRackController = new CompositeContainerController(self.worktable2.tubeRack);
-            // TODO: trigger activation when dropping in od machine
             self.odController = new CompositeContainerController(self.worktable2.odMachine);
 
             self.handleBlenderDrop = function (item) {
@@ -25,8 +24,8 @@ define([
                 _.delay(function () {
 
                     if(item.type() === SpecialItemType.SPLEEN) {
-                        var antibodies = utils.klone(item.antibodiesFor());
-                        var homogenizedSpleen = self.liquidFactory.homoSpleen(antibodies());
+                        var antibodies = item.antibodiesFor();
+                        var homogenizedSpleen = self.liquidFactory.homoSpleen(antibodies);
 
                         self.gameState.inventory.add(self.containerFactory.tube().add(homogenizedSpleen));
                         self.popupController.message('worktable2.spleen_blended.header','worktable2.spleen_blended.body');

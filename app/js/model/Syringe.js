@@ -21,7 +21,7 @@ define([
 
 // 2nd modify the container
                 console.log('Total concentration before: ' + container.getTotalConcentration());
-                modified_liqs = utils.biology.dilute(50/49, container.liquids);
+                modified_liqs = utils.biology.dilute(50/49, container.liquids());
                 container.clearContents();
                 container.addAll(modified_liqs);
                 console.log('Total concentration after: ' + container.getTotalConcentration());
