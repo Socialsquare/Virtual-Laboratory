@@ -4,7 +4,7 @@ define([
     'lodash',
     'utils/utils',
     'utils/DataHelper',
-    'utils/DropOnMouseHelper',
+    'utils/mouse/DropOnMouseHelper',
 
     'controller/view/Base',
     'controller/Video',
@@ -142,10 +142,8 @@ define([
             };
 
             self.handleDropOnMouse = function(item) {
-                DropOnMouseHelper.handleDrop(self, item);
+                return DropOnMouseHelper.handleDrop(self, item);
             };
-
-
         }
 
     });

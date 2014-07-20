@@ -57,6 +57,8 @@
         "mouse.spleen_extracted.body": "Milten ligger nu i din taske",
         "mouse.cut_alive.header": "Lidt sygt",
         "mouse.cut_alive.body": "Musen skal være død før du begynder at skære i den. Andet er jo ren dyreplageri...",
+        "mouse.cut_not_healthy.header": "Forbudt",
+        "mouse.cut_not_healthy.body": "Du skal have vaccineret en rask mus før du forsøger at tage dens milt ud.",
         "mouse.description.healthy": "Rask mus",
         "mouse.description.gout": "Mus med gigt",
         "mouse.description.psoriasis": "Mus med psoriasis",
