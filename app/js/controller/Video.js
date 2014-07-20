@@ -8,24 +8,44 @@ define([
 ], function (ko, $, _, Base, VideoModel) {
 
     var videos = [
-        new VideoModel('drink-start', 'runFast_drink_spawn'),
-        new VideoModel('drink-loop', 'runFast_drink_loop'),
-        new VideoModel('injection-die', 'poi1_inj'),
-        new VideoModel('cut', 'poi3_cut'),
+        new VideoModel('fast-drink-spawn', 'fast_drink_spawn'),
+        /*new VideoModel('drink-loop', 'fast_drink_loop'),*/
+        new VideoModel('fast-injection-lethal', 'fast_injection_lethal'),
+        new VideoModel('fast-dead-cut', 'fast_dead_cut'),
 
         // Healthy mouse
-        new VideoModel('run-healthy', 'runFast'),
-        new VideoModel('injection-healthy', 'runFast_inj'),
+        new VideoModel('fast-loop', 'fast_loop'),
+        new VideoModel('fast-injection', 'fast_injection'),
+        new VideoModel('fast-die-insulin', 'fast_die_insulin'), //TODO:
 
         // Mouse with smallpox
-        new VideoModel('cure-smallpox', 'runSlow_cure_pox'),
-        new VideoModel('injection-smallpox', 'runSlow_inj_pox'),
-        new VideoModel('run-smallpox', 'runSlow_pox'),
+        new VideoModel('smallpox-cure', 'smallpox_cure'),
+        new VideoModel('smallpox-injection', 'smallpox_injection'),
+        new VideoModel('smallpox-loop', 'smallpox_loop'),
 
         // Mouse with gout
-        new VideoModel('cure-gout', 'runSlow_cure_gout'),
-        new VideoModel('injection-gout', 'runSlow_inj_gout'),
-        new VideoModel('run-gout', 'runSlow_gout'),
+        new VideoModel('slow-cure-gout', 'slow_cure_gout'),
+        new VideoModel('slow-injection-body-gout', 'slow_injection_body'),
+        new VideoModel('slow-loop-gout', 'slow_loop'),
+
+        // Mouse with psoriasis //TODO:
+        new VideoModel('psoriasis-loop', 'psoriasis_loop'),
+        new VideoModel('psoriasis-cure', 'psoriasis_cure'),
+        new VideoModel('psoriasis-injection', 'psoriasis_injection'),
+        new VideoModel('psoriasis-pill', 'psoriasis_pill'),
+        new VideoModel('psoriasis-cream', 'psoriasis_cream'),
+
+        // Mouse with insomnia //TODO:
+        new VideoModel('slow-loop', 'slow_loop'),
+        new VideoModel('slow-sleeping', 'slow_sleeping'),
+        new VideoModel('slow-wake', 'slow_wake'),
+        new VideoModel('slow-cure-insomnia', 'slow_cure_insomnia'),
+        new VideoModel('slow-cream', 'slow_cream'),
+        new VideoModel('slow-pill', 'slow_pill'),
+        new VideoModel('slow-injection-head', 'slow_injection_head'),
+        new VideoModel('slow-injection-body', 'slow_injection_body'),
+        new VideoModel('slow-injection-body-faint', 'slow_injection_body_faint'),
+
 
         new VideoModel('electroporator1', 'electroporator01'),
         new VideoModel('electroporator2', 'electroporator02'),

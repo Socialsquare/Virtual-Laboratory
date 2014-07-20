@@ -87,13 +87,13 @@ define([
                 if (self.mouse().alive()) {
                     switch (self.mouse().mouseType()) {
                     case MouseType.HEALTHY:
-                        return self.videoController.play('injection-healthy', false);
+                        return self.videoController.play('fast-injection', false);
 
                     case MouseType.SMALLPOX:
-                        return self.videoController.play('injection-smallpox', false);
+                        return self.videoController.play('smallpox-injection', false);
 
                     case MouseType.GOUT:
-                        return self.videoController.play('injection-gout', false);
+                        return self.videoController.play('slow-injection-body-gout', false);
                     }
                 }
             };
@@ -102,15 +102,15 @@ define([
                 if (self.mouse().alive()) {
                     switch (self.mouse().mouseType()) {
                     case MouseType.HEALTHY:
-                        self.videoController.play('run-healthy', true);
+                        self.videoController.play('fast-loop', true);
                         break;
 
                     case MouseType.SMALLPOX:
-                        self.videoController.play('run-smallpox', true);
+                        self.videoController.play('smallpox-loop', true);
                         break;
 
                     case MouseType.GOUT:
-                        self.videoController.play('run-gout', true);
+                        self.videoController.play('slow-loop-gout', true);
                         break;
                     }
                 }
@@ -137,7 +137,7 @@ define([
                         return false;
 
                     self.mouseDrinking(true);
-                    self.videoController.play('drink-start', false)
+                    self.videoController.play('fast-drink-spawn', false)
                         .done(function () {
                             //self.experimentController.triggerMouse(MouseEvent.)
                             self.mouseDrinking(false);
@@ -152,7 +152,7 @@ define([
                         self.popupController.message('mouse.cut_alive.header', 'mouse.cut_alive.body');
                         return false;
                     } else {
-                        self.videoController.play('cut', false)
+                        self.videoController.play('fast-dead-cut', false)
                             .done(function() {
                                 self.popupController.message('mouse.spleen_extracted.header', 'mouse.spleen_extracted.body');
                                 self.mouse().isCut(true);
@@ -171,7 +171,7 @@ define([
                         return false;
                     }
                     else if (item.contains(LiquidType.DEADLY)) {
-                        self.videoController.play('injection-die', false)
+                        self.videoController.play('fast-injection-lethal', false)
                             .done(function () {
                                 self.mouse().alive(false);
                                 self.popupController.message('mouse.died.header', 'mouse.died.body');
@@ -206,7 +206,7 @@ define([
                         });
                     }
                     else if (item.contains(LiquidType.ANTIBODY_SMALLPOX) && self.mouse().mouseType() === MouseType.SMALLPOX) {
-                        self.videoController.play(['injection-smallpox', 'cure-smallpox'])
+                        self.videoController.play(['smallpox-injection', 'smallpox-cure'])
                             .done(function() {
                                 self.mouse().cure(LiquidType.ANTIBODY_SMALLPOX);
                                 self.popupController.message('mouse.cured_smallpox.header','mouse.cured_smallpox.body');
@@ -216,7 +216,7 @@ define([
                             });
                     }
                     else if (item.contains(LiquidType.ANTIBODY_GOUT) && self.mouse().mouseType() === MouseType.GOUT) {
-                        self.videoController.play(['injection-gout', 'cure-gout'], true)
+                        self.videoController.play(['slow-injection-body-gout', 'slow-cure-gout'], true)
                             .done(function() {
                                 self.mouse().cure(LiquidType.ANTIBODY_GOUT);
                                 self.popupController.message('mouse.cured_gout.header','mouse.cured_gout.body');
