@@ -15,7 +15,7 @@ define([
                 return false;
             }
 
-            if (MC.mouse().mouseType !== MouseType.HEALTHY) {
+            if (MC.mouse().mouseType() !== MouseType.HEALTHY) {
                 MC.popupController.message('mouse.cut_not_healthy.header', 'mouse.cut_not_healthy.body');
                 return false;
             }

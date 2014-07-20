@@ -32,6 +32,7 @@ define([
         acceptedByMouse: accepter([
             ContainerType.SYRINGE,
             ContainerType.BOTTLE,
+            ContainerType.TUBE,
             SpecialItemType.SCALPEL
         ]),
 

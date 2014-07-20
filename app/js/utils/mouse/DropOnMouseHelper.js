@@ -2,13 +2,14 @@ define([
     'utils/mouse/BottleHandler',
     'utils/mouse/ScalpelHandler',
     'utils/mouse/SyringeHandler',
+    'utils/mouse/TubeHandler',
 
     'model/type/Container',
     'model/type/Liquid',
     'model/type/Mouse',
     'model/type/MouseBlood',
     'model/type/SpecialItem'
-], function (BottleHandler, ScalpelHandler, SyringeHandler,
+], function (BottleHandler, ScalpelHandler, SyringeHandler, TubeHandler,
              ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType) {
     return {
         handleDrop: function(MC, item) { //MC = MouseController
@@ -22,6 +23,9 @@ define([
 
                 case ContainerType.SYRINGE:
                     return SyringeHandler.handle(MC, item);
+
+                case ContainerType.TUBE:
+                    return TubeHandler.handle(MC, item);
 
             }
         }

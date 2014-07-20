@@ -59,6 +59,10 @@
         "mouse.cut_alive.body": "Musen skal være død før du begynder at skære i den. Andet er jo ren dyreplageri...",
         "mouse.cut_not_healthy.header": "Forbudt",
         "mouse.cut_not_healthy.body": "Du skal have vaccineret en rask mus før du forsøger at tage dens milt ud.",
+        "mouse.drug_not_correct_type.header": "Forbudt",
+        "mouse.drug_not_correct_type.body": "Det lægemiddel du har designet, er desværre ikke egnet til denne type mus.",
+        "mouse.drug_not_head.header": "Dårlig idé",
+        "mouse.drug_not_head.body": "At administrere direkte ind i hjernen er en voldsom handling. Eftersom dette næppe vil hjælpe på musens tilstand, er det en dårlig idé.",
 
         "mouse.description.healthy": "Rask mus",
         "mouse.description.gout": "Mus med gigt",
@@ -71,6 +75,8 @@
         "mouse.sick_no_bloodsugar.body": "Det er en dårlig idé at manipulere med en syg mus' blodsukker.",
         "mouse.sick_no_killing.header": "Forbudt",
         "mouse.sick_no_killing.body": "Godt nok er musen syg, men det retfærdiggør ikke at du bare dræber den, makker.",
+        "mouse.tube_not_allowed.header": "Forbudt",
+        "mouse.tube_not_allowed.body": "Indholdet i dit reagensglas er forurenet. Det er uetisk at give dets indhold ind i musen, du!",
         "mouse.syringe_not_allowed.header": "Forbudt",
         "mouse.syringe_not_allowed.body": "Indholdet i din kanyle er forurenet. Det er uetisk at sprøjte dens indhold ind i musen, du!",
 

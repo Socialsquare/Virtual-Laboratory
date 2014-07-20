@@ -89,7 +89,7 @@ define([
 
             // Used for determining whether the contents in the syringe is allowed to inject into the mouse GENERALLY.
             // This does NOT take MouseType into consideration.
-            self.isSyringeGenerallyAllowed = function(syringe) {
+            self.areContentsAllowed = function(syringe) {
                 //TODO: allowed contents of the syringe. It shouldn't be allowed to inject random shit.
                 var allowedInjections = [[LiquidType.DEADLY], [LiquidType.INSULIN], [LiquidType.DESIGNED_DRUG],
                     [LiquidType.ADJUVANS, LiquidType.ANTIGEN_SMALLPOX], [LiquidType.ADJUVANS, LiquidType.ANTIGEN_GOUT],
@@ -116,7 +116,38 @@ define([
                 return false;
             };
 
+            self.giveDrug = function(designedDrug, administrationForm) {
+                return 'TODO:'; //TODO: implement
+            };
+            /*
+             self.action = function (concentration) {
+             var liquids = self.washingTank.liquids();
+             var result = 0;
+             var feedback = '';
 
+             // check if agents contain other stuff
+             var indexOfOther = _.findIndex(liquids, function(liquid) {
+             return liquid.type() != LiquidType.LIPASE_ENZYME;
+             });
+
+             // if found other, bad result
+             if (indexOfOther >= 0) {
+             result = 0.99;
+             feedback = 'washing.detergent_contaminated';
+
+             } else {
+             var log = utils.math.getBaseLog(10, concentration);
+             if (log > 2) {
+             result = 0.01;
+             } else {
+             result = 1 - log / 2;
+             }
+             }
+
+             if (result === 0) result = 0.01;
+             return { result: result, feedback: feedback };
+             };
+            */
             // BEGIN: Functions for exercise 3: Antibodies
 
             self.cure = function(antibodyType) {

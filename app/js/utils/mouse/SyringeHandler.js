@@ -13,7 +13,7 @@ define([
                 return false;
             }
 
-            if (!MC.mouse().isSyringeGenerallyAllowed(item)) {
+            if (!MC.mouse().areContentsAllowed(item)) {
                 MC.popupController.message('mouse.syringe_not_allowed.header','mouse.syringe_not_allowed.body');
                 return false;
             }
