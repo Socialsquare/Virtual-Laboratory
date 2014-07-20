@@ -29,8 +29,6 @@ define([
 
             self.handleDrop = function (dna) {
                 //TODO: On iPad there is a delay if we do not wait for last draw cycle to complete
-                /*var clone = utils.klone(dna);*/
-                /*var clone = _.invoke(dna, 'clone');*/
                 var clone = dna.clone();//TODO: test
                 self.dnaSequence.push(clone);
             };

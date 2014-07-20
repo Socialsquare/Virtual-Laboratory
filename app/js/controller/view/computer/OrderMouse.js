@@ -24,6 +24,7 @@ define([
                 new MouseModel(MouseType.HEALTHY,  MouseBloodType.NORMAL),
                 new MouseModel(MouseType.GOUT,     MouseBloodType.NORMAL),
                 new MouseModel(MouseType.SMALLPOX, MouseBloodType.NORMAL),
+                new MouseModel(MouseType.PSORIASIS,MouseBloodType.NORMAL),
                 new MouseModel(MouseType.INSOMNIA, MouseBloodType.NORMAL)
             ]);
 
@@ -34,7 +35,7 @@ define([
 
             self.orderMouse = function () {
                 var mouse = self.selectedMouse();
-                self.gameState.mouse(utils.klone(mouse));
+                self.gameState.mouse(mouse.clone());
 
                 self.changeScreen(self.Screens.MENU);
 

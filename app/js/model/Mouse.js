@@ -16,7 +16,7 @@ define([
             self.alive = ko.observable(true);
             self.isCut = ko.observable(false);
             self.spleen = new SpleenModel();
-            self.mouseBloodType = ko.observable(null);
+            self.mouseBloodType = ko.observable(mouseBloodType);
             self.mouseType = ko.observable(mouseType);
             self.description = ko.computed(function () {
                 switch (self.mouseType()) {
@@ -28,6 +28,9 @@ define([
 
                 case MouseType.INSOMNIA:
                     return 'mouse.description.insomnia';
+
+                case MouseType.PSORIASIS:
+                    return 'mouse.description.psoriasis';
                 }
 
                 switch (self.mouseBloodType()) {
@@ -42,9 +45,9 @@ define([
                 }
             });
 
+            // BEGIN: Initializing stuff for the bloodsugar simulation
             self.bloodData = ko.observableArray([]);
 
-            // BEGIN: Initializing stuff for the bloodsugar simulation
             self.maveSukker = ko.observable(0);
             self.blodSukker = ko.observable(0);
             self.meanBlodSukker = ko.observable(0);
@@ -53,14 +56,13 @@ define([
             self.insulinProduktion = ko.observable(0);
             self.insulinProduktivitet = ko.observable(0);
             self.insulinEffektivitet = ko.observable(0.1);
-
             self.juiceDose = ko.observable(0);
             self.insulinDose = ko.observable(0);
 
-            self.setBloodType = function(mouseBloodType) {
-                self.mouseBloodType(mouseBloodType);
+            self.setBloodType = function() {
 
-                switch(mouseBloodType) {
+
+                switch(self.mouseBloodType()) {
                     case MouseBloodType.NORMAL:
                         self.meanBlodSukker(5);
                         self.insulinProduktivitet(1/4.0);
@@ -76,7 +78,7 @@ define([
                 }
             };
 
-            self.setBloodType(mouseBloodType);
+            self.setBloodType();
             self.blodSukker(self.meanBlodSukker());
 
             var bloodData = _.map(_.range(0, 250), function (i) { return self.meanBlodSukker();  });
@@ -120,8 +122,6 @@ define([
             self.givInsulin = function() {
                 self.insulinDose(self.insulinDose() + 25);
             };
-
-
 
             self.nextBloodStep = function() {
 
@@ -170,6 +170,29 @@ define([
 
             // END: Functions for the bloodsugar simulation
 
+            self.clone = function () {
+                var clone = new Mouse(self.mouseType(), self.mouseBloodType());
+
+
+                clone.alive(self.alive());
+                clone.isCut(self.isCut);
+                clone.spleen = self.spleen.clone();
+
+                clone.maveSukker(self.maveSukker());
+                clone.blodSukker(self.blodSukker());
+                clone.meanBlodSukker(self.meanBlodSukker());
+                clone.maxBlodSukker(self.maxBlodSukker());
+                clone.minBlodSukker(self.minBlodSukker());
+                clone.insulinProduktion(self.insulinProduktion());
+                clone.insulinProduktivitet(self.insulinProduktivitet());
+                clone.insulinEffektivitet(self.insulinEffektivitet());
+                clone.juiceDose(self.juiceDose());
+                clone.insulinDose(self.insulinDose());
+
+                clone.bloodData(self.bloodData());
+
+                return clone;
+            };
 
         }
     });

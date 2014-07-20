@@ -11,6 +11,13 @@ define([
             self.base(SpecialItemType.SPLEEN);
 
             self.antibodiesFor = ko.observableArray([]); //Is just an array with strings
+
+            self.clone = function () {
+                var clone = new Spleen();
+                clone.antibodiesFor(self.antibodiesFor());
+
+                return clone;
+            };
         }
     });
 

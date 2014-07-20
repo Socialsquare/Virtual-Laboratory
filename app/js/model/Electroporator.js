@@ -94,7 +94,6 @@ define([
                     if(microorganism.type() === LiquidType.MICROORGANISM) {
                         /*debugger;*/
                         var cloned = gene.clone();
-                        /*var cloned = utils.klone(gene);*/
                         microorganism.addGene(cloned);
                     }
                 });

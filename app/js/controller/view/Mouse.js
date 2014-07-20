@@ -157,7 +157,8 @@ define([
                                 self.popupController.message('mouse.spleen_extracted.header', 'mouse.spleen_extracted.body');
                                 self.mouse().isCut(true);
 
-                                self.gameState.inventory.add(self.mouse().spleen); //Is a reference to the spleen in the mouse, but it is only used once anyways
+                                var clonedSpleen = self.mouse().spleen.clone(); //TODO: test
+                                self.gameState.inventory.add(clonedSpleen); //Is a reference to the spleen in the mouse, but it is only used once anyways
 
                                 self.experimentController.triggerMouse('cut');
                             });
