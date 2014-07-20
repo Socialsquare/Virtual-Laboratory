@@ -40,7 +40,7 @@ define([
                 //TODO: test result.location();
 
                 if (self.activeTask().trigger().type === TriggerType.MIX
-                    && self.activeTask().trigger().location === container.parentContainer().location()
+                    && self.activeTask().trigger().location === container.location()
                     && self.activeTask().trigger().container === container.type()) {
                     var requiredLiquidTypes = _.map(self.activeTask().trigger().liquids, function (liquid) {
                         return liquid.type;

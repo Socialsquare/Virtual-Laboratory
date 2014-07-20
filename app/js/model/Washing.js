@@ -19,6 +19,8 @@ define([
             var self = this;
 
             self.washingTank = new WashingTankModel();
+            self.washingTank.location(LocationType.WASHING);
+
             self.tubeRack = new TubeRackModel();
             self.tubeRack.location(LocationType.WASHING);
 

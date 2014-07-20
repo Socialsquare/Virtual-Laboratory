@@ -11,7 +11,7 @@ define([
             self.type = ko.observable(type);
             self.containers = ko.observableArray(new Array(capacity));
             self.acceptedType = ko.observable(acceptedType);
-            self.location = ko.observable();
+            self.location = ko.observable(null);
 
             self._addAt = function (position, container) {
                 if (container.type() !== self.acceptedType()) {
@@ -22,7 +22,7 @@ define([
                 if (!!self.get(position)) {
                     return false;
                 }
-                container.parentContainer(self);
+                container.location(self.location());
                 self.containers.setAt(position, container);
 
                 return true;
@@ -47,7 +47,7 @@ define([
             };
 
             self.remove = function (position) {
-                self.get(position).parentContainer(null);
+                self.get(position).location(null);
                 self.containers.setAt(position, null);
             };
 

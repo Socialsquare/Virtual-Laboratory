@@ -4,13 +4,15 @@ define([
     'utils/utils',
     'model/FermentorTank',
     'model/type/Grower',
-    'model/type/Liquid'
-], function(ko, Base, utils, FermentorTankModel, GrowerType, LiquidType) {
+    'model/type/Liquid',
+    'model/type/Location'
+], function(ko, Base, utils, FermentorTankModel, GrowerType, LiquidType, LocationType) {
 
     var Fermentor = Base.extend({
         constructor: function () {
             var self = this;
             self.fermentorTank = new FermentorTankModel();
+            self.fermentorTank.location(LocationType.FERMENTOR);
 
             //TODO: chromatograph - should be able to get some contents from the fermentor
             //TODO: implement field on organisms: microOrganism.hasBeenInHighConcentration.JavaNamingConventions().
