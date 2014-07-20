@@ -29,10 +29,10 @@ require.config({
 
 require([
     'knockout',
+    'extensions/extensions',
     'fastclick',
 
     'controller/App',
-
     // self-registering jquery plugins
     'jqueryui',
     'jqueryuitouchpunch',
@@ -44,9 +44,9 @@ require([
     'bindings/video',
     'bindings/plotting',
     'bindings/routing',
-    'bindings/localization',
-    'extensions/extensions'
-], function(ko, FastClick, App) {
+    'bindings/localization'
+
+], function(ko, ext, FastClick, App) {
 
     FastClick.attach(document.body);
 

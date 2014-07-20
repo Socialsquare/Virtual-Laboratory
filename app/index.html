@@ -3,11 +3,17 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-        <link rel="stylesheet" type="text/css" href="css/main.css" />
-
         <title>Virtuelt Laboratorium</title>
 
+        <link rel="stylesheet" type="text/css" href="static/main.css" />
+
+        <!-- @if BUILD='production' -->
+        <script src="static/script.js"></script>
+        <!-- @endif -->
+
+        <!-- @if BUILD='dev' -->
         <script type="text/javascript" data-main="js/main.js" src="bower_components/requirejs/require.js"></script>
+        <!-- @endif -->
     </head>
 
     <body>
@@ -24,9 +30,6 @@
                     <div data-bind="template: { name: templateName, data: $data}"></div>
                 </div>
             </div>
-
-            <!-- OFFSCREEN PRELOADS -->
-            <div class="offscreen"></div>
         </div>
 
         <%= tpls %>
