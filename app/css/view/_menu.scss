@@ -101,9 +101,14 @@
                         height: 80px;
                         margin-left: 4px;
 
-                        img {
-                            position: absolute;
-                            bottom: 10px;
+                        div {
+                            position: relative;
+                            height: 80px;
+
+                            img {
+                                position: absolute;
+                                bottom: 0;
+                            }
                         }
                     }
                 }

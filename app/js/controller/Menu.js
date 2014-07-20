@@ -114,35 +114,8 @@ define([
                 }
             };
 
-            self.testQuiz = function () {
-                var quiz = {
-                    "dk": {
-                        "id": 0,
-                        "name": "Fodbold quizzen",
-                        "video": "fast-loop",
-                        "question": "Hvor god er Messi til fodbold?",
-                        "correct": 1,
-                        "answers": [
-                            {
-                                "id": 0,
-                                "answer": "Ret god",
-                                "message": "Det er ikke helt korrekt fordi den her besked er lidt lang og det er jo fint nok kan man sige, men sjovt nok helt der ude."
-                            },
-                            {
-                                "id": 1,
-                                "answer": "Den bedste af dem alle",
-                                "message": "Ja nemlig ja"
-                            },
-                            {
-                                "id": 2,
-                                "answer": "Ikke vildt god, men stadig okay",
-                                "message": "Helt forkert svar du gav"
-                            }
-                        ]
-                    }
-                };
-
-                self.quizController.startQuiz(new QuizModel(quiz.dk));
+            self.showGuide = function () {
+                self.popupController.message();
             };
 
             self.togglePipette = function (activeViewController) {

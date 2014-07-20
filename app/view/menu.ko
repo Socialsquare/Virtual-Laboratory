@@ -20,7 +20,7 @@
     </div>
 
     <div class="menu-bar">
-        <div class="hand guide" data-bind="click: testQuiz">
+        <div class="hand guide" data-bind="click: showGuide">
             <img src="assets/images/icon_main_instructions.png" alt="Øvelsesvejledninger">
         </div>
 
