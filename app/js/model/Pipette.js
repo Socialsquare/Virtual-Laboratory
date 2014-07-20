@@ -28,10 +28,8 @@ define([
             self.emptyPipetteInto = function(container) {
                 var clonedLiqs = _.invoke(self.getTip().liquids(), 'clone');
 
-                console.log('Total concentration before: ' + container.getTotalConcentration());
                 container.addAll(clonedLiqs);
                 self.getTip().clearContents();
-                console.log('Total concentration after: ' + container.getTotalConcentration());
             };
 
             self.fillPipette = function(container) {
@@ -41,11 +39,9 @@ define([
                 self.getTip().addAll(modifiedLiqs);
 
 // 2nd modify the container
-                console.log('Filled pipette. Total concentration before: ' + container.getTotalConcentration());
                 modifiedLiqs = utils.biology.dilute(50/49, container.liquids());
                 container.clearContents();
                 container.addAll(modifiedLiqs);
-                console.log('Filled pipette. Total concentration after: ' + container.getTotalConcentration());
 
                 if (modifiedLiqs.length !== 0) {
                     self.getTip().used(true);

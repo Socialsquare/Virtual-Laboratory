@@ -1,9 +1,10 @@
 define([
     'knockout',
+    'lodash',
     'utils/utils',
     'model/SimpleContainer',
     'model/type/Container'
-], function (ko, utils, SimpleContainerModel, ContainerType) {
+], function (ko, _, utils, SimpleContainerModel, ContainerType) {
 
     var Syringe = SimpleContainerModel.extend({
 
@@ -20,21 +21,15 @@ define([
                 self.addAll(modified_liqs);
 
 // 2nd modify the container
-                console.log('Total concentration before: ' + container.getTotalConcentration());
                 modified_liqs = utils.biology.dilute(50/49, container.liquids());
                 container.clearContents();
                 container.addAll(modified_liqs);
-                console.log('Total concentration after: ' + container.getTotalConcentration());
             };
 
             self.emptySyringeInto = function(container) {
                 var cloned_liqs = _.invoke(self.liquids(), 'clone');
-
-
-                console.log('Total concentration before: ' + container.getTotalConcentration());
                 container.addAll(cloned_liqs);
                 self.clearContents();
-                console.log('Total concentration after: ' + container.getTotalConcentration());
             };
         }
     });
