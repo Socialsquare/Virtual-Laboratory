@@ -29,7 +29,7 @@ define([
 
         inventory: new Inventory(),
 
-        mouse: ko.observable(new MouseModel(MouseType.PSORIASIS, MouseBloodType.NORMAL)),
+        mouse: ko.observable(new MouseModel(MouseType.HEALTHY, MouseBloodType.NORMAL)),
         pipette: new PipetteModel(),
 
         worktable1: new Worktable1Model(),

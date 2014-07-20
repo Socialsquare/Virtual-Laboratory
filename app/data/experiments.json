@@ -16,7 +16,7 @@
                     ]
                 },
                 "consequence": {
-                    "type": "ConsequenceType.VIDEO",
+                    "type": "ConsequenceType.QUIZ",
                     "video": "fast-loop",
                     "quiz": {
                         "id": 0,
@@ -45,38 +45,25 @@
                 }
             },
             {
+                "description": "Get a tube",
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.SUPPLY",
+                    "item": "ContainerType.TUBE"
+                }
+            },
+            {
                 "description": "Kill the mouse",
                 "trigger": {
                     "type": "TriggerType.MOUSE",
                     "alive": false
-                },
-                "quiz": null,
-                "video": null
-            },
-            {
-                "description": "Get a tube",
-                "trigger": {
-                    "type": "acquire",
-                    "item": "tube.empty"
-                },
-                "quiz": null,
-                "video": null
-            },
-            {
-                "description": "Incubate the meth",
-                "trigger": {
-                    "type": "action",
-                    "item": "incubator",
-                    "time": 24
-                },
-                "quiz": null,
-                "video": null
+                }
             }
         ]
     },
     {
         "title": "Test-øvelse #2",
-        "description": "Denne øvelse er også midlertidig.",
+        "description": "Denne øvelse er også midlertidigt broken",
         "tasks": [
             {
                 "description": "Mix the base",

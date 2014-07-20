@@ -13,10 +13,12 @@ define([
     'model/Syringe',
     'model/Scalpel',
 
+    'model/type/Activation',
+
     'factory/Liquid',
 
     'utils/utils'
-], function (ko, $, _, BaseViewController, popupController, TubeModel, PetridishModel, MicrotiterplateModel, ChemicalItemModel, SyringeModel, ScalpelModel, LiquidFactory, utils) {
+], function (ko, $, _, BaseViewController, popupController, TubeModel, PetridishModel, MicrotiterplateModel, ChemicalItemModel, SyringeModel, ScalpelModel, ActivationType, LiquidFactory, utils) {
     var Chemical = BaseViewController.extend({
 
         closetItems: ko.observableArray([]),

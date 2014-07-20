@@ -3,8 +3,9 @@ define([
     'model/type/Liquid',
     'model/type/Mouse',
     'model/type/MouseBlood',
-    'model/type/SpecialItem'
-], function (ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType) {
+    'model/type/SpecialItem',
+    'controller/Experiment'
+], function (ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType, experimentController) {
     return {
         handle: function(MC, item) { //MC = MouseController
 
@@ -19,8 +20,7 @@ define([
 
 // Killing
             else if (item.contains(LiquidType.DEADLY)) {
-                if (MC.mouse().mouseType() !== MouseType.HEALTHY)
-                {
+                if (MC.mouse().mouseType() !== MouseType.HEALTHY) {
                     MC.popupController.notify('mouse.sick_no_killing.header', 'mouse.sick_no_killing.body', 3500);
                     return false;
                 }
@@ -30,13 +30,12 @@ define([
                         MC.mouse().alive(false);
                         MC.popupController.message('mouse.died.header', 'mouse.died.body');
 
-                        MC.experimentController.triggerMouse('injection', item);
+                        experimentController.triggerMouse(MC.mouse(), item);
                     });
             }
 // Insulin
             else if (item.contains(LiquidType.INSULIN)) {
-                if (MC.mouse().mouseType() !== MouseType.HEALTHY)
-                {
+                if (MC.mouse().mouseType() !== MouseType.HEALTHY) {
                     MC.popupController.notify('mouse.sick_no_bloodsugar.header', 'mouse.sick_no_bloodsugar.body', 3500);
                     return false;
                 }
@@ -46,7 +45,7 @@ define([
 
                     MC.runFromState();
 
-                    MC.experimentController.triggerMouse('injection', item);
+                    experimentController.triggerMouse(MC.mouse(), item);
                 });
             }
 // Vaccination
@@ -63,7 +62,7 @@ define([
                         MC.popupController.message('mouse.vaccinated_smallpox.header','mouse.vaccinated_smallpox.body');
                     }
 
-                    MC.experimentController.triggerMouse('injection', item);
+                    experimentController.triggerMouse(MC.mouse(), item);
                     MC.runFromState();
                 });
             }
@@ -74,7 +73,7 @@ define([
                         MC.mouse().cure(LiquidType.ANTIBODY_SMALLPOX);
                         MC.popupController.message('mouse.cured_smallpox.header','mouse.cured_smallpox.body');
 
-                        MC.experimentController.triggerMouse('injection', item);
+                        experimentController.triggerMouse(MC.mouse(), item);
                         MC.runFromState();
                     });
             }
@@ -85,19 +84,16 @@ define([
                         MC.mouse().cure(LiquidType.ANTIBODY_GOUT);
                         MC.popupController.message('mouse.cured_gout.header','mouse.cured_gout.body');
 
-                        MC.experimentController.triggerMouse('injection', item);
+                        experimentController.triggerMouse(MC.mouse(), item);
                         MC.runFromState();
                     });
             }
             else {
                 MC.injectionFromState().done(function () {
                     MC.runFromState();
-                    MC.experimentController.triggerMouse('injection', item);
+                    experimentController.triggerMouse(MC.mouse(), item);
                 });
             }
-
         }
     };
 });
-
-

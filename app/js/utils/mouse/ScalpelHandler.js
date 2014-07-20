@@ -3,8 +3,10 @@ define([
     'model/type/Liquid',
     'model/type/Mouse',
     'model/type/MouseBlood',
-    'model/type/SpecialItem'
-], function (ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType) {
+    'model/type/SpecialItem',
+    'model/type/Trigger',
+    'controller/Experiment',
+], function (ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType, TriggerType, experimentController) {
     return {
         handle: function(MC, item) { //MC = MouseController
 
@@ -21,16 +23,13 @@ define([
             MC.videoController.play('fast-dead-cut', false)
                 .done(function() {
                     MC.popupController.message('mouse.spleen_extracted.header', 'mouse.spleen_extracted.body');
+
                     MC.mouse().isCut(true);
 
-                    var clonedSpleen = MC.mouse().spleen.clone(); //TODO: test
-                    MC.gameState.inventory.add(clonedSpleen); //Is a reference to the spleen in the mouse, but it is only used once anyways
+                    MC.gameState.inventory.add(MC.mouse().spleen.clone());
 
-                    MC.experimentController.triggerMouse('cut');
+                    experimentController.triggerMouse(MC.mouse());
                 });
-
         }
     };
 });
-
-

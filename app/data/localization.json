@@ -149,6 +149,8 @@
 
         "experiment.task_finished.header": "Godt arbejde",
         "experiment.task_finished.body": "Du klarede en opgave",
+        "experiment.completed.header": "Det slut",
+        "experiment.completed.body": "Du er helt færdig. Tillykke med det.",
 
         "common.loading": "Henter",
         "common.ok": "Okay",

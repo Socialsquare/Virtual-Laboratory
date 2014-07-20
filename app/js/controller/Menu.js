@@ -7,6 +7,7 @@ define([
     'controller/view/Base',
     'controller/Popup',
     'controller/Quiz',
+    'controller/Experiment',
 
     'model/GameState',
     'model/Tip',
@@ -16,7 +17,7 @@ define([
 
     'utils/ImageHelper',
     'utils/TextHelper'
-], function (ko, $, _, screenfull, BaseViewController, popupController, quizController, gameState,
+], function (ko, $, _, screenfull, BaseViewController, popupController, quizController, experimentController, gameState,
              TipModel, ContainerType, SpecialItemType, QuizModel, ImageHelper, TextHelper) {
 
     var MenuController = BaseViewController.extend({
@@ -115,7 +116,7 @@ define([
             };
 
             self.showGuide = function () {
-                self.popupController.message();
+                console.dir(self.experimentController.activeTask());
             };
 
             self.togglePipette = function (activeViewController) {

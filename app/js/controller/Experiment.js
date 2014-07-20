@@ -2,8 +2,10 @@ define([
     'knockout',
     'base',
     'lodash',
+
     'controller/Popup',
     'controller/Quiz',
+
     'model/type/Trigger',
     'model/type/Consequence'
 ], function (ko, Base, _, popupController, quizController, TriggerType, ConsequenceType) {
@@ -32,50 +34,67 @@ define([
                 });
             });
 
-            self.checkTrigger = function() {
-                //TODO: attempt to unify/resolve... /compare with activeTask.
+            // return whether a property is defined and matches another
+            self.match = function (property, expected) {
+                return !_.isUndefined(property) && property === expected;
             };
 
             self.triggerMix = function (addition, container) {
-                //TODO: test result.location();
+                var trigger = self.activeTask().trigger();
 
-                if (self.activeTask().trigger().type === TriggerType.MIX
-                    && self.activeTask().trigger().location === container.location()
-                    && self.activeTask().trigger().container === container.type()) {
-                    var requiredLiquidTypes = _.map(self.activeTask().trigger().liquids, function (liquid) {
-                        return liquid.type;
-                    });
+                if (trigger.type !== TriggerType.MIX) return;
+                if (!self.match(trigger.location, container.location())) return;
+                if (!self.match(trigger.container, container.type())) return;
+                if (!container.containsAll(_.pluck(trigger.liquids, 'type'))) return;
 
-                    if (container.containsAll(requiredLiquidTypes)) {
-                        if (self.activeTask().hasConsequence()) {
-                            var promise;
-                            switch (self.activeTask().consequence().type()) {
-                            case ConsequenceType.QUIZ:
-                                promise = self.quizController.startQuiz(self.activeTask().consequence().quiz);
-                                break;
-                            case ConsequenceType.VIDEO:
-                                promise = self.popupController.video(self.activeTask().consequence().video);
-                                break;
-                            }
-                            promise.then(self.finishActiveTask);
-                        } else {
-                            self.finishActiveTask();
-                        }
-                    }
-                }
+                self.finishActiveTask();
+            };
+
+            self.triggerMouse = function (mouse, item) {
+                var trigger = self.activeTask().trigger();
+
+                if (trigger.type !== TriggerType.MOUSE) return;
+                if (!self.match(trigger.alive, mouse.alive())) return;
+
+                self.finishActiveTask();
+            };
+
+            self.triggerActivation = function (activation, item) {
+                var trigger = self.activeTask().trigger();
+
+                if (trigger.type !== TriggerType.ACTIVATION) return;
+                if (trigger.activation !== activation) return;
+
+                self.finishActiveTask();
             };
 
             self.finishActiveTask = function () {
+                if (!self.activeTask().hasConsequence()) {
+                    self.markTaskFinished();
+                    return;
+                }
+
+                var conseq = self.activeTask().consequence();
+
+                switch (conseq.type()) {
+                case ConsequenceType.QUIZ:
+                    self.quizController.startQuiz(conseq.quiz).then(self.markTaskFinished);
+                    break;
+                case ConsequenceType.VIDEO:
+                    self.popupController.video(conseq.video).then(self.markTaskFinished);
+                    break;
+                }
+            };
+
+            self.markTaskFinished = function () {
                 self.activeTask().finished(true);
-                popupController.notify('experiment.task_finished.header', 'experiment.task_finished.body');
-            };
 
-            self.triggerMouse = function (action, item) {
-                //console.log('Mouse triggered: ' + action);
-            };
-
-            self.triggerActivation = function (action, item) {
-                //console.log('Action triggered: ' + action);
+                var allDone = _(self.activeExperiment().tasks()).invoke('finished').all();
+                if (allDone) {
+                    popupController.message('experiment.completed.header', 'experiment.completed.body');
+                } else {
+                    popupController.notify('experiment.task_finished.header', 'experiment.task_finished.body');
+                }
             };
         }
     });
