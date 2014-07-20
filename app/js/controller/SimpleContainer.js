@@ -55,14 +55,12 @@ define([
 
                             } else if (!self.simpleContainer.isEmpty() && !item.getTip().isEmpty()) { //TODO:3) hvis elektro har contents && pipette har contents --> spørg: Vil du tømme elektro og tilføje?
 
-                                self.popupController.confirm("worktable1.electroporator_refill.header",
-                                    "worktable1.electroporator_refill.body", function (answer) {
-                                        if (answer) {
-                                            self.simpleContainer.clearContents();
-                                            item.emptyPipetteInto(self.simpleContainer);
-                                            self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
-                                        }
-                                });
+                                self.popupController.confirm('worktable1.electroporator_refill.header','worktable1.electroporator_refill.body')
+                                    .then(function () {
+                                        self.simpleContainer.clearContents();
+                                        item.emptyPipetteInto(self.simpleContainer);
+                                        self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
+                                    });
 
                             }
                         }
@@ -86,16 +84,12 @@ define([
 
                                     console.log('bugs when confirming - TODO: ');
 
-                                    var answer = self.popupController.confirm("fermentor.empty_tank.header", "fermentor.empty_tank.body", function (answer) {
-                                        if (answer) {
+                                    self.popupController.confirm("fermentor.empty_tank.header", "fermentor.empty_tank.body")
+                                        .then(function () {
                                             self.simpleContainer.clearContents();
                                             item.emptySyringeInto(self.simpleContainer);
                                             self.popupController.notify('syringe.emptied.header', 'syringe.emptied.header', 2000);
-                                        }
-
-                                        return answer;
-                                    });
-                                    return answer;
+                                        });
                                 }
                             }
                         }

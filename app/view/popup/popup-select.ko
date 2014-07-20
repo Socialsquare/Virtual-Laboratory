@@ -9,7 +9,7 @@
     <select data-bind="options: options, value: selected"></select>
 
     <div class="btn-row float-clear">
-        <button data-bind="click: cb, i18n: 'common.ok'"></button>
+        <button data-bind="click: promise.resolve.bind(null, selected()), i18n: 'common.ok'"></button>
     </div>
     <!-- /ko -->
 </div>

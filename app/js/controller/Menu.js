@@ -127,9 +127,8 @@ define([
                 if (item.type() === ContainerType.PIPETTE) {
                     self.gameState.pipette.removeTip();
                 } else {
-                    self.popupController.confirm('popup.confirm_delete_header', 'popup.confirm_delete_body', function (answer) {
-                        if (answer) consume();
-                    });
+                    self.popupController.confirm('popup.confirm_delete_header', 'popup.confirm_delete_body')
+                        .then(consume);
                 }
                 return false;
             };

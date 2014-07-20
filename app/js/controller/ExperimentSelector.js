@@ -28,8 +28,8 @@ define([
 
             self.start = function () {
                 if (self.experimentController.hasExperiment()) {
-                    popupController.confirm('Skift øvelse', 'Er du sikker?', function (answer) {
-                        if (answer) self.experimentController.startExperiment(self.selected());
+                    popupController.confirm('Skift øvelse', 'Er du sikker?').then(function () {
+                        self.experimentController.startExperiment(self.selected());
                     });
 
                     return;

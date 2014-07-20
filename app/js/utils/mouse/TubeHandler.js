@@ -12,29 +12,30 @@ define([
             if (!MC.mouse().alive())
                 return false;
 
-// Is the mouse psoriasis or insomnia?
+            // Is the mouse psoriasis or insomnia?
             if (! (MC.mouse().mouseType() === MouseType.PSORIASIS || MC.mouse().mouseType() === MouseType.INSOMNIA) ) {
                 MC.popupController.notify('mouse.drug_not_correct_type.header', 'mouse.drug_not_correct_type.body');
                 return false;
             }
 
-// Are the contents allowed?
+            // Are the contents allowed?
             if (!MC.mouse().areContentsAllowed(tube)) {
                 MC.popupController.message('mouse.tube_not_allowed.header','mouse.tube_not_allowed.body');
                 return false;
             }
 
-// May only contain ONE designed drug
+            // May only contain ONE designed drug
             if (! (tube.liquids().length === 1 && tube.contains(LiquidType.DESIGNED_DRUG) )) {
                 MC.popupController.message('mouse.tube_not_allowed.header','mouse.tube_not_allowed.body');
                 return false;
             }
 
             var options = [ AdministrationType.INJECTION_BODY, AdministrationType.INJECTION_HEAD,
-                AdministrationType.PILL, AdministrationType.CREAM];
+                            AdministrationType.PILL, AdministrationType.CREAM];
 
-            var cb = function (administrationForm) {
-                setTimeout(function () {
+
+            MC.popupController.select('washing.concentration', 'washing.concentration.choose', options)
+                .then(function (administrationForm) {
                     //TODO:var res = self.washing.action(administrationForm);
 
                     //TODO: var res = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
@@ -122,21 +123,8 @@ define([
                         }
                     }
 
-
-
                     if (res.feedback) self.popupController.notify('common.result', res.feedback);
-                }, 500);
-            };
-
-            MC.popupController.select('washing.concentration',
-                'washing.concentration.choose',
-                options,
-                cb);
-
-            return true;
-
-
+                });
         }
     };
 });
-

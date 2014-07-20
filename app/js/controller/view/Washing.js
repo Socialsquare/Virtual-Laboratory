@@ -47,21 +47,18 @@ define([
 
                 var options = [ 1.0, 3.0, 10.0, 30.0, 100.0, 300.0, 1000.0 ];
 
-                var cb = function (concentration) {
-                    setTimeout(function () {
-                        var res = self.washing.action(concentration);
+                self.popupController.select('washing.concentration', 'washing.concentration.choose', options)
+                    .then(function (concentration) {
+                        // TODO: is the timeout neccesary?
+                        setTimeout(function () {
+                            var res = self.washing.action(concentration);
 
-                        self.result(res.result);
-                        self.status(false);
+                            self.result(res.result);
+                            self.status(false);
 
-                        if (res.feedback) self.popupController.notify('common.result', res.feedback);
-                    }, 500);
-                };
-
-                self.popupController.select('washing.concentration',
-                                            'washing.concentration.choose',
-                                            options,
-                                            cb);
+                            if (res.feedback) self.popupController.notify('common.result', res.feedback);
+                        }, 500);
+                    });
             };
         }
     });
