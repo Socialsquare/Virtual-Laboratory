@@ -8,6 +8,8 @@ define([
         constructor: function () {
             var self = this;
             self.base(ContainerType.TUBE, Math.pow(10,13));
+
+            self.parentContainer = ko.observable(null); // Used for location-checking
         }
     });
 

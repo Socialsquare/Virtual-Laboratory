@@ -27,7 +27,12 @@ define([
                 });
             });
 
+            self.checkTrigger = function() {
+                //TODO: attempt to unify/resolve... /compare with activeTask.
+            };
+
             self.triggerMix = function (addition, result) {
+                //TODO: test result.location();
                 console.log('Mix triggered in ' + result.type());
             };
 

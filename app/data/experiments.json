@@ -13,21 +13,27 @@
                         "microorganism.yeast",
                         "antibiotic.a"
                     ]
-                }
+                },
+                "quiz": null,
+                "video": null
             },
             {
                 "description": "Kill the mouse",
                 "trigger": {
                     "type": "mouse",
                     "alive": false
-                }
+                },
+                "quiz": null,
+                "video": null
             },
             {
                 "description": "Get a tube",
                 "trigger": {
                     "type": "acquire",
                     "item": "tube.empty"
-                }
+                },
+                "quiz": null,
+                "video": null
             },
             {
                 "description": "Incubate the meth",
@@ -35,7 +41,29 @@
                     "type": "action",
                     "item": "incubator",
                     "time": 24
-                }
+                },
+                "quiz": null,
+                "video": null
+            }
+        ]
+    },
+    {
+        "title": "Test-øvelse #2",
+        "description": "Denne øvelse er også midlertidig.",
+        "tasks": [
+            {
+                "description": "Mix the base",
+                "trigger": {
+                    "type": "mix",
+                    "container": "tube",
+                    "location": "fumehood",
+                    "liquids": [
+                        "microorganism.yeast",
+                        "antibiotic.a"
+                    ]
+                },
+                "quiz": null,
+                "video": null
             }
         ]
     }

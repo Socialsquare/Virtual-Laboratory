@@ -8,6 +8,8 @@ define([
         constructor: function () {
             var self = this;
             self.base(ContainerType.PETRI_DISH, Math.pow(10,12));
+
+            self.parentContainer = ko.observable(null); // Used for location-checking
         }
     });
 
