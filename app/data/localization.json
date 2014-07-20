@@ -103,6 +103,7 @@
         "popup.quiz.replay_video": "Afspil video igen",
         "popup.data_export": "Eksportér data",
         "popup.data_export_message": "Kopier teksten i feltet nedenfor og gem det som en CSV-fil.",
+        "popup.guide.title": "Forsøgsvejlederen",
 
         "pipette.filled.header": "Info",
         "pipette.filled.body": "Du har suget indhold op med pipetten.",

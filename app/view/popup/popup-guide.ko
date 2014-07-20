@@ -1,0 +1,17 @@
+<div class="popup popup-guide">
+    <h1 data-bind="i18n: 'popup.guide.title'"></h1>
+
+	<hr />
+
+	<ul data-bind="foreach: data.experiment.tasks">
+        <li data-bind="css: { finished: finished }">
+            <div>
+                <div data-bind="text: description"></div>
+            </div>
+        </li>
+    </ul>
+
+	<div class="btn-row">
+        <button data-bind="click: hide, i18n: 'common.close'"></button>
+    </div>
+</div>
