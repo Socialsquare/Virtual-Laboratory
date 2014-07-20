@@ -1,10 +1,11 @@
 var proxy = require('grunt-connect-proxy/lib/utils'),
     tplProcess = require('./build-tools/tpl-process'),
+    assets = require('./build-tools/assets'),
     path = require('path'),
+    fs = require("fs"),
     mountFolder = function (connect, dir) {
         return connect.static(path.resolve(dir.toString()));
     };
-
 
 module.exports = function (grunt) {
     grunt.initConfig({
@@ -126,13 +127,6 @@ module.exports = function (grunt) {
             }
         },
 
-        shell: {
-            preload: {
-                options: { stdout: true },
-                command: 'utils/gen-preload-files.sh'
-            }
-        },
-
         preprocess : {
             options: {
                 context : {
@@ -151,6 +145,12 @@ module.exports = function (grunt) {
         grunt.file.write('dist/index.html', templated);
     });
 
+    grunt.registerTask('assets', function () {
+        var data = assets.generate(process.cwd(), 'assets');
+
+        fs.writeFileSync(process.cwd() + '/dist/assets/preload.json', JSON.stringify(data));
+    });
+
     grunt.registerTask('setProductionBuild', function () {
         grunt.config('env', 'production');
     });
@@ -167,9 +167,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-preprocess');
 
     // TODO: enable jshint when smellz is cleaned
-    grunt.registerTask('build', [ 'clean:dist', 'shell:preload', 'copy:dist', 'sass:dist', 'preprocess:dist' ]);
+    grunt.registerTask('build', [ 'clean:dist', 'copy:dist', 'assets', 'sass:dist', 'preprocess:dist' ]);
 
-    grunt.registerTask('production', [ 'setProductionBuild', 'clean:dist', 'shell:preload', 'copy:production', 'requirejs:production', 'sass:dist', 'templateIndex', 'preprocess:dist' ]);
+    grunt.registerTask('production', [ 'setProductionBuild', 'clean:dist', 'copy:production', 'assets', 'requirejs:production', 'sass:dist', 'templateIndex', 'preprocess:dist' ]);
 
     grunt.registerTask('default', [ 'build', 'configureProxies:dist', 'connect:dist', 'watch:dist' ]);
 
