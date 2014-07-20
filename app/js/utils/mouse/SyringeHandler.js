@@ -11,7 +11,20 @@ define([
             if (!MC.mouse().alive()) {
                 return false;
             }
+
+            if (!MC.mouse().isSyringeGenerallyAllowed(item)) {
+                MC.popupController.message('mouse.syringe_not_allowed.header','mouse.syringe_not_allowed.body');
+                return false;
+            }
+
+// Killing
             else if (item.contains(LiquidType.DEADLY)) {
+                if (MC.mouse().mouseType() !== MouseType.HEALTHY)
+                {
+                    MC.popupController.notify('mouse.sick_no_killing.header', 'mouse.sick_no_killing.body', 3500);
+                    return false;
+                }
+
                 MC.videoController.play('fast-injection-lethal', false)
                     .done(function () {
                         MC.mouse().alive(false);
@@ -20,6 +33,7 @@ define([
                         MC.experimentController.triggerMouse('injection', item);
                     });
             }
+// Insulin
             else if (item.contains(LiquidType.INSULIN)) {
                 MC.injectionFromState().done(function () {
                     MC.mouse().givInsulin();
@@ -29,6 +43,7 @@ define([
                     MC.experimentController.triggerMouse('injection', item);
                 });
             }
+// Vaccination
             else if (item.contains(LiquidType.ADJUVANS) &&
                 (item.contains(LiquidType.ANTIGEN_GOUT) || item.contains(LiquidType.ANTIGEN_SMALLPOX))) {
                 MC.injectionFromState().done(function () {
@@ -46,6 +61,7 @@ define([
                     MC.runFromState();
                 });
             }
+// Curing
             else if (item.contains(LiquidType.ANTIBODY_SMALLPOX) && MC.mouse().mouseType() === MouseType.SMALLPOX) {
                 MC.videoController.play(['smallpox-injection', 'smallpox-cure'])
                     .done(function() {
@@ -56,6 +72,7 @@ define([
                         MC.runFromState();
                     });
             }
+// Curing
             else if (item.contains(LiquidType.ANTIBODY_GOUT) && MC.mouse().mouseType() === MouseType.GOUT) {
                 MC.videoController.play(['slow-injection-body-gout', 'slow-cure-gout'], true)
                     .done(function() {

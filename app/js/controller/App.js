@@ -84,6 +84,7 @@ define([
             // dummy data
             //------------------------
 
+
             self.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.antibiotic.a(), true));
             self.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.deadly(), true));
 
