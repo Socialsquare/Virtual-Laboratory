@@ -6,16 +6,18 @@ define([
 
     'controller/view/Base',
     'controller/Popup',
+    'controller/Quiz',
 
     'model/GameState',
     'model/Tip',
     'model/type/Container',
     'model/type/SpecialItem',
+    'model/Quiz',
 
     'utils/ImageHelper',
     'utils/TextHelper'
-], function (ko, $, _, screenfull, BaseViewController, popupController, gameState,
-             TipModel, ContainerType, SpecialItemType, ImageHelper, TextHelper) {
+], function (ko, $, _, screenfull, BaseViewController, popupController, quizController, gameState,
+             TipModel, ContainerType, SpecialItemType, QuizModel, ImageHelper, TextHelper) {
 
     var MenuController = BaseViewController.extend({
 
@@ -24,6 +26,7 @@ define([
 
             self.ImageHelper = ImageHelper;
             self.popupController = popupController;
+            self.quizController = quizController;
             self.gameState = gameState;
 
             // TODO: hardcoded width :*(
@@ -112,8 +115,34 @@ define([
             };
 
             self.testQuiz = function () {
-                //self.popupController.quiz(0);
-                self.popupController.video(['electroporator1', 'electroporator2', 'electroporator3']);
+                var quiz = {
+                    "dk": {
+                        "id": 0,
+                        "name": "Fodbold quizzen",
+                        "video": "fast-loop",
+                        "question": "Hvor god er Messi til fodbold?",
+                        "correct": 1,
+                        "answers": [
+                            {
+                                "id": 0,
+                                "answer": "Ret god",
+                                "message": "Det er ikke helt korrekt fordi den her besked er lidt lang og det er jo fint nok kan man sige, men sjovt nok helt der ude."
+                            },
+                            {
+                                "id": 1,
+                                "answer": "Den bedste af dem alle",
+                                "message": "Ja nemlig ja"
+                            },
+                            {
+                                "id": 2,
+                                "answer": "Ikke vildt god, men stadig okay",
+                                "message": "Helt forkert svar du gav"
+                            }
+                        ]
+                    }
+                };
+
+                self.quizController.startQuiz(new QuizModel(quiz.dk));
             };
 
             self.togglePipette = function (activeViewController) {

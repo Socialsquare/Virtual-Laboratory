@@ -1,5 +1,4 @@
 <div class="popup popup-quiz">
-    <!-- ko if: data.quizController.hasQuiz -->
     <!-- ko with: data.quizController -->
     <h1 data-bind="i18n: 'popup.quiz.header'"></h1>
 
@@ -20,7 +19,7 @@
 
     <div class="btn-row">
         <button data-bind="click: $parent.hide, visible: quizFinished, i18n: 'common.close'"></button>
+        <button data-bind="click: playQuizVideo, visible: activeQuiz().hasVideo(), i18n: 'popup.quiz.replay_video'"></button>
     </div>
-    <!-- /ko -->
     <!-- /ko -->
 </div>

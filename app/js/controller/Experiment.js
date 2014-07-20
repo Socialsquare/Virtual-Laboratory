@@ -31,11 +31,11 @@ define([
                 console.log('Mix triggered in ' + result.type());
             };
 
-            self.triggerMouse = function (action) {
+            self.triggerMouse = function (action, item) {
                 console.log('Mouse triggered: ' + action);
             };
 
-            self.triggerActivation = function (action) {
+            self.triggerActivation = function (action, item) {
                 console.log('Action triggered: ' + action);
             };
         }
