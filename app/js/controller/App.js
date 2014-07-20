@@ -84,6 +84,7 @@ define([
             // dummy data
             //------------------------
 
+            self.gameState.inventory.add(ContainerFactory.syringe().add(LiquidFactory.microorganism.yeast(), true));
 
 /*            var tube = ContainerFactory.tube();
             var mye = LiquidFactory.microorganism.myeloma();

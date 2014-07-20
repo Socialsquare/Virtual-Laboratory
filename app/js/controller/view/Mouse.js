@@ -63,7 +63,7 @@ define([
             self.graphTimer = ko.observable(null);
 
             self.exportData =  function () {
-                var data = DataHelper.toCSV(self.plotData(), 'time', 'bloodsugar');
+                var data = DataHelper.toCSV(self.plotData(), ['time', 'bloodsugar']);
                 self.popupController.dataExport(data);
             };
 

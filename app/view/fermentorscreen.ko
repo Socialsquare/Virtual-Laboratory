@@ -1,30 +1,33 @@
 <div class="chromatographscreen-view">
-    <div class="fermentor-screen">
-        <div class="fermentor-graph" data-bind="plotFermentor: plotData">
-            <h1>TODO: Se vlab.dk og genbrug Chris'?</h1>
-            <h1>TODO: husk data-extraction. Gem hele grafens data, så det kan fyres til CSV.</h1>
-        </div>
+    <div class="screen">
+        <div class="graph" data-bind="plotFermentor: plotData"></div>
 
-
-        <div class="fermentor-footer">
-            <div class="fermentor-control">
+        <div class="footer">
+            <div class="control">
                 <div class="label" data-bind="text: fermentor.phText()"></div>
                 <div class="buttons">
-                    <button class="btn-none" data-bind="click: changePh.bind(null, 0.5)">+</button>
-                    <button class="btn-none" data-bind="click: changePh.bind(null, -0.5)">-</button>
+                    <button class="value-btn btn-none" data-bind="click: changePh.bind(null, 0.5)">+</button>
+                    <button class="value-btn btn-none" data-bind="click: changePh.bind(null, -0.5)">-</button>
                 </div>
             </div>
-            <div class="fermentor-control">
+
+            <div class="control">
                 <div class="label" data-bind="text: fermentor.temperatureText()"></div>
                 <div class="buttons">
-                    <button class="btn-none" data-bind="click: changeTemp.bind(null, 0.5)" >+</button>
-                    <button class="btn-none" data-bind="click: changeTemp.bind(null, -0.5)">-</button>
+                    <button class="value-btn btn-none" data-bind="click: changeTemp.bind(null, 0.5)" >+</button>
+                    <button class="value-btn btn-none" data-bind="click: changeTemp.bind(null, -0.5)">-</button>
                 </div>
             </div>
-            <div class="fermentor-control">
+
+            <div class="control">
                 <div class="label" data-bind="text: fermentor.timerText()"></div>
             </div>
-            <button class="btn-none" data-bind="click: activateFermentor.bind()" id="fermentor-start-btn">Start</button>
+
+            <div class="export-btn" data-bind="click: exportData">
+                <img src="assets/images/icon_spreadsheet.png" alt="Export data">
+            </div>
+
+            <button class="start-btn btn-none" data-bind="click: activateFermentor.bind()">Start</button>
         </div>
     </div>
 </div>

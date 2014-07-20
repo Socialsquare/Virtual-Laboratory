@@ -2,10 +2,10 @@ define([
     'lodash'
 ], function (_) {
     return {
-        toCSV: function (data, headerX, headerY) {
+        toCSV: function (data, headers) {
             return _.reduce(data, function (data, point) {
-                return data + '\n' + point[0] + ',' + point[1];
-            }, headerX + ',' + headerY);
+                return data + '\n' + point.join(',');
+            }, headers.join(','));
         }
     };
 });

@@ -1,8 +1,10 @@
 define([
     'knockout',
+    'lodash',
     'utils/utils',
+    'utils/DataHelper',
     'controller/view/Base'
-], function (ko, utils, BaseViewController) {
+], function (ko, _, utils, DataHelper, BaseViewController) {
 
     var FermentorScreen = BaseViewController.extend({
 
@@ -15,6 +17,19 @@ define([
             self.turnedOn = ko.observable(false);
 
             self.fermentor = self.gameState.fermentor;
+
+            self.exportData = function () {
+                var raw = self.plotData();
+                var headers = ['time', 'biomass', 'substrate', 'product'];
+                var parsed = _(raw.biomass)
+                        .zip(raw.substrate, raw.product)
+                        .map(function (row) {
+                            return [row[0][0], row[0][1], row[1][1], row[2][1]];
+                        })
+                        .value();
+
+                self.popupController.dataExport(DataHelper.toCSV(parsed, headers));
+            };
 
             self.changeTemp = function(val) {
                 self.fermentor.temperature(self.fermentor.temperature() + val);
@@ -40,6 +55,7 @@ define([
 
                 self.plotData({biomass: biomassData, substrate: substrateData, product: productData});
             };
+
             self.updatePlotData();
 
             self.activateFermentor = function () {
