@@ -34,12 +34,19 @@ define([
             });
 
             self.orderMouse = function () {
-                var mouse = self.selectedMouse();
-                self.gameState.mouse(mouse.clone());
 
-                self.changeScreen(self.Screens.MENU);
+                self.popupController.confirm('computer.screen.mouse_confirm.header', 'computer.screen.mouse_confirm.body', function (answer) {
+                    if(answer){
+                        var mouse = self.selectedMouse();
+                        self.gameState.mouse(mouse.clone());
 
-                self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_MOUSE, mouse);
+                        self.changeScreen(self.Screens.MENU);
+
+                        self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_MOUSE, mouse);
+                    }
+                });
+
+
             };
         }
     });

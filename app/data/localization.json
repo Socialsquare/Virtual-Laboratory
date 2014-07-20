@@ -22,6 +22,8 @@
         "computer.screen.mouse.bloodsugar": "Musens blodsukker",
         "computer.screen.mouse.insulin.prod": "Insulin produktivitet",
         "computer.screen.mouse.insulin.effect": "Insulin effektivitet",
+        "computer.screen.mouse_confirm.header": "Sikker?",
+        "computer.screen.mouse_confirm.body": "Din nuværende mus vil forsvinde. Vil du alligevel bestille?",
         "computer.screen.sequencing.invalid_concentration": "Koncentrationen er for høj, den skal være under 10 nemlig ja",
         "computer.screen.sequencing.missing_antibody": "Der mangler et antistof",
         "computer.screen.sequencing.missing_myeloma": "Der mangler myeloma",
