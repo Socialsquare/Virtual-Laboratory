@@ -26,13 +26,6 @@ define([
                 self.activeQuiz(quiz);
                 self.showQuizPopup();
                 self.playQuizVideo();
-
-                // if (self.activeQuiz().hasVideo()) {
-                //     self.popupController.video(self.activeQuiz().video()).then(function () {
-                //         self.showQuizPopup();
-                //     });
-                // } else {
-                // }
             };
 
             self.playQuizVideo = function () {
