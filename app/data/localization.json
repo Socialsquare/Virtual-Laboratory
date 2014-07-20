@@ -64,6 +64,9 @@
         "mouse.description.insomnia": "Mus med søvnløs",
         "mouse.description.diabetic": "Mus med diabetes",
 
+        "mouse.sick_no_bloodsugar.header": "Forbudt",
+        "mouse.sick_no_bloodsugar.body": "Det er en dårlig idé at manipulere med en syg mus' blodsukker.",
+
         "washing.empty_tube.header": "Forbudt",
         "washing.empty_tube.body": "Dit reagensglas er tomt",
         "washing.detergent_required.header": "Forbudt",

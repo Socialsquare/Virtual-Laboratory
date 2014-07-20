@@ -4,6 +4,7 @@ define([
     'lodash',
     'utils/utils',
     'utils/DataHelper',
+    'utils/DropOnMouseHelper',
 
     'controller/view/Base',
     'controller/Video',
@@ -18,7 +19,7 @@ define([
     'model/type/Mouse',
     'model/type/MouseBlood',
     'model/type/SpecialItem'
-], function ($, ko, _, utils, DataHelper, BaseViewController, VideoController, MouseModel, BottleModel, JuiceModel,
+], function ($, ko, _, utils, DataHelper, DropOnMouseHelper, BaseViewController, VideoController, MouseModel, BottleModel, JuiceModel,
              SpleenModel, ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType) {
 
     var MouseController = BaseViewController.extend({
@@ -112,6 +113,17 @@ define([
                     case MouseType.GOUT:
                         self.videoController.play('slow-loop-gout', true);
                         break;
+
+                    case MouseType.INSOMNIA:
+                        self.videoController.play('slow-loop', true);
+                        break;
+
+                    case MouseType.PSORIASIS:
+                        self.videoController.play('psoriasis-loop');
+                        break;
+                    default:
+                        console.log('Mouse video error');
+                        break;
                     }
                 }
             };
@@ -130,110 +142,7 @@ define([
             };
 
             self.handleDropOnMouse = function(item) {
-
-                switch(item.type()) {
-                case ContainerType.BOTTLE:
-                    if (!self.mouse().alive())
-                        return false;
-
-                    self.mouseDrinking(true);
-                    self.videoController.play('fast-drink-spawn', false)
-                        .done(function () {
-                            //self.experimentController.triggerMouse(MouseEvent.)
-                            self.mouseDrinking(false);
-                            self.runFromState();
-                            self.experimentController.triggerMouse('drink', item);
-                        });
-                    self.mouse().givJuice();
-                    break;
-
-                case SpecialItemType.SCALPEL:
-                    if (self.mouse().alive()) {
-                        self.popupController.message('mouse.cut_alive.header', 'mouse.cut_alive.body');
-                        return false;
-                    } else {
-                        self.videoController.play('fast-dead-cut', false)
-                            .done(function() {
-                                self.popupController.message('mouse.spleen_extracted.header', 'mouse.spleen_extracted.body');
-                                self.mouse().isCut(true);
-
-                                var clonedSpleen = self.mouse().spleen.clone(); //TODO: test
-                                self.gameState.inventory.add(clonedSpleen); //Is a reference to the spleen in the mouse, but it is only used once anyways
-
-                                self.experimentController.triggerMouse('cut');
-                            });
-
-
-                    }
-                    break;
-
-                case ContainerType.SYRINGE:
-                    if (!self.mouse().alive()) {
-                        return false;
-                    }
-                    else if (item.contains(LiquidType.DEADLY)) {
-                        self.videoController.play('fast-injection-lethal', false)
-                            .done(function () {
-                                self.mouse().alive(false);
-                                self.popupController.message('mouse.died.header', 'mouse.died.body');
-
-                                self.experimentController.triggerMouse('injection', item);
-                            });
-                    }
-                    else if (item.contains(LiquidType.INSULIN)) {
-                        self.injectionFromState().done(function () {
-                            self.mouse().givInsulin();
-
-                            self.runFromState();
-
-                            self.experimentController.triggerMouse('injection', item);
-                        });
-                    }
-                    else if (item.contains(LiquidType.ADJUVANS) &&
-                             (item.contains(LiquidType.ANTIGEN_GOUT) || item.contains(LiquidType.ANTIGEN_SMALLPOX))) {
-                        self.injectionFromState().done(function () {
-                            if (item.contains(LiquidType.ANTIGEN_GOUT)) {
-                                self.mouse().vaccinate(LiquidType.ANTIGEN_GOUT);
-                                self.popupController.message('mouse.vaccinated_gout.header','mouse.vaccinated_gout.body');
-                            }
-
-                            if (item.contains(LiquidType.ANTIGEN_SMALLPOX)) {
-                                self.mouse().vaccinate(LiquidType.ANTIGEN_SMALLPOX);
-                                self.popupController.message('mouse.vaccinated_smallpox.header','mouse.vaccinated_smallpox.body');
-                            }
-
-                            self.experimentController.triggerMouse('injection', item);
-                            self.runFromState();
-                        });
-                    }
-                    else if (item.contains(LiquidType.ANTIBODY_SMALLPOX) && self.mouse().mouseType() === MouseType.SMALLPOX) {
-                        self.videoController.play(['smallpox-injection', 'smallpox-cure'])
-                            .done(function() {
-                                self.mouse().cure(LiquidType.ANTIBODY_SMALLPOX);
-                                self.popupController.message('mouse.cured_smallpox.header','mouse.cured_smallpox.body');
-
-                                self.experimentController.triggerMouse('injection', item);
-                                self.runFromState();
-                            });
-                    }
-                    else if (item.contains(LiquidType.ANTIBODY_GOUT) && self.mouse().mouseType() === MouseType.GOUT) {
-                        self.videoController.play(['slow-injection-body-gout', 'slow-cure-gout'], true)
-                            .done(function() {
-                                self.mouse().cure(LiquidType.ANTIBODY_GOUT);
-                                self.popupController.message('mouse.cured_gout.header','mouse.cured_gout.body');
-
-                                self.experimentController.triggerMouse('injection', item);
-                                self.runFromState();
-                            });
-                    }
-                    else {
-                        self.injectionFromState().done(function () {
-                            self.runFromState();
-                            self.experimentController.triggerMouse('injection', item);
-                        });
-                    }
-                    break;
-                }
+                DropOnMouseHelper.handleDrop(self, item);
             };
 
 
