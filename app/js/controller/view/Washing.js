@@ -56,7 +56,7 @@ define([
 
                         if (res.feedback) self.popupController.notify('common.result', res.feedback);
                     }, 500);
-                }
+                };
 
                 self.popupController.select('washing.concentration',
                                             'washing.concentration.choose',

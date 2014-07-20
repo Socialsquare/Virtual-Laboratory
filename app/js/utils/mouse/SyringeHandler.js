@@ -35,6 +35,12 @@ define([
             }
 // Insulin
             else if (item.contains(LiquidType.INSULIN)) {
+                if (MC.mouse().mouseType() !== MouseType.HEALTHY)
+                {
+                    MC.popupController.notify('mouse.sick_no_bloodsugar.header', 'mouse.sick_no_bloodsugar.body', 3500);
+                    return false;
+                }
+
                 MC.injectionFromState().done(function () {
                     MC.mouse().givInsulin();
 

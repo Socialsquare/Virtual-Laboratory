@@ -119,7 +119,7 @@ define([
                         break;
 
                     case MouseType.PSORIASIS:
-                        self.videoController.play('psoriasis-loop');
+                        self.videoController.play('psoriasis-loop', true);
                         break;
                     default:
                         console.log('Mouse video error');
