@@ -11,19 +11,6 @@ define([
 
             var type = type || ContainerType.MICRO_SPACE;
             self.base(3, ContainerType.MICROTITER, type);
-
-            self.location = ko.observable();
-
-            self.addAt = function(position, container) {
-                container.parentContainer(self);
-                self._addAt(position, container);
-                return self;
-            };
-
-            self.remove = function (position) {
-                self.get(position).parentContainer(null);
-                self.containers.setAt(position, null);
-            };
         }
     });
 

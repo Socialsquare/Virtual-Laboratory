@@ -142,6 +142,9 @@
         "liquid.name.antibody_gout": "Antistof (gigt)",
         "liquid.name.antibody_smallpox": "Antistof (kopper)",
 
+        "experiment.task_finished.header": "Godt arbejde",
+        "experiment.task_finished.body": "Du klarede en opgave",
+
         "common.loading": "Henter",
         "common.ok": "Okay",
         "common.close": "Luk",

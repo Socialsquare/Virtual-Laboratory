@@ -8,8 +8,6 @@ define([
         constructor: function () {
             var self = this;
             self.base(ContainerType.MICROTITER, Math.pow(10, 10));
-
-            self.parentContainer = ko.observable(null); // Used for location-checking
         }
     });
 

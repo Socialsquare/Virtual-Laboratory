@@ -1,8 +1,9 @@
 define([
     'knockout',
+    'lodash',
     'base',
     'model/Answer'
-], function (ko, Base, AnswerModel) {
+], function (ko, _, Base, AnswerModel) {
 
     var Quiz = Base.extend({
 

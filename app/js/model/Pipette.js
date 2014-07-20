@@ -41,7 +41,8 @@ define([
 // 2nd modify the container
                 modifiedLiqs = utils.biology.dilute(50/49, container.liquids());
                 container.clearContents();
-                container.addAll(modifiedLiqs);
+                // prevent trigger because we're not actually adding stuff
+                container.addAll(modifiedLiqs, true);
 
                 if (modifiedLiqs.length !== 0) {
                     self.getTip().used(true);

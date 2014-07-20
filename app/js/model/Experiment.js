@@ -5,7 +5,7 @@ define([
     'model/Task'
 ], function(ko, _, Base, TaskModel) {
 
-    var Exercise = Base.extend({
+    var Experiment = Base.extend({
 
         constructor: function (values) {
             var self = this;
@@ -19,5 +19,5 @@ define([
         },
     });
 
-    return Exercise;
+    return Experiment;
 });

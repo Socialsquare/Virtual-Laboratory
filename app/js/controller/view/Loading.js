@@ -2,9 +2,9 @@ define([
     'knockout',
     'jquery',
     'controller/view/Base',
-    'controller/ExerciseSelector',
+    'controller/ExperimentSelector',
     'service/Localization'
-], function (ko, $, BaseViewController, ExerciseSelectorController, localizationService) {
+], function (ko, $, BaseViewController, ExperimentSelectorController, localizationService) {
 
     var Loading = BaseViewController.extend({
         constructor: function () {
@@ -29,10 +29,10 @@ define([
                 }
             });
 
-            self.exerciseSelectorController = new ExerciseSelectorController();
+            self.experimentSelectorController = new ExperimentSelectorController();
 
             self.enter = function () {
-                self.exerciseSelectorController.selected(null);
+                self.experimentSelectorController.selected(null);
             };
         }
 

@@ -1,17 +1,17 @@
 define([
     'lodash',
     'service/Base',
-    'model/Exercise'
-], function ( _, BaseService, ExerciseModel) {
+    'model/Experiment'
+], function ( _, BaseService, ExperimentModel) {
 
-    var ExerciseService = BaseService.extend({
+    var Experiment = BaseService.extend({
 
-        getExercises: function () {
+        getExperiments: function () {
             var promise = $.Deferred();
             this.get('/data/experiments.json')
                 .done(function (elements) {
                     var result = _.map(elements, function (element) {
-                        return new ExerciseModel(element);
+                        return new ExperimentModel(element);
                     });
                     promise.resolve(result);
                 });
@@ -20,5 +20,5 @@ define([
         }
     });
 
-    return new ExerciseService();
+    return new Experiment();
 });

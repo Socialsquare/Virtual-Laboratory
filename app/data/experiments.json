@@ -6,21 +6,48 @@
             {
                 "description": "Mix the base",
                 "trigger": {
-                    "type": "mix",
-                    "container": "tube",
-                    "location": "fumehood",
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.TUBE",
+                    "location": "LocationType.FUMEHOOD",
+                    "strict": true,
                     "liquids": [
-                        "microorganism.yeast",
-                        "antibiotic.a"
+                        { "type": "LiquidType.ANTIBIOTIC" },
+                        { "type": "LiquidType.DEADLY" }
                     ]
                 },
-                "quiz": null,
-                "video": null
+                "consequence": {
+                    "type": "ConsequenceType.VIDEO",
+                    "video": "fast-loop",
+                    "quiz": {
+                        "id": 0,
+                        "name": "Fodbold quizzen",
+                        "video": "fast-loop",
+                        "question": "Hvor god er Messi til fodbold?",
+                        "correct": 1,
+                        "answers": [
+                            {
+                                "id": 0,
+                                "answer": "Ret god",
+                                "message": "Det er ikke helt korrekt."
+                            },
+                            {
+                                "id": 1,
+                                "answer": "Den bedste af dem alle",
+                                "message": "Ja, nemlig ja!"
+                            },
+                            {
+                                "id": 2,
+                                "answer": "Ikke vildt god, men stadig okay",
+                                "message": "Helt forkert svar du gav"
+                            }
+                        ]
+                    }
+                }
             },
             {
                 "description": "Kill the mouse",
                 "trigger": {
-                    "type": "mouse",
+                    "type": "TriggerType.MOUSE",
                     "alive": false
                 },
                 "quiz": null,

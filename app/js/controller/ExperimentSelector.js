@@ -3,23 +3,23 @@ define([
     'controller/view/Base',
     'controller/Popup',
     'controller/Experiment',
-    'service/Exercise'
-], function (ko, BaseViewController, popupController, experimentController, exerciseService) {
+    'service/Experiment'
+], function (ko, BaseViewController, popupController, experimentController, experimentService) {
 
-    var ExerciseSelector = BaseViewController.extend({
+    var ExperimentSelector = BaseViewController.extend({
 
         constructor: function () {
             var self = this;
 
-            self.exercises = ko.observableArray([]);
+            self.experiments = ko.observableArray([]);
             self.selected = ko.observable();
 
-            exerciseService.getExercises().done(function (exercises) {
-                self.exercises(exercises);
+            experimentService.getExperiments().done(function (experiments) {
+                self.experiments(experiments);
             });
 
-            self.select = function (exercise) {
-                self.selected(exercise);
+            self.select = function (experiment) {
+                self.selected(experiment);
             };
 
             self.goBack = function () {
@@ -29,7 +29,7 @@ define([
             self.start = function () {
                 if (self.experimentController.hasExperiment()) {
                     popupController.confirm('Skift øvelse', 'Er du sikker?', function (answer) {
-                        if (answer) self.gameState.currentExercise(self.selected());
+                        if (answer) self.experimentController.startExperiment(self.selected());
                     });
 
                     return;
@@ -39,8 +39,8 @@ define([
 
                 self.router.navigate('overview');
             };
-        },
+        }
     });
 
-    return ExerciseSelector;
+    return ExperimentSelector;
 });

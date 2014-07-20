@@ -17,6 +17,8 @@ define([
             self.liquids = ko.observableArray([]);
             self.label = ko.observable('');
 
+            self.parentContainer = ko.observable(null); // Used for location-checking
+
             self._addAll = function (liquids, preventTrigger) {
                 if(! self.canAddLiquids(liquids))
                     return;

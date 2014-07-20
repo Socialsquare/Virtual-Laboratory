@@ -1,8 +1,9 @@
 define([
     'knockout',
+    'jquery',
     'base',
     'controller/Popup'
-], function (ko, Base, popupController) {
+], function (ko, $, Base, popupController) {
 
     var Quiz = Base.extend({
 
@@ -10,6 +11,8 @@ define([
             var self = this;
 
             self.popupController = popupController;
+            self.currentPopupVM = null;
+            self.quizPromise = null;
             self.activeQuiz = ko.observable(quiz);
             self.quizFinished = ko.observable(false);
 
@@ -23,9 +26,13 @@ define([
             };
 
             self.startQuiz = function (quiz) {
+                self.quizPromise = $.Deferred();
+
                 self.activeQuiz(quiz);
                 self.showQuizPopup();
                 self.playQuizVideo();
+
+                return self.quizPromise;
             };
 
             self.playQuizVideo = function () {
@@ -35,7 +42,12 @@ define([
             };
 
             self.showQuizPopup = function () {
-                self.popupController.show('popup-quiz', { quizController: self });
+                self.currentPopupVM = self.popupController.show('popup-quiz', { quizController: self });
+            };
+
+            self.endQuiz = function () {
+                self.popupController.hide(self.currentPopupVM);
+                self.quizPromise.resolve();
             };
         }
     });

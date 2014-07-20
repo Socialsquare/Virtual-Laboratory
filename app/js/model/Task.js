@@ -1,20 +1,41 @@
 define([
     'knockout',
-    'base'
-], function(ko, Base) {
+    'base',
+    'model/Quiz',
+    'model/QuizConsequence',
+    'model/VideoConsequence',
+    'model/type/Consequence'
+], function(ko, Base, QuizModel, QuizConsequenceModel, VideoConsequenceModel, ConsequenceType) {
 
     var Task = Base.extend({
 
         constructor: function (values) {
             var self = this;
 
-            self.id = ko.observable(values.id); //TODO: not set
-            self.trigger = ko.observable(values.trigger); //TODO: trigger.type() har 3 typer: mus, action og mix.
-            self.quiz = ko.observable(values.quiz);
+            self.finished = ko.observable(false);
+            self.id = ko.observable(values.id);
+            self.trigger = ko.observable(values.trigger);
             self.video = ko.observable(values.video);
             self.description = ko.observable(values.description);
-            self.finished = ko.observable(false);
-        },
+
+            self.consequence = ko.observable();
+
+            if (values.consequence) {
+                switch (values.consequence.type) {
+                case ConsequenceType.QUIZ:
+                    self.consequence(new QuizConsequenceModel(values.consequence.quiz));
+                    break;
+                case ConsequenceType.VIDEO:
+                    self.consequence(new VideoConsequenceModel(values.consequence.video));
+                    break;
+                }
+            }
+
+            self.hasConsequence = ko.computed(function () {
+                return !!self.consequence();
+            });
+
+        }
     });
 
     return Task;

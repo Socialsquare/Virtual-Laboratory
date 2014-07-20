@@ -1,19 +1,19 @@
 define([
 ], function () {
     return {
-        CHEMICAL: "Location.Chemical",
-        COMPUTER: "Location.Computer",
-        FERMENTOR: "Location.Fermentor",
-        FERMENTORSCREEN: "Location.FermentorScreen",
-        FUMEHOOD: "Location.Fumehood",
-        INCUBATOR: "Location.Incubator",
-        LOADING: "Location.Loading",
-        MOUSE: "Location.Mouse",
-        OVERVIEW: "Location.Overview",
-        SPECTROPM: "Location.SpectroPM",
-        UVROOM: "Location.UvRoom",
-        WASHING: "Location.Washing",
-        WORKTABLE1: "Location.Worktable1",
-        WORKTABLE2: "Location.Worktable2"
+        CHEMICAL: "LocationType.CHEMICAL",
+        COMPUTER: "LocationType.COMPUTER",
+        FERMENTOR: "LocationType.FERMENTOR",
+        FERMENTORSCREEN: "LocationType.FERMENTORSCREEN",
+        FUMEHOOD: "LocationType.FUMEHOOD",
+        INCUBATOR: "LocationType.INCUBATOR",
+        LOADING: "LocationType.LOADING",
+        MOUSE: "LocationType.MOUSE",
+        OVERVIEW: "LocationType.OVERVIEW",
+        SPECTROPM: "LocationType.SPECTROPM",
+        UVROOM: "LocationType.UVROOM",
+        WASHING: "LocationType.WASHING",
+        WORKTABLE1: "LocationType.WORKTABLE1",
+        WORKTABLE2: "LocationType.WORKTABLE2"
     };
 });
