@@ -100,6 +100,11 @@
                         width: 80px;
                         height: 80px;
                         margin-left: 4px;
+
+                        img {
+                            position: absolute;
+                            bottom: 10px;
+                        }
                     }
                 }
             }
