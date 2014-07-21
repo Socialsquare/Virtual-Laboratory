@@ -168,9 +168,7 @@ define([
             tube.addAll(electro_contents, true);
 
             self.gameState.worktable1.tubeRack.addAt(0, tube);
-            self.gameState.inventory.add(ContainerFactory.syringe().add(LiquidFactory.insulin(), true));
-            self.gameState.inventory.add(ContainerFactory.syringe().add(LiquidFactory.insulin(), true));
-            self.gameState.inventory.add(ContainerFactory.syringe().add(LiquidFactory.insulin(), true));
+            self.gameState.inventory.add(ContainerFactory.syringe());
 
             /*self.gameState.inventory.add(tube);*/
 /*

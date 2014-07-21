@@ -81,6 +81,12 @@
         "mouse.tube_not_allowed.body": "Indholdet i dit reagensglas er forurenet. Det er uetisk at give dets indhold ind i musen, du!",
         "mouse.syringe_not_allowed.header": "Forbudt",
         "mouse.syringe_not_allowed.body": "Indholdet i din kanyle er forurenet. Det er uetisk at sprøjte dens indhold ind i musen, du!",
+        "mouse.drug_administration.injection_body": "Indsprøjtning i kroppen",
+        "mouse.drug_administration.injection_head": "Indsprøjtning i kraniet",
+        "mouse.drug_administration.pill": "Pille",
+        "mouse.drug_administration.cream": "Creme",
+
+
 
         "washing.empty_tube.header": "Forbudt",
         "washing.empty_tube.body": "Dit reagensglas er tomt",
@@ -90,6 +96,10 @@
         "washing.concentration": "Koncentration",
         "washing.concentration.choose": "Bestem koncentrationen af vaskemidlet:",
 
+        "fermentor.chromatograph_product.antibody_gout": "Antistof for gigt",
+        "fermentor.chromatograph_product.antibody_smallpox": "Antistof for kopper",
+        "fermentor.chromatograph_product.insulin": "Insulin",
+        "fermentor.chromatograph_product.lipase": "Lipase",
         "fermentor.chromatograph_select.header": "Oprens protein",
         "fermentor.chromatograph_select.body": "Tillykke, fermenteringen gik godt! Du kan vælge at oprense et af følgende proteiner:",
         "fermentor.empty_tank.body": "Vil du tømme fermentoren og tilføje indholdet fra kanylen?",

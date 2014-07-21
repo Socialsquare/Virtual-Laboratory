@@ -1,11 +1,13 @@
 define([
+    'service/Localization',
+
     'model/type/Container',
     'model/type/Liquid',
     'model/type/Mouse',
     'model/type/MouseBlood',
     'model/type/SpecialItem',
     'model/type/Administration'
-], function (ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType, AdministrationType) {
+], function (LocalizationService, ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType, AdministrationType) {
     return {
         handle: function(MC, tube) { //MC = MouseController
 
@@ -32,10 +34,13 @@ define([
 
 // Choice based on mouse type
             if (MC.mouse().mouseType() === MouseType.PSORIASIS) {
-                var options = [ //TODO: i18n localization
-                    {key: 'Indsprøjtning i kroppen', administrationForm: AdministrationType.INJECTION_BODY},
-                    {key: 'Pille', administrationForm: AdministrationType.PILL},
-                    {key: 'Creme', administrationForm: AdministrationType.CREME}
+                var options = [
+                    {key: LocalizationService.text('mouse.drug_administration.injection_body'),
+                        administrationForm: AdministrationType.INJECTION_BODY},
+                    {key: LocalizationService.text('mouse.drug_administration.pill'),
+                        administrationForm: AdministrationType.PILL},
+                    {key: LocalizationService.text('mouse.drug_administration.cream'),
+                        administrationForm: AdministrationType.CREAM}
                 ];
 
 
@@ -46,7 +51,7 @@ define([
 
                         switch(administrationForm) {
 
-                            case AdministrationType.INJECTION_BODY: //TODO:
+                            case AdministrationType.INJECTION_BODY:
                                 MC.videoController.play('psoriasis-injection', false).done(function() {
                                     var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
@@ -55,7 +60,7 @@ define([
                                 });
                                 break;
 
-                            case AdministrationType.PILL: //TODO:
+                            case AdministrationType.PILL:
                                 MC.videoController.play('psoriasis-pill', false).done(function() {
                                     var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
@@ -64,7 +69,7 @@ define([
                                 });
                                 break;
 
-                            case AdministrationType.CREAM: //TODO:
+                            case AdministrationType.CREAM:
                                 MC.videoController.play('psoriasis-cream', false).done(function() {
                                     var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
@@ -79,11 +84,15 @@ define([
 
 
             }else if (MC.mouse().mouseType() === MouseType.INSOMNIA) {
-                var options = [ //TODO: i18n localization
-                    {key: 'Indsprøjtning i kraniet', administrationForm: AdministrationType.INJECTION_HEAD},
-                    {key: 'Indsprøjtning i kroppen', administrationForm: AdministrationType.INJECTION_BODY},
-                    {key: 'Pille', administrationForm: AdministrationType.PILL},
-                    {key: 'Creme', administrationForm: AdministrationType.CREME}
+                var options = [
+                    {key: LocalizationService.text('mouse.drug_administration.injection_body'),
+                        administrationForm: AdministrationType.INJECTION_BODY},
+                    {key: LocalizationService.text('mouse.drug_administration.injection_head'),
+                        administrationForm: AdministrationType.INJECTION_HEAD},
+                    {key: LocalizationService.text('mouse.drug_administration.pill'),
+                        administrationForm: AdministrationType.PILL},
+                    {key: LocalizationService.text('mouse.drug_administration.cream'),
+                        administrationForm: AdministrationType.CREAM}
                 ];
 
 
@@ -108,7 +117,7 @@ define([
                                     });
                                     break;
 
-                                case AdministrationType.INJECTION_BODY: //TODO:
+                                case AdministrationType.INJECTION_BODY:
                                     MC.videoController.play('slow-injection-body', false).done(function() {
                                         var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
@@ -117,7 +126,7 @@ define([
                                     });
                                     break;
 
-                                case AdministrationType.PILL: //TODO:
+                                case AdministrationType.PILL:
                                     MC.videoController.play('slow-pill', false).done(function() {
                                         var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
@@ -126,7 +135,7 @@ define([
                                     });
                                     break;
 
-                                case AdministrationType.CREAM: //TODO:
+                                case AdministrationType.CREAM: 
                                     MC.videoController.play('slow-cream', false).done(function() {
                                         var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 

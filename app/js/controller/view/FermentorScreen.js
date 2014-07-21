@@ -5,15 +5,17 @@ define([
     'controller/view/Base',
     'utils/utils',
     'utils/DataHelper',
+    'service/Localization',
 
     'factory/Liquid',
     'model/Tube',
     'model/type/Liquid'
 
 
-], function (ko, _, BaseViewController, utils, DataHelper, LiquidFactory, TubeModel, LiquidType ) {
+], function (ko, _, BaseViewController, utils, DataHelper, LocalizationService, LiquidFactory, TubeModel, LiquidType ) {
 
     var FermentorScreen = BaseViewController.extend({
+        //TODO: make and use a microorganism attribute "hasBeenInHighConcentration". Only organisms that fulfill this will grow in the fermentor
 
         constructor: function () {
             var self = this;
@@ -82,21 +84,6 @@ define([
                  }
             };
 
-            self.purifyProtein = function () {
-                /*// clone sequence, add to gene, put in tube
-                var sequenceClone = ko.toJS(self.dnaSequence);
-                var gene = new GeneModel(sequenceClone);
-                var tube = new TubeModel();
-                tube.add(gene, true);
-                self.gameState.inventory.add(tube);
-
-                // reset the sequence and go to computer menu
-                self.dnaSequence.removeAll();
-
-                self.changeScreen(self.Screens.MENU);
-
-                self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_DNA);*/
-            };
 
             self.endFermentation = function() {
                 // TODO: reset fermentor (fermentor products, substrate, contents (make a copy of original?)??)
@@ -118,16 +105,20 @@ define([
                             case LiquidType.GFP:
                                 return;
                             case LiquidType.ANTIBODY_GOUT:
-                                options.push({ key: 'Antistof - gigt', liquidType: enzymeLiquidType});
+                                options.push({ key: LocalizationService.text('fermentor.chromatograph_product.antibody_gout'),
+                                    liquidType: enzymeLiquidType});
                                 break;
                             case LiquidType.ANTIBODY_SMALLPOX:
-                                options.push({ key: 'Antistof - kopper', liquidType: enzymeLiquidType});
+                                options.push({ key: LocalizationService.text('fermentor.chromatograph_product.antibody_smallpox'),
+                                    liquidType: enzymeLiquidType});
                                 break;
                             case LiquidType.LIPASE_ENZYME:
-                                options.push({ key: 'Lipase', liquidType: enzymeLiquidType});
+                                options.push({ key: LocalizationService.text('fermentor.chromatograph_product.lipase'),
+                                    liquidType: enzymeLiquidType});
                                 break;
                             case LiquidType.INSULIN:
-                                options.push({ key: 'Insulin', liquidType: enzymeLiquidType});
+                                options.push({ key: LocalizationService.text('fermentor.chromatograph_product.insulin'),
+                                    liquidType: enzymeLiquidType});
                                 break;
                         }
                     }

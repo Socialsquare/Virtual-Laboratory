@@ -44,7 +44,7 @@ define([
                 self.status(true);
 
 
-//TODO: i18n localization
+//TODO: i18n localization if necessary
                 var options = [
                     {key: '1 mg/L', concentration: 1.0},
                     {key: '3 mg/L', concentration: 3.0},
