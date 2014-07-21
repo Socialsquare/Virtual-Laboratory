@@ -3,6 +3,7 @@ define([
     'lodash',
     'mapping',
     'model/type/Liquid'
+
 ], function (ko, _, mapping, LiquidType) {
     return {
         // Clone a knockout object by making it a plain object and
@@ -16,9 +17,8 @@ define([
                 var clones = _.invoke(liquids, 'clone');
 
                 _.map(clones, function(liquid) {
-                    if(liquid.type() === LiquidType.MICROORGANISM) {
+                    if(liquid.type() === LiquidType.MICROORGANISM)
                         liquid.concentration(liquid.concentration() / factor);
-                    }
 
                     return liquid;
                 });
@@ -28,9 +28,9 @@ define([
         },
 
         math: {
-	        getBaseLog: function (base, num) {
-		        return Math.log(num) / Math.log(base);
-	        },
+            getBaseLog: function (base, num) {
+                return Math.log(num) / Math.log(base);
+            },
 
             getBiomassFromConcentration: function(concentration) { //Converts from concentration to biomass (g/L)
                 return concentration / Math.pow(10, 12);

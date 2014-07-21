@@ -7,6 +7,7 @@ define([], function () {
         GENE:             'LiquidType.GENE',
         ORGANISM_PROPERTY:'LiquidType.ORGANISM_PROPERTY',
         JUICE:            'LiquidType.JUICE',
+        SALT_WATER:       'LiquidType.SALT_WATER',
         DEADLY:           'LiquidType.DEADLY',
         HOMO_SPLEEN:      'LiquidType.HOMO_SPLEEN',
         INSULIN:          'LiquidType.INSULIN',

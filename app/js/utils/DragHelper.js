@@ -1,9 +1,12 @@
 define([
     'lodash',
+
     'model/type/Container',
     'model/type/Liquid',
     'model/type/SpecialItem'
+
 ], function (_, ContainerType, LiquidType, SpecialItemType) {
+
     var accepter = function (types) {
         return function (item) {
             return _.contains(types, item.type());
@@ -37,7 +40,11 @@ define([
 
         acceptedByWashing: accepter([ContainerType.TUBE]),
 
-        acceptedByComposite: accepter([ContainerType.PIPETTE, ContainerType.SYRINGE]),
+        acceptedByComposite: accepter([
+            ContainerType.PIPETTE,
+            ContainerType.SYRINGE,
+            SpecialItemType.WASH_BOTTLE
+        ]),
 
         acceptedByMouse: accepter([
             ContainerType.SYRINGE,

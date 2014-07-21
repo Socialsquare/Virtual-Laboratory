@@ -1,10 +1,14 @@
 define([
     'knockout',
+
+    'model/SpecialItem',
     'model/Scalpel',
     'model/Syringe',
-    'model/Spleen'
+    'model/Spleen',
 
-], function (ko, Scalpel, Syringe, Spleen) {
+    'model/type/SpecialItem'
+
+], function (ko, SpecialItemModel, Scalpel, Syringe, Spleen, SpecialItemType) {
 
     var SpecialItem = {
         scalpel: function () {
@@ -17,6 +21,10 @@ define([
 
         spleen: function () {
             return new Spleen();
+        },
+
+        washBottle: function () {
+            return new SpecialItemModel(SpecialItemType.WASH_BOTTLE);
         }
     };
 

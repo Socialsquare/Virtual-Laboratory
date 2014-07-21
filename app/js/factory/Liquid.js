@@ -5,13 +5,14 @@ define([
     'model/Microorganism',
     'model/Antibiotic',
     'model/HomogenizedSpleen',
+    'model/SaltWater',
 
     'model/type/Microorganism',
     'model/type/Antibiotic',
     'model/type/Liquid'
 
 ], function (ko, Liquid, ReactionCount, Microorganism, Antibiotic,
-             HomogenizedSpleen, MicroorganismType, AntibioticType,
+             HomogenizedSpleen, SaltWater, MicroorganismType, AntibioticType,
              LiquidType) {
 
     var LiquidFactory = {
@@ -110,6 +111,10 @@ define([
 
         juice: function () {
             return new Liquid(LiquidType.JUICE, ReactionCount.ALWAYS);
+        },
+
+        saltWater: function () {
+            return new SaltWater();
         }
     };
 

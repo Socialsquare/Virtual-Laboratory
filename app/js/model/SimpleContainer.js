@@ -41,12 +41,26 @@ define([
                         self.liquids.push(liquid);
                 });
 
+                // react
+                _.forEach(self.liquids(), function (liquid) {
+                    console.log(liquid.type());
+                    liquid.react(self);
+                });
+
                 if (!preventTrigger)
                     experimentController.triggerMix(liquids, self);
             };
 
+            // self._addAll = function (liquids) {
+            //     self.liquids.pushAll(liquids);
+            //     _.forEach(self.liquids(), function (liquid) {
+            //         liquid.react(self);
+            //     });
+            // };
+
             self.addAll = function (liquids, preventTrigger) {
                 self._addAll(liquids, preventTrigger);
+                return self;
             };
 
             self.add = function (liquid, preventTrigger) {

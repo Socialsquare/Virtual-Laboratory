@@ -18,7 +18,11 @@ define([
     'factory/Liquid',
 
     'utils/utils'
-], function (ko, $, _, BaseViewController, popupController, TubeModel, PetridishModel, MicrotiterplateModel, ChemicalItemModel, SyringeModel, ScalpelModel, ActivationType, LiquidFactory, utils) {
+
+], function (ko, $, _, BaseViewController, popupController, TubeModel,
+             PetridishModel, MicrotiterplateModel, ChemicalItemModel,
+             SyringeModel, ScalpelModel, ActivationType, LiquidFactory, utils) {
+
     var Chemical = BaseViewController.extend({
 
         closetItems: ko.observableArray([]),
@@ -52,7 +56,8 @@ define([
             self.closetItems.pushAll([
                 new ChemicalItemModel('item.name.deadly', function () { return self.inTube(LiquidFactory.deadly()); }),
                 new ChemicalItemModel('item.name.growth_medium', function () { return self.inTube(LiquidFactory.growthMedium()); }),
-                new ChemicalItemModel('item.name.growth_medium', function () { return self.inPetridish(LiquidFactory.growthMedium()); })
+                new ChemicalItemModel('item.name.growth_medium', function () { return self.inPetridish(LiquidFactory.growthMedium()); }),
+                new ChemicalItemModel('item.name.salt_water', function () { return self.specialItemFactory.washBottle(); })
             ]);
 
             self.drawerItems.pushAll([
@@ -72,7 +77,7 @@ define([
                 new ChemicalItemModel('item.name.antigen_gout', function () { return self.inTube(LiquidFactory.antigenGout()); }),
                 new ChemicalItemModel('item.name.antigen_smallpox', function () { return self.inTube(LiquidFactory.antigenSmallpox()); })
             ]);
-	    },
+        },
 
         inTube: function (liquid) {
             return new TubeModel().add(liquid, true);

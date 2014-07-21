@@ -15,8 +15,7 @@ define([
             self.subtype = self.antibioticType;
 
             self.react = function (container) {
-                // TODO: implement
-                throw 'JegErHerIKKE... maaske';
+                console.log('TODO: Antibiotic.react');
             };
 
             self.hashCode = function () {

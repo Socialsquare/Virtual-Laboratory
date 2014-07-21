@@ -18,6 +18,8 @@ define([
                     return 'item.description.scalpel';
                 case SpecialItemType.SPLEEN:
                     return 'item.description.spleen';
+                case SpecialItemType.WASH_BOTTLE:
+                    return 'item.description.wash_bottle';
 
                 case LiquidType.INSULIN:
                     return 'liquid.description.insulin';
@@ -58,6 +60,8 @@ define([
                     return 'item.name.scalpel';
                 case SpecialItemType.SPLEEN:
                     return 'item.name.spleen';
+                case SpecialItemType.WASH_BOTTLE:
+                    return 'item.name.wash_bottle';
 
                 case LiquidType.MICROORGANISM:
                     return 'liquid.name.microorganism';

@@ -128,8 +128,12 @@
         "syringe.emptied.header": "Info",
         "syringe.emptied.body": "Du har tømt kanylen.",
 
+        "wash_bottle.diluted.header": "Info",
+        "wash_bottle.diluted.body": "Du har fortyndet løsningen",
+
         "item.description.scalpel": "Du kan bruge skalpelen til at skære i ting",
         "item.description.spleen": "Milten er rød. Messi vinder næste VM.",
+        "item.description.wash_bottle": "Du kan bruge sprøjteflasken til at fortynde ting",
 
         "item.name.petri_dish": "Petriskål",
         "item.name.microtiter": "Microtiterbakke",
@@ -137,6 +141,7 @@
         "item.name.syringe": "Kanyle",
         "item.name.scalpel": "Skalpel",
         "item.name.spleen": "Milt",
+        "item.name.wash_bottle": "Sprøjteflaske",
         "item.name.yeast": "Gærceller",
         "item.name.myeloma": "Myeloma",
         "item.name.antibiotic_a": "Antibiotikum A",
@@ -146,6 +151,7 @@
         "item.name.adjuvans": "Adjuvans",
         "item.name.antigen_gout": "Antigen (gigt)",
         "item.name.antigen_smallpox": "Antigen (kopper)",
+        "item.name.salt_water": "Saltvann",
 
         "liquid.description.insulin": "Insulin gør det og det og det",
         "liquid.description.lipase": "Lipase har et 's' i sit navn",
@@ -294,8 +300,12 @@
         "syringe.emptied.header": "Info",
         "syringe.emptied.body": "You have emptied the syringe",
 
+        "wash_bottle.diluted.header": "Info",
+        "wash_bottle.diluted.body": "You have diluted the solution",
+
         "item.description.scalpel": "The scalpel is used for cutting.",
         "item.description.spleen": "This is a spleen",
+        "item.description.wash_bottle": "The wash bottle is used for dilution",
 
         "item.name.petri_dish": "Petri dish",
         "item.name.microtiter": "Microtiter plate",
@@ -303,6 +313,7 @@
         "item.name.syringe": "Syringe",
         "item.name.scalpel": "Scalpel",
         "item.name.spleen": "Spleen",
+        "item.name.wash_bottle": "Wash bottle",
         "item.name.yeast": "Yeast cells",
         "item.name.myeloma": "Myeloma",
         "item.name.antibiotic_a": "Antibiotica A",
@@ -312,6 +323,7 @@
         "item.name.adjuvans": "Adjuvant",
         "item.name.antigen_gout": "Antigen (gout)",
         "item.name.antigen_smallpox": "Antigen (smallpox)",
+        "item.name.salt_water": "Salt water",
 
         "liquid.description.insulin": "Engelsk! Insulin gør det og det og det",
         "liquid.description.lipase": "Engelsk! Lipase har et 's' i sit navn",

@@ -40,6 +40,7 @@ define([
 
 // 2nd modify the container
                 modifiedLiqs = utils.biology.dilute(50/49, container.liquids());
+
                 container.clearContents();
                 // prevent trigger because we're not actually adding stuff
                 container.addAll(modifiedLiqs, true);

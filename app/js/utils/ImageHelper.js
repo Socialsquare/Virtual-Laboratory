@@ -2,6 +2,7 @@ define([
     'model/type/Container',
     'model/type/Liquid',
     'model/type/SpecialItem'
+
 ], function (ContainerType, LiquidType, SpecialItemType) {
     var IMG_PATH = 'assets/images';
 
@@ -112,6 +113,9 @@ define([
             case SpecialItemType.SPLEEN:
                 return IMG_PATH + '/icon_spleen.png';
 
+            case SpecialItemType.WASH_BOTTLE:
+                return IMG_PATH + '/icon_wash_bottle.png';
+
             default:
                 throw 'Unknown inventory item: ' + item.type();
             }
@@ -142,6 +146,9 @@ define([
 
             case SpecialItemType.SCALPEL:
                 return IMG_PATH + '/icon_scalpel.png';
+
+            case SpecialItemType.WASH_BOTTLE:
+                return IMG_PATH + '/icon_wash_bottle.png';
 
             default:
                 throw 'Unknown dragging item: ' + item.type();

@@ -7,10 +7,16 @@ define([
     'controller/Popup',
 
     'model/type/Container',
+    'model/type/SpecialItem',
+
+    'factory/Liquid',
 
     'utils/ImageHelper',
-    'utils/DragHelper'
-], function (ko, _, Base, utils, popupController, ContainerType, ImageHelper, DragHelper) {
+    'utils/DragHelper',
+    'utils/utils'
+
+], function (ko, _, Base, utils, popupController, ContainerType, SpecialItemType,
+             LiquidFactory, ImageHelper, DragHelper, utils) {
 
     var CompositeContainerController = Base.extend({
 
@@ -109,12 +115,12 @@ define([
 
                         if (!item.hasTip()) {
                             self.popupController.message('pipette.missing_tip.header', 'pipette.missing_tip.body');
+
                         }else if(item.getTip().isEmpty()) {
 
                             if(item.getTip().used())  {
                                 self.popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
-                            }else if(! self.compContainer.get(position).isEmpty()){
-
+                            } else if (! self.compContainer.get(position).isEmpty()) {
                                 item.fillPipette(self.compContainer.get(position));
                                 self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
                             }
@@ -125,8 +131,9 @@ define([
                             self.popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
                         }
                         break;
+
                     case ContainerType.SYRINGE:
-                        if(item.isEmpty()) {
+                        if (item.isEmpty()) {
                             item.fillSyringe(self.compContainer.get(position));
                             self.popupController.notify('syringe.filled.header', 'syringe.filled.body', 2000);
                             return false;
@@ -137,6 +144,12 @@ define([
                             self.popupController.notify('syringe.emptied.header', 'syringe.emptied.body', 2000);
                             return true;
                         }
+                        break;
+
+                    case SpecialItemType.WASH_BOTTLE:
+                        self.compContainer.get(position).add(LiquidFactory.saltWater());
+                        self.popupController.notify('wash_bottle.diluted.header', 'wash_bottle.diluted.body', 2000);
+                        return false;
                         break;
 
                     default:
