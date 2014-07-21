@@ -37,7 +37,7 @@ define([
 
             self.playQuizVideo = function () {
                 if (self.activeQuiz().hasVideo()) {
-                    self.popupController.video(self.activeQuiz().video());
+                    self.popupController.video(self.activeQuiz().video(), true);
                 }
             };
 

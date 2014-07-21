@@ -58,10 +58,10 @@ define([
                 });
             };
 
-            self.video = function (sequence) {
+            self.video = function (sequence, controlsRequired) {
                 var videoController = new VideoController();
                 var vm = self.show('popup-video', { videoController: videoController });
-                return videoController.play(sequence).done(function () {
+                return videoController.play(sequence, false, controlsRequired).done(function () {
                     self.hide(vm);
                 });
             };

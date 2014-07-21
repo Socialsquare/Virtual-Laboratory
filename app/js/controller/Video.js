@@ -4,8 +4,9 @@ define([
     'lodash',
     'base',
 
-    'model/Video'
-], function (ko, $, _, Base, VideoModel) {
+    'model/Video',
+    'utils/FeatureHelper'
+], function (ko, $, _, Base, VideoModel, FeatureHelper) {
 
     var videos = [
         new VideoModel('fast-drink-spawn', 'fast_drink_spawn'),
@@ -60,12 +61,14 @@ define([
         constructor: function () {
             var self = this;
 
+            self.FeatureHelper = FeatureHelper;
+
             self.activeVideo = ko.observable(null);
             self.isLooping = ko.observable(false);
             self.loopLastInQueue = ko.observable(false);
 
             self.queue = ko.observableArray();
-
+            self.controlsRequired = ko.observable(false);
             self.promise = null;
 
             self.findVideo = function (id) {
@@ -76,7 +79,8 @@ define([
                 return video;
             };
 
-            self.play = function (ids, loopLast) {
+            self.play = function (ids, loopLast, controlsRequired) {
+                self.controlsRequired(controlsRequired);
                 self.promise = $.Deferred();
 
                 if (!_.isArray(ids))
