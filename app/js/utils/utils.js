@@ -23,6 +23,18 @@ define([
                     return liquid;
                 });
 
+                var lenBefore = clones.length;
+
+//Remove organisms whose concentration is below 1.
+                clones = _.filter(clones, function(liquid){
+                    if (liquid.type() !== LiquidType.MICROORGANISM)
+                        return true;
+
+                    return liquid.concentration() >= 1;
+                });
+
+                console.log('Length before: ' + lenBefore + ', length after: ' + clones.length);
+
                 return clones;
             }
         },
