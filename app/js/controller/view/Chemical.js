@@ -37,7 +37,7 @@ define([
             };
 
             self.itemTaken = function(item) {
-                self.experimentController.triggerActivation(self.ActivationType.SUPPLY, item);
+                //self.experimentController.triggerActivation(self.ActivationType.SUPPLY, item);
             };
 
             self.showList = function (name) {

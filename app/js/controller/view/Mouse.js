@@ -10,17 +10,18 @@ define([
     'controller/Video',
 
     'model/Mouse',
-    'model/Bottle',
-    'model/Juice',
     'model/Spleen',
 
     'model/type/Container',
     'model/type/Liquid',
     'model/type/Mouse',
     'model/type/MouseBlood',
-    'model/type/SpecialItem'
-], function ($, ko, _, utils, DataHelper, DropOnMouseHelper, BaseViewController, VideoController, MouseModel, BottleModel, JuiceModel,
-             SpleenModel, ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType) {
+    'model/type/SpecialItem',
+
+    'factory/Container',
+    'factory/Liquid'
+], function ($, ko, _, utils, DataHelper, DropOnMouseHelper, BaseViewController, VideoController, MouseModel,
+             SpleenModel, ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType, ContainerFactory, LiquidFactory) {
 
     var MouseController = BaseViewController.extend({
 
@@ -68,9 +69,7 @@ define([
                 self.popupController.dataExport(data);
             };
 
-            var bottle = new BottleModel();
-            bottle.add(new JuiceModel());
-            self.bottle = bottle;
+            self.bottle = ContainerFactory.bottle().add(LiquidFactory.juice(), true);
 
             self.plotData(_.map(_.range(0, 250), function (i) {
                 return [i, self.mouse().bloodData()[i]];

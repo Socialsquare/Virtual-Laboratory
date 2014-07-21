@@ -6,9 +6,10 @@ define([
     'controller/Popup',
     'controller/Quiz',
 
+    'model/type/Liquid',
     'model/type/Trigger',
     'model/type/Consequence'
-], function (ko, Base, _, popupController, quizController, TriggerType, ConsequenceType) {
+], function (ko, Base, _, popupController, quizController, LiquidType, TriggerType, ConsequenceType) {
     var Experiment = Base.extend({
         constructor: function () {
             var self = this;
@@ -36,30 +37,59 @@ define([
 
             // return whether a property is defined and matches another
             self.match = function (property, expected) {
-                return !_.isUndefined(property) && property === expected;
+                return _.isUndefined(property) || property === expected;
+            };
+
+            self.matchLiquids = function (liquids, container) {
+                if (_.isUndefined(liquids)) return true;
+
+                return _.all(liquids, function (liquid) {
+                    if (!container.contains(liquid.type)) return false;
+                    if (!liquid.subtype) return true;
+
+                    return _.any(container.liquids(), function (_liquid) {
+                        return _liquid.subtype() === liquid.subtype;
+                    });
+                });
             };
 
             self.triggerMix = function (addition, container) {
+                if (!self.hasExperiment()) return;
                 var trigger = self.activeTask().trigger();
 
                 if (trigger.type !== TriggerType.MIX) return;
                 if (!self.match(trigger.location, container.location())) return;
                 if (!self.match(trigger.container, container.type())) return;
-                if (!container.containsAll(_.pluck(trigger.liquids, 'type'))) return;
+                if (!self.matchLiquids(trigger.liquids, container)) return;
 
                 self.finishActiveTask();
             };
 
             self.triggerMouse = function (mouse, item) {
+                if (!self.hasExperiment()) return;
                 var trigger = self.activeTask().trigger();
 
                 if (trigger.type !== TriggerType.MOUSE) return;
                 if (!self.match(trigger.alive, mouse.alive())) return;
+                if (!self.match(trigger.item, item.type())) return;
+                if (!self.matchLiquids(trigger.liquids, item)) return;
+
+                self.finishActiveTask();
+            };
+
+            self.triggerAcquisition = function (item) {
+                if (!self.hasExperiment()) return;
+                var trigger = self.activeTask().trigger();
+
+                if (trigger.type !== TriggerType.ACQUIRE) return;
+                if (!self.match(trigger.item, item.type())) return;
+                if (!self.matchLiquids(trigger.liquids, item)) return;
 
                 self.finishActiveTask();
             };
 
             self.triggerActivation = function (activation, item) {
+                if (!self.hasExperiment()) return;
                 var trigger = self.activeTask().trigger();
 
                 if (trigger.type !== TriggerType.ACTIVATION) return;

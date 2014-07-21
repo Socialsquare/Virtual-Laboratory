@@ -12,6 +12,7 @@ define([
             self.base(LiquidType.ANTIBIOTIC, ReactionCount.ALWAYS);
 
             self.antibioticType = ko.observable(antibioticType);
+            self.subtype = self.antibioticType;
 
             self.react = function (container) {
                 // TODO: implement

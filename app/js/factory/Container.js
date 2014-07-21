@@ -3,9 +3,10 @@ define([
     'model/Tube',
     'model/Petridish',
     'model/Microtiterplate',
-    'model/Syringe'
+    'model/Syringe',
+    'model/Bottle'
 
-], function (ko, Tube, Petridish, Microtiterplate, Syringe) {
+], function (ko, Tube, Petridish, Microtiterplate, Syringe, Bottle) {
 
     var Container = {
         tube: function () {
@@ -22,6 +23,10 @@ define([
 
         syringe: function () {
             return new Syringe();
+        },
+
+        bottle: function () {
+            return new Bottle();
         }
     };
 

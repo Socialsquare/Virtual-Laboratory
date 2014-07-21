@@ -7,7 +7,7 @@ define([
     var Bottle = SimpleContainerModel.extend({
         constructor: function () {
             var self = this;
-            self.base(ContainerType.BOTTLE, 0);
+            self.base(ContainerType.BOTTLE, 10);
         }
     });
 

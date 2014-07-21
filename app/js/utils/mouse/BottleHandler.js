@@ -11,24 +11,21 @@ define([
             if (!MC.mouse().alive())
                 return false;
 
-            if (MC.mouse().mouseType() !== MouseType.HEALTHY)
-            {
+            if (MC.mouse().mouseType() !== MouseType.HEALTHY) {
                 MC.popupController.notify('mouse.sick_no_bloodsugar.header', 'mouse.sick_no_bloodsugar.body', 3500);
                 return false;
             }
 
-
             MC.mouseDrinking(true);
+            MC.mouse().giveJuice();
             MC.videoController.play('fast-drink-spawn', false)
                 .done(function () {
-                    //MC.experimentController.triggerMouse(MouseEvent.)
                     MC.mouseDrinking(false);
-                    MC.runFromState();
-                    MC.experimentController.triggerMouse('drink', item);
-                });
-            MC.mouse().givJuice();
 
+                    MC.runFromState();
+
+                    MC.experimentController.triggerMouse(MC.mouse(), item);
+                });
         }
     };
 });
-

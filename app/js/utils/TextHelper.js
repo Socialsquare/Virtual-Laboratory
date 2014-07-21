@@ -34,7 +34,6 @@ define([
             };
 
             self.label = function (container) {
-
                 var contents = _.map(container.liquids(), _.compose(localizationService.text, self.prettyName));
 
                 return localizationService.text('common.contains') + ': ' + contents.join(' and ');

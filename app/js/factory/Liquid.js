@@ -104,6 +104,10 @@ define([
 
         gfp: function () {
             return new Liquid(LiquidType.GFP, ReactionCount.NEVER);
+        },
+
+        juice: function () {
+            return new Liquid(LiquidType.JUICE, ReactionCount.ALWAYS);
         }
     };
 

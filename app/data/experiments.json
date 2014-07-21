@@ -62,22 +62,69 @@
         ]
     },
     {
-        "title": "Test-øvelse #2",
-        "description": "Denne øvelse er også midlertidigt broken",
+        "title": "Please the mouse",
+        "description": "In this experiment you will learn to please a mouse and more",
         "tasks": [
             {
-                "description": "Mix the base",
+                "description": "Get some antibiotic (type a)",
                 "trigger": {
-                    "type": "mix",
-                    "container": "tube",
-                    "location": "fumehood",
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
                     "liquids": [
-                        "microorganism.yeast",
-                        "antibiotic.a"
+                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.A" }
                     ]
-                },
-                "quiz": null,
-                "video": null
+                }
+            },
+            {
+                "description": "Get some yeast",
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" }
+                    ]
+                }
+            },
+            {
+                "description": "Get a scalpel",
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "SpecialItemType.SCALPEL"
+                }
+            },
+            {
+                "description": "Give the mouse a drink",
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "item": "ContainerType.BOTTLE",
+                    "liquids": [
+                        { "type": "LiquidType.JUICE" }
+                    ]
+                }
+            },
+            {
+                "description": "Inject the mouse with insulin",
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "item": "ContainerType.SYRINGE",
+                    "liquids": [
+                        { "type": "LiquidType.INSULIN" }
+                    ]
+                }
+            },
+            {
+                "description": "Kill the mouse",
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "alive": false
+                }
+            },
+            {
+                "description": "Get the mouse spleen",
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "SpecialItemType.SPLEEN"
+                }
             }
         ]
     }

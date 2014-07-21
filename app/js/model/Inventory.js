@@ -2,8 +2,11 @@ define([
     'knockout',
     'lodash',
     'base',
+
+    'controller/Experiment',
+
     'utils/TextHelper'
-], function (ko, _, Base, TextHelper) {
+], function (ko, _, Base, experimentController, TextHelper) {
     var Inventory = Base.extend({
 
         constructor: function () {
@@ -16,9 +19,15 @@ define([
 
 
                 // generate default label
-                if (item.label && _.isEmpty(item.label())) {
+                if (!item.acquired() && item.label) {
                     item.label(TextHelper.label(item));
                 }
+
+                if (!item.acquired()) {
+                    experimentController.triggerAcquisition(item);
+                }
+
+                item.acquired(true);
 
                 self.items.push(item);
             };

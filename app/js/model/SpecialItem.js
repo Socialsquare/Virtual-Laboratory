@@ -8,6 +8,7 @@ define([
         constructor: function (type) {
             var self = this;
             self.type = ko.observable(type);
+            self.acquired = ko.observable(false);
         }
     });
 

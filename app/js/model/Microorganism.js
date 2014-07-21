@@ -13,6 +13,8 @@ define([
             self.base(LiquidType.MICROORGANISM, ReactionCount.NEVER);
 
             self.microorganismType = ko.observable(microorganismType);
+            self.subtype = self.microorganismType;
+
             self.living = ko.observable(true);
 		    self.name = ko.observable('');
 		    self.extraGenes = ko.observableArray([]);

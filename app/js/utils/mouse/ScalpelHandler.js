@@ -5,7 +5,7 @@ define([
     'model/type/MouseBlood',
     'model/type/SpecialItem',
     'model/type/Trigger',
-    'controller/Experiment',
+    'controller/Experiment'
 ], function (ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType, TriggerType, experimentController) {
     return {
         handle: function(MC, item) { //MC = MouseController
@@ -27,8 +27,6 @@ define([
                     MC.mouse().isCut(true);
 
                     MC.gameState.inventory.add(MC.mouse().spleen.clone());
-
-                    experimentController.triggerMouse(MC.mouse());
                 });
         }
     };

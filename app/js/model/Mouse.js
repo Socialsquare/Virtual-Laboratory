@@ -176,7 +176,7 @@ define([
                 self.bloodData(bloodData);
             };
 
-            self.givJuice = function() {
+            self.giveJuice = function() {
                 self.juiceDose(self.juiceDose() + 3);
             };
 

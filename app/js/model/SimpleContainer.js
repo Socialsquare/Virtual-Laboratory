@@ -16,7 +16,7 @@ define([
             self.maxConcentration = ko.observable(maxConcentration);
             self.liquids = ko.observableArray([]);
             self.label = ko.observable('');
-
+            self.acquired = ko.observable(false);
             self.location = ko.observable(null); // Used for location-checking
 
             self._addAll = function (liquids, preventTrigger) {

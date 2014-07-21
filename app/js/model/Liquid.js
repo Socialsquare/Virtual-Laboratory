@@ -10,6 +10,8 @@ define([
             self.type = ko.observable(type);
             self.reactionCount = ko.observable(reactionCount);
             self.hasReacted = ko.observable(false);
+            self.subtype = ko.observable(); // defaults to no subtype
+
             self.react = function (container) {
                 // TODO: implement
             };
