@@ -89,9 +89,10 @@ define([
                 self.finishActiveTask();
             };
 
-            self.triggerActivation = function (activation, item) {
+            self.triggerActivation = function (activation, item, extraProperties) {
                 if (!self.hasExperiment()) return;
                 var trigger = self.activeTask().trigger();
+                extraProperties = extraProperties ? extraProperties : {};
 
                 if (trigger.type !== TriggerType.ACTIVATION) return;
                 if (trigger.activation !== activation) return;
@@ -110,6 +111,17 @@ define([
 
                 if (trigger.activation === ActivationType.ELECTROPORATOR) {
                     if (!self.matchLiquids(trigger.liquids, item)) return;
+                }
+
+                if (trigger.activation === ActivationType.HEATER) {
+                    var valid = _(item.containers())
+                            .compact()
+                            .any(self.matchLiquids.bind(null, trigger.liquids));
+                    if (!valid) return;
+                }
+                if (trigger.activation === ActivationType.WASHING) {
+                    if (!self.match(trigger.concentration, extraProperties.concentration)) return;
+                    if (!self.matchLiquids(trigger.liquids, item.washingTank)) return;
                 }
 
                 self.finishActiveTask();

@@ -22,8 +22,6 @@ define([
                     self.popupController.message('washing.detergent_required.header', 'washing.detergent_required.body');
                 else
                     self.status.toggle();
-
-                self.experimentController.triggerActivation(self.ActivationType.WASHING);
             };
 
             self.reset = function () {
@@ -49,15 +47,15 @@ define([
 
                 self.popupController.select('washing.concentration', 'washing.concentration.choose', options)
                     .then(function (concentration) {
-                        // TODO: is the timeout neccesary?
-                        setTimeout(function () {
-                            var res = self.washing.action(concentration);
+                        var res = self.washing.action(concentration);
 
-                            self.result(res.result);
-                            self.status(false);
+                        self.result(res.result);
+                        self.status(false);
 
-                            if (res.feedback) self.popupController.notify('common.result', res.feedback);
-                        }, 500);
+                        if (res.feedback) self.popupController.notify('common.result', res.feedback);
+
+                        self.experimentController.triggerActivation(self.ActivationType.WASHING, self.washing,
+                                                                    { concentration: concentration });
                     });
             };
         }

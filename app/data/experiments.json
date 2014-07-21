@@ -133,6 +133,28 @@
         "description": "You will learn to trip clean",
         "tasks": [
             {
+                "description": "Wash something",
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "concentration": 300,
+                    "activation": "ActivationType.WASHING",
+                    "liquids": [
+                        { "type": "LiquidType.LIPASE_ENZYME" }
+                    ]
+                }
+            },
+            {
+                "description": "Heat some myeloma mixed with deadly stuff",
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.HEATER",
+                    "liquids": [
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
+                        { "type": "LiquidType.DEADLY" }
+                    ]
+                }
+            },
+            {
                 "description": "Use the electroporator with",
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
