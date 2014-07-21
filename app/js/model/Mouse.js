@@ -181,7 +181,7 @@ define([
             };
 
             self.givInsulin = function() {
-                self.insulinDose(self.insulinDose() + 25);
+                self.insulinDose(self.insulinDose() + 35);
             };
 
             self.nextBloodStep = function() {
