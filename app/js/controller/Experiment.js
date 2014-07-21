@@ -104,6 +104,14 @@ define([
                     if (!self.matchLiquids(trigger.liquids, item)) return;
                 }
 
+                if (trigger.activation === ActivationType.DNA) {
+                    if (!self.matchLiquids(trigger.liquids, item)) return;
+                }
+
+                if (trigger.activation === ActivationType.ELECTROPORATOR) {
+                    if (!self.matchLiquids(trigger.liquids, item)) return;
+                }
+
                 self.finishActiveTask();
             };
 

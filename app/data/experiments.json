@@ -133,6 +133,26 @@
         "description": "You will learn to trip clean",
         "tasks": [
             {
+                "description": "Use the electroporator with",
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.ELECTROPORATOR",
+                    "liquids": [
+                        { "type": "LiquidType.ANTIBIOTIC" }
+                    ]
+                }
+            },
+            {
+                "description": "Design DNA",
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.COMPUTER_ORDER_DNA",
+                    "liquids": [
+                        { "type": "LiquidType.GENE" }
+                    ]
+                }
+            },
+            {
                 "description": "Use the OD with some antibiotics",
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",

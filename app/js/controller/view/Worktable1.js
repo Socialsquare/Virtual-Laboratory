@@ -32,17 +32,17 @@ define([
 
             self.toggleBunsen = function () {
                 self.worktable1.bunsenBurner.toggle();
-                self.experimentController.triggerActivation(self.ActivationType.BUNSEN);
+                self.experimentController.triggerActivation(self.ActivationType.BUNSEN, self.worktable1.bunsenBurner());
             };
 
             self.toggleHeater = function () {
                 self.worktable1.heater.status.toggle();
-                self.experimentController.triggerActivation(self.ActivationType.HEATER);
+                self.experimentController.triggerActivation(self.ActivationType.HEATER, self.worktable1.heater);
             };
 
             self.activateElectroporator = function () {
                 self.worktable1.electroporator.activate();
-                self.experimentController.triggerActivation(self.ActivationType.ELECTROPORATOR);
+                self.experimentController.triggerActivation(self.ActivationType.ELECTROPORATOR, self.worktable1.electroporator);
             };
         }
     });
