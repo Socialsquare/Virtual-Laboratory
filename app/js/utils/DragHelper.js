@@ -10,6 +10,12 @@ define([
         };
     };
 
+    var nonAccepter = function (types) {
+        return function (item) {
+            return !_.contains(types, item.type());
+        };
+    };
+
     return {
         acceptTube: accepter([ContainerType.TUBE]),
 
@@ -22,6 +28,8 @@ define([
         acceptPipette: accepter([ContainerType.PIPETTE]),
 
         acceptSyringe: accepter([ContainerType.SYRINGE]),
+
+        acceptedByInventory: nonAccepter([ContainerType.BOTTLE]),
 
         acceptedByBlender: accepter([SpecialItemType.SPLEEN]),
 

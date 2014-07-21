@@ -29,7 +29,7 @@
                  data-bind="event: { mousedown: scrollInventory.bind(null, false), mouseup: stopScroll},
                             css: { dimmed: !canScroll() }">
 
-            <div class="inventory" data-bind="drop: { handler: inventoryDropHandler }">
+            <div class="inventory" data-bind="drop: { handler: inventoryDropHandler, accept: DragHelper.acceptedByInventory }">
                 <ul data-bind="foreach: gameState.inventory.items, style: { left: scrollValue() + 'px' }">
                     <li class="hand" data-bind="click: $parent.showItemDetails">
                         <div data-bind="drag: { item: $data, dim: true, consume: $parent.gameState.inventory.remove.bind(null, $data) }">
