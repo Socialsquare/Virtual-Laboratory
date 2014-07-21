@@ -30,15 +30,18 @@ define([
                 return false;
             }
 
-
 // Choice based on mouse type
             if (MC.mouse().mouseType() === MouseType.PSORIASIS) {
-                var options = [ AdministrationType.INJECTION_BODY,
-                    AdministrationType.PILL, AdministrationType.CREAM];
+                var options = [ //TODO: i18n localization
+                    {key: 'Indsprøjtning i kroppen', administrationForm: AdministrationType.INJECTION_BODY},
+                    {key: 'Pille', administrationForm: AdministrationType.PILL},
+                    {key: 'Creme', administrationForm: AdministrationType.CREME}
+                ];
+
 
                 MC.popupController.select('washing.concentration', 'washing.concentration.choose', options)
-                    .then(function (administrationForm) {
-                        //TODO:var res = self.washing.action(administrationForm);
+                    .then(function (selectedObject) {
+                        var administrationForm = selectedObject.administrationForm;
                         //TODO: var res = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
                         switch(administrationForm) {
@@ -71,19 +74,22 @@ define([
                                 break;
                         }
 
-                        if (res.feedback) self.popupController.notify('common.result', res.feedback);
                     });
 
 
 
             }else if (MC.mouse().mouseType() === MouseType.INSOMNIA) {
-                var options = [ AdministrationType.INJECTION_BODY, AdministrationType.INJECTION_HEAD,
-                    AdministrationType.PILL, AdministrationType.CREAM];
+                var options = [ //TODO: i18n localization
+                    {key: 'Indsprøjtning i kraniet', administrationForm: AdministrationType.INJECTION_HEAD},
+                    {key: 'Indsprøjtning i kroppen', administrationForm: AdministrationType.INJECTION_BODY},
+                    {key: 'Pille', administrationForm: AdministrationType.PILL},
+                    {key: 'Creme', administrationForm: AdministrationType.CREME}
+                ];
 
 
                 MC.popupController.select('washing.concentration', 'washing.concentration.choose', options)
-                    .then(function (administrationForm) {
-                        //TODO:var res = self.washing.action(administrationForm);
+                    .then(function (selectedObject) {
+                        var administrationForm = selectedObject.administrationForm;
                         //TODO: var res = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
                             switch(administrationForm) {
@@ -130,7 +136,6 @@ define([
                                     break;
                             }
 
-                        if (res.feedback) self.popupController.notify('common.result', res.feedback);
                     });
 
             }

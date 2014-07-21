@@ -1,7 +1,7 @@
 <div class="washingmachine-view">
     <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
 
-    <div class="washing-button" data-bind="click: activate">
+    <div class="washing-button">
         <img src="assets/images/wash_onButton.png" alt="Wasing machine button"
              data-bind="visible: status()">
     </div>

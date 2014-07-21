@@ -43,7 +43,7 @@ define([
             self.lowBloodSugarWarningToggle = ko.observable(false); // Such name. Wow.
             self.highBloodSugarWarningToggle = ko.observable(false);
             self.mouse().blodSukker.subscribe(function(blodSukker) {
-                if (blodSukker < 2.5 && !self.lowBloodSugarWarningToggle()) {
+                if (blodSukker < 1.5 && !self.lowBloodSugarWarningToggle()) {
                     self.lowBloodSugarWarningToggle(true);
                     self.popupController.message('mouse.warning_insulin.header', 'mouse.warning_insulin.body');
                 } else if (blodSukker > self.mouse().maxBlodSukker() * 0.8 && !self.highBloodSugarWarningToggle() &&

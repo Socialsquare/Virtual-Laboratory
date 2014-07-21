@@ -88,7 +88,7 @@
         "washing.detergent_required.body": "Du mangler vaskemiddel",
         "washing.detergent_contaminated": "Ditt vaskemiddel var forurenet",
         "washing.concentration": "Koncentration",
-        "washing.concentration.choose": "Bestem koncentrationen af vaskemidlet (mg / L):",
+        "washing.concentration.choose": "Bestem koncentrationen af vaskemidlet:",
 
         "fermentor.chromatograph_select.header": "Oprens protein",
         "fermentor.chromatograph_select.body": "Tillykke, fermenteringen gik godt! Du kan vælge at oprense et af følgende proteiner:",

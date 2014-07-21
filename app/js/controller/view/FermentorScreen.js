@@ -107,28 +107,43 @@ define([
 
                 var options = [];
 
+
+// Populate the list of possible products
                 _.each(self.fermentor.products(), function(producedEnzyme) {
                     if(utils.math.getBiomassFromConcentration(producedEnzyme.amount) > 0.2){
-                        if(producedEnzyme.enzymeLiquidType === LiquidType.GFP)
-                            return;
+                        var enzymeLiquidType = producedEnzyme.enzymeLiquidType;
 
-                        options.push(producedEnzyme.enzymeLiquidType);
-                        console.log('Produced: ' + producedEnzyme.enzymeLiquidType);
+//TODO: i18n localization
+                        switch (enzymeLiquidType) {
+                            case LiquidType.GFP:
+                                return;
+                            case LiquidType.ANTIBODY_GOUT:
+                                options.push({ key: 'Antistof - gigt', liquidType: enzymeLiquidType});
+                                break;
+                            case LiquidType.ANTIBODY_SMALLPOX:
+                                options.push({ key: 'Antistof - kopper', liquidType: enzymeLiquidType});
+                                break;
+                            case LiquidType.LIPASE_ENZYME:
+                                options.push({ key: 'Lipase', liquidType: enzymeLiquidType});
+                                break;
+                            case LiquidType.INSULIN:
+                                options.push({ key: 'Insulin', liquidType: enzymeLiquidType});
+                                break;
+                        }
                     }
                 });
 
-                //TODO: allow the user to select the liquids with amount (to biomass), greater than 0.2 (?) g/L
-                console.log('TODO: implement the Chromatograph');
 
                 if (options.length > 0) {
                     self.popupController.select('fermentor.chromatograph_select.header', 'fermentor.chromatograph_select.body', options)
-                        .then(function (selectedOption) {
+                        .then(function (selectedObject) {
+                            var selectedLiquidType = selectedObject.liquidType;
 
-                            console.log('Test #1: '+ selectedOption);
+                            console.log('Test #1: '+ selectedLiquidType);
 
                             var newLiquid = null;
 
-                            switch (selectedOption) {
+                            switch (selectedLiquidType) {
                                 case LiquidType.LIPASE_ENZYME:
                                     newLiquid = LiquidFactory.lipase();
                                     break;

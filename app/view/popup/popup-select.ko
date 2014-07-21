@@ -6,7 +6,9 @@
     <span class="message" data-bind="i18n: message"></span>
 
     <br />
-    <select data-bind="options: options, value: selected"></select>
+    <select data-bind="options: options,
+                       optionsText: 'key',
+                       value: selected"></select>
 
     <div class="btn-row float-clear">
         <button data-bind="click: promise.resolve.bind(null, selected()), i18n: 'common.ok'"></button>
