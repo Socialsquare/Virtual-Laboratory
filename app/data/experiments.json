@@ -133,6 +133,13 @@
         "description": "You will learn to trip clean",
         "tasks": [
             {
+                "description": "Design any kind of drug",
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.COMPUTER_ORDER_DRUG"
+                }
+            },
+            {
                 "description": "Incubate yeast",
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",

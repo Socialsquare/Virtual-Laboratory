@@ -141,6 +141,10 @@ define([
                     if (!valid) return;
                 }
 
+                if (trigger.activation === ActivationType.COMPUTER_ORDER_DRUG) {
+                    // currently don't validate anything about the designed drug
+                }
+
                 self.finishActiveTask();
             };
 
