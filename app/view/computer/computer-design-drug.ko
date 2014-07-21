@@ -2,7 +2,7 @@
     <ul class="sidegroups" data-bind="foreach: sidegroups">
         <li>
             <img class="sidegroup" data-bind="attr: { src: $parent.ImageHelper.sidegroupImage(name()) },
-                                            drag: { item: $data, helper: 'clone' }"/>
+                                              drag: { item: $data, helper: 'clone' }"/>
         </li>
     </ul>
 </div>
