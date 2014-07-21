@@ -176,6 +176,10 @@ define([
                 self.bloodData(bloodData);
             };
 
+            self.hasLethalBloodSugar = function () {
+                return self.blodSukker() < self.minBlodSukker();
+            };
+
             self.giveJuice = function() {
                 self.juiceDose(self.juiceDose() + 3);
             };
@@ -187,12 +191,6 @@ define([
             self.nextBloodStep = function() {
 
                 //1. kontrolleres om musen er i live
-
-                if(self.blodSukker() < self.minBlodSukker()) {
-                    self.alive(false);
-                    return;
-                }
-
                 if(!self.alive()) { return; }
 
                 if(self.mouseBloodType() === MouseBloodType.NORMAL && self.blodSukker() >= self.maxBlodSukker()) {

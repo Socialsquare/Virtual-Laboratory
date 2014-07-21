@@ -40,13 +40,6 @@ define([
 
             // Begin: Notifications
 
-            self.mouse().alive.subscribe(function(isAlive) {
-                if (!isAlive && self.mouse().blodSukker() < self.mouse().minBlodSukker()) {
-                    self.popupController.message('mouse.died_insulin.header', 'mouse.died_insulin.body');
-                }
-                // TODO: there are more ways to kill the poor mouse (well, at least one: The lethal injection)
-            });
-
             self.lowBloodSugarWarningToggle = ko.observable(false); // Such name. Wow.
             self.highBloodSugarWarningToggle = ko.observable(false);
             self.mouse().blodSukker.subscribe(function(blodSukker) {
@@ -81,6 +74,15 @@ define([
 
             self.nextTimeStep = function() {
                 self.mouse().nextBloodStep();
+
+                if (self.mouse().hasLethalBloodSugar()) {
+                    self.toggleSimulation(false);
+
+                    self.videoController.play('fast-die-insulin', false).then(function () {
+                        self.mouse().alive(false);
+                        self.popupController.message('mouse.died_insulin.header', 'mouse.died_insulin.body');
+                    });
+                }
 
                 self.plotData(_.map(_.range(0, 250), function (i) {
                     return [i, self.mouse().bloodData()[i]];
@@ -134,14 +136,20 @@ define([
             self.enter = function() {
                 self.runFromState();
 
-                var graphTimer = setInterval(self.nextTimeStep, 100);
-                self.graphTimer(graphTimer);
+                self.toggleSimulation(true);
             };
 
             self.exit = function () {
                 self.videoController.stop();
+                self.toggleSimulation(false);
+            };
 
-                clearTimeout(self.graphTimer());
+            self.toggleSimulation = function (enabled) {
+                if (enabled) {
+                    self.graphTimer(setInterval(self.nextTimeStep, 100));
+                } else {
+                    clearTimeout(self.graphTimer());
+                }
             };
 
             self.handleDropOnMouse = function(item) {

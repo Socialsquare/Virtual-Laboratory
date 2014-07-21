@@ -7,15 +7,10 @@
     background-size: 1024px 1288px;
     background-position: 0 644px;
 
-    /* background-position: 0 0; */
-    /* .no-bottle { background-position: 0 644px; } */
-
     & .osxsafari { background-image: url(#{$img-path}/mouse-view-background-sprite_rec709.png); }
-
 
     .video {
         position: absolute;
-        z-index: 5;
         left: 350px;
         top: 0;
         width: 480px;
@@ -36,7 +31,6 @@
         width: 168px;
         height: 365px;
         background-image: none;
-        z-index: 11;
         .visible { background-image: url(#{$img-path}/grab_drink.png); }
     }
 
@@ -46,7 +40,6 @@
         top: 240px;
         width: 300px;
         height: 150px;
-        z-index: 10;
     }
 
     .mousegraph {
@@ -70,7 +63,6 @@
         background-image: url(#{$img-path}/deadmouse_spleen_sprite.png);
         background-position: 0 0;
         background-size: 480px 1500px;
-        z-index: 4;
         &.cut-with-spleen { background-position: 0 -500px; }
         &.cut { background-position: 0 -1000px; }
     }
