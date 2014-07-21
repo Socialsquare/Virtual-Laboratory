@@ -1,8 +1,9 @@
 define([
     'knockout',
     'lodash',
-    'base'
-], function (ko, _, Base) {
+    'base',
+    'utils/TextHelper'
+], function (ko, _, Base, TextHelper) {
     var Inventory = Base.extend({
 
         constructor: function () {
@@ -12,6 +13,13 @@ define([
 
             self.add = function(item) {
                 // TODO: validate that an item can be placed here (via `accept`)
+
+
+                // generate default label
+                if (item.label && _.isEmpty(item.label())) {
+                    item.label(TextHelper.label(item));
+                }
+
                 self.items.push(item);
             };
 
