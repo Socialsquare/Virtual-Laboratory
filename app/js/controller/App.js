@@ -142,9 +142,11 @@ define([
             dnaDesign.handleDrop(elements[8]);
             dnaDesign.handleDrop(elements[3]);
             dnaDesign.handleDrop(elements[1]);
-            dnaDesign.handleDrop(elements[5]);
-            dnaDesign.handleDrop(elements[4]);
-            dnaDesign.handleDrop(elements[7]);
+            /*dnaDesign.handleDrop(elements[5]); //PCS Insulin 1
+            dnaDesign.handleDrop(elements[4]); //PCS GFP
+            dnaDesign.handleDrop(elements[7]); //PCS Lipase*/
+            //dnaDesign.handleDrop(elements[11]); //PCS Resistens B
+            dnaDesign.handleDrop(elements[12]); //PCS Resistens A
             dnaDesign.handleDrop(elements[2]);
             dnaDesign.handleDrop(elements[0]);
             dnaDesign.handleDrop(elements[0]);
@@ -168,9 +170,6 @@ define([
             tube.addAll(electro_contents, true);
 
             self.gameState.worktable1.tubeRack.addAt(0, tube);
-            self.gameState.inventory.add(ContainerFactory.syringe());
-
-            /*self.gameState.inventory.add(tube);*/
 /*
 
             self.gameState.inventory.remove(self.gameState.inventory.items()[len-1]);
