@@ -133,6 +133,27 @@
         "description": "You will learn to trip clean",
         "tasks": [
             {
+                "description": "Incubate yeast",
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.INCUBATOR",
+                    "containers": [
+                        {
+                            "liquids": [
+                                { "type": "LiquidType.LIPASE_ENZYME" }
+                            ]
+                        },
+                        {
+                            "type": "ContainerType.PETRI_DISH",
+                            "liquids": [
+                                { "type": "LiquidType.DEADLY" }
+                            ]
+                        }
+                    ]
+
+                }
+            },
+            {
                 "description": "Wash something",
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",

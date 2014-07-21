@@ -119,9 +119,26 @@ define([
                             .any(self.matchLiquids.bind(null, trigger.liquids));
                     if (!valid) return;
                 }
+
                 if (trigger.activation === ActivationType.WASHING) {
                     if (!self.match(trigger.concentration, extraProperties.concentration)) return;
                     if (!self.matchLiquids(trigger.liquids, item.washingTank)) return;
+                }
+
+                if (trigger.activation === ActivationType.INCUBATOR) {
+                    var containers = _(item.tableSpacePetri.containers())
+                            .union(item.tubeRack.containers())
+                            .compact()
+                            .value();
+
+                    var valid = _.all(trigger.containers, function (triggerContainer) {
+                        return _.any(containers, function (incubatorContainer) {
+                            return self.match(triggerContainer.type, incubatorContainer.type())
+                                && self.matchLiquids(triggerContainer.liquids, incubatorContainer);
+                        });
+                    });
+
+                    if (!valid) return;
                 }
 
                 self.finishActiveTask();

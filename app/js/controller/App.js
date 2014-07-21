@@ -84,10 +84,8 @@ define([
             // dummy data
             //------------------------
 
-            self.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.antibiotic.a(), true));
-            self.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.deadly(), true));
-            self.gameState.inventory.add(ContainerFactory.syringe().add(LiquidFactory.deadly(), true));
-            self.gameState.inventory.add(ContainerFactory.syringe().add(LiquidFactory.insulin(), true));
+            self.gameState.inventory.add(ContainerFactory.petri().add(LiquidFactory.lipase(), true));
+            self.gameState.inventory.add(ContainerFactory.petri().add(LiquidFactory.deadly(), true));
 
 /*            var tube = ContainerFactory.tube();
             var mye = LiquidFactory.microorganism.myeloma();
