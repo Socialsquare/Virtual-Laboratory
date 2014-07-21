@@ -30,101 +30,117 @@ define([
                 return false;
             }
 
-            var options = [ AdministrationType.INJECTION_BODY, AdministrationType.INJECTION_HEAD,
-                            AdministrationType.PILL, AdministrationType.CREAM];
 
+// Choice based on mouse type
+            if (MC.mouse().mouseType() === MouseType.PSORIASIS) {
+                var options = [ AdministrationType.INJECTION_BODY,
+                    AdministrationType.PILL, AdministrationType.CREAM];
 
-            MC.popupController.select('washing.concentration', 'washing.concentration.choose', options)
-                .then(function (administrationForm) {
-                    //TODO:var res = self.washing.action(administrationForm);
+                MC.popupController.select('washing.concentration', 'washing.concentration.choose', options)
+                    .then(function (administrationForm) {
+                        //TODO:var res = self.washing.action(administrationForm);
+                        //TODO: var res = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
-                    //TODO: var res = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
-
-                    if (MC.mouse().mouseType() === MouseType.PSORIASIS) {
                         switch(administrationForm) {
-                        case AdministrationType.INJECTION_HEAD:
-                            MC.popupController.message('mouse.drug_not_head.header', 'mouse.drug_not_head.body');
-                            //TODO: hacky fix: Skriv "ikke i hovedet. Uetisk. Bliver injektet i kroppen i stedet"
 
-                            // MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
-                            break; //TODO: still consumes the tube :'(
+                            case AdministrationType.INJECTION_BODY: //TODO:
+                                MC.videoController.play('psoriasis-injection', false).done(function() {
+                                    var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
-                        case AdministrationType.INJECTION_BODY: //TODO:
-                            MC.videoController.play('psoriasis-injection', false).done(function() {
-                                var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
+                                    MC.runFromState();
+                                    MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
+                                });
+                                break;
 
-                                MC.runFromState();
-                                MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
-                            });
-                            break;
+                            case AdministrationType.PILL: //TODO:
+                                MC.videoController.play('psoriasis-pill', false).done(function() {
+                                    var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
-                        case AdministrationType.PILL: //TODO:
-                            MC.videoController.play('psoriasis-pill', false).done(function() {
-                                var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
+                                    MC.runFromState();
+                                    MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
+                                });
+                                break;
 
-                                MC.runFromState();
-                                MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
-                            });
-                            break;
+                            case AdministrationType.CREAM: //TODO:
+                                MC.videoController.play('psoriasis-cream', false).done(function() {
+                                    var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
-                        case AdministrationType.CREAM: //TODO:
-                            MC.videoController.play('psoriasis-cream', false).done(function() {
-                                var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
-
-                                MC.runFromState();
-                                MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
-                            });
-                            break;
+                                    MC.runFromState();
+                                    MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
+                                });
+                                break;
                         }
 
-                    }else if (MC.mouse().mouseType() === MouseType.INSOMNIA) {
-                        switch(administrationForm) {
-                        case AdministrationType.INJECTION_HEAD:
-                            MC.videoController.play('slow-injection-body-faint', false).done(function() {
-                                MC.videoController.play('slow-injection-head', false).done(function() {
-                                    MC.videoController.play('slow-wake', false).done(function() {
+                        if (res.feedback) self.popupController.notify('common.result', res.feedback);
+                    });
 
+
+
+            }else if (MC.mouse().mouseType() === MouseType.INSOMNIA) {
+                var options = [ AdministrationType.INJECTION_BODY, AdministrationType.INJECTION_HEAD,
+                    AdministrationType.PILL, AdministrationType.CREAM];
+
+
+                MC.popupController.select('washing.concentration', 'washing.concentration.choose', options)
+                    .then(function (administrationForm) {
+                        //TODO:var res = self.washing.action(administrationForm);
+                        //TODO: var res = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
+
+                            switch(administrationForm) {
+                                case AdministrationType.INJECTION_HEAD:
+                                    MC.videoController.play('slow-injection-body-faint', false).done(function() {
+                                        MC.videoController.play('slow-injection-head', false).done(function() {
+                                            MC.videoController.play('slow-wake', false).done(function() {
+
+                                                var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
+
+                                                MC.runFromState();
+                                                MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
+
+                                            });
+                                        });
+                                    });
+                                    break;
+
+                                case AdministrationType.INJECTION_BODY: //TODO:
+                                    MC.videoController.play('slow-injection-body', false).done(function() {
                                         var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
                                         MC.runFromState();
                                         MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
-
                                     });
-                                });
-                            });
-                            break;
+                                    break;
 
-                        case AdministrationType.INJECTION_BODY: //TODO:
-                            MC.videoController.play('slow-injection-body', false).done(function() {
-                                var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
+                                case AdministrationType.PILL: //TODO:
+                                    MC.videoController.play('slow-pill', false).done(function() {
+                                        var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
-                                MC.runFromState();
-                                MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
-                            });
-                            break;
+                                        MC.runFromState();
+                                        MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
+                                    });
+                                    break;
 
-                        case AdministrationType.PILL: //TODO:
-                            MC.videoController.play('slow-pill', false).done(function() {
-                                var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
+                                case AdministrationType.CREAM: //TODO:
+                                    MC.videoController.play('slow-cream', false).done(function() {
+                                        var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
-                                MC.runFromState();
-                                MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
-                            });
-                            break;
+                                        MC.runFromState();
+                                        MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
+                                    });
+                                    break;
+                            }
 
-                        case AdministrationType.CREAM: //TODO:
-                            MC.videoController.play('slow-cream', false).done(function() {
-                                var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
+                        if (res.feedback) self.popupController.notify('common.result', res.feedback);
+                    });
 
-                                MC.runFromState();
-                                MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
-                            });
-                            break;
-                        }
-                    }
+            }
 
-                    if (res.feedback) self.popupController.notify('common.result', res.feedback);
-                });
+
+
+
+
+
+
         }
     };
 });
