@@ -127,5 +127,54 @@
                 }
             }
         ]
+    },
+    {
+        "title": "Meth Cooker's Hand Book - Part One",
+        "description": "You will learn to trip clean",
+        "tasks": [
+            {
+                "description": "Use the OD with some antibiotics",
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.OD",
+                    "liquids": [
+                        { "type": "LiquidType.ANTIBIOTIC" }
+                    ]
+                }
+            },
+            {
+                "description": "Kill the mouse",
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "alive": false
+                }
+            },
+            {
+                "description": "Get the mouse spleen",
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "SpecialItemType.SPLEEN"
+                }
+            },
+            {
+                "description": "Blend the spleen",
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "liquids": [
+                        { "type": "LiquidType.HOMO_SPLEEN" }
+                    ]
+                }
+            },
+            {
+                "description": "Order a mouse with gout",
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.COMPUTER_ORDER_MOUSE",
+                    "mouse": {
+                        "type": "MouseType.GOUT"
+                    }
+                }
+            }
+        ]
     }
 ]

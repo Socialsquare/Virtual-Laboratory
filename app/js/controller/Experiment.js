@@ -7,9 +7,10 @@ define([
     'controller/Quiz',
 
     'model/type/Liquid',
+    'model/type/Activation',
     'model/type/Trigger',
     'model/type/Consequence'
-], function (ko, Base, _, popupController, quizController, LiquidType, TriggerType, ConsequenceType) {
+], function (ko, Base, _, popupController, quizController, LiquidType, ActivationType, TriggerType, ConsequenceType) {
     var Experiment = Base.extend({
         constructor: function () {
             var self = this;
@@ -94,6 +95,14 @@ define([
 
                 if (trigger.type !== TriggerType.ACTIVATION) return;
                 if (trigger.activation !== activation) return;
+
+                if (trigger.activation === ActivationType.COMPUTER_ORDER_MOUSE) {
+                    if (!self.match(trigger.mouse.type, item.mouseType())) return;
+                }
+
+                if (trigger.activation === ActivationType.OD) {
+                    if (!self.matchLiquids(trigger.liquids, item)) return;
+                }
 
                 self.finishActiveTask();
             };

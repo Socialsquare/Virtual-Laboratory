@@ -33,7 +33,7 @@ define([
 
                     self.worktable2.blender.status(false);
 
-                    self.experimentController.triggerActivation(self.ActivationType.BLENDER);
+                    self.experimentController.triggerActivation(self.ActivationType.BLENDER, item);
                 }, 1500);
             };
         }

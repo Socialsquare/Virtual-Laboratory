@@ -1,9 +1,9 @@
 define([], function () {
     return {
-        HEALTHY:   'MouseBloodType.HEALTHY',
-        GOUT:      'MouseBloodType.GOUT',
-        SMALLPOX:  'MouseBloodType.SMALLPOX',
-        INSOMNIA:  'MouseBloodType.INSOMNIA',
-        PSORIASIS: 'MouseBloodType.PSORIASIS'
+        HEALTHY:   'MouseType.HEALTHY',
+        GOUT:      'MouseType.GOUT',
+        SMALLPOX:  'MouseType.SMALLPOX',
+        INSOMNIA:  'MouseType.INSOMNIA',
+        PSORIASIS: 'MouseType.PSORIASIS'
     };
 });

@@ -1,18 +1,29 @@
 define([
     'knockout',
     'utils/utils',
+
+    'controller/Experiment',
+
     'model/CompositeContainer',
-    'model/type/Container'
-], function (ko, Utils, CompositeContainerModel, ContainerType) {
+
+    'model/type/Container',
+    'model/type/Activation'
+], function (ko, Utils, experimentController, CompositeContainerModel, ContainerType, ActivationType) {
 
     var ODMachine = CompositeContainerModel.extend({
         constructor: function () {
             var self = this;
             self.base(1, ContainerType.TUBE, ContainerType.OD_MACHINE);
 
-            self.hasTube = function () {
+            self.hasTube = ko.computed(function () {
                 return self.hasContainerAt(0);
-            };
+            });
+
+            self.hasTube.subscribe(function (hasTube) {
+                if (hasTube) {
+                    experimentController.triggerActivation(ActivationType.OD, self.get(0));
+                }
+            });
 
             self.display = ko.computed(function() {
                 if(!self.hasTube())
