@@ -44,7 +44,7 @@ define([
                 ];
 
 
-                MC.popupController.select('washing.concentration', 'washing.concentration.choose', options)
+                MC.popupController.select('mouse.drug_administration.header', 'mouse.drug_administration.body', options)
                     .then(function (selectedObject) {
                         var administrationForm = selectedObject.administrationForm;
                         //TODO: var res = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
@@ -135,7 +135,7 @@ define([
                                     });
                                     break;
 
-                                case AdministrationType.CREAM: 
+                                case AdministrationType.CREAM:
                                     MC.videoController.play('slow-cream', false).done(function() {
                                         var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
