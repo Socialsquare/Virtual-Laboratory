@@ -178,6 +178,8 @@
         "liquid.name.produced_antibody_pox": "Produceret antistof (kopper)",
 
 
+        "experiment.change.header": "Skift øvelse",
+        "experiment.change.body": "Er du sikker? Fremgang i den nuværende øvelse går tabt.",
         "experiment.task_finished.header": "Godt arbejde",
         "experiment.task_finished.body": "Du klarede en opgave",
         "experiment.completed.header": "Det slut",

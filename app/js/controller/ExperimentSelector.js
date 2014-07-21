@@ -28,9 +28,11 @@ define([
 
             self.start = function () {
                 if (self.experimentController.hasExperiment()) {
-                    popupController.confirm('Skift øvelse', 'Er du sikker?').then(function () {
-                        self.experimentController.startExperiment(self.selected());
-                    });
+                    popupController.confirm('experiment.change.header', 'experiment.change.body')
+                        .then(function () {
+                            self.experimentController.startExperiment(self.selected());
+                            self.router.navigate('overview');
+                        });
 
                     return;
                 }
