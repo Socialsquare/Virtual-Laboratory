@@ -2,46 +2,55 @@ define([
     'knockout',
     'model/Liquid',
     'model/ReactionCount',
-    'model/type/Liquid'
-], function (ko, LiquidModel, ReactionCount, LiquidType) {
+    'model/type/Liquid',
+    'model/type/ProteinCodingSequence'
+], function (ko, LiquidModel, ReactionCount, LiquidType, PCSType) {
 
     var ProducedEnzyme = LiquidModel.extend({
-        constructor: function (dnaName, parentGrowthAmount) {
-
+        constructor: function (pcsType, parentGrowthAmount) {
+//TODO: dna.name --> dna.PSCtype
             var self = this;
 
-            self.dnaName = dnaName;
-            self.amount = parentGrowthAmount; //TODO: modify by a factor of X?
+            self.pcsType = pcsType;
+            self.amount = parentGrowthAmount;
+            self.enzymeLiquidType = '';
 
-            switch (dnaName) {  //TODO: change to OrganismProperty
-                case 'TODO: ANTIBODY_GOUT':
-                    self.enzymeType = LiquidType.ANTIBODY_GOUT;
+            switch (pcsType) {  //TODO: change to OrganismProperty
+                case PCSType.ANTIBODY_GOUT:
+                    self.enzymeLiquidType = LiquidType.ANTIBODY_GOUT;
                     break;
-                case 'TODO: ANTIBODY_POX':
-                    self.enzymeType = LiquidType.ANTIBODY_SMALLPOX;
+                case PCSType.ANTIBODY_SMALLPOX:
+                    self.enzymeLiquidType = LiquidType.ANTIBODY_SMALLPOX;
                     break;
-                case 'Insulin analog 1':
-                    self.enzymeType = LiquidType.INSULIN;
+                case PCSType.INSULIN_1:
+                    self.enzymeLiquidType = LiquidType.INSULIN;
                     break;
-                case 'Insulin analog 2':
-                    self.enzymeType = LiquidType.INSULIN;
+                case PCSType.INSULIN_2:
+                    self.enzymeLiquidType = LiquidType.INSULIN;
                     break;
-                case 'Lipase vaskeenzym': //TODO: Fix in database
-                    self.enzymeType = LiquidType.LIPASE_ENZYME;
+                case PCSType.LIPASE_ENZYME: //TODO: Fix in database
+                    self.enzymeLiquidType = LiquidType.LIPASE_ENZYME;
                     break;
-                case 'Grønt flourescerende protein (GFP)':
-                    self.enzymeType = LiquidType.GFP;
+                case PCSType.GFP:
+                    self.enzymeLiquidType = LiquidType.GFP;
+                    break;
+                case PCSType.ANTIBIOTIC_RES_A:
+                    self.enzymeLiquidType = LiquidType.ANTIBIOTIC;
+                    break;
+                case PCSType.ANTIBIOTIC_RES_B:
+                    self.enzymeLiquidType = LiquidType.ANTIBIOTIC;
                     break;
                 default:
-                    throw 'Unknown type of enzyme';
+                    throw 'Unknown type of enzyme: '+ pcsType;
                     break;
             }
 
-            self.base(self.enzymeType, ReactionCount.NEVER);//TODO: change to OrganismProperty... hmm why?
+            self.base(self.enzymeLiquidType, ReactionCount.NEVER);//TODO: change to OrganismProperty... hmm why?
 
             self.clone = function () {
-                var clone = new ProducedEnzyme(self.dnaName, self.amount);
+                var clone = new ProducedEnzyme(self.pcsType, self.amount);
 
+                clone.enzymeLiquidType = self.enzymeLiquidType;
                 clone.hasReacted(self.hasReacted());
 
                 return clone;

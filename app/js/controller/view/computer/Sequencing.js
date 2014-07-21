@@ -77,13 +77,16 @@ define([
 
             self.createDNAElement = function (type) {
                 var name = '';
+                var pscType = '';
                 switch (type) {
                 case LiquidType.ANTIBODY_GOUT:
                     name = 'gout';
+                    pscType = 'ProteinCodingSequenceType.ANTIBODY_GOUT';
                     break;
 
                 case LiquidType.ANTIBODY_SMALLPOX:
                     name = 'smallpox';
+                    pscType = 'ProteinCodingSequenceType.ANTIBODY_SMALLPOX';
                     break;
 
                 default:
@@ -93,11 +96,12 @@ define([
                 // TODO: correct values
                 var dnaData = {
                     name: name,
-			        color: 'black',
+			        color: '#80c0f7',
 			        sequence: 'GATTACA',
 			        description: '',
 			        link: '',
-			        comment: ''
+			        comment: '',
+                    proteinCodingSequence: pscType
                 };
 
                 return new DNAElementModel(dnaData);

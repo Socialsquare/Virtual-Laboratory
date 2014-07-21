@@ -99,10 +99,10 @@ define([
                 var concBefore = self.fermentorTank.getTotalConcentration();
 
                 for(var i = 0; i < self.hourResolution(); i++) {
-                    console.log('Growth iteration #' + i);
                     self.fermentorTank.growContentsOnce(deltaTime, self.growerType(), self.ph(), self.temperature());
 
-                    //self.fermentorTank.liquids()[1].producedEnzymes()[0]
+                    console.log('Grow iteration #' + i);
+
                     _.each(self.fermentorTank.liquids(), function(organism) {
                         if(! (organism.type() === LiquidType.MICROORGANISM))
                         { return; }
@@ -111,7 +111,7 @@ define([
                         // 1) find products and add to fermentor
                         _.each(organism.producedEnzymes(), function(producedEnzyme) {
 
-                            var match = _.find(self.products(), function(product) { return product.enzymeType === producedEnzyme.enzymeType });
+                            var match = _.find(self.products(), function(product) { return product.enzymeLiquidType === producedEnzyme.enzymeLiquidType });
 
 
                             if(!match) {

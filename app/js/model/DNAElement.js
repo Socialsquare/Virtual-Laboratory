@@ -12,6 +12,7 @@ define([
 
 			self.DNAType = ko.observable(DNAType.fromInt(values.type));
 
+            self.proteinCodingSequence = ko.observable(values.proteinCodingSequence);
 			self.name = ko.observable(values.name);
 			self.color = ko.observable(values.color);
 			self.sequence = ko.observable(values.sequence);
@@ -26,7 +27,7 @@ define([
             self.clone = function () {
                 var clone = new DNAElement({type: 0,name: self.name(),color: self.color(),
                     sequence: self.sequence(),description: self.description(),
-                    link: self.link(),comment: self.comment()});
+                    link: self.link(),comment: self.comment(), proteinCodingSequence: self.proteinCodingSequence()});
 
                 clone.DNAType(self.DNAType());
                 clone.hasReacted(self.hasReacted());

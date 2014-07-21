@@ -1,10 +1,17 @@
 define([
     'knockout',
     'lodash',
+
+    'controller/view/Base',
     'utils/utils',
     'utils/DataHelper',
-    'controller/view/Base'
-], function (ko, _, utils, DataHelper, BaseViewController) {
+
+    'factory/Liquid',
+    'model/Tube',
+    'model/type/Liquid'
+
+
+], function (ko, _, BaseViewController, utils, DataHelper, LiquidFactory, TubeModel, LiquidType ) {
 
     var FermentorScreen = BaseViewController.extend({
 
@@ -40,7 +47,6 @@ define([
             };
 
             self.updatePlotData = function() {
-                //TODO: convert data to PLOTdata (pair with an index)
 
                 var biomassData = _.map(_.range(0, 250), function (i) {
                     return [i, self.fermentor.biomassData()[i]];
@@ -76,30 +82,84 @@ define([
                  }
             };
 
+            self.purifyProtein = function () {
+                /*// clone sequence, add to gene, put in tube
+                var sequenceClone = ko.toJS(self.dnaSequence);
+                var gene = new GeneModel(sequenceClone);
+                var tube = new TubeModel();
+                tube.add(gene, true);
+                self.gameState.inventory.add(tube);
+
+                // reset the sequence and go to computer menu
+                self.dnaSequence.removeAll();
+
+                self.changeScreen(self.Screens.MENU);
+
+                self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_DNA);*/
+            };
+
+            self.endFermentation = function() {
+                // TODO: reset fermentor (fermentor products, substrate, contents (make a copy of original?)??)
+                clearTimeout(self.graphTimer());
+                self.turnedOn(false);
+                self.graphTimer(null);
+                self.fermentor.timer(0);
+
+                var options = [];
+
+                _.each(self.fermentor.products(), function(producedEnzyme) {
+                    if(utils.math.getBiomassFromConcentration(producedEnzyme.amount) > 0.2){
+                        if(producedEnzyme.enzymeLiquidType === LiquidType.GFP)
+                            return;
+
+                        options.push(producedEnzyme.enzymeLiquidType);
+                        console.log('Produced: ' + producedEnzyme.enzymeLiquidType);
+                    }
+                });
+
+                //TODO: allow the user to select the liquids with amount (to biomass), greater than 0.2 (?) g/L
+                console.log('TODO: implement the Chromatograph');
+
+                if (options.length > 0) {
+                    self.popupController.select('fermentor.chromatograph_select.header', 'fermentor.chromatograph_select.body', options)
+                        .then(function (selectedOption) {
+
+                            console.log('Test #1: '+ selectedOption);
+
+                            var newLiquid = null;
+
+                            switch (selectedOption) {
+                                case LiquidType.LIPASE_ENZYME:
+                                    newLiquid = LiquidFactory.lipase();
+                                    break;
+                                case LiquidType.INSULIN:
+                                    newLiquid = LiquidFactory.insulin();
+                                    break;
+                                case LiquidType.ANTIBODY_SMALLPOX:
+                                    newLiquid = LiquidFactory.antibodySmallpox();
+                                    break;
+                                case LiquidType.ANTIBODY_GOUT:
+                                    newLiquid = LiquidFactory.antibodyGout();
+                                    break;
+                                default:
+                                    break;
+                            }
+
+                            if (!!newLiquid) {
+                                var tube = new TubeModel();
+                                tube.add(newLiquid, true);
+                                self.gameState.inventory.add(tube);
+                            }
+
+                        });
+                }
+
+            };
+
             self.nextTimeStep = function() {
                 if(self.fermentor.timer() >= 60 || self.fermentor.substrate() <= 0) { //If reaches ran for 48 hours
-                    // TODO: reset fermentor (fermentor products, substrate, contents (make a copy of original?)??)
-                     clearTimeout(self.graphTimer());
-                     self.turnedOn(false);
-                     self.graphTimer(null);
-                     self.fermentor.timer(0);
-
-
-                    var chromatographString = 'Congratulations, you have succesfully produced some proteins.'
-                        + ' Do you want to extract the purified proteins? You can select from:';
-                    _.each(self.fermentor.products(), function(producedEnzyme) {
-                        if(utils.math.getBiomassFromConcentration(producedEnzyme.amount) > 0.2){
-
-                            chromatographString += '\n' + producedEnzyme.enzymeType + ', amount: '
-                                + utils.math.getBiomassFromConcentration(producedEnzyme.amount);
-                        }
-
-                    });
-                    alert(chromatographString);
-
-                    //TODO: allow the user to select the liquids with amount (to biomass), greater than 0.2 (?) g/L
-                     console.log('TODO: implement the Chromatograph');
-                     return;
+                    self.endFermentation();
+                    return;
                  }
 
                 self.fermentor.growOneHour();

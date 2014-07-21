@@ -10,6 +10,7 @@ define([
             var self = this;
             self.base(LiquidType.ORGANISM_PROPERTY, ReactionCount.NEVER);
             self.promoter = ko.observable(promoter); // is a DNAelement
+            self.proteinCodingSequenceType = ko.observable(proteinCodingSequence.proteinCodingSequence()); //Is of PCSType
             self.proteinCodingSequence = ko.observable(proteinCodingSequence); //is a DNAelement
 
             self.hashCode = function () {

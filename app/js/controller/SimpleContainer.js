@@ -70,17 +70,13 @@ define([
                         if (item.type() === ContainerType.SYRINGE) {
 
                             if(item.isEmpty()) {// 1) Check of syringe er tom? (gør intet)
-                                console.log('yo dog fermentor + (empty) syringe! ');
                                 return false;
                             } else {
-                                console.log('yo dog fermentor + (full) syringe! ');
-
                                 if (self.simpleContainer.isEmpty()) {// 2) Check om syringe har contents og ferm_tank er tom (tøm kanyle)
                                     item.emptySyringeInto(self.simpleContainer);
                                     self.popupController.notify('syringe.emptied.header', 'syringe.emptied.body', 2000);
                                     return true;
                                 } else {// 3) Check om begge har contents og prompt brugern (tøm fermentor og kanylen efter)
-
 
                                     console.log('bugs when confirming - TODO: ');
 
