@@ -133,6 +133,16 @@
         "description": "You will learn to trip clean",
         "tasks": [
             {
+                "description": "Strictly mix antibiotic a and deadly",
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "liquids": [
+                        { "type": "LiquidType.DEADLY" },
+                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.A" }
+                    ]
+                }
+            },
+            {
                 "description": "Design any kind of drug",
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",

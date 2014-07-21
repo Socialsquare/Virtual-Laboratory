@@ -41,10 +41,23 @@ define([
                 return _.isUndefined(property) || property === expected;
             };
 
-            self.matchLiquids = function (liquids, container) {
-                if (_.isUndefined(liquids)) return true;
+            self.matchLiquids = function (trigger, container) {
+                if (_.isUndefined(trigger.liquids)) return true;
 
-                return _.all(liquids, function (liquid) {
+                if (trigger.strict) {
+                    var containerValid = _.all(container.liquids(), function (containerLiquid) {
+                        return _.any(trigger.liquids, function (triggerLiquid) {
+                            if (containerLiquid.type() !== triggerLiquid.type) return false;
+                            if (!containerLiquid.subtype()) return true;
+
+                            return containerLiquid.subtype() === triggerLiquid.subtype;
+                        });
+                    });
+
+                    if (!containerValid) return false;
+                }
+
+                return _.all(trigger.liquids, function (liquid) {
                     if (!container.contains(liquid.type)) return false;
                     if (!liquid.subtype) return true;
 
@@ -61,7 +74,7 @@ define([
                 if (trigger.type !== TriggerType.MIX) return;
                 if (!self.match(trigger.location, container.location())) return;
                 if (!self.match(trigger.container, container.type())) return;
-                if (!self.matchLiquids(trigger.liquids, container)) return;
+                if (!self.matchLiquids(trigger, container)) return;
 
                 self.finishActiveTask();
             };
@@ -73,7 +86,7 @@ define([
                 if (trigger.type !== TriggerType.MOUSE) return;
                 if (!self.match(trigger.alive, mouse.alive())) return;
                 if (!self.match(trigger.item, item.type())) return;
-                if (!self.matchLiquids(trigger.liquids, item)) return;
+                if (!self.matchLiquids(trigger, item)) return;
 
                 self.finishActiveTask();
             };
@@ -84,7 +97,7 @@ define([
 
                 if (trigger.type !== TriggerType.ACQUIRE) return;
                 if (!self.match(trigger.item, item.type())) return;
-                if (!self.matchLiquids(trigger.liquids, item)) return;
+                if (!self.matchLiquids(trigger, item)) return;
 
                 self.finishActiveTask();
             };
@@ -102,27 +115,27 @@ define([
                 }
 
                 if (trigger.activation === ActivationType.OD) {
-                    if (!self.matchLiquids(trigger.liquids, item)) return;
+                    if (!self.matchLiquids(trigger, item)) return;
                 }
 
                 if (trigger.activation === ActivationType.DNA) {
-                    if (!self.matchLiquids(trigger.liquids, item)) return;
+                    if (!self.matchLiquids(trigger, item)) return;
                 }
 
                 if (trigger.activation === ActivationType.ELECTROPORATOR) {
-                    if (!self.matchLiquids(trigger.liquids, item)) return;
+                    if (!self.matchLiquids(trigger, item)) return;
                 }
 
                 if (trigger.activation === ActivationType.HEATER) {
                     var valid = _(item.containers())
                             .compact()
-                            .any(self.matchLiquids.bind(null, trigger.liquids));
+                            .any(self.matchLiquids.bind(null, trigger));
                     if (!valid) return;
                 }
 
                 if (trigger.activation === ActivationType.WASHING) {
                     if (!self.match(trigger.concentration, extraProperties.concentration)) return;
-                    if (!self.matchLiquids(trigger.liquids, item.washingTank)) return;
+                    if (!self.matchLiquids(trigger, item.washingTank)) return;
                 }
 
                 if (trigger.activation === ActivationType.INCUBATOR) {
@@ -134,7 +147,7 @@ define([
                     var valid = _.all(trigger.containers, function (triggerContainer) {
                         return _.any(containers, function (incubatorContainer) {
                             return self.match(triggerContainer.type, incubatorContainer.type())
-                                && self.matchLiquids(triggerContainer.liquids, incubatorContainer);
+                                && self.matchLiquids({ strict: trigger.strict, liquids: triggerContainer.liquids }, incubatorContainer);
                         });
                     });
 
