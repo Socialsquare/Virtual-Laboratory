@@ -76,9 +76,9 @@ define([
                 self.boundScroll();
             });
 
-            self.inventoryItemsWidth = ko.computed(function () {
+            self.inventoryItemsWidth = function () {
                 return self.gameState.inventory.items().length * 91;
-            });
+            };
 
             self.canScroll = ko.computed(function () {
                 return self.inventoryItemsWidth() > self.inventoryWidth;
