@@ -29,12 +29,10 @@ define([
 
             // defaults
             self.dropGuard = _.constant(true);
-            self.imagePlaceholderGetter = _.constant('');
             self.showPlaceholder = ko.observable(false);
 
             switch (compContainer.type()) {
             case ContainerType.PETRI_SPACE:
-                self.imagePlaceholderGetter = ImageHelper.tableSpacePetriPlaceholderImage;
                 self.showPlaceholder(true);
 
                 self.imageGetter = ImageHelper.tableSpacePetriImage;
@@ -42,7 +40,6 @@ define([
                 break;
 
             case ContainerType.MICRO_SPACE:
-                self.imagePlaceholderGetter = ImageHelper.tableSpaceMicroPlaceholderImage;
                 self.showPlaceholder(true);
 
                 self.imageGetter = ImageHelper.tableSpaceMicroImage;
@@ -70,11 +67,15 @@ define([
                 break;
 
             case ContainerType.UV_PETRI_SPACE:
+                self.showPlaceholder(true);
+
                 self.imageGetter = ImageHelper.uvTableSpacePetriImage;
                 self.accepter = DragHelper.acceptPetri;
                 break;
 
             case ContainerType.UV_MICRO_SPACE:
+                self.showPlaceholder(true);
+
                 self.imageGetter = ImageHelper.uvTableSpaceMicroImage;
                 self.accepter = DragHelper.acceptMicro;
                 break;
@@ -93,23 +94,6 @@ define([
             };
 
             self.handleContainerDrop = function (position, item) {
-                /*if (item.type() === ContainerType.PIPETTE) {
-                    if (!item.hasTip()) {
-                        self.popupController.message('pipette.missing_tip.body', 'pipette.missing_tip.header');
-                    } else if (item.getTip().isEmpty()) {
-
-                        if (item.getTip().used())  {
-                            self.popupController.message('pipette.dirty_tip.body', 'pipette.dirty_tip.header');
-                        } else {
-
-                            item.fillPipette(self.compContainer.get(position));
-                            self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
-                        }
-                    } else {
-                        item.emptyPipetteInto(self.compContainer.get(position));
-                        self.popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
-                    }*/
-
                 switch(item.type()) {
                     case ContainerType.PIPETTE:
 

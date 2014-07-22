@@ -1,160 +1,132 @@
 define([
+    'lodash',
+    'base',
+
     'model/type/Container',
     'model/type/Liquid',
     'model/type/SpecialItem'
 
-], function (ContainerType, LiquidType, SpecialItemType) {
-    var IMG_PATH = 'assets/images';
+], function (_, Base, ContainerType, LiquidType, SpecialItemType) {
 
-    return {
-        incubatorTubeRackImage: function (position, tube) {
-            if (!tube) return '';
+    var ImageHelper = Base.extend({
+        constructor: function () {
+            var self = this;
+            self.imageRoot = 'assets/images';
 
-            var state = tube.isEmpty() ? '_empty' : '';
-            return IMG_PATH + '/incubator_tube' + (position + 1) + state + '.png';
-        },
+            self.img = function (path) {
+                return self.imageRoot + '/' + path;
+            };
 
-        incubatorPetriImage: function (position, dish) {
-            if (!dish) return '';
+            self.emptyFull = function (prefix) {
+                return function (position, container) {
+                    var state = !container || container.isEmpty() ? 'empty' : 'full';
+                    return self.img(prefix + (position + 1) + '_' + state + '.png');
+                };
+            };
 
-            var state = dish.isEmpty() ? '_empty' : '';
-            return IMG_PATH + '/incubator_dish' + (position + 1) + state + '.png';
-        },
+            self.single = function (prefix) {
+                return function (position, container) {
+                    return self.img(prefix + (position + 1) + '.png');
+                };
+            };
 
-        incubatorPetriPlaceholderImage: function (position, dish) {
-            return IMG_PATH + '/incubator_dish' + (position + 1) + '_placeholder.png';
-        },
+            self.incubatorTubeImage = self.emptyFull('incubator_tube');
+            self.incubatorPetriImage = self.emptyFull('incubator_dish');
+            self.tubeRackImage = self.emptyFull('tube');
 
-        tubeRackImage: function (position, tube) {
-            if (!tube) return '';
+            self.heaterTubeImage = self.single('work1-heater_');
+            self.tableSpaceMicroImage = self.single('micro');
+            self.uvTableSpaceMicroImage = self.single('uv_micro');
+            self.sidegroupEmptySlot = self.single('scaffold_R');
 
-            var state = tube.isEmpty() ? 'empty' : 'full';
-            return IMG_PATH + '/tube' + (position + 1) + '_' + state + '.png';
-        },
+            self.odMachineTubeImage = _.constant('work2_od-on.png');
 
-        heaterTubeImage: function (position, tube) {
-            if (!tube) return '';
+            self.tableSpacePetriImage = function (position, petri) {
+                var state = !petri || petri.isEmpty() ? 'empty' : 'full';
+                return self.img('petri_' + state + '.png');
+            };
 
-            return IMG_PATH + '/work1-heater_' + (position + 1) + '.png';
-        },
+            self.uvTubeRackImage = function (position, tube) {
+                var state = tube.isEmpty() ? 'empty' : (tube.isFluorescent() ? 'glow' : 'full');
+                return self.img('uv_tube' + (position + 1) + '_' + state + '.png');
+            };
 
-        uvTubeRackImage: function (position, tube) {
-            if (!tube) return '';
+            self.uvTableSpacePetriImage = function (position, dish) {
+                var state = !dish || dish.isEmpty() ? 'empty' : (dish.isFluorescent() ? 'glow' : 'full');
+                return self.img('uv_petri' + (position + 1) + '_' + state + '.png');
+            };
 
-            var state = tube.isEmpty() ? 'empty' : (tube.isFluorescent() ? 'glow' : 'full');
-            return IMG_PATH + '/uv_tube' + (position + 1) + '_' + state + '.png';
-        },
+            self.scaffoldImage = function (name) {
+                return self.img('scaffold_' + name + '.png');
+            };
 
-        tableSpacePetriImage: function (position, dish) {
-            if (!dish) return '';
+            self.sidegroupImage = function (name) {
+                return self.img('sidegroup_' + name + '.png');
+            };
 
-            var state = dish.isEmpty() ? 'empty' : 'full';
-            return IMG_PATH + '/petri_' + state + '.png';
-        },
+            self.inventoryIcon = function (item) {
+                switch (item.type()) {
+                case ContainerType.PETRI_DISH:
+                    return self.img('icon_cup_petri.png');
 
-        tableSpacePetriPlaceholderImage: function (position) {
-            return IMG_PATH + '/petri_placeholder.png';
-        },
+                case ContainerType.MICROTITER:
+                    return self.img('icon_cup_mkrt.png');
 
-        uvTableSpacePetriImage: function (position, dish) {
-            if (!dish) return '';
+                case ContainerType.TUBE:
+                    return self.img('icon_cup_tube.png');
 
-            var state = dish.isEmpty() ? 'empty' : (dish.isFluorescent() ? 'glow' : 'full');
-            return IMG_PATH + '/uv_petri' + (position + 1) + '_' + state + '.png';
-        },
+                case ContainerType.SYRINGE:
+                    return self.img('icon_med_inj.png');
 
-        tableSpaceMicroImage: function (position, plate) {
-            if (!plate) return '';
+                case SpecialItemType.SCALPEL:
+                    return self.img('icon_scalpel.png');
 
-            return IMG_PATH + '/micro' + (position + 1) + '.png';
-        },
+                case SpecialItemType.SPLEEN:
+                    return self.img('icon_spleen.png');
 
-        tableSpaceMicroPlaceholderImage: function (position) {
-            return IMG_PATH + '/micro' + (position + 1) + '_placeholder.png';
-        },
+                case SpecialItemType.WASH_BOTTLE:
+                    return self.img('icon_wash_bottle.png');
 
-        uvTableSpaceMicroImage: function (position, plate) {
-            if (!plate) return '';
+                default:
+                    throw 'Unknown inventory item: ' + item.type();
+                }
+            };
 
-            return IMG_PATH + '/uv_micro' + (position + 1) + '.png';
-        },
+            self.draggingIcon = function (item) {
+                switch (item.type()) {
+                case ContainerType.PETRI_DISH:
+                    return self.img('icon_cup_petri.png');
 
-        odMachineTubeImage: function (position, tube) {
-            return IMG_PATH + '/work2_od-on.png';
-        },
+                case ContainerType.MICROTITER:
+                    return self.img('icon_cup_mkrt.png');
 
-        scaffoldImage: function (name) {
-            return IMG_PATH + '/scaffold_' + name + '.png';
-        },
+                case ContainerType.TUBE:
+                    return self.img('icon_cup_tube.png');
 
-        sidegroupImage: function (name) {
-            return IMG_PATH + '/sidegroup_' + name + '.png';
-        },
+                case ContainerType.BOTTLE:
+                    return self.img('grab_drink.png');
 
-        sidegroupEmptySlot: function (position) {
-            return IMG_PATH + '/scaffold_R' + (position + 1) + '.png';
-        },
+                case LiquidType.DNA:
+                    return self.img('icon_cup_tube.png');
 
-        inventoryIcon: function (item) {
-            switch (item.type()) {
-            case ContainerType.PETRI_DISH:
-                return IMG_PATH + '/icon_cup_petri.png';
+                case ContainerType.SYRINGE:
+                    return self.img('icon_med_inj.png');
 
-            case ContainerType.MICROTITER:
-                return IMG_PATH + '/icon_cup_mkrt.png';
+                case SpecialItemType.SPLEEN:
+                    return self.img('icon_spleen.png');
 
-            case ContainerType.TUBE:
-                return IMG_PATH + '/icon_cup_tube.png';
+                case SpecialItemType.SCALPEL:
+                    return self.img('icon_scalpel.png');
 
-            case ContainerType.SYRINGE:
-                return IMG_PATH + '/icon_med_inj.png';
+                case SpecialItemType.WASH_BOTTLE:
+                    return self.img('icon_wash_bottle.png');
 
-            case SpecialItemType.SCALPEL:
-                return IMG_PATH + '/icon_scalpel.png';
-
-            case SpecialItemType.SPLEEN:
-                return IMG_PATH + '/icon_spleen.png';
-
-            case SpecialItemType.WASH_BOTTLE:
-                return IMG_PATH + '/icon_wash_bottle.png';
-
-            default:
-                throw 'Unknown inventory item: ' + item.type();
-            }
-        },
-
-        draggingIcon: function (item) {
-            switch (item.type()) {
-            case ContainerType.PETRI_DISH:
-                return IMG_PATH + '/icon_cup_petri.png';
-
-            case ContainerType.MICROTITER:
-                return IMG_PATH + '/icon_cup_mkrt.png';
-
-            case ContainerType.TUBE:
-                return IMG_PATH + '/icon_cup_tube.png';
-
-            case ContainerType.BOTTLE:
-                return IMG_PATH + '/grab_drink.png';
-
-            case LiquidType.DNA:
-                return IMG_PATH + '/icon_cup_tube.png';
-
-            case ContainerType.SYRINGE:
-                return IMG_PATH + '/icon_med_inj.png';
-
-            case SpecialItemType.SPLEEN:
-                return IMG_PATH + '/icon_spleen.png';
-
-            case SpecialItemType.SCALPEL:
-                return IMG_PATH + '/icon_scalpel.png';
-
-            case SpecialItemType.WASH_BOTTLE:
-                return IMG_PATH + '/icon_wash_bottle.png';
-
-            default:
-                throw 'Unknown dragging item: ' + item.type();
-            }
+                default:
+                    throw 'Unknown dragging item: ' + item.type();
+                }
+            };
         }
-    };
+    });
+
+    return new ImageHelper();
 });

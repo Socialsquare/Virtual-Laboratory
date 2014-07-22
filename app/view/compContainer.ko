@@ -4,10 +4,10 @@
                    drop: { handler: $parent.dropHandler.bind(null, $index()), accept: $parent.accepter },
                    if: $parent.showPlaceholder">
 
-        <img data-bind="attr: { src: $parent.imagePlaceholderGetter($index()) }">
+        <img data-bind="css: { placeholder: $parent.showPlaceholder },
+                        attr: { src: $parent.showPlaceholder ? $parent.imageGetter($index()) : '' }">
     </li>
     <!-- /ko -->
-
     <!-- ko if: $parent.compContainer.hasContainerAt($index()) -->
     <li class="hand" data-bind="css: 'slot' + $index()">
         <img data-bind="attr: { src: $parent.imageGetter($index(), $data) },

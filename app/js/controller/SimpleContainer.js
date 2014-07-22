@@ -22,7 +22,7 @@ define([
 
             // defaults
             self.dropGuard = _.constant(true);
-            self.imagePlaceholderGetter = _.constant('');
+            // self.imagePlaceholderGetter = _.constant('');
             self.showPlaceholder = ko.observable(false);
 
 

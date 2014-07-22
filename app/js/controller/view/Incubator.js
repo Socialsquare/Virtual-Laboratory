@@ -13,11 +13,10 @@ define([
             self.incubator = self.gameState.incubator;
 
             self.tubeRackController = new CompositeContainerController(self.incubator.tubeRack);
-            self.tubeRackController.imageGetter = self.ImageHelper.incubatorTubeRackImage;
+            self.tubeRackController.imageGetter = self.ImageHelper.incubatorTubeImage;
 
             self.petriSpaceController = new CompositeContainerController(self.incubator.tableSpacePetri);
             self.petriSpaceController.imageGetter = self.ImageHelper.incubatorPetriImage;
-            self.petriSpaceController.imagePlaceholderGetter = self.ImageHelper.incubatorPetriPlaceholderImage;
 
             self.changeTemp = function(val) {
                 self.incubator.temperature(self.incubator.temperature() + val);
