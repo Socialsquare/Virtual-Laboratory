@@ -64,15 +64,21 @@ define([
 
             $(element).droppable({
                 tolerance: 'pointer',
-
                 accept: function (draggable) {
                     return accept(dragData);
                 },
 
-                drop: function(evt, ui) {
+                drop: function(event, ui) {
+                    // if dragData is null the data was already
+                    // dropped elsewhere and this drop is probably the
+                    // result of an overlapping drop area
+                    if (!dragData) return;
+
                     var accepted = handler(dragData, dragConsume);
                     if (accepted !== false)
                         dragConsume();
+
+                    dragData = null;
                 }
             });
         }
