@@ -9,13 +9,13 @@ define([
 
     var accepter = function (types) {
         return function (item) {
-            return _.contains(types, item.type());
+            return item && item.type && _.contains(types, item.type());
         };
     };
 
     var nonAccepter = function (types) {
         return function (item) {
-            return !_.contains(types, item.type());
+            return item && item.type && !_.contains(types, item.type());
         };
     };
 
