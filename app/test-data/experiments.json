@@ -1,0 +1,30 @@
+[
+    {
+        "title": "Testers experiments",
+        "description": "You will learn to test",
+        "tasks": [
+            {
+                "description": "simple mix, any container",
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "liquids": [
+                        { "type": "LiquidType.DEADLY" },
+                        { "type": "LiquidType.INSULIN" }
+                    ]
+                }
+            },
+            {
+                "description": "strict mix, any container",
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "strict": true,
+                    "liquids": [
+                        { "type": "LiquidType.DEADLY" },
+                        { "type": "LiquidType.INSULIN" }
+                    ]
+                }
+            }
+        ]
+    }
+
+]

@@ -30,7 +30,8 @@ require.config({
 
         base: 'libs/Base',
 
-        datadir: '../data'
+        datadir: '../data',
+        testdatadir: '../test-data'
     },
     shim: {
         'html5Loader': ['jquery'],

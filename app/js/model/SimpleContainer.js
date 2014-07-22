@@ -27,7 +27,6 @@ define([
                 _(self.liquids())
                     .union(liquids)
                     .each(function (liquid) {
-                        console.log(liquid.type());
                         liquid.react(self);
                     });
 
