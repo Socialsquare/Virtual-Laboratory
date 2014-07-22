@@ -1,6 +1,6 @@
 <!-- ko if: !!activeVideo() -->
 
-<!-- ko if: FeatureHelper.autoPlay -->
+<!-- ko if: !enableFallback -->
 <video autoplay class="video" preload="auto"
        data-bind="css: 'video-' + activeVideo().name(),
                   attr: { loop: isLooping, controls: controlsRequired() && !FeatureHelper.autoPlay },
@@ -9,7 +9,7 @@
 </video>
 <!-- /ko -->
 
-<!-- ko if: !FeatureHelper.autoPlay -->
+<!-- ko if: enableFallback -->
 <img class="video" alt="Fallback video image"
      data-bind="css: 'video-' + activeVideo().name(),
                 attr: { src: 'assets/images/' + activeVideo().filePath() + '.png' }">

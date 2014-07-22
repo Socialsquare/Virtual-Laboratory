@@ -60,10 +60,11 @@ define([
     var timeout = 2000;
 
     var VideoController = Base.extend({
-        constructor: function () {
+        constructor: function (enableFallback) {
             var self = this;
 
             self.FeatureHelper = FeatureHelper;
+            self.enableFallback = enableFallback && !FeatureHelper.autoPlay;
 
             self.activeVideo = ko.observable(null);
             self.isLooping = ko.observable(false);
@@ -115,7 +116,7 @@ define([
                 self.activeVideo(self.findVideo(id));
 
                 // force handleVideoEnd if fallback image
-                if (!self.FeatureHelper.autoPlay)
+                if (self.enableFallback)
                     setTimeout(self.handleVideoEnd, timeout);
             };
 

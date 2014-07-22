@@ -33,7 +33,7 @@ define([
             var self = this;
             self.base('mouse');
 
-            self.videoController = new VideoController();
+            self.videoController = new VideoController(true);
 
             self.mouse = self.gameState.mouse;
             self.mouseDrinking = ko.observable(false);
