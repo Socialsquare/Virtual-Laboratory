@@ -6,8 +6,7 @@ define([
     'model/Pipette',
     'model/Tip',
     'model/type/Liquid',
-    'model/type/Microorganism',
-    'extensions/extensions' //TODO: have this as the _last_ requirement
+    'model/type/Microorganism'
 ], function (utils, CF, LF, IncubatorModel, PipetteModel, TipModel, LiquidType, MicroorganismType) {
 
     describe('Simple container', function() {
