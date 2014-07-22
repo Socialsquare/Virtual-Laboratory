@@ -20,7 +20,7 @@ define([], function () {
         BLENDER:           'ContainerType.BLENDER',
         ELECTROPORATOR:    'ContainerType.ELECTROPORATOR',
         FERMENTOR_TANK:    'ContainerType.FERMENTOR_TANK',
-        WASHING:           'ContainerType.WASHING',
+        WASHING_TANK:      'ContainerType.WASHING_TANK',
 
         // Composite machines
         HEATER:            'ContainerType.HEATER',

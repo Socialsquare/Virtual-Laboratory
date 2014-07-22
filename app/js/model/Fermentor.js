@@ -101,8 +101,6 @@ define([
                 for(var i = 0; i < self.hourResolution(); i++) {
                     self.fermentorTank.growContentsOnce(deltaTime, self.growerType(), self.ph(), self.temperature());
 
-                    console.log('Grow iteration #' + i);
-
                     _.each(self.fermentorTank.liquids(), function(organism) {
                         if(! (organism.type() === LiquidType.MICROORGANISM))
                         { return; }

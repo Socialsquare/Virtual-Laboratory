@@ -75,7 +75,7 @@ define([
                      self.graphTimer(graphTimer);
                      self.turnedOn(true);
 
-                     self.experimentController.triggerActivation(self.ActivationType.FERMENTOR);
+                     self.experimentController.triggerActivation(self.ActivationType.FERMENTOR, self.fermentor);
                  } else {
                  // User stops the run
                      clearTimeout(self.graphTimer());
@@ -100,7 +100,6 @@ define([
                     if(utils.math.getBiomassFromConcentration(producedEnzyme.amount) > 0.2){
                         var enzymeLiquidType = producedEnzyme.enzymeLiquidType;
 
-//TODO: i18n localization
                         switch (enzymeLiquidType) {
                             case LiquidType.GFP:
                                 return;

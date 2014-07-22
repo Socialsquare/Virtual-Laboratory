@@ -126,6 +126,10 @@ define([
                     if (!self.matchLiquids(trigger, item)) return;
                 }
 
+                if (trigger.activation === ActivationType.FERMENTOR) {
+                    if (!self.matchLiquids(trigger, item.fermentorTank)) return;
+                }
+
                 if (trigger.activation === ActivationType.HEATER) {
                     var valid = _(item.containers())
                             .compact()
