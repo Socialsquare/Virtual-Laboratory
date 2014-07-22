@@ -57,6 +57,8 @@ define([
         new VideoModel('electroporator7', 'electroporator07')
     ];
 
+    var timeout = 2000;
+
     var VideoController = Base.extend({
         constructor: function () {
             var self = this;
@@ -111,6 +113,10 @@ define([
                 // force removal of the video tag before inserting the new one
                 self.activeVideo(null);
                 self.activeVideo(self.findVideo(id));
+
+                // force handleVideoEnd if fallback image
+                if (!self.FeatureHelper.autoPlay)
+                    setTimeout(self.handleVideoEnd, timeout);
             };
 
             self.handleVideoEnd = function () {

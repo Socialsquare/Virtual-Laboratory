@@ -1,7 +1,9 @@
 define([
     'knockout',
-    'controller/view/Base'
-], function (ko, BaseViewController) {
+    'controller/view/Base',
+    'utils/FeatureHelper'
+
+], function (ko, BaseViewController, FeatureHelper) {
 
     var Overview = BaseViewController.extend({
         constructor: function () {

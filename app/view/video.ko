@@ -1,8 +1,18 @@
 <!-- ko if: !!activeVideo() -->
+
+<!-- ko if: FeatureHelper.autoPlay -->
 <video autoplay class="video" preload="auto"
        data-bind="css: 'video-' + activeVideo().name(),
                   attr: { loop: isLooping, controls: controlsRequired() && !FeatureHelper.autoPlay },
                   event: { ended: handleVideoEnd }">
     <source data-bind="attr: { src: 'assets/videos/' + activeVideo().filePath() + '.mp4' }" type="video/mp4"/>
 </video>
+<!-- /ko -->
+
+<!-- ko if: !FeatureHelper.autoPlay -->
+<img class="video" alt="Fallback video image"
+     data-bind="css: 'video-' + activeVideo().name(),
+                attr: { src: 'assets/images/' + activeVideo().filePath() + '.png' }">
+<!-- /ko -->
+
 <!-- /ko -->
