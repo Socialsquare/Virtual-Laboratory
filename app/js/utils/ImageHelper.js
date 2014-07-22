@@ -10,7 +10,8 @@ define([
         incubatorTubeRackImage: function (position, tube) {
             if (!tube) return '';
 
-            return IMG_PATH + '/incubator_tube' + (position + 1) + '.png';
+            var state = tube.isEmpty() ? '_empty' : '';
+            return IMG_PATH + '/incubator_tube' + (position + 1) + state + '.png';
         },
 
         incubatorPetriImage: function (position, dish) {
