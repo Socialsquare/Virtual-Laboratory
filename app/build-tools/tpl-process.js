@@ -13,7 +13,7 @@ var process = function (grunt, cwd) {
             '</script>';
     };
 
-    files = grunt.file.expand(cwd + 'view/**/*.ko');
+    files = grunt.file.expand(cwd + '/view/**/*.ko');
 
     files.forEach(function (file) {
         var name = path.basename(file, '.ko'),

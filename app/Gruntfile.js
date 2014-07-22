@@ -141,7 +141,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('templateIndex', function () {
-        var templated = tplProcess.process(grunt, '.');
+        var templated = tplProcess.process(grunt, process.cwd());
         grunt.file.write('dist/index.html', templated);
     });
 
