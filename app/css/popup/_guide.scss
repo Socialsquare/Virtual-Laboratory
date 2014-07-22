@@ -14,11 +14,24 @@
 
     ul {
         li {
-            list-style: none;
+            margin-bottom: 5px;
+
+            i {
+                margin-left: 5px;
+            }
 
             &.finished {
-                @include opacity(0.3);
+                span {
+                    @include opacity(0.3);
+                }
 
+                i {
+                    color: green;
+                }
+            }
+
+            &.active {
+                font-weight: bold;
             }
         }
     }

@@ -133,20 +133,20 @@
         "description": "You will learn to trip clean",
         "tasks": [
             {
-                "description": "Strictly mix antibiotic a and deadly",
-                "trigger": {
-                    "type": "TriggerType.MIX",
-                    "liquids": [
-                        { "type": "LiquidType.DEADLY" },
-                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.A" }
-                    ]
-                }
-            },
-            {
                 "description": "Design any kind of drug",
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.COMPUTER_ORDER_DRUG"
+                }
+            },
+            {
+                "description": "Design DNA",
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.COMPUTER_ORDER_DNA",
+                    "liquids": [
+                        { "type": "LiquidType.GENE" }
+                    ]
                 }
             },
             {
@@ -199,16 +199,6 @@
                     "activation": "ActivationType.ELECTROPORATOR",
                     "liquids": [
                         { "type": "LiquidType.ANTIBIOTIC" }
-                    ]
-                }
-            },
-            {
-                "description": "Design DNA",
-                "trigger": {
-                    "type": "TriggerType.ACTIVATION",
-                    "activation": "ActivationType.COMPUTER_ORDER_DNA",
-                    "liquids": [
-                        { "type": "LiquidType.GENE" }
                     ]
                 }
             },

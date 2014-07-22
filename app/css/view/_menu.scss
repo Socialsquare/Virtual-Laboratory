@@ -47,13 +47,14 @@
 
         .guide {
             float: left;
+            margin-left: 10px;
         }
 
         .inventory-container {
             float: left;
             height: 100px;
             position: relative;
-            margin-left: 25px;
+            margin-left: 15px;
 
             .arrow-left, .arrow-right {
                 position: absolute;
