@@ -7,29 +7,25 @@
         bottom: -4px;
     }
 
-    .top-menu {
+    .back-button {
         position: absolute;
         top: 15px;
         left: 15px;
-        width: 994px;
+        width: 45px;
+    }
 
-        .back-button { width: 45px; }
+    ul.right {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        margin: 0;
 
-        ul {
-            padding: 0;
-            list-style: none;
+        padding: 0;
+        list-style: none;
 
-            li {
-                margin: 0 5px;
-                display: inline-block;
-            }
-        }
-
-        .right {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 0;
+        li {
+            margin: 0 5px;
+            display: inline-block;
         }
     }
 
@@ -136,25 +132,6 @@
                     }
                 }
             }
-        }
-    }
-}
-
-.pipette {
-    position: absolute;
-    top: 400px;
-    left: 800px;
-    width: 105px;
-    height: 227px;
-    z-index: 400;
-    background-image: url(#{$img-path}/grab_pipette_notip.png);
-    background-size: 105px 227px;
-
-    &.tip {
-        background-image: url(#{$img-path}/grab_pipette_tip.png);
-
-        &.full {
-            background-image: url(#{$img-path}/grab_pipette_tip_click.png);
         }
     }
 }

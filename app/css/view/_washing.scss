@@ -7,7 +7,6 @@
 
   .tuberack {
     @include tuberack(633px, -1px);
-    z-index: 5000;
   }
 
   .washing-button {
@@ -27,8 +26,6 @@
   }
 
   .shirt {
-    z-index: 4900;
-
     .overlay {
       position: absolute;
       left: 486px;

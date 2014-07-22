@@ -1,6 +1,4 @@
 <div class="incubator-view">
-	<button class="btn-none btn" data-bind="click: activateIncubator.bind()"></button>
-
 	<div class="hand time" data-bind="text: incubator.timerText()"></div>
 	<div class="hand temperature" data-bind="text: incubator.temperatureText()"></div>
 
@@ -13,4 +11,6 @@
     <div class="petridish-level" data-bind="template: { name: 'compContainer', data: petriSpaceController }"></div>
 
     <div class="cover" data-bind="visible: incubator.turnedOn()"></div>
+
+	<div class="hand btn" data-bind="click: activateIncubator.bind()"></div>
 </div>

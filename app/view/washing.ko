@@ -1,5 +1,4 @@
 <div class="washingmachine-view">
-    <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
 
     <div class="washing-button">
         <img src="assets/images/wash_onButton.png" alt="Wasing machine button"
@@ -12,7 +11,10 @@
              data-bind="visible: !status()">
     </div>
 
+    <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
+
     <div class="shirt" data-bind="if: result">
+
         <img src="assets/images/wash_results.png" alt="Washing result">
         <img class="overlay" src="assets/images/wash_results_dirty.png" alt="Shirt"
              data-bind="style: { opacity: result }">

@@ -26,7 +26,19 @@
                                 template: { name: 'menu', data: menuController }"></div>
             </div>
 
-            <div id="popup-container" data-bind="visible: popupController.active">
+            <div class="pipette"
+                 data-bind="drag: { item: gameState.pipette, helper: 'original', revert: false, offset: { top: 185, left: 15 } },
+                            visible: gameState.pipette.active,
+                            css: { tip: gameState.pipette.hasTip(), full: !gameState.pipette.isEmpty() }"></div>
+
+            <div class="popup-cover" data-bind="visible: popupController.activePopup"></div>
+            <div id="notification-container" data-bind="visible: popupController.activeNotification">
+                <div data-bind="foreach: popupController.activeNotifications">
+                    <div data-bind="template: { name: templateName, data: $data}"></div>
+                </div>
+            </div>
+
+            <div id="popup-container" data-bind="visible: popupController.activePopup">
                 <div data-bind="foreach: popupController.activePopups">
                     <div data-bind="template: { name: templateName, data: $data}"></div>
                 </div>

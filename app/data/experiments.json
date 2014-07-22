@@ -172,17 +172,11 @@
             {
                 "description": "Mix the base",
                 "trigger": {
-                    "type": "TriggerType.MIX",
-                    "container": "ContainerType.TUBE",
-                    "location": "LocationType.FUMEHOOD",
-                    "strict": true,
-                    "liquids": [
-                        { "type": "LiquidType.ANTIBIOTIC" },
-                        { "type": "LiquidType.DEADLY" }
-                    ]
+                    "type": "TriggerType.ACQUIRE",
+                    "container": "ContainerType.TUBE"
                 },
                 "consequence": {
-                    "type": "ConsequenceType.QUIZ",
+                    "type": "ConsequenceType.VIDEO",
                     "video": "fast-loop",
                     "quiz": {
                         "id": 0,

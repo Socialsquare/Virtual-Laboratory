@@ -1,11 +1,18 @@
 /* popup/base.scss */
 
+.popup-cover {
+    position: absolute;
+    width: 1024px;
+    height: 768px;
+    background-color: white;
+
+    @include opacity(0.4);
+}
+
 .popup {
     @include gradient-bg(#2f2f2f, #0f0f0f);
 
     position: absolute;
-
-    z-index: 2000;
 
     left: 82px;
     top: 50px;

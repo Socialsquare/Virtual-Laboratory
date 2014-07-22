@@ -39,7 +39,7 @@ define([
             self.uvTableSpaceMicroImage = self.single('uv_micro');
             self.sidegroupEmptySlot = self.single('scaffold_R');
 
-            self.odMachineTubeImage = _.constant('work2_od-on.png');
+            self.odMachineTubeImage = _.constant(self.img('work2_od-on.png'));
 
             self.tableSpacePetriImage = function (position, petri) {
                 var state = !petri || petri.isEmpty() ? 'empty' : 'full';

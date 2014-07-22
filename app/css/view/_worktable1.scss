@@ -61,16 +61,4 @@
         .slot1 { width: 26px; }
         .slot2 { height: 41px; }
     }
-
-    .video-container {
-        z-index: 0;
-        height: 100%;
-        width: 100%;
-        video { width: 100%; }
-    }
-
-    .video-container.playing {
-        z-index: 1000;
-        background-color: #000;
-    }
 }

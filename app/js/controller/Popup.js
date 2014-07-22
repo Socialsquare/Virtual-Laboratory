@@ -14,19 +14,28 @@ define([
         constructor: function () {
             var self = this;
 
+            self.activeNotifications = ko.observableArray([]);
+            self.activeNotification = ko.computed(function () {
+                return !self.activeNotifications.isEmpty();
+            });
+
             self.activePopups = ko.observableArray([]);
-            self.active = ko.computed(function () {
+            self.activePopup = ko.computed(function () {
                 return !self.activePopups.isEmpty();
             });
 
-            self.show = function (name, viewData) {
+            self.show = function (name, viewData, asNotification) {
                 var vm = new PopupModel(name, viewData, self);
-                self.activePopups.push(vm);
+                if (asNotification)
+                    self.activeNotifications.push(vm);
+                else
+                    self.activePopups.push(vm);
                 return vm;
             };
 
             self.hide = function (popup) {
                 self.activePopups.remove(popup);
+                self.activeNotifications.remove(popup);
             };
 
             self.message = function (title, message) {
@@ -40,7 +49,7 @@ define([
             self.notify = function(title, message, closingTime) {
                 var delay = closingTime || 3000;
 
-                var vm = self.show('popup-notify', { title: title, message: message });
+                var vm = self.show('popup-notify', { title: title, message: message }, true);
                 _.delay(function () {
                     self.hide(vm);
                 }, delay);

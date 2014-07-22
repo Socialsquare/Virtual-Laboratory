@@ -1,23 +1,17 @@
-<div class="pipette"
-     data-bind="drag: { item: gameState.pipette, helper: 'original', revert: false, offset: { top: 185, left: 15 } },
-                visible: gameState.pipette.active,
-                css: { tip: gameState.pipette.hasTip(), full: !gameState.pipette.isEmpty() }"></div>
-
 <div class="hud">
-    <div class="top-menu">
-        <div class="back-button hand" data-bind="click: router.back, visible: router.hasBack">
-            <img src="assets/images/top-button_back.png" alt="Tilbage">
-        </div>
 
-        <ul class="right">
-            <li class="hand" data-bind="click: selectExperiment">
-                <img src="assets/images/top-button_experiment.png" alt="Vælg nyt eksperiment">
-            </li>
-            <li class="hand" data-bind="click: fullscreen">
-                <img src="assets/images/top-button_fullscreen.png" alt="Full screen">
-            </li>
-        </ul>
+    <div class="back-button hand" data-bind="click: router.back, visible: router.hasBack">
+        <img src="assets/images/top-button_back.png" alt="Tilbage">
     </div>
+
+    <ul class="right">
+        <li class="hand" data-bind="click: selectExperiment">
+            <img src="assets/images/top-button_experiment.png" alt="Vælg nyt eksperiment">
+        </li>
+        <li class="hand" data-bind="click: fullscreen">
+            <img src="assets/images/top-button_fullscreen.png" alt="Full screen">
+        </li>
+    </ul>
 
     <div class="menu-bar">
         <div class="hand guide" data-bind="click: showGuide">
