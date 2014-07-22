@@ -2,6 +2,7 @@
     {
         "title": "Test-øvelse",
         "description": "Denne øvelse er midlertidig.",
+        "story": "Et nyt enzym er netop blevet identificeret I en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven.",
         "tasks": [
             {
                 "description": "Mix the base",
@@ -64,6 +65,7 @@
     {
         "title": "Please the mouse",
         "description": "In this experiment you will learn to please a mouse and more",
+        "story": "Et nyt enzym er netop blevet identificeret I en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven.",
         "tasks": [
             {
                 "description": "Get some antibiotic (type a)",
@@ -131,6 +133,7 @@
     {
         "title": "Meth Cooker's Hand Book - Part One",
         "description": "You will learn to trip clean",
+        "story": "Et nyt enzym er netop blevet identificeret I en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven.",
         "tasks": [
             {
                 "description": "Design any kind of drug",

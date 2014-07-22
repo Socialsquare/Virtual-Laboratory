@@ -3,12 +3,26 @@
 
 	<hr />
 
-	<ul data-bind="foreach: data.experiment.tasks">
-        <li data-bind="css: { finished: finished, active: $data === $parent.data.activeTask }">
-            <span data-bind="text: ($index() + 1) + '. ' + description()"></span>
-            <i data-bind="visible: finished" class="fa fa-check"></i>
-        </li>
-    </ul>
+    <br />
+
+    <div class="inner">
+        <span data-bind="text: data.experiment.story"></span>
+
+        <br />
+        <br />
+
+        <ul data-bind="foreach: data.experiment.tasks">
+            <li data-bind="css: { finished: finished, active: $data === $parent.data.activeTask }">
+                <span data-bind="text: ($index() + 1) + '. ' + description()"></span>
+                <i data-bind="visible: finished" class="fa fa-check"></i>
+            </li>
+        </ul>
+
+        <br />
+    </div>
+
+
+
 
 	<div class="btn-row">
         <button data-bind="click: hide, i18n: 'common.close'"></button>

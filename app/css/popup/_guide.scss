@@ -1,13 +1,13 @@
 /* popup/guide.scss */
 
 .popup-guide {
-    $width: 400px;
+    $width: 700px;
 
     padding: 30px;
 
     color: white;
 
-    left: 290px;
+    left: 130px;
     top: 50px;
     width: $width;
     height: 480px;
@@ -38,5 +38,11 @@
 
     .btn-row {
         width: $width;
+    }
+
+    .inner {
+      width: $width;
+      height: 310px;
+      overflow-y: scroll;
     }
 }

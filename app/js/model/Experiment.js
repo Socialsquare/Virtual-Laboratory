@@ -12,6 +12,7 @@ define([
 
             self.id = ko.observable(values.id);
             self.title = ko.observable(values.title);
+            self.story = ko.observable(values.story);
             self.description = ko.observable(values.description);
             self.tasks = ko.observableArray(_.map(values.tasks, function (task) {
                 return new TaskModel(task);
