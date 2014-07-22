@@ -178,7 +178,7 @@ define([
                     self.quizController.startQuiz(conseq.quiz).then(self.markTaskFinished);
                     break;
                 case ConsequenceType.VIDEO:
-                    self.popupController.video(conseq.video).then(self.markTaskFinished);
+                    self.popupController.video(conseq.video, true).then(self.markTaskFinished);
                     break;
                 }
             };
