@@ -16,7 +16,8 @@ define([
         incubatorPetriImage: function (position, dish) {
             if (!dish) return '';
 
-            return IMG_PATH + '/incubator_dish' + (position + 1) + '.png';
+            var state = dish.isEmpty() ? '_empty' : '';
+            return IMG_PATH + '/incubator_dish' + (position + 1) + state + '.png';
         },
 
         incubatorPetriPlaceholderImage: function (position, dish) {
