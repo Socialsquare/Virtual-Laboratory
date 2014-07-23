@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="60.546" width="144.69" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <metadata id="metadata7">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="layer1" transform="translate(-138.8108,-261.42283)">
+  <text id="text3001" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" transform="matrix(0.94168235,0.33650313,-0.33650313,0.94168235,0,0)" font-size="40px" font-style="normal" y="219.806" x="516.11462" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3003" x="516.11462" y="219.806"/></text>
+  <text id="text3144" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" transform="matrix(0.94168235,0.33650313,-0.33650313,0.94168235,0,0)" font-size="40px" font-style="normal" y="177.83273" x="292.64731" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3146" x="292.64731" y="177.83273"/></text>
+  <text id="text3148" style="letter-spacing:0px;word-spacing:0px;" font-family="Sans" font-weight="normal" xml:space="preserve" transform="matrix(0.99978234,0.02086306,-0.02086306,0.99978234,0,0)" font-size="40px" font-style="normal" y="273.04364" x="142.5759" ide="R" line-height="125%" fill="#000000"><tspan id="tspan3150" font-size="20px" y="273.04364" x="142.5759">R</tspan></text>
+  <path id="path3185" d="m43.523,21.337c0,0.18742-0.15193,0.33935-0.33935,0.33935s-0.33935-0.15193-0.33935-0.33935,0.15193-0.33935,0.33935-0.33935,0.33935,0.15193,0.33935,0.33935z" transform="matrix(0.94168235,0.33650313,-0.33650313,0.94168235,118.97015,235.84792)" ide="marker" fill="#F00"/>
+  <path id="path5528-2" stroke-linejoin="miter" d="m181.29,270.63,14.62,25.839" stroke="#000" stroke-linecap="butt" stroke-width="0.87844551px" fill="none"/>
+  <path id="path5528-2-9" stroke-linejoin="miter" d="m225.2,296.56-29.687-0.25783m33.507-0.63727,12.885,22.318m36.353-21.772-11.903,21.681m-24.303-42.435,23.81-0.47877m2.5046-3.9933,14.761,25.567m-44.064-25.365,29.522-0.00001m-43.825,25.385,14.761-25.567m28.801,50.727,14.761-25.567m-43.891,25.3,29.522-0.00001m-44.111-25.319,14.761,25.567" stroke="#000" stroke-linecap="butt" stroke-width="0.87844551px" fill="none"/>
+  <path id="path5528-2-9-4" stroke-linejoin="miter" d="m181.65,270.81-29.687-0.25783" stroke="#000" stroke-linecap="butt" stroke-width="0.87844551px" fill="none"/>
+ </g>
+</svg>

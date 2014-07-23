@@ -1,23 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="102.98" width="169.14" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
- <metadata id="metadata7">
-  <rdf:RDF>
-   <cc:Work rdf:about="">
-    <dc:format>image/svg+xml</dc:format>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:title/>
-   </cc:Work>
-  </rdf:RDF>
- </metadata>
- <g id="layer1" transform="translate(-173.16183,-314.24585)">
-  <text id="text2997" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" transform="matrix(0.99989454,-0.0145224,0.0145224,0.99989454,0,0)" font-size="40px" font-style="normal" y="333.42487" x="283.32831" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan2999" font-size="20px" dy="0 0 9.106245" y="333.42487" x="283.32831">CH3</tspan></text>
-  <text id="text3001" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" transform="matrix(0.76226143,-0.64726927,0.64726927,0.76226143,0,0)" font-size="40px" font-style="normal" y="393.90759" x="195.47617" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3003" x="195.47617" y="393.90759"/></text>
-  <text id="text3144" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" transform="matrix(0.76226143,-0.64726927,0.64726927,0.76226143,0,0)" font-size="40px" font-style="normal" y="351.93433" x="-27.991087" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3146" x="-27.991087" y="351.93433"/></text>
-  <text id="text3148" style="letter-spacing:0px;word-spacing:0px;" font-family="Sans" font-weight="normal" xml:space="preserve" transform="matrix(0.99978234,0.02086306,-0.02086306,0.99978234,0,0)" font-size="40px" font-style="normal" y="326.35953" x="178.04698" ide="R" line-height="125%" fill="#000000"><tspan id="tspan3150" font-size="20px" y="326.35953" x="178.04698">R</tspan></text>
-  <path id="path3185" d="m43.523,21.337c0,0.18742-0.15193,0.33935-0.33935,0.33935s-0.33935-0.15193-0.33935-0.33935,0.15193-0.33935,0.33935-0.33935,0.33935,0.15193,0.33935,0.33935z" transform="matrix(0.76226143,-0.64726927,0.64726927,0.76226143,145.59604,329.97283)" ide="marker" fill="#F00"/>
-  <text id="text3410" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" transform="matrix(0.99996199,-0.00871905,0.00871905,0.99996199,0,0)" font-size="32px" font-style="normal" y="369.78757" x="310.26749" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3412" font-size="20px" y="369.78757" x="310.26749">OH</tspan></text>
-  <path id="path3533" stroke-linejoin="miter" d="M66.429,122.96,89.588,93.874m49.562,0.379-49.499-0.506m-70.51-40.997l38.825,0.61139,31.637,40.422,23.62-30.176" transform="translate(173.07662,265.58545)" stroke="#000" stroke-linecap="butt" stroke-width="1px" fill="none"/>
-  <text id="text3537" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" font-size="40px" font-style="normal" y="406.58163" x="200.93376" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3539" font-size="20px" dy="0 10.357141 -10.357141" y="406.58163" x="200.93376">H3C</tspan></text>
- </g>
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:cml="http://www.xml-cml.org/schema" width="189.282" height="154.641" x="0" y="0" font-family="sans-serif" stroke="rgb(0,0,0)" stroke-width="1" >
+<line x1="140.3" y1="85.2" x2="114.6" y2="100.0"/>
+<line x1="114.6" y1="100.0" x2="80.0" y2="80.0"/>
+<line x1="80.0" y1="80.0" x2="50.4" y2="80.0"/>
+<line x1="80.0" y1="80.0" x2="65.2" y2="105.6"/>
+<line x1="80.0" y1="80.0" x2="80.0" y2="50.4"/>
+<text x="143.282032" y="88.320000" fill="rgb(124,127,175)"  stroke="rgb(124,127,175)" stroke-width="1" font-size="16" >Zn</text>
+<text x="16.400000" y="84.800000" fill="rgb(102,102,102)"  stroke="rgb(102,102,102)" stroke-width="1" font-size="16" >H</text>
+<text x="28.400000" y="89.600000" fill="rgb(102,102,102)"  stroke="rgb(102,102,102)" stroke-width="1" font-size="13" >3</text>
+<text x="34.900000" y="84.800000" fill="rgb(102,102,102)"  stroke="rgb(102,102,102)" stroke-width="1" font-size="16" >C</text>
+<text x="36.400000" y="119.441016" fill="rgb(102,102,102)"  stroke="rgb(102,102,102)" stroke-width="1" font-size="16" >H</text>
+<text x="48.400000" y="124.241016" fill="rgb(102,102,102)"  stroke="rgb(102,102,102)" stroke-width="1" font-size="13" >3</text>
+<text x="54.900000" y="119.441016" fill="rgb(102,102,102)"  stroke="rgb(102,102,102)" stroke-width="1" font-size="16" >C</text>
+<text x="74.000000" y="48.320000" fill="rgb(255,12,12)"  stroke="rgb(255,12,12)" stroke-width="1" font-size="16" >OH</text>
+<text font-size="18.000000" fill ="black" font-family="sans-serif"
+x="140.000000" y="20.000000" ></text>
+<title> - OBDepict</title>
 </svg>
