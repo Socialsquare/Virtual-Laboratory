@@ -5,7 +5,9 @@
              data-bind="visible: status()">
     </div>
 
-    <div class="drawer" data-bind="ifnot: result, click: reset,
+    <div class="drawer" data-bind="css: { hand: result },
+                                   ifnot: result,
+                                   click: reset,
                                    drop: { handler: handleWashingDrop, accept: DragHelper.acceptedByWashing }">
         <img src="assets/images/wash_openDrawer.png" alt="Washing machine drawer"
              data-bind="visible: !status()">

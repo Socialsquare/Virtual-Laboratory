@@ -23,7 +23,7 @@
                 <div class="label" data-bind="text: fermentor.timerText()"></div>
             </div>
 
-            <div class="export-btn" data-bind="click: exportData">
+            <div class="hand export-btn" data-bind="click: exportData">
                 <img src="assets/images/icon_spreadsheet.png" alt="Export data">
             </div>
 

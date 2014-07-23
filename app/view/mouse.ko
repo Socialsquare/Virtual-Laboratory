@@ -2,7 +2,7 @@
 
     <div class="video-container" data-bind="template: { name: 'video', data: videoController }"></div>
 
-    <img class="water-bottle" src="assets/images/grab_drink.png" alt="Juiceflaske"
+    <img class="hand water-bottle" src="assets/images/grab_drink.png" alt="Juiceflaske"
          data-bind="visible: !mouseDrinking(),
                     drag: { hide: true, item: bottle, offset: { left: 84, top: 182 } }">
 
@@ -12,7 +12,7 @@
 
     <div class="mousegraph" data-bind="plotMouse: plotData"></div>
 
-    <div class="export-btn" data-bind="click: exportData">
+    <div class="hand export-btn" data-bind="click: exportData">
         <img src="assets/images/icon_spreadsheet.png" alt="Export data">
     </div>
 </div>
