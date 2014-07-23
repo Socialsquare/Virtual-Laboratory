@@ -12,6 +12,9 @@ define([
 
             self.spectroPMMachine = new SpectroPMMachineModel();
 
+            self.reset = function () {
+                self.spectroPMMachine.removeAll();
+            };
         }
     });
 

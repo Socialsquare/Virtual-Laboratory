@@ -9,6 +9,7 @@ define([
             var self = this;
 
             self.type = ko.observable(type);
+            self.capacity = capacity;
             self.containers = ko.observableArray(new Array(capacity));
             self.acceptedType = ko.observable(acceptedType);
             self.location = ko.observable(null);
@@ -47,14 +48,21 @@ define([
             };
 
             self.remove = function (position) {
-                self.get(position).location(null);
+                var container = self.get(position);
+                if (!container)
+                    return;
+
+                container.location(null);
                 self.containers.setAt(position, null);
+            };
+
+            self.removeAll = function () {
+                self.containers(new Array(self.capacity));
             };
 
             self.growContentsOnce = function(deltaTime, growerType, ph, temperature) {
                 // deltaTime is in "hours"
-                _.forEach(self.containers(), function(container){
-
+                _.forEach(self.containers(), function(container) {
                     if(!container) {return;}
 
                     container.growContentsOnce(deltaTime, growerType, ph, temperature);

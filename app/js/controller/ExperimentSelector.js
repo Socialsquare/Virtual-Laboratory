@@ -30,6 +30,7 @@ define([
                 if (self.experimentController.hasExperiment()) {
                     popupController.confirm('experiment.change.header', 'experiment.change.body')
                         .then(function () {
+                            self.gameState.reset();
                             self.experimentController.startExperiment(self.selected());
                             self.router.navigate('overview');
                         });

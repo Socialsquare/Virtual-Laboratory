@@ -27,6 +27,16 @@ define([
             self.bunsenBurner = ko.observable(false);
             self.electroporator = new ElectroporatorModel();
             self.heater = new HeaterModel();
+
+            self.reset = function () {
+                self.tableSpacePetri.removeAll();
+                self.tableSpaceMicro.removeAll();
+                self.tubeRack.removeAll();
+
+                self.bunsenBurner(false);
+                self.electroporator.clearContents();
+                self.heater.removeAll();
+            };
         }
     });
 

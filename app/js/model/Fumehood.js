@@ -19,6 +19,12 @@ define([
 
             self.tubeRack = new TubeRackModel();
             self.tubeRack.location(LocationType.FUMEHOOD);
+
+            self.reset = function () {
+                self.tableSpacePetri.removeAll();
+                self.tableSpaceMicro.removeAll();
+                self.tubeRack.removeAll();
+            };
         }
     });
 

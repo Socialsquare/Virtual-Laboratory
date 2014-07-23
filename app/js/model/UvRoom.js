@@ -20,6 +20,12 @@ define([
 
             self.tubeRack = new TubeRackModel(ContainerType.UV_TUBE_RACK);
             self.tubeRack.location(LocationType.UVROOM);
+
+            self.reset = function () {
+                self.tableSpacePetri.removeAll();
+                self.tableSpaceMicro.removeAll();
+                self.tubeRack.removeAll();
+            };
         }
     });
 

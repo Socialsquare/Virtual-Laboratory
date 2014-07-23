@@ -26,6 +26,15 @@ define([
 
             self.odMachine = new ODMachineModel();
             self.blender = new BlenderModel();
+
+            self.reset = function () {
+                self.tableSpacePetri.removeAll();
+                self.tableSpaceMicro.removeAll();
+                self.tubeRack.removeAll();
+
+                self.odMachine.removeAll();
+                self.blender.status(false);
+            };
         }
     });
 

@@ -9,7 +9,6 @@ define([
             var self = this;
             self.base(1, ContainerType.MICROTITER, ContainerType.SPECTROPM_MACHINE);
 
-
             //TODO all the things!
             self.hasMicrotiter = function () {
                 return self.hasContainerAt(0);

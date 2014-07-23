@@ -76,6 +76,19 @@ define([
 
                 self.timer(self.timer() - 1);
             };
+
+            self.reset = function () {
+                self.tableSpacePetri.removeAll();
+                self.tubeRack.removeAll();
+
+                self.temperature(35.0);
+                self.timer(48);
+                self.turnedOn(false);
+                clearTimeout(self.timerID());
+                self.timerID(null);
+                self.hourResolution(10);
+                self.growerType(GrowerType.INCUBATOR);
+            };
         }
     });
 

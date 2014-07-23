@@ -52,6 +52,10 @@ define([
                 return { result: result, feedback: feedback };
             };
 
+            self.reset = function () {
+                self.tubeRack.removeAll();
+                self.washingTank.clearContents();
+            };
         }
     });
 

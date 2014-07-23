@@ -39,6 +39,10 @@ define([
             self.remove = function (item) {
                 self.items.remove(item);
             };
+
+            self.reset = function () {
+                self.items.removeAll();
+            };
         }
     });
 
