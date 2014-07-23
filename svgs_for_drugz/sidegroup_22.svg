@@ -9,12 +9,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="169.13531"
-   height="102.97613"
+   width="199.50734"
+   height="103.14746"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="scaffold_1.svg">
+   sodipodi:docname="sidegroup_22.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="124.17273"
-     inkscape:cy="92.357754"
+     inkscape:zoom="1"
+     inkscape:cx="268.81146"
+     inkscape:cy="192.39907"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -55,20 +55,20 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-173.16183,-314.24585)">
+     transform="translate(-173.16183,-311.32249)">
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="283.32831"
-       y="333.42487"
+       x="326.46631"
+       y="410.30945"
        id="text2997"
        sodipodi:linespacing="125%"
        transform="matrix(0.99989454,-0.0145224,0.0145224,0.99989454,0,0)"
        inkscape:transform-center-x="-28.855382"><tspan
          sodipodi:role="line"
          id="tspan2999"
-         x="283.32831"
-         y="333.42487"
+         x="326.46631"
+         y="410.30945"
          dy="0 0 9.106245"
          style="font-size:20px">CH3</tspan></text>
     <text
@@ -124,8 +124,8 @@
     <text
        xml:space="preserve"
        style="font-size:32px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="310.26749"
-       y="369.78757"
+       x="325.75632"
+       y="329.14594"
        id="text3410"
        sodipodi:linespacing="125%"
        transform="matrix(0.99996199,-0.00871905,0.00871905,0.99996199,0,0)"
@@ -133,27 +133,13 @@
        inkscape:transform-center-y="12.195241"><tspan
          sodipodi:role="line"
          id="tspan3412"
-         x="310.26749"
-         y="369.78757"
-         style="font-size:20px">OH</tspan></text>
+         x="325.75632"
+         y="329.14594"
+         style="font-size:20px">O</tspan></text>
     <path
-       id="path3533"
-       transform="translate(173.07662,265.58545)"
+       id="path5528-2"
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 66.428571,122.96045 89.587904,93.873702 M 139.14851,94.252509 89.651038,93.747433 M 19.14112,52.7504 l 38.8251,0.61139 31.63724,40.42174 23.62035,-30.17557"
+       d="m 314.36102,362.15738 18.10161,-31.8708 m -22.65241,29.3062 18.10161,-31.8708 m -135.69409,-9.38613 38.8251,0.61139 31.63724,40.42174 m 0.0476,-0.0361 49.49747,0.50508 22.86415,27.33198"
        inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="200.93376"
-       y="406.58163"
-       id="text3537"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3539"
-         x="200.93376"
-         y="406.58163"
-         style="font-size:20px"
-         dy="0 10.357141 -10.357141">H3C</tspan></text>
   </g>
 </svg>
