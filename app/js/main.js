@@ -12,6 +12,7 @@ require.config({
         screenfull: '../bower_components/screenfull/dist/screenfull',
         text: '../bower_components/requirejs-text/text',
         json: '../bower_components/requirejs-plugins/src/json',
+        snapsvg: '../bower_components/snap.svg/dist/snap.svg',
 
         base: 'libs/Base',
 
