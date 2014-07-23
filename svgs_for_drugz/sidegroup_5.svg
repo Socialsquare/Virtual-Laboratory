@@ -9,12 +9,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="346.63028"
-   height="61.781364"
+   width="313.36298"
+   height="42.506248"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="sidegroup_4.svg">
+   sodipodi:docname="sidegroup_5.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -25,8 +25,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="189.25903"
-     inkscape:cy="90.109324"
+     inkscape:cx="180.54269"
+     inkscape:cy="61.350779"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -55,7 +55,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-182.90189,-249.63889)">
+     transform="translate(-191.72415,-254.45837)">
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 206.75387,261.9073 47.47717,22.22335 50.50762,-23.23351 55.05332,23.73859 59.59899,-23.73858 41.69778,15.10033"
@@ -65,16 +65,16 @@
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="465.29779"
-       y="293.28946"
+       x="464.94064"
+       y="286.14661"
        id="text2997"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan2999"
-         x="465.29779"
-         y="293.28946"
-         dy="0 0 17.677668"
-         style="font-size:32px">CH3</tspan></text>
+         x="464.94064"
+         y="286.14661"
+         dy="0 0 10.534815"
+         style="font-size:20px">CH3</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -85,7 +85,7 @@
          sodipodi:role="line"
          id="tspan3003"
          x="458.78693"
-         y="290.19156"></tspan></text>
+         y="290.19156" /></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -100,16 +100,16 @@
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="179.76126"
-       y="272.96701"
+       x="189.76126"
+       y="269.03845"
        id="text3148"
        sodipodi:linespacing="125%"
        ide="R"><tspan
          sodipodi:role="line"
          id="tspan3150"
-         x="179.76126"
-         y="272.96701"
-         style="font-size:32px">R</tspan></text>
+         x="189.76126"
+         y="269.03845"
+         style="font-size:20px">R</tspan></text>
     <path
        sodipodi:type="arc"
        id="path3185"
