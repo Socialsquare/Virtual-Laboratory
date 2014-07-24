@@ -28,8 +28,8 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:cml="http://www.xml-cml.org/sch
 <text x="184.989374" y="79.859192" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>
 <text x="129.493275" y="48.320000" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>
 <text x="94.892175" y="48.320000" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>
-<text x="24.400000" y="78.371540" fill="rgb(124,127,175)"  stroke="rgb(124,127,175)" stroke-width="1" font-size="16" >Zn</text>
-<text x="62.658096" y="143.360122" fill="rgb(124,127,175)"  stroke="rgb(124,127,175)" stroke-width="1" font-size="16" >Zn</text>
+<text x="24.400000" y="78.371540" fill="rgb(124,127,175)"  stroke="rgb(124,127,175)" stroke-width="1" font-size="16" >R</text>
+<text x="62.658096" y="143.360122" fill="rgb(124,127,175)"  stroke="rgb(124,127,175)" stroke-width="1" font-size="16" >R</text>
 <text x="172.483274" y="104.055310" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >1</text>
 <text x="192.250789" y="138.829515" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >2</text>
 <text x="172.250789" y="173.470531" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >3</text>

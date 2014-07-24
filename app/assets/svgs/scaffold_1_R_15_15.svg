@@ -24,7 +24,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:cml="http://www.xml-cml.org/sch
 <line x1="149.7" y1="139.1" x2="188.4" y2="139.1"/>
 <line x1="178.3" y1="72.2" x2="159.8" y2="72.2"/>
 <text x="223.442115" y="147.449324" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>
-<text x="241.695750" y="180.262354" fill="rgb(124,127,175)"  stroke="rgb(124,127,175)" stroke-width="1" font-size="16" >Zn</text>
+<text x="241.695750" y="180.262354" fill="rgb(124,127,175)"  stroke="rgb(124,127,175)" stroke-width="1" font-size="16" >R</text>
 <text x="240.377790" y="113.475603" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>
 <text x="182.393964" y="80.522603" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>
 <text x="146.134213" y="80.522603" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>

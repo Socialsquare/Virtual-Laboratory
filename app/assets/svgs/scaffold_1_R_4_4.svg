@@ -22,7 +22,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:cml="http://www.xml-cml.org/sch
 <line x1="173.3" y1="106.6" x2="211.8" y2="106.6"/>
 <line x1="201.8" y1="40.0" x2="183.3" y2="40.0"/>
 <text x="246.617284" y="114.915025" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>
-<text x="264.768557" y="147.547986" fill="rgb(124,127,175)"  stroke="rgb(124,127,175)" stroke-width="1" font-size="16" >Zn</text>
+<text x="264.768557" y="147.547986" fill="rgb(124,127,175)"  stroke="rgb(124,127,175)" stroke-width="1" font-size="16" >R</text>
 <text x="263.457129" y="81.109682" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>
 <text x="205.760676" y="48.320000" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>
 <text x="169.692527" y="48.320000" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>

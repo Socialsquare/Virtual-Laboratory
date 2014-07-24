@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:cml="http://www.xml-cml.org/schema" width="287.499" height="180.681" x="0" y="0" font-family="sans-serif" stroke="rgb(0,0,0)" stroke-width="1" >
+<line x1="232.6" y1="114.5" x2="242.3" y2="131.5"/>
+<line x1="133.1" y1="73.1" x2="105.6" y2="73.1"/>
+<line x1="91.0" y1="81.5" x2="77.3" y2="105.4"/>
+<line x1="77.3" y1="105.4" x2="49.7" y2="105.4"/>
+<line x1="152.0" y1="105.3" x2="136.7" y2="131.3"/>
+<line x1="232.3" y1="96.6" x2="241.3" y2="80.7"/>
+<line x1="241.3" y1="63.8" x2="227.4" y2="40.0"/>
+<line x1="234.0" y1="65.5" x2="224.2" y2="48.8"/>
+<line x1="227.4" y1="40.0" x2="199.5" y2="40.0"/>
+<line x1="189.7" y1="57.0" x2="189.7" y2="105.3"/>
+<line x1="189.7" y1="105.3" x2="217.6" y2="105.3"/>
+<line x1="147.1" y1="48.6" x2="133.1" y2="73.1"/>
+<line x1="152.3" y1="54.1" x2="142.4" y2="71.5"/>
+<line x1="133.1" y1="73.1" x2="152.0" y2="105.3"/>
+<line x1="152.0" y1="105.3" x2="189.7" y2="105.3"/>
+<line x1="179.9" y1="40.0" x2="161.8" y2="40.0"/>
+<text x="223.761520" y="113.575179" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>
+<text x="241.499316" y="145.480767" fill="rgb(124,127,175)"  stroke="rgb(124,127,175)" stroke-width="1" font-size="16" >R</text>
+<text x="240.214273" y="80.449977" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>
+<text x="183.678633" y="48.320000" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>
+<text x="148.384437" y="48.320000" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >N</text>
+<text x="80.279010" y="81.445203" fill="rgb(12,12,255)"  stroke="rgb(12,12,255)" stroke-width="1" font-size="16" >HN</text>
+<text x="16.400000" y="110.186965" fill="rgb(102,102,102)"  stroke="rgb(102,102,102)" stroke-width="1" font-size="16" >H</text>
+<text x="28.400000" y="114.986965" fill="rgb(102,102,102)"  stroke="rgb(102,102,102)" stroke-width="1" font-size="13" >3</text>
+<text x="34.900000" y="110.186965" fill="rgb(102,102,102)"  stroke="rgb(102,102,102)" stroke-width="1" font-size="16" >C</text>
+<text x="115.771338" y="145.206328" fill="rgb(124,127,175)"  stroke="rgb(124,127,175)" stroke-width="1" font-size="16" >R</text>
+<text x="227.361520" y="105.255179" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >1</text>
+<text x="247.499316" y="140.680767" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >2</text>
+<text x="246.214273" y="72.129977" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >3</text>
+<text x="227.361520" y="40.000000" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >4</text>
+<text x="189.678633" y="40.000000" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >5</text>
+<text x="151.984437" y="40.000000" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >6</text>
+<text x="133.131684" y="73.125203" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >7</text>
+<text x="95.879010" y="73.125203" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >8</text>
+<text x="77.252674" y="105.386965" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >9</text>
+<text x="40.000000" y="105.386965" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >10</text>
+<text x="151.984437" y="105.255179" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >11</text>
+<text x="131.371338" y="140.406328" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >12</text>
+<text x="189.678633" y="105.255179" fill="rgb(255,0,0)"  stroke="rgb(255,0,0)" stroke-width="1" font-size="12" >13</text>
+<text font-size="18.000000" fill ="black" font-family="sans-serif"
+x="140.000000" y="20.000000" ></text>
+<title> - OBDepict</title>
+</svg>

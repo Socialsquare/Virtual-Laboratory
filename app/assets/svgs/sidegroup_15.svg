@@ -6,7 +6,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:cml="http://www.xml-cml.org/sch
 <line x1="80.0" y1="80.0" x2="50.4" y2="80.0"/>
 <line x1="80.0" y1="80.0" x2="65.2" y2="105.6"/>
 <line x1="80.0" y1="80.0" x2="80.0" y2="50.4"/>
-<text x="143.282032" y="88.320000" fill="rgb(124,127,175)"  stroke="rgb(124,127,175)" stroke-width="1" font-size="16" >Zn</text>
+<text x="143.282032" y="88.320000" fill="rgb(124,127,175)"  stroke="rgb(124,127,175)" stroke-width="1" font-size="16" >R</text>
 <text x="16.400000" y="84.800000" fill="rgb(102,102,102)"  stroke="rgb(102,102,102)" stroke-width="1" font-size="16" >H</text>
 <text x="28.400000" y="89.600000" fill="rgb(102,102,102)"  stroke="rgb(102,102,102)" stroke-width="1" font-size="13" >3</text>
 <text x="34.900000" y="84.800000" fill="rgb(102,102,102)"  stroke="rgb(102,102,102)" stroke-width="1" font-size="16" >C</text>
