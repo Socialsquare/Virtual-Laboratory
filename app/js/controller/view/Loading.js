@@ -1,10 +1,14 @@
 define([
     'knockout',
     'jquery',
+
     'controller/view/Base',
     'controller/ExperimentSelector',
-    'service/Localization'
-], function (ko, $, BaseViewController, ExperimentSelectorController, localizationService) {
+
+    'service/Localization',
+
+    'utils/FeatureHelper'
+], function (ko, $, BaseViewController, ExperimentSelectorController, localizationService, FeatureHelper) {
 
     var Loading = BaseViewController.extend({
         constructor: function () {
@@ -33,6 +37,10 @@ define([
 
             self.enter = function () {
                 self.experimentSelectorController.selected(null);
+
+                if (FeatureHelper.homeScreen && !window.navigator.standalone) {
+                    self.popupController.message('popup.home_screen.header', 'popup.home_screen.body');
+                }
             };
         }
 

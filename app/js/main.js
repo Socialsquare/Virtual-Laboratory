@@ -13,6 +13,7 @@ require.config({
         text: '../bower_components/requirejs-text/text',
         json: '../bower_components/requirejs-plugins/src/json',
         snapsvg: '../bower_components/snap.svg/dist/snap.svg',
+        homescreen: '../bower_components/add-to-homescreen/src/addtohomescreen',
 
         base: 'libs/Base',
 
@@ -24,7 +25,8 @@ require.config({
         'jqueryuitouchpunch': ['jqueryui'],
         'flot': ['jquery'],
         'screenfull': { exports: 'screenfull' },
-        'base': { exports: 'Base' }
+        'base': { exports: 'Base' },
+        'homescreen': { exports: 'addToHomescreen' }
     }
 });
 

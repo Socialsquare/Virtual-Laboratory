@@ -1,6 +1,7 @@
 define([
     'knockout',
     'controller/view/Base',
+    'homescreen',
 
     // controllers
     'controller/Menu',
@@ -22,13 +23,15 @@ define([
     'factory/Container', //TODO: remove, just for dummy-data
     'factory/Liquid' //TODO: remove, just for dummy-data
 
-], function (ko, BaseViewController, MenuController, LoadingController,
+], function (ko, BaseViewController, homescreen, MenuController, LoadingController,
              OverviewController, MouseController, ChemicalController,
              ComputerController, FumehoodController, Worktable1Controller,
              Worktable2Controller, IncubatorController, SpectroPMController,
              FermentorController, FermentorScreenController, UvRoomController,
              WashingController, DesignDNAController, ContainerFactory, LiquidFactory) {
 
+    // encourage users on tablet to add the app to their homescreen
+    homescreen();
 
     var App = BaseViewController.extend({
 
@@ -78,7 +81,7 @@ define([
             });
 
             // bootstrap the app by going to loading view
-            self.router.navigate('computer');
+            self.router.navigate('loading');
 
             //------------------------
             // dummy data

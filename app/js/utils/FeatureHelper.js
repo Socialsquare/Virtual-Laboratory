@@ -7,8 +7,12 @@ define([
 
         constructor: function () {
             var self = this;
-            var autoPlayPlatforms = ['iPad', 'iPhone', 'iPod', 'Android'];
+
+            var autoPlayPlatforms = [ 'iPad', 'iPhone', 'iPod', 'Android' ];
             self.autoPlay = !_.contains(autoPlayPlatforms, navigator.platform);
+
+            var homeScreenPlatforms = [ 'iPad', 'iPhone' ];
+            self.homeScreen = _.contains(homeScreenPlatforms, navigator.platform);
         }
     });
 
