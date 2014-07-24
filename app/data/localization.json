@@ -88,8 +88,6 @@
         "mouse.drug_administration.pill": "Pille",
         "mouse.drug_administration.cream": "Creme",
 
-
-
         "washing.empty_tube.header": "Forbudt",
         "washing.empty_tube.body": "Dit reagensglas er tomt",
         "washing.detergent_required.header": "Forbudt",
@@ -213,7 +211,9 @@
         "common.cancel": "Fortryd",
         "common.exercise": "Øvelse",
         "common.result": "Resultat",
-        "common.description": "Beskrivelse"
+        "common.description": "Beskrivelse",
+        "common.more_info": "Mere info",
+        "common.sequence": "Sekvens"
     },
 
     "en": {

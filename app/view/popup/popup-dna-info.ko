@@ -1,0 +1,21 @@
+<div class="popup popup-dna-info">
+    <!-- ko with: data.dna -->
+
+    <h1 data-bind="text: name"></h1>
+
+    <hr />
+
+    <div class="description" data-bind="text: description"></div>
+
+    <h4 data-bind="i18n: 'common.sequence'"></h4>
+    <div class="sequence" data-bind="text: sequence"></div>
+
+    <div class="link">
+        <a target="_blank" data-bind="attr: { href: link }, i18n: 'common.more_info'"></a>
+    </div>
+    <!-- /ko -->
+
+    <div class="btn-row float-clear">
+        <button data-bind="click: hide, i18n: 'common.close'"></button>
+    </div>
+</div>

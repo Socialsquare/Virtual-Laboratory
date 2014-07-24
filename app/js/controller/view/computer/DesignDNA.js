@@ -1,7 +1,9 @@
 define([
     'knockout',
     'lodash',
+
     'controller/view/computer/Base',
+    'controller/Popup',
 
     'model/Gene',
     'model/Tube',
@@ -9,7 +11,7 @@ define([
     'service/DNA',
     'utils/utils'
 
-], function (ko, _, BaseComputer, GeneModel, TubeModel, DNAService, utils) {
+], function (ko, _, BaseComputer, popupController, GeneModel, TubeModel, DNAService, utils) {
 
     var DesignDNA = BaseComputer.extend({
 
@@ -35,6 +37,10 @@ define([
 
             self.removeDNA = function (dna) {
                 self.dnaSequence.remove(dna);
+            };
+
+            self.showInfo = function (dna) {
+                self.popupController.dnaInfo(dna);
             };
 
             self.orderDNA = function () {

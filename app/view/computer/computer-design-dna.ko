@@ -3,7 +3,11 @@
 
     <ul class="dna-element-list" data-bind="foreach: availableDNA">
         <li>
-            <div class="hand" data-bind="text: name, drag: { item: $data, helper: 'clone', offset: { left: 10, top: 10} }"></div>
+            <div class="hand"
+                 data-bind="text: name,
+                            drag: { item: $data, helper: 'clone', offset: { left: 10, top: 10} },
+                            click: $parent.showInfo">
+            </div>
         </li>
     </ul>
 </div>
@@ -14,13 +18,13 @@
         <div data-bind="visible: dnaSequence.isEmpty(), i18n: 'computer.screen.dna.drop_here'"></div>
 
         <!-- ko foreach: dnaSequence -->
-        <div class="dna-element">
+        <div class="hand dna-element">
             <div class="hand remove-btn" data-bind="click: $parent.removeDNA">
-                <img src="assets/images/icon_trash.png" width="">
+                <img src="assets/images/icon_trash.png">
             </div>
 
-            <div class="dna-element-img" data-bind="style: { 'background-color': color }"></div>
-            <div class="dna-element-name" data-bind="text: name"></div>
+            <div class="dna-element-img" data-bind="style: { 'background-color': color }, click: $parent.showInfo"></div>
+            <div class="dna-element-name" data-bind="text: name, click: $parent.showInfo"></div>
         </div>
         <!-- /ko -->
     </div>

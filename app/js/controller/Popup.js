@@ -38,6 +38,10 @@ define([
                 self.activeNotifications.remove(popup);
             };
 
+            self.dnaInfo = function (dna) {
+                self.show('popup-dna-info', { dna: dna });
+            };
+
             self.message = function (title, message) {
                 self.show('popup-message', { title: title, message: message });
             };
