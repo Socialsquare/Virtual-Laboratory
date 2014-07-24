@@ -40,6 +40,8 @@
 
             border-right: 1px solid black;
             margin-right: -1px; // make up for the border
+            overflow-y: scroll;
+            overflow-x: hidden;
 
             h3 {
                 margin: 10px 0 0 10px;

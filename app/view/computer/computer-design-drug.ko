@@ -7,10 +7,12 @@
 </div>
 
 <div class="content">
-    <div class="scaffold" data-bind="scaffold: selectedScaffold().file">
+    <div class="scaffold"
+         data-bind="scaffold: selectedScaffold">
     </div>
 
-    <div class="slots" data-bind="foreach: selectedScaffold().slots">
+    <div class="slots" data-bind="style: { left: (selectedScaffold().offset.x - 167) + 'px', top: (selectedScaffold().offset.y - 110) + 'px' },
+                                  foreach: selectedScaffold().slots">
         <div class="slot" data-bind="style: { left: position.x + 'px', top: position.y + 'px' },
                                      drop: { handler: $parent.handleDrop.bind(null, $data) },
                                      drag: { item: $data, dim: true, helper: 'clone' },

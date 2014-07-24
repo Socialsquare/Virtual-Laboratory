@@ -3,26 +3,32 @@
 .screen.computer-design-drug {
 
     .sidebar {
-        overflow-y: scroll;
 
         ul li {
-            margin-bottom: -10px;
+            margin-top: -10px;
+            border-bottom: 1px solid #CCC;
+            height: 140px;
         }
     }
     .content{
+        .scaffold {
+            position: absolute;
+        }
+
         .slots {
             position: absolute;
-            top: 0;
-            left: 70px;
 
             .slot {
-                background-color: red;
-                opacity: 0.4;
-                $width: 30px;
                 position: absolute;
+
+                $width: 40px;
                 margin: (-$width / 2) 0 0 (-$width / 2);
                 width: $width;
                 height: $width;
+
+                @include border-radius(45px);
+                @include opacity(0.2);
+                background-color: blue;
             }
         }
     }

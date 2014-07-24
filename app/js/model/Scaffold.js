@@ -14,15 +14,16 @@ define([
             var self = this;
             self.base(LiquidType.DESIGNED_DRUG, ReactionCount.NEVER);
 
-            self.name = ko.observable(values.name);
-            self.id = ko.observable(values.id);
+            self.name = values.name;
+            self.id = values.id;
+            self.offset = values.offset;
 
             var slots = _.map(values.slots, function (sidegroupSlot) {
                 return new SidegroupSlotModel(sidegroupSlot);
             });
 
             self.slots = ko.observableArray(slots);
-            console.log(_.pluck(self.slots(), 'index'));
+
             self.file = ko.computed(function () {
                 var sidegroups = _(self.slots())
                         .sort(function (slotA, slotB) {
@@ -33,7 +34,7 @@ define([
                             return slot.sidegroup() ? slot.sidegroup().id : 'R';
                         });
 
-                return 'assets/svgs/scaffold_' + self.id() + '_' + sidegroups.join('_') + '.svg';
+                return 'assets/svgs/scaffold_' + self.id + '_' + sidegroups.join('_') + '.svg';
             });
 
             self.clone = function() {

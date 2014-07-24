@@ -6,8 +6,10 @@ define([
 
     ko.bindingHandlers.scaffold = {
         update: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
-            var path = ko.unwrap(valueAccessor());
-            console.log(path);
+            var scaffold = ko.unwrap(valueAccessor());
+            var path = scaffold.file();
+            var offset = scaffold.offset;
+
             $.get(path, function (data) {
                 var svgNode = $("svg", data);
 	            var docNode = document.adoptNode(svgNode[0]);
@@ -20,9 +22,9 @@ define([
                         .first();
 
                 $(element)
-                    .offset({
-                        left: 600 - parseInt(origin.attr('x'), 10),
-                        top: 200 - parseInt(origin.attr('y'), 10)
+                    .css({
+                        left: offset.x - parseInt(origin.attr('x'), 10) + 'px',
+                        top: offset.y - parseInt(origin.attr('y'), 10) + 'px'
                     })
                     .html(docNode);
             });
