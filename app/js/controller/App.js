@@ -5,6 +5,7 @@ define([
 
     // controllers
     'controller/Menu',
+    'controller/Tutorial',
     'controller/view/Loading',
     'controller/view/Overview',
     'controller/view/Mouse',
@@ -23,7 +24,7 @@ define([
     'factory/Container', //TODO: remove, just for dummy-data
     'factory/Liquid' //TODO: remove, just for dummy-data
 
-], function (ko, BaseViewController, homescreen, MenuController, LoadingController,
+], function (ko, BaseViewController, homescreen, MenuController, tutorialController, LoadingController,
              OverviewController, MouseController, ChemicalController,
              ComputerController, FumehoodController, Worktable1Controller,
              Worktable2Controller, IncubatorController, SpectroPMController,
@@ -38,6 +39,7 @@ define([
         activeViewController: ko.observable(),
 
         menuController: new MenuController(),
+        tutorialController: tutorialController,
 
         constructor: function (isWeb) {
             var self = this;

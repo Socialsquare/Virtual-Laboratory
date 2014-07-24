@@ -115,8 +115,10 @@
         "worktable2.spleen_blended.header": "Milten er blended",
         "worktable2.spleen_blended.body": "Der er tilføjet et reagensglas i dit inventory med homogeniseret milt.",
 
-        "popup.confirm_delete_header": "Bekræft",
-        "popup.confirm_delete_body": "Er du sikker på at du vil slette?",
+        "popup.ask_tutorial.header": "Vejledning",
+        "popup.ask_tutorial.body": "Vil du have en kort introduktion til hvordan du spiller spillet? Hvis det er første gang du spiller spillet anbefales det. Nemlig ja.",
+        "popup.confirm_delete.header": "Bekræft",
+        "popup.confirm_delete.body": "Er du sikker på at du vil slette?",
         "popup.details.notes": "Her kan du tage noter om beholderen",
         "popup.quiz.header": "Quiz!",
         "popup.quiz.replay_video": "Afspil video igen",
@@ -204,6 +206,7 @@
         "experiment.completed.header": "Det slut",
         "experiment.completed.body": "Du er helt færdig. Tillykke med det.",
 
+        "common.next": "Næste",
         "common.contains": "Indeholder",
         "common.loading": "Henter",
         "common.ok": "Okay",

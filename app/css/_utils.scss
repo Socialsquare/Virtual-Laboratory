@@ -12,6 +12,10 @@
     @include opacity(0.3);
 }
 
+.transparent {
+    @include opacity(0);
+}
+
 .hidden {
     visibility: hidden;
 }

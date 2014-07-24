@@ -31,6 +31,8 @@ define([
             self.inventory = new Inventory();
             self.pipette = new PipetteModel();
 
+            self.askTutorial = ko.observable(true);
+
             self.worktable1 = new Worktable1Model();
             self.worktable2 = new Worktable2Model();
             self.fumehood = new FumehoodModel();

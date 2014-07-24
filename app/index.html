@@ -29,13 +29,17 @@
                                 template: { name: 'menu', data: menuController }"></div>
             </div>
 
-            <div class="pipette" style="display: none;"
+            <div class="pipette" style="display: none"
                  data-bind="drag: { item: gameState.pipette, helper: 'original', revert: false, offset: { top: 185, left: 15 } },
                             visible: gameState.pipette.active,
                             css: { tip: gameState.pipette.hasTip(), full: !gameState.pipette.isEmpty() }">
             </div>
 
-            <div class="popup-cover" style="display: none;" data-bind="visible: popupController.activePopup"></div>
+            <div class="popup-cover" style="display: none"
+                 data-bind="visible: popupController.activePopup() || tutorialController.active(),
+                            css: { transparent: tutorialController.active, dimmed: popupController.activePopup() }">
+            </div>
+
             <div id="notification-container" data-bind="visible: popupController.activeNotification">
                 <div data-bind="foreach: popupController.activeNotifications">
                     <div data-bind="template: { name: templateName, data: $data}"></div>
@@ -47,6 +51,9 @@
                     <div data-bind="template: { name: templateName, data: $data}"></div>
                 </div>
             </div>
+
+            <div data-bind="template: { name: 'tutorial', data: tutorialController }"></div>
+
         </div>
 
         <%= tpls %>
