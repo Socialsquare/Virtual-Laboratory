@@ -32,7 +32,9 @@ define([
 
         acceptSyringe: accepter([ContainerType.SYRINGE]),
 
-        acceptSidegroup: accepter([LiquidType.SIDEGROUP]),
+        acceptSidegroup: accepter([SpecialItemType.SIDEGROUP]),
+
+        acceptSidegroupSlot: accepter([SpecialItemType.SIDEGROUP_SLOT]),
 
         acceptedByInventory: nonAccepter([ContainerType.BOTTLE, LiquidType.SIDEGROUP, LiquidType.DNA]),
 

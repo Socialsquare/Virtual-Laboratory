@@ -22,6 +22,10 @@ define([
 
             self.selectedScaffold = ko.observable(self.getEmptyScaffold());
 
+            self.handleTrashDrop = function (slot) {
+                slot.sidegroup(null);
+            };
+
             self.handleDrop = function (slot, group) {
                 slot.sidegroup(group);
             };

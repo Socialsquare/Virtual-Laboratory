@@ -12,10 +12,12 @@
 
     <div class="slots" data-bind="foreach: selectedScaffold().slots">
         <div class="slot" data-bind="style: { left: position.x + 'px', top: position.y + 'px' },
-                                     drop: { handler: $parent.handleDrop.bind(null, $data) }"></div>
+                                     drop: { handler: $parent.handleDrop.bind(null, $data) },
+                                     drag: { item: $data, dim: true, helper: 'clone' },
+                                     "></div>
     </div>
 
-    <div class="btn-bar">
+    <div class="btn-bar" data-bind="drop: { handler: handleTrashDrop }">
         <button class="order-btn" data-bind="i18n: 'computer.order', click: order"></button>
     </div>
 </div>

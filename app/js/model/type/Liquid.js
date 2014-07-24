@@ -22,7 +22,6 @@ define([], function () {
         PRODUCED_INSULIN: 'LiquidType.PRODUCED_INSULIN',
         PRODUCED_LIPASE:  'LiquidType.PRODUCED_LIPASE',
         PRODUCED_ANTIBODY_GOUT:      'LiquidType.PRODUCED_ANTIBODY_GOUT',
-        PRODUCED_ANTIBODY_POX:       'LiquidType.PRODUCED_ANTIBODY_POX',
-        SIDEGROUP:        'LiquidType.SIDEGROUP'
+        PRODUCED_ANTIBODY_POX:       'LiquidType.PRODUCED_ANTIBODY_POX'
     };
 });
