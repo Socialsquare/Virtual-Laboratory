@@ -78,7 +78,7 @@ define([
             });
 
             // bootstrap the app by going to loading view
-            self.router.navigate('loading');
+            self.router.navigate('computer');
 
             //------------------------
             // dummy data

@@ -2,17 +2,22 @@
 
 .screen.computer-design-drug {
 
-    .sidebar .sidegroups .sidegroup img {
-        width: 260px;
-    }
+    .sidebar {
+        overflow-y: scroll;
 
+        ul li {
+            margin-bottom: -10px;
+        }
+    }
     .content{
         .slots {
             position: absolute;
-            top: 90px;
-            left: 120px;
+            top: 0;
+            left: 70px;
 
             .slot {
+                background-color: red;
+                opacity: 0.4;
                 $width: 30px;
                 position: absolute;
                 margin: (-$width / 2) 0 0 (-$width / 2);

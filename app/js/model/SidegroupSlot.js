@@ -8,8 +8,8 @@ define([
         constructor: function (values) {
             var self = this;
 
-            self.rotation = ko.observable(values.rotation);
-            self.position = ko.observable(values.position);
+            self.position = values.position;
+            self.index = values.index;
             self.sidegroup = ko.observable(null);
 
             self.hasSidegroup = ko.computed(function () {

@@ -9,7 +9,10 @@ define([
         constructor: function (values) {
             var self = this;
 
-            self.name = ko.observable(values.name);
+            self.id = values.id;
+            self.file = ko.computed(function () {
+                return 'assets/svgs/sidegroup_' + self.id + '.svg';
+            });
             self.type = ko.observable(LiquidType.SIDEGROUP); // TODO: this is a dirty because the accepter functions need a type
             self.index = ko.observable(values.index);
             self.origin = ko.observable(values.origin);

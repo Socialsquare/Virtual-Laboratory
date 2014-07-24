@@ -1,30 +1,18 @@
 <div class="sidebar">
     <ul class="sidegroups" data-bind="foreach: sidegroups">
         <li>
-            <img class="sidegroup" data-bind="attr: { src: $parent.ImageHelper.sidegroupImage(name()) },
-                                              drag: { item: $data, helper: 'clone' }"/>
+            <div data-bind="svg: file, drag: { item: $data, helper: 'clone' }"></div>
         </li>
     </ul>
 </div>
 
 <div class="content">
-    <div class="slots">
-        <img alt="Scaffold" data-bind="attr: { src: ImageHelper.scaffoldImage(selectedScaffold().name()) }"/>
-        <!-- ko foreach: selectedScaffold().slots -->
-        <div class="slot" data-bind="style: { left: position().x + 'px', top: position().y + 'px' },
-                                     drop: { handler: $parent.handleDrop.bind(null, $data), accept: $parent.DragHelper.acceptSidegroup }">
-            <!-- ko if: hasSidegroup() -->
-            <img src="" alt="" data-bind="attr: { src: $parent.ImageHelper.sidegroupImage(sidegroup().name())},
-                                          style: { '-webkit-transform': 'rotate(' + rotation() + 'deg)',
-                                          '-webkit-transform-origin': sidegroup().origin().x + 'px ' + sidegroup().origin().y + 'px',
-                                          'margin': (-sidegroup().origin().y / 2) + 'px 0 0 ' + (-sidegroup().origin().x / 2) + 'px'}">
-            <!-- /ko -->
+    <div class="scaffold" data-bind="scaffold: selectedScaffold().file">
+    </div>
 
-            <!-- ko ifnot: hasSidegroup() -->
-            <img alt="" data-bind="attr: { src: $parent.ImageHelper.sidegroupEmptySlot($index()) }">
-            <!-- /ko -->
-        </div>
-        <!-- /ko -->
+    <div class="slots" data-bind="foreach: selectedScaffold().slots">
+        <div class="slot" data-bind="style: { left: position.x + 'px', top: position.y + 'px' },
+                                     drop: { handler: $parent.handleDrop.bind(null, $data) }"></div>
     </div>
 
     <div class="btn-bar">
