@@ -10,7 +10,14 @@
             height: 140px;
         }
     }
-    .content{
+    .content {
+        .trash {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            width: 70px;
+        }
+
         .scaffold {
             position: absolute;
         }
@@ -27,7 +34,7 @@
                 height: $width;
 
                 @include border-radius(45px);
-                @include opacity(0.2);
+                @include opacity(0.1);
                 background-color: blue;
             }
         }

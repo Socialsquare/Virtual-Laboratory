@@ -13,13 +13,23 @@
 
     <div class="slots" data-bind="style: { left: (selectedScaffold().offset.x - 167) + 'px', top: (selectedScaffold().offset.y - 110) + 'px' },
                                   foreach: selectedScaffold().slots">
+        <!-- ko if: hasSidegroup -->
         <div class="slot" data-bind="style: { left: position.x + 'px', top: position.y + 'px' },
                                      drop: { handler: $parent.handleDrop.bind(null, $data) },
-                                     drag: { item: $data, dim: true, helper: 'clone' },
-                                     "></div>
+                                     drag: { item: $data, dim: true, helper: $parent.slotDraggingHelper.bind(null, $data) }">
+        </div>
+        <!-- /ko -->
+
+        <!-- ko ifnot: hasSidegroup -->
+        <div class="slot" data-bind="style: { left: position.x + 'px', top: position.y + 'px' },
+                                     drop: { handler: $parent.handleDrop.bind(null, $data) }">
+        </div>
+        <!-- /ko -->
     </div>
 
-    <div class="btn-bar" data-bind="drop: { handler: handleTrashDrop }">
+    <img class="trash" src="assets/images/icon_big_biotrash.png" alt="Affald" data-bind="drop: { handler: handleTrashDrop }">
+
+    <div class="btn-bar">
         <button class="order-btn" data-bind="i18n: 'computer.order', click: order"></button>
     </div>
 </div>

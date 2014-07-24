@@ -1,11 +1,12 @@
 define([
     'knockout',
+    'jquery',
     'controller/view/computer/Base',
     'utils/utils',
     'service/Drug',
     'factory/Container',
     'model/GameState'
-], function (ko, BaseComputer, utils, drugService, ContainerFactory, gameState) {
+], function (ko, $, BaseComputer, utils, drugService, ContainerFactory, gameState) {
 
     var DesignDrug = BaseComputer.extend({
 
@@ -28,6 +29,19 @@ define([
 
             self.handleDrop = function (slot, group) {
                 slot.sidegroup(group);
+            };
+
+            self.slotDraggingHelper = function (slot) {
+                var dragger = $('<div>');
+
+                $.get(slot.sidegroup().file(), function (data) {
+                    var svgNode = $("svg", data);
+	                var docNode = document.adoptNode(svgNode[0]);
+                    dragger.html(docNode);
+                    console.log(dragger);
+                });
+
+                return dragger;
             };
 
             self.order = function () {
