@@ -30,6 +30,7 @@ define([
 
                 self.activeQuiz(quiz);
                 self.showQuizPopup();
+                debugger;
                 self.playQuizVideo();
 
                 return self.quizPromise;

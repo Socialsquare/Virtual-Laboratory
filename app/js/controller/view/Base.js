@@ -7,6 +7,7 @@ define([
 
     'controller/Router',
     'controller/Popup',
+    'controller/Quiz',
     'controller/Experiment',
 
     'factory/Liquid',
@@ -16,7 +17,8 @@ define([
     'utils/ImageHelper',
     'utils/DragHelper'
 
-], function (ko, Base, gameState, ActivationType, router, popupController, experimentController,
+], function (ko, Base, gameState, ActivationType, router, popupController,
+             quizController, experimentController,
              LiquidFactory, ContainerFactory, SpecialItemFactory,
              ImageHelper, DragHelper) {
 
@@ -27,6 +29,7 @@ define([
         ImageHelper: ImageHelper,
         DragHelper: DragHelper,
         popupController: popupController,
+        quizController: quizController,
         experimentController: experimentController,
         liquidFactory: LiquidFactory,
         containerFactory: ContainerFactory,

@@ -31,7 +31,8 @@ define([
                         self.transferGeneToAllOrganisms(gene);
 
                         // 1.2) Kontrollér om det er korrekt designet //TODO: Resten skal laves efter Patrick's flowchart.
-                        var newProperties = self.verifyGeneAndGetProperties(gene);
+                        var values = self.verifyGeneAndGetProperties(gene);
+                        var newProperties = values.newProperties;
 
                         //1.2.1) Hvis det er korrekt designet, overfør hver egenskab til hver mirkoorganisme*/
                         _(self.liquids()).each(function(organism) {
@@ -45,25 +46,63 @@ define([
 
             };
 
+            self.getQuizVideo = function () {
+                //TODO: implement
+                // Finds the lowest number of video-quizzes to show - corresponding to the worst designed gene
+                var lowestNumber = Infinity;
+
+
+                _(self.liquids()).each(function(gene){
+                    if(gene.type() === LiquidType.GENE) {
+                        // 1.1) Overfør Gene til hver microorganisme
+                        self.transferGeneToAllOrganisms(gene);
+
+                        // 1.2) Kontrollér om det er korrekt designet //TODO: Resten skal laves efter Patrick's flowchart.
+                        var values = self.verifyGeneAndGetProperties(gene);
+
+                        lowestNumber = values.firstError < lowestNumber ? values.firstError : lowestNumber;
+                    }
+                });
+
+                if (lowestNumber > 7)
+                    lowestNumber = 7;
+
+                return lowestNumber;
+            };
+
             //Verifies the gene and returns new properties.
             //TODO: implement the rest of Patrick's flowchart. Currently only does the steps 1-3.
             // TODO: fire videos & quizzes
             self.verifyGeneAndGetProperties = function(gene) { //1.2.1) Hvis det er korrekt designet, overfør hver egenskab til hver mirkoorganisme*/
-                var newProperties = []; // This should be returned
+
+                var returnObject = {firstError: Infinity, newProperties: []};
+                var firstError = -1; // firstError is for deciding which QuizVideo to show.
+                var newProperties = []; // newProperties are the OrganismProperties to add to the organisms
 
                 // Er der 1 eller flere promotere i genet?
                 var MRNAs = [];
                 var promoterPositions = gene.getPromoterPositions();
                 var promLen = promoterPositions.length;
-                if(promLen <= 0) { console.log('TODO: fire video + quizzes #1'); return newProperties;} //TODO: -
+                if(promLen <= 0) {
+                    // Quiz #1 , missing promoter
+                    console.log('TODO: fire video + quizzes #1');
+                    returnObject.firstError = 1;
+
+                    return returnObject;
+                } //TODO: -
 
                 // Er der en terminator efter den sidste promoter?
                 var terminatorPositions = gene.getTerminatorPositions();
                 var termLen = terminatorPositions.length;
-                if(termLen <= 0) { console.log('TODO: fire video + quizzes #2.1'); return newProperties;} //TODO: .
+                if(termLen <= 0) {
+                    console.log('TODO: fire video + quizzes #2.1');
+                    returnObject.firstError = 2;
+                    return returnObject;
+                } //TODO: .
                 else if(! (terminatorPositions[termLen-1] > promoterPositions[promLen-1]))  {
                     console.log('TODO: fire video + quizzes #2.2');
-                    return newProperties;
+                    returnObject.firstError = 2;
+                    return returnObject;
                 } //TODO: .
 
                 MRNAs = gene.getMRNAs(promoterPositions, terminatorPositions);
