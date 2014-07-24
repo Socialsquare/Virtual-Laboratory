@@ -64,11 +64,11 @@ define([
 
                 //TODO: find out which videos and quizzes to show.
                 var videoQuizNumber = self.worktable1.electroporator.getQuizVideo();
-                console.log(videoQuizNumber);
+                console.log('TODO: quizNumber: ' + videoQuizNumber);
 
-                self.showElectroporatorVideos(videoQuizNumber).done(function() {
+                /*self.showElectroporatorVideos(videoQuizNumber).done(function() {
                     self.showElectroporatorQuiz(videoQuizNumber);
-                });
+                });*/
 
 
                 self.worktable1.electroporator.activate();
@@ -76,6 +76,8 @@ define([
             };
 
             self.showElectroporatorQuiz = function(quizNumber) {
+                console.log('TODO: Quiz-number: '+ quizNumber);
+
                 switch (quizNumber) {
                     case 1:
                         debugger;

@@ -18,7 +18,7 @@ define([
             self.getPromoterPositions = function() {
                 var positions = [];
                 _(self.dnaElements()).each(function(dna, index){
-                    if(dna.DNAType() === DNAType.PROMOTER) { //TODO: dna.DNAType() _IS_ correct, as it is an observable. But when testing this might not be if not created through the computer-view
+                    if(dna.DNAType() === DNAType.PROMOTER) { // dna.DNAType() _IS_ correct, as it is an observable. But when testing this might not be if not created through the computer-view
                         positions.push(index);
                     }
                 });
@@ -78,6 +78,8 @@ define([
 
                 return mRNAPairs;
             };
+
+
 
             self.hashCode = function () {
                 return self._hashCode() + ":" + _.invoke(self.dnaElements, 'hashCode').join(',');

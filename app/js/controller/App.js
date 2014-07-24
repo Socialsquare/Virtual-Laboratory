@@ -83,7 +83,7 @@ define([
             });
 
             // bootstrap the app by going to loading view
-            self.router.navigate('computer');
+            self.router.navigate('loading');
 
             //------------------------
             // dummy data
@@ -144,17 +144,17 @@ define([
             var dnaDesign = viewControllers['designDNA'];
             var elements = dnaDesign.dnaService.getDNAElements();
 
-            dnaDesign.handleDrop(elements[8]);
-            dnaDesign.handleDrop(elements[3]);
-            dnaDesign.handleDrop(elements[1]);
+            dnaDesign.handleDrop(elements[8]); // Promoter
+            dnaDesign.handleDrop(elements[3]); // RBS
+            dnaDesign.handleDrop(elements[1]); // Start codon
             /*dnaDesign.handleDrop(elements[5]); //PCS Insulin 1
             dnaDesign.handleDrop(elements[4]); //PCS GFP
-            dnaDesign.handleDrop(elements[7]); //PCS Lipase*/
+            dnaDesign.handleDrop(elements[7]); //PCS Lipase
             //dnaDesign.handleDrop(elements[11]); //PCS Resistens B
             dnaDesign.handleDrop(elements[12]); //PCS Resistens A
-            dnaDesign.handleDrop(elements[2]);
-            dnaDesign.handleDrop(elements[0]);
-            dnaDesign.handleDrop(elements[0]);
+            dnaDesign.handleDrop(elements[2]); // Stop Codon
+            dnaDesign.handleDrop(elements[0]); // Terminator*/
+            dnaDesign.handleDrop(elements[0]); //Terminator
 
             dnaDesign.orderDNA();
 
@@ -168,16 +168,15 @@ define([
             self.gameState.worktable1.electroporator.add(yeastbeast.clone(), true);
 
 
-            self.gameState.worktable1.electroporator.activate();
+            /*self.gameState.worktable1.electroporator.activate();
             var electro_contents = self.gameState.worktable1.electroporator.cloneLiquids();
 
             var tube = ContainerFactory.tube();
             tube.addAll(electro_contents, true);
 
-            self.gameState.worktable1.tubeRack.addAt(0, tube);
-/*
+            self.gameState.worktable1.tubeRack.addAt(0, tube);*/
 
-            self.gameState.inventory.remove(self.gameState.inventory.items()[len-1]);
+            /*self.gameState.inventory.remove(self.gameState.inventory.items()[len-1]);
             self.gameState.inventory.add(ContainerFactory.syringe());*/
         }
     });

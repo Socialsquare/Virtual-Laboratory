@@ -110,9 +110,18 @@ define([
                 //TODO: this is a temporary shortcut to get OrganismProperties into play. Do the rest of the flowchart!
 
                 _(MRNAs).each(function(mRNA){
-                    var promoter = mRNA.shift();
+                    //TODO: implement her.
+                    var values = self.examineMRNAandGetNewProperties(mRNA); //TODO: set quiz/video-numbers
+
+                    returnObject.firstError = values.firstError < returnObject.firstError ?
+                        values.firstError : returnObject.firstError;
+
+                    //TODO: omit the stuff below
+
+                    /*var promoter = mRNA.shift();
 
                     _(mRNA).each(function(DNAelement){
+
                         console.log('DNAtype:' + DNAelement.DNAType());
 
                         if(DNAelement.DNAType() === DNAType.PROTEINKODENDE_SEKVENS) {
@@ -122,20 +131,92 @@ define([
 
                             newProperties.push(new OrganismPropertyModel(promoter_clone, dna_clone));
                         }
-                    });
+                    });*/
                 });
 
-                return newProperties;
+                return returnObject;
             };
 
             self.transferGeneToAllOrganisms = function (gene) {
                 _.each(self.liquids(), function(microorganism) {
                     if(microorganism.type() === LiquidType.MICROORGANISM) {
-                        /*debugger;*/
+
                         var cloned = gene.clone();
                         microorganism.addGene(cloned);
                     }
                 });
+            };
+
+            self.examineMRNAandGetNewProperties = function(mRNA) {
+                //TODO: set quiz/video-numbers
+                var values = {firstError: Infinity, newProperties: []};
+
+                //TODO: generate sub-mRNAs
+                var subMRNAs = [];
+
+                var promoterPositions = [];
+                _.each(mRNA,function(dna, index){
+                    if(dna.DNAType() === DNAType.PROMOTER) {
+                        promoterPositions.push(index);
+                    }
+                });
+
+                //TODO: tjek om mRNA starter med promoter - gør det.
+// Extract sub-mRNAs
+                _.each(promoterPositions, function(promoterPosition, index) {
+                    var subMRNA = {promoter: {}, DNAs: []};
+
+                    subMRNA.DNAs = mRNA.slice(promoterPosition + 1, promoterPositions[index + 1]); //Apparently, .slice() even works with undefined. Awesome.
+                    subMRNA.promoter = mRNA[promoterPosition];
+                    subMRNAs.push(subMRNA);
+                });
+
+                subMRNAs =_.filter(subMRNAs, function(subMRNA) {
+                    var containsPCS = _.any(subMRNA.DNAs, function(dna) {
+                        return dna.DNAType() === DNAType.PROTEINKODENDE_SEKVENS
+                    });
+
+                    if (!containsPCS) {
+
+
+                        var containsRBS =_.any(subMRNA.DNAs, function(dna) {
+                           return dna.DNAType() === DNAType.RIBOSOME_BINDING_SITE;
+                        });
+
+                        if (!containsRBS) {//TODO: 1st check if contains RBS
+// Quiz #3 (no RBS)
+                            values.firstError = 3 < values.firstError ? 3 : values.firstError;
+                        }else{
+
+                            var firstRBSIndex = _.findIndex(subMRNA.DNAs, function(dna){
+                                return dna.DNAType() === DNAType.RIBOSOME_BINDING_SITE;
+                            });
+
+                            var dnasAfterRBS = subMRNA.DNAs.slice(firstRBSIndex);
+                            var containsStartCodon = _.any(dnasAfterRBS, function(dna) {
+                                return dna.DNAType() === DNAType.START_CODON;
+                            });
+
+                            if (! containsStartCodon) { //TODO: 2nd if there is NO Start Codon efter RBS
+// Quiz #4 (no start codon)
+                                values.firstError = 4 < values.firstError ? 4 : values.firstError;
+                            }else {//TODO: there's no PCS after RBS
+// Quiz # 5 (no PCS)
+                                values.firstError = 5 < values.firstError ? 5 : values.firstError;
+                            }
+                        }
+
+
+
+                    }
+
+                    return containsPCS;
+                });
+
+                //TODO: filtrér ved at tjekke om sub-mRNA indeholder PCS.
+                //TODO: hvis IKKE: se flow
+
+                return values;
             };
 
         }
