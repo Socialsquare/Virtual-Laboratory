@@ -1,0 +1,19 @@
+<div class="popup popup-sidegroup-info">
+    <!-- ko with: data.sidegroup -->
+
+    <h3 data-bind="i18n: 'common.info'"></h3>
+
+    <hr />
+
+    <ul data-bind="foreachKV: info">
+        <li>
+            <strong data-bind="text: key"></strong>: <span data-bind="text: value"></span>
+        </li>
+    </ul>
+
+    <!-- /ko -->
+
+    <div class="btn-row float-clear">
+        <button data-bind="click: hide, i18n: 'common.close'"></button>
+    </div>
+</div>

@@ -1,12 +1,18 @@
 define([
     'knockout',
     'jquery',
+
     'controller/view/computer/Base',
-    'utils/utils',
+    'controller/Popup',
+
     'service/Drug',
+
     'factory/Container',
-    'model/GameState'
-], function (ko, $, BaseComputer, utils, drugService, ContainerFactory, gameState) {
+
+    'model/GameState',
+
+    'utils/utils'
+], function (ko, $, BaseComputer, popupController, drugService, ContainerFactory, gameState, utils) {
 
     var DesignDrug = BaseComputer.extend({
 
@@ -16,12 +22,17 @@ define([
 
             self.drugService = drugService;
             self.sidegroups = drugService.sidegroups;
+            self.popupController = popupController;
 
             self.getEmptyScaffold = function () {
                 return self.drugService.getScaffold("1");
             };
 
             self.selectedScaffold = ko.observable(self.getEmptyScaffold());
+
+            self.showSidegroupInfo = function (sidegroup) {
+                self.popupController.sidegroupInfo(sidegroup);
+            };
 
             self.handleTrashDrop = function (slot) {
                 slot.sidegroup(null);

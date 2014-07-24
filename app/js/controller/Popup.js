@@ -38,6 +38,10 @@ define([
                 self.activeNotifications.remove(popup);
             };
 
+            self.sidegroupInfo = function (sidegroup) {
+                self.show('popup-sidegroup-info', { sidegroup: sidegroup });
+            };
+
             self.dnaInfo = function (dna) {
                 self.show('popup-dna-info', { dna: dna });
             };

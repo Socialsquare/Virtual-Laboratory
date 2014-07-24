@@ -21,19 +21,103 @@
         }
     ],
     "sidegroups": [
-        { "id": 14 },
-        { "id": 15 },
-        { "id": 21 },
-        { "id": 22 },
-        { "id": 32 },
-        { "id": 43 },
-        { "id": 44 },
-        { "id": 45 },
-        { "id": 46 },
-        { "id": 4 },
-        { "id": 52 },
-        { "id": 53 },
-        { "id": 54 },
-        { "id": 5 }
+        {
+            "id": 14,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        },
+        {
+            "id": 15,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        },
+        {
+            "id": 21,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        },
+        {
+            "id": 22,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        },
+        {
+            "id": 32,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        },
+        {
+            "id": 43,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        },
+        {
+            "id": 44,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        },
+        {
+            "id": 45,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        },
+        {
+            "id": 46,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        },
+        {
+            "id": 4,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        },
+        {
+            "id": 52,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        },
+        {
+            "id": 53,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        },
+        {
+            "id": 54,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        },
+        {
+            "id": 5,
+            "info": {
+                "pH": 1337,
+                "foo": "Bar much"
+            }
+        }
     ]
 }

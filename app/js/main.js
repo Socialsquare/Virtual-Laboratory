@@ -48,7 +48,8 @@ require([
     'bindings/plotting',
     'bindings/routing',
     'bindings/localization',
-    'bindings/svg'
+    'bindings/svg',
+    'bindings/common'
 
 ], function(ko, ext, FastClick, App) {
 
