@@ -1,5 +1,6 @@
 [
     {
+        "icon": "assets/images/icon_dna_dummy.png",
         "type": "5",
         "comment": "",
         "link": "http://partsregistry.org/Part:BBa_J63002",
@@ -11,6 +12,7 @@
         "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
     },
     {
+        "icon": "assets/images/icon_dna_dummy.png",
         "type": "2",
         "comment": "",
         "link": "",
@@ -22,6 +24,7 @@
         "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
     },
     {
+        "icon": "assets/images/icon_dna_dummy.png",
         "type": "4",
         "comment": "",
         "link": "",
@@ -33,6 +36,7 @@
         "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
     },
     {
+        "icon": "assets/images/icon_dna_dummy.png",
         "type": "1",
         "comment": "",
         "link": "http://partsregistry.org/wiki/index.php?title=Part:BBa_J63003",
@@ -44,6 +48,7 @@
         "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
     },
     {
+        "icon": "assets/images/icon_dna_dummy.png",
         "type": "3",
         "comment": "",
         "link": "http://partsregistry.org/Part:BBa_E0040",
@@ -55,6 +60,7 @@
         "proteinCodingSequence": "ProteinCodingSequenceType.GFP"
     },
     {
+        "icon": "assets/images/icon_dna_dummy.png",
         "type": "3",
         "comment": "",
         "link": "http://www.ebi.ac.uk/ena/data/view/V00565 AND http://www.uniprot.org/uniprot/P01308",
@@ -66,6 +72,7 @@
         "proteinCodingSequence": "ProteinCodingSequenceType.INSULIN_1"
     },
     {
+        "icon": "assets/images/icon_dna_dummy.png",
         "type": "3",
         "comment": "",
         "link": "http://www.ebi.ac.uk/ena/data/view/V00565 AND http://www.uniprot.org/uniprot/P01308",
@@ -77,6 +84,7 @@
         "proteinCodingSequence": "ProteinCodingSequenceType.INSULIN_2"
     },
     {
+        "icon": "assets/images/icon_dna_dummy.png",
         "type": "3",
         "comment": "",
         "link": "http://www.ncbi.nlm.nih.gov/protein/AAA41250.1",
@@ -88,6 +96,7 @@
         "proteinCodingSequence": "ProteinCodingSequenceType.LIPASE_ENZYME"
     },
     {
+        "icon": "assets/images/icon_dna_dummy.png",
         "type": "0",
         "comment": "",
         "link": "",
@@ -99,6 +108,7 @@
         "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
     },
     {
+        "icon": "assets/images/icon_dna_dummy.png",
         "type": "0",
         "comment": "Denne promoter er konstant aktiv (konstitutiv)",
         "link": "http://partsregistry.org/Part:BBa_K122000",
@@ -110,6 +120,7 @@
         "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
     },
     {
+        "icon": "assets/images/icon_dna_dummy.png",
         "type": "0",
         "comment": "Denne promoter er kun aktiv ved lav glukosekoncentration",
         "link": "http://www.jbc.org/content/263/13/6051.full.pdf",
@@ -121,6 +132,7 @@
         "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
     },
     {
+        "icon": "assets/images/icon_dna_dummy.png",
         "type": "3",
         "comment": "",
         "link": "",
@@ -132,6 +144,7 @@
         "proteinCodingSequence": "ProteinCodingSequenceType.ANTIBIOTIC_RES_B"
     },
     {
+        "icon": "assets/images/icon_dna_dummy.png",
         "type": "3",
         "comment": "",
         "link": "",

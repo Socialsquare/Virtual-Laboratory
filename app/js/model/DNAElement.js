@@ -13,6 +13,7 @@ define([
 			self.DNAType = ko.observable(DNAType.fromInt(values.type));
 
             self.proteinCodingSequence = ko.observable(values.proteinCodingSequence);
+			self.icon = values.icon;
 			self.name = ko.observable(values.name);
 			self.color = ko.observable(values.color);
 			self.sequence = ko.observable(values.sequence);
