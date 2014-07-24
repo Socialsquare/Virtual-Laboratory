@@ -1,7 +1,8 @@
 define([
     'knockout',
-    'base'
-], function (ko, Base) {
+    'base',
+    'json!datadir/tutorial.json'
+], function (ko, Base, tutorialData) {
     var Tutorial = Base.extend({
         constructor: function () {
             var self = this;
@@ -9,32 +10,7 @@ define([
             self.active = ko.observable(false);
 
             // hardcoded tutorial box positions
-            self.messages = ko.observableArray([
-                {
-                    title: "Hej",
-                    message: "Her er fedt",
-                    x: 100,
-                    y: 200,
-                    arrowTop: true,
-                    arrowLeft: true
-                },
-                {
-                    title: "Such doge",
-                    message: "Lorem upsum oa alof jao lak nifa",
-                    x: 400,
-                    y: 50,
-                    arrowTop: false,
-                    arrowLeft: true
-                },
-                {
-                    title: "Det var det",
-                    message: "Held og lykke",
-                    x: 500,
-                    y: 400,
-                    arrowTop: false,
-                    arrowLeft: false
-                }
-            ]);
+            self.messages = ko.observableArray(tutorialData);
 
             self.currentMessageIndex = ko.observable(0);
             self.currentMessage = ko.computed(function () {

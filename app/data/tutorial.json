@@ -1,0 +1,113 @@
+[
+    {
+        "title": "Guiden",
+        "message": "Her er guiden",
+        "x": 25,
+        "y": 380,
+        "arrowTop": false,
+        "arrowLeft": true
+    },
+    {
+        "title": "Beholdning",
+        "message": "Her er din beholdning af ting",
+        "x": 370,
+        "y": 380,
+        "arrowTop": false,
+        "arrowLeft": true
+    },
+    {
+        "title": "Pipetten",
+        "message": "Den skal du bruge hele tiden",
+        "x": 440,
+        "y": 380,
+        "arrowTop": false,
+        "arrowLeft": false
+    },
+    {
+        "title": "Ny pipette spids",
+        "message": "Få en ny pipette spids",
+        "x": 550,
+        "y": 380,
+        "arrowTop": false,
+        "arrowLeft": false
+    },
+    {
+        "title": "Skraldespanden",
+        "message": "Smid ting ud og nak pipette spidsen",
+        "x": 665,
+        "y": 380,
+        "arrowTop": false,
+        "arrowLeft": false
+    },
+    {
+        "title": "Forsyninger",
+        "message": "Her kan du få nogle ting",
+        "x": 400,
+        "y": 220,
+        "arrowTop": true,
+        "arrowLeft": false
+    },
+    {
+        "title": "Døren",
+        "message": "Her kan du komme til computeren og sådan noget",
+        "x": 510,
+        "y": 190,
+        "arrowTop": true,
+        "arrowLeft": true
+    },
+    {
+        "title": "Stinkhætten",
+        "message": "Lav ting der ikke skal stinke",
+        "x": 140,
+        "y": 370,
+        "arrowTop": true,
+        "arrowLeft": true
+    },
+    {
+        "title": "Arbejdsborderne",
+        "message": "På bordene kan du lave alt muligt",
+        "x": 450,
+        "y": 150,
+        "arrowTop": false,
+        "arrowLeft": true
+    },
+    {
+        "title": "Musen",
+        "message": "Musen kan dræbes og fodres",
+        "x": 590,
+        "y": 310,
+        "arrowTop": true,
+        "arrowLeft": false
+    },
+    {
+        "title": "Fermentoren",
+        "message": "Her kan du fermenterer ting",
+        "x": 600,
+        "y": 50,
+        "arrowTop": false,
+        "arrowLeft": false
+    },
+    {
+        "title": "Spektrofotometer",
+        "message": "Spektakulær maskine",
+        "x": 380,
+        "y": 190,
+        "arrowTop": true,
+        "arrowLeft": true
+    },
+    {
+        "title": "Inkubatoren",
+        "message": "Her kan du inkubere ting",
+        "x": 410,
+        "y": 220,
+        "arrowTop": false,
+        "arrowLeft": true
+    },
+    {
+        "title": "Det var det",
+        "message": "Held og lykke",
+        "x": 330,
+        "y": 180,
+        "hideArrow": true
+    }
+]

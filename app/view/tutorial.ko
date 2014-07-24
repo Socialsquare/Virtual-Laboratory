@@ -7,5 +7,5 @@
 
     <button class="next" data-bind="click: next, i18n: 'common.next'"></button>
 
-    <img class="arrow" data-bind="attr: { src: arrowImage }, css: arrowClasses">
+    <img class="arrow" data-bind="attr: { src: arrowImage }, css: arrowClasses, visible: !currentMessage().hideArrow">
 </div>
