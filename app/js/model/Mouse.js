@@ -119,7 +119,7 @@ define([
             self.giveDrug = function(designedDrug, administrationForm) {
                 return 'TODO:'; //TODO: implement
             };
-            
+
             // BEGIN: Functions for exercise 3: Antibodies
 
             self.cure = function(antibodyType) {

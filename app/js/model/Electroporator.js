@@ -122,6 +122,7 @@ define([
 
 
                 });
+
                 return returnObject;
             };
 

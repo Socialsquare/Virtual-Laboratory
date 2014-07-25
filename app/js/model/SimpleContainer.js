@@ -5,8 +5,10 @@ define([
     'model/ProducedEnzyme',
     'model/type/Liquid',
     'model/type/Grower',
+    'model/type/ProteinCodingSequence',
+
     'controller/Experiment'
-], function(ko, Base, _, ProducedEnzymeModel, LiquidType, GrowerType, experimentController) {
+], function(ko, Base, _, ProducedEnzymeModel, LiquidType, GrowerType, PCSType, experimentController) {
 
     var SimpleContainer = Base.extend({
         constructor: function (type, maxConcentration) {
@@ -123,7 +125,15 @@ define([
 
             // TODO: implement
             self.isFluorescent = function () {
-                return true;
+                return _.any(self.liquids(), function(liquid) {
+                    if (liquid.type() === LiquidType.MICROORGANISM) {
+                        return _.any(liquid.extraProperties(), function(extraProperty) {
+                            return extraProperty.proteinCodingSequenceType() === PCSType.GFP;
+                        })
+                    }
+
+                    return false;
+                });
             };
 
             self.growContentsOnce = function(deltaTime, growerType, ph, temperature) {
