@@ -49,7 +49,7 @@ define([
             };
 
             self.scrollStep = function () {
-                var diff = self.scrollRight ? -3 : 3;
+                var diff = self.scrollRight ? -7 : 7;
                 self.scrollValue(self.scrollValue() + diff);
 
                 self.boundScroll();
