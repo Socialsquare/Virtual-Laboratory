@@ -85,14 +85,22 @@ define([
 
             }else if (MC.mouse().mouseType() === MouseType.INSOMNIA) {
                 var options = [
-                    {key: LocalizationService.text('mouse.drug_administration.injection_body'),
-                        administrationForm: AdministrationType.INJECTION_BODY},
-                    {key: LocalizationService.text('mouse.drug_administration.injection_head'),
-                        administrationForm: AdministrationType.INJECTION_HEAD},
-                    {key: LocalizationService.text('mouse.drug_administration.pill'),
-                        administrationForm: AdministrationType.PILL},
-                    {key: LocalizationService.text('mouse.drug_administration.cream'),
-                        administrationForm: AdministrationType.CREAM}
+                    {
+                        key: LocalizationService.text('mouse.drug_administration.injection.body'),
+                        administrationForm: AdministrationType.INJECTION_BODY
+                    },
+                    {
+                        key: LocalizationService.text('mouse.drug_administration.injection.header'),
+                        administrationForm: AdministrationType.INJECTION_HEAD
+                    },
+                    {
+                        key: LocalizationService.text('mouse.drug_administration.pill'),
+                        administrationForm: AdministrationType.PILL
+                    },
+                    {
+                        key: LocalizationService.text('mouse.drug_administration.cream'),
+                        administrationForm: AdministrationType.CREAM
+                    }
                 ];
 
 

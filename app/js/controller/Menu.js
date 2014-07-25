@@ -130,7 +130,7 @@ define([
                 if (item.type() === ContainerType.PIPETTE) {
                     self.gameState.pipette.removeTip();
                 } else {
-                    self.popupController.confirm('popup.confirm_delete_header', 'popup.confirm_delete_body')
+                    self.popupController.confirm('popup.confirm_delete.header', 'popup.confirm_delete.body')
                         .then(consume);
                 }
                 return false;

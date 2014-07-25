@@ -83,8 +83,8 @@
         "mouse.syringe_not_allowed.body": "Indholdet i din kanyle er forurenet. Det er uetisk at sprøjte dens indhold ind i musen, du!",
         "mouse.drug_administration.header": "Vælg administrationsform",
         "mouse.drug_administration.body": "Hvordan vil du give dit lægemiddel til musen?",
-        "mouse.drug_administration.injection_body": "Indsprøjtning i kroppen",
-        "mouse.drug_administration.injection_head": "Indsprøjtning i kraniet",
+        "mouse.drug_administration.injection.body": "Indsprøjtning i kroppen",
+        "mouse.drug_administration.injection.header": "Indsprøjtning i kraniet",
         "mouse.drug_administration.pill": "Pille",
         "mouse.drug_administration.cream": "Creme",
 
@@ -299,8 +299,8 @@
         "worktable2.spleen_blended.header": "Spleen blended",
         "worktable2.spleen_blended.body": "The blended spleen has been added to your inventory",
 
-        "popup.confirm_delete_header": "Confirm",
-        "popup.confirm_delete_body": "Are you sure you want to delete this item?",
+        "popup.confirm_delete.header": "Confirm",
+        "popup.confirm_delete.body": "Are you sure you want to delete this item?",
         "popup.details.notes": "Here you can take notes about the container",
         "popup.quiz.header": "Quiz!",
 
