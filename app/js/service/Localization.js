@@ -17,6 +17,17 @@ define([
             };
 
             self.text = function (id) {
+                if (_.isObject(id)) {
+                    var lang = self.selectedLanguage();
+
+                    if (!id[self.selectedLanguage()]) {
+                        // fallback to first available lang in alphabetical order
+                        lang = _(id).keys().sortBy(_.identity).find();
+                    }
+
+                    return id[lang];
+                }
+
                 var text = self.langData()[self.selectedLanguage()][id];
 
                 if (!text) throw 'Unknown localization: ' + id + ' for language ' + self.selectedLanguage();

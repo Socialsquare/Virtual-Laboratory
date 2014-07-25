@@ -1,11 +1,11 @@
 [
     {
-        "title": "Enzymer til vaskemiddel",
-        "description": "I denne øvelse skal du genmodificere gær, sådan at det producerer lipase der kan anvendes til tøjvask.",
-        "story": "Et nyt enzym er netop blevet identificeret I en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven.",
+        "title": { "dk": "Enzymer til vaskemiddel" },
+        "description": { "dk": "I denne øvelse skal du genmodificere gær, sådan at det producerer lipase der kan anvendes til tøjvask." },
+        "story": { "dk": "Et nyt enzym er netop blevet identificeret I en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven." },
         "tasks": [
             {
-                "description": "Design et stykke DNA som koder for enzymet, samt har resistens for Antibiotika B",
+                "description": { "dk": "Design et stykke DNA som koder for enzymet, samt har resistens for Antibiotika B" },
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -16,7 +16,7 @@
             },
 
             {
-                "description": "Genmodificer nogle gærceller ved komme dem og det designede DNA i elektroporatoren",
+                "description": { "dk": "Genmodificer nogle gærceller ved komme dem og det designede DNA i elektroporatoren" },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.ELECTROPORATOR",
@@ -28,7 +28,7 @@
             },
 
             {
-                "description": "Fordel de gensplejsede celler på en petriskål og tilsæt Antibiotikum B",
+                "description": { "dk": "Fordel de gensplejsede celler på en petriskål og tilsæt Antibiotikum B" },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.PETRI_DISH",
@@ -40,7 +40,7 @@
             },
 
             {
-                "description": "Inkubér petriskålen",
+                "description": { "dk": "Inkubér petriskålen" },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.INCUBATOR",
@@ -58,7 +58,7 @@
             },
 
             {
-                "description": "Overfør en cellekoloni fra petriskålen til et reagensglas med vækstmedie og Antibiotikum B",
+                "description": { "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas med vækstmedie og Antibiotikum B" },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",
@@ -71,7 +71,7 @@
             },
 
             {
-                "description": "Inkubér reagensglasset",
+                "description": { "dk": "Inkubér reagensglasset" },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.INCUBATOR",
@@ -90,7 +90,7 @@
             },
 
             {
-                "description": "Brug en kanyle til at overføre indholdet fra reagensglasset til fermentoren",
+                "description": { "dk": "Brug en kanyle til at overføre indholdet fra reagensglasset til fermentoren" },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.FERMENTOR_TANK",
@@ -104,7 +104,7 @@
             },
 
             {
-                "description": "Start en fermentering af gærcellerne, m. antibio-B",
+                "description": { "dk": "Start en fermentering af gærcellerne, m. antibio-B" },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.FERMENTOR",
@@ -116,7 +116,7 @@
             },
 
             {
-                "description": "Oprens lipase fra din fermentering.",
+                "description": { "dk": "Oprens lipase fra din fermentering." },
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -127,7 +127,7 @@
             },
 
             {
-                "description": "Test hvor effektivt lipase-enzymet er ved at tilføje det til vaskemaskinen. Prøv med forskellige koncentrationer for at finde den optimale dose.",
+                "description": { "dk": "Test hvor effektivt lipase-enzymet er ved at tilføje det til vaskemaskinen. Prøv med forskellige koncentrationer for at finde den optimale dose." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.WASHING",
@@ -139,312 +139,24 @@
                     "type": "ConsequenceType.QUIZ",
                     "quiz": {
                         "id": 1,
-                        "name": "Enzym-kocentration",
-                        "question": "Hvad er det optimale mht. koncentration af enzym og renligheden af skjorten?",
+                        "name": { "dk": "Enzym-kocentration" },
+                        "question": { "dk": "Hvad er det optimale mht. koncentration af enzym og renligheden af skjorten?" },
                         "correct": 1,
                         "answers": [
                             {
                                 "id": 0,
-                                "answer": "Så meget enzym som muligt, så skjørten er 110% ren!",
-                                "message": "Det er ikke helt korrekt. Enzymer er dyre at producere"
+                                "answer": { "dk": "Så meget enzym som muligt, så skjørten er 110% ren!" },
+                                "message": { "dk": "Det er ikke helt korrekt. Enzymer er dyre at producere" }
                             },
                             {
                                 "id": 1,
-                                "answer": "Lige akkurat nok enzym til at tøjet bliver rent, men så heller ikke mere.",
-                                "message": "Ja, enzymer er dyre at producere, men selvfølgelig skal folks tøj også blive rent. Derfor er dette den optimale løsning."
+                                "answer": { "dk": "Lige akkurat nok enzym til at tøjet bliver rent, men så heller ikke mere." },
+                                "message": { "dk": "Ja, enzymer er dyre at producere, men selvfølgelig skal folks tøj også blive rent. Derfor er dette den optimale løsning." }
                             },
                             {
                                 "id": 2,
-                                "answer": "Eftersom enzymer er dyre at producere, så bare nok til at tøjet bliver lidt renere, men ikke nødvendigvis helt.",
-                                "message": "Nej, det bliver folk næppe voldsomt glade for."
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "title": "Test-øvelse",
-        "description": "Denne øvelse er midlertidig.",
-        "story": "Et nyt enzym er netop blevet identificeret I en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven.",
-        "tasks": [
-            {
-                "description": "Mix the base",
-                "trigger": {
-                    "type": "TriggerType.ACQUIRE",
-                    "container": "ContainerType.TUBE"
-                },
-                "consequence": {
-                    "type": "ConsequenceType.VIDEO",
-                    "video": "fast-loop",
-                    "quiz": {
-                        "id": 0,
-                        "name": "Fodbold quizzen",
-                        "video": "fast-loop",
-                        "question": "Hvor god er Messi til fodbold?",
-                        "correct": 1,
-                        "answers": [
-                            {
-                                "id": 0,
-                                "answer": "Ret god",
-                                "message": "Det er ikke helt korrekt."
-                            },
-                            {
-                                "id": 1,
-                                "answer": "Den bedste af dem alle",
-                                "message": "Ja, nemlig ja!"
-                            },
-                            {
-                                "id": 2,
-                                "answer": "Ikke vildt god, men stadig okay",
-                                "message": "Helt forkert svar du gav"
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "description": "Get a tube",
-                "trigger": {
-                    "type": "TriggerType.ACTIVATION",
-                    "activation": "ActivationType.SUPPLY",
-                    "item": "ContainerType.TUBE"
-                }
-            },
-            {
-                "description": "Kill the mouse",
-                "trigger": {
-                    "type": "TriggerType.MOUSE",
-                    "alive": false
-                }
-            }
-        ]
-    },
-    {
-        "title": "Please the mouse",
-        "description": "In this experiment you will learn to please a mouse and more",
-        "story": "Et nyt enzym er netop blevet identificeret I en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven.",
-        "tasks": [
-            {
-                "description": "Get some antibiotic (type a)",
-                "trigger": {
-                    "type": "TriggerType.ACQUIRE",
-                    "item": "ContainerType.TUBE",
-                    "liquids": [
-                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.A" }
-                    ]
-                }
-            },
-            {
-                "description": "Get some yeast",
-                "trigger": {
-                    "type": "TriggerType.ACQUIRE",
-                    "item": "ContainerType.TUBE",
-                    "liquids": [
-                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" }
-                    ]
-                }
-            },
-            {
-                "description": "Get a scalpel",
-                "trigger": {
-                    "type": "TriggerType.ACQUIRE",
-                    "item": "SpecialItemType.SCALPEL"
-                }
-            },
-            {
-                "description": "Give the mouse a drink",
-                "trigger": {
-                    "type": "TriggerType.MOUSE",
-                    "item": "ContainerType.BOTTLE",
-                    "liquids": [
-                        { "type": "LiquidType.JUICE" }
-                    ]
-                }
-            },
-            {
-                "description": "Inject the mouse with insulin",
-                "trigger": {
-                    "type": "TriggerType.MOUSE",
-                    "item": "ContainerType.SYRINGE",
-                    "liquids": [
-                        { "type": "LiquidType.INSULIN" }
-                    ]
-                }
-            },
-            {
-                "description": "Kill the mouse",
-                "trigger": {
-                    "type": "TriggerType.MOUSE",
-                    "alive": false
-                }
-            },
-            {
-                "description": "Get the mouse spleen",
-                "trigger": {
-                    "type": "TriggerType.ACQUIRE",
-                    "item": "SpecialItemType.SPLEEN"
-                }
-            }
-        ]
-    },
-    {
-        "title": "Meth Cooker's Hand Book - Part One",
-        "description": "You will learn to trip clean",
-        "story": "Et nyt enzym er netop blevet identificeret I en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven.",
-        "tasks": [
-            {
-                "description": "Design any kind of drug",
-                "trigger": {
-                    "type": "TriggerType.ACTIVATION",
-                    "activation": "ActivationType.COMPUTER_ORDER_DRUG"
-                }
-            },
-            {
-                "description": "Design DNA",
-                "trigger": {
-                    "type": "TriggerType.ACTIVATION",
-                    "activation": "ActivationType.COMPUTER_ORDER_DNA",
-                    "liquids": [
-                        { "type": "LiquidType.GENE" }
-                    ]
-                }
-            },
-            {
-                "description": "Incubate yeast",
-                "trigger": {
-                    "type": "TriggerType.ACTIVATION",
-                    "activation": "ActivationType.INCUBATOR",
-                    "containers": [
-                        {
-                            "liquids": [
-                                { "type": "LiquidType.LIPASE_ENZYME" }
-                            ]
-                        },
-                        {
-                            "type": "ContainerType.PETRI_DISH",
-                            "liquids": [
-                                { "type": "LiquidType.DEADLY" }
-                            ]
-                        }
-                    ]
-
-                }
-            },
-            {
-                "description": "Wash something",
-                "trigger": {
-                    "type": "TriggerType.ACTIVATION",
-                    "concentration": 300,
-                    "activation": "ActivationType.WASHING",
-                    "liquids": [
-                        { "type": "LiquidType.LIPASE_ENZYME" }
-                    ]
-                }
-            },
-            {
-                "description": "Heat some myeloma mixed with deadly stuff",
-                "trigger": {
-                    "type": "TriggerType.ACTIVATION",
-                    "activation": "ActivationType.HEATER",
-                    "liquids": [
-                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                        { "type": "LiquidType.DEADLY" }
-                    ]
-                }
-            },
-            {
-                "description": "Use the electroporator with",
-                "trigger": {
-                    "type": "TriggerType.ACTIVATION",
-                    "activation": "ActivationType.ELECTROPORATOR",
-                    "liquids": [
-                        { "type": "LiquidType.ANTIBIOTIC" }
-                    ]
-                }
-            },
-            {
-                "description": "Use the OD with some antibiotics",
-                "trigger": {
-                    "type": "TriggerType.ACTIVATION",
-                    "activation": "ActivationType.OD",
-                    "liquids": [
-                        { "type": "LiquidType.ANTIBIOTIC" }
-                    ]
-                }
-            },
-            {
-                "description": "Kill the mouse",
-                "trigger": {
-                    "type": "TriggerType.MOUSE",
-                    "alive": false
-                }
-            },
-            {
-                "description": "Get the mouse spleen",
-                "trigger": {
-                    "type": "TriggerType.ACQUIRE",
-                    "item": "SpecialItemType.SPLEEN"
-                }
-            },
-            {
-                "description": "Blend the spleen",
-                "trigger": {
-                    "type": "TriggerType.ACQUIRE",
-                    "liquids": [
-                        { "type": "LiquidType.HOMO_SPLEEN" }
-                    ]
-                }
-            },
-            {
-                "description": "Order a mouse with gout",
-                "trigger": {
-                    "type": "TriggerType.ACTIVATION",
-                    "activation": "ActivationType.COMPUTER_ORDER_MOUSE",
-                    "mouse": {
-                        "type": "MouseType.GOUT"
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "title": "Vask en skjorte (testing)",
-        "description": "Such text. Much description. Wow.",
-        "story": "Such text. Much description. Wow.",
-        "tasks": [
-            {
-                "description": "Test hvor effektivt lipase-enzymet er ved at tilføje det til vaskemaskinen. Prøv med forskellige koncentrationer for at finde den optimale dose.",
-                "trigger": {
-                    "type": "TriggerType.ACTIVATION",
-                    "activation": "ActivationType.WASHING",
-                    "liquids": [
-                        { "type": "LiquidType.LIPASE_ENZYME" }
-                    ]
-                },
-                "consequence": {
-                    "type": "ConsequenceType.QUIZ",
-                    "quiz": {
-                        "id": 1,
-                        "name": "Enzym-kocentration",
-                        "question": "Hvad er det optimale mht. koncentration af enzym og renligheden af skjorten?",
-                        "correct": 1,
-                        "answers": [
-                            {
-                                "id": 0,
-                                "answer": "Så meget enzym som muligt, så skjørten er 110% ren!",
-                                "message": "Det er ikke helt korrekt. Enzymer er dyre at producere"
-                            },
-                            {
-                                "id": 1,
-                                "answer": "Lige akkurat nok enzym til at tøjet bliver rent, men så heller ikke mere.",
-                                "message": "Ja, enzymer er dyre at producere, men selvfølgelig skal folks tøj også blive rent. Derfor er dette den optimale løsning."
-                            },
-                            {
-                                "id": 2,
-                                "answer": "Eftersom enzymer er dyre at producere, så bare nok til at tøjet bliver lidt renere, men ikke nødvendigvis helt.",
-                                "message": "Nej, det bliver folk næppe voldsomt glade for."
+                                "answer": { "dk": "Eftersom enzymer er dyre at producere, så bare nok til at tøjet bliver lidt renere, men ikke nødvendigvis helt." },
+                                "message": { "dk": "Nej, det bliver folk næppe voldsomt glade for." }
                             }
                         ]
                     }
@@ -452,5 +164,4 @@
             }
         ]
     }
-
 ]

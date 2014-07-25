@@ -40,14 +40,14 @@
                             css: { transparent: tutorialController.active, dimmed: popupController.activePopup() }">
             </div>
 
-            <div id="notification-container" data-bind="visible: popupController.activeNotification">
-                <div data-bind="foreach: popupController.activeNotifications">
+            <div id="popup-container" data-bind="visible: popupController.activePopup">
+                <div data-bind="foreach: popupController.activePopups">
                     <div data-bind="template: { name: templateName, data: $data}"></div>
                 </div>
             </div>
 
-            <div id="popup-container" data-bind="visible: popupController.activePopup">
-                <div data-bind="foreach: popupController.activePopups">
+            <div id="notification-container" data-bind="visible: popupController.activeNotification">
+                <div data-bind="foreach: popupController.activeNotifications">
                     <div data-bind="template: { name: templateName, data: $data}"></div>
                 </div>
             </div>
