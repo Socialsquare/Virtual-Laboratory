@@ -16,9 +16,10 @@ define([
     'model/Quiz',
 
     'utils/ImageHelper',
-    'utils/TextHelper'
+    'utils/TextHelper',
+    'utils/DragHelper'
 ], function (ko, $, _, screenfull, BaseViewController, popupController, quizController, experimentController, gameState,
-             TipModel, ContainerType, SpecialItemType, QuizModel, ImageHelper, TextHelper) {
+             TipModel, ContainerType, SpecialItemType, QuizModel, ImageHelper, TextHelper, DragHelper) {
 
     var MenuController = BaseViewController.extend({
 
@@ -26,6 +27,7 @@ define([
             var self = this;
 
             self.ImageHelper = ImageHelper;
+            self.DragHelper = DragHelper;
             self.popupController = popupController;
             self.quizController = quizController;
             self.gameState = gameState;
@@ -109,12 +111,6 @@ define([
                 self.gameState.inventory.add(item);
             };
 
-            self.handlePipetteTip = function () {
-                if (!self.gameState.pipette.hasTip()) {
-                    self.gameState.pipette.addAt(0, new TipModel());
-                }
-            };
-
             self.showGuide = function () {
                 self.popupController.show('popup-guide', {
                     experiment: experimentController.activeExperiment(),
@@ -124,6 +120,15 @@ define([
 
             self.togglePipette = function (activeViewController) {
                 self.gameState.pipette.active.toggle();
+            };
+
+            self.tipDropHandler = function (pipette) {
+                if (!self.gameState.pipette.hasTip()) {
+                    self.gameState.pipette.addAt(0, new TipModel());
+                } else {
+                    self.popupController.notify('pipette.existing_tip.header', 'pipette.existing_tip.body');
+                }
+                return false;
             };
 
             self.trashDropHandler = function (item, consume) {

@@ -140,6 +140,8 @@
         "pipette.dirty_tip.body": "Pipetten skal have en ren spids, ellers forurener du dine prøver.",
         "pipette.missing_tip.header": "Spids mangler",
         "pipette.missing_tip.body": "Der er ingen spids på pipetten",
+        "pipette.existing_tip.header": "Eksisterende spids",
+        "pipette.existing_tip.body": "Der er allerede en spidst på pipetten, smid den ud før du sætter en ny på.",
 
         "syringe.filled.header": "Info",
         "syringe.filled.body": "Du har suget indhold op med kanylen.",
@@ -314,6 +316,8 @@
         "pipette.emptied.body": "You have emptied the pipette",
         "pipette.dirty_tip.header": "Dirty pipette tip",
         "pipette.dirty_tip.body": "The pipette must be clean or it can contaminate the sample",
+        "pipette.existing_tip.header": "Missing pipette tip",
+        "pipette.existing_tip.body": "There is no tip on the pipette",
         "pipette.missing_tip.header": "Missing pipette tip",
         "pipette.missing_tip.body": "There is no tip on the pipette",
 

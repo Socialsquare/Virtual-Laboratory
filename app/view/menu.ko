@@ -43,10 +43,10 @@
                 <li class="hand" data-bind="click: togglePipette">
                     <img src="assets/images/icon_big_pipette.png" alt="Pipette">
                 </li>
-                <li class="hand" data-bind="click: handlePipetteTip">
+                <li data-bind="drop: { handler: tipDropHandler, accept: DragHelper.acceptPipette }">
                     <img src="assets/images/icon_big_tips.png" alt="Pipette spidser">
                 </li>
-                <li class="hand" data-bind="drop: { handler: trashDropHandler }">
+                <li data-bind="drop: { handler: trashDropHandler }">
                     <img src="assets/images/icon_big_biotrash.png" alt="Affald">
                 </li>
             </ul>
