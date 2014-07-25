@@ -24,7 +24,7 @@ define([
 
             self.slots = ko.observableArray(slots);
 
-            self.file = ko.computed(function () {
+            self.configurationString = ko.computed(function () {
                 var sidegroups = _(self.slots())
                         .sort(function (slotA, slotB) {
 
@@ -34,7 +34,11 @@ define([
                             return slot.sidegroup() ? slot.sidegroup().id : 'R';
                         });
 
-                return 'assets/svgs/scaffold_' + self.id + '_' + sidegroups.join('_') + '.svg';
+                return self.id + '_' + sidegroups.join('_');
+            });
+
+            self.file = ko.computed(function () {
+                return 'assets/svgs/scaffold_' + self.configurationString() + '.svg';
             });
 
             self.clone = function() {

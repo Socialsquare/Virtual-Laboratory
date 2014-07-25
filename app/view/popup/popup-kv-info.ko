@@ -1,5 +1,5 @@
-<div class="popup popup-sidegroup-info">
-    <!-- ko with: data.sidegroup -->
+<div class="popup popup-kv-info">
+    <!-- ko with: data -->
 
     <h3 data-bind="i18n: 'common.info'"></h3>
 

@@ -31,7 +31,7 @@ define([
             self.selectedScaffold = ko.observable(self.getEmptyScaffold());
 
             self.showSidegroupInfo = function (sidegroup) {
-                self.popupController.sidegroupInfo(sidegroup);
+                self.popupController.kvInfo(sidegroup.info);
             };
 
             self.handleTrashDrop = function (slot) {
@@ -49,10 +49,16 @@ define([
                     var svgNode = $("svg", data);
 	                var docNode = document.adoptNode(svgNode[0]);
                     dragger.html(docNode);
-                    console.log(dragger);
                 });
 
                 return dragger;
+            };
+
+            self.getInfo = function () {
+                self.drugService.getDrugInfo(self.selectedScaffold().configurationString())
+                    .then(function (info) {
+                        self.popupController.kvInfo(info);
+                    });
             };
 
             self.order = function () {
