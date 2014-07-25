@@ -9,13 +9,16 @@ require.config({
         flot: '../bower_components/jquery-flot/jquery.flot',
         html5Loader: '../bower_components/jquery.html5loader/src/jquery.html5Loader',
         lodash: '../bower_components/lodash/dist/lodash.compat',
-        knockout: '../bower_components/knockout/dist/knockout.debug',
+        // NOTE: using non-debug knockout
+        knockout: '../bower_components/knockout/dist/knockout',
         mapping: '../bower_components/knockout-mapping/knockout.mapping',
         jqueryuitouchpunch: '../bower_components/jqueryui-touch-punch/jquery.ui.touch-punch',
         fastclick: '../bower_components/fastclick/lib/fastclick',
         screenfull: '../bower_components/screenfull/dist/screenfull',
         text: '../bower_components/requirejs-text/text',
         json: '../bower_components/requirejs-plugins/src/json',
+        snapsvg: '../bower_components/snap.svg/dist/snap.svg',
+        homescreen: '../bower_components/add-to-homescreen/src/addtohomescreen',
 
         base: 'libs/Base',
 
@@ -27,6 +30,7 @@ require.config({
         'jqueryuitouchpunch': ['jqueryui'],
         'flot': ['jquery'],
         'screenfull': { exports: 'screenfull' },
-        'base': { exports: 'Base' }
+        'base': { exports: 'Base' },
+        'homescreen': { exports: 'addToHomescreen' }
     }
 });

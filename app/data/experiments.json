@@ -8,10 +8,11 @@
                 "description": { "dk": "Design et stykke DNA som koder for enzymet, samt har resistens for Antibiotika B" },
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
-                    "item": "ContainerType.TUBE",
-                    "liquids": [
-                        { "type": "LiquidType.GENE" }
-                    ]
+                    "item": "ContainerType.TUBE"
+                },
+                "consequence": {
+                    "type": "ConsequenceType.VIDEO",
+                    "video": "electroporator1"
                 }
             },
 
