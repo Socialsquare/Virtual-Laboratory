@@ -115,7 +115,7 @@ define([
 
                     returnObject.firstError = values.firstError < returnObject.firstError ?
                         values.firstError : returnObject.firstError;
-
+                    //TODO: values.newProperties
                     //TODO: omit the stuff below
 
                     /*var promoter = mRNA.shift();
@@ -171,6 +171,8 @@ define([
                     subMRNAs.push(subMRNA);
                 });
 
+                console.log('subMRNAs.length: ' + subMRNAs.length);
+
                 subMRNAs =_.filter(subMRNAs, function(subMRNA) {
                     var containsPCS = _.any(subMRNA.DNAs, function(dna) {
                         return dna.DNAType() === DNAType.PROTEINKODENDE_SEKVENS
@@ -183,8 +185,8 @@ define([
                            return dna.DNAType() === DNAType.RIBOSOME_BINDING_SITE;
                         });
 
-                        if (!containsRBS) {//TODO: 1st check if contains RBS
-// Quiz #3 (no RBS)
+                        if (!containsRBS) {
+                            // Quiz #3 (no RBS)
                             values.firstError = 3 < values.firstError ? 3 : values.firstError;
                         }else{
 
@@ -197,24 +199,154 @@ define([
                                 return dna.DNAType() === DNAType.START_CODON;
                             });
 
-                            if (! containsStartCodon) { //TODO: 2nd if there is NO Start Codon efter RBS
-// Quiz #4 (no start codon)
+                            if (! containsStartCodon) {
+                                // Quiz #4 (no start codon)
                                 values.firstError = 4 < values.firstError ? 4 : values.firstError;
-                            }else {//TODO: there's no PCS after RBS
-// Quiz # 5 (no PCS)
+                                console.log('Electro #1');
+                            }else {
+                                // Quiz # 5 (no PCS)
                                 values.firstError = 5 < values.firstError ? 5 : values.firstError;
+                                console.log('Electro #2');
                             }
+                        }
+                    }
+
+                    return containsPCS;
+                });
+
+
+// FLow, page 2
+                subMRNAs =_.filter(subMRNAs, function(subMRNA) {
+                    var containsRBSBeforeLastPCS = false;
+                    var lastPCSIndex = 0;
+                    _.each(subMRNA.DNAs, function(dna,index) {
+                        if (dna.DNAType() === DNAType.PROTEINKODENDE_SEKVENS) {
+                            lastPCSIndex = index > lastPCSIndex ? index : lastPCSIndex;
+
+                        }
+                    });
+
+                    containsRBSBeforeLastPCS = _.any(subMRNA.DNAs, function(dna, index){
+                        return (dna.DNAType() === DNAType.RIBOSOME_BINDING_SITE
+                            && index < lastPCSIndex);
+                    });
+
+                    if (!containsRBSBeforeLastPCS) {
+                        var containsRBS = _any(subMRNA.DNAs, function(dna) {
+                            return dna.DNAType() === DNAType.RIBOSOME_BINDING_SITE;
+                        });
+
+                        //(1) - does it contain RBS at all?
+                        if(!containsRBS) {
+                            // Quiz #3 (no RBS)
+                            values.firstError = 3 < values.firstError ? 3 : values.firstError;
+                            console.log('Electro #3');
+                        }else{
+                            var firstRBSIndex = _.findIndex(subMRNA.DNAs, function(dna){
+                                return dna.DNAType() === DNAType.RIBOSOME_BINDING_SITE;
+                            });
+                            var dnasAfterRBS = subMRNA.DNAs.slice(firstRBSIndex);
+                            var containsStartCodon = _.any(dnasAfterRBS, function(dna) {
+                                return dna.DNAType() === DNAType.START_CODON;
+                            });
+
+                            //(2) - is there a Start Codon after the RBS?
+                            if (! containsStartCodon) {
+                                // Quiz #4 (no start codon)
+                                values.firstError = 4 < values.firstError ? 4 : values.firstError;
+                                console.log('Electro #4');
+                            }else {//(3) - otherwise PCS is missing
+                                // Quiz # 5 (no PCS)
+                                values.firstError = 5 < values.firstError ? 5 : values.firstError;
+                                console.log('Electro #5');
+                            }
+
+
                         }
 
 
 
                     }
 
+
+                    return containsRBSBeforeLastPCS;
+                });
+
+//Se bort fra alt før det første RBS   -- kl. 21:53
+                _.each(subMRNAs, function(subMRNA) {
+                    var firstRBSIndex = _.findIndex(subMRNA.DNAs, function(dna){
+                        return dna.DNAType() === DNAType.RIBOSOME_BINDING_SITE;
+                    });
+
+                    subMRNA.DNAs = _.filter(subMRNA.DNAs, function(dna, index) {
+                        return index >= firstRBSIndex;
+                    });
+                });
+
+// Er der i hvert sub-mRNA, efter første RBS, mindst et Start Codon (Start)?
+                subMRNAs = _.filter(subMRNAs, function(subMRNA) {
+                    var containsStartCodon = _.any(subMRNA.DNAs, function(dna) {
+                        return dna.DNAType() === DNAType.START_CODON;
+                    });
+
+                    if (!containsStartCodon) {
+                        // Quiz #4 (no start codon)
+                        values.firstError = 4 < values.firstError ? 4 : values.firstError;
+                        console.log('Electro #6');
+                    }
+
+                    return containsStartCodon;
+                });
+
+// Se bort fra alt DNA før det første Start Codon i de følgende kontroller, samt ignorér RBS.
+                _.each(subMRNAs, function(subMRNA) {
+                    var firstStartCodonIndex = _.findIndex(subMRNA.DNAs, function(dna){
+                        return dna.DNAType() === DNAType.START_CODON;
+                    });
+
+                    subMRNA.DNAs = _.filter(subMRNA.DNAs, function(dna, index) {
+                        return index >= firstStartCodonIndex;
+                    });
+                });
+
+// Er der i hvert sub-mRNA, efter første Start Codon et Proteinkodende Sekvens
+                subMRNAs = _.filter(subMRNAs, function(subMRNA) {
+                    var containsPCS = _.any(subMRNA.DNAs, function(dna) {
+                        return dna.DNAType() === DNAType.PROTEINKODENDE_SEKVENS;
+                    });
+
+                    if(!containsPCS) {
+                        // Quiz # 5 (no PCS)
+                        values.firstError = 5 < values.firstError ? 5 : values.firstError;
+                        console.log('Electro #7');
+                    }
+
                     return containsPCS;
                 });
 
-                //TODO: filtrér ved at tjekke om sub-mRNA indeholder PCS.
-                //TODO: hvis IKKE: se flow
+// Er det sidste i sub-mRNA’et et Stop Codon (Stop)?
+                subMRNAs = _.filter(subMRNAs, function(subMRNA) {
+                    var containsStopCodon = _.any(subMRNA.DNAs, function(dna) {
+                        return dna.DNAType() === DNAType.STOP_CODON;
+                    });
+
+                    if(!containsStopCodon) {
+                        // Quiz # 6 (no stop codon)
+                        values.firstError = 6 < values.firstError ? 6 : values.firstError;
+                        console.log('Electro #8');
+                    }
+
+                    return containsStopCodon;
+                });
+
+
+
+
+
+                    console.log('subMRNAs.length: ' + subMRNAs.length);
+
+
+//TODO: last two parts of the DNA-flow! (extract the new properties)
 
                 return values;
             };

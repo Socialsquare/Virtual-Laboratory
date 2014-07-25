@@ -147,13 +147,13 @@ define([
             dnaDesign.handleDrop(elements[8]); // Promoter
             dnaDesign.handleDrop(elements[3]); // RBS
             dnaDesign.handleDrop(elements[1]); // Start codon
-            /*dnaDesign.handleDrop(elements[5]); //PCS Insulin 1
+            dnaDesign.handleDrop(elements[5]); //PCS Insulin 1
             dnaDesign.handleDrop(elements[4]); //PCS GFP
             dnaDesign.handleDrop(elements[7]); //PCS Lipase
             //dnaDesign.handleDrop(elements[11]); //PCS Resistens B
             dnaDesign.handleDrop(elements[12]); //PCS Resistens A
             dnaDesign.handleDrop(elements[2]); // Stop Codon
-            dnaDesign.handleDrop(elements[0]); // Terminator*/
+            /*dnaDesign.handleDrop(elements[0]); // Terminator*/
             dnaDesign.handleDrop(elements[0]); //Terminator
 
             dnaDesign.orderDNA();
@@ -161,7 +161,7 @@ define([
             var len = self.gameState.inventory.items().length;
             var dnaTube = self.gameState.inventory.items()[len-1];
 
-            self.gameState.worktable1.electroporator.addAll(dnaTube.cloneLiquids(), true); //Should work
+            self.gameState.worktable1.electroporator.addAll(dnaTube.cloneLiquids(), true);
 
             var yeastbeast =self.liquidFactory.microorganism.yeast();
             yeastbeast.concentration(Math.pow(10,8));

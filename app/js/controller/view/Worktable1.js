@@ -1,5 +1,6 @@
 define([
     'knockout',
+    'lodash',
     'jquery',
     'controller/view/Base',
     'model/type/Container',
@@ -9,7 +10,7 @@ define([
     'controller/CompositeContainer',
 
     'utils/QuizHelper'
-], function (ko, $, BaseViewController, ContainerType, LiquidType, SimpleContainerController,
+], function (ko, _, $, BaseViewController, ContainerType, LiquidType, SimpleContainerController,
              CompositeContainerController, QuizHelper) {
 
     var Worktable1 = BaseViewController.extend({
@@ -57,18 +58,15 @@ define([
 
                 if (! (containsGene && containsOrganism)) { //TODO: test.
                     //TODO: i18n
-                    self.popupController.message('Prøv igen',
-                        'Hvis du vil genmodificere en eller flere organismer, så er det en rigtig god idé at tilføje både organismer og noget DNA');
+                    self.popupController.message('worktable1.electroporator_wont_start.header','worktable1.electroporator_wont_start.body');
                     return;
                 }
 
-                //TODO: find out which videos and quizzes to show.
-                var videoQuizNumber = self.worktable1.electroporator.getQuizVideo();
-                console.log('TODO: quizNumber: ' + videoQuizNumber);
+                var quizNumber = self.worktable1.electroporator.getQuizVideo();
 
-                /*self.showElectroporatorVideos(videoQuizNumber).done(function() {
-                    self.showElectroporatorQuiz(videoQuizNumber);
-                });*/
+                self.showElectroporatorVideos(quizNumber).done(function() {
+                    self.showElectroporatorQuiz(quizNumber);
+                });
 
 
                 self.worktable1.electroporator.activate();
@@ -76,27 +74,76 @@ define([
             };
 
             self.showElectroporatorQuiz = function(quizNumber) {
-                console.log('TODO: Quiz-number: '+ quizNumber);
 
                 switch (quizNumber) {
                     case 1:
-                        debugger;
                         self.quizController.startQuiz(QuizHelper.electroporator.getQuiz1());
                         break;
                     case 2:
                         self.quizController.startQuiz(QuizHelper.electroporator.getQuiz2());
+                        break;
+                    case 3:
+                        self.quizController.startQuiz(QuizHelper.electroporator.getQuiz3());
+                        break;
+                    case 4:
+                        self.quizController.startQuiz(QuizHelper.electroporator.getQuiz4());
+                        break;
+                    case 5:
+                        self.quizController.startQuiz(QuizHelper.electroporator.getQuiz5());
+                        break;
+                    case 6:
+                        self.quizController.startQuiz(QuizHelper.electroporator.getQuiz6());
                         break;
                 }
 
 
             };
 
-            self.showElectroporatorVideos = function(videoNumber) {
-                var videoList = [];
+            self.showElectroporatorVideos = function(quizNumber) {
+                var videoNumbers = [];
 
-                for (var i = 1; i <= videoNumber; i++) {
-                    videoList.push('electroporator' + i);
+                // Video #1 = elektroporatoring
+                // Video #2 = transskription start
+                // Video #3 = transskription stop
+                // Video #4 = ribosome binding
+                // Video #5 = translation
+                // Video #6 = translation stopping
+
+                // Quiz #1 - mangler promoter:                 videos = [1]
+                // Quiz #2 - mangler terminator                videos = [1,2]
+                // Quiz #3 - mangler RBS                       videos = [1,2,3]
+                // Quiz #4 - mangler Start Codon               videos = [1,2,3,4]
+                // Quiz #5 - mangler proteinkodende sekvens    videos = [1,2,3,4,5]
+                // Quiz #6 - mangler Stop Codon                videos = [1,2,3,4,5]
+                // else                                        videos = [1,2,3,4,5,6]
+
+                switch (quizNumber) {
+                    case 1:
+                        videoNumbers = [1];
+                        break;
+                    case 2:
+                        videoNumbers = [1,2];
+                        break;
+                    case 3:
+                        videoNumbers = [1,2,3];
+                        break;
+                    case 4:
+                        videoNumbers = [1,2,3,4];
+                        break;
+                    case 5:
+                        videoNumbers = [1,2,3,4,5];
+                        break;
+                    case 6:
+                        videoNumbers = [1,2,3,4,5];
+                        break;
+                    default:
+                        videoNumbers = [1,2,3,4,5,6];
+                        break;
                 }
+
+                var videoList = _.map(videoNumbers, function(videoNumber) {
+                    return 'electroporator' + videoNumber;
+                });
 
                 return self.popupController.video(videoList, true);
 

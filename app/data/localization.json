@@ -111,6 +111,8 @@
 
         "worktable1.electroporator_refill.header": "Bekræft",
         "worktable1.electroporator_refill.body": "Vil du tømme elektroporatoren og tilføje indholdet fra pipetten?",
+        "worktable1.electroporator_wont_start.header": "Prøv igen",
+        "worktable1.electroporator_wont_start.body": "Hvis du vil genmodificere en eller flere organismer, så er det en rigtig god idé at tilføje både organismer og noget DNA",
 
         "worktable2.spleen_blended.header": "Milten er blended",
         "worktable2.spleen_blended.body": "Der er tilføjet et reagensglas i dit inventory med homogeniseret milt.",
