@@ -56,8 +56,7 @@ define([
                     return liquid.type() === LiquidType.GENE;
                 });
 
-                if (! (containsGene && containsOrganism)) { //TODO: test.
-                    //TODO: i18n
+                if (! (containsGene && containsOrganism)) {
                     self.popupController.message('worktable1.electroporator_wont_start.header','worktable1.electroporator_wont_start.body');
                     return;
                 }
@@ -66,11 +65,15 @@ define([
 
                 self.showElectroporatorVideos(quizNumber).done(function() {
                     self.showElectroporatorQuiz(quizNumber);
+                    if (quizNumber > 6)
+                        self.popupController.notify('worktable1.electroporator_success.header','worktable1.electroporator_success.body', 3500);
                 });
 
 
                 self.worktable1.electroporator.activate();
                 self.experimentController.triggerActivation(self.ActivationType.ELECTROPORATOR, self.worktable1.electroporator);
+
+
             };
 
             self.showElectroporatorQuiz = function(quizNumber) {

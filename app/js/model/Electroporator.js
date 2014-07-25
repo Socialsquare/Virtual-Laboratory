@@ -76,8 +76,8 @@ define([
             self.verifyGeneAndGetProperties = function(gene) { //1.2.1) Hvis det er korrekt designet, overfør hver egenskab til hver mirkoorganisme*/
 
                 var returnObject = {firstError: Infinity, newProperties: []};
-                var firstError = -1; // firstError is for deciding which QuizVideo to show.
-                var newProperties = []; // newProperties are the OrganismProperties to add to the organisms
+                // firstError is for deciding which QuizVideo to show.
+                // newProperties are the OrganismProperties to add to the organisms
 
                 // Er der 1 eller flere promotere i genet?
                 var MRNAs = [];
@@ -85,29 +85,26 @@ define([
                 var promLen = promoterPositions.length;
                 if(promLen <= 0) {
                     // Quiz #1 , missing promoter
-                    console.log('TODO: fire video + quizzes #1');
                     returnObject.firstError = 1;
 
                     return returnObject;
-                } //TODO: -
+                }
 
                 // Er der en terminator efter den sidste promoter?
                 var terminatorPositions = gene.getTerminatorPositions();
                 var termLen = terminatorPositions.length;
                 if(termLen <= 0) {
-                    console.log('TODO: fire video + quizzes #2.1');
                     returnObject.firstError = 2;
                     return returnObject;
-                } //TODO: .
+                }
                 else if(! (terminatorPositions[termLen-1] > promoterPositions[promLen-1]))  {
-                    console.log('TODO: fire video + quizzes #2.2');
                     returnObject.firstError = 2;
                     return returnObject;
-                } //TODO: .
+                }
 
                 MRNAs = gene.getMRNAs(promoterPositions, terminatorPositions);
 
-                //TODO: this is a temporary shortcut to get OrganismProperties into play. Do the rest of the flowchart!
+
 
                 _(MRNAs).each(function(mRNA){
                     //TODO: implement her.
@@ -115,25 +112,16 @@ define([
 
                     returnObject.firstError = values.firstError < returnObject.firstError ?
                         values.firstError : returnObject.firstError;
+
+                    _.each(values.newProperties, function(newProperty) {
+                        returnObject.newProperties.push(newProperty);
+                    });
                     //TODO: values.newProperties
-                    //TODO: omit the stuff below
 
-                    /*var promoter = mRNA.shift();
 
-                    _(mRNA).each(function(DNAelement){
 
-                        console.log('DNAtype:' + DNAelement.DNAType());
 
-                        if(DNAelement.DNAType() === DNAType.PROTEINKODENDE_SEKVENS) {
-
-                            var promoter_clone = promoter.clone();
-                            var dna_clone = DNAelement.clone();
-
-                            newProperties.push(new OrganismPropertyModel(promoter_clone, dna_clone));
-                        }
-                    });*/
                 });
-
                 return returnObject;
             };
 
@@ -148,10 +136,8 @@ define([
             };
 
             self.examineMRNAandGetNewProperties = function(mRNA) {
-                //TODO: set quiz/video-numbers
-                var values = {firstError: Infinity, newProperties: []};
 
-                //TODO: generate sub-mRNAs
+                var values = {firstError: Infinity, newProperties: []};
                 var subMRNAs = [];
 
                 var promoterPositions = [];
@@ -171,7 +157,6 @@ define([
                     subMRNAs.push(subMRNA);
                 });
 
-                console.log('subMRNAs.length: ' + subMRNAs.length);
 
                 subMRNAs =_.filter(subMRNAs, function(subMRNA) {
                     var containsPCS = _.any(subMRNA.DNAs, function(dna) {
@@ -340,13 +325,75 @@ define([
                 });
 
 
-
-
-
                     console.log('subMRNAs.length: ' + subMRNAs.length);
 
+                _.each(subMRNAs, function(subMRNA) {
+                    //TODO: last two parts of the DNA-flow! (extract the new properties)
 
-//TODO: last two parts of the DNA-flow! (extract the new properties)
+                    //Get start codon positions
+                    var startPositions = [];
+                    _.each(subMRNA.DNAs, function(dna, index){
+                        if(dna.DNAType() === DNAType.START_CODON) {
+                            startPositions.push(index);
+                        }
+                    });
+
+                    //Get stop codon positions
+                    var stopPositions = [];
+                    _.each(subMRNA.DNAs, function(dna, index){
+                        if(dna.DNAType() === DNAType.STOP_CODON) {
+                            stopPositions.push(index);
+                        }
+                    });
+
+
+                    var postionPairs = []; //starting and end-position in the gene for the mRNA.
+                    var viableDNAlists = []; //NESTED LISTS! DNAs containing allowed PCSs
+
+                    // Extract position-piars
+                    while(startPositions.length > 0) {
+                        var firstStartCodon = startPositions.shift();
+
+                        //1) nak alle terminals før første promoter.
+                        stopPositions = _.filter(stopPositions, function(stopPosition) {
+                            return stopPosition > firstStartCodon;
+                        });
+
+                        //2) terminals.shift() !
+                        var firstStop = stopPositions.shift();
+
+                        //3) nak alle promoters før firstStop
+                        startPositions = _.filter(startPositions, function(startPosition) {
+                            return startPosition > firstStop;
+                        });
+
+                        postionPairs.push([firstStartCodon,firstStop]);
+                    }
+
+                    // Extract relevant DNA
+                    _(postionPairs).each(function(pair){
+                        var startPos = pair[0];
+                        var stopPos = pair[1];
+
+                        var clonedDNAs = _.filter(subMRNA.DNAs, function(dna, index){
+                            return index >= startPos && index < stopPos;
+                        });
+
+                        viableDNAlists.push(clonedDNAs);
+                    });
+
+                    _.each(viableDNAlists, function(viableDNAlist) {
+                        _.each(viableDNAlist, function(dna) {
+                            if (dna.DNAType() === DNAType.PROTEINKODENDE_SEKVENS) {
+                                values.newProperties.push(
+                                    new OrganismPropertyModel(subMRNA.promoter.clone(), dna.clone()));
+
+                            }
+                        });
+                    });
+
+                });
+
 
                 return values;
             };

@@ -17,7 +17,7 @@ define([
             // Tested/Validated
             self.getPromoterPositions = function() {
                 var positions = [];
-                _(self.dnaElements()).each(function(dna, index){
+                _.each(self.dnaElements(), function(dna, index){
                     if(dna.DNAType() === DNAType.PROMOTER) { // dna.DNAType() _IS_ correct, as it is an observable. But when testing this might not be if not created through the computer-view
                         positions.push(index);
                     }
@@ -29,7 +29,7 @@ define([
             // Tested/Validated
             self.getTerminatorPositions = function() {
                 var positions = [];
-                _(self.dnaElements()).each(function(dna, index){
+                _.each(self.dnaElements(), function(dna, index){
                     if(dna.DNAType() === DNAType.TERMINATOR) {
                         positions.push(index);
                     }
@@ -68,7 +68,7 @@ define([
                 _(postionPairs).each(function(pair){
                     var promPos = pair[0];
                     var termPos = pair[1];
-                    self.dnaElements()
+
                     var clone = _.filter(self.dnaElements(), function(dna, index){
                         return index >= promPos && index < termPos;
                     });

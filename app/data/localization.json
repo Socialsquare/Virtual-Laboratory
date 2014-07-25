@@ -109,6 +109,8 @@
         "worktable1.bunsen_required.header": "Forbudt",
         "worktable1.bunsen_required.body": "Bunsenbrænderen skal være tændt før du kan arbejde ved bordet",
 
+        "worktable1.electroporator_success.header": "Godt gået",
+        "worktable1.electroporator_success.body": "Tillykke! Du har genmodificeret mikroorganismerne i elektroporatoren",
         "worktable1.electroporator_refill.header": "Bekræft",
         "worktable1.electroporator_refill.body": "Vil du tømme elektroporatoren og tilføje indholdet fra pipetten?",
         "worktable1.electroporator_wont_start.header": "Prøv igen",
