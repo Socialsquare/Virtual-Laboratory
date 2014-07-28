@@ -104,6 +104,7 @@
         "fermentor.chromatograph_product.lipase": "Lipase",
         "fermentor.chromatograph_select.header": "Oprens protein",
         "fermentor.chromatograph_select.body": "Tillykke, fermenteringen gik godt! Hvilket af følgende proteiner vil du oprense?",
+        "fermentor.empty_tank.header": "Bekræft",
         "fermentor.empty_tank.body": "Vil du tømme fermentoren og tilføje indholdet fra kanylen?",
         "fermentor.start.header": "Info",
         "fermentor.start.body": "Du har startet fermenteringen",

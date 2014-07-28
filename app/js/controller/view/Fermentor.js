@@ -12,7 +12,7 @@ define([
             self.base('fermentor');
 
             self.fermentor = self.gameState.fermentor;
-            self.fermentorTankController = new SimpleContainerController(self.fermentor.fermentorTank);
+            self.fermentorTankController = new SimpleContainerController(self.fermentor.fermentorTank, self.gameState);
         }
     });
 

@@ -34,7 +34,7 @@ define([
             self.tubeRackController = new CompositeContainerController(self.worktable1.tubeRack);
             self.tubeRackController.dropGuard = tubeRackGuard;
             self.heaterController = new CompositeContainerController(self.worktable1.heater);
-            self.electroporatorController = new SimpleContainerController(self.worktable1.electroporator); //TODO: simpleContainerController
+            self.electroporatorController = new SimpleContainerController(self.worktable1.electroporator, self.gameState);
 
             self.toggleBunsen = function () {
                 self.worktable1.bunsenBurner.toggle();

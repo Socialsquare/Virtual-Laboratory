@@ -6,32 +6,26 @@ define([
     'controller/Popup',
 
     'model/type/Container',
+    'model/Syringe',
 
     'utils/ImageHelper',
     'utils/DragHelper'
-], function (ko, _, Base, popupController, ContainerType, ImageHelper, DragHelper) {
+], function (ko, _, Base, popupController, ContainerType, SyringeModel, ImageHelper, DragHelper) {
 
     var SimpleContainerController = Base.extend({
 
-        constructor: function (simpleContainer) {
+        constructor: function (simpleContainer, gameState) {
             var self = this;
 
             self.DragHelper = DragHelper;
             self.popupController = popupController;
             self.simpleContainer = simpleContainer;
+            self.gameState = gameState;
 
             // defaults
             self.dropGuard = _.constant(true);
-            // self.imagePlaceholderGetter = _.constant('');
             self.showPlaceholder = ko.observable(false);
 
-
-            /*self.dropHandler = function (item) { //TODO: Implement.
-
-                return false;
-            };*/
-
-            // TODO: this is an almost exact copy of the composite container drop handler
             self.handleContainerDrop = function (item) { //TODO: Implement.
 
                 switch (simpleContainer.type()) {
@@ -39,7 +33,7 @@ define([
                         if (item.type() === ContainerType.PIPETTE) {
                             if (!item.hasTip()) {
                                 self.popupController.message('pipette.missing_tip.header', 'pipette.missing_tip.body');
-                            } else if (self.simpleContainer.isEmpty()) { //TODO: 1) hvis elektro er tom --> tilføj all the things
+                            } else if (self.simpleContainer.isEmpty()) { // 1) hvis elektro er tom --> tilføj all the things
                                 item.emptyPipetteInto(self.simpleContainer);
                                 self.popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
 
@@ -53,7 +47,7 @@ define([
                                     item.fillPipette(self.simpleContainer);
                                 }
 
-                            } else if (!self.simpleContainer.isEmpty() && !item.getTip().isEmpty()) { //TODO:3) hvis elektro har contents && pipette har contents --> spørg: Vil du tømme elektro og tilføje?
+                            } else if (!self.simpleContainer.isEmpty() && !item.getTip().isEmpty()) { // 3) hvis elektro har contents && pipette har contents --> spørg: Vil du tømme elektro og tilføje?
 
                                 self.popupController.confirm('worktable1.electroporator_refill.header','worktable1.electroporator_refill.body')
                                     .then(function () {
@@ -78,13 +72,18 @@ define([
                                     return true;
                                 } else {// 3) Check om begge har contents og prompt brugern (tøm fermentor og kanylen efter)
 
-                                    console.log('bugs when confirming - TODO: ');
-
                                     self.popupController.confirm("fermentor.empty_tank.header", "fermentor.empty_tank.body")
                                         .then(function () {
+
                                             self.simpleContainer.clearContents();
                                             item.emptySyringeInto(self.simpleContainer);
                                             self.popupController.notify('syringe.emptied.header', 'syringe.emptied.header', 2000);
+                                        }).fail(function() {
+
+                                            var clonedLiqs = item.cloneLiquids();
+                                            var clonedSyringe = new SyringeModel();
+                                            clonedSyringe.liquids(clonedLiqs);
+                                            self.gameState.inventory.add(clonedSyringe);
                                         });
                                 }
                             }
