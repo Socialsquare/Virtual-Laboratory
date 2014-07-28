@@ -20,6 +20,11 @@ define([
                 return false;
             }
 
+            if (!tube.contains(LiquidType.DESIGNED_DRUG)) {
+                MC.popupController.message('mouse.no_drug.header', -'mouse.no_drug.header');
+                return false;
+            }
+
             // Are the contents allowed?
             if (!MC.mouse().areContentsAllowed(tube)) {
                 MC.popupController.message('mouse.tube_not_allowed.header','mouse.tube_not_allowed.body');

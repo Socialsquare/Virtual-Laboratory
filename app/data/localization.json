@@ -77,6 +77,8 @@
         "mouse.sick_no_bloodsugar.body": "Det er en dårlig idé at manipulere med en syg mus' blodsukker.",
         "mouse.sick_no_killing.header": "Forbudt",
         "mouse.sick_no_killing.body": "Godt nok er musen syg, men det retfærdiggør ikke at du bare dræber den, makker.",
+        "mouse.tube_no_drug.header": "Forbudt",
+        "mouse.tube_no_drug.body": "Dit reagensglas skal indeholde et lægemiddel du har designet på computeren, før du kan give det til musen.",
         "mouse.tube_not_allowed.header": "Forbudt",
         "mouse.tube_not_allowed.body": "Indholdet i dit reagensglas er forurenet. Det er uetisk at give dets indhold ind i musen, du!",
         "mouse.syringe_not_allowed.header": "Forbudt",
