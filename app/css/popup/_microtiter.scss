@@ -1,0 +1,32 @@
+/* popup/microtiter.scss */
+
+.fake-back-button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 45px;
+}
+
+.popup-microtiter {
+  position: absolute;
+  width: 1024px;
+  height: 644px;
+  background-size: 1024px 644px;
+  background-image: url(#{$img-path}/zoom_mkrt_empty.png);
+
+  /*$width: 300px;
+
+  padding: 30px;
+
+  left: 70px;
+  top: 20px;
+  width: $width;
+  height: 100px;
+
+  color: white;
+  opacity: 0.85;
+
+  h3 {
+    margin: 0px;
+  }*/
+}

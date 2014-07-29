@@ -50,6 +50,10 @@ define([
                 self.show('popup-message', { title: title, message: message });
             };
 
+            self.microtiterCloseUp = function(microtiter) {
+                self.show('popup-microtiter', {title: 'syringe.emptied.header', message: 'syringe.emptied.header', wells: ['lala',2,'rigtig meget nice data',4]});
+            };
+
             self.dataExport = function (data) {
                 self.show('popup-data-export', { csvData: data });
             };

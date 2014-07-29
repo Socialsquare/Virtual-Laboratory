@@ -1,0 +1,21 @@
+<div class="popup-microtiter" >
+
+    <div class="fake-back-button hand" data-bind="click: hide">
+        <img src="assets/images/top-button_back_gray.png" alt="Tilbage">
+    </div>
+    <!-- ko with: data -->
+    <h1 data-bind="i18n: title"></h1>
+    <hr />
+
+    <span class="message" data-bind="i18n: message"></span>
+    <ul data-bind="foreach: wells">
+        <li class="hand" data-bind="text: $data">
+
+        </li>
+    </ul>
+    <!-- /ko -->
+
+    <!--<div class="btn-row float-clear">
+        <button data-bind="click: hide, i18n: 'common.close'"></button>
+    </div>-->
+</div>

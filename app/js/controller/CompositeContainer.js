@@ -141,19 +141,15 @@ define([
                 }
             };
 
-            self.showDeveloperDetails = function(index, item) {
-                console.log('Total concentration in item #'+ index +': ' + item.getTotalConcentration());
+            self.goToCloseUp = function(index, item) {
+                console.log('TODO: remove. Total concentration in item #'+ index +': ' + item.getTotalConcentration());
+
+                if (item.type() !== ContainerType.MICROTITER)
+                { return; }
+
+                self.popupController.microtiterCloseUp (item);
             };
-
-              /*  self.showItemDetails = function (item) {
-                var accepted = [SpecialItemType.SCALPEL, SpecialItemType.SPLEEN];
-
-                if (_.contains(accepted, item.type()))
-                    self.popupController.message(TextHelper.prettyName(item), TextHelper.description(item));
-                else
-                    self.popupController.itemDetail(item);
-            };*/
-        },
+        }
     });
 
     return CompositeContainerController;
