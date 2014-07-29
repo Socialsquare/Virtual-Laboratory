@@ -4,8 +4,8 @@ require.config({
     baseUrl: '..',
 
     paths: {
-        jquery: '../bower_components/jquery/jquery',
-        jqueryui: '../bower_components/jquery-ui/ui/jquery-ui',
+        jquery: '../bower_components/jquery/dist/jquery',
+        jqueryui: '../bower_components/jquery-ui/jquery-ui',
         flot: '../bower_components/jquery-flot/jquery.flot',
         html5Loader: '../bower_components/jquery.html5loader/src/jquery.html5Loader',
         lodash: '../bower_components/lodash/dist/lodash.compat',
@@ -27,7 +27,7 @@ require.config({
     shim: {
         'html5Loader': ['jquery'],
         'jqueryui': ['jquery'],
-        'jqueryuitouchpunch': ['jquery', 'jqueryui'],
+        'jqueryuitouchpunch': ['jqueryui'],
         'flot': ['jquery'],
         'screenfull': { exports: 'screenfull' },
         'base': { exports: 'Base' },

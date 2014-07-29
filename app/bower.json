@@ -1,12 +1,12 @@
 {
   "name": "vlab",
   "dependencies": {
-    "jquery": "~1.10.2",
+    "jquery": "~2.1.1",
     "lodash": "~2.4.1",
     "requirejs": "~2.1.14",
     "knockout": "~3.1.0",
     "knockout-mapping": "~2.4.1",
-    "jquery-ui": "~1.10.4",
+    "jquery-ui": "~1.11.0",
     "jquery-flot": "~0.8.3",
     "jquery.html5loader": "~1.7.0",
     "jqueryui-touch-punch": "*",
