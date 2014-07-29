@@ -178,6 +178,10 @@ define([
 
             /*self.gameState.inventory.remove(self.gameState.inventory.items()[len-1]);
             self.gameState.inventory.add(ContainerFactory.syringe());*/
+            self.gameState.inventory.add(ContainerFactory.syringe());
+            self.gameState.inventory.add(ContainerFactory.syringe());
+            self.gameState.inventory.add(ContainerFactory.syringe());
+            self.gameState.inventory.add(ContainerFactory.tube());
         }
     });
 

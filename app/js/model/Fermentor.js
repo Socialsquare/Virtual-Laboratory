@@ -14,7 +14,6 @@ define([
             self.fermentorTank = new FermentorTankModel();
             self.fermentorTank.location(LocationType.FERMENTOR);
 
-            //TODO: chromatograph - should be able to get some contents from the fermentor
             //TODO: implement field on organisms: microOrganism.hasBeenInHighConcentration.JavaNamingConventions().
 
             self.temperature = ko.observable(30.0);
@@ -30,21 +29,25 @@ define([
             self.substrateData = ko.observableArray([]);
             self.productData = ko.observableArray([]);
 
-            var biomassData =_.map(_.range(0, 250), function (i) {
-                return utils.math.getBiomassFromConcentration(self.fermentorTank.getTotalConcentration());
-            });
+            self.initalizeData = function() {
+                var biomassData =_.map(_.range(0, 250), function (i) {
+                    return utils.math.getBiomassFromConcentration(self.fermentorTank.getTotalConcentration());
+                });
 
-            var substrateData =_.map(_.range(0, 250), function (i) {
-                return self.substrate();
-            });
+                var substrateData =_.map(_.range(0, 250), function (i) {
+                    return self.substrate();
+                });
 
-            var productData =_.map(_.range(0, 250), function (i) {
-                return 0.0;
-            });
+                var productData =_.map(_.range(0, 250), function (i) {
+                    return 0.0;
+                });
 
-            self.biomassData(biomassData);
-            self.substrateData(substrateData);
-            self.productData(productData);
+                self.biomassData(biomassData);
+                self.substrateData(substrateData);
+                self.productData(productData);
+            };
+
+            self.initalizeData();
 
             self.temperatureText = ko.computed(function() {
                 return 'Temperatur: ' + self.temperature().toFixed(1) + ' °C';
@@ -65,6 +68,20 @@ define([
                 //TODO: config-file
             };
 
+            self.resetContents = function() {
+                var dilutionFactor = self.fermentorTank.getTotalConcentration() / Math.pow(10,7);
+                var clonedLiqs = self.fermentorTank.cloneLiquids();
+                clonedLiqs = utils.biology.dilute(dilutionFactor, clonedLiqs);
+                self.fermentorTank.clearContents();
+                self.fermentorTank.addAll(clonedLiqs,true);
+
+                self.products([]);
+
+                self.substrate(19.0);
+
+                self.initalizeData();
+            };
+
             self.storeGrowthStep = function() {
 // Biomass
                 var biomassData = self.biomassData();
@@ -79,7 +96,7 @@ define([
                 self.substrateData(substrateData);
 
 // Products //TODO:
-
+                var productData = self.productData();
                 var productConcentration = 0;
                 _.each(self.products(), function(producedEnzyme) {
                     productConcentration += producedEnzyme.amount;

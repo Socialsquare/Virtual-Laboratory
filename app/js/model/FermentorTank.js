@@ -10,6 +10,7 @@ define([
 
         constructor: function () {
             var self = this;
+            self.hasRun = ko.observable(false); //This is used when restarting the fermentor.
             self.base(ContainerType.FERMENTOR_TANK, Math.pow(10, 13));
         }
     });

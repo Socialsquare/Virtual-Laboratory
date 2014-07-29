@@ -27,7 +27,8 @@
                 <img src="assets/images/icon_spreadsheet.png" alt="Export data">
             </div>
 
-            <button class="start-btn btn-none" data-bind="click: activateFermentor.bind()">Start</button>
+            <button class="start-btn btn-none" data-bind="click: activateFermentor.bind(), text: activateButtonText(),
+            css: activateButtonColor"></button>
         </div>
     </div>
 </div>

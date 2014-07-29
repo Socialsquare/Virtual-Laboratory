@@ -24,6 +24,13 @@ define([
             self.plotData = ko.observable({});
             self.graphTimer = ko.observable(null);
             self.turnedOn = ko.observable(false);
+            //Used to determine whether the fermentor has run. If it has, and has contents, start/stop should ask whether one wants to reuse its contents
+            self.activateButtonText = ko.computed(function(){
+                return self.turnedOn() ? 'Stop' : 'Start'; //TODO: i18n
+            });
+            self.activateButtonColor = ko.computed(function(){
+                return self.turnedOn() ? 'red-btn' : 'green-btn';
+            });
 
             self.fermentor = self.gameState.fermentor;
 
@@ -67,23 +74,41 @@ define([
             self.updatePlotData();
 
             self.activateFermentor = function () {
-                self.popupController.notify('fermentor.start.header', 'fermentor.start.body');
-
                 // User starts the run
                  if (!self.turnedOn()) {
-                     var graphTimer = setInterval(self.nextTimeStep, 100);
-                     self.graphTimer(graphTimer);
-                     self.turnedOn(true);
+                     if (self.fermentor.fermentorTank.hasRun()) {
+                         self.popupController.confirm('fermentor.restart.header', 'fermentor.restart.body').
+                             then(function(){
+                                 self.fermentor.resetContents();
+                                 self.startFermentation();
+                             });
+                     }else {
+                         self.startFermentation();
+                     }
 
-                     self.experimentController.triggerActivation(self.ActivationType.FERMENTOR, self.fermentor);
                  } else {
                  // User stops the run
-                     clearTimeout(self.graphTimer());
+                     self.popupController.notify('fermentor.stop.header', 'fermentor.stop.body');
+                     self.endFermentation();
+                     /*clearTimeout(self.graphTimer());
                      self.graphTimer(null);
-                     self.turnedOn(false);
+                     self.turnedOn(false);*/
                  }
             };
 
+            self.startFermentation = function() {
+                var totalConc = self.fermentor.fermentorTank.getTotalConcentration();
+                console.log('Started the fermentation with a totalConc of: ' + totalConc);
+                console.log('logconc: ' + utils.math.getBaseLog(10,totalConc));
+
+                self.popupController.notify('fermentor.start.header', 'fermentor.start.body');
+                var graphTimer = setInterval(self.nextTimeStep, 100);
+                self.graphTimer(graphTimer);
+                self.turnedOn(true);
+                self.fermentor.fermentorTank.hasRun(true);
+
+                self.experimentController.triggerActivation(self.ActivationType.FERMENTOR, self.fermentor);
+            };
 
             self.endFermentation = function() {
                 // TODO: reset fermentor (fermentor products, substrate, contents (make a copy of original?)??)
@@ -91,6 +116,8 @@ define([
                 self.turnedOn(false);
                 self.graphTimer(null);
                 self.fermentor.timer(0);
+
+
 
                 var options = [];
 

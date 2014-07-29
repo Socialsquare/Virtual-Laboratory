@@ -106,8 +106,13 @@
         "fermentor.chromatograph_select.body": "Tillykke, fermenteringen gik godt! Hvilket af følgende proteiner vil du oprense?",
         "fermentor.empty_tank.header": "Bekræft",
         "fermentor.empty_tank.body": "Vil du tømme fermentoren og tilføje indholdet fra kanylen?",
+        "fermentor.restart.header": "Bekræft",
+        "fermentor.restart.body": "Vil du genstarte fermenteringen ved at pode med fermentorens nuværende indhold? Hvis du gerne vil starte den med en ny podning, så skal denne overføres med en kanyle til fermentor tanken.",
         "fermentor.start.header": "Info",
         "fermentor.start.body": "Du har startet fermenteringen",
+        "fermentor.stop.header": "Info",
+        "fermentor.stop.body": "Du har stoppet fermenteringen",
+
 
         "worktable1.bunsen_required.header": "Forbudt",
         "worktable1.bunsen_required.body": "Bunsenbrænderen skal være tændt før du kan arbejde ved bordet",
@@ -216,7 +221,7 @@
         "experiment.completed.body": "Du er helt færdig. Tillykke med det.",
 
         "common.next": "Næste",
-        "common.contains": "Indeholder",
+        "common.contains": "Indeholdte oprindeligt",
         "common.loading": "Henter",
         "common.ok": "Okay",
         "common.close": "Luk",

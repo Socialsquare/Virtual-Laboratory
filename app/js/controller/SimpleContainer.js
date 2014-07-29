@@ -74,11 +74,15 @@ define([
 
                                     self.popupController.confirm("fermentor.empty_tank.header", "fermentor.empty_tank.body")
                                         .then(function () {
+                                            //When accepted
 
                                             self.simpleContainer.clearContents();
+                                            self.simpleContainer.hasRun(false); //This is used when restarting the fermentor
                                             item.emptySyringeInto(self.simpleContainer);
-                                            self.popupController.notify('syringe.emptied.header', 'syringe.emptied.header', 2000);
+                                            self.gameState.fermentor.resetContents();
+                                            self.popupController.notify('syringe.emptied.header', 'syringe.emptied.body', 2000);
                                         }).fail(function() {
+                                            //When rejected
 
                                             var clonedLiqs = item.cloneLiquids();
                                             var clonedSyringe = new SyringeModel();

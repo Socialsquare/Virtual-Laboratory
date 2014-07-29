@@ -66,7 +66,6 @@ define([
             };
 
             self.canAddLiquids = function (liquids) {
-                //TODO: check if self.maxConcentration is reached, and if liquids contains microorganisms.
                 var concentrationToBeAdded = 0; //Such javaNamingConventions. Wow.
                 _.each(liquids, function(liquid) {
                     if(liquid.type() !== LiquidType.MICROORGANISM) {     return;   }

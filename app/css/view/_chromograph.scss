@@ -56,13 +56,15 @@
         margin-right: 10px;
         height: 46px;
         width: 70px;
-        background-color: #2bcb36;
         border-radius: 2px;
-
-        .running {
-            background-color: #f03939;
-        }
     }
+
+  .green-btn{
+    background-color: #2bcb36;
+  }
+  .red-btn{
+    background-color: #f03939;
+  }
 
     .graph {
         width: 620px;
