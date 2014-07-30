@@ -12,11 +12,10 @@ define([
     'factory/Liquid',
 
     'utils/ImageHelper',
-    'utils/DragHelper',
-    'utils/utils'
+    'utils/DragHelper'
 
 ], function (ko, _, Base, utils, popupController, ContainerType, SpecialItemType,
-             LiquidFactory, ImageHelper, DragHelper, utils) {
+             LiquidFactory, ImageHelper, DragHelper) {
 
     var CompositeContainerController = Base.extend({
 
@@ -147,7 +146,7 @@ define([
                 if (item.type() !== ContainerType.MICROTITER)
                 { return; }
 
-                self.popupController.microtiterCloseUp (item);
+                self.popupController.microtiterCloseUp(item);
             };
         }
     });

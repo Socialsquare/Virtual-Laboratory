@@ -5,15 +5,17 @@ define([
     'lodash',
     'model/Popup',
     'utils/TextHelper',
-
+    'utils/ImageHelper',
     'controller/Video'
-], function (ko, $, Base, _, PopupModel, TextHelper, VideoController) {
+
+], function (ko, $, Base, _, PopupModel, TextHelper, ImageHelper, VideoController) {
 
     var Popup = Base.extend({
 
         constructor: function () {
             var self = this;
 
+            self.imageHelper = ImageHelper;
             self.activeNotifications = ko.observableArray([]);
             self.activeNotification = ko.computed(function () {
                 return !self.activeNotifications.isEmpty();
@@ -50,9 +52,31 @@ define([
                 self.show('popup-message', { title: title, message: message });
             };
 
-            self.microtiterCloseUp = function(microtiter) {
-                self.show('popup-microtiter', {title: 'syringe.emptied.header', message: 'syringe.emptied.header', wells: ['lala',2,'rigtig meget nice data',4]});
+
+            self.testMe = function(one, two) {
+                debugger;
             };
+
+            self.microtiterCloseUp = function(microtiter) {
+
+                self.show('popup-microtiter', microtiter);
+            };
+
+            //TODO: something with:
+
+            /*case ContainerType.MICRO_SPACE:
+            self.showPlaceholder(true);
+
+            self.imageGetter = ImageHelper.tableSpaceMicroImage;
+            self.accepter = DragHelper.acceptMicro;
+            break;*/
+
+            /*case ContainerType.UV_MICRO_SPACE:
+            self.showPlaceholder(true);
+
+            self.imageGetter = ImageHelper.uvTableSpaceMicroImage;
+            self.accepter = DragHelper.acceptMicro;
+            break;*/
 
             self.dataExport = function (data) {
                 self.show('popup-data-export', { csvData: data });

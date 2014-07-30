@@ -14,19 +14,33 @@
   background-size: 1024px 644px;
   background-image: url(#{$img-path}/zoom_mkrt_empty.png);
 
-  /*$width: 300px;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li { float: left; }
+  }
+}
 
-  padding: 30px;
+.well-slot0, .well-slot1, .well-slot2, .well-slot3 { width: 110px; height: 100px; position: absolute;}
 
-  left: 70px;
-  top: 20px;
-  width: $width;
-  height: 100px;
+$topRow0: 130px;
+$leftColumn0: 162px;
+$leftColumn1: $leftColumn0 + 128px;
 
-  color: white;
-  opacity: 0.85;
-
-  h3 {
-    margin: 0px;
-  }*/
+.well-slot0{
+  top: $topRow0;
+  left: $leftColumn0;
+}
+.well-slot1{
+  top: $topRow0;
+  left: $leftColumn1;
+}
+.well-slot2{
+  top: $topRow0;
+  left: 410px;
+}
+.well-slot3{
+    top: $topRow0;
+    left: 560px;
 }

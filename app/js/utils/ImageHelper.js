@@ -64,6 +64,10 @@ define([
                 return self.img('sidegroup_' + name + '.png');
             };
 
+            self.microtiterCloseUp = function(position, microtiter) {
+                return self.img('zoom_mkrt_well_dense.png');
+            };
+
             self.inventoryIcon = function (item) {
                 switch (item.type()) {
                 case ContainerType.PETRI_DISH:
