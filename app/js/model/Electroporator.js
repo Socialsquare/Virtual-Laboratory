@@ -218,7 +218,7 @@ define([
                     });
 
                     if (!containsRBSBeforeLastPCS) {
-                        var containsRBS = _any(subMRNA.DNAs, function(dna) {
+                        var containsRBS = _.any(subMRNA.DNAs, function(dna) {
                             return dna.DNAType() === DNAType.RIBOSOME_BINDING_SITE;
                         });
 

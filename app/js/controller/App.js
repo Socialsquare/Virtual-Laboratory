@@ -120,7 +120,7 @@ define([
             self.gameState.worktable2.tubeRack.addAt(0, ContainerFactory.tube()
                                                      .add(LiquidFactory.microorganism.yeast()));*/
 
-            self.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.homoSpleen('LiquidType.ANTIGEN_GOUT')));
+            //self.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.homoSpleen('LiquidType.ANTIGEN_GOUT')));
             /*LiquidType.ANTIGEN_GOUT*/
 
             /*self.gameState.fumehood.tableSpaceMicro.addAt(0, ContainerFactory.micro()
