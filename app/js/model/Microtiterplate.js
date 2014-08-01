@@ -11,7 +11,7 @@ define([
             self.base(ContainerType.MICROTITER, Math.pow(10, 10));
             self.wells = ko.observableArray([]);
 
-            for(var i = 0; i < 24; i++){
+            for(var i = 0; i < 4; i++){
                 self.wells.push(new WellModel());
             }
         }

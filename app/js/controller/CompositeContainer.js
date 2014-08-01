@@ -141,7 +141,7 @@ define([
             };
 
             self.goToCloseUp = function(index, item) {
-                console.log('TODO: remove. Total concentration in item #'+ index +': ' + item.getTotalConcentration());
+                console.log('TODO: remove. ItemType: '+item.type()+', ItemLocation: '+item.location()+', Total concentration in item #'+ index +': ' + item.getTotalConcentration());
 
                 if (item.type() !== ContainerType.MICROTITER)
                 { return; }

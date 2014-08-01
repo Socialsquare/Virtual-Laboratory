@@ -4,9 +4,10 @@ define([
 
     'model/type/Container',
     'model/type/Liquid',
-    'model/type/SpecialItem'
+    'model/type/SpecialItem',
+    'model/type/Location'
 
-], function (_, Base, ContainerType, LiquidType, SpecialItemType) {
+], function (_, Base, ContainerType, LiquidType, SpecialItemType, LocationType) {
 
     var ImageHelper = Base.extend({
         constructor: function () {
@@ -64,7 +65,7 @@ define([
                 return self.img('sidegroup_' + name + '.png');
             };
 
-            self.microtiterCloseUp = function(position, microtiter) {
+            self.microtiterWell = function(position, microtiter) {
                 return self.img('zoom_mkrt_well_dense.png');
             };
 

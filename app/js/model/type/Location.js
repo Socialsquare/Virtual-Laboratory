@@ -14,6 +14,7 @@ define([
         UVROOM: "LocationType.UVROOM",
         WASHING: "LocationType.WASHING",
         WORKTABLE1: "LocationType.WORKTABLE1",
-        WORKTABLE2: "LocationType.WORKTABLE2"
+        WORKTABLE2: "LocationType.WORKTABLE2",
+        INVENTORY: "LocatoinType.INVENTORY"
     };
 });

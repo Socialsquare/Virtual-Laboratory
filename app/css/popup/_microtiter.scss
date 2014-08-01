@@ -7,12 +7,20 @@
   width: 45px;
 }
 
+.zoom-microtiter-normal{
+  background-image: url(#{$img-path}/zoom_mkrt_empty.png);
+}
+
+.zoom-microtiter-uv{
+  background-image: url(#{$img-path}/zoom_mkrt_uv_empty.png);
+}
+
+
 .popup-microtiter {
   position: absolute;
   width: 1024px;
   height: 644px;
   background-size: 1024px 644px;
-  background-image: url(#{$img-path}/zoom_mkrt_empty.png);
 
   ul {
     list-style: none;

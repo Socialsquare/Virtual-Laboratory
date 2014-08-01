@@ -23,6 +23,7 @@ define([
                 if (!!self.get(position)) {
                     return false;
                 }
+
                 container.location(self.location());
                 self.containers.setAt(position, container);
 
@@ -52,7 +53,6 @@ define([
                 if (!container)
                     return;
 
-                container.location(null);
                 self.containers.setAt(position, null);
             };
 

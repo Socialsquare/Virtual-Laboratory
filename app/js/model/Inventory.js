@@ -5,8 +5,9 @@ define([
 
     'controller/Experiment',
 
-    'utils/TextHelper'
-], function (ko, _, Base, experimentController, TextHelper) {
+    'utils/TextHelper',
+    'model/type/Location'
+], function (ko, _, Base, experimentController, TextHelper, LocationType) {
     var Inventory = Base.extend({
 
         constructor: function () {
@@ -28,6 +29,10 @@ define([
                 }
 
                 item.acquired(true);
+
+                if(item.hasOwnProperty('location')) {
+                    item.location(LocationType.INVENTORY);
+                }
 
                 self.items.push(item);
             };
