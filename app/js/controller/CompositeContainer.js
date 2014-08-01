@@ -147,23 +147,16 @@ define([
 
                                 self.compContainer.get(position).clearContents();
                                 if (microtiter.antigenCoating() === AntigenCoatingType.NONE) {
-                                    microtiter.microtiterWells.clearWellsAntibodies();
-                                    microtiter.microtiterWells.clearWellsSecondaryAntibodies(false);
+                                    microtiter.microtiterWells().clearWellsAntibodies();
+                                    microtiter.microtiterWells().clearWellsSecondaryAntibodies(false);
 
                                 }else {
-                                    microtiter.microtiterWells.clearWellsSecondaryAntibodies(true);
-                                    //TODO: Let it keep its antibodies, and 2ndary, but ONLY if it has antibodies!
+                                    //Let the wells of the microtiter plate keep their antibodies, and 2ndary, but ONLY if it has antibodies!
+                                    microtiter.microtiterWells().clearWellsSecondaryAntibodies(true);
+
                                 }
-                                /*console.log('TODO: implement buffer.');
-                                debugger;*/
-                                break;
-                        }
-                        if (self.compContainer.get(position).type() !== ContainerType.MICROTITER) {
 
-
-                            //TODO: notify
-                        }else {
-
+                                return false;
                         }
 
                         break;

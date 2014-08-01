@@ -188,6 +188,7 @@
         "item.name.antigen_smallpox": "Antigen (kopper)",
         "item.name.buffer": "Buffer",
         "item.name.salt_water": "Saltvand",
+        "item.name.fluorescent_2nd_antibody": "Fluorescerende sekundært antistof",
 
         "liquid.description.insulin": "Insulin gør det og det og det",
         "liquid.description.lipase": "Lipase har et 's' i sit navn",
@@ -220,6 +221,7 @@
         "liquid.name.produced_lipase": "Produceret lipase",
         "liquid.name.produced_antibody_gout": "Produceret antistof (gigt)",
         "liquid.name.produced_antibody_pox": "Produceret antistof (kopper)",
+        "liquid.name.fluorescent_2nd_antibody": "Fluorescerende sekundært antistof",
 
 
         "experiment.change.header": "Skift øvelse",

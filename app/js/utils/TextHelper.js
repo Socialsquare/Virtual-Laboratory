@@ -95,6 +95,8 @@ define([
                     return 'liquid.name.antigen_gout';
                 case LiquidType.ANTIGEN_SMALLPOX:
                     return 'liquid.name.antigen_smallpox';
+                case LiquidType.FLUORESCENT_2ND_ANTIBODY:
+                    return 'liquid.name.fluorescent_2nd_antibody';
                 case LiquidType.ADJUVANS:
                     return 'liquid.name.adjuvans';
                 case LiquidType.LIPASE_ENZYME:

@@ -13,7 +13,7 @@ define([
 
             //TODO: Dummy data, delete.
             /*self.hasAntibody(Math.random() > 0.5);*/
-            self.hasFluorescentSecondaryAntibody(Math.random() > 0.5);
+            /*self.hasFluorescentSecondaryAntibody(Math.random() > 0.5);*/
 
             self.clone = function() {
                 var clone = new Well();

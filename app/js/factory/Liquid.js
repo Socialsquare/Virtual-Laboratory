@@ -7,13 +7,14 @@ define([
     'model/Antibiotic',
     'model/HomogenizedSpleen',
     'model/SaltWater',
+    'model/FluorescentSecondaryAntibody',
 
     'model/type/Microorganism',
     'model/type/Antibiotic',
     'model/type/Liquid'
 
 ], function (ko, Liquid, ReactionCount, Microorganism, MyelomaModel, Antibiotic,
-             HomogenizedSpleen, SaltWater, MicroorganismType, AntibioticType,
+             HomogenizedSpleen, SaltWater, FluorescentSecondaryAntibody, MicroorganismType, AntibioticType,
              LiquidType) {
 
     var LiquidFactory = {
@@ -72,6 +73,10 @@ define([
 
         deadly: function () {
             return new Liquid(LiquidType.DEADLY, ReactionCount.ALWAYS);
+        },
+
+        fluorescentSecondaryAntibody: function () {
+            return new FluorescentSecondaryAntibody();
         },
 
         insulin: function () {

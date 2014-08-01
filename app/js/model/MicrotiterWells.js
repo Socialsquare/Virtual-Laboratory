@@ -30,6 +30,12 @@ define([
                 return clone;
             };
 
+            self.addFluorescentSecondaryAntibodies = function() {
+                _.each(self.wells(), function(well) {
+                    well.hasFluorescentSecondaryAntibody(true);
+                });
+            };
+
             self.clearWellsAntibodies = function() {
                 _.each(self.wells(), function(well) {
                     well.hasAntibody(false);

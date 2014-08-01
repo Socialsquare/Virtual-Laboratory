@@ -132,6 +132,9 @@ define([
                         })
                     }
 
+                    if (liquid.type() === LiquidType.FLUORESCENT_2ND_ANTIBODY)
+                        return true;
+
                     return false;
                 });
             };
