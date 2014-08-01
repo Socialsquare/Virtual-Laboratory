@@ -30,11 +30,27 @@
   }
 }
 
-.well-slot0, .well-slot1, .well-slot2, .well-slot3 { width: 110px; height: 100px; position: absolute;}
+.well-slot0, .well-slot1, .well-slot2, .well-slot3, .well-slot4, .well-slot5,
+.well-slot6, .well-slot7, .well-slot8, .well-slot9, .well-slot10, .well-slot11,
+.well-slot12, .well-slot13, .well-slot14, .well-slot15, .well-slot16, .well-slot17,
+.well-slot18, .well-slot19, .well-slot20, .well-slot21, .well-slot22, .well-slot23  { width: 120px; height: 110px; position: absolute;}
 
-$topRow0: 130px;
-$leftColumn0: 162px;
-$leftColumn1: $leftColumn0 + 128px;
+$topRow0: 131px;
+$topRow1: $topRow0 + 117px;
+$topRow2: $topRow1 + 117px;
+$topRow3: $topRow2 + 117px;
+
+$leftRow1: 1px;
+$leftRow2: 2px;
+$leftRow3: 4px;
+
+$leftColumn0: 149px;
+$leftColumn1: $leftColumn0 + 130px;
+$leftColumn2: $leftColumn1 + 130px;
+$leftColumn3: $leftColumn2 + 131px;
+$leftColumn4: $leftColumn3 + 131px;
+$leftColumn5: $leftColumn4 + 132px;
+
 
 .well-slot0{
   top: $topRow0;
@@ -46,9 +62,89 @@ $leftColumn1: $leftColumn0 + 128px;
 }
 .well-slot2{
   top: $topRow0;
-  left: 410px;
+  left: $leftColumn2;
 }
 .well-slot3{
-    top: $topRow0;
-    left: 560px;
+  top: $topRow0;
+  left: $leftColumn3;
+}
+.well-slot4{
+  top: $topRow0;
+  left: $leftColumn4;
+}
+.well-slot5{
+  top: $topRow0;
+  left: $leftColumn5;
+}
+.well-slot6{
+  top: $topRow1;
+  left: $leftColumn0 + $leftRow1;
+}
+.well-slot7{
+  top: $topRow1;
+  left: $leftColumn1 + $leftRow1;
+}
+.well-slot8{
+  top: $topRow1;
+  left: $leftColumn2 + $leftRow1;
+}
+.well-slot9{
+  top: $topRow1;
+  left: $leftColumn3 + $leftRow1;
+}
+.well-slot10{
+  top: $topRow1;
+  left: $leftColumn4 + $leftRow1;
+}
+.well-slot11{
+  top: $topRow1;
+  left: $leftColumn5 + $leftRow1;
+}
+.well-slot12{
+  top: $topRow2;
+  left: $leftColumn0 + $leftRow2;
+}
+.well-slot13{
+  top: $topRow2;
+  left: $leftColumn1 + $leftRow2;
+}
+.well-slot14{
+  top: $topRow2;
+  left: $leftColumn2 + $leftRow2;
+}
+.well-slot15{
+  top: $topRow2;
+  left: $leftColumn3 + $leftRow2;
+}
+.well-slot16{
+  top: $topRow2;
+  left: $leftColumn4 + $leftRow2;
+}
+.well-slot17{
+  top: $topRow2;
+  left: $leftColumn5 + $leftRow2;
+}
+.well-slot18{
+  top: $topRow3;
+  left: $leftColumn0 + $leftRow3;
+}
+.well-slot19{
+  top: $topRow3;
+  left: $leftColumn1 + $leftRow3;
+}
+.well-slot20{
+  top: $topRow3;
+  left: $leftColumn2 + $leftRow3;
+}
+.well-slot21{
+  top: $topRow3;
+  left: $leftColumn3 + $leftRow3;
+}
+.well-slot22{
+  top: $topRow3;
+  left: $leftColumn4 + $leftRow3;
+}
+.well-slot23{
+  top: $topRow3;
+  left: $leftColumn5 + $leftRow3;
 }

@@ -122,7 +122,6 @@ define([
                 return _.invoke(self.liquids(), 'clone');
             };
 
-            // TODO: implement
             self.isFluorescent = function () {
                 return _.any(self.liquids(), function(liquid) {
                     if (liquid.type() === LiquidType.MICROORGANISM) {

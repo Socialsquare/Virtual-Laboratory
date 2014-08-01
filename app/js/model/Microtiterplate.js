@@ -1,19 +1,25 @@
 define([
     'knockout',
     'model/SimpleContainer',
-    'model/Well',
-    'model/type/Container'
-], function (ko, SimpleContainerModel, WellModel, ContainerType) {
+    'model/MicrotiterWells',
+    'model/type/Container',
+    'model/type/AntigenCoating'
+], function (ko, SimpleContainerModel, MicrotiterWellsModel, ContainerType, AntigenCoatingType) {
 
     var Microtiterplate = SimpleContainerModel.extend({
-        constructor: function () {
+        constructor: function (antigenCoatingType) {
             var self = this;
             self.base(ContainerType.MICROTITER, Math.pow(10, 10));
-            self.wells = ko.observableArray([]);
+            self.antigenCoating = ko.observable(antigenCoatingType || AntigenCoatingType.NONE);
+            self.microtiterWells = ko.observable(new MicrotiterWellsModel(antigenCoatingType));
 
-            for(var i = 0; i < 4; i++){
-                self.wells.push(new WellModel());
-            }
+
+            self.isWellFluorescent = function (index) {
+                if (self.isFluorescent())
+                    return true;
+
+                return self.microtiterWells().isWellFluorescent(index);
+            };
         }
     });
 

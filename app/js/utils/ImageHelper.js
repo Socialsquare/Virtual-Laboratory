@@ -65,7 +65,15 @@ define([
                 return self.img('sidegroup_' + name + '.png');
             };
 
-            self.microtiterWell = function(position, microtiter) {
+            self.microtiterWell = function(index, microtiter) {
+
+                if (microtiter.location() === LocationType.UVROOM) {
+                    if (microtiter.isWellFluorescent(index)) {
+                        return self.img('zoom_mkrt_well_uv_glow.png')
+                    }else {
+                        return self.img('zoom_mkrt_well_uv_full.png')
+                    }
+                }
                 return self.img('zoom_mkrt_well_dense.png');
             };
 

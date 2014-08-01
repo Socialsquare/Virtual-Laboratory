@@ -3,6 +3,7 @@ define([
     'model/Liquid',
     'model/ReactionCount',
     'model/Microorganism',
+    'model/Myeloma',
     'model/Antibiotic',
     'model/HomogenizedSpleen',
     'model/SaltWater',
@@ -11,7 +12,7 @@ define([
     'model/type/Antibiotic',
     'model/type/Liquid'
 
-], function (ko, Liquid, ReactionCount, Microorganism, Antibiotic,
+], function (ko, Liquid, ReactionCount, Microorganism, MyelomaModel, Antibiotic,
              HomogenizedSpleen, SaltWater, MicroorganismType, AntibioticType,
              LiquidType) {
 
@@ -32,16 +33,8 @@ define([
             },
 
             myeloma: function () {
-                var micro = new Microorganism(MicroorganismType.MYELOMA);
-
-                micro.living(true);
-                micro.extraGenes([]);
-                micro.extraProperties([]);
-                micro.optimalPh(7.25); // http://en.wikipedia.org/wiki/Blood#Narrow_range_of_pH_values
-                micro.optimalTemp(37);
-                micro.concentration(Math.pow(10, 8));
-
-                return micro;
+                //TODO: verify
+                return new MyelomaModel();
             }
         },
 

@@ -5,19 +5,15 @@
         <img src="assets/images/top-button_back_gray.png" alt="Tilbage">
     </div>
 
-    <ul data-bind="foreach: wells">
-        <!-- ko ifnot: $parent.isEmpty() -->
-        <li class="hand" data-bind="css: 'well-slot' + $index()">
-            <img data-bind="attr: { src: $parents[1].popupController.imageHelper.microtiterWell($index(), $data) },
-            click: function(){ console.log($data); debugger; console.log($parent); console.log('#YOLO');}">
+    <ul data-bind="foreach: microtiterWells().wells">
+        <li data-bind="css: 'well-slot' + $index(), click: function() { debugger; }">
+            <!-- ko ifnot: $parent.isEmpty() -->
+            <!--<img class="hand" data-bind="attr: { src: 'assets/images/zoom_mkrt_well_dense.png' },
+            click: function(){ console.log($parents); debugger;}">-->
+            <img class="hand" data-bind="attr: { src: $parents[1].popupController.imageHelper.microtiterWell($index(), $parent) },
+            click: function(){ debugger;}">
+            <!-- /ko -->
         </li>
-        <!-- /ko -->
-        <!-- ko if: $parent.isEmpty() -->
-        <li class="hand" data-bind="css: 'well-slot' + $index()">
-        </li>
-        <!-- /ko -->
     </ul>
-
-
 </div>
 <!-- /ko -->
