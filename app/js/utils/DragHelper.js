@@ -45,7 +45,8 @@ define([
         acceptedByComposite: accepter([
             ContainerType.PIPETTE,
             ContainerType.SYRINGE,
-            SpecialItemType.WASH_BOTTLE
+            SpecialItemType.BUFFER,
+            SpecialItemType.WASH_BOTTLE,
         ]),
 
         acceptedByMouse: accepter([

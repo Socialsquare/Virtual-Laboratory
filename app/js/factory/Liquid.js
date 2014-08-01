@@ -62,6 +62,10 @@ define([
             return homogenizedSpleen;
         },
 
+        hybridomaMedium: function () {
+            return new Liquid(LiquidType.HYBRIDOMA_MEDIUM, ReactionCount.NEVER);
+        },
+
         growthMedium: function () {
             return new Liquid(LiquidType.GROWTH_MEDIUM, ReactionCount.NEVER);
         },

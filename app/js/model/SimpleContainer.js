@@ -25,13 +25,6 @@ define([
                 if(! self.canAddLiquids(liquids))
                     return;
 
-                // react
-                _(self.liquids())
-                    .union(liquids)
-                    .each(function (liquid) {
-                        liquid.react(self);
-                    });
-
                 // merge in new liquids
                 _.each(liquids, function (liquid) {
                     var exists = false;
@@ -50,6 +43,15 @@ define([
                     if (!exists)
                         self.liquids.push(liquid);
                 });
+
+                // react
+                _(self.liquids())
+                    .union(liquids)
+                    .each(function (liquid) {
+
+                        liquid.react(self);
+                    });
+
 
                 if (!preventTrigger)
                     experimentController.triggerMix(liquids, self);

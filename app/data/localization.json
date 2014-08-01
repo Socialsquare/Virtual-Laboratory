@@ -157,10 +157,16 @@
         "syringe.emptied.body": "Du har tømt kanylen.",
 
         "wash_bottle.diluted.header": "Info",
-        "wash_bottle.diluted.body": "Du har fortyndet løsningen",
+        "wash_bottle.diluted.body": "Du har fortyndet opløsningen",
+
+        "buffer_tube.header": "Dårlig idé.",
+        "buffer_tube.body": "Det giver ikke mening at forsøge at rense et reagensglas blot med buffer. Hvis du vil have et rent reagensglas, så hent et nyt i skuffen.",
+        "buffer_petri.header": "Dårlig idé.",
+        "buffer_petri.body": "Det giver ingen mening at hælde buffer på en petriskål.",
 
         "item.description.scalpel": "Du kan bruge skalpelen til at skære i ting",
         "item.description.spleen": "Milten er rød. Messi vinder næste VM.",
+        "item.description.buffer": "Du kan bruge bufferen til at skylle mikrotiterbakkerne. Dette er relevant når man arbejder med ELISA.",
         "item.description.wash_bottle": "Du kan bruge sprøjteflasken til at fortynde ting",
 
         "item.name.petri_dish": "Petriskål",
@@ -174,12 +180,14 @@
         "item.name.myeloma": "Myeloma",
         "item.name.antibiotic_a": "Antibiotikum A",
         "item.name.antibiotic_b": "Antibiotikum B",
+        "item.name.hybridoma_medium": "Hybridoma medium",
         "item.name.growth_medium": "Vækstmedium",
         "item.name.deadly": "Dødelig reagens",
         "item.name.adjuvans": "Adjuvans",
         "item.name.antigen_gout": "Antigen (gigt)",
         "item.name.antigen_smallpox": "Antigen (kopper)",
-        "item.name.salt_water": "Saltvann",
+        "item.name.buffer": "Buffer",
+        "item.name.salt_water": "Saltvand",
 
         "liquid.description.insulin": "Insulin gør det og det og det",
         "liquid.description.lipase": "Lipase har et 's' i sit navn",
@@ -191,6 +199,7 @@
 
         "liquid.name.microorganism": "Mikroorganisme",
         "liquid.name.antibiotic": "Antibiotikum",
+        "liquid.name.hybridoma_medium": "Hybridoma medium",
         "liquid.name.growth_medium": "Vækstmedium",
         "liquid.name.dna": "DNA",
         "liquid.name.gene": "Gen",

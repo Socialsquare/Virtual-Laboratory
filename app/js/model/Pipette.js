@@ -30,6 +30,17 @@ define([
 
                 container.addAll(clonedLiqs);
                 self.getTip().clearContents();
+
+// Special case for transfering 24 microtiter-wells at once:
+                if (container.type() === ContainerType.MICROTITER && !!self.getTip().microtiterWells()) {
+
+                    var clone = self.getTip().microtiterWells().clone();
+                    //TODO: merge instead of overwriting? Can't decide...
+                    container.microtiterWells(clone);
+                    console.log('Cloned wells to microtiter');
+                    console.log(container);
+                    /*self.getTip().microtiterWells(container.microtiterWells().clone());*/
+                }
             };
 
             self.fillPipette = function(container) {
@@ -47,6 +58,14 @@ define([
 
                 if (modifiedLiqs.length !== 0) {
                     self.getTip().used(true);
+                }
+
+// Special case for transfering 24 microtiter-wells at once:
+                if (container.type() === ContainerType.MICROTITER) {
+                    self.getTip().microtiterWells(container.microtiterWells().clone());
+
+                    console.log('Cloned wells to pipette-tip');
+                    console.log(self.getTip());
                 }
 
             };

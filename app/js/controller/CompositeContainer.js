@@ -8,13 +8,14 @@ define([
 
     'model/type/Container',
     'model/type/SpecialItem',
+    'model/type/AntigenCoating',
 
     'factory/Liquid',
 
     'utils/ImageHelper',
     'utils/DragHelper'
 
-], function (ko, _, Base, utils, popupController, ContainerType, SpecialItemType,
+], function (ko, _, Base, utils, popupController, ContainerType, SpecialItemType, AntigenCoatingType,
              LiquidFactory, ImageHelper, DragHelper) {
 
     var CompositeContainerController = Base.extend({
@@ -108,9 +109,8 @@ define([
                                 self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
                             }
                         }else {
-                            //TODO: check
                             console.log('TODO: can add content'+self.compContainer.get(position).canAddLiquids(item.getTip().liquids()));
-                            item.emptyPipetteInto(self.compContainer.get(position)); //TODO: search for more usages
+                            item.emptyPipetteInto(self.compContainer.get(position));
                             self.popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
                         }
                         break;
@@ -121,9 +121,8 @@ define([
                             self.popupController.notify('syringe.filled.header', 'syringe.filled.body', 2000);
                             return false;
                         }else {
-                            //TODO: check
                             console.log('TODO: can add content'+self.compContainer.get(position).canAddLiquids(item.liquids()));
-                            item.emptySyringeInto(self.compContainer.get(position)); //TODO: search for more usages
+                            item.emptySyringeInto(self.compContainer.get(position));
                             self.popupController.notify('syringe.emptied.header', 'syringe.emptied.body', 2000);
                             return true;
                         }
@@ -133,6 +132,40 @@ define([
                         self.compContainer.get(position).add(LiquidFactory.saltWater());
                         self.popupController.notify('wash_bottle.diluted.header', 'wash_bottle.diluted.body', 2000);
                         return false;
+                        break;
+
+                    case SpecialItemType.BUFFER:
+                        switch(self.compContainer.get(position).type()) {
+                            case ContainerType.TUBE:
+                                self.popupController.notify('buffer_tube.header', 'buffer_tube.body');
+                                break;
+                            case ContainerType.PETRI_DISH:
+                                self.popupController.notify('buffer_petri.header', 'buffer_petri.body');
+                                break;
+                            case ContainerType.MICROTITER:
+                                var microtiter = self.compContainer.get(position);
+
+                                self.compContainer.get(position).clearContents();
+                                if (microtiter.antigenCoating() === AntigenCoatingType.NONE) {
+                                    microtiter.microtiterWells.clearWellsAntibodies();
+                                    microtiter.microtiterWells.clearWellsSecondaryAntibodies(false);
+
+                                }else {
+                                    microtiter.microtiterWells.clearWellsSecondaryAntibodies(true);
+                                    //TODO: Let it keep its antibodies, and 2ndary, but ONLY if it has antibodies!
+                                }
+                                /*console.log('TODO: implement buffer.');
+                                debugger;*/
+                                break;
+                        }
+                        if (self.compContainer.get(position).type() !== ContainerType.MICROTITER) {
+
+
+                            //TODO: notify
+                        }else {
+
+                        }
+
                         break;
 
                     default:

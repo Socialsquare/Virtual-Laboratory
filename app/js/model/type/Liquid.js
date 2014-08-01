@@ -11,6 +11,7 @@ define([], function () {
         MICROTITER_WELLS: 'LiquidType.MICROTITER_WELLS',
         DEADLY:           'LiquidType.DEADLY',
         HOMO_SPLEEN:      'LiquidType.HOMO_SPLEEN',
+        HYBRIDOMA_MEDIUM: 'LiquidType.HYBRIDOMA_MEDIUM',
         INSULIN:          'LiquidType.INSULIN',
         ANTIBODY_GOUT:    'LiquidType.ANTIBODY_GOUT',
         ANTIBODY_SMALLPOX:'LiquidType.ANTIBODY_SMALLPOX',

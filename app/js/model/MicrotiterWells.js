@@ -9,7 +9,7 @@ define([
 ], function (ko, _, LiquidModel, LiquidType, ReactionCount, WellModel) {
 
     var MicrotiterWells = LiquidModel.extend({
-        constructor: function (antigenCoatingType) {
+        constructor: function (antigenCoatingType) { //TODO: antigenCoatingType ?
             var self = this;
             self.base(LiquidType.MICROTITER_WELLS, ReactionCount.NEVER);
 
@@ -23,6 +23,31 @@ define([
                  return self.wells()[index].hasFluorescentSecondaryAntibody();
             };
 
+            self.clone = function() {
+                var clone = new MicrotiterWells();
+                clone.wells(_.invoke(self.wells(), 'clone'));
+
+                return clone;
+            };
+
+            self.clearWellsAntibodies = function() {
+                _.each(self.wells(), function(well) {
+                    well.hasAntibody(false);
+                });
+            };
+
+            self.clearWellsSecondaryAntibodies = function(checkForAntibodies) {
+                _.each(self.wells(), function(well) {
+                    if (checkForAntibodies) {
+                        if (!well.hasAntibody()) {
+                            well.hasFluorescentSecondaryAntibody(false);
+                        }
+                    }else {
+                        well.hasFluorescentSecondaryAntibody(false);
+                    }
+                });
+
+            }
 
         }
     });

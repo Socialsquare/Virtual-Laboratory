@@ -118,11 +118,14 @@ define([
             self.gameState.worktable2.tableSpaceMicro.addAt(2, ContainerFactory.micro());
             self.gameState.worktable2.tableSpacePetri.addAt(2, ContainerFactory.petri());
             self.gameState.worktable2.tubeRack.addAt(0, ContainerFactory.tube()
-                                                     .add(LiquidFactory.microorganism.yeast()));
+                                                     .add(LiquidFactory.microorganism.yeast()));*/
 
+            self.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.homoSpleen('LiquidType.ANTIGEN_GOUT')));
+            /*LiquidType.ANTIGEN_GOUT*/
 
-            self.gameState.fumehood.tableSpaceMicro.addAt(0, ContainerFactory.micro());
-            self.gameState.fumehood.tableSpacePetri.addAt(0, ContainerFactory.petri());
+            /*self.gameState.fumehood.tableSpaceMicro.addAt(0, ContainerFactory.micro()
+                .add(LiquidFactory.insulin()));*/
+            /*self.gameState.fumehood.tableSpacePetri.addAt(0, ContainerFactory.petri());
             self.gameState.fumehood.tubeRack.addAt(5, ContainerFactory.tube()
                                                    .add(LiquidFactory.microorganism.yeast()));
 
@@ -141,7 +144,7 @@ define([
             self.gameState.washing.tubeRack.addAt(5, ContainerFactory.tube());
 */
 
-            var dnaDesign = viewControllers['designDNA'];
+            /*var dnaDesign = viewControllers['designDNA'];
             var elements = dnaDesign.dnaService.getDNAElements();
 
             dnaDesign.handleDrop(elements[8]); // Promoter
@@ -153,7 +156,7 @@ define([
             //dnaDesign.handleDrop(elements[11]); //PCS Resistens B
             dnaDesign.handleDrop(elements[12]); //PCS Resistens A
             dnaDesign.handleDrop(elements[2]); // Stop Codon
-            /*dnaDesign.handleDrop(elements[0]); // Terminator*/
+            *//*dnaDesign.handleDrop(elements[0]); // Terminator*//*
             dnaDesign.handleDrop(elements[0]); //Terminator
 
             dnaDesign.orderDNA();
@@ -165,7 +168,7 @@ define([
 
             var yeastbeast =self.liquidFactory.microorganism.yeast();
             yeastbeast.concentration(Math.pow(10,8));
-            self.gameState.worktable1.electroporator.add(yeastbeast.clone(), true);
+            self.gameState.worktable1.electroporator.add(yeastbeast.clone(), true);*/
 
 
             /*self.gameState.worktable1.electroporator.activate();
@@ -179,7 +182,7 @@ define([
             /*self.gameState.inventory.remove(self.gameState.inventory.items()[len-1]);
             self.gameState.inventory.add(ContainerFactory.syringe());*/
 
-            self.gameState.inventory.add(ContainerFactory.micro());
+            //self.gameState.inventory.add(ContainerFactory.micro());
         }
     });
 

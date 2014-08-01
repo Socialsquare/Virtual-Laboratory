@@ -12,8 +12,16 @@ define([
             self.hasFluorescentSecondaryAntibody = ko.observable(false);
 
             //TODO: Dummy data, delete.
-            self.hasAntibody(Math.random() > 0.5);
+            /*self.hasAntibody(Math.random() > 0.5);*/
             self.hasFluorescentSecondaryAntibody(Math.random() > 0.5);
+
+            self.clone = function() {
+                var clone = new Well();
+                clone.hasAntibody(self.hasAntibody());
+                clone.hasFluorescentSecondaryAntibody(self.hasFluorescentSecondaryAntibody());
+
+                return clone;
+            };
         }
     });
 

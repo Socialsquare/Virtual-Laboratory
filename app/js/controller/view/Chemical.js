@@ -57,7 +57,9 @@ define([
                 new ChemicalItemModel('item.name.deadly', function () { return self.inTube(LiquidFactory.deadly()); }),
                 new ChemicalItemModel('item.name.growth_medium', function () { return self.inTube(LiquidFactory.growthMedium()); }),
                 new ChemicalItemModel('item.name.growth_medium', function () { return self.inPetridish(LiquidFactory.growthMedium()); }),
-                new ChemicalItemModel('item.name.salt_water', function () { return self.specialItemFactory.washBottle(); })
+                new ChemicalItemModel('item.name.salt_water', function () { return self.specialItemFactory.washBottle(); }),
+                new ChemicalItemModel('item.name.buffer', function () { return self.specialItemFactory.buffer(); }),
+                new ChemicalItemModel('item.name.hybridoma_medium', function () { return self.inTube(LiquidFactory.hybridomaMedium()); })
             ]);
 
             self.drawerItems.pushAll([

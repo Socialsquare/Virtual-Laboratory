@@ -60,6 +60,8 @@ define([
                     return 'item.name.scalpel';
                 case SpecialItemType.SPLEEN:
                     return 'item.name.spleen';
+                case SpecialItemType.BUFFER:
+                    return 'item.name.buffer';
                 case SpecialItemType.WASH_BOTTLE:
                     return 'item.name.wash_bottle';
 
@@ -69,6 +71,8 @@ define([
                     return 'liquid.name.antibiotic';
                 case LiquidType.GROWTH_MEDIUM:
                     return 'liquid.name.growth_medium';
+                case LiquidType.HYBRIDOMA_MEDIUM:
+                    return 'liquid.name.hybridoma_medium';
                 case LiquidType.DNA:
                     return 'liquid.name.dna';
                 case LiquidType.GENE:

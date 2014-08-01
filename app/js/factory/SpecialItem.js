@@ -25,6 +25,10 @@ define([
 
         washBottle: function () {
             return new SpecialItemModel(SpecialItemType.WASH_BOTTLE);
+        },
+
+        buffer: function() {
+            return new SpecialItemModel(SpecialItemType.BUFFER);
         }
     };
 

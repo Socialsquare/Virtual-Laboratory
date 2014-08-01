@@ -97,6 +97,9 @@ define([
                 case SpecialItemType.SPLEEN:
                     return self.img('icon_spleen.png');
 
+                case SpecialItemType.BUFFER:
+                    return self.img('icon_wash_bottle.png');
+
                 case SpecialItemType.WASH_BOTTLE:
                     return self.img('icon_wash_bottle.png');
 
@@ -130,6 +133,9 @@ define([
 
                 case SpecialItemType.SCALPEL:
                     return self.img('icon_scalpel.png');
+
+                case SpecialItemType.BUFFER:
+                    return self.img('icon_wash_bottle.png');
 
                 case SpecialItemType.WASH_BOTTLE:
                     return self.img('icon_wash_bottle.png');
