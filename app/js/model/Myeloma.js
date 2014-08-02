@@ -16,6 +16,8 @@ define([
             self.antibodiesFor = ko.observableArray([]);
             self.isHybridoma = ko.observable(false);
 
+            self.hasSetAntibodiesInThese = ko.observableArray([]);
+
 
             self.living(true);
             self.extraGenes([]);
@@ -61,6 +63,11 @@ define([
 
                 //TODO: if container.type() === microtiter && myeloma.isHybridoma() --> modify random Well.
                 if (container.type() === ContainerType.MICROTITER && self.isHybridoma()) {
+
+                    var hasAlreadySetAntibodies = _.any(self.hasSetAntibodiesInThese(), function(microtiter) {
+                        return microtiter === container;
+                    });
+
                     var totalConcentration = container.getTotalConcentration();
                     var wellModificationCounter = 0;
 
@@ -69,13 +76,20 @@ define([
                         wellModificationCounter++;
                     }
 
+                    //TODO: remove hardcoding of wellModificationCounter
+                    wellModificationCounter = 4;
+
                     var indices = _.range(24);
                     indices = _.sample(indices, wellModificationCounter);
 
-                    //Set well--> contains
-                    _.each(indices, function(index) {
-                        container.microtiterWells().wells()[index].hasAntibody(true);
-                    });
+                    if (! hasAlreadySetAntibodies) {
+                        //Set well--> contains
+                        _.each(indices, function(index) {
+                            container.microtiterWells().wells()[index].hasAntibody(true);
+                        });
+
+                        self.hasSetAntibodiesInThese.push(container);
+                    }
                 }
             };
 
@@ -85,6 +99,7 @@ define([
                 clone.hasReacted(self.hasReacted());
 
                 clone.antibodiesFor(self.antibodiesFor());
+                clone.hasSetAntibodiesInThese(self.hasSetAntibodiesInThese());
 
                 clone.living(self.living());
                 clone.name(self.name());

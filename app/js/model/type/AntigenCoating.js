@@ -1,7 +1,6 @@
 define([], function () {
     return {
-        GOUT: 'AntigenCoatingType.GOUT',
-        SMALLPOX: 'AntigenCoatingType.SMALLPOX',
+        ANY: 'AntigenCoatingType.ANY',
         NONE: 'AntigenCoatingType.NONE'
     };
 });

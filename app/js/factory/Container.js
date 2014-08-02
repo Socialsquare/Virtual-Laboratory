@@ -4,9 +4,10 @@ define([
     'model/Petridish',
     'model/Microtiterplate',
     'model/Syringe',
-    'model/Bottle'
+    'model/Bottle',
+    'model/type/AntigenCoating'
 
-], function (ko, Tube, Petridish, Microtiterplate, Syringe, Bottle) {
+], function (ko, Tube, Petridish, Microtiterplate, Syringe, Bottle, AntigenCoatingType) {
 
     var Container = {
         tube: function () {
@@ -19,6 +20,10 @@ define([
 
         micro: function () {
             return new Microtiterplate();
+        },
+
+        microAntigenCoated: function () {
+            return new Microtiterplate(AntigenCoatingType.ANY);
         },
 
         syringe: function () {

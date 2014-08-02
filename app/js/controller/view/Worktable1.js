@@ -63,11 +63,11 @@ define([
 
                 var quizNumber = self.worktable1.electroporator.getQuizVideo();
 
-                self.showElectroporatorVideos(quizNumber).done(function() { //TODO: uncomment
+                /*self.showElectroporatorVideos(quizNumber).done(function() { //TODO: uncomment
                     self.showElectroporatorQuiz(quizNumber);
                     if (quizNumber > 6)
                         self.popupController.notify('worktable1.electroporator_success.header','worktable1.electroporator_success.body', 3500);
-                });
+                });*/
 
 
                 self.worktable1.electroporator.activate();

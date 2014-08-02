@@ -170,7 +170,8 @@
         "item.description.wash_bottle": "Du kan bruge sprøjteflasken til at fortynde ting",
 
         "item.name.petri_dish": "Petriskål",
-        "item.name.microtiter": "Microtiterbakke",
+        "item.name.microtiter": "Mikrotiterbakke",
+        "item.name.microtiter_antigen_coated": "ELISA-Mikrotiterbakke",
         "item.name.tube": "Reagensglas",
         "item.name.syringe": "Kanyle",
         "item.name.scalpel": "Skalpel",

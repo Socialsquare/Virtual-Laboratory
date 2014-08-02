@@ -7,12 +7,11 @@
 
     <ul data-bind="foreach: microtiterWells().wells">
         <li data-bind="css: 'well-slot' + $index(), click: function() { debugger; }">
-            <!-- ko ifnot: $parent.isEmpty() -->
             <!--<img class="hand" data-bind="attr: { src: 'assets/images/zoom_mkrt_well_dense.png' },
             click: function(){ console.log($parents); debugger;}">-->
             <img class="hand" data-bind="attr: { src: $parents[1].popupController.imageHelper.microtiterWell($index(), $parent) },
             click: function(){ debugger;}">
-            <!-- /ko -->
+
         </li>
     </ul>
 </div>

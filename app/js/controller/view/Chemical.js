@@ -16,12 +16,13 @@ define([
     'model/type/Activation',
 
     'factory/Liquid',
+    'factory/Container',
 
     'utils/utils'
 
 ], function (ko, $, _, BaseViewController, popupController, TubeModel,
              PetridishModel, MicrotiterplateModel, ChemicalItemModel,
-             SyringeModel, ScalpelModel, ActivationType, LiquidFactory, utils) {
+             SyringeModel, ScalpelModel, ActivationType, LiquidFactory, ContainerFactory,utils) {
 
     var Chemical = BaseViewController.extend({
 
@@ -52,7 +53,6 @@ define([
                 });
             };
 
-            // TODO: consider refactoring this to somewhere else
             self.closetItems.pushAll([
                 new ChemicalItemModel('item.name.deadly', function () { return self.inTube(LiquidFactory.deadly()); }),
                 new ChemicalItemModel('item.name.growth_medium', function () { return self.inTube(LiquidFactory.growthMedium()); }),
@@ -63,11 +63,12 @@ define([
             ]);
 
             self.drawerItems.pushAll([
-                new ChemicalItemModel('item.name.syringe', function () { return new SyringeModel(); }),
+                new ChemicalItemModel('item.name.syringe', function () { return new ContainerFactory.syringe(); }),
                 new ChemicalItemModel('item.name.scalpel', function () { return new ScalpelModel(); }),
-                new ChemicalItemModel('item.name.petri_dish', function () { return new PetridishModel(); }),
-                new ChemicalItemModel('item.name.tube', function () { return new TubeModel(); }),
-                new ChemicalItemModel('item.name.microtiter', function () { return new MicrotiterplateModel(); })
+                new ChemicalItemModel('item.name.petri_dish', function () { return new ContainerFactory.petri(); }),
+                new ChemicalItemModel('item.name.tube', function () { return new ContainerFactory.tube(); }),
+                new ChemicalItemModel('item.name.microtiter', function () { return new ContainerFactory.micro(); }),
+                new ChemicalItemModel('item.name.microtiter_antigen_coated', function () { return new ContainerFactory.microAntigenCoated(); })
             ]);
 
             self.fridgeItems.pushAll([

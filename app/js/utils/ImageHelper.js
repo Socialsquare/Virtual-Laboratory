@@ -70,11 +70,18 @@ define([
                 if (microtiter.location() === LocationType.UVROOM) {
                     if (microtiter.isWellFluorescent(index)) {
                         return self.img('zoom_mkrt_well_uv_glow.png')
+                    }else if (microtiter.isEmpty()) {
+                        return self.img('zoom_mkrt_well_uv_empty.png');
                     }else {
                         return self.img('zoom_mkrt_well_uv_full.png')
                     }
                 }
-                return self.img('zoom_mkrt_well_dense.png');
+
+                if (microtiter.isEmpty()) {
+
+                }else {
+                    return self.img('zoom_mkrt_well_dense.png');
+                }
             };
 
             self.inventoryIcon = function (item) {
