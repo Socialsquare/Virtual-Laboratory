@@ -88,6 +88,8 @@ define([
 
                 var trigger = self.activeTask().trigger();
 
+                debugger;
+
                 if (trigger.type !== TriggerType.MOUSE) return;
                 if (!self.match(trigger.alive, mouse.alive())) return;
                 if (!self.match(trigger.mouseType, mouse.mouseType())) return;

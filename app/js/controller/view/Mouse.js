@@ -153,6 +153,7 @@ define([
             };
 
             self.handleDropOnMouse = function(item) {
+                debugger;
                 return DropOnMouseHelper.handleDrop(self, item);
             };
         }

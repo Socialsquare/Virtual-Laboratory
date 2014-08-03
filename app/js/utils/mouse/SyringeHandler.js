@@ -70,10 +70,11 @@ define([
             else if (item.contains(LiquidType.ANTIBODY_SMALLPOX) && MC.mouse().mouseType() === MouseType.SMALLPOX) {
                 MC.videoController.play(['smallpox-injection', 'smallpox-cure'])
                     .done(function() {
+                        experimentController.triggerMouse(MC.mouse(), item);
+
                         MC.mouse().cure(LiquidType.ANTIBODY_SMALLPOX);
                         MC.popupController.message('mouse.cured_smallpox.header','mouse.cured_smallpox.body');
 
-                        experimentController.triggerMouse(MC.mouse(), item);
                         MC.runFromState();
                     });
             }
@@ -81,10 +82,10 @@ define([
             else if (item.contains(LiquidType.ANTIBODY_GOUT) && MC.mouse().mouseType() === MouseType.GOUT) {
                 MC.videoController.play(['slow-injection-body-gout', 'slow-cure-gout'], true)
                     .done(function() {
+                        experimentController.triggerMouse(MC.mouse(), item);
+
                         MC.mouse().cure(LiquidType.ANTIBODY_GOUT);
                         MC.popupController.message('mouse.cured_gout.header','mouse.cured_gout.body');
-
-                        experimentController.triggerMouse(MC.mouse(), item);
                         MC.runFromState();
                     });
             }

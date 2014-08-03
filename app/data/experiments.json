@@ -361,14 +361,7 @@
                     "alive": false,
                     "item": "SpecialItemType.SCALPEL"
                 }
-            }
-        ]
-    },
-    {
-        "title": { "dk": "Produktion af antistoffer Part #3" },
-        "description": { "dk": "I denne øvelse skal du vaccinere en mus mod kopper, m.m. (TODO)" },
-        "story": { "dk": "TODO: Story." },
-        "tasks": [
+            },
             {
                 "description": { "dk": "Milten skal nu homogeniseres i blenderen" },
                 "trigger": {
@@ -516,7 +509,7 @@
                 }
             },
             {
-                "description": { "dk": "TODO: (MAKE SUBTYPES ON MICE! )Med en kanyle indsprøjtes antistoffet ind i en mus med kopper"},
+                "description": { "dk": "Med en kanyle indsprøjtes antistoffet ind i en mus med kopper"},
                 "trigger": {
                     "type": "TriggerType.MOUSE",
                     "alive": true,

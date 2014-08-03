@@ -39,6 +39,7 @@ define([
                     .then(function () {
                         var mouse = self.selectedMouse();
                         self.gameState.mouse(mouse.clone());
+                        //TODO: not enough with setting mouse on gameState it seems?
 
                         self.changeScreen(self.Screens.MENU);
 
