@@ -121,7 +121,7 @@ define([
                                                      .add(LiquidFactory.microorganism.yeast()));*/
 
             self.gameState.inventory.add(ContainerFactory.tube()
-                .add(LiquidFactory.homoSpleen('LiquidType.ANTIGEN_GOUT'))
+                .add(LiquidFactory.homoSpleen('LiquidType.ANTIBODY_GOUT'))
                 .add(LiquidFactory.microorganism.myeloma())
                 .add(LiquidFactory.hybridomaMedium()));
 

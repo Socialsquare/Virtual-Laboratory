@@ -7,8 +7,10 @@ define([
     'model/GameState',
     'model/DNAElement',
     'model/type/Liquid',
-    'model/type/Microorganism'
-], function (ko, BaseComputer, popupController, gameState, DNAElementModel, LiquidType, MicroorganismType) {
+    'model/type/Microorganism',
+    'service/Localization'
+], function (ko, BaseComputer, popupController, gameState, DNAElementModel, LiquidType, MicroorganismType,
+             LocalizationService) {
 
     var Sequencing = BaseComputer.extend({
 
@@ -22,70 +24,99 @@ define([
             self.consumeItem = null;
 
             self.handleDrop = function (item, consumer) {
-                if (item.getTotalConcentration() >= 10) {
-                    self.isValid(false);
-                    self.message('computer.screen.sequencing.invalid_concentration');
-                    return false;
-                }
-
-                if (!item.containsMicroorganism(MicroorganismType.MYELOMA)) {
-                    self.isValid(false);
-                    self.message('computer.screen.sequencing.missing_myeloma');
-                    return false;
-                }
-
-                if (!item.contains(LiquidType.ANTIBODY_GOUT) && !item.contains(LiquidType.ANTIBODY_SMALLPOX)) {
-                    self.isValid(false);
-                    self.message('computer.screen.sequencing.missing_antibody');
-                    return false;
-                }
-
-                if (item.contains(LiquidType.ANTIBODY_GOUT))
-                    self.message('computer.screen.sequencing.valid.gout');
-                else if (item.contains(LiquidType.ANTIBODY_SMALLPOX))
-                    self.message('computer.screen.sequencing.valid.smallpox');
 
                 self.item = item;
                 self.consumeItem = consumer;
                 self.isValid(true);
 
+                self.sendToSequencing(item);
+
+                self.consumeItem();
+
                 return false;
             };
 
-            self.sendToSequencing = function () {
-                if (!self.item) return;
+            self.sendToSequencing = function (tube) {
+                if (!tube) return;
                 // reset message and create new dna element
                 var dna = null;
-                if (self.item.contains(LiquidType.ANTIBODY_GOUT)) {
-                    dna = self.createDNAElement(LiquidType.ANTIBODY_GOUT);
-                    popupController.message('computer.screen.sequencing.created_gout.header',
-                                            'computer.screen.sequencing.created_gout.body');
-                }
-                else if (self.item.contains(LiquidType.ANTIBODY_SMALLPOX)) {
-                    dna = self.createDNAElement(LiquidType.ANTIBODY_SMALLPOX);
-                    popupController.message('computer.screen.sequencing.created_smallpox.header',
-                                            'computer.screen.sequencing.created_smallpox.body');
+//TODO: uncomment! //TODO: figure how to get the optimal concentration from dilution
+
+                console.log('TODO: tube.getTotalConc: '+ tube.getTotalConcentration());
+
+                if (tube.getTotalConcentration() > 48) {
+                    self.isValid(false);
+                    popupController.message('computer.screen.sequencing.fail_header', 'computer.screen.sequencing.invalid_concentration');
+                    return;
                 }
 
-                // TODO: maybe check if it exists already?
-                self.gameState.sequencedDNA.push(dna);
-                self.consumeItem();
-                self.message('');
+                if (!tube.containsMicroorganism(MicroorganismType.MYELOMA)) {
+                    self.isValid(false);
+                    popupController.message('computer.screen.sequencing.fail_header', 'computer.screen.sequencing.missing_myeloma');
+                    return;
+                }
+
+                //TODO: check well too! (if tube.hasOwnProperty)
+                if (!tube.hasOwnProperty('well') || !tube.well.hasAntibody()) {
+                    console.log('TODO: remove #1');
+                    self.isValid(false);
+                    popupController.message('computer.screen.sequencing.fail_header', 'computer.screen.sequencing.missing_antibody');
+                    return;
+                }
+
+                var myelomasWithAntibodies = _.filter(tube.liquids(), function(myeloma){
+                    if (myeloma.type() !== LiquidType.MICROORGANISM)
+                        return false;
+
+                    if(myeloma.microorganismType() !== MicroorganismType.MYELOMA)
+                        return false;
+
+                    return myeloma.antibodiesFor().length > 0;
+                });
+
+                var antibodies = _.reduce(myelomasWithAntibodies, function(acc, myeloma) {
+                    _.each(myeloma.antibodiesFor(), function(antibodyString) {
+                        acc.push(antibodyString);
+                    });
+
+                    return acc;
+                }, []);
+
+                antibodies = _.unique(antibodies);
+
+                if (_.contains(antibodies, LiquidType.ANTIBODY_GOUT)) {
+                    dna = self.createDNAElement(LiquidType.ANTIBODY_GOUT);
+                    popupController.message('computer.screen.sequencing.created_gout.header',
+                        'computer.screen.sequencing.created_gout.body');
+                } else if (_.contains(antibodies, LiquidType.ANTIBODY_SMALLPOX)) {
+                    dna = self.createDNAElement(LiquidType.ANTIBODY_SMALLPOX);
+                    popupController.message('computer.screen.sequencing.created_smallpox.header',
+                        'computer.screen.sequencing.created_smallpox.body');
+                }
+
+                var alreadySequenced = _.any(self.gameState.sequencedDNA(), function(sequencedDNA) {
+                    return sequencedDNA.name() === dna.name();
+                });
+
+                if (!alreadySequenced) {
+                    self.gameState.sequencedDNA.push(dna);
+                }
 
                 self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_SEQUENCE, dna);
             };
 
             self.createDNAElement = function (type) {
+                var icon = 'assets/images/icon_dna_dummy.png';
                 var name = '';
                 var pscType = '';
                 switch (type) {
                 case LiquidType.ANTIBODY_GOUT:
-                    name = 'gout';
+                    name = LocalizationService.text('liquid.name.antibody_gout');
                     pscType = 'ProteinCodingSequenceType.ANTIBODY_GOUT';
                     break;
 
                 case LiquidType.ANTIBODY_SMALLPOX:
-                    name = 'smallpox';
+                    name = LocalizationService.text('liquid.name.antibody_smallpox');
                     pscType = 'ProteinCodingSequenceType.ANTIBODY_SMALLPOX';
                     break;
 
@@ -95,6 +126,7 @@ define([
 
                 // TODO: correct values
                 var dnaData = {
+                    icon: icon,
                     name: name,
 			        color: '#80c0f7',
 			        sequence: 'GATTACA',

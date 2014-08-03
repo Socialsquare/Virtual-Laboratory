@@ -6,12 +6,15 @@
     </div>
 
     <ul data-bind="foreach: microtiterWells().wells">
-        <li data-bind="css: 'well-slot' + $index(), click: function() { debugger; }">
+        <li data-bind="css: 'well-slot' + $index()">
             <!--<img class="hand" data-bind="attr: { src: 'assets/images/zoom_mkrt_well_dense.png' },
             click: function(){ console.log($parents); debugger;}">-->
             <img class="hand" data-bind="attr: { src: $parents[1].popupController.imageHelper.microtiterWell($index(), $parent) },
-            click: function(){ debugger;}">
-
+            click: function(){ $parent.extractWellContents(
+                                                     $parents[3].gameState.inventory,
+                                                     $parents[1].hide,
+                                                     $parents[1].popupController,
+                                                     $index()); }">
         </li>
     </ul>
 </div>

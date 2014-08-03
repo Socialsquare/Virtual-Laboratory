@@ -15,13 +15,19 @@ define([
 
             self.items = ko.observableArray([]);
 
-            self.add = function(item) {
+            self.add = function(item, alternativeLabel) {
                 // TODO: validate that an item can be placed here (via `accept`)
+
+
 
 
                 // generate default label
                 if (!item.acquired() && item.label) {
-                    item.label(TextHelper.label(item));
+                    if (alternativeLabel) {
+                        item.label(alternativeLabel);
+                    }else {
+                        item.label(TextHelper.label(item));
+                    }
                 }
 
                 if (!item.acquired()) {

@@ -131,8 +131,11 @@ define([
                 return cured;
             };
 
-            self.vaccinate = function(antibodyType) {
-                self.spleen.antibodiesFor.push(antibodyType);
+            self.vaccinate = function(antigenType) {
+                if(antigenType === LiquidType.ANTIGEN_GOUT)
+                    self.spleen.antibodiesFor.push(LiquidType.ANTIBODY_GOUT);
+                else
+                    self.spleen.antibodiesFor.push(LiquidType.ANTIBODY_SMALLPOX);
             };
 
             // END: Functions for exercise 3: Antibodies

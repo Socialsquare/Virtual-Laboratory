@@ -57,9 +57,10 @@ define([
             }
         },
 
-        homoSpleen: function(antibodies) {
+        homoSpleen: function(antibody) {
             var homogenizedSpleen = new HomogenizedSpleen();
-            homogenizedSpleen.antibodiesFor.pushAll(antibodies);
+
+            homogenizedSpleen.antibodiesFor.push(antibody);
             return homogenizedSpleen;
         },
 

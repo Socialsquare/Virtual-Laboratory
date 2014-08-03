@@ -52,31 +52,10 @@ define([
                 self.show('popup-message', { title: title, message: message });
             };
 
-
-            self.testMe = function(one, two) {
-                debugger;
-            };
-
             self.microtiterCloseUp = function(microtiter) {
 
                 self.show('popup-microtiter', microtiter);
             };
-
-            //TODO: something with:
-
-            /*case ContainerType.MICRO_SPACE:
-            self.showPlaceholder(true);
-
-            self.imageGetter = ImageHelper.tableSpaceMicroImage;
-            self.accepter = DragHelper.acceptMicro;
-            break;*/
-
-            /*case ContainerType.UV_MICRO_SPACE:
-            self.showPlaceholder(true);
-
-            self.imageGetter = ImageHelper.uvTableSpaceMicroImage;
-            self.accepter = DragHelper.acceptMicro;
-            break;*/
 
             self.dataExport = function (data) {
                 self.show('popup-data-export', { csvData: data });

@@ -142,9 +142,10 @@ define([
             };
 
             self.showItemDetails = function (item) {
-                var accepted = [SpecialItemType.SCALPEL, SpecialItemType.SPLEEN];
+                var nonWriteables = [SpecialItemType.SCALPEL, SpecialItemType.SPLEEN,
+                    SpecialItemType.WASH_BOTTLE, SpecialItemType.BUFFER];
 
-                if (_.contains(accepted, item.type()))
+                if (_.contains(nonWriteables, item.type()))
                     self.popupController.message(TextHelper.prettyName(item), TextHelper.description(item));
                 else
                     self.popupController.itemDetail(item);

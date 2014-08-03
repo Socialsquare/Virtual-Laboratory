@@ -132,18 +132,12 @@ define([
                             }else { //if in fermentorProducts --> update concentration
                                 match.amount += producedEnzyme.amount;
                             }
-
                         });
 
                         // 2) Set products to []
                         organism.producedEnzymes([]);
 
                     });
-                    //TODO: for each organism -> for each producedEnzyme
-
-                    /*debugger;*/
-                    //TODO: produce enzymes
-                    /*self.products;*/
                 }
 
                 var concAfter = self.fermentorTank.getTotalConcentration();

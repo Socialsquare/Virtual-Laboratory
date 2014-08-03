@@ -72,12 +72,9 @@ define([
                     var wellModificationCounter = 0;
 
                     while(totalConcentration > 0 && wellModificationCounter < 24) {
-                        totalConcentration -= 10;
+                        totalConcentration -= 50; //24 * 2;//TODO: magic number corresponding to the concentration needed for having a single cell in a well. iiish
                         wellModificationCounter++;
                     }
-
-                    //TODO: remove hardcoding of wellModificationCounter
-                    wellModificationCounter = 4;
 
                     var indices = _.range(24);
                     indices = _.sample(indices, wellModificationCounter);

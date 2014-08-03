@@ -1,12 +1,5 @@
 <div class="content-full">
     <div class="droparea" data-bind="drop: { handler: handleDrop, accept: DragHelper.acceptTube }">
         <span data-bind="i18n: 'computer.screen.sequencing.droparea'"></span>
-
-        <div class="message" data-bind="i18n: message"></div>
-    </div>
-
-
-    <div class="btn-bar">
-        <button data-bind="click: sendToSequencing, i18n: 'computer.screen.sequencing.send', enable: isValid"></button>
     </div>
 </div>

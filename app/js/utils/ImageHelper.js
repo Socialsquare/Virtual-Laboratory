@@ -66,6 +66,11 @@ define([
             };
 
             self.microtiterWell = function(index, microtiter) {
+/*//TODO: development stuff, remove
+                if(microtiter.microtiterWells().wells()[index].hasAntibody())
+                    return self.img('zoom_mkrt_well_uv_glow.png');
+//TODO: development stuff, remove*/
+
 
                 if (microtiter.location() === LocationType.UVROOM) {
                     if (microtiter.isWellFluorescent(index)) {
@@ -78,7 +83,7 @@ define([
                 }
 
                 if (microtiter.isEmpty()) {
-
+                    return self.img('zoom_mkrt_well_empty.png');
                 }else {
                     return self.img('zoom_mkrt_well_dense.png');
                 }

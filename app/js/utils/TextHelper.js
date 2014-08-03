@@ -20,6 +20,8 @@ define([
                     return 'item.description.spleen';
                 case SpecialItemType.WASH_BOTTLE:
                     return 'item.description.wash_bottle';
+                case SpecialItemType.BUFFER:
+                    return 'item.description.buffer';
 
                 case LiquidType.INSULIN:
                     return 'liquid.description.insulin';
@@ -38,7 +40,7 @@ define([
             self.label = function (container) {
                 var contents = _.map(container.liquids(), _.compose(localizationService.text, self.prettyName));
 
-                return localizationService.text('common.contains') + ': ' + contents.join(' and ');
+                return localizationService.text('common.contains') + ': ' + contents.join(' & ');
             };
 
             self.prettyName = function (item) {
@@ -95,6 +97,8 @@ define([
                     return 'liquid.name.antigen_gout';
                 case LiquidType.ANTIGEN_SMALLPOX:
                     return 'liquid.name.antigen_smallpox';
+                case LiquidType.SALT_WATER:
+                    return 'item.name.salt_water';
                 case LiquidType.FLUORESCENT_2ND_ANTIBODY:
                     return 'liquid.name.fluorescent_2nd_antibody';
                 case LiquidType.ADJUVANS:
