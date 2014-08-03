@@ -16,6 +16,7 @@ define([
             self.base(ContainerType.MICROTITER, Math.pow(10, 12));
             self.antigenCoating = ko.observable(antigenCoatingType || AntigenCoatingType.NONE);
             self.microtiterWells = ko.observable(new MicrotiterWellsModel(antigenCoatingType)); // For how transfer of this works, see the pipette.
+            self.subtype = self.antigenCoating();
 
 
             self.isWellFluorescent = function (index) {

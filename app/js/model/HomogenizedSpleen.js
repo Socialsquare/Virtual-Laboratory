@@ -13,10 +13,6 @@ define([
 
             self.antibodiesFor = ko.observableArray([]);
 
-            self.react = function (container) {
-                console.log('TODO: Spleen.react');
-            };
-
             self.hashCode = function () {
                 return self._hashCode() + ":" + self.antibodiesFor().join(',');
             };

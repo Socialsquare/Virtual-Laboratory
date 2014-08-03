@@ -90,6 +90,7 @@ define([
             //------------------------
 
 
+            self.gameState.inventory.add(viewControllers['mouse'].mouse().spleen.clone());
 
 /*            var tube = ContainerFactory.tube();
             var mye = LiquidFactory.microorganism.myeloma();
@@ -101,6 +102,8 @@ define([
 
             var yea = LiquidFactory.microorganism.yeast();
             yea.concentration(5);
+
+
 
             self.gameState.inventory.add(ContainerFactory.tube()
                                          .add(LiquidFactory.antibodyGout())
@@ -120,13 +123,15 @@ define([
             self.gameState.worktable2.tubeRack.addAt(0, ContainerFactory.tube()
                                                      .add(LiquidFactory.microorganism.yeast()));*/
 
-            self.gameState.inventory.add(ContainerFactory.tube()
+            /*self.gameState.inventory.add(ContainerFactory.tube()
                 .add(LiquidFactory.homoSpleen('LiquidType.ANTIBODY_GOUT'))
                 .add(LiquidFactory.microorganism.myeloma())
                 .add(LiquidFactory.hybridomaMedium()));
 
             self.gameState.inventory.add(ContainerFactory.micro());
-            self.gameState.inventory.add(ContainerFactory.microAntigenCoated());
+            self.gameState.inventory.add(ContainerFactory.microAntigenCoated());*/
+
+
             /*LiquidType.ANTIGEN_GOUT*/
 
             /*self.gameState.fumehood.tableSpaceMicro.addAt(0, ContainerFactory.micro()

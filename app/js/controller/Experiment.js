@@ -69,11 +69,13 @@ define([
 
             self.triggerMix = function (addition, container) {
                 if (!self.hasExperiment()) return;
+                if (!self.activeTask()) return; // This happens when all steps in an exercise are done
                 var trigger = self.activeTask().trigger();
 
                 if (trigger.type !== TriggerType.MIX) return;
                 if (!self.match(trigger.location, container.location())) return;
                 if (!self.match(trigger.container, container.type())) return;
+                if (container)
                 if (!self.matchLiquids(trigger, container)) return;
 
                 self.finishActiveTask();
@@ -81,6 +83,8 @@ define([
 
             self.triggerMouse = function (mouse, item) {
                 if (!self.hasExperiment()) return;
+                if (!self.activeTask()) return; // This happens when all steps in an exercise are done
+
                 var trigger = self.activeTask().trigger();
 
                 if (trigger.type !== TriggerType.MOUSE) return;
@@ -93,6 +97,8 @@ define([
 
             self.triggerAcquisition = function (item) {
                 if (!self.hasExperiment()) return;
+                if (!self.activeTask()) return; // This happens when all steps in an exercise are done
+
                 var trigger = self.activeTask().trigger();
 
                 if (trigger.type !== TriggerType.ACQUIRE) return;
@@ -104,6 +110,8 @@ define([
 
             self.triggerActivation = function (activation, item, extraProperties) {
                 if (!self.hasExperiment()) return;
+                if (!self.activeTask()) return; // This happens when all steps in an exercise are done
+
                 var trigger = self.activeTask().trigger();
                 extraProperties = extraProperties ? extraProperties : {};
 

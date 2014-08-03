@@ -301,5 +301,121 @@
                 }
             }
         ]
+    },
+    {
+        "title": { "dk": "Produktion af antistoffer Part #1 & #2" },
+        "description": { "dk": "I denne øvelse skal du vaccinere en mus mod kopper, m.m. (TODO)" },
+        "story": { "dk": "TODO: Story." },
+        "tasks": [
+            {
+                "description": { "dk": "Lav en \"vaccine\" ved at blande antigenet for kopper med adjuvans i et reagensglas." },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.ANTIGEN_SMALLPOX" },
+                        { "type": "LiquidType.ADJUVANS" }
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Sug blandingen op med en kanyle." },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.SYRINGE",
+                    "liquids": [
+                        { "type": "LiquidType.ANTIGEN_SMALLPOX" },
+                        { "type": "LiquidType.ADJUVANS" }
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Vaccinér en rask forsøgsmus. Hermed bliver den immuniseret imod antigenet." },
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "item": "ContainerType.SYRINGE",
+                    "liquids": [
+                        { "type": "LiquidType.ANTIGEN_SMALLPOX" },
+                        { "type": "LiquidType.ADJUVANS" }
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Herefter dræbes musen ved at give den en dødelig indsprøjtning." },
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "item": "ContainerType.SYRINGE",
+                    "liquids": [
+                        { "type": "LiquidType.DEADLY" }
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Vha. en skalpel skæres musens milt ud" },
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "item": "SpecialItemType.SCALPEL"
+                }
+            }
+        ]
+    },
+    {
+        "title": { "dk": "Produktion af antistoffer Part #3" },
+        "description": { "dk": "I denne øvelse skal du vaccinere en mus mod kopper, m.m. (TODO)" },
+        "story": { "dk": "TODO: Story." },
+        "tasks": [
+            {
+                "description": { "dk": "Milten skal nu homogeniseres i blenderen" },
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.HOMO_SPLEEN"}
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Bland i et reagensglas: Homogeniseret milt, myeloma celler samt hybridoma medium"},
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.HOMO_SPLEEN"},
+                        { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Inkubér herefter reagensglasset"},
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.INCUBATOR",
+                    "containers": [
+                        {
+                            "type": "ContainerType.TUBE",
+                            "liquids": [
+                                { "type": "LiquidType.HOMO_SPLEEN"},
+                                { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
+                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Fortynd blandingen med saltvand. Fortynd så meget at OD-måleren viser en værdi mellem 3.4 og 4.0. Dette skal gøres sådan at man opnår en meget lav koncentration af celler. Derefter kan man nemlig opsuge væske med kun én enkelt celle - i gennemsnit!"},
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.HOMO_SPLEEN"},
+                        { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
+                        { "type": "LiquidType.SALT_WATER"}
+                    ]
+                }
+            }
+        ]
     }
 ]
