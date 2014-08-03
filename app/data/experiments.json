@@ -333,6 +333,9 @@
                 "description": { "dk": "Vaccinér en rask forsøgsmus. Hermed bliver den immuniseret imod antigenet." },
                 "trigger": {
                     "type": "TriggerType.MOUSE",
+                    "alive": true,
+                    "mouseType": "MouseType.HEALTHY",
+                    "mouseBloodType": "MouseBloodType.NORMAL",
                     "item": "ContainerType.SYRINGE",
                     "liquids": [
                         { "type": "LiquidType.ANTIGEN_SMALLPOX" },
@@ -344,6 +347,7 @@
                 "description": { "dk": "Herefter dræbes musen ved at give den en dødelig indsprøjtning." },
                 "trigger": {
                     "type": "TriggerType.MOUSE",
+                    "alive": true,
                     "item": "ContainerType.SYRINGE",
                     "liquids": [
                         { "type": "LiquidType.DEADLY" }
@@ -354,6 +358,7 @@
                 "description": { "dk": "Vha. en skalpel skæres musens milt ud" },
                 "trigger": {
                     "type": "TriggerType.MOUSE",
+                    "alive": false,
                     "item": "SpecialItemType.SCALPEL"
                 }
             }
@@ -378,7 +383,7 @@
                 "description": { "dk": "Bland i et reagensglas: Homogeniseret milt, myeloma celler samt hybridoma medium"},
                 "trigger": {
                     "type": "TriggerType.MIX",
-                    "item": "ContainerType.TUBE",
+                    "container": "ContainerType.TUBE",
                     "liquids": [
                         { "type": "LiquidType.HOMO_SPLEEN"},
                         { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
@@ -407,12 +412,118 @@
                 "description": { "dk": "Fortynd blandingen med saltvand. Fortynd så meget at OD-måleren viser en værdi mellem 3.4 og 4.0. Dette skal gøres sådan at man opnår en meget lav koncentration af celler. Derefter kan man nemlig opsuge væske med kun én enkelt celle - i gennemsnit!"},
                 "trigger": {
                     "type": "TriggerType.MIX",
-                    "item": "ContainerType.TUBE",
+                    "container": "ContainerType.TUBE",
                     "liquids": [
                         { "type": "LiquidType.HOMO_SPLEEN"},
                         { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
                         { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
                         { "type": "LiquidType.SALT_WATER"}
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Fordel blandingen på en tom mikrotiterbakke. Pga. fortyndingen er det muligt at fordele én celle i hvert brønd med pipetten."},
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.MICROTITER",
+                    "containerSubtype": "AntigenCoatingType.NONE",
+                    "liquids": [
+                        { "type": "LiquidType.HOMO_SPLEEN"},
+                        { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Væske (uden celle, der antages at ligge i bunden af brønden) udtages fra hver brønd og tilføres tilsvarende brønd på en mikrotiterplade med relevant antigen i bunden (en ELISA-mikrotiterbakke). Dette gøres her i spillet blot ved at overføre én gang med pipetten."},
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.MICROTITER",
+                    "containerSubtype": "AntigenCoatingType.ANY",
+                    "liquids": [
+                        { "type": "LiquidType.HOMO_SPLEEN"},
+                        { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Alle brøndende på ELISA-pladen vaskes med vaskebuffer. TODO: Lav evt. en quiz om hvorfor?"},
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.MICROTITER",
+                    "containerSubtype": "AntigenCoatingType.ANY",
+                    "liquids": [
+                        { "type": "LiquidType.HOMO_SPLEEN"},
+                        { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
+                        { "type": "LiquidType.BUFFER"}
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Tilsæt til alle brøndende på ELISA-pladen sekundært fluorescerende antistof."},
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "strict": true,
+                    "container": "ContainerType.MICROTITER",
+                    "containerSubtype": "AntigenCoatingType.ANY",
+                    "liquids": [
+                        { "type": "LiquidType.FLUORESCENT_2ND_ANTIBODY"}
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Vask igen ELISA-pladen med buffer."},
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "strict": true,
+                    "container": "ContainerType.MICROTITER",
+                    "containerSubtype": "AntigenCoatingType.ANY",
+                    "liquids": [
+                        { "type": "LiquidType.FLUORESCENT_2ND_ANTIBODY"},
+                        { "type": "LiquidType.BUFFER"}
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Tag ELISA-pladen ind i UV-rummet og se nærmere på den. Notér hvilke brønde der er fluorescerende. Herefter skal du se nærmere på den oprindelige mikrotiterbakke, og tage indholdet fra en brønd der svarer til en lysende brønd fra ELISA-pladen. Dette gøres ved at trykke på en af brøndende."},
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.HOMO_SPLEEN"},
+                        { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Send indholdet fra brønden til sekvensering, ved at åbne computeren og vælge \"Send til sekvensering\". Hermed burde du få et nyt DNA-element i DNA-designeren."},
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.COMPUTER_ORDER_SEQUENCE"
+                }
+            },
+            {
+                "description": { "dk": "Design et stykke DNA som koder for antistoffet mod kopper. Dette skal indsættes i nogle gærceller, som efterfølgende skal fermenteres sådan at de producerer antistoffet."},
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.ANTIBODY_SMALLPOX"}
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "TODO: (MAKE SUBTYPES ON MICE! )Med en kanyle indsprøjtes antistoffet ind i en mus med kopper"},
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "alive": true,
+                    "mouseType": "MouseType.SMALLPOX",
+                    "item": "ContainerType.SYRINGE",
+                    "liquids": [
+                        { "type": "LiquidType.ANTIBODY_SMALLPOX" }
                     ]
                 }
             }

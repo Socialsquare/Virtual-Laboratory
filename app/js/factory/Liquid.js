@@ -118,6 +118,10 @@ define([
 
         saltWater: function () {
             return new SaltWater();
+        },
+
+        buffer: function() {
+            return new Liquid(LiquidType.BUFFER, ReactionCount.NEVER);
         }
     };
 

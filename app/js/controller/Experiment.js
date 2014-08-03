@@ -75,7 +75,8 @@ define([
                 if (trigger.type !== TriggerType.MIX) return;
                 if (!self.match(trigger.location, container.location())) return;
                 if (!self.match(trigger.container, container.type())) return;
-                if (container)
+                if (!self.match(trigger.containerSubtype, container.subtype())) return;
+
                 if (!self.matchLiquids(trigger, container)) return;
 
                 self.finishActiveTask();
@@ -89,6 +90,8 @@ define([
 
                 if (trigger.type !== TriggerType.MOUSE) return;
                 if (!self.match(trigger.alive, mouse.alive())) return;
+                if (!self.match(trigger.mouseType, mouse.mouseType())) return;
+                if (!self.match(trigger.mouseBloodType, mouse.mouseBloodType())) return;
                 if (!self.match(trigger.item, item.type())) return;
                 if (!self.matchLiquids(trigger, item)) return;
 
@@ -159,6 +162,7 @@ define([
                     var valid = _.all(trigger.containers, function (triggerContainer) {
                         return _.any(containers, function (incubatorContainer) {
                             return self.match(triggerContainer.type, incubatorContainer.type())
+                                && self.match(triggerContainer.containerSubtype, incubatorContainer.subtype())
                                 && self.matchLiquids({ strict: trigger.strict, liquids: triggerContainer.liquids }, incubatorContainer);
                         });
                     });
@@ -167,6 +171,10 @@ define([
                 }
 
                 if (trigger.activation === ActivationType.COMPUTER_ORDER_DRUG) {
+                    // currently don't validate anything about the designed drug
+                }
+
+                if (trigger.activation === ActivationType.COMPUTER_ORDER_SEQUENCE) {
                     // currently don't validate anything about the designed drug
                 }
 

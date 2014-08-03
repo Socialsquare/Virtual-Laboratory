@@ -15,6 +15,7 @@ define([
             var self = this;
 
             self.type = ko.observable(type);
+            self.subtype = ko.observable(); // defaults to no subtype
             self.maxConcentration = ko.observable(maxConcentration);
             self.liquids = ko.observableArray([]);
             self.label = ko.observable('');

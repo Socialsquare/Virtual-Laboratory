@@ -145,6 +145,8 @@ define([
                             case ContainerType.MICROTITER:
                                 var microtiter = self.compContainer.get(position);
 
+                                self.compContainer.get(position).add(LiquidFactory.buffer());
+
                                 self.compContainer.get(position).clearContents();
                                 if (microtiter.antigenCoating() === AntigenCoatingType.NONE) {
                                     microtiter.microtiterWells().clearWellsAntibodies();
