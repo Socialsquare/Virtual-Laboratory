@@ -304,7 +304,7 @@
     },
     {
         "title": { "dk": "Produktion af antistoffer Part #1 & #2" },
-        "description": { "dk": "I denne øvelse skal du vaccinere en mus mod kopper, m.m. (TODO)" },
+        "description": { "dk": "I denne øvelse skal du vaccinere en rask mus mod kopper, og kurere en syg" },
         "story": { "dk": "TODO: Story." },
         "tasks": [
             {
@@ -441,7 +441,7 @@
                 }
             },
             {
-                "description": { "dk": "Alle brøndende på ELISA-pladen vaskes med vaskebuffer. TODO: Lav evt. en quiz om hvorfor?"},
+                "description": { "dk": "Alle brøndende på ELISA-pladen vaskes med vaskebuffer."},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.MICROTITER",

@@ -68,12 +68,37 @@ define([
 
             self.bottle = ContainerFactory.bottle().add(LiquidFactory.juice(), true);
 
-            self.plotData(_.map(_.range(0, 250), function (i) {
+            //TODO: modify to object /w two fields
+/*            self.plotData(_.map(_.range(0, 250), function (i) {
                 return [i, self.mouse().bloodData()[i]];
-            }));
+            }));*/
+
+            self.updatePlotData = function() {
+                var bloodData = _.map(_.range(0, 250), function (i) {
+                    return [i, self.mouse().bloodData()[i]];
+                });
+
+                var heartRateData = _.map(_.range(0,250), function(i) {
+                    if (i == 0)
+                        console.log('Mouse.alive(): ' + self.mouse().alive() + ', heartRateData[0]: ' + self.mouse().heartRateData[self.mouse().heartRateIndex]);
+
+                    if (!self.mouse().alive())
+                        return [i, 0];
+
+                    var dataIndex = self.mouse().heartRateIndex + i;
+                    dataIndex = dataIndex % self.mouse().heartRateData.length;
+
+                    return [i, self.mouse().heartRateData[dataIndex]];
+                });
+
+                self.plotData({bloodData: bloodData, heartRateData: heartRateData});
+            };
+
+            self.updatePlotData();
 
             self.nextTimeStep = function() {
                 self.mouse().nextBloodStep();
+                self.mouse().nextHeartStep();
 
                 if (self.mouse().hasLethalBloodSugar()) {
                     self.toggleSimulation(false);
@@ -84,9 +109,14 @@ define([
                     });
                 }
 
-                self.plotData(_.map(_.range(0, 250), function (i) {
+                //TODO: new PlotData
+                self.updatePlotData();
+
+
+                //TODO: old PlotData
+                /*self.plotData(_.map(_.range(0, 250), function (i) {
                     return [i, self.mouse().bloodData()[i]];
-                }));
+                }));*/
             };
 
             self.injectionFromState = function () {
@@ -153,7 +183,6 @@ define([
             };
 
             self.handleDropOnMouse = function(item) {
-                debugger;
                 return DropOnMouseHelper.handleDrop(self, item);
             };
         }

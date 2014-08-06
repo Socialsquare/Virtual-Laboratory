@@ -5,8 +5,9 @@ define([
     'model/Spleen',
     'model/type/MouseBlood',
     'model/type/Mouse',
-    'model/type/Liquid'
-], function (ko, Base, _, SpleenModel, MouseBloodType, MouseType, LiquidType) {
+    'model/type/Liquid',
+    'json!../../data/heartRate.json'
+], function (ko, Base, _, SpleenModel, MouseBloodType, MouseType, LiquidType, heartRateData) {
 
     var Mouse = Base.extend({
         constructor: function (mouseType, mouseBloodType) {
@@ -18,6 +19,8 @@ define([
             self.spleen = new SpleenModel();
             self.mouseBloodType = ko.observable(mouseBloodType);
             self.mouseType = ko.observable(mouseType);
+            self.heartRateData = heartRateData.xVals;
+            self.heartRateIndex = 0;
             self.description = ko.computed(function () {
                 switch (self.mouseType()) {
                 case MouseType.GOUT:
@@ -143,7 +146,7 @@ define([
 
             // BEGIN: Functions for the bloodsugar simulation
             self.storeBloodStep = function() {
-                // TODO: use simulation
+
                 var bloodData = self.bloodData();
                 var first = bloodData.shift();
 
@@ -161,6 +164,14 @@ define([
 
             self.givInsulin = function() {
                 self.insulinDose(self.insulinDose() + 35);
+            };
+
+            self.nextHeartStep = function(){
+                self.heartRateIndex += 1;
+
+                if (self.heartRateIndex >= self.heartRateData.length) {
+                    self.heartRateIndex = 0;
+                }
             };
 
             self.nextBloodStep = function() {

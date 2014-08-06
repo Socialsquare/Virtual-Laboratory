@@ -13,7 +13,7 @@ define([
         update: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
             var data = ko.unwrap(valueAccessor());
 
-            //TODO: dataTest is an object.
+            // data is an object.
             var substrateData = data.substrate;
             var biomassData = data.biomass;
             var productData = data.product;
@@ -40,12 +40,25 @@ define([
         },
 
         update: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
-            var bloodGlucoseData = ko.unwrap(valueAccessor());
+            var data = ko.unwrap(valueAccessor());
 
-            var plot = $.plot($(element), [{data: bloodGlucoseData, label: 'mmol/L'}], {
+            var bloodGlucoseData = data.bloodData;
+            var heartRateData = data.heartRateData;
+
+            var plot = $.plot($(element), [
+                {data: heartRateData, yaxis: 2, color: 'rgb(255,160,160)'},
+                {data: bloodGlucoseData, label: 'mmol/L', yaxis: 1, color: 'yellow'}
+                ], {
+                xaxes: [{ show: false }],
+                yaxes: [{ min: 0, max: 20 }, { min: -400, max: 1000, show: false}]
+            });
+
+
+
+            /*var plot = $.plot($(element), [{data: bloodGlucoseData, label: 'mmol/L', color: ''}], {
              yaxis: { min: 0, max: 15 },
              xaxis: { show: false }
-             });
+             });*/
         }
     };
 });
