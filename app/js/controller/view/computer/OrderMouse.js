@@ -24,8 +24,8 @@ define([
                 new MouseModel(MouseType.HEALTHY,  MouseBloodType.NORMAL),
                 new MouseModel(MouseType.GOUT,     MouseBloodType.NORMAL),
                 new MouseModel(MouseType.SMALLPOX, MouseBloodType.NORMAL),
-                new MouseModel(MouseType.PSORIASIS,MouseBloodType.NORMAL),
-                new MouseModel(MouseType.INSOMNIA, MouseBloodType.NORMAL)
+                /*new MouseModel(MouseType.INSOMNIA, MouseBloodType.NORMAL),*/
+                new MouseModel(MouseType.PSORIASIS,MouseBloodType.NORMAL)
             ]);
 
             self.selectedIndex = ko.observable(0);

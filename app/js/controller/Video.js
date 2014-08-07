@@ -47,6 +47,24 @@ define([
         new VideoModel('slow-injection-body', 'slow_injection_body'),
         new VideoModel('slow-injection-body-faint', 'slow_injection_body_faint'),
 
+        // Mousemaps
+        new VideoModel('mousemap-pso-blood-inj-body', 'mousemap_pso_blood_inj_body'),
+        new VideoModel('mousemap-pso-blood-liver', 'mousemap_pso_blood_liver'),
+        new VideoModel('mousemap-pso-liver', 'mousemap_pso_liver'),
+        new VideoModel('mousemap-pso-pill-intestine', 'mousemap_pso_pill_intestine'),
+        new VideoModel('mousemap-pso-skin', 'mousemap_pso_skin'),
+
+        // Drug-journeys
+        new VideoModel('drug-barrier-failure', 'drug_barrier_failure'),
+        new VideoModel('drug-barrier-success', 'drug_barrier_success'),
+        new VideoModel('drug-blood-failure', 'drug_blood_failure'),
+        new VideoModel('drug-blood-success', 'drug_blood_success'),
+        new VideoModel('drug-liver-changed', 'drug_liver_changed'),
+        new VideoModel('drug-liver-changed-grey', 'drug_liver_changed_grey'),
+        new VideoModel('drug-liver-unchanged', 'drug_liver_unchanged'),
+        new VideoModel('drug-target-failure', 'drug_target_failure'),
+        new VideoModel('drug-target-success', 'drug_target_success'),
+
 
         new VideoModel('electroporator1', 'electroporator01'),
         new VideoModel('electroporator2', 'electroporator02'),

@@ -68,13 +68,20 @@ define([
                     return;
                 }
 
-                var drugTube = ContainerFactory.tube().add(self.selectedScaffold(), true);
+                self.drugService.getDrugInfo(self.selectedScaffold().configurationString())
+                    .then(function(info) {
+                        self.selectedScaffold().drugInfo = info;
 
-                self.gameState.inventory.add(drugTube);
+                        self.selectedScaffold().drugInfo.passes = self.drugService.getDrugPassages(info.logD);
 
-                self.selectedScaffold(self.getEmptyScaffold());
+                        var drugTube = ContainerFactory.tube().add(self.selectedScaffold(), true);
 
-                self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_DRUG, drugTube);
+                        self.gameState.inventory.add(drugTube);
+
+                        self.selectedScaffold(self.getEmptyScaffold());
+
+                        self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_DRUG, drugTube);
+                    });
             };
         }
     });

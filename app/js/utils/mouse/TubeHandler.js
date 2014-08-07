@@ -1,5 +1,6 @@
 define([
     'service/Localization',
+    'service/Drug',
 
     'model/type/Container',
     'model/type/Liquid',
@@ -7,7 +8,8 @@ define([
     'model/type/MouseBlood',
     'model/type/SpecialItem',
     'model/type/Administration'
-], function (LocalizationService, ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType, AdministrationType) {
+], function (LocalizationService, DrugService,
+             ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType, AdministrationType) {
     return {
         handle: function(MC, tube) { //MC = MouseController
 
@@ -37,6 +39,8 @@ define([
                 return false;
             }
 
+            var drug = tube.liquids()[0];
+
 // Choice based on mouse type
             if (MC.mouse().mouseType() === MouseType.PSORIASIS) {
                 var options = [
@@ -52,13 +56,16 @@ define([
                 MC.popupController.select('mouse.drug_administration.header', 'mouse.drug_administration.body', options)
                     .then(function (selectedObject) {
                         var administrationForm = selectedObject.administrationForm;
-                        //TODO: var res = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
 
                         switch(administrationForm) {
 
                             case AdministrationType.INJECTION_BODY:
                                 MC.videoController.play('psoriasis-injection', false).done(function() {
-                                    var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
+
+                                    //TODO: 1st find out how far ze drug will go
+//                                    var bloodSuccess =
+
+                                    var cured = MC.mouse().giveDrug(drug, administrationForm);
 
                                     MC.runFromState();
                                     MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
@@ -67,7 +74,7 @@ define([
 
                             case AdministrationType.PILL:
                                 MC.videoController.play('psoriasis-pill', false).done(function() {
-                                    var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
+                                    var cured = MC.mouse().giveDrug(drug, administrationForm);
 
                                     MC.runFromState();
                                     MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
@@ -76,7 +83,7 @@ define([
 
                             case AdministrationType.CREAM:
                                 MC.videoController.play('psoriasis-cream', false).done(function() {
-                                    var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
+                                    var cured = MC.mouse().giveDrug(drug, administrationForm);
 
                                     MC.runFromState();
                                     MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
@@ -88,7 +95,8 @@ define([
 
 
 
-            }else if (MC.mouse().mouseType() === MouseType.INSOMNIA) {
+            } //TODO: won't implement this, as it is nonsense to design ONE drug, but treat two diseases.
+            /*else if (MC.mouse().mouseType() === MouseType.INSOMNIA) {
                 var options = [
                     {
                         key: LocalizationService.text('mouse.drug_administration.injection.body'),
@@ -160,7 +168,7 @@ define([
 
                     });
 
-            }
+            }*/
 
 
 

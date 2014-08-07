@@ -17,6 +17,7 @@ define([
             self.name = values.name;
             self.id = values.id;
             self.offset = values.offset;
+            self.drugInfo = {};
 
             var slots = _.map(values.slots, function (sidegroupSlot) {
                 return new SidegroupSlotModel(sidegroupSlot);

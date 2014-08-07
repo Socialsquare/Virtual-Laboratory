@@ -15,7 +15,6 @@ define([
             var self = this;
 
             self.getDrugInfo = function (drugConfigurationString) {
-                console.log('Dummy info for drug: ' + drugConfigurationString);
 
                 var promise = $.Deferred();
 
@@ -52,6 +51,17 @@ define([
             });
 
             // TODO: properties
+
+            //Given LogD, it can be determined where in the body the drug can go
+            self.getDrugPassages = function(logD) {
+                var values = {};
+                values.canPassSkin = logD >= 4; //Jannick also proposed > 3, but said 'start with 4'
+                values.canPassBBB = logD >= 2 && logD <= 3;
+                values.canPassBlood = logD <= 5;
+                values.canPassIntestine = logD >= 1;
+
+                return values;
+            }
         }
     });
 
