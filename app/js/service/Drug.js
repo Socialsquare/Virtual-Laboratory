@@ -19,12 +19,18 @@ define([
 
                 var promise = $.Deferred();
 
-                setTimeout(function () {
-                    promise.resolve({
-                        pH: 4.7,
-                        vildTing: "Hej"
-                    });
-                }, 1000);
+                var testPath4 = 'data/drugs-data/' + drugConfigurationString + '.json';
+                var test4 = $.getJSON(testPath4).done(function(data) {
+                    promise.resolve(
+                        {
+                            weight: data.weight + 'g/mol',
+                            pKa: data.pka,
+                            logD: data.logD,
+                            logP: data.logP
+                        }
+                    );
+                });
+
 
                 return promise;
             };

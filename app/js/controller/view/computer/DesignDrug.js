@@ -62,12 +62,19 @@ define([
             };
 
             self.order = function () {
-                var drug = ContainerFactory.tube().add(self.selectedScaffold(), true);
-                self.gameState.inventory.add(drug);
+
+                if (_.contains(self.selectedScaffold().configurationString(), 'R')) {
+                    self.popupController.message('computer.screen.drug_design.cant_order.header', 'computer.screen.drug_design.cant_order.body');
+                    return;
+                }
+
+                var drugTube = ContainerFactory.tube().add(self.selectedScaffold(), true);
+
+                self.gameState.inventory.add(drugTube);
 
                 self.selectedScaffold(self.getEmptyScaffold());
 
-                self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_DRUG, drug);
+                self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_DRUG, drugTube);
             };
         }
     });

@@ -42,6 +42,9 @@
         "computer.screen.sequencing.valid.gout": "Det er korrekt og vil lave gigt ting",
         "computer.screen.sequencing.valid.smallpox": "Det er fino og vil lave anti kopper DNA",
 
+        "computer.screen.drug_design.cant_order.header": "Ikke muligt",
+        "computer.screen.drug_design.cant_order.body": "Du kan ikke bestille dette lægemiddel, da du ikke har sat sidegrupper på alle tre pladser. Det vil uden tvivl ikke kunne binde til target site.",
+
         "mouse.vaccinated_smallpox.header": "Musen blev vaccineret",
         "mouse.vaccinated_smallpox.body": "Du har nu givet musen antigener for kopper",
         "mouse.vaccinated_gout.header": "Musen blev vaccineret",

@@ -24,99 +24,99 @@
         {
             "id": 14,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 17.7,
+                "weight": "59.1 g/mol"
             }
         },
         {
             "id": 15,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 18.5,
+                "weight": "73.1 g/mol"
             }
         },
         {
             "id": 21,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 20.0,
+                "weight": "59.1 g/mol"
             }
         },
         {
             "id": 22,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 19.6,
+                "weight": "59.1 g/mol"
             }
         },
         {
             "id": 32,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 38.7,
+                "weight": "73.1 g/mol"
             }
         },
         {
             "id": 43,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 36.6,
+                "weight": "44.1 g/mol"
             }
         },
         {
             "id": 44,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 36.6,
+                "weight": "58.1 g/mol"
             }
         },
         {
             "id": 45,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 36.6,
+                "weight": "72.1 g/mol"
             }
         },
         {
             "id": 46,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 36.6,
+                "weight": "86.2 g/mol"
             }
         },
         {
             "id": 4,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 55,
+                "weight": "57.1 g/mol"
             }
         },
         {
             "id": 52,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 36.6,
+                "weight": "44.1 g/mol"
             }
         },
         {
             "id": 53,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 15.6,
+                "weight": "60.1 g/mol"
             }
         },
         {
             "id": 54,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 15.3,
+                "weight": "74.1 g/mol"
             }
         },
         {
             "id": 5,
             "info": {
-                "pH": 1337,
-                "foo": "Bar much"
+                "pKa": 55,
+                "weight": "71.1 g/mol"
             }
         }
     ]
