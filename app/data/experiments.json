@@ -303,8 +303,8 @@
         ]
     },
     {
-        "title": { "dk": "Produktion af antistoffer Part #1 & #2" },
-        "description": { "dk": "I denne øvelse skal du vaccinere en rask mus mod kopper, og kurere en syg" },
+        "title": { "dk": "Produktion af antistoffer" },
+        "description": { "dk": "I denne øvelse skal du vaccinere en rask mus mod kopper, og efterfølgende behandle en kopper-syg mus" },
         "story": { "dk": "TODO: Story." },
         "tasks": [
             {

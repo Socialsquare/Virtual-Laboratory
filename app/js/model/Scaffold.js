@@ -29,7 +29,7 @@ define([
                 var sidegroups = _(self.slots())
                         .sort(function (slotA, slotB) {
 
-                            return slotA.index > slotB.index;;
+                            return slotA.index > slotB.index;
                         })
                         .map(function (slot) {
                             return slot.sidegroup() ? slot.sidegroup().id : 'R';

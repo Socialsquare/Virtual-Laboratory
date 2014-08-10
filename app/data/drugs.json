@@ -3,19 +3,25 @@
         {
             "name": "1",
             "id": "1",
-            "offset": { "x": 420, "y": 130 },
+            "offset": { "x": 510, "y": 110 },
             "slots": [
                 {
                     "index": 2,
-                    "position": { "x": 24, "y": 78 }
+                    "position": { "x": 14, "y": 70 },
+                    "optimalLength": 4,
+                    "bindingType": "vdw"
                 },
                 {
                     "index": 1,
-                    "position": { "x": 62, "y": 143 }
+                    "position": { "x": 52, "y": 130 },
+                    "optimalLength": 5,
+                    "bindingType": "vdw"
                 },
                 {
                     "index": 0,
-                    "position": { "x": 186, "y": 144 }
+                    "position": { "x": 156, "y": 130 },
+                    "optimalLength": 4,
+                    "bindingType": "vdw"
                 }
             ]
         }

@@ -2,5 +2,6 @@
     <div id="micro-slot">
         <!-- TODO: dropping on the spectroPM -->
         <img src="assets/images/spectropm_micro.png" alt="Microtiter slot" data-bind="visible: spectroPM.spectroPMMachine.hasMicrotiter()">
+        <div class="graph" data-bind="plotDrugAffinity: plotData"></div>
     </div>
 </div>

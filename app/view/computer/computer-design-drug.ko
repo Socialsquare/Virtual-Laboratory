@@ -30,6 +30,7 @@
     <img class="trash" src="assets/images/icon_big_biotrash.png" alt="Affald" data-bind="drop: { handler: handleTrashDrop }">
 
     <div class="btn-bar">
+        <button class="order-btn" data-bind="i18n: 'common.help', click: getHelp"></button>
         <button class="order-btn" data-bind="i18n: 'common.info', click: getInfo"></button>
         <button class="order-btn" data-bind="i18n: 'computer.order', click: order"></button>
     </div>

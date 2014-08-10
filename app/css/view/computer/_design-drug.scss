@@ -4,6 +4,8 @@
 
     .sidebar {
 
+      width: 215px;
+
         ul li {
             margin-top: -10px;
             border-bottom: 1px solid #CCC;
@@ -11,6 +13,10 @@
         }
     }
     .content {
+
+      background-image: url(#{$img-path}/drug-designer-background.png);
+      background-repeat: no-repeat;
+
         .trash {
             position: absolute;
             right: 20px;

@@ -61,6 +61,10 @@ define([
                     });
             };
 
+            self.getHelp = function() {
+                self.popupController.message('computer.screen.drug_design.help.header', 'computer.screen.drug_design.help.body');
+            };
+
             self.order = function () {
 
                 if (_.contains(self.selectedScaffold().configurationString(), 'R')) {
@@ -78,6 +82,7 @@ define([
 
                         self.gameState.inventory.add(drugTube);
 
+                        debugger;
                         self.selectedScaffold(self.getEmptyScaffold());
 
                         self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_DRUG, drugTube);

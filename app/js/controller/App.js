@@ -90,7 +90,7 @@ define([
             //------------------------
 
 
-            self.gameState.inventory.add(viewControllers['mouse'].mouse().spleen.clone());
+            //self.gameState.inventory.add(viewControllers['mouse'].mouse().spleen.clone());
 
 /*            var tube = ContainerFactory.tube();
             var mye = LiquidFactory.microorganism.myeloma();

@@ -1,6 +1,6 @@
 {
     "dk": {
-        "loading.header": "Det Virtuelle Laboratorium 2",
+        "loading.header": "Det Virtuelle Laboratorium 2.0",
         "loading.choose_exercise": "Start med at vælge en øvelse",
         "loading.choose_new_exercise": "Vælg en ny øvelse",
         "loading.start_exercise": "Start øvelse",
@@ -44,6 +44,9 @@
 
         "computer.screen.drug_design.cant_order.header": "Ikke muligt",
         "computer.screen.drug_design.cant_order.body": "Du kan ikke bestille dette lægemiddel, da du ikke har sat sidegrupper på alle tre pladser. Det vil uden tvivl ikke kunne binde til target site.",
+        "computer.screen.drug_design.help.header": "Velkommen til lægemiddel designeren!",
+        "computer.screen.drug_design.help.body": "Du skal tage sidegrupper fra venstre og trække hen til de markerede områder ved scaffoldet. Derudover kan du se information om sidegrupperne ved at klikke på dem, eller om dit designede kemikalie ved at trykke på \"Information\"",
+
 
         "mouse.vaccinated_smallpox.header": "Musen blev vaccineret",
         "mouse.vaccinated_smallpox.body": "Du har nu givet musen antigener for kopper",
@@ -252,7 +255,8 @@
         "common.description": "Beskrivelse",
         "common.more_info": "Mere info",
         "common.sequence": "Sekvens",
-        "common.info": "Information"
+        "common.info": "Information",
+        "common.help": "Hjælp"
     },
 
     "en": {
