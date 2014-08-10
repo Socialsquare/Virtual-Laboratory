@@ -1,6 +1,7 @@
 define([
     'service/Localization',
     'service/Drug',
+    'utils/QuizHelper',
 
     'model/type/Container',
     'model/type/Liquid',
@@ -8,7 +9,7 @@ define([
     'model/type/MouseBlood',
     'model/type/SpecialItem',
     'model/type/Administration'
-], function (LocalizationService, DrugService,
+], function (LocalizationService, DrugService, QuizHelper,
              ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType, AdministrationType) {
     return {
         handle: function(MC, tube) { //MC = MouseController
@@ -62,31 +63,72 @@ define([
                             case AdministrationType.INJECTION_BODY:
                                 MC.videoController.play('psoriasis-injection', false).done(function() {
 
-                                    //TODO: 1st find out how far ze drug will go
-//                                    var bloodSuccess =
+                                    var values = QuizHelper.drugStepsBeforeCure.getPsoriasisBodyInjection(drug);
 
-                                    var cured = MC.mouse().giveDrug(drug, administrationForm);
+                                    MC.popupController.video(values.videos, true)
+                                        .done(function() {
+                                            //TODO: show quiz
 
-                                    MC.runFromState();
-                                    MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
+                                            if(! values.reachedTarget) {
+                                                alert('Noget gik galt, musen blev ikke kureret.');
+                                                return;
+                                            }
+                                            //TODO: final step
+
+                                            var cured = MC.mouse().giveDrug(drug, administrationForm);
+                                            MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
+
+                                            MC.runFromState();
+
+                                    });
                                 });
                                 break;
 
                             case AdministrationType.PILL:
                                 MC.videoController.play('psoriasis-pill', false).done(function() {
-                                    var cured = MC.mouse().giveDrug(drug, administrationForm);
+                                    var values = QuizHelper.drugStepsBeforeCure.getPsoriasisPill(drug);
 
-                                    MC.runFromState();
-                                    MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
+                                    MC.popupController.video(values.videos, true)
+                                        .done(function() {
+                                            //TODO: show quiz
+
+
+                                            if(! values.reachedTarget) {
+                                                alert('Noget gik galt, musen blev ikke kureret.');
+                                                return;
+                                            }
+                                            //TODO: final step
+
+                                            var cured = MC.mouse().giveDrug(drug, administrationForm);
+                                            MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
+
+                                            MC.runFromState();
+                                        });
+
+
                                 });
                                 break;
 
                             case AdministrationType.CREAM:
                                 MC.videoController.play('psoriasis-cream', false).done(function() {
-                                    var cured = MC.mouse().giveDrug(drug, administrationForm);
+                                    var values = QuizHelper.drugStepsBeforeCure.getPsoriasisCream(drug);
 
-                                    MC.runFromState();
-                                    MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
+                                    MC.popupController.video(values.videos, true)
+                                        .done(function() {
+                                            //TODO: show quiz
+
+                                            if(! values.reachedTarget) {
+                                                alert('Noget gik galt, musen blev ikke kureret.');
+                                                return;
+                                            }
+
+                                            //TODO: final step
+
+                                            var cured = MC.mouse().giveDrug(drug, administrationForm);
+                                            MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
+
+                                            MC.runFromState();
+                                        });
                                 });
                                 break;
                         }
@@ -99,11 +141,11 @@ define([
             /*else if (MC.mouse().mouseType() === MouseType.INSOMNIA) {
                 var options = [
                     {
-                        key: LocalizationService.text('mouse.drug_administration.injection.body'),
+                        key: LocalizationService.text('mouse.drug_administration.injection_body'),
                         administrationForm: AdministrationType.INJECTION_BODY
                     },
                     {
-                        key: LocalizationService.text('mouse.drug_administration.injection.header'),
+                        key: LocalizationService.text('mouse.drug_administration.injection_head'),
                         administrationForm: AdministrationType.INJECTION_HEAD
                     },
                     {

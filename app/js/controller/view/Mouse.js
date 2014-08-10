@@ -79,8 +79,6 @@ define([
                 });
 
                 var heartRateData = _.map(_.range(0,250), function(i) {
-                    if (i == 0)
-                        console.log('Mouse.alive(): ' + self.mouse().alive() + ', heartRateData[0]: ' + self.mouse().heartRateData[self.mouse().heartRateIndex]);
 
                     if (!self.mouse().alive())
                         return [i, 0];

@@ -94,8 +94,8 @@
         "mouse.syringe_not_allowed.body": "Indholdet i din kanyle er forurenet. Det er uetisk at sprøjte dens indhold ind i musen, du!",
         "mouse.drug_administration.header": "Vælg administrationsform",
         "mouse.drug_administration.body": "Hvordan vil du give dit lægemiddel til musen?",
-        "mouse.drug_administration.injection.body": "Indsprøjtning i kroppen",
-        "mouse.drug_administration.injection.header": "Indsprøjtning i kraniet",
+        "mouse.drug_administration.injection_body": "Indsprøjtning i kroppen",
+        "mouse.drug_administration.injection_head": "Indsprøjtning i kraniet",
         "mouse.drug_administration.pill": "Pille",
         "mouse.drug_administration.cream": "Creme",
 

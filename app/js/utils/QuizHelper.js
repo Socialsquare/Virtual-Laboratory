@@ -7,15 +7,6 @@ define([
 
         electroporator: {
             getQuiz1: function() {
-                //TODO: i18n
-                /*"quiz.electroporator1.name": "Lalala ",
-                "quiz.electroporator1.question": "LAla",
-                "quiz.electroporator1.answer1.answer": "LAla",
-                "quiz.electroporator1.answer1.message": "LAla",
-                "quiz.electroporator1.answer2.answer": "LAla",
-                "quiz.electroporator1.answer2.message": "LAla",
-                "quiz.electroporator1.answer3.answer": "LAla",
-                "quiz.electroporator1.answer3.message": "LAla",*/
 
                 var quizValues = {
                     "id": 1,
@@ -44,7 +35,6 @@ define([
             },
 
             getQuiz2: function() {
-                //TODO: i18n
                 var quizValues = {
                     "id": 2,
                     "name": {"dk": ""},
@@ -72,7 +62,6 @@ define([
             },
 
             getQuiz3: function() {
-                //TODO: i18n
                 var quizValues = {
                     "id": 3,
                     "name": {"dk": ""},
@@ -100,7 +89,6 @@ define([
             },
 
             getQuiz4: function() {
-                //TODO: i18n
                 var quizValues = {
                     "id": 4,
                     "name": {"dk": ""},
@@ -128,7 +116,6 @@ define([
             },
 
             getQuiz5: function() {
-                //TODO: i18n
                 var quizValues = {
                     "id": 5,
                     "name": {"dk": ""},
@@ -156,7 +143,6 @@ define([
             },
 
             getQuiz6: function() {
-                //TODO: i18n
                 var quizValues = {
                     "id": 6,
                     "name": {"dk": ""},
@@ -182,7 +168,67 @@ define([
                 };
                 return new QuizModel(quizValues);
             }
+        },
+
+        drugStepsBeforeCure: {
+            getPsoriasisBodyInjection: function(drug) {
+                var returnObj = {reachedTarget: false, videos: []};
+                returnObj.videos = ['mousemap-pso-blood-inj-body'];
+
+                if(!drug.drugInfo.passes.canPassBlood) {
+                    returnObj.videos.push('drug-blood-failure');
+
+                    return returnObj;
+
+                }
+
+                returnObj.videos.push('drug-blood-success');
+                returnObj.videos.push('mousemap-pso-liver');
+                returnObj.videos.push('drug-liver-unchanged'); // This is due to the fact that no sidegroup gets modified
+                returnObj.videos.push('mousemap-pso-blood-liver');
+                returnObj.videos.push('mousemap-pso-skin');
+
+                returnObj.reachedTarget = true;
+
+                return returnObj;
+            },
+            getPsoriasisPill: function(drug) {
+                var returnObj = {reachedTarget: false, videos: []};
+                returnObj.videos = ['mousemap-pso-pill-intestine'];
+
+                if(!drug.drugInfo.passes.canPassBlood) {
+                    returnObj.videos.push('drug-barrier-failure');
+
+                    return returnObj;
+
+                }
+
+                returnObj.videos.push('drug-barrier-success');
+                returnObj.videos.push('mousemap-pso-liver');
+                returnObj.videos.push('drug-liver-unchanged'); // This is due to the fact that no sidegroup gets modified
+                returnObj.videos.push('mousemap-pso-blood-liver');
+                returnObj.videos.push('mousemap-pso-skin');
+
+                returnObj.reachedTarget = true;
+
+                return returnObj;
+            },
+            getPsoriasisCream: function(drug) {
+                var returnObj = {reachedTarget: false, videos: []};
+
+                if(!drug.drugInfo.passes.canPassSkin) {
+                    returnObj.videos.push('drug-barrier-failure');
+
+                    return returnObj;
+
+                }
+
+                returnObj.videos.push('drug-barrier-success');
+
+                returnObj.reachedTarget = true;
+
+                return returnObj;
+            }
         }
     };
 });
-
