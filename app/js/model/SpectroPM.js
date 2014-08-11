@@ -1,8 +1,10 @@
 define([
     'knockout',
     'base',
-    'model/SpectroPMMachine'
-], function(ko, Base, SpectroPMMachineModel) {
+    'model/CompositeContainer',
+    'model/type/Location',
+    'model/type/Container'
+], function(ko, Base, CompositeContainerModel, LocationType, ContainerType) {
 
     var SpectroPM = Base.extend({
         //TODO: remove inline CSS from $this.ko
@@ -10,7 +12,9 @@ define([
         constructor: function () {
             var self = this;
 
-            self.spectroPMMachine = new SpectroPMMachineModel();
+            self.microSlot = new CompositeContainerModel(1, ContainerType.MICROTITER, ContainerType.SPECTROPM_MACHINE);
+            self.microSlot.location(LocationType.SPECTROPM);
+            //self.spectroPMMachine = new SpectroPMMachineModel();
 
             self.reset = function () {
                 self.spectroPMMachine.removeAll();

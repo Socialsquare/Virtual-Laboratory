@@ -89,6 +89,7 @@ define([
             // dummy data
             //------------------------
 
+            self.gameState.spectroPM.microSlot.addAt(0, ContainerFactory.micro());
 
             //self.gameState.inventory.add(viewControllers['mouse'].mouse().spleen.clone());
 
@@ -139,8 +140,6 @@ define([
             /*self.gameState.fumehood.tableSpacePetri.addAt(0, ContainerFactory.petri());
             self.gameState.fumehood.tubeRack.addAt(5, ContainerFactory.tube()
                                                    .add(LiquidFactory.microorganism.yeast()));
-
-            self.gameState.spectroPM.spectroPMMachine.addAt(0, ContainerFactory.micro());
 
             self.gameState.uvroom.tubeRack.addAt(0, ContainerFactory.tube()
                                                  .add(LiquidFactory.microorganism.yeast()));

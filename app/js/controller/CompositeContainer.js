@@ -56,6 +56,13 @@ define([
                 self.accepter = DragHelper.acceptTube;
                 break;
 
+            case ContainerType.SPECTROPM_MACHINE:
+                self.showPlaceholder(false);
+
+                self.imageGetter = ImageHelper.spectroPMMicroSlotImage;
+                self.accepter = DragHelper.acceptMicro;
+                break;
+
             case ContainerType.OD_MACHINE:
                 self.imageGetter = ImageHelper.odMachineTubeImage;
                 self.accepter = DragHelper.acceptTube;

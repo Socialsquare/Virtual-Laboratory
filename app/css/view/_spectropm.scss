@@ -4,23 +4,41 @@
   @include view;
   background-image: url(#{$img-path}/spectropm_view.png);
 
-  #micro-slot {
-    position: relative;
+  .micro-slot {
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-image: none;
+      list-style-type: none;
+
+      li {
+        width: 381px;
+        height: 285px;
+      }
+    }
+
+    position: absolute;
     left: 204px;
     top: 235px;
     width: 381px;
     height: 285px;
   }
 
-  .graph {
-    position: relative;
-    left: 374px;
-    top: -102px;
-    width: 160px;
-    height: 110px;
-  }
+    .graph {
+    position: absolute;
+    left: 578px;
+    top: 135px;
+    width: 167px;
+    height: 107px;
+    background-color: rgb(100,200,200);
 
-  .flot-text{
-    color: rgb(0,0,0);
+      -webkit-transform: rotate(-0.5deg);
+      -moz-transform: rotate(-0.5deg);
+      -ms-transform: rotate(-0.5deg);
+      -o-transform: rotate(-0.5deg);
+      transform: rotate(-0.5deg);
+
+      @include opacity(0.75);
   }
 }

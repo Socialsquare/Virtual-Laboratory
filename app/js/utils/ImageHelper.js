@@ -47,6 +47,10 @@ define([
                 return self.img('petri_' + state + '.png');
             };
 
+            self.spectroPMMicroSlotImage = function() {
+                return self.img('spectropm_micro.png');
+            };
+
             self.uvTubeRackImage = function (position, tube) {
                 var state = tube.isEmpty() ? 'empty' : (tube.isFluorescent() ? 'glow' : 'full');
                 return self.img('uv_tube' + (position + 1) + '_' + state + '.png');

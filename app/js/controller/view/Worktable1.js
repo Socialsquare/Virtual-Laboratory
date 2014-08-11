@@ -47,7 +47,6 @@ define([
             };
 
             self.activateElectroporator = function () {
-                //TODO: check if electroporator contains both genes and organisms. If not, show a message.
                 var containsOrganism = _.any(self.worktable1.electroporator.liquids(), function(liquid){
                     return liquid.type() === LiquidType.MICROORGANISM;
                 });
@@ -56,6 +55,7 @@ define([
                     return liquid.type() === LiquidType.GENE;
                 });
 
+                // check if electroporator contains both genes and organisms. If not, show a message.
                 if (! (containsGene && containsOrganism)) {
                     self.popupController.message('worktable1.electroporator_wont_start.header','worktable1.electroporator_wont_start.body');
                     return;
