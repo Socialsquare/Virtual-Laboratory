@@ -1,14 +1,11 @@
 <!-- ko with: data -->
 <div class="popup-microtiter" data-bind="css: $data.location() === 'LocationType.UVROOM' ? 'zoom-microtiter-uv' : 'zoom-microtiter-normal' ">
     <div class="fake-back-button hand" data-bind="click: $parent.hide.bind()">
-    <!--<div class="fake-back-button hand" data-bind="click: function() { debugger; }">-->
         <img src="assets/images/top-button_back_gray.png" alt="Tilbage">
     </div>
 
     <ul data-bind="foreach: microtiterWells().wells">
         <li data-bind="css: 'well-slot' + $index()">
-            <!--<img class="hand" data-bind="attr: { src: 'assets/images/zoom_mkrt_well_dense.png' },
-            click: function(){ console.log($parents); debugger;}">-->
             <img class="hand" data-bind="attr: { src: $parents[1].popupController.imageHelper.microtiterWell($index(), $parent) },
             click: function(){ $parent.extractWellContents(
                                                      $parents[3].gameState.inventory,

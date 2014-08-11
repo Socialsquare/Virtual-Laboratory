@@ -82,7 +82,6 @@ define([
 
                         self.gameState.inventory.add(drugTube);
 
-                        debugger;
                         self.selectedScaffold(self.getEmptyScaffold());
 
                         self.experimentController.triggerActivation(self.ActivationType.COMPUTER_ORDER_DRUG, drugTube);
