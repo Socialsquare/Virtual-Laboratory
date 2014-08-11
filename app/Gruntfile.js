@@ -15,14 +15,32 @@ module.exports = function (grunt) {
         env: 'dev',
 
         clean: {
-            dist: '<%= dist_root %>'
+            //TODO: Original
+            /*dist: '<%= dist_root %>'*/
+            dist: {
+                files: [
+                    // localization
+                    { expand: true, src: [ '<%= dist_root %>'+'/js/localization.json' ]},
+                    // js
+                    { expand: true, src: [ '<%= dist_root %>'+'/js/**' ]},
+                    // views
+                    { expand: true, src: [ '<%= dist_root %>'+'/view/**' ]},
+                    // index
+                    { expand: true, src: [ '<%= dist_root %>'+'/index.html' ]},
+                    // css
+                    { expand: true, src: [ '<%= dist_root %>'+'/css/**/*.css' ]},
+                    // vendor
+                    { expand: true, src: [ '<%= dist_root %>'+'/bower_components/**' ]},
+                ]
+            }
         },
 
         copy: {
             dist: {
+
                 files: [
-                    // data
-                    { expand: true, src: [ 'data/**' ], dest: '<%= dist_root %>' },
+                    // data // assets //TODO: uncomment
+                    //{ expand: true, src: [ 'data/**' ], dest: '<%= dist_root %>' },
                     // localization
                     { expand: true, src: [ 'js/localization.json' ], dest: '<%= dist_root %>' },
                     // js
@@ -31,8 +49,8 @@ module.exports = function (grunt) {
                     { expand: true, src: [ 'view/**' ], dest: '<%= dist_root %>' },
                     // index
                     { expand: true, src: [ 'index.html' ], dest: '<%= dist_root %>' },
-                    // assets
-                    { expand: true, src: [ 'assets/**' ], dest: '<%= dist_root %>' },
+                    // assets //TODO: uncomment
+                    //{ expand: true, src: [ 'assets/**' ], dest: '<%= dist_root %>' },
                     // css
                     { expand: true, src: [ 'css/**/*.css' ], dest: '<%= dist_root %>' },
                     // vendor
