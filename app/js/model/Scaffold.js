@@ -18,6 +18,7 @@ define([
             self.id = values.id;
             self.offset = values.offset;
             self.drugInfo = {};
+            self.initialValues = values; //used for simple cloning
 
             var slots = _.map(values.slots, function (sidegroupSlot) {
                 return new SidegroupSlotModel(sidegroupSlot);
@@ -43,7 +44,11 @@ define([
             });
 
             self.clone = function() {
-                throw 'TODO: !';
+                var clone = new Scaffold(self.initialValues);
+
+                clone.hasReacted(self.hasReacted());
+
+                return clone;
             };
         }
     });

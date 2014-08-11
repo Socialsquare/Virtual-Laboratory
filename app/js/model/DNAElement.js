@@ -36,7 +36,7 @@ define([
                 return clone;
             };
 
-        },
+        }
 	});
 
 	return DNAElement;

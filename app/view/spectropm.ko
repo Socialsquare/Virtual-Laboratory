@@ -1,6 +1,8 @@
 <div class="spectrophotometer-view">
-        <!-- TODO: dropping on the spectroPM -->
-        <!--<img src="assets/images/spectropm_micro.png" alt="Microtiter slot" data-bind="visible: spectroPM.microSlot.hasContainerAt(0)">-->
-        <div class="micro-slot" data-bind="template: { name: 'compContainer', data: microSlotController }"></div>
-        <div class="graph" data-bind="plotDrugAffinity: plotData, visible: spectroPM.microSlot.hasContainerAt(0)"></div>
+    <div class="micro-slot" data-bind="template: { name: 'compContainer', data: microSlotController }"></div>
+    <div class="spectro-screen-on" data-bind="visible: canShowGraph()">
+        <div class="graph" data-bind="plotDrugAffinity: plotData">
+
+        </div>
+    </div>
 </div>

@@ -25,7 +25,7 @@
     height: 285px;
   }
 
-    .graph {
+  .spectro-screen-on {
     position: absolute;
     left: 578px;
     top: 135px;
@@ -33,12 +33,16 @@
     height: 107px;
     background-color: rgb(100,200,200);
 
-      -webkit-transform: rotate(-0.5deg);
-      -moz-transform: rotate(-0.5deg);
-      -ms-transform: rotate(-0.5deg);
-      -o-transform: rotate(-0.5deg);
-      transform: rotate(-0.5deg);
+    -webkit-transform: rotate(-0.5deg);
+    -moz-transform: rotate(-0.5deg);
+    -ms-transform: rotate(-0.5deg);
+    -o-transform: rotate(-0.5deg);
+    transform: rotate(-0.5deg);
 
-      @include opacity(0.75);
+    @include opacity(0.75);
+  }
+  .graph {
+      width: 165px;
+      height: 91px;
   }
 }
