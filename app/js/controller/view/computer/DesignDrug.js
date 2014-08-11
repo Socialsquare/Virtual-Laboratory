@@ -31,7 +31,8 @@ define([
             self.selectedScaffold = ko.observable(self.getEmptyScaffold());
 
             self.showSidegroupInfo = function (sidegroup) {
-                self.popupController.kvInfo(sidegroup.info);
+                var popupInfo = {pKa: sidegroup.info.pKa, weight: sidegroup.info.weight};
+                self.popupController.kvInfo(popupInfo);
             };
 
             self.handleTrashDrop = function (slot) {
@@ -78,7 +79,7 @@ define([
 
                         self.selectedScaffold().drugInfo.passes = self.drugService.getDrugPassages(info.logD);
 
-                        var drugTube = ContainerFactory.tube().add(self.selectedScaffold(), true);
+                        var drugTube = ContainerFactory.tube().add(self.selectedScaffold().clone(), true);
 
                         self.gameState.inventory.add(drugTube);
 

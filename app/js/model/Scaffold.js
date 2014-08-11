@@ -43,10 +43,32 @@ define([
                 return 'assets/svgs/scaffold_' + self.configurationString() + '.svg';
             });
 
+            self.getAffinityScore = function() {
+                var slots = self.slots();
+
+                // Lower is better, as it is an error-score
+                var affinityScore = _.reduce(slots, function(affinityScore, slot) {
+                    var optimalBindingType = slot.bindingType;
+                    var optimalLength = slot.optimalLength;
+
+                    var matchesBindingType = _.contains(slot.sidegroup().info.bindingTypes, optimalBindingType);
+                    if (!matchesBindingType) {
+                        return affinityScore + 5;
+                    }else {
+                        var squaredLengthError = Math.pow((slot.sidegroup().info.bindingLength - optimalLength), 2);
+                        return affinityScore + squaredLengthError;
+                    }
+
+                }, 0);
+
+                return Math.sqrt(affinityScore); // TODO: Set the threshold to be sqrt(affinityScore) < 2
+            };
+
             self.clone = function() {
                 var clone = new Scaffold(self.initialValues);
 
                 clone.hasReacted(self.hasReacted());
+                clone.slots(self.slots());
 
                 return clone;
             };
