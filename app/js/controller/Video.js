@@ -29,14 +29,14 @@ define([
         new VideoModel('slow-injection-body-gout', 'slow_injection_body'),
         new VideoModel('slow-loop-gout', 'slow_loop'),
 
-        // Mouse with psoriasis //TODO:
+        // Mouse with psoriasis
         new VideoModel('psoriasis-loop', 'psoriasis_loop'),
         new VideoModel('psoriasis-cure', 'psoriasis_cure'),
         new VideoModel('psoriasis-injection', 'psoriasis_injection'),
         new VideoModel('psoriasis-pill', 'psoriasis_pill'),
         new VideoModel('psoriasis-cream', 'psoriasis_cream'),
 
-        // Mouse with insomnia //TODO:
+        // Mouse with insomnia
         new VideoModel('slow-loop', 'slow_loop'),
         new VideoModel('slow-sleeping', 'slow_sleeping'),
         new VideoModel('slow-wake', 'slow_wake'),

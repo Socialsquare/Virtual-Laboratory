@@ -77,6 +77,11 @@
         "mouse.drug_not_correct_type.body": "Det lægemiddel du har designet, er desværre ikke egnet til denne type mus.",
         "mouse.drug_not_head.header": "Dårlig idé",
         "mouse.drug_not_head.body": "At administrere direkte ind i hjernen er en voldsom handling. Eftersom dette næppe vil hjælpe på musens tilstand, er det en dårlig idé.",
+        "mouse.drug_not_effective.header": "Musen ikke kureret",
+        "mouse.drug_not_effective.body": "Lægemidlet nåede sit target, men kunne ikke binde ordenligt til det. Det havde altså ingen effekt.",
+        "mouse.drug_cured.header": "Musen kureret",
+        "mouse.drug_cured.body": "Tillykke - du har kureret musen!",
+
 
         "mouse.description.healthy": "Rask mus",
         "mouse.description.gout": "Mus med gigt",

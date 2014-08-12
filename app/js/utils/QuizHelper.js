@@ -188,7 +188,13 @@ define([
                 returnObj.videos.push('mousemap-pso-blood-liver');
                 returnObj.videos.push('mousemap-pso-skin');
 
-                returnObj.reachedTarget = true;
+                returnObj.reachedTarget = drug.canBindToTarget();
+
+                if (returnObj.reachedTarget) {
+                    returnObj.videos.push('drug-target-success');
+                }else {
+                    returnObj.videos.push('drug-target-fail');
+                }
 
                 return returnObj;
             },
@@ -209,7 +215,13 @@ define([
                 returnObj.videos.push('mousemap-pso-blood-liver');
                 returnObj.videos.push('mousemap-pso-skin');
 
-                returnObj.reachedTarget = true;
+                returnObj.reachedTarget = drug.canBindToTarget();
+
+                if (returnObj.reachedTarget) {
+                    returnObj.videos.push('drug-target-success');
+                }else {
+                    returnObj.videos.push('drug-target-fail');
+                }
 
                 return returnObj;
             },
@@ -225,7 +237,13 @@ define([
 
                 returnObj.videos.push('drug-barrier-success');
 
-                returnObj.reachedTarget = true;
+                returnObj.reachedTarget = drug.canBindToTarget();
+
+                if (returnObj.reachedTarget) {
+                    returnObj.videos.push('drug-target-success');
+                }else {
+                    returnObj.videos.push('drug-target-fail');
+                }
 
                 return returnObj;
             }

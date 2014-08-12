@@ -119,6 +119,10 @@ define([
                 return false;
             };
 
+            self.cureDesignedDrug = function() {
+                self.mouseType(MouseType.HEALTHY);
+            };
+
             self.giveDrug = function(designedDrug, administrationForm) {
                 return 'TODO:'; //TODO: implement
             };

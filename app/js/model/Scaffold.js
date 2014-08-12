@@ -43,6 +43,10 @@ define([
                 return 'assets/svgs/scaffold_' + self.configurationString() + '.svg';
             });
 
+            self.canBindToTarget = function() {
+                return self.getAffinityScore() < 2;
+            };
+
             self.getAffinityScore = function() {
                 var slots = self.slots();
 
@@ -61,7 +65,7 @@ define([
 
                 }, 0);
 
-                return Math.sqrt(affinityScore); // TODO: Set the threshold to be sqrt(affinityScore) < 2
+                return Math.sqrt(affinityScore);
             };
 
             self.clone = function() {
@@ -69,6 +73,7 @@ define([
 
                 clone.hasReacted(self.hasReacted());
                 clone.slots(self.slots());
+                clone.drugInfo = self.drugInfo;
 
                 return clone;
             };

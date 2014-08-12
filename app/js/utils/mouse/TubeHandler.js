@@ -61,21 +61,21 @@ define([
                         switch(administrationForm) {
 
                             case AdministrationType.INJECTION_BODY:
+                                console.log('TODO: not really a TODO - injection-body');
                                 MC.videoController.play('psoriasis-injection', false).done(function() {
 
                                     var values = QuizHelper.drugStepsBeforeCure.getPsoriasisBodyInjection(drug);
 
                                     MC.popupController.video(values.videos, true)
                                         .done(function() {
-                                            //TODO: show quiz
 
-                                            if(! values.reachedTarget) {
-                                                alert('Noget gik galt, musen blev ikke kureret.');
-                                                return;
+                                            if(values.reachedTarget) {
+                                                MC.popupController.message('mouse.drug_cured.header', 'mouse.drug_cured.body');
+                                                MC.mouse().cureDesignedDrug();
+                                            }else {
+                                                MC.popupController.message('mouse.drug_not_effective.header', 'mouse.drug_not_effective.body');
                                             }
-                                            //TODO: final step
 
-                                            var cured = MC.mouse().giveDrug(drug, administrationForm);
                                             MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
 
                                             MC.runFromState();
@@ -85,21 +85,20 @@ define([
                                 break;
 
                             case AdministrationType.PILL:
+                                console.log('TODO: not really a TODO - pill');
                                 MC.videoController.play('psoriasis-pill', false).done(function() {
                                     var values = QuizHelper.drugStepsBeforeCure.getPsoriasisPill(drug);
 
                                     MC.popupController.video(values.videos, true)
                                         .done(function() {
-                                            //TODO: show quiz
 
-
-                                            if(! values.reachedTarget) {
-                                                alert('Noget gik galt, musen blev ikke kureret.');
-                                                return;
+                                            if(values.reachedTarget) {
+                                                MC.popupController.message('mouse.drug_cured.header', 'mouse.drug_cured.body');
+                                                MC.mouse().cureDesignedDrug();
+                                            }else {
+                                                MC.popupController.message('mouse.drug_not_effective.header', 'mouse.drug_not_effective.body');
                                             }
-                                            //TODO: final step
 
-                                            var cured = MC.mouse().giveDrug(drug, administrationForm);
                                             MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
 
                                             MC.runFromState();
@@ -110,21 +109,20 @@ define([
                                 break;
 
                             case AdministrationType.CREAM:
+                                console.log('TODO: not really a TODO - cream');
                                 MC.videoController.play('psoriasis-cream', false).done(function() {
                                     var values = QuizHelper.drugStepsBeforeCure.getPsoriasisCream(drug);
 
                                     MC.popupController.video(values.videos, true)
                                         .done(function() {
-                                            //TODO: show quiz
 
-                                            if(! values.reachedTarget) {
-                                                alert('Noget gik galt, musen blev ikke kureret.');
-                                                return;
+                                            if(values.reachedTarget) {
+                                                MC.popupController.message('mouse.drug_cured.header', 'mouse.drug_cured.body');
+                                                MC.mouse().cureDesignedDrug();
+                                            }else {
+                                                MC.popupController.message('mouse.drug_not_effective.header', 'mouse.drug_not_effective.body');
                                             }
 
-                                            //TODO: final step
-
-                                            var cured = MC.mouse().giveDrug(drug, administrationForm);
                                             MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
 
                                             MC.runFromState();
