@@ -54,7 +54,7 @@ define([
             };
 
             self.closetItems.pushAll([
-                new ChemicalItemModel('item.name.deadly', function () { return self.inTube(LiquidFactory.deadly()); }),
+                new ChemicalItemModel('item.name.deadly', function () { return self.inSyringe(LiquidFactory.deadly()); }),
                 new ChemicalItemModel('item.name.growth_medium', function () { return self.inTube(LiquidFactory.growthMedium()); }),
                 new ChemicalItemModel('item.name.growth_medium', function () { return self.inPetridish(LiquidFactory.growthMedium()); }),
                 new ChemicalItemModel('item.name.salt_water', function () { return self.specialItemFactory.washBottle(); }),
@@ -89,6 +89,10 @@ define([
 
         inPetridish: function (liquid) {
             return new PetridishModel().add(liquid, true);
+        },
+
+        inSyringe: function (liquid) {
+            return new ContainerFactory.syringe().add(liquid, true);
         }
     });
 
