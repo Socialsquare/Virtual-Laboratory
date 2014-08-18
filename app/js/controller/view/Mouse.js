@@ -62,8 +62,16 @@ define([
             self.graphTimer = ko.observable(null);
 
             self.exportData =  function () {
-                var data = DataHelper.toCSV(self.plotData(), ['time', 'bloodsugar']);
-                self.popupController.dataExport(data);
+                var raw = self.plotData();
+                var headers = ['time', 'bloodsugar', 'heart'];
+                var parsed = _(raw.bloodData)
+                    .zip(raw.heartRateData)
+                    .map(function (row) {
+                        return [row[0][0], row[0][1], row[1][1]];
+                    })
+                    .value();
+
+                self.popupController.dataExport(DataHelper.toCSV(parsed, headers));
             };
 
             self.bottle = ContainerFactory.bottle().add(LiquidFactory.juice(), true);
