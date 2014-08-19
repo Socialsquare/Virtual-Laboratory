@@ -17,7 +17,7 @@ define([
         // Healthy mouse
         new VideoModel('fast-loop', 'fast_loop'),
         new VideoModel('fast-injection', 'fast_injection'),
-        new VideoModel('fast-die-insulin', 'fast_die_insulin'), //TODO:
+        new VideoModel('fast-die-insulin', 'fast_die_insulin'),
 
         // Mouse with smallpox
         new VideoModel('smallpox-cure', 'smallpox_cure'),

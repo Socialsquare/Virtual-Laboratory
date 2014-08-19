@@ -115,14 +115,7 @@ define([
                     });
                 }
 
-                //TODO: new PlotData
                 self.updatePlotData();
-
-
-                //TODO: old PlotData
-                /*self.plotData(_.map(_.range(0, 250), function (i) {
-                    return [i, self.mouse().bloodData()[i]];
-                }));*/
             };
 
             self.injectionFromState = function () {

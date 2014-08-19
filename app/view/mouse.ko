@@ -1,12 +1,13 @@
 <div class="mouse-view">
 
+    <!-- TODO: The div .dead-mouse should be declared before .video-container, otherwise it will be in front of if, and videos will not be shown when the mouse is dead.  -->
+    <div class="dead-mouse" data-bind="visible: !mouse().alive(), css: { cut: mouse().isCut() }"></div>
+
     <div class="video-container" data-bind="template: { name: 'video', data: videoController }"></div>
 
     <img class="hand water-bottle" src="assets/images/grab_drink.png" alt="Juiceflaske"
          data-bind="visible: !mouseDrinking(),
                     drag: { hide: true, item: bottle, offset: { left: 84, top: 182 } }">
-
-    <div class="dead-mouse" data-bind="visible: !mouse().alive(), css: { cut: mouse().isCut() }"></div>
 
     <div class="mouse" data-bind="drop: { handler: handleDropOnMouse, accept: DragHelper.acceptedByMouse }"></div>
 

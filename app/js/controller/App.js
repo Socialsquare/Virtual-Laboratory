@@ -22,14 +22,15 @@ define([
     'controller/view/Washing',
     'controller/view/computer/DesignDNA', //TODO: remove, just for dummy-data
     'factory/Container', //TODO: remove, just for dummy-data
-    'factory/Liquid' //TODO: remove, just for dummy-data
+    'factory/Liquid', //TODO: remove, just for dummy-data
+    'factory/SpecialItem' //TODO: remove, just for dummy-data
 
 ], function (ko, BaseViewController, homescreen, MenuController, tutorialController, LoadingController,
              OverviewController, MouseController, ChemicalController,
              ComputerController, FumehoodController, Worktable1Controller,
              Worktable2Controller, IncubatorController, SpectroPMController,
              FermentorController, FermentorScreenController, UvRoomController,
-             WashingController, DesignDNAController, ContainerFactory, LiquidFactory) {
+             WashingController, DesignDNAController, ContainerFactory, LiquidFactory, SpecialItemFactory) {
 
     // encourage users on tablet to add the app to their homescreen
     homescreen();
@@ -89,7 +90,8 @@ define([
             // dummy data
             //------------------------
 
-            self.gameState.spectroPM.microSlot.addAt(0, ContainerFactory.micro());
+            /*self.gameState.spectroPM.microSlot.addAt(0, ContainerFactory.micro());
+            self.gameState.inventory.add(SpecialItemFactory.scalpel());*/
 
             //self.gameState.inventory.add(viewControllers['mouse'].mouse().spleen.clone());
 
