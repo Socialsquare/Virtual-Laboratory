@@ -25,9 +25,11 @@ define([
                     return false;
                 }
 
+                MC.mouse().isInteracting(true);
                 MC.videoController.play('fast-injection-lethal', false)
                     .done(function () {
                         MC.mouse().alive(false);
+                        MC.mouse().isInteracting(false);
                         MC.popupController.message('mouse.died.header', 'mouse.died.body');
 
                         experimentController.triggerMouse(MC.mouse(), item);
@@ -40,8 +42,10 @@ define([
                     return false;
                 }
 
+                MC.mouse().isInteracting(true);
                 MC.injectionFromState().done(function () {
                     MC.mouse().givInsulin();
+                    MC.mouse().isInteracting(false);
 
                     MC.runFromState();
 
@@ -51,6 +55,7 @@ define([
 // Vaccination
             else if (item.contains(LiquidType.ADJUVANS) &&
                 (item.contains(LiquidType.ANTIGEN_GOUT) || item.contains(LiquidType.ANTIGEN_SMALLPOX))) {
+                MC.mouse().isInteracting(true);
                 MC.injectionFromState().done(function () {
                     if (item.contains(LiquidType.ANTIGEN_GOUT)) {
                         MC.mouse().vaccinate(LiquidType.ANTIGEN_GOUT);
@@ -64,10 +69,12 @@ define([
 
                     experimentController.triggerMouse(MC.mouse(), item);
                     MC.runFromState();
+                    MC.mouse().isInteracting(false);
                 });
             }
 // Curing
             else if (item.contains(LiquidType.ANTIBODY_SMALLPOX) && MC.mouse().mouseType() === MouseType.SMALLPOX) {
+                MC.mouse().isInteracting(true);
                 MC.videoController.play(['smallpox-injection', 'smallpox-cure'])
                     .done(function() {
                         experimentController.triggerMouse(MC.mouse(), item);
@@ -76,10 +83,12 @@ define([
                         MC.popupController.message('mouse.cured_smallpox.header','mouse.cured_smallpox.body');
 
                         MC.runFromState();
+                        MC.mouse().isInteracting(false);
                     });
             }
 // Curing
             else if (item.contains(LiquidType.ANTIBODY_GOUT) && MC.mouse().mouseType() === MouseType.GOUT) {
+                MC.mouse().isInteracting(true);
                 MC.videoController.play(['slow-injection-body-gout', 'slow-cure-gout'], true)
                     .done(function() {
                         experimentController.triggerMouse(MC.mouse(), item);
@@ -87,11 +96,14 @@ define([
                         MC.mouse().cure(LiquidType.ANTIBODY_GOUT);
                         MC.popupController.message('mouse.cured_gout.header','mouse.cured_gout.body');
                         MC.runFromState();
+                        MC.mouse().isInteracting(false);
                     });
             }
             else {
+                MC.mouse().isInteracting(true);
                 MC.injectionFromState().done(function () {
                     MC.runFromState();
+                    MC.mouse().isInteracting(false);
                     experimentController.triggerMouse(MC.mouse(), item);
                 });
             }

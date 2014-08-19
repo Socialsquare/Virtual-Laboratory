@@ -61,10 +61,9 @@
         height: 500px;
         width: 480px;
         background-image: url(#{$img-path}/deadmouse_spleen_sprite.png);
-        background-position: 0 0;
+        background-position: 0px 0px;
         background-size: 480px 1500px;
-        &.cut-with-spleen { background-position: 0 -500px; }
-        &.cut { background-position: 0 -1000px; }
+        &.cut { background-position: 0px -1000px; }
     }
 
     .video-container {

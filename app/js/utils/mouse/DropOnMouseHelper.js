@@ -13,6 +13,10 @@ define([
              ContainerType, LiquidType, MouseType, MouseBloodType, SpecialItemType) {
     return {
         handleDrop: function(MC, item) { //MC = MouseController
+
+            if(MC.mouse().isInteracting())
+                return false;
+
             //TODO: decision tree based on 1st item, 2nd mouseType
             switch(item.type()) {
                 case ContainerType.BOTTLE:

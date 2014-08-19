@@ -12,10 +12,10 @@ define([
     var Mouse = Base.extend({
         constructor: function (mouseType, mouseBloodType) {
             var self = this;
-            //TODO: all the things!
 
             self.alive = ko.observable(true);
             self.isCut = ko.observable(false);
+            self.isInteracting = ko.observable(false); // Should be true when an interaction-video is playing.
             self.spleen = new SpleenModel();
             self.mouseBloodType = ko.observable(mouseBloodType);
             self.mouseType = ko.observable(mouseType);

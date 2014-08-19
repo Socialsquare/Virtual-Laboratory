@@ -18,9 +18,11 @@ define([
 
             MC.mouseDrinking(true);
             MC.mouse().giveJuice();
+            MC.mouse().isInteracting(true);
             MC.videoController.play('fast-drink-spawn', false)
                 .done(function () {
                     MC.mouseDrinking(false);
+                    MC.mouse().isInteracting(false);
 
                     MC.runFromState();
 

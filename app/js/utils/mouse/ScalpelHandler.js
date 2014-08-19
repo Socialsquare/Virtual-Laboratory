@@ -20,11 +20,13 @@ define([
                 return false;
             }
 
+            MC.mouse().isInteracting(true);
             MC.videoController.play('fast-dead-cut', false)
                 .done(function() {
                     MC.popupController.message('mouse.spleen_extracted.header', 'mouse.spleen_extracted.body');
 
                     MC.mouse().isCut(true);
+                    MC.mouse().isInteracting(false);
 
                     MC.gameState.inventory.add(MC.mouse().spleen.clone());
                 });
