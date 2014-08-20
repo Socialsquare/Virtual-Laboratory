@@ -19,6 +19,8 @@ module.exports = function (grunt) {
             /*dist: '<%= dist_root %>'*/
             dist: {
                 files: [
+                    // experiments
+                    { expand: true, src: [ '<%= dist_root %>'+'/data/experiments.json' ]},
                     // localization
                     { expand: true, src: [ '<%= dist_root %>'+'/js/localization.json' ]},
                     // js
@@ -41,6 +43,8 @@ module.exports = function (grunt) {
                 files: [
                     // data // assets //TODO: uncomment
                     //{ expand: true, src: [ 'data/**' ], dest: '<%= dist_root %>' },
+                    // experiments //TODO: remove
+                    { expand: true, src: [ 'data/experiments.json' ], dest: '<%= dist_root %>' },
                     // localization
                     { expand: true, src: [ 'js/localization.json' ], dest: '<%= dist_root %>' },
                     // js
