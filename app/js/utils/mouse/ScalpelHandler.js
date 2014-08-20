@@ -29,6 +29,8 @@ define([
                     MC.mouse().isInteracting(false);
 
                     MC.gameState.inventory.add(MC.mouse().spleen.clone());
+
+                    experimentController.triggerMouse(MC.mouse(), item);
                 });
         }
     };

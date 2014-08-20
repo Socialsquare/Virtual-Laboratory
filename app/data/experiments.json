@@ -347,7 +347,6 @@
                 "description": { "dk": "Herefter dræbes musen ved at give den en dødelig indsprøjtning." },
                 "trigger": {
                     "type": "TriggerType.MOUSE",
-                    "alive": true,
                     "item": "ContainerType.SYRINGE",
                     "liquids": [
                         { "type": "LiquidType.DEADLY" }

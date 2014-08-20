@@ -88,7 +88,7 @@ define([
                     dna = self.createDNAElement(LiquidType.ANTIBODY_GOUT);
                     popupController.message('computer.screen.sequencing.created_gout.header',
                         'computer.screen.sequencing.created_gout.body');
-                } else if (_.contains(antibodies, LiquidType.ANTIBODY_SMALLPOX)) {
+                } else { //if (_.contains(antibodies, LiquidType.ANTIBODY_SMALLPOX)) {
                     dna = self.createDNAElement(LiquidType.ANTIBODY_SMALLPOX);
                     popupController.message('computer.screen.sequencing.created_smallpox.header',
                         'computer.screen.sequencing.created_smallpox.body');
@@ -109,15 +109,18 @@ define([
                 var icon = 'assets/images/icon_dna_dummy.png';
                 var name = '';
                 var pscType = '';
+                var id = '';
                 switch (type) {
                 case LiquidType.ANTIBODY_GOUT:
                     name = LocalizationService.text('liquid.name.antibody_gout');
                     pscType = 'ProteinCodingSequenceType.ANTIBODY_GOUT';
+                    id = 'DNA_ANTIBODY_GOUT';
                     break;
 
                 case LiquidType.ANTIBODY_SMALLPOX:
                     name = LocalizationService.text('liquid.name.antibody_smallpox');
                     pscType = 'ProteinCodingSequenceType.ANTIBODY_SMALLPOX';
+                    id = 'DNA_ANTIBODY_SMALLPOX';
                     break;
 
                 default:
@@ -127,12 +130,13 @@ define([
                 // TODO: correct values
                 var dnaData = {
                     icon: icon,
+                    type: 3,
+                    comment: '',
+                    link: '',
+                    description: '',
+                    sequence: 'GATTACA',
+                    color: '#80c0f7',
                     name: name,
-			        color: '#80c0f7',
-			        sequence: 'GATTACA',
-			        description: '',
-			        link: '',
-			        comment: '',
                     proteinCodingSequence: pscType
                 };
 

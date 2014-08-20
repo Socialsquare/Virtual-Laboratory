@@ -111,13 +111,10 @@ define([
             };
 
             self.endFermentation = function() {
-                // TODO: reset fermentor (fermentor products, substrate, contents (make a copy of original?)??)
                 clearTimeout(self.graphTimer());
                 self.turnedOn(false);
                 self.graphTimer(null);
                 self.fermentor.timer(0);
-
-
 
                 var options = [];
 
@@ -184,6 +181,8 @@ define([
                             }
 
                         });
+                }else {
+                    self.popupController.message('fermentor.failed.header', 'fermentor.failed.body');
                 }
 
             };
