@@ -22,7 +22,7 @@ module.exports = function (grunt) {
                     // experiments
                     { expand: true, src: [ '<%= dist_root %>'+'/data/experiments.json' ]},
                     // localization
-                    { expand: true, src: [ '<%= dist_root %>'+'/js/localization.json' ]},
+                    { expand: true, src: [ '<%= dist_root %>'+'/data/localization.json' ]},
                     // js
                     { expand: true, src: [ '<%= dist_root %>'+'/js/**' ]},
                     // views
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
                     // experiments //TODO: remove
                     { expand: true, src: [ 'data/experiments.json' ], dest: '<%= dist_root %>' },
                     // localization
-                    { expand: true, src: [ 'js/localization.json' ], dest: '<%= dist_root %>' },
+                    { expand: true, src: [ 'data/localization.json' ], dest: '<%= dist_root %>' },
                     // js
                     { expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
                     // views
