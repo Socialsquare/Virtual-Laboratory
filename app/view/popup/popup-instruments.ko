@@ -1,0 +1,233 @@
+<div class="popup popup-instruments">
+    <h1 data-bind="i18n: 'instruments.title'"></h1>
+
+    <hr />
+
+    <br />
+
+    <div class="inner">
+        <span></span>
+
+        <br />
+        <br />
+
+        <ul>
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.spectropm.header' "></h3>
+                    <span data-bind="i18n: 'instruments.spectropm.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/spectropm_view.png" />
+                    </div>
+                </div>
+            </li>
+
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.fumehood.header' "></h3>
+                    <span data-bind="i18n: 'instruments.fumehood.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/overview_base-fumehood.png" />
+                    </div>
+                </div>
+            </li>
+
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.centrifuge.header' "></h3>
+                    <span data-bind="i18n: 'instruments.centrifuge.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/centrifuge.png" />
+                    </div>
+                </div>
+            </li>
+
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.blender.header' "></h3>
+                    <span data-bind="i18n: 'instruments.blender.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/blender.png" />
+                    </div>
+                </div>
+            </li>
+
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.gel-electrophoresis.header' "></h3>
+                    <span data-bind="i18n: 'instruments.gel-electrophoresis.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/gel-electrophoresis.png" />
+                    </div>
+                </div>
+            </li>
+
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.od-machine.header' "></h3>
+                    <span data-bind="i18n: 'instruments.od-machine.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/work2_od-on.png" />
+                    </div>
+                </div>
+            </li>
+
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.microscope.header' "></h3>
+                    <span data-bind="i18n: 'instruments.microscope.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/microscope.png" />
+                    </div>
+                </div>
+            </li>
+
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.electroporator.header' "></h3>
+                    <span data-bind="i18n: 'instruments.electroporator.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/electroporator.png" />
+                    </div>
+                </div>
+            </li>
+
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.heater.header' "></h3>
+                    <span data-bind="i18n: 'instruments.heater.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/heater.png" />
+                    </div>
+                </div>
+            </li>
+
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.bunsen-burner.header' "></h3>
+                    <span data-bind="i18n: 'instruments.bunsen-burner.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/bunsen-burner.png" />
+                    </div>
+                </div>
+            </li>
+
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.incubator.header' "></h3>
+                    <span data-bind="i18n: 'instruments.incubator.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/incubator.png" />
+                    </div>
+                </div>
+            </li>
+
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.fermentor.header' "></h3>
+                    <span data-bind="i18n: 'instruments.fermentor.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/fermkroma_base.png" />
+                    </div>
+                </div>
+            </li>
+
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.computer.header' "></h3>
+                    <span data-bind="i18n: 'instruments.computer.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/computer-thumbnail.png" />
+                    </div>
+                </div>
+            </li>
+
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.uv-room.header' "></h3>
+                    <span data-bind="i18n: 'instruments.uv-room.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/uv_base.png" />
+                    </div>
+                </div>
+            </li>
+            <br/><br/>
+
+            <li>
+                <div class="list-box">
+                    <h3 data-bind="i18n: 'instruments.washing-room.header' "></h3>
+                    <span data-bind="i18n: 'instruments.washing-room.body' "></span>
+                </div>
+                <div class="list-box">
+                    <div class="img-centerer">
+                        <img src="assets/images/wash_results.png" />
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+        <br />
+    </div>
+
+
+
+
+    <div class="btn-row">
+        <button data-bind="click: hide, i18n: 'common.close'"></button>
+    </div>
+</div>

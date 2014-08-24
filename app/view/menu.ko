@@ -5,6 +5,9 @@
     </div>
 
     <ul class="right">
+        <li class="hand" data-bind="click: showInformation">
+            <img src="assets/images/top-button_information.png" alt="Information">
+        </li>
         <li class="hand" data-bind="click: selectExperiment">
             <img src="assets/images/top-button_experiment.png" alt="Vælg nyt eksperiment">
         </li>

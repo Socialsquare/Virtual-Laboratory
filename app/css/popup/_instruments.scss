@@ -1,0 +1,48 @@
+/* popup/instruments.scss */
+
+.popup-instruments {
+
+  $width: 934px;
+
+  padding: 30px;
+
+  color: white;
+
+  left: 13px;
+  top: 10px;
+  width: $width;
+  height: 560px;
+
+  .inner {
+
+    width: $width;
+    height: 390px;
+    overflow-y: scroll;
+
+    li{
+      .list-box {
+
+
+        display:inline-block;
+        width: 49%;
+
+        h3 {
+          text-decoration: underline;
+        }
+
+        .img-centerer {
+          width: 100%;
+          text-align: center;
+          /*margin: 0 auto;*/
+
+          img {
+            vertical-align: middle;
+            max-width: 100%;
+            height: 200px;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}

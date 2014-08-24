@@ -90,6 +90,10 @@ define([
                 window.clearInterval(self.scrollInterval);
             };
 
+            self.showInformation = function() {
+                self.popupController.show('popup-instruments');
+            };
+
             self.selectExperiment = function () {
                 self.router.navigate('loading');
             };
@@ -100,7 +104,7 @@ define([
                     screenfull.toggle(body);
                     $("#app").toggleClass('fullscreen', screenfull.isFullscreen);
                 } else {
-                    alert('Full screen is not supported on your device :( - let me guess, it is an Apple device?');
+                    alert('Full screen is not supported on your device :(');
                 }
             };
 
