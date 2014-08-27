@@ -316,6 +316,32 @@
                         { "type": "LiquidType.ANTIGEN_SMALLPOX" },
                         { "type": "LiquidType.ADJUVANS" }
                     ]
+                },
+                "consequence": {
+                    "type": "ConsequenceType.QUIZ",
+                    "quiz": {
+                        "id": 1,
+                        "name": { "dk": "Adjuvant" },
+                        "question": { "dk": "Hvad er formålet med at tilsætte en adjuvant til vaccinen" },
+                        "correct": 1,
+                        "answers": [
+                            {
+                                "id": 0,
+                                "answer": { "dk": "En adjuvant er et medium, som opretholder de optimale forhold for antigenet." },
+                                "message": { "dk": "Det et ikke helt korrekt, antigenet er allerede i den optimale opløsning." }
+                            },
+                            {
+                                "id": 1,
+                                "answer": { "dk": "Adjuvanten er et hjælpestof i vaccinen." },
+                                "message": { "dk": "Korrekt! En adjuvant er en substans/et molekyle som øger immuniteten (styrken af vaccinen) når den blandes med antigenet. Adjuvanten har også en effekt på vaccinens sikkerhed, hvor vaccinen skal virke i kroppen, og hvor hurtigt vaccinen skal frigives i blodet eller vævet." }
+                            },
+                            {
+                                "id": 2,
+                                "answer": { "dk": "Adjuvanten er en celletype som producerer antigen." },
+                                "message": { "dk": "Nej, antigenet er cellerester fra bakterier og vira, og en adjuvant er ikke en celle." }
+                            }
+                        ]
+                    }
                 }
             },
             {
@@ -341,6 +367,32 @@
                         { "type": "LiquidType.ANTIGEN_SMALLPOX" },
                         { "type": "LiquidType.ADJUVANS" }
                     ]
+                },
+                "consequence": {
+                    "type": "ConsequenceType.QUIZ",
+                    "quiz": {
+                        "id": 1,
+                        "name": { "dk": "Immunisering" },
+                        "question": { "dk": "Hvad betyder det, at musen er immuniseret?" },
+                        "correct": 2,
+                        "answers": [
+                            {
+                                "id": 0,
+                                "answer": { "dk": "At musen har fået indsprøjtet antigenet, og er blevet rask." },
+                                "message": { "dk": "Det er ikke helt korrekt, antigenet er rester fra en bakterie eller virus, som udløser forsvarsmekanismer i musens immunforsvar, bl.a. produktion af antistof. Antistoffet kan musen lagre i kroppen, til den igen bliver udsat for samme antigen. Derved har musen allerede et godt forsvar mod antigenet, og musen bliver ikke syg, når den udsættes for antigenet igen." }
+                            },
+                            {
+                                "id": 1,
+                                "answer": { "dk": "At antigenet ikke har fremkaldt en immunreaktion" },
+                                "message": { "dk": "Nej, tværtimod" }
+                            },
+                            {
+                                "id": 2,
+                                "answer": { "dk": "At antigenet har fremkaldt en immunreaktion" },
+                                "message": { "dk": "Korrekt. Når et antigen (rest fra en bakterie eller virus) kommer ind i vores krop, bliver det genkendt som noget fremmed af kroppens forsvarsceller. Dette fremkalder et hav af immunforsvarets mekanismer, bl.a. en stigning i kropstemperaturen – det vi kender som feber. Når musen får sprøjtet en lille smule antigen ind i kroppen, sker der samme forsvarsreaktion, hvilket ender med en produktion af antistof mod antigenet. Når musen udsættes for antigenet fra samme bakterie igen, er det antistofferne i musen som udsletter antigenet, så musen ikke bliver syg." }
+                            }
+                        ]
+                    }
                 }
             },
             {
@@ -359,6 +411,32 @@
                     "type": "TriggerType.MOUSE",
                     "alive": false,
                     "item": "SpecialItemType.SCALPEL"
+                },
+                "consequence": {
+                    "type": "ConsequenceType.QUIZ",
+                    "quiz": {
+                        "id": 1,
+                        "name": { "dk": "Milten" },
+                        "question": { "dk": "Hvorfor tages milten ud af musen?" },
+                        "correct": 2,
+                        "answers": [
+                            {
+                                "id": 0,
+                                "answer": { "dk": "Milten er et lager for frit antistof." },
+                                "message": { "dk": "Det er næsten korrekt. I milten er der lagret B-celler. Når kroppen gentagnede gange udsættes for et antigen, lagres de B-celler, som producerer de specifikke antistoffer mod antigenet i milten. Når B-cellerne producerer antistoffer, forvandles de til plasmaceller." }
+                            },
+                            {
+                                "id": 1,
+                                "answer": { "dk": "Milten lagrer antigener." },
+                                "message": { "dk": "Nej, milten lagrer ikke antigener, men B-celler som producerer antistof mod antigen. Antigener er rester fra bakterier og virus." }
+                            },
+                            {
+                                "id": 2,
+                                "answer": { "dk": "I milten findes B-celler som producerer antistof." },
+                                "message": { "dk": "Korrekt! Når kroppen gentagnede gange udsættes for et antigen, lagres B-celler, som producerer antistoffer mod antigenet i milten. Når B-cellerne producerer antistoffer, forvandles de til plasmaceller." }
+                            }
+                        ]
+                    }
                 }
             },
             {
@@ -381,6 +459,32 @@
                         { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
                         { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
                     ]
+                },
+                "consequence": {
+                    "type": "ConsequenceType.QUIZ",
+                    "quiz": {
+                        "id": 1,
+                        "name": { "dk": "Myeloma-celler" },
+                        "question": { "dk": "Hvad er formålet med at benytte Myeloma-celler?" },
+                        "correct": 1,
+                        "answers": [
+                            {
+                                "id": 0,
+                                "answer": { "dk": "Myeloma-celler, er celler, som producerer antistof" },
+                                "message": { "dk": "Nej, B-celler omdannes i milten til plasmaceller, som producerer antistoffer." }
+                            },
+                            {
+                                "id": 1,
+                                "answer": { "dk": "Myeloma-celler er cancer-celler, som bruges til at få en høj og effektiv produktion af antistof i laboratoriet" },
+                                "message": { "dk": "Korrekt! Myeloma er cancer i plasmaceller (de antistofproducerende celler), og de udgør en udødelig hurtigvoksende antistof-producerende B-celle linje. Ved at bruge denne type celler, kan man på kort tid producere en stor mængde af det ønskede antistof, og det er hensigtsmæssigt, når man arbejder i laboratorium." }
+                            },
+                            {
+                                "id": 2,
+                                "answer": { "dk": "Myeloma-celler producerer antigener" },
+                                "message": { "dk": "Nej, antigener er rester fra bakterier og vira (f.eks. dele af deres cellemembran), som fremkalder en forsvarsmekanisme, når kroppen eksponeres for dem." }
+                            }
+                        ]
+                    }
                 }
             },
             {
@@ -451,6 +555,32 @@
                         { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
                         { "type": "LiquidType.BUFFER"}
                     ]
+                },
+                "consequence": {
+                    "type": "ConsequenceType.QUIZ",
+                    "quiz": {
+                        "id": 1,
+                        "name": { "dk": "ELISA" },
+                        "question": { "dk": "ELISA er en meget brugt metode i laboratoriet, men hvad er metodens formål?" },
+                        "correct": 0,
+                        "answers": [
+                            {
+                                "id": 0,
+                                "answer": { "dk": "ELISA er en metode til at identificere, om et ønsket antistof findes i en opløsning" },
+                                "message": { "dk": "Korrekt! ELISA er en forkortelse for Enzyme-Linked Immunosorbent Assay. ELISA udføres på en mikrotiterplade (en plastikplade med mange brønde/huller). I hver brønd er forskellige antigener bundet. Når opløsningen med antistof-producerende celler tilsættes til alle brøndene, vil antistof binde til antigen, hvis de matcher – ligesom med puslespilsbrikker. De antistoffer, som ikke er bundet til antigener fjernes herefter ved vask med buffer. Til alle brøndene tilsættes et sekundært antistof. Et sekundært antistof, som er bundet til en fluorofor, binder til de bundne antistoffer i brøndene. I et UV-rum kan man nu bestemme, om det ønskede antistof findes i den undersøgte opløsning." }
+                            },
+                            {
+                                "id": 1,
+                                "answer": { "dk": "ELISA er en metode, der bruges til at genmodificere gærceller" },
+                                "message": { "dk": "Nej, prøv igen!" }
+                            },
+                            {
+                                "id": 2,
+                                "answer": { "dk": "ELISA er en metode, der kan bruges til at producere store mængder at antistof" },
+                                "message": { "dk": "Nej. Antistof produceres af B-celler isoleret fra musens milt." }
+                            }
+                        ]
+                    }
                 }
             },
             {
