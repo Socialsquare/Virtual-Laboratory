@@ -2,10 +2,10 @@
     {
         "title": { "dk": "Enzymer til vaskemiddel" },
         "description": { "dk": "I denne øvelse skal du genmodificere gær, sådan at det producerer lipase der kan anvendes til tøjvask." },
-        "story": { "dk": "Et nyt enzym er netop blevet identificeret I en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven." },
+        "story": { "dk": "Et nyt enzym er netop blevet identificeret i en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven." },
         "tasks": [
             {
-                "description": { "dk": "Design et stykke DNA som koder for enzymet, samt har resistens for Antibiotika B" },
+                "description": { "dk": "Design et stykke DNA på computeren som koder for enzymet lipase, og desuden koder for resistens for Antibiotika B. Husk det centrale dogme, når du designer genet." },
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -16,7 +16,7 @@
             },
 
             {
-                "description": { "dk": "Genmodificer nogle gærceller ved komme dem og det designede DNA i elektroporatoren" },
+                "description": { "dk": "Bland gærceller og dit designede DNA i et reagensglas. Overfør en del af blandingen til elektroporatoren med pipetten. På denne måde genmodificeres gærcellerne til at udtrykke det designede DNA." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.ELECTROPORATOR",
@@ -28,7 +28,7 @@
             },
 
             {
-                "description": { "dk": "Fordel de gensplejsede celler på en petriskål og tilsæt Antibiotikum B" },
+                "description": { "dk": "Fordel de gensplejsede gærceller i en petriskål og tilsæt Antibiotikum B. NB: I praksis støbes antibiotika ind i pladen, og man kan ikke blot tilsætte stoffet efterfølgende." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.PETRI_DISH",
@@ -40,7 +40,7 @@
             },
 
             {
-                "description": { "dk": "Inkubér petriskålen" },
+                "description": { "dk": "Inkubér petriskålen." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.INCUBATOR",
@@ -58,7 +58,7 @@
             },
 
             {
-                "description": { "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas med vækstmedie og Antibiotikum B" },
+                "description": { "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas indeholdende vækstmedie og Antibiotika B." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",
@@ -71,7 +71,7 @@
             },
 
             {
-                "description": { "dk": "Inkubér reagensglasset" },
+                "description": { "dk": "Inkubér reagensglasset." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.INCUBATOR",
@@ -90,7 +90,7 @@
             },
 
             {
-                "description": { "dk": "Brug en kanyle til at overføre indholdet fra reagensglasset til fermentoren" },
+                "description": { "dk": "Anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.FERMENTOR_TANK",
@@ -104,7 +104,7 @@
             },
 
             {
-                "description": { "dk": "Start en fermentering af gærcellerne, m. antibiotika B" },
+                "description": { "dk": "Bland gærceller og Antibiotika B og start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.FERMENTOR",
@@ -127,7 +127,7 @@
             },
 
             {
-                "description": { "dk": "Test hvor effektivt lipase-enzymet er ved at tilføje det til vaskemaskinen. Prøv med forskellige koncentrationer for at finde den optimale dose." },
+                "description": { "dk": "Test effektiviteten af lipase-enzymet ved at tilsætte det til vaskemaskinen. Prøv med forskellige koncentrationer for at finde den optimale dosis." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.WASHING",
@@ -140,7 +140,7 @@
                     "quiz": {
                         "id": 1,
                         "name": { "dk": "Enzym-kocentration" },
-                        "question": { "dk": "Hvad er det optimale mht. koncentration af enzym og renligheden af skjorten?" },
+                        "question": { "dk": "Hvad er den optimale koncentration af enzym i forhold at vaske skjorten ren?" },
                         "correct": 1,
                         "answers": [
                             {
@@ -166,11 +166,11 @@
     },
     {
         "title": { "dk": "Produktion af insulin" },
-        "description": { "dk": "I denne øvelse skal du genmodificere gær, sådan at det producerer insulin der kan behandle diabetes type-2" },
-        "story": { "dk": "." },
+        "description": { "dk": "I denne øvelse skal du genmodificere gærceller, således at de producerer insulin til behandling type-2 diabetes." },
+        "story": { "dk": "To modificerede insulingener, der forventes at kunne anvendes til behandling af type-2 diabetes, er blevet udviklet. Det er din opgave at producere de nye insulintyper og teste deres effekt på en laboratoriemus." },
         "tasks": [
             {
-                "description": { "dk": "Design et stykke DNA som koder for insulin, samt har resistens for Antibiotika B" },
+                "description": { "dk": "Design et stykke DNA på computeren som koder for insulin, og desuden koder for resistens for Antibiotika B. Husk det centrale dogme, når du designer genet." },
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -181,7 +181,7 @@
             },
 
             {
-                "description": { "dk": "Genmodificer nogle gærceller ved komme dem og det designede DNA i elektroporatoren" },
+                "description": { "dk": "Bland gærceller og dit designede DNA i et reagensglas. Overfør en del af blandingen til elektroporatoren med pipetten. På denne måde genmodificeres gærcellerne til at udtrykke det designede DNA." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.ELECTROPORATOR",
@@ -193,7 +193,7 @@
             },
 
             {
-                "description": { "dk": "Fordel de gensplejsede celler på en petriskål og tilsæt Antibiotikum B" },
+                "description": { "dk": "Fordel de gensplejsede gærceller i en petriskål og tilsæt Antibiotikum B. NB: I praksis støbes antibiotika ind i pladen, og man kan ikke blot tilsætte stoffet efterfølgende." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.PETRI_DISH",
@@ -205,7 +205,7 @@
             },
 
             {
-                "description": { "dk": "Inkubér petriskålen" },
+                "description": { "dk": "Inkubér petriskålen." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.INCUBATOR",
@@ -223,7 +223,7 @@
             },
 
             {
-                "description": { "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas med vækstmedie og Antibiotikum B" },
+                "description": { "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas indeholdende vækstmedie og Antibiotika B." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",
@@ -236,7 +236,7 @@
             },
 
             {
-                "description": { "dk": "Inkubér reagensglasset" },
+                "description": { "dk": "Inkubér reagensglasset." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.INCUBATOR",
@@ -255,7 +255,7 @@
             },
 
             {
-                "description": { "dk": "Brug en kanyle til at overføre indholdet fra reagensglasset til fermentoren" },
+                "description": { "dk": "Anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.FERMENTOR_TANK",
@@ -269,7 +269,7 @@
             },
 
             {
-                "description": { "dk": "Start en fermentering af gærcellerne, m. antibiotika B" },
+                "description": { "dk": "Bland gærceller og Antibiotika B og start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.FERMENTOR",
@@ -291,7 +291,7 @@
                 }
             },
             {
-                "description": { "dk": "Test hvor effektivt dit producerede insulin er, ved at give det til en rask eller sukkersyg mus." },
+                "description": { "dk": "Test effektiviteten af dit producerede insulin ved at give det til en rask mus eller en mus med type-2 diabetes." },
                 "trigger": {
                     "type": "TriggerType.MOUSE",
                     "item": "ContainerType.SYRINGE",
@@ -304,11 +304,11 @@
     },
     {
         "title": { "dk": "Produktion af antistoffer" },
-        "description": { "dk": "I denne øvelse skal du vaccinere en rask mus mod kopper, og efterfølgende behandle en kopper-syg mus" },
-        "story": { "dk": "I denne øvelse skal du vaccinere en rask mus mod kopper, og efterfølgende behandle en kopper-syg mus" },
+        "description": { "dk": "I denne øvelse skal du behandle en mus inficeret med kopper vha. antistoffer." },
+        "story": { "dk": "I øvelsen skal du vaccinere en rask mus med antigener fra koppevirus. Musens immunforsvar øger herefter produktionen af B-lymfocytter, som differentieres til plasmaceller - de antistofproducerende celler. Ved brug af ELISA er det herefter muligt at identificere de antistoffer, som binder til antigen fra kopper. Antistoffet produceres derefter i en høj koncentration og bruges så til behandling af en mus med kopper." },
         "tasks": [
             {
-                "description": { "dk": "Lav en \"vaccine\" ved at blande antigenet for kopper med adjuvant i et reagensglas." },
+                "description": { "dk": "Lav en \"vaccine\" ved at blande antigen fra kopper med adjuvant i et reagensglas." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",
@@ -322,7 +322,7 @@
                     "quiz": {
                         "id": 1,
                         "name": { "dk": "Adjuvant" },
-                        "question": { "dk": "Hvad er formålet med at tilsætte en adjuvant til vaccinen" },
+                        "question": { "dk": "Hvad er formålet med at tilsætte en adjuvant til vaccinen?" },
                         "correct": 1,
                         "answers": [
                             {
@@ -356,7 +356,7 @@
                 }
             },
             {
-                "description": { "dk": "Vaccinér en rask forsøgsmus. Hermed bliver den immuniseret imod antigenet." },
+                "description": { "dk": "Vaccinér en rask forsøgsmus. Musen bliver på den måde immun over for antigenet." },
                 "trigger": {
                     "type": "TriggerType.MOUSE",
                     "alive": true,
@@ -440,7 +440,7 @@
                 }
             },
             {
-                "description": { "dk": "Milten skal nu homogeniseres i blenderen" },
+                "description": { "dk": "Milten skal nu homogeniseres i blenderen på det bagerste arbejdsbord." },
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -450,7 +450,7 @@
                 }
             },
             {
-                "description": { "dk": "Bland i et reagensglas: Homogeniseret milt, myeloma celler samt hybridoma medium"},
+                "description": { "dk": "Bland følgende i et reagensglas: Homogeniseret milt, myeloma-celler og hybridoma medium."},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",
@@ -475,8 +475,8 @@
                             },
                             {
                                 "id": 1,
-                                "answer": { "dk": "Myeloma-celler er cancer-celler, som bruges til at få en høj og effektiv produktion af antistof i laboratoriet" },
-                                "message": { "dk": "Korrekt! Myeloma er cancer i plasmaceller (de antistofproducerende celler), og de udgør en udødelig hurtigvoksende antistof-producerende B-celle linje. Ved at bruge denne type celler, kan man på kort tid producere en stor mængde af det ønskede antistof, og det er hensigtsmæssigt, når man arbejder i laboratorium." }
+                                "answer": { "dk": "Myeloma-celler er udødelige celler i modsætning til celler fra milten" },
+                                "message": { "dk": "Korrekt! Myeloma er cancer i plasmaceller (de antistofproducerende celler), og de udgør en udødelig hurtigvoksende antistof-producerende B-celle linje. Ved at bruge denne type celler, kan man på kort tid producere en stor mængde af det ønskede antistof, og det er hensigtsmæssigt, når man arbejder i laboratorium. Myeloma-celler kan ikke vokse på et hybridoma-medium." }
                             },
                             {
                                 "id": 2,
@@ -488,7 +488,7 @@
                 }
             },
             {
-                "description": { "dk": "Inkubér herefter reagensglasset"},
+                "description": { "dk": "Inkubér herefter reagensglasset under forreste arbejdsbord."},
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.INCUBATOR",
@@ -505,7 +505,7 @@
                 }
             },
             {
-                "description": { "dk": "Fortynd blandingen med saltvand. Fortynd så meget at OD-måleren viser en værdi mellem 3.4 og 4.0. Dette skal gøres sådan at man opnår en meget lav koncentration af celler. Derefter kan man nemlig opsuge væske med kun én enkelt celle - i gennemsnit!"},
+                "description": { "dk": "Fortynd blandingen med saltvand. Mål derefter den optiske densitet af oplsøningen vha. OD-måleren på bagerste arbejdsbord (se evt. laboratorieudstyrsinformationen). Fortynd så meget, at OD-måleren viser en værdi mellem 3.4 og 4.0. Dette skal gøres, således at man opnår en meget lav koncentration af celler. Derefter kan man nemlig opsuge væske med kun én enkelt celle - i gennemsnit!"},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",
@@ -518,7 +518,7 @@
                 }
             },
             {
-                "description": { "dk": "Fordel blandingen på en tom mikrotiterbakke. Pga. fortyndingen er det muligt at fordele én celle i hvert brønd med pipetten."},
+                "description": { "dk": "Fordel blandingen på en tom mikrotiterplade. Pga. fortyndingen er det muligt at fordele én celle i hvert brønd med pipetten."},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.MICROTITER",
@@ -531,7 +531,7 @@
                 }
             },
             {
-                "description": { "dk": "Væske (uden celle, der antages at ligge i bunden af brønden) udtages fra hver brønd og tilføres tilsvarende brønd på en mikrotiterplade med relevant antigen i bunden (en ELISA-mikrotiterbakke). Dette gøres her i spillet blot ved at overføre én gang med pipetten."},
+                "description": { "dk": "Udtag væske fra brøndene i mikrotiterpladen og overfør denne til de tilsvarende brønde på en ELISA-mikrotiterplade. Dette gøres her i spillet blot ved at overføre én gang med pipetten."},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.MICROTITER",
@@ -544,7 +544,7 @@
                 }
             },
             {
-                "description": { "dk": "Alle brøndende på ELISA-pladen vaskes med vaskebuffer."},
+                "description": { "dk": "Alle brøndende på ELISA-pladen vaskes med buffer."},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.MICROTITER",
@@ -584,7 +584,7 @@
                 }
             },
             {
-                "description": { "dk": "Tilsæt til alle brøndende på ELISA-pladen sekundært fluorescerende antistof."},
+                "description": { "dk": "Tilsæt sekundært fluorescerende antistof til alle brøndende på ELISA-pladen."},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "strict": true,
@@ -609,7 +609,7 @@
                 }
             },
             {
-                "description": { "dk": "Tag ELISA-pladen ind i UV-rummet og se nærmere på den. Notér hvilke brønde der er fluorescerende. Herefter skal du se nærmere på den oprindelige mikrotiterbakke, og tage indholdet fra en brønd der svarer til en lysende brønd fra ELISA-pladen (dette gøres ved at trykke på en af brøndende)."},
+                "description": { "dk": "Tag ELISA-pladen med ind i UV-rummet og se nærmere på den. Notér hvilke brønde der fluorescerer. Herefter skal du se nærmere på den oprindelige mikrotiterplade og opsamle indholdet fra en brønd, der svarer til en fluorescerende brønd på ELISA-pladen (dette gøres ved at trykke på den pågældende brønd)."},
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -621,14 +621,14 @@
                 }
             },
             {
-                "description": { "dk": "Send indholdet fra brønden til sekvensering, ved at åbne computeren og vælge \"Send til sekvensering\". Hermed burde du få et nyt DNA-element i DNA-designeren."},
+                "description": { "dk": "Send indholdet fra brønden til sekventering ved at åbne computeren og vælge \"Send til sekventering\". Hermed burde du få et nyt DNA-element i DNA-designeren på computeren."},
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.COMPUTER_ORDER_SEQUENCE"
                 }
             },
             {
-                "description": { "dk": "Design et stykke DNA som koder for antistoffet mod kopper, samt har resistens for Antibiotika B."},
+                "description": { "dk": "Design et stykke DNA på computeren som koder for antistoffet mod kopper, og desuden koder for resistens for Antibiotika B. Husk det centrale dogme, når du designer genet."},
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -639,7 +639,7 @@
             },
 
             {
-                "description": { "dk": "Genmodificer nogle gærceller ved komme dem og det designede DNA i elektroporatoren" },
+                "description": { "dk": "Bland gærceller og dit designede DNA i et reagensglas. Overfør en del af blandingen til elektroporatoren med pipetten. På denne måde genmodificeres gærcellerne til at udtrykke det designede DNA." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.ELECTROPORATOR",
@@ -651,7 +651,7 @@
             },
 
             {
-                "description": { "dk": "Fordel de gensplejsede celler på en petriskål og tilsæt Antibiotikum B" },
+                "description": { "dk": "Fordel de gensplejsede gærceller i en petriskål og tilsæt Antibiotikum B. NB: I praksis støbes antibiotika ind i pladen, og man kan ikke blot tilsætte stoffet efterfølgende." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.PETRI_DISH",
@@ -663,7 +663,7 @@
             },
 
             {
-                "description": { "dk": "Inkubér petriskålen" },
+                "description": { "dk": "Inkubér petriskålen." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.INCUBATOR",
@@ -681,7 +681,7 @@
             },
 
             {
-                "description": { "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas med vækstmedie og Antibiotikum B" },
+                "description": { "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas med vækstmedie og Antibiotikum B." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",
@@ -694,7 +694,7 @@
             },
 
             {
-                "description": { "dk": "Inkubér reagensglasset" },
+                "description": { "dk": "Inkubér reagensglasset." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.INCUBATOR",
@@ -713,7 +713,7 @@
             },
 
             {
-                "description": { "dk": "Brug en kanyle til at overføre indholdet fra reagensglasset til fermentoren" },
+                "description": { "dk": "Anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.FERMENTOR_TANK",
@@ -727,7 +727,7 @@
             },
 
             {
-                "description": { "dk": "Start en fermentering af gærcellerne, m. antibiotika B" },
+                "description": { "dk": "Bland gærceller og Antibiotika B og start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.FERMENTOR",
@@ -739,7 +739,7 @@
             },
 
             {
-                "description": { "dk": "Oprens antistoffet fra din fermentering." },
+                "description": { "dk": "Oprens antistoffet fra fermenteringen." },
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -751,7 +751,7 @@
 
 
             {
-                "description": { "dk": "Med en kanyle indsprøjtes antistoffet ind i en mus med kopper"},
+                "description": { "dk": "Bestil en mus med kopper på computeren og giv derefter musen en indsprøjtning med antistoffet mod kopper."},
                 "trigger": {
                     "type": "TriggerType.MOUSE",
                     "alive": true,
@@ -777,6 +777,26 @@
                     "liquids": [
                         { "type": "LiquidType.DESIGNED_DRUG" }
                     ]
+                }
+            },
+
+            {
+                "description": { "dk": "Tilføj dit lægemiddel til en tom mikrotiterbakke" },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.MICROTITER",
+                    "containerSubtype": "AntigenCoatingType.NONE",
+                    "liquids": [
+                        { "type": "LiquidType.DESIGNED_DRUG"}
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Undersøg dit lægemiddel ved at tage mikrotiterbakken og sæt den i spektrofotometeret. For at være sikker på at dit lægemiddel kan binde til sit target, skal det højst have en IC50-værdi på log10([x]) = -6." },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.SPECTROPM",
+                    "activationSubtype": {"liquidType": "LiquidType.DESIGNED_DRUG","maxIc50": -6}
                 }
             }
         ]
