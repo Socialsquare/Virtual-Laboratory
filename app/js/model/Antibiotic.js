@@ -42,10 +42,6 @@ define([
                         organism.living(false);
                     }
                 });
-                //TODO: kill all microorganisms without resistance to the given antibiotic
-                /*FOREACH microorganism.extraProperties()
-                extraProperty.proteinCodingSequenceType() === PCSType.ANTIBIOTIC_RES_B*/
-                console.log('TODO: Antibiotic.react');
             };
 
             self.hashCode = function () {

@@ -59,9 +59,7 @@ define([
                     self.isHybridoma(true);
                 }
 
-                console.log('TODO: self.isHybridoma(): ' + self.isHybridoma());
-
-                //TODO: if container.type() === microtiter && myeloma.isHybridoma() --> modify random Well.
+                //if container.type() === microtiter && myeloma.isHybridoma() --> modify random Well.
                 if (container.type() === ContainerType.MICROTITER && self.isHybridoma()) {
 
                     var hasAlreadySetAntibodies = _.any(self.hasSetAntibodiesInThese(), function(microtiter) {
