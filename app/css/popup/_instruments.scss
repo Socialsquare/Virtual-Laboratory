@@ -20,11 +20,16 @@
     overflow-y: scroll;
 
     li{
+
+      .right-column {
+        vertical-align: top;
+      }
+
       .list-box {
 
 
-        display:inline-block;
-        width: 49%;
+        display: inline-block;
+        width: $width * 0.48;
 
         h3 {
           text-decoration: underline;
@@ -36,9 +41,9 @@
           /*margin: 0 auto;*/
 
           img {
-            vertical-align: middle;
+            /*vertical-align: middle;*/
             max-width: 100%;
-            height: 200px;
+            max-height: 200px;
             display: inline-block;
           }
         }
