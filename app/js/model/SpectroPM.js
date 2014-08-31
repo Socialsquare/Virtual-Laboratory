@@ -14,10 +14,9 @@ define([
 
             self.microSlot = new CompositeContainerModel(1, ContainerType.MICROTITER, ContainerType.SPECTROPM_MACHINE);
             self.microSlot.location(LocationType.SPECTROPM);
-            //self.spectroPMMachine = new SpectroPMMachineModel();
 
             self.reset = function () {
-                self.spectroPMMachine.removeAll();
+                self.microSlot.removeAll();
             };
         }
     });
