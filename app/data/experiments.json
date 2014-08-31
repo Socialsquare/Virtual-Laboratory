@@ -104,7 +104,7 @@
             },
 
             {
-                "description": { "dk": "Start en fermentering af gærcellerne, m. antibio-B" },
+                "description": { "dk": "Start en fermentering af gærcellerne, m. antibiotika B" },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.FERMENTOR",
@@ -269,7 +269,7 @@
             },
 
             {
-                "description": { "dk": "Start en fermentering af gærcellerne, m. antibio-B" },
+                "description": { "dk": "Start en fermentering af gærcellerne, m. antibiotika B" },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.FERMENTOR",
@@ -628,7 +628,118 @@
                 }
             },
             {
-                "description": { "dk": "Design et stykke DNA som koder for antistoffet mod kopper. Dette skal indsættes i nogle gærceller, som efterfølgende skal fermenteres sådan at de producerer antistoffet."},
+                "description": { "dk": "Design et stykke DNA som koder for antistoffet mod kopper, samt har resistens for Antibiotika B."},
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.GENE"}
+                    ]
+                }
+            },
+
+            {
+                "description": { "dk": "Genmodificer nogle gærceller ved komme dem og det designede DNA i elektroporatoren" },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.ELECTROPORATOR",
+                    "liquids": [
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
+                        { "type": "LiquidType.GENE"}
+                    ]
+                }
+            },
+
+            {
+                "description": { "dk": "Fordel de gensplejsede celler på en petriskål og tilsæt Antibiotikum B" },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.PETRI_DISH",
+                    "liquids": [
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
+                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
+                    ]
+                }
+            },
+
+            {
+                "description": { "dk": "Inkubér petriskålen" },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.INCUBATOR",
+                    "containers": [
+                        {
+                            "type": "ContainerType.PETRI_DISH",
+                            "liquids": [
+                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
+                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
+                            ]
+                        }
+                    ]
+
+                }
+            },
+
+            {
+                "description": { "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas med vækstmedie og Antibiotikum B" },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
+                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" },
+                        { "type": "LiquidType.GROWTH_MEDIUM"}
+                    ]
+                }
+            },
+
+            {
+                "description": { "dk": "Inkubér reagensglasset" },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.INCUBATOR",
+                    "containers": [
+                        {
+                            "type": "ContainerType.TUBE",
+                            "liquids": [
+                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
+                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" },
+                                { "type": "LiquidType.GROWTH_MEDIUM"}
+                            ]
+                        }
+                    ]
+
+                }
+            },
+
+            {
+                "description": { "dk": "Brug en kanyle til at overføre indholdet fra reagensglasset til fermentoren" },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.FERMENTOR_TANK",
+                    "liquids": [
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
+                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" },
+                        { "type": "LiquidType.GROWTH_MEDIUM"}
+                    ]
+
+                }
+            },
+
+            {
+                "description": { "dk": "Start en fermentering af gærcellerne, m. antibiotika B" },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.FERMENTOR",
+                    "liquids": [
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
+                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B"}
+                    ]
+                }
+            },
+
+            {
+                "description": { "dk": "Oprens antistoffet fra din fermentering." },
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -637,6 +748,8 @@
                     ]
                 }
             },
+
+
             {
                 "description": { "dk": "Med en kanyle indsprøjtes antistoffet ind i en mus med kopper"},
                 "trigger": {
