@@ -763,5 +763,22 @@
                 }
             }
         ]
+    },
+    {
+        "title": { "dk": "Lægemiddeludvikling" },
+        "description": { "dk": "I denne øvelse skal du designe et lægemiddel, teste det in vitro og hvis det egner sig, også in vivo" },
+        "story": { "dk": "Et enzym som spiller en afgørende rolle i psoriasis er blevet fundet og dets active site lokaliseret. Din opgave er at designe et lægemiddel som kan inhibere dette enzym og på den måde bekæmpe sygdommen." },
+        "tasks": [
+            {
+                "description": { "dk": "Design og bestil et lægemiddel ved at gå hen til computeren og ind i programmet \"Design Lægemiddel\"" },
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.DESIGNED_DRUG" }
+                    ]
+                }
+            }
+        ]
     }
 ]
