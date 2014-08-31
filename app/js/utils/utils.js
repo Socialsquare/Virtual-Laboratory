@@ -33,8 +33,6 @@ define([
                     return liquid.concentration() >= 1;
                 });
 
-                console.log('Length before: ' + lenBefore + ', length after: ' + clones.length);
-
                 return clones;
             }
         },

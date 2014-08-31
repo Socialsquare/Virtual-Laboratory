@@ -749,7 +749,6 @@
                 }
             },
 
-
             {
                 "description": { "dk": "Bestil en mus med kopper på computeren og giv derefter musen en indsprøjtning med antistoffet mod kopper."},
                 "trigger": {
@@ -792,11 +791,23 @@
                 }
             },
             {
-                "description": { "dk": "Undersøg dit lægemiddel ved at tage mikrotiterbakken og sæt den i spektrofotometeret. For at være sikker på at dit lægemiddel kan binde til sit target, skal det højst have en IC50-værdi på log10([x]) = -6." },
+                "description": { "dk": "Undersøg dit lægemiddel ved at tage mikrotiterbakken og sæt den i spektrofotometeret. For at være sikker på at dit lægemiddel kan binde til sit target, skal det højst have en IC50-værdi på log10([x]) = -6. IC50-værdien kan aflæses på spektrofotometeret som x-værdien dér hvor grafen har en y-værdi på 50." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.SPECTROPM",
                     "activationSubtype": {"liquidType": "LiquidType.DESIGNED_DRUG","maxIc50": -6}
+                }
+            },
+            {
+                "description": { "dk": "Når dit lægemiddel har en høj affinitet, er det muligvis på tide at teste det på dyr. Prøv at test det på en psoriasis-syg mus med forskellige administrationsformer. Hvis det ikke virker selvom det har høj affinitet, så prøv at eksperimentér med dets opløselighed (logD-værdien som kan ses i \"Lægemiddel designeren\" på computeren)."},
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "alive": true,
+                    "mouseType": "MouseType.PSORIASIS",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.DESIGNED_DRUG" }
+                    ]
                 }
             }
         ]

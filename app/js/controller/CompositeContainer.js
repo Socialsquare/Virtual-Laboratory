@@ -116,7 +116,6 @@ define([
                                 self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
                             }
                         }else {
-                            console.log('TODO: can add content'+self.compContainer.get(position).canAddLiquids(item.getTip().liquids()));
                             item.emptyPipetteInto(self.compContainer.get(position));
                             self.popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
                         }
@@ -128,7 +127,6 @@ define([
                             self.popupController.notify('syringe.filled.header', 'syringe.filled.body', 2000);
                             return false;
                         }else {
-                            console.log('TODO: can add content'+self.compContainer.get(position).canAddLiquids(item.liquids()));
                             item.emptySyringeInto(self.compContainer.get(position));
                             self.popupController.notify('syringe.emptied.header', 'syringe.emptied.body', 2000);
                             return true;

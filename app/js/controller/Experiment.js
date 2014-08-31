@@ -130,6 +130,31 @@ define([
                     if (!self.matchLiquids(trigger, item)) return;
                 }
 
+                if (trigger.activation === ActivationType.SPECTROPM) {
+                    //TODO:
+                    var activationSubtype = trigger.activationSubtype;
+                    switch(activationSubtype.liquidType) {
+                        case LiquidType.DESIGNED_DRUG:
+                            //TODO: check if it contains a drug
+
+                            var theDrug = _.find(item.microSlot.get(0).liquids(), function(liquid) {
+                                return liquid.type() === LiquidType.DESIGNED_DRUG;
+                            });
+
+                            if (!theDrug) return;
+
+                            var affinityScore = theDrug.getAffinityScore() - 8; //8 is a magic number from view/SpectroPM.js
+                            console.log('TODO: triggered designed drug. affinityScore: ' + affinityScore);
+                            if('maxIc50' in activationSubtype && !(affinityScore < activationSubtype.maxIc50 ))
+                                return;
+
+                            break;
+                        default:
+                            throw 'Activation-trigger not implemented for the spectrophotometer and the liquidType "'
+                                + activationSubtype.liquidType + '"';
+                    }
+                }
+
                 if (trigger.activation === ActivationType.DNA) {
                     if (!self.matchLiquids(trigger, item)) return;
                 }

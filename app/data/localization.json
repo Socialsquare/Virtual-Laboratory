@@ -78,7 +78,7 @@
         "mouse.drug_not_head.header": "Dette er ikke en god idé!",
         "mouse.drug_not_head.body": "At administrere direkte ind i hjernen på en organisme er en meget voldsom handling, og eftersom dette næppe vil hjælpe på musens tilstand, må du gøre noget andet for at behandle den.",
         "mouse.drug_not_effective.header": "Musen blev ikke kureret for sin sygdom",
-        "mouse.drug_not_effective.body": "Lægemidlet nåede sit target, men kunne ikke binde ordenligt til det. Det havde altså ingen effekt. Prøv at ændre dit design",
+        "mouse.drug_not_effective.body": "Lægemidlet nåede ikke sit target, kunne ikke binde ordenligt til det eller en kombination af disse to muligheder. Det havde i hvert fald ingen effekt på den syge mus. Prøv at ændre dit design",
         "mouse.drug_cured.header": "Musen er kureret",
         "mouse.drug_cured.body": "Tillykke - du har kureret musen for sin sygdom!",
 

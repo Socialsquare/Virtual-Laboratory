@@ -11,6 +11,7 @@ define([], function () {
         HEATER: "ActivationType.HEATER",
         OD: "ActivationType.OD",
         BLENDER: "ActivationType.BLENDER",
-        FERMENTOR: "ActivationType.FERMENTOR"
+        FERMENTOR: "ActivationType.FERMENTOR",
+        SPECTROPM: "ActivationType.SPECTROPM"
     };
 });

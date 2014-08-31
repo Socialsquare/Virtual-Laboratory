@@ -4,8 +4,9 @@ define([
     'lodash',
     'controller/view/Base',
     'controller/CompositeContainer',
-    'model/type/Liquid'
-], function (ko, $, _, BaseViewController, CompositeContainerController, LiquidType) {
+    'model/type/Liquid',
+    'model/type/Activation'
+], function (ko, $, _, BaseViewController, CompositeContainerController, LiquidType, ActivationType) {
 
     var SpectroPM = BaseViewController.extend({
 
@@ -16,7 +17,17 @@ define([
             self.spectroPM = self.gameState.spectroPM;
             self.microSlotController = new CompositeContainerController(self.spectroPM.microSlot);
 
-            self.canShowGraph = function() { //TODO: make ko.computed()
+            self.spectroPM.microSlot.containers.subscribe(function(containers){
+                var microtiter = containers[0];
+                if (!microtiter)
+                    return;
+
+                //TODO: decide if contents are antigen-stuff, or designed-drug
+
+                self.experimentController.triggerActivation(ActivationType.SPECTROPM, self.spectroPM);
+            });
+
+            self.canShowGraph = function() {
                 if (! self.spectroPM.microSlot.hasContainerAt(0)) {
                     return false;
                 }
@@ -39,9 +50,7 @@ define([
             };
 
             self.plotData = ko.computed(function() {
-                console.log('TODO: updated spectro-plotData');
                 if (self.canShowGraph()) {
-                    //TODO:
                     // 1) find the designed drug
                     var theDrug = _.find(self.spectroPM.microSlot.get(0).liquids(), function(liquid) {
                         return liquid.type() === LiquidType.DESIGNED_DRUG;
@@ -51,7 +60,7 @@ define([
                     var affinityScore = theDrug.getAffinityScore();
 
                     var maxVal = 100; // Percent
-                    var affinityValue = -8 + affinityScore; //-8 is best! Higher is worse
+                    var affinityValue = -8 + affinityScore; //-8 is best! Higher is worse This magic number is also used in controller/Experiment.js
                     var s = 2; //Determines how suddenly the graph goes down
 
                     console.log('TODO: maxVal: ' + maxVal + ', affinityScore: ' + affinityValue + ', s: ' + s);

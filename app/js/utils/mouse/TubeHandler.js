@@ -71,12 +71,11 @@ define([
 
                                             if(values.reachedTarget) {
                                                 MC.popupController.message('mouse.drug_cured.header', 'mouse.drug_cured.body');
+                                                MC.experimentController.triggerMouse(MC.mouse(), tube);
                                                 MC.mouse().cureDesignedDrug();
                                             }else {
                                                 MC.popupController.message('mouse.drug_not_effective.header', 'mouse.drug_not_effective.body');
                                             }
-
-                                            MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
 
                                             MC.runFromState();
 
@@ -94,12 +93,11 @@ define([
 
                                             if(values.reachedTarget) {
                                                 MC.popupController.message('mouse.drug_cured.header', 'mouse.drug_cured.body');
+                                                MC.experimentController.triggerMouse(MC.mouse(), tube);
                                                 MC.mouse().cureDesignedDrug();
                                             }else {
                                                 MC.popupController.message('mouse.drug_not_effective.header', 'mouse.drug_not_effective.body');
                                             }
-
-                                            MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
 
                                             MC.runFromState();
                                         });
@@ -118,12 +116,11 @@ define([
 
                                             if(values.reachedTarget) {
                                                 MC.popupController.message('mouse.drug_cured.header', 'mouse.drug_cured.body');
+                                                MC.experimentController.triggerMouse(MC.mouse(), tube);
                                                 MC.mouse().cureDesignedDrug();
                                             }else {
                                                 MC.popupController.message('mouse.drug_not_effective.header', 'mouse.drug_not_effective.body');
                                             }
-
-                                            MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
 
                                             MC.runFromState();
                                         });

@@ -22,7 +22,7 @@ define([
             self.availableMice = ko.observableArray([
                 new MouseModel(MouseType.HEALTHY,  MouseBloodType.DIABETIC),
                 new MouseModel(MouseType.HEALTHY,  MouseBloodType.NORMAL),
-                new MouseModel(MouseType.GOUT,     MouseBloodType.NORMAL),
+                /*new MouseModel(MouseType.GOUT,     MouseBloodType.NORMAL),*/
                 new MouseModel(MouseType.SMALLPOX, MouseBloodType.NORMAL),
                 /*new MouseModel(MouseType.INSOMNIA, MouseBloodType.NORMAL),*/
                 new MouseModel(MouseType.PSORIASIS,MouseBloodType.NORMAL)

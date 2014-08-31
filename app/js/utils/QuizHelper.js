@@ -193,7 +193,7 @@ define([
                 if (returnObj.reachedTarget) {
                     returnObj.videos.push('drug-target-success');
                 }else {
-                    returnObj.videos.push('drug-target-fail');
+                    returnObj.videos.push('drug-target-failure');
                 }
 
                 return returnObj;
@@ -220,7 +220,7 @@ define([
                 if (returnObj.reachedTarget) {
                     returnObj.videos.push('drug-target-success');
                 }else {
-                    returnObj.videos.push('drug-target-fail');
+                    returnObj.videos.push('drug-target-failure');
                 }
 
                 return returnObj;
@@ -242,7 +242,7 @@ define([
                 if (returnObj.reachedTarget) {
                     returnObj.videos.push('drug-target-success');
                 }else {
-                    returnObj.videos.push('drug-target-fail');
+                    returnObj.videos.push('drug-target-failure');
                 }
 
                 return returnObj;
