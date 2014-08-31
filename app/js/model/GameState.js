@@ -31,7 +31,7 @@ define([
             self.inventory = new Inventory();
             self.pipette = new PipetteModel();
 
-            self.askTutorial = ko.observable(true);
+            self.askTutorial = ko.observable(false); //TODO: set to true
 
             self.worktable1 = new Worktable1Model();
             self.worktable2 = new Worktable2Model();
