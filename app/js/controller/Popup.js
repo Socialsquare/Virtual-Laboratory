@@ -4,11 +4,12 @@ define([
     'base',
     'lodash',
     'model/Popup',
+    'model/Guide',
     'utils/TextHelper',
     'utils/ImageHelper',
     'controller/Video'
 
-], function (ko, $, Base, _, PopupModel, TextHelper, ImageHelper, VideoController) {
+], function (ko, $, Base, _, PopupModel, GuideModel, TextHelper, ImageHelper, VideoController) {
 
     var Popup = Base.extend({
 
@@ -32,6 +33,12 @@ define([
                     self.activeNotifications.push(vm);
                 else
                     self.activePopups.push(vm);
+                return vm;
+            };
+
+            self.showGuide = function(experimentController) {
+                var vm = new GuideModel(experimentController, self);
+                self.activePopups.push(vm);
                 return vm;
             };
 

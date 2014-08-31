@@ -42,7 +42,7 @@
 
             <div id="popup-container" data-bind="visible: popupController.activePopup">
                 <div data-bind="foreach: popupController.activePopups">
-                    <div data-bind="template: { name: templateName, data: $data}"></div>
+                    <div data-bind="template: { name: templateName, data: $data, afterRender: postRender}"></div>
                 </div>
             </div>
 

@@ -19,6 +19,10 @@ define([
             self.hide = function () {
                 self.popupController.hide(self);
             };
+
+            self.postRender = function() {
+
+            };
         }
     });
 

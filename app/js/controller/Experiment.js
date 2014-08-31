@@ -18,6 +18,7 @@ define([
             self.activeExperiment = ko.observable();
             self.quizController = quizController;
             self.popupController = popupController;
+            self.scrollAmount = 0; //TODO: implement.
 
             self.hasExperiment = ko.computed(function () {
                 return !!self.activeExperiment();

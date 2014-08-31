@@ -116,10 +116,7 @@ define([
             };
 
             self.showGuide = function () {
-                self.popupController.show('popup-guide', {
-                    experiment: experimentController.activeExperiment(),
-                    activeTask: experimentController.activeTask()
-                });
+                self.popupController.showGuide(experimentController);
             };
 
             self.togglePipette = function (activeViewController) {
