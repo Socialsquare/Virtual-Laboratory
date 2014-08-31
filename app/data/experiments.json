@@ -305,10 +305,10 @@
     {
         "title": { "dk": "Produktion af antistoffer" },
         "description": { "dk": "I denne øvelse skal du vaccinere en rask mus mod kopper, og efterfølgende behandle en kopper-syg mus" },
-        "story": { "dk": "TODO: Story." },
+        "story": { "dk": "I denne øvelse skal du vaccinere en rask mus mod kopper, og efterfølgende behandle en kopper-syg mus" },
         "tasks": [
             {
-                "description": { "dk": "Lav en \"vaccine\" ved at blande antigenet for kopper med adjuvans i et reagensglas." },
+                "description": { "dk": "Lav en \"vaccine\" ved at blande antigenet for kopper med adjuvant i et reagensglas." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",
@@ -609,7 +609,7 @@
                 }
             },
             {
-                "description": { "dk": "Tag ELISA-pladen ind i UV-rummet og se nærmere på den. Notér hvilke brønde der er fluorescerende. Herefter skal du se nærmere på den oprindelige mikrotiterbakke, og tage indholdet fra en brønd der svarer til en lysende brønd fra ELISA-pladen. Dette gøres ved at trykke på en af brøndende."},
+                "description": { "dk": "Tag ELISA-pladen ind i UV-rummet og se nærmere på den. Notér hvilke brønde der er fluorescerende. Herefter skal du se nærmere på den oprindelige mikrotiterbakke, og tage indholdet fra en brønd der svarer til en lysende brønd fra ELISA-pladen (dette gøres ved at trykke på en af brøndende)."},
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",

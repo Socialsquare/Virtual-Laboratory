@@ -5,6 +5,7 @@
     <hr />
 
     <h4 data-bind="i18n: activeQuiz().question"></h4>
+    <br/>
 
     <ul class="answers" data-bind="foreach: activeQuiz().answers">
         <li data-bind="click: $parent.tryAnswer">
