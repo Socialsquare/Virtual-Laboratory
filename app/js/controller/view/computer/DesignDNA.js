@@ -35,6 +35,42 @@ define([
                 self.dnaSequence.push(clone);
             };
 
+            self.moveDnaLeft = function (dna) {
+                self.moveDna(dna, -1);
+            };
+
+            self.moveDnaRight = function (dna) {
+                self.moveDna(dna, 1);
+            };
+
+            self.moveDna = function(dna, direction) {
+                var dnaSequence = self.dnaSequence();
+
+                var matchIndex = _.findIndex(dnaSequence, function(dnaElement) {
+                    return dna === dnaElement;
+                });
+
+                if (matchIndex === -1) {
+                    console.log('TODO: dna not found.');
+                    return;
+                } else if (matchIndex === dnaSequence.length - 1 && direction > 0) {
+                    // Wanting to move right, but dna is already the rightmost element
+                    return;
+                } else if (matchIndex === 0 && direction < 0) {
+                    return;
+                }
+
+                var newIndex = matchIndex + direction;
+
+                // swap this and the one in the given direction
+                var tempDna = dnaSequence[newIndex];
+
+                dnaSequence[newIndex] = dna;
+                dnaSequence[matchIndex] = tempDna;
+
+                self.dnaSequence(dnaSequence);
+            };
+
             self.removeDNA = function (dna) {
                 self.dnaSequence.remove(dna);
             };

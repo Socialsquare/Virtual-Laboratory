@@ -20,8 +20,16 @@
 
         <!-- ko foreach: dnaSequence -->
         <div class="hand dna-element">
-            <div class="hand remove-btn" data-bind="click: $parent.removeDNA">
+            <div class="hand modify-btn" data-bind="click: $parent.moveDnaLeft">
+                <img src="assets/images/icon_arrow_left.png">
+            </div>
+
+            <div class="hand modify-btn" data-bind="click: $parent.removeDNA">
                 <img src="assets/images/icon_trash.png">
+            </div>
+
+            <div class="hand modify-btn" data-bind="click: $parent.moveDnaRight">
+                <img src="assets/images/icon_arrow_right.png">
             </div>
 
             <div class="dna-element-img" data-bind="style: { 'background-color': color }, click: $parent.showInfo"></div>

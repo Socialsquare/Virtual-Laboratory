@@ -18,18 +18,20 @@
 
     .elements {
         height: 220px;
+        overflow-y: scroll;
     }
 
     .dna-element {
-        $elementWidth: 60px;
+        $elementWidth: 90px;
         @include size($elementWidth, 85px);
         //position: relative;
         float: left;
 
-        .remove-btn {
-            @include size($elementWidth, 20px);
+        .modify-btn {
+            @include size(20px, 20px);
             text-align: center;
-            margin-bottom: 5px;
+            display: inline;
+            margin: 0px 3px 5px 3px;
         }
 
         .dna-element-img {
