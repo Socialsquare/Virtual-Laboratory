@@ -5,7 +5,7 @@
         "story": { "dk": "Et nyt enzym er netop blevet identificeret i en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven." },
         "tasks": [
             {
-                "description": { "dk": "Design et stykke DNA på computeren som koder for enzymet lipase, og desuden koder for resistens for Antibiotika B. Husk det centrale dogme, når du designer genet." },
+                "description": { "dk": "Design et stykke DNA på computeren som koder for enzymet lipase og som desuden koder for resistens for Antibiotikum B. Husk det centrale dogme, når du designer genet." },
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -58,7 +58,7 @@
             },
 
             {
-                "description": { "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas indeholdende vækstmedie og Antibiotika B." },
+                "description": { "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas indeholdende vækstmedie og Antibiotikum B." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",
@@ -90,7 +90,7 @@
             },
 
             {
-                "description": { "dk": "Anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren." },
+                "description": { "dk": "Bland gærceller og Antibiotikum B i et reagensglas og anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.FERMENTOR_TANK",
@@ -104,7 +104,7 @@
             },
 
             {
-                "description": { "dk": "Bland gærceller og Antibiotika B og start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt." },
+                "description": { "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.FERMENTOR",
@@ -127,7 +127,7 @@
             },
 
             {
-                "description": { "dk": "Test effektiviteten af lipase-enzymet ved at tilsætte det til vaskemaskinen. Prøv med forskellige koncentrationer for at finde den optimale dosis." },
+                "description": { "dk": "Fordel det oprensede lipase i fem reagensglas. Test effektiviteten af lipase-enzymet ved at tilsætte det til vaskemaskinen - prøv med forskellige koncentrationer for at finde den optimale dosis." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.WASHING",
@@ -167,10 +167,10 @@
     {
         "title": { "dk": "Produktion af insulin" },
         "description": { "dk": "I denne øvelse skal du genmodificere gærceller, således at de producerer insulin til behandling type-2 diabetes." },
-        "story": { "dk": "To modificerede insulingener, der forventes at kunne anvendes til behandling af type-2 diabetes, er blevet udviklet. Det er din opgave at producere de nye insulintyper og teste deres effekt på en laboratoriemus." },
+        "story": { "dk": "Et modificeret insulingener, der forventes at kunne anvendes til behandling af type-2 diabetes, er blevet udviklet. Det er din opgave at producere den nye insulintype og teste dens effekt på en laboratoriemus." },
         "tasks": [
             {
-                "description": { "dk": "Design et stykke DNA på computeren som koder for insulin, og desuden koder for resistens for Antibiotika B. Husk det centrale dogme, når du designer genet." },
+                "description": { "dk": "Design et stykke DNA på computeren som koder for insulin og som desuden koder for resistens for Antibiotikum B. Husk det centrale dogme, når du designer genet." },
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -223,7 +223,7 @@
             },
 
             {
-                "description": { "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas indeholdende vækstmedie og Antibiotika B." },
+                "description": { "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas indeholdende vækstmedie og Antibiotikum B." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",
@@ -255,7 +255,7 @@
             },
 
             {
-                "description": { "dk": "Anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren." },
+                "description": { "dk": "Bland indholdet af reagensglasset og Antibiotikum B i et reagensglas og anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.FERMENTOR_TANK",
@@ -269,7 +269,7 @@
             },
 
             {
-                "description": { "dk": "Bland gærceller og Antibiotika B og start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt." },
+                "description": { "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.FERMENTOR",
@@ -584,7 +584,7 @@
                 }
             },
             {
-                "description": { "dk": "Tilsæt sekundært fluorescerende antistof til alle brøndende på ELISA-pladen."},
+                "description": { "dk": "Tilsæt fluorescerende sekundært  antistof til alle brøndende på ELISA-pladen."},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "strict": true,
@@ -628,7 +628,7 @@
                 }
             },
             {
-                "description": { "dk": "Design et stykke DNA på computeren som koder for antistoffet mod kopper, og desuden koder for resistens for Antibiotika B. Husk det centrale dogme, når du designer genet."},
+                "description": { "dk": "Design et stykke DNA på computeren som koder for antistoffet mod kopper, og desuden koder for resistens for Antibiotikum B. Husk det centrale dogme, når du designer genet."},
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -639,7 +639,7 @@
             },
 
             {
-                "description": { "dk": "Bland gærceller og dit designede DNA i et reagensglas. Overfør en del af blandingen til elektroporatoren med pipetten. På denne måde genmodificeres gærcellerne til at udtrykke det designede DNA." },
+                "description": { "dk": "Bland indholdet af reagensglasset og dit designede DNA i et reagensglas. Overfør en del af blandingen til elektroporatoren med pipetten. På denne måde genmodificeres gærcellerne til at udtrykke det designede DNA." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.ELECTROPORATOR",
@@ -713,7 +713,7 @@
             },
 
             {
-                "description": { "dk": "Anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren." },
+                "description": { "dk": "Bland indholdet af reagensglasset og Antibiotikum B i et reagensglas og anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.FERMENTOR_TANK",
@@ -727,7 +727,7 @@
             },
 
             {
-                "description": { "dk": "Bland gærceller og Antibiotika B og start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt." },
+                "description": { "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.FERMENTOR",
@@ -780,7 +780,7 @@
             },
 
             {
-                "description": { "dk": "Tilføj dit lægemiddel til en tom mikrotiterbakke" },
+                "description": { "dk": "Tilføj dit lægemiddel til en tom mikrotiterplade" },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.MICROTITER",
@@ -791,7 +791,7 @@
                 }
             },
             {
-                "description": { "dk": "Undersøg dit lægemiddel ved at tage mikrotiterbakken og sæt den i spektrofotometeret. For at være sikker på at dit lægemiddel kan binde til sit target, skal det højst have en IC50-værdi på log10([x]) = -6. IC50-værdien kan aflæses på spektrofotometeret som x-værdien dér hvor grafen har en y-værdi på 50." },
+                "description": { "dk": "Undersøg dit lægemiddel ved at tage mikrotiterpladen og sæt den i spektrofotometeret. For at være sikker på at dit lægemiddel kan binde til sit target, skal det højst have en IC50-værdi på log10([x]) = -6. IC50-værdien kan aflæses på spektrofotometeret som x-værdien dér hvor grafen har en y-værdi på 50." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.SPECTROPM",

@@ -49,13 +49,13 @@
 
 
         "mouse.vaccinated_smallpox.header": "Musen blev vaccineret",
-        "mouse.vaccinated_smallpox.body": "Du har nu givet musen antigener for kopper",
+        "mouse.vaccinated_smallpox.body": "Du har nu givet musen antigener for kopper.",
         "mouse.vaccinated_gout.header": "Musen blev vaccineret",
-        "mouse.vaccinated_gout.body": "Du har nu givet musen antigener for gigt",
+        "mouse.vaccinated_gout.body": "Du har nu givet musen antigener for gigt.",
         "mouse.cured_gout.header": "Musen er kureret",
-        "mouse.cured_gout.body": "Du har kureret musen for gigt",
+        "mouse.cured_gout.body": "Du har kureret musen for gigt.",
         "mouse.cured_smallpox.header": "Musen er kureret",
-        "mouse.cured_smallpox.body": "Du har kureret musen for kopper",
+        "mouse.cured_smallpox.body": "Du har kureret musen for kopper.",
         "mouse.died.header": "Musen er død",
         "mouse.died.body": "Du har slået musen ihjel.",
         "mouse.died_insulin.header": "Musen er død",
@@ -68,7 +68,7 @@
         "mouse.warning_diabetes.body": "Musen har nu udviklet diabetes.",
 
         "mouse.spleen_extracted.header": "Milt ekstraheret",
-        "mouse.spleen_extracted.body": "Milten ligger nu i din beholdning",
+        "mouse.spleen_extracted.body": "Milten ligger nu i din beholdning.",
         "mouse.cut_alive.header": "Hov!",
         "mouse.cut_alive.body": "Musen skal være død, før du begynder at skære i den.",
         "mouse.cut_not_healthy.header": "Forbudt handling",
@@ -78,7 +78,7 @@
         "mouse.drug_not_head.header": "Dette er ikke en god idé!",
         "mouse.drug_not_head.body": "At administrere direkte ind i hjernen på en organisme er en meget voldsom handling, og eftersom dette næppe vil hjælpe på musens tilstand, må du gøre noget andet for at behandle den.",
         "mouse.drug_not_effective.header": "Musen blev ikke kureret for sin sygdom",
-        "mouse.drug_not_effective.body": "Lægemidlet nåede ikke sit target, kunne ikke binde ordenligt til det eller en kombination af disse to muligheder. Det havde i hvert fald ingen effekt på den syge mus. Prøv at ændre dit design",
+        "mouse.drug_not_effective.body": "Lægemidlet nåede ikke sit target, kunne ikke binde ordenligt til det eller en kombination af disse to muligheder. Det havde i hvert fald ingen effekt på den syge mus. Prøv at ændre dit design.",
         "mouse.drug_cured.header": "Musen er kureret",
         "mouse.drug_cured.body": "Tillykke - du har kureret musen for sin sygdom!",
 
@@ -134,14 +134,14 @@
 
 
         "worktable1.bunsen_required.header": "Forbudt handling",
-        "worktable1.bunsen_required.body": "Bunsenbrænderen skal være tændt, før du kan arbejde ved bordet",
+        "worktable1.bunsen_required.body": "Bunsenbrænderen skal være tændt, før du kan arbejde ved bordet.",
 
         "worktable1.electroporator_success.header": "Godt gået",
-        "worktable1.electroporator_success.body": "Tillykke! Du har genmodificeret mikroorganismerne i elektroporatoren",
+        "worktable1.electroporator_success.body": "Tillykke! Du har genmodificeret mikroorganismerne i elektroporatoren.",
         "worktable1.electroporator_refill.header": "Bekræft",
         "worktable1.electroporator_refill.body": "Vil du tømme elektroporatoren og tilføje indholdet fra pipetten?",
         "worktable1.electroporator_wont_start.header": "Prøv igen",
-        "worktable1.electroporator_wont_start.body": "Hvis du vil genmodificere en eller flere organismer, så er det en rigtig god idé at tilføje både organismer og noget DNA, inden du starter elektroporatoren",
+        "worktable1.electroporator_wont_start.body": "Hvis du vil genmodificere en eller flere organismer, så er det en rigtig god idé at tilføje både organismer og noget DNA, inden du starter elektroporatoren.",
 
         "worktable2.spleen_blended.header": "Milten er blevet homogeniseret",
         "worktable2.spleen_blended.body": "Der er tilføjet et reagensglas med homogeniseret milt til din beholdning.",
@@ -150,7 +150,7 @@
         "popup.ask_tutorial.body": "Vil du have en kort introduktion til, hvordan du spiller spillet? Hvis det er første gang du spiller spillet anbefales det.",
         "popup.confirm_delete.header": "Bekræft",
         "popup.confirm_delete.body": "Er du sikker på at du vil slette?",
-        "popup.details.notes": "Her kan du tage noter om beholderen og dens indhold",
+        "popup.details.notes": "Her kan du tage noter om beholderen og dens indhold:",
         "popup.quiz.header": "Quiz!",
         "popup.quiz.replay_video": "Afspil video igen",
         "popup.data_export": "Eksportér data",
@@ -176,7 +176,7 @@
         "syringe.emptied.body": "Du har tømt kanylen.",
 
         "wash_bottle.diluted.header": "Information",
-        "wash_bottle.diluted.body": "Du har fortyndet opløsningen",
+        "wash_bottle.diluted.body": "Du har fortyndet opløsningen.",
 
         "buffer_tube.header": "Dette er en dårlig idé.",
         "buffer_tube.body": "Det giver ikke mening at forsøge at rense et reagensglas blot med buffer. Hvis du vil have et rent reagensglas, så hent et nyt i skuffen.",
