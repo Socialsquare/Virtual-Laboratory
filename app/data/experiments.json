@@ -286,7 +286,7 @@
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
                     "liquids": [
-                        { "type": "LiquidType.LIPASE_ENZYME"}
+                        { "type": "LiquidType.INSULIN"}
                     ]
                 }
             },
