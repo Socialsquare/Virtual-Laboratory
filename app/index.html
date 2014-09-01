@@ -43,7 +43,7 @@
             <div class="pipette" style="display: none"
                  data-bind="drag: { item: gameState.pipette, helper: 'original', revert: false, offset: { top: 185, left: 15 } },
                             visible: gameState.pipette.active,
-                            css: { tip: gameState.pipette.hasTip(), full: !gameState.pipette.isEmpty() }">
+                            css: { tip: gameState.pipette.hasTip() }">
             </div>
 
             <div class="popup-cover" style="display: none"

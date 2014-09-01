@@ -20,10 +20,6 @@
 
     &.tip {
         background-image: url(#{$img-path}/grab_pipette_tip.png);
-
-        &.full {
-            background-image: url(#{$img-path}/grab_pipette_tip_click.png);
-        }
     }
 }
 
