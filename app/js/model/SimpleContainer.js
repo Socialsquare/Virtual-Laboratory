@@ -69,6 +69,14 @@ define([
             };
 
             self.canAddLiquids = function (liquids) {
+                // stupid edge-case
+                var containsSaltWater = _.any(liquids, function(liquid) {
+                    return liquid.type() === LiquidType.SALT_WATER;
+                });
+                if (liquids.length == 1 && containsSaltWater)
+                    return true;
+
+
                 var concentrationToBeAdded = 0; //Such javaNamingConventions. Wow.
                 _.each(liquids, function(liquid) {
                     if(liquid.type() !== LiquidType.MICROORGANISM) {     return;   }

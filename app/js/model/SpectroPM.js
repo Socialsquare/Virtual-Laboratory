@@ -15,6 +15,18 @@ define([
             self.microSlot = new CompositeContainerModel(1, ContainerType.MICROTITER, ContainerType.SPECTROPM_MACHINE);
             self.microSlot.location(LocationType.SPECTROPM);
 
+            self.microSlot.addAt = function(position, container) {
+
+                var addSucces = self.microSlot._addAt(position, container);
+
+                if(addSucces) {
+                    _.each(container.liquids(), function(liquid) {
+                        liquid.react(container);
+                    });
+                }
+                return self;
+            };
+
             self.reset = function () {
                 self.microSlot.removeAll();
             };

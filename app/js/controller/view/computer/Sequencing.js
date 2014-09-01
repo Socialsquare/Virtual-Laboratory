@@ -56,7 +56,6 @@ define([
                     return;
                 }
 
-                //TODO: check well too! (if tube.hasOwnProperty)
                 if (!tube.hasOwnProperty('well') || !tube.well.hasAntibody()) {
                     console.log('TODO: remove #1');
                     self.isValid(false);

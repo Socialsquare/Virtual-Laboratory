@@ -17,10 +17,16 @@ define([
             self.spectroPM = self.gameState.spectroPM;
             self.microSlotController = new CompositeContainerController(self.spectroPM.microSlot);
 
+            self.isClosed = ko.observable(false);
+
             self.spectroPM.microSlot.containers.subscribe(function(containers){
                 var microtiter = containers[0];
                 if (!microtiter)
                     return;
+
+                self.isClosed(true);
+
+                _.delay(self.isClosed, 1500, false);
 
                 //TODO: decide if contents are antigen-stuff, or designed-drug
 
@@ -31,6 +37,9 @@ define([
                 if (! self.spectroPM.microSlot.hasContainerAt(0)) {
                     return false;
                 }
+
+                if (self.isClosed())
+                    return false;
 
                 var allDrugs = _.filter(self.spectroPM.microSlot.get(0).liquids(), function(liquid) {
                     return liquid.type() === LiquidType.DESIGNED_DRUG;
@@ -62,8 +71,6 @@ define([
                     var maxVal = 100; // Percent
                     var affinityValue = -8 + affinityScore; //-8 is best! Higher is worse This magic number is also used in controller/Experiment.js
                     var s = 2; //Determines how suddenly the graph goes down
-
-                    console.log('TODO: maxVal: ' + maxVal + ', affinityScore: ' + affinityValue + ', s: ' + s);
 
                     var xVals = _.range(-9, -2.99, 0.1);
                     var affinityData = _.map(xVals, function(x) {

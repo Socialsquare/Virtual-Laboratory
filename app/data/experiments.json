@@ -531,6 +531,18 @@
                 }
             },
             {
+                "description": { "dk": "Incubér mikrotiterpladen. Dette gøres ved at stille mikrotiterpladen i spektrofotometeret, eftersom det både har omrystning og varmelegeme." },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.SPECTROPM",
+                    "liquids": [
+                        { "type": "LiquidType.HOMO_SPLEEN"},
+                        { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
+                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
+                    ]
+                }
+            },
+            {
                 "description": { "dk": "Udtag væske fra brøndene i mikrotiterpladen og overfør denne til de tilsvarende brønde på en ELISA-mikrotiterplade. Dette gøres her i spillet blot ved at overføre én gang med pipetten."},
                 "trigger": {
                     "type": "TriggerType.MIX",
@@ -795,7 +807,10 @@
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.SPECTROPM",
-                    "activationSubtype": {"liquidType": "LiquidType.DESIGNED_DRUG","maxIc50": -6}
+                    "activationSubtype": {"liquidType": "LiquidType.DESIGNED_DRUG","maxIc50": -6},
+                    "liquids": [
+                        { "type": "LiquidType.DESIGNED_DRUG"}
+                    ]
                 }
             },
             {

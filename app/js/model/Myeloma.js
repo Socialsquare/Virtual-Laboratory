@@ -5,8 +5,9 @@ define([
     'model/type/Liquid',
     'model/ReactionCount',
     'model/type/Microorganism',
-    'model/type/Container'
-], function(ko, _, MicroorganismModel, LiquidType, ReactionCount, MicroorganismType, ContainerType) {
+    'model/type/Container',
+    'model/type/Location'
+], function(ko, _, MicroorganismModel, LiquidType, ReactionCount, MicroorganismType, ContainerType, LocationType) {
 
     var Myeloma = MicroorganismModel.extend({
         constructor: function () {
@@ -31,6 +32,9 @@ define([
             self.react = function (container) {
                 var containsHybridomaMedium;
                 var containsHomoSpleen = false;
+
+                if(container.location() !== LocationType.SPECTROPM)
+                    return;
 
                 // Figure out whether it contains homospleen (and other stuff)
                 _.each(container.liquids(), function(liquid) {
@@ -81,6 +85,7 @@ define([
                         //Set well--> contains
                         _.each(indices, function(index) {
                             container.microtiterWells().wells()[index].hasAntibody(true);
+                            console.log('TODO: GREAT SUCCES! the well now contains antibodies!');
                         });
 
                         self.hasSetAntibodiesInThese.push(container);
