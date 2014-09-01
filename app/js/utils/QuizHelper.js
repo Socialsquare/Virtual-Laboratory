@@ -38,7 +38,7 @@ define([
                 var quizValues = {
                     "id": 2,
                     "name": {"dk": ""},
-                    "question": {"dk": "Det ønskede protein blev desværre ikke udtryk. Hvad gik der galt?"},
+                    "question": {"dk": "Det ønskede protein blev desværre ikke udtrykt. Hvad gik der galt?"},
                     "correct": 0,
                     "answers": [
                         {
@@ -65,7 +65,7 @@ define([
                 var quizValues = {
                     "id": 3,
                     "name": {"dk": ""},
-                    "question": {"dk": "Det ønskede protein blev desværre ikke udtryk. Hvad gik der galt?"},
+                    "question": {"dk": "Det ønskede protein blev desværre ikke udtrykt. Hvad gik der galt?"},
                     "correct": 2,
                     "answers": [
                         {
@@ -92,7 +92,7 @@ define([
                 var quizValues = {
                     "id": 4,
                     "name": {"dk": ""},
-                    "question": {"dk": "Det ønskede protein blev desværre ikke udtryk. Hvad gik der galt?"},
+                    "question": {"dk": "Det ønskede protein blev desværre ikke udtrykt. Hvad gik der galt?"},
                     "correct": 1,
                     "answers": [
                         {
@@ -119,7 +119,7 @@ define([
                 var quizValues = {
                     "id": 5,
                     "name": {"dk": ""},
-                    "question": {"dk": "Det ønskede protein blev desværre ikke udtryk. Hvad gik der galt?"},
+                    "question": {"dk": "Det ønskede protein blev desværre ikke udtrykt. Hvad gik der galt?"},
                     "correct": 0,
                     "answers": [
                         {
@@ -146,7 +146,7 @@ define([
                 var quizValues = {
                     "id": 6,
                     "name": {"dk": ""},
-                    "question": {"dk": "Det ønskede protein blev desværre ikke udtryk. Hvad gik der galt?"},
+                    "question": {"dk": "Det ønskede protein blev desværre ikke udtrykt. Hvad gik der galt?"},
                     "correct": 2,
                     "answers": [
                         {
