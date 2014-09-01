@@ -333,7 +333,7 @@
                             {
                                 "id": 1,
                                 "answer": { "dk": "Adjuvanten er et hjælpestof i vaccinen." },
-                                "message": { "dk": "Korrekt! En adjuvant er en substans/et molekyle som øger immuniteten (styrken af vaccinen) når den blandes med antigenet. Adjuvanten har også en effekt på vaccinens sikkerhed, hvor vaccinen skal virke i kroppen, og hvor hurtigt vaccinen skal frigives i blodet eller vævet." }
+                                "message": { "dk": "Korrekt! En adjuvant er en substans/et molekyle som øger immunogeniteten (styrken af vaccinen) når den blandes med antigenet. Adjuvanten har også en effekt på vaccinens sikkerhed, hvor vaccinen skal virke i kroppen, og hvor hurtigt vaccinen skal frigives i blodet eller vævet." }
                             },
                             {
                                 "id": 2,
