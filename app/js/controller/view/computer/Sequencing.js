@@ -109,6 +109,8 @@ define([
                 var name = '';
                 var pscType = '';
                 var id = '';
+                var link = '';
+                var sequence = 'GATACA';
                 switch (type) {
                 case LiquidType.ANTIBODY_GOUT:
                     name = LocalizationService.text('liquid.name.antibody_gout');
@@ -120,6 +122,8 @@ define([
                     name = LocalizationService.text('liquid.name.antibody_smallpox');
                     pscType = 'ProteinCodingSequenceType.ANTIBODY_SMALLPOX';
                     id = 'DNA_ANTIBODY_SMALLPOX';
+                    link = 'http://www.google.com/patents/EP2061511A2?cl=en';
+                    sequence = 'aactatcatgtgcatctgatgtggcgcgatggcgataccagctataacccgaccctgaaaagcggcagcgaatattatggcctgctgggctatgtgatgggcgcgaaagcgagcaaaagcattagcaaaagcctggcgagcggcagcaccctgcagagccagcagcataacgaatatccggtgacc';
                     break;
 
                 default:
@@ -131,7 +135,7 @@ define([
                     icon: icon,
                     type: 3,
                     comment: '',
-                    link: '',
+                    link: link,
                     description: '',
                     sequence: 'GATTACA',
                     color: '#80c0f7',
