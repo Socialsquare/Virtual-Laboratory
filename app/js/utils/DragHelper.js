@@ -36,7 +36,8 @@ define([
 
         acceptSidegroupSlot: accepter([SpecialItemType.SIDEGROUP_SLOT]),
 
-        acceptedByInventory: nonAccepter([ContainerType.BOTTLE, LiquidType.SIDEGROUP, LiquidType.DNA, ContainerType.PIPETTE]),
+        acceptedByInventory: nonAccepter([ContainerType.BOTTLE, LiquidType.SIDEGROUP,
+            LiquidType.DNA, ContainerType.PIPETTE, SpecialItemType.SIDEGROUP]),
 
         acceptedByBlender: accepter([SpecialItemType.SPLEEN]),
 
