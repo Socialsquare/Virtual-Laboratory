@@ -100,12 +100,14 @@ define([
                     });
             }
             else {
-                MC.mouse().isInteracting(true);
+                console.log('TODO: generic warning "indholdet i kanylen bør vist ikke sprøjtes ind i musen"');
+                return false;
+                /*MC.mouse().isInteracting(true);
                 MC.injectionFromState().done(function () {
                     MC.runFromState();
                     MC.mouse().isInteracting(false);
                     experimentController.triggerMouse(MC.mouse(), item);
-                });
+                });*/
             }
         }
     };
