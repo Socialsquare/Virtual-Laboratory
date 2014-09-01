@@ -21,8 +21,8 @@ define([
             };
 
             self.hide = function (domElement) {
-                /*var scrollableDom = domElement.parentElement.parentElement.getElementsByClassName('inner')[0];
-                self.experimentController.scrollAmount = scrollableDom.scrollTop;*/
+                var scrollableDom = domElement.parentElement.parentElement.getElementsByClassName('inner')[0];
+                self.experimentController.scrollAmount = scrollableDom.scrollTop;
                 self.popupController.hide(self);
             };
         }
