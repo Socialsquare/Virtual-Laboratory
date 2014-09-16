@@ -14,6 +14,7 @@ define([
         constructor: function () {
             var self = this;
             self.base('loading');
+            self.shouldHidePipette(true);
             self.hasMenu(false);
 
             self.percent = ko.observable(0);
@@ -36,6 +37,7 @@ define([
             self.experimentSelectorController = new ExperimentSelectorController();
 
             self.enter = function () {
+                self.maybeHidePippete();
                 self.experimentSelectorController.selected(null);
 
                 if (FeatureHelper.homeScreen && !window.navigator.standalone) {

@@ -119,7 +119,7 @@ define([
                 self.popupController.showGuide(experimentController);
             };
 
-            self.togglePipette = function (activeViewController) {
+            self.togglePipette = function () {
                 self.gameState.pipette.active.toggle();
             };
 

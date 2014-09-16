@@ -41,9 +41,19 @@ define([
 
             self.templateName = templateName;
             self.hasMenu = ko.observable(true);
+            self.shouldHidePipette = ko.observable(false); // false --> CAN show pipette.
         },
 
-        enter: function () {},
+        maybeHidePippete: function () {
+            if (this.gameState.pipette.active()
+                && this.shouldHidePipette()) {
+                this.gameState.pipette.active.toggle();
+            }
+        },
+
+        enter: function () {
+            this.maybeHidePippete();
+        },
 
         exit: function () {}
     });

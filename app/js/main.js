@@ -58,14 +58,13 @@ require([
 
     FastClick.attach(document.body);
 
-    // Confirm before navigating away
-    console.log('TODO: onbeforeunload()!');
-    window.onbeforeunload = function (e) {
+    //TODO: Confirm before navigating away
+    /*window.onbeforeunload = function (e) {
         e = e || window.event;
         var message = 'Spillet gemmes ikke hvis du navigerer væk';
         if (e) e.returnValue = message;
         return message;
-    };
+    };*/
 
     var isWeb = document.URL.match(/^https?:/);
 

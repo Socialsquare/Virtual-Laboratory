@@ -24,6 +24,7 @@ define([
             self.base('computer');
 
             self.activeScreenController = ko.observable(null);
+            self.shouldHidePipette(true);
 
             var screenControllers = {};
             screenControllers[ComputerScreenType.MENU] = new MenuScreen();
