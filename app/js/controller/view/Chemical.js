@@ -34,6 +34,7 @@ define([
         constructor: function () {
             var self = this;
             self.base('chemical');
+            self.shouldHidePipette(true);
 
             var groups = {
                 closet: { name: 'supply.closet_header', items: self.closetItems },
