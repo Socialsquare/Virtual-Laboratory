@@ -60,12 +60,12 @@ require([
 
     // Confirm before navigating away
     console.log('TODO: onbeforeunload()!');
-    /*window.onbeforeunload = function (e) {
+    window.onbeforeunload = function (e) {
         e = e || window.event;
         var message = 'Spillet gemmes ikke hvis du navigerer væk';
         if (e) e.returnValue = message;
         return message;
-    };*/
+    };
 
     var isWeb = document.URL.match(/^https?:/);
 

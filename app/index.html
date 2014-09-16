@@ -41,7 +41,8 @@
             </div>
 
             <div class="pipette" style="display: none"
-                 data-bind="drag: { item: gameState.pipette, helper: 'original', revert: false, offset: { top: 185, left: 15 } },
+                 data-bind="drag: { item: gameState.pipette, helper: 'original', revert: false, offset:
+                 { top: 185 + gameState.pipette.hasTip() * 45, left: 15 + gameState.pipette.hasTip() * (-10)} },
                             visible: gameState.pipette.active,
                             css: { tip: gameState.pipette.hasTip() }">
             </div>

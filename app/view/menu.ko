@@ -43,14 +43,14 @@
 
         <div class="menu-right-links">
             <ul>
-                <li class="hand" data-bind="click: togglePipette">
-                    <img src="assets/images/icon_big_pipette.png" alt="Pipette">
+                <li data-bind="drop: { handler: trashDropHandler }">
+                    <img src="assets/images/icon_big_biotrash.png" alt="Affald">
                 </li>
                 <li data-bind="drop: { handler: tipDropHandler, accept: DragHelper.acceptPipette }">
                     <img src="assets/images/icon_big_tips.png" alt="Pipette spidser">
                 </li>
-                <li data-bind="drop: { handler: trashDropHandler }">
-                    <img src="assets/images/icon_big_biotrash.png" alt="Affald">
+                <li class="hand" data-bind="click: togglePipette">
+                    <img src="assets/images/icon_big_pipette.png" alt="Pipette">
                 </li>
             </ul>
         </div>
