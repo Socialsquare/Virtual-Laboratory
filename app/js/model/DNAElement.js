@@ -8,7 +8,7 @@ define([
 	var DNAElement = LiquidModel.extend({
         constructor: function (values) {
             var self = this;
-            self.base(LiquidType.DNA, ReactionCount.ALWAYS);
+            self.base(LiquidType.DNA, ReactionCount.ALWAYS, true);
 
 			self.DNAType = ko.observable(DNAType.fromInt(values.type));
 

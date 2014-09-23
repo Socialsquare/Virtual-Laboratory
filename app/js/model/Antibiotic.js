@@ -12,7 +12,7 @@ define([
     var Antibiotic = LiquidModel.extend({
         constructor: function (antibioticType) {
             var self = this;
-            self.base(LiquidType.ANTIBIOTIC, ReactionCount.ALWAYS);
+            self.base(LiquidType.ANTIBIOTIC, ReactionCount.ALWAYS, false);
 
             self.antibioticType = ko.observable(antibioticType);
             self.subtype = self.antibioticType;

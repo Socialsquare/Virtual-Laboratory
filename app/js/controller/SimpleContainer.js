@@ -39,12 +39,12 @@ define([
 
                             } else if (!self.simpleContainer.isEmpty() && item.getTip().isEmpty()){ // 2) hvis elektro har contents && pipette er tom --> sug alt
 
-                                if (item.getTip().used()) {
-                                    self.popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
-
-                                } else {
+                                // Check for contamination
+                                if(item.getTip().contaminatedBy() == null || item.getTip().contaminatedBy() == self.simpleContainer) {
                                     self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
                                     item.fillPipette(self.simpleContainer);
+                                }else {
+                                    self.popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
                                 }
 
                             } else if (!self.simpleContainer.isEmpty() && !item.getTip().isEmpty()) { // 3) hvis elektro har contents && pipette har contents --> spørg: Vil du tømme elektro og tilføje?

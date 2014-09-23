@@ -57,7 +57,14 @@ define([
                 container.addAll(modifiedLiqs, true);
 
                 if (modifiedLiqs.length !== 0) {
-                    self.getTip().used(true);
+
+                    var contaminating = _.any(container.liquids(), function(liquid) {
+                        return liquid.isContaminating();
+                    });
+
+                    if (contaminating) {
+                        self.getTip().contaminatedBy(container);
+                    }
                 }
 
 // Special case for transfering 24 microtiter-wells at once:

@@ -13,7 +13,7 @@ define([
 
         constructor: function () {
             var self = this;
-            self.base(LiquidType.SALT_WATER, ReactionCount.ONCE);
+            self.base(LiquidType.SALT_WATER, ReactionCount.ONCE, false);
 
             self.react = function (container) {
 

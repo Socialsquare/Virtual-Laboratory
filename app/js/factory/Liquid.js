@@ -34,7 +34,6 @@ define([
             },
 
             myeloma: function () {
-                //TODO: verify
                 return new MyelomaModel();
             }
         },
@@ -43,15 +42,11 @@ define([
             a: function () {
                 var anti = new Antibiotic(AntibioticType.A);
 
-                // TODO: temp values
-
                 return anti;
             },
 
             b: function () {
                 var anti = new Antibiotic(AntibioticType.B);
-
-                // TODO: temp values
 
                 return anti;
             }

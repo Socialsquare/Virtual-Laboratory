@@ -8,7 +8,7 @@ define([
     var OrganismProperty = LiquidModel.extend({
         constructor: function (promoter, proteinCodingSequence) {
             var self = this;
-            self.base(LiquidType.ORGANISM_PROPERTY, ReactionCount.NEVER);
+            self.base(LiquidType.ORGANISM_PROPERTY, ReactionCount.NEVER, false);
             self.promoter = ko.observable(promoter); // is a DNAelement
             self.proteinCodingSequenceType = ko.observable(proteinCodingSequence.proteinCodingSequence()); //Is of PCSType
             self.proteinCodingSequence = ko.observable(proteinCodingSequence); //is a DNAelement

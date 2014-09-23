@@ -10,8 +10,8 @@ define([
     var Gene = LiquidModel.extend({
         constructor: function (elements) {
             var self = this;
-            // TODO: patty: correct reaction count?
-            self.base(LiquidType.GENE, ReactionCount.NEVER);
+
+            self.base(LiquidType.GENE, ReactionCount.NEVER, true);
             self.dnaElements = ko.observableArray(elements || []);
 
             // Tested/Validated

@@ -12,7 +12,7 @@ define([
 
         constructor: function (values) {
             var self = this;
-            self.base(LiquidType.DESIGNED_DRUG, ReactionCount.NEVER);
+            self.base(LiquidType.DESIGNED_DRUG, ReactionCount.NEVER, false);
 
             self.name = values.name;
             self.id = values.id;

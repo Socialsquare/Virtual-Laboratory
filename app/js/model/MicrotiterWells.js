@@ -11,7 +11,7 @@ define([
     var MicrotiterWells = LiquidModel.extend({
         constructor: function (antigenCoatingType) { //TODO: antigenCoatingType ?
             var self = this;
-            self.base(LiquidType.MICROTITER_WELLS, ReactionCount.NEVER);
+            self.base(LiquidType.MICROTITER_WELLS, ReactionCount.NEVER, false);
 
             self.wells = ko.observableArray([]);
 

@@ -9,7 +9,7 @@ define([
     var HomogenizedSpleen = LiquidModel.extend({
         constructor: function () {
             var self = this;
-            self.base(LiquidType.HOMO_SPLEEN, ReactionCount.NEVER);
+            self.base(LiquidType.HOMO_SPLEEN, ReactionCount.NEVER, true);
 
             self.antibodiesFor = ko.observableArray([]);
 

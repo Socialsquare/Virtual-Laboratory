@@ -109,12 +109,23 @@ define([
 
                         }else if(item.getTip().isEmpty()) {
 
+                            // Check for contamination
+                            if(! self.compContainer.get(position).isEmpty()
+                                    && (item.getTip().contaminatedBy() == null || item.getTip().contaminatedBy() == self.compContainer.get(position))) {
+
+                                self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
+                                item.fillPipette(self.compContainer.get(position));
+                            }else {
+                                self.popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
+                            }
+/*
+                            //TODO: check if the current container is equal to the "contaminatedBy()" else if "null" just take the stuff
                             if(item.getTip().used())  {
                                 self.popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
                             } else if (! self.compContainer.get(position).isEmpty()) {
                                 item.fillPipette(self.compContainer.get(position));
                                 self.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
-                            }
+                            }*/
                         }else {
                             item.emptyPipetteInto(self.compContainer.get(position));
                             self.popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);

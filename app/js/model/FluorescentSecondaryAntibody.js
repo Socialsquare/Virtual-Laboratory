@@ -10,7 +10,7 @@ define([
     var FlourescentSecondaryAntibody = LiquidModel.extend({
         constructor: function () {
             var self = this;
-            self.base(LiquidType.FLUORESCENT_2ND_ANTIBODY, ReactionCount.ALWAYS);
+            self.base(LiquidType.FLUORESCENT_2ND_ANTIBODY, ReactionCount.ALWAYS, true);
 
             self.react = function (container) {
                 if (container.type() === ContainerType.MICROTITER) {

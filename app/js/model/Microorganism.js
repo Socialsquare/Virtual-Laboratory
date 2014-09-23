@@ -10,7 +10,7 @@ define([
     var Microorganism = LiquidModel.extend({
         constructor: function (microorganismType) {
             var self = this;
-            self.base(LiquidType.MICROORGANISM, ReactionCount.ALWAYS);
+            self.base(LiquidType.MICROORGANISM, ReactionCount.ALWAYS, true);
 
             self.microorganismType = ko.observable(microorganismType);
             self.subtype = self.microorganismType;
