@@ -54,15 +54,16 @@ define([
             self.maveSukker = ko.observable(0);
             self.blodSukker = ko.observable(0);
             self.meanBlodSukker = ko.observable(0);
-            self.maxBlodSukker = ko.observable(14);
+            self.maxBlodSukker = ko.observable(12);
             self.minBlodSukker = ko.observable(0.5); // The mouse dies if bloodSugar gets below this threshold
+            self.killBlodSukker = ko.observable(20); // The mouse dies if bloodSugar gets above this threshold
             self.insulinProduktion = ko.observable(0);
             self.insulinProduktivitet = ko.observable(0);
             self.insulinEffektivitet = ko.observable(0.1);
             self.juiceDose = ko.observable(0);
             self.insulinDose = ko.observable(0);
 
-            self.setBloodType = function() {
+            self.updateBloodType = function() {
 
 
                 switch(self.mouseBloodType()) {
@@ -73,15 +74,19 @@ define([
                         break;
                     case MouseBloodType.DIABETIC:
                         self.meanBlodSukker(8);
-                        self.insulinProduktivitet(1/10.0);
-                        self.insulinEffektivitet(1/20.0);
+                        self.insulinProduktivitet(1/6.0);
+                        self.insulinEffektivitet(1/15.0);
                         break;
                     default:
                         throw 'Unknown mouseBloodType for the mouse';
                 }
             };
 
-            self.setBloodType();
+            self.mouseBloodType.subscribe(function(bloodType){
+                self.updateBloodType();
+            });
+
+            self.updateBloodType();
             self.blodSukker(self.meanBlodSukker());
 
             var bloodData = _.map(_.range(0, 250), function (i) { return self.meanBlodSukker();  });
@@ -159,7 +164,7 @@ define([
             };
 
             self.hasLethalBloodSugar = function () {
-                return self.blodSukker() < self.minBlodSukker();
+                return self.blodSukker() < self.minBlodSukker() || self.blodSukker() >= self.killBlodSukker();
             };
 
             self.giveJuice = function() {
@@ -182,10 +187,6 @@ define([
 
                 //1. kontrolleres om musen er i live
                 if(!self.alive()) { return; }
-
-                if(self.mouseBloodType() === MouseBloodType.NORMAL && self.blodSukker() >= self.maxBlodSukker()) {
-                    self.setBloodType(MouseBloodType.DIABETIC);
-                }
 
                 //3. udregnes sukkeroptag fra mave til blod
                 if(self.maveSukker() > 0.0001) {

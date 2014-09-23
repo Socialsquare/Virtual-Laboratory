@@ -42,17 +42,24 @@ define([
 
             self.lowBloodSugarWarningToggle = ko.observable(false); // Such name. Wow.
             self.highBloodSugarWarningToggle = ko.observable(false);
+            self.diabetesDevelopedToggle = ko.observable(false);
             self.mouse().blodSukker.subscribe(function(blodSukker) {
                 if (blodSukker < 1.5 && !self.lowBloodSugarWarningToggle()) {
                     self.lowBloodSugarWarningToggle(true);
                     self.popupController.message('mouse.warning_insulin.header', 'mouse.warning_insulin.body');
-                } else if (blodSukker > self.mouse().maxBlodSukker() * 0.8 && !self.highBloodSugarWarningToggle() &&
-                    self.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
+                } else if (blodSukker > self.mouse().maxBlodSukker() * 0.8
+                        && !self.highBloodSugarWarningToggle() && self.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
+
                     self.highBloodSugarWarningToggle(true);
                     self.popupController.message('mouse.warning_diabetes_risk.header', 'mouse.warning_diabetes_risk.body');
+
                 } else if (blodSukker >= self.mouse().maxBlodSukker()
-                    && self.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
+                        && !self.diabetesDevelopedToggle() && self.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
+
+                    self.diabetesDevelopedToggle(true);
                     self.popupController.message('mouse.warning_diabetes.header', 'mouse.warning_diabetes.body');
+
+                    self.mouse().mouseBloodType(MouseBloodType.DIABETIC);
                 }
             });
 

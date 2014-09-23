@@ -362,7 +362,7 @@
         "mouse.died.header": "Musen er død",
         "mouse.died.body": "Du har slået musen ihjel.",
         "mouse.died_insulin.header": "Musen er død",
-        "mouse.died_insulin.body": "Du har slået musen ihjel ved at give den for meget insulin.",
+        "mouse.died_insulin.body": "Du har slået musen ihjel ved at lege for meget med dens blodsukker.",
         "mouse.warning_insulin.header": "Pas på!",
         "mouse.warning_insulin.body": "Du risikerer at slå musen ihjel, hvis du giver den for meget insulin.",
         "mouse.warning_diabetes_risk.header": "Pas på!",
