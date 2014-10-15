@@ -3,6 +3,14 @@
 .spectrophotometer-view {
   @include view;
   background-image: url(#{$img-path}/spectropm_view.png);
+  #spectropm-screen-link {
+    position: absolute;
+    left: 554px;
+    top: 124px;
+    width: 213px;
+    height: 166px;
+  }
+
 
   .micro-slot {
 
@@ -45,4 +53,77 @@
       width: 165px;
       height: 91px;
   }
+}
+
+.spectropmscreen-view {
+  @include view;
+  background-image: url(#{$img-path}/spectropm_screen.png);
+
+  .screen {
+    position: absolute;
+    top: 84px;
+    left: 186px;
+    width: 632px;
+    height: 432px;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-family: $font;
+  }
+
+  .control {
+    float: left;
+    color: #ffffff;
+    background-color: #1b6d72;
+    border-radius: 4px;
+    margin: 0 10px 10px 10px;
+    height: 46px;
+
+    div { float: left; }
+    .label, .value { padding-top: 10px; }
+    .label { margin: 0 10px 0 10px; }
+    .value { margin: 0 5px 0 0; }
+  }
+
+  .footer .value-btn {
+    display: block;
+    height: 20px;
+    width: 40px;
+    margin: 2px;
+    background-color: #2bcb36;
+    border-radius: 2px;
+  }
+
+  .export-btn {
+    float: right;
+    margin-right: 18px;
+
+    img {
+      height: 45px;
+    }
+  }
+
+  .start-btn {
+    float: right;
+    margin-right: 10px;
+    height: 46px;
+    width: 70px;
+    border-radius: 2px;
+  }
+
+  .green-btn{
+    background-color: #2bcb36;
+  }
+  .red-btn{
+    background-color: #f03939;
+  }
+
+  .graph {
+    width: 620px;
+    height: 360px;
+  }
+
 }

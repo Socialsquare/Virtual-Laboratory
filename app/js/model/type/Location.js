@@ -11,6 +11,7 @@ define([
         MOUSE: "LocationType.MOUSE",
         OVERVIEW: "LocationType.OVERVIEW",
         SPECTROPM: "LocationType.SPECTROPM",
+        SPECTROPMSCREEN: "LocationType.SPECTROPMSCREEN",
         UVROOM: "LocationType.UVROOM",
         WASHING: "LocationType.WASHING",
         WORKTABLE1: "LocationType.WORKTABLE1",

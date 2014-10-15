@@ -8,4 +8,5 @@
 
         </div>
     </div>
+    <div class="hand" data-bind="route: 'spectropmscreen'" id="spectropm-screen-link"></div>
 </div>

@@ -16,6 +16,7 @@ define([
     'controller/view/Worktable2',
     'controller/view/Incubator',
     'controller/view/SpectroPM',
+    'controller/view/SpectroPMScreen',
     'controller/view/Fermentor',
     'controller/view/FermentorScreen',
     'controller/view/UvRoom',
@@ -28,7 +29,7 @@ define([
 ], function (ko, BaseViewController, homescreen, MenuController, tutorialController, LoadingController,
              OverviewController, MouseController, ChemicalController,
              ComputerController, FumehoodController, Worktable1Controller,
-             Worktable2Controller, IncubatorController, SpectroPMController,
+             Worktable2Controller, IncubatorController, SpectroPMController, SpectroPMScreenController,
              FermentorController, FermentorScreenController, UvRoomController,
              WashingController, DesignDNAController, ContainerFactory, LiquidFactory, SpecialItemFactory) {
 
@@ -56,6 +57,7 @@ define([
                 incubator: new IncubatorController(),
                 mouse: new MouseController(),
                 spectropm: new SpectroPMController(),
+                spectropmscreen: new SpectroPMScreenController(),
                 fermentor: new FermentorController(),
                 fermentorscreen: new FermentorScreenController(),
                 uvroom: new UvRoomController(),

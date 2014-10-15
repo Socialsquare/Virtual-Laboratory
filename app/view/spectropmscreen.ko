@@ -1,0 +1,35 @@
+<div class="spectropmscreen-view">
+    <div class="screen">
+        HEJ!
+        <!--<div class="graph" data-bind="plotFermentor: plotData"></div>
+
+        <div class="footer">
+            <div class="control">
+                <div class="label" data-bind="text: fermentor.phText()"></div>
+                <div class="buttons">
+                    <button class="value-btn btn-none" data-bind="click: changePh.bind(null, 0.5)">+</button>
+                    <button class="value-btn btn-none" data-bind="click: changePh.bind(null, -0.5)">-</button>
+                </div>
+            </div>
+
+            <div class="control">
+                <div class="label" data-bind="text: fermentor.temperatureText()"></div>
+                <div class="buttons">
+                    <button class="value-btn btn-none" data-bind="click: changeTemp.bind(null, 0.5)" >+</button>
+                    <button class="value-btn btn-none" data-bind="click: changeTemp.bind(null, -0.5)">-</button>
+                </div>
+            </div>
+
+            <div class="control">
+                <div class="label" data-bind="text: fermentor.timerText()"></div>
+            </div>
+
+            <div class="hand export-btn" data-bind="click: exportData">
+                <img src="assets/images/icon_spreadsheet.png" alt="Export data">
+            </div>
+
+            <button class="start-btn btn-none" data-bind="click: activateFermentor.bind(), text: activateButtonText(),
+            css: activateButtonColor"></button>
+        </div>-->
+    </div>
+</div>
