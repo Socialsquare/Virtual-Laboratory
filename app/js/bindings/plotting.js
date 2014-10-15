@@ -28,6 +28,24 @@ define([
         }
     };
 
+    ko.bindingHandlers.plotDrugAffinitySmall = {
+        init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {},
+
+        update: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
+            var data = ko.unwrap(valueAccessor());
+
+            var affinityData = data.affinityData;
+
+            var plot = $.plot($(element), [
+                /*{data: affinityData, label: 'TODO: concentration and affinity'}*/
+                {data: affinityData}
+            ], {
+                xaxis: { min:-9, max: -3, show: false },
+                yaxis: { min: 0, max: 100, show: false }
+            });
+        }
+    };
+
     ko.bindingHandlers.plotDrugAffinity = {
         init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {},
 
@@ -40,8 +58,8 @@ define([
                 /*{data: affinityData, label: 'TODO: concentration and affinity'}*/
                 {data: affinityData}
             ], {
-                xaxes: [{ min:-9, max: -3 }],
-                yaxes: [{ min: 0, max: 100 }]
+                xaxis: { min:-9, max: -3 },
+                yaxis: { min: 0, max: 100 }
             });
         }
     };

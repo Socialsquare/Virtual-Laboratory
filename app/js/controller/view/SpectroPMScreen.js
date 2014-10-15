@@ -16,9 +16,22 @@ define([
 
     var SpectroPMScreen = BaseViewController.extend({
 
-        constructor: function () {
+        constructor: function (spectropmController) {
             var self = this;
             self.base('spectropmscreen');
+            self.spectropmController = spectropmController;
+
+            self.exportData = function () {
+                var raw = self.spectropmController.plotData();
+                var headers = ['log(conc)', 'affinity']; //TODO: i18n
+                var parsed = _(raw.affinityData)
+                    .map(function (row) {
+                        return [row[0], row[1]];
+                    })
+                    .value();
+
+                self.popupController.dataExport(DataHelper.toCSV(parsed, headers));
+            };
 
             /*self.plotData = ko.observable({});
             self.graphTimer = ko.observable(null);
@@ -60,7 +73,7 @@ define([
                     return [i, self.fermentor.biomassData()[i]];
                 });
                 var substrateData = _.map(_.range(0, 250), function (i) {
-                    return [i, self.fermentor.substrateData()[i]];
+                    return [i, self.fer;mentor.substrateData()[i]];
                 });
 
                 var productData = _.map(_.range(0, 250), function (i) {

@@ -50,8 +50,9 @@
     @include opacity(0.75);
   }
   .graph {
-      width: 165px;
-      height: 91px;
+    left:8px;
+    width: 150px;
+    height: 75px;
   }
 }
 
@@ -66,63 +67,35 @@
     width: 632px;
     height: 432px;
   }
-
-  .footer {
+  .spectro-screen-on {
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    font-family: $font;
-  }
+    left: -126px;
+    top: -40px;
+    width: 897px;
+    height: 527px;
+    background-color: rgb(100,200,200);
 
-  .control {
-    float: left;
-    color: #ffffff;
-    background-color: #1b6d72;
-    border-radius: 4px;
-    margin: 0 10px 10px 10px;
-    height: 46px;
-
-    div { float: left; }
-    .label, .value { padding-top: 10px; }
-    .label { margin: 0 10px 0 10px; }
-    .value { margin: 0 5px 0 0; }
-  }
-
-  .footer .value-btn {
-    display: block;
-    height: 20px;
-    width: 40px;
-    margin: 2px;
-    background-color: #2bcb36;
-    border-radius: 2px;
+    @include opacity(0.75);
   }
 
   .export-btn {
-    float: right;
-    margin-right: 18px;
+    position: absolute;
+    left: 755px;
+    top: 400px;
+    border: solid;
+    height: 85px;
+    width: 83.3px;
 
     img {
-      height: 45px;
+      height: 85px;
+      width: 83.3px;
     }
   }
 
-  .start-btn {
-    float: right;
-    margin-right: 10px;
-    height: 46px;
-    width: 70px;
-    border-radius: 2px;
-  }
-
-  .green-btn{
-    background-color: #2bcb36;
-  }
-  .red-btn{
-    background-color: #f03939;
-  }
-
   .graph {
-    width: 620px;
+    top: 30px;
+    left: 40px;
+    width: 815px;
     height: 360px;
   }
 

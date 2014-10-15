@@ -4,7 +4,7 @@
     <img style="position:absolute; top: 21px; left: 192px;" src="/assets/images/spectro_closed.png">
     <!-- /ko -->
     <div class="spectro-screen-on" data-bind="visible: canShowGraph()">
-        <div class="graph" data-bind="plotDrugAffinity: plotData">
+        <div class="graph" data-bind="plotDrugAffinitySmall: plotData">
 
         </div>
     </div>

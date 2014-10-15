@@ -46,6 +46,7 @@ define([
         constructor: function (isWeb) {
             var self = this;
 
+            spectropmController = new SpectroPMController();
             var viewControllers = {
                 loading: new LoadingController(),
                 overview: new OverviewController(),
@@ -56,8 +57,8 @@ define([
                 fumehood: new FumehoodController(),
                 incubator: new IncubatorController(),
                 mouse: new MouseController(),
-                spectropm: new SpectroPMController(),
-                spectropmscreen: new SpectroPMScreenController(),
+                spectropm: spectropmController,
+                spectropmscreen: new SpectroPMScreenController(spectropmController),
                 fermentor: new FermentorController(),
                 fermentorscreen: new FermentorScreenController(),
                 uvroom: new UvRoomController(),

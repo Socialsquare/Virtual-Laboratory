@@ -1,6 +1,13 @@
 <div class="spectropmscreen-view">
     <div class="screen">
-        HEJ!
+        <div class="spectro-screen-on" data-bind="visible: spectropmController.canShowGraph()">
+            <div class="graph" data-bind="plotDrugAffinity: spectropmController.plotData">
+
+            </div>
+            <div class="hand export-btn" data-bind="click: exportData">
+                <img src="assets/images/icon_spreadsheet.png" alt="Export data">
+            </div>
+        </div>
         <!--<div class="graph" data-bind="plotFermentor: plotData"></div>
 
         <div class="footer">
