@@ -14,8 +14,8 @@ define([
     'model/type/Liquid'
 
 ], function (ko, Liquid, ReactionCount, Microorganism, MyelomaModel, Antibiotic,
-             HomogenizedSpleen, SaltWater, FluorescentSecondaryAntibody, MicroorganismType, AntibioticType,
-             LiquidType) {
+             HomogenizedSpleen, SaltWater, FluorescentSecondaryAntibody,
+             MicroorganismType, AntibioticType, LiquidType) {
 
     var LiquidFactory = {
         microorganism: {
@@ -105,6 +105,14 @@ define([
 
         gfp: function () {
             return new Liquid(LiquidType.GFP, ReactionCount.NEVER);
+        },
+
+        cypEnzyme: function () {
+            return new Liquid(LiquidType.CYP_ENZYME, ReactionCount.NEVER);
+        },
+
+        targetRecptor: function () {
+            return new Liquid(LiquidType.TARGET_RECEPTOR, ReactionCount.NEVER);
         },
 
         juice: function () {

@@ -208,6 +208,8 @@
         "item.name.antigen_smallpox": "Antigen (kopper)",
         "item.name.buffer": "Buffer",
         "item.name.salt_water": "Saltvand",
+        "item.name.cyp_enzyme": "CYP-enzym",
+        "item.name.target_receptor": "Target receptor",
         "item.name.fluorescent_2nd_antibody": "Fluorescerende sekundært antistof",
 
         "liquid.description.insulin": "Insulin er et hormon, der hjælper med at omsætte den mad, du spiser, til energi i kroppen. Insulin dannes og udskilles i bugspytkirtlen, og hormonets funktion er at signalere, hvornår cellerne skal optage sukker fra blodbanen. Når man lider af diabetes, fungerer denne mekanisme ikke optimalt, og derfor forbliver sukkerstofferne i blodbanen og giver forhøjet blodsukker. ",
@@ -236,6 +238,8 @@
         "liquid.name.adjuvans": "Adjuvant",
         "liquid.name.lipase_enzyme": "Lipase-enzym",
         "liquid.name.gfp": "GFP",
+        "liquid.name.cyp_enzyme": "CYP-enzym",
+        "liquid.name.target_receptor": "Target receptor",
         "liquid.name.designed_drug": "Designet lægemiddel",
         "liquid.name.produced_insulin": "Produceret insulin",
         "liquid.name.produced_lipase": "Produceret lipase",

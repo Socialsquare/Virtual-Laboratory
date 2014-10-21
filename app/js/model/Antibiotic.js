@@ -28,10 +28,8 @@ define([
 
                         switch(self.antibioticType()){
                             case AntibioticType.A:
-                                console.log('TODO: Spotted resistance for A');
                                 return extraProperty.proteinCodingSequenceType() === PCSType.ANTIBIOTIC_RES_A;
                             case AntibioticType.B:
-                                console.log('TODO: Spotted resistance for B');
                                 return extraProperty.proteinCodingSequenceType() === PCSType.ANTIBIOTIC_RES_B;
                             default:
                                 throw 'Unknown antibioticType: ' + self.antibioticType();

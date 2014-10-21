@@ -22,6 +22,8 @@ define([], function () {
         LIPASE_ENZYME:    'LiquidType.LIPASE_ENZYME',
         GFP:              'LiquidType.GFP',
         DESIGNED_DRUG:    'LiquidType.DESIGNED_DRUG',
+        CYP_ENZYME:       'LiquidType.CYP_ENZYME',
+        TARGET_RECEPTOR:  'LiquidType.TARGET_RECEPTOR',
         PRODUCED_INSULIN: 'LiquidType.PRODUCED_INSULIN',
         PRODUCED_LIPASE:  'LiquidType.PRODUCED_LIPASE',
         PRODUCED_ANTIBODY_GOUT:      'LiquidType.PRODUCED_ANTIBODY_GOUT',

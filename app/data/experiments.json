@@ -781,7 +781,7 @@
         "story": { "dk": "Et enzym som spiller en afgørende rolle i psoriasis er blevet fundet og dets active site lokaliseret. Din opgave er at designe et lægemiddel som kan inhibere dette enzym og på den måde bekæmpe sygdommen." },
         "tasks": [
             {
-                "description": { "dk": "Design og bestil et lægemiddel ved at gå hen til computeren og ind i programmet \"Design Lægemiddel\"" },
+                "description": { "dk": "Design og bestil et lægemiddel ved at gå hen til computeren og ind i programmet \"Design Lægemiddel\". Husk at tænke over sidegruppernes længde og ladning!" },
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -790,15 +790,65 @@
                     ]
                 }
             },
+            {
+                "description": {"dk": "Tag noget af dit designede kemikalie, og bland det i et nyt reagensglas sammen med CYP-enzym"},
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.DESIGNED_DRUG" },
+                        { "type": "LiquidType.CYP_ENZYME" }
+                    ]
+                }
+            },
+            {
+                "description": {"dk": "Tag nu og flyt dit reagensglas med kemikalie og CYP-enzym hen til varmeblokken og tænd. Dette er for at teste om enzymet nedbryder dit lægemiddel"},
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.HEATER",
+                    "liquids": [
+                        { "type": "LiquidType.DESIGNED_DRUG" },
+                        { "type": "LiquidType.CYP_ENZYME" }
+                    ]
+                },
+                "consequence": {
+                    "type": "ConsequenceType.QUIZ",
+                    "quiz": {
+                        "id": 1,
+                        "video": "drug-liver-unchanged",
+                        "name": { "dk": "FIND PÅ SPØRGSMÅL" },
+                        "question": { "dk": "Noget?" },
+                        "correct": 1,
+                        "answers": [
+                            {
+                                "id": 0,
+                                "answer": { "dk": "JA!!!!" },
+                                "message": { "dk": "Nej." }
+                            },
+                            {
+                                "id": 1,
+                                "answer": { "dk": "Nej" },
+                                "message": { "dk": "Ja." }
+                            },
+                            {
+                                "id": 2,
+                                "answer": { "dk": "Ja." },
+                                "message": { "dk": "Det er ikke helt korrekt." }
+                            }
+                        ]
+                    }
+                }
+            },
 
             {
-                "description": { "dk": "Tilføj dit lægemiddel til en tom mikrotiterplade" },
+                "description": { "dk": "Tilføj nu dit lægemiddel, uden CYP-enzym, og target receptor til en tom mikrotiterplade." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.MICROTITER",
                     "containerSubtype": "AntigenCoatingType.NONE",
                     "liquids": [
-                        { "type": "LiquidType.DESIGNED_DRUG"}
+                        { "type": "LiquidType.DESIGNED_DRUG" },
+                        { "type": "LiquidType.TARGET_RECEPTOR" }
                     ]
                 }
             },
@@ -809,7 +859,8 @@
                     "activation": "ActivationType.SPECTROPM",
                     "activationSubtype": {"liquidType": "LiquidType.DESIGNED_DRUG","maxIc50": -6},
                     "liquids": [
-                        { "type": "LiquidType.DESIGNED_DRUG"}
+                        { "type": "LiquidType.DESIGNED_DRUG"},
+                        { "type": "LiquidType.TARGET_RECEPTOR" }
                     ]
                 }
             },

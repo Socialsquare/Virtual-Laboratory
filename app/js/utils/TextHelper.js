@@ -107,6 +107,10 @@ define([
                     return 'liquid.name.lipase_enzyme';
                 case LiquidType.GFP:
                     return 'liquid.name.gfp';
+                case LiquidType.CYP_ENZYME:
+                    return 'liquid.name.cyp_enzyme';
+                case LiquidType.TARGET_RECEPTOR:
+                    return 'liquid.name.target_receptor';
                 case LiquidType.DESIGNED_DRUG:
                     return 'liquid.name.designed_drug';
                 case LiquidType.PRODUCED_INSULIN:

@@ -76,8 +76,8 @@ define([
                         self.selectedScaffold().drugInfo.passes = self.drugService.getDrugPassages(info.logD);
 
                         alert('TODO: switch back to tube!');
-                        /*var drugTube = ContainerFactory.tube().add(self.selectedScaffold().clone(), true);*/
-                        var drugTube = ContainerFactory.micro().add(self.selectedScaffold().clone(), true);
+                        var drugTube = ContainerFactory.tube().add(self.selectedScaffold().clone(), true);
+                        /*var drugTube = ContainerFactory.micro().add(self.selectedScaffold().clone(), true);*/
                         self.gameState.inventory.add(drugTube);
 
                         self.selectedScaffold(self.getEmptyScaffold());

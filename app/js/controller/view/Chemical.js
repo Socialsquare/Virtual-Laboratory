@@ -79,6 +79,8 @@ define([
                 new ChemicalItemModel('item.name.antibiotic_b', function () { return self.inTube(LiquidFactory.antibiotic.b()); }),
                 new ChemicalItemModel('item.name.adjuvans', function () { return self.inTube(LiquidFactory.adjuvans()); }),
                 new ChemicalItemModel('item.name.antigen_gout', function () { return self.inTube(LiquidFactory.antigenGout()); }),
+                new ChemicalItemModel('item.name.cyp_enzyme', function () { return self.inTube(LiquidFactory.cypEnzyme())}),
+                new ChemicalItemModel('item.name.target_receptor', function () { return self.inTube(LiquidFactory.targetRecptor())}),
                 new ChemicalItemModel('item.name.fluorescent_2nd_antibody', function () { return self.inTube(LiquidFactory.fluorescentSecondaryAntibody()); }),
                 new ChemicalItemModel('item.name.antigen_smallpox', function () { return self.inTube(LiquidFactory.antigenSmallpox()); })
             ]);
