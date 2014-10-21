@@ -28,7 +28,10 @@ define([
 
                 _.delay(self.isClosed, 1500, false);
 
-                //TODO: decide if contents are antigen-stuff, or designed-drug
+                _.delay(function() {
+                    if(! self.canShowGraph())
+                        self.popupController.message('spectropm.no_useful.header','spectropm.no_useful.body');
+                },2000);
 
                 self.experimentController.triggerActivation(ActivationType.SPECTROPM, self.spectroPM);
             });
@@ -41,21 +44,21 @@ define([
                 if (self.isClosed())
                     return false;
 
-                var allDrugs = _.filter(self.spectroPM.microSlot.get(0).liquids(), function(liquid) {
+                var liquids = self.spectroPM.microSlot.get(0).liquids();
+
+                var allDrugs = _.filter(liquids, function(liquid) {
                     return liquid.type() === LiquidType.DESIGNED_DRUG;
                 });
 
-                if(allDrugs.length === 0) {
-                    console.log('TODO: tell that no useful data was found.');
-                    return false;
-                }else if (allDrugs.length === 1) {
+                var allReceptors = _.filter(liquids, function(liquid) {
+                    return liquid.type() === LiquidType.TARGET_RECEPTOR;
+                });
+
+                if (allDrugs.length === 1 && allReceptors.length === 1 && liquids.length === 2) {
                     return true;
                 }else {
-                    console.log('TODO: tell that no useful data was found.');
                     return false;
                 }
-
-
             };
 
             self.plotData = ko.computed(function() {

@@ -132,6 +132,8 @@
         "fermentor.failed.header": "Noget gik galt",
         "fermentor.failed.body": "Din fermentering fik ikke produceret nok enzym til en oprensning. Har du husket at genmodificere dine celler sådan at de producerer noget? Eller har du måske fået uønskede celler med i fermenteringen?",
 
+        "spectropm.no_useful.header": "Ingen brugbar data",
+        "spectropm.no_useful.body": "Det var ikke muligt at få noget brugbar information ud fra din mikrotiterplade. Dette kan skyldes at du har forurenet din prøve.",
 
         "worktable1.bunsen_required.header": "Forbudt handling",
         "worktable1.bunsen_required.body": "Bunsenbrænderen skal være tændt, før du kan arbejde ved bordet.",

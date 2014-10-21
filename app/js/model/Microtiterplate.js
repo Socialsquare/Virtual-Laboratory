@@ -30,7 +30,6 @@ define([
 
                 popupController.confirm('microtiter.extract_well.header', 'microtiter.extract_well.body')
                     .then(function(){
-                        //TODO: for experiments.json check for "acquisition of tube with myeloma"
                         // 1) clone microtiter contents and dilute 24x
                         // 2) clone relevant well to tube
                         // 3) reset relevant well in microtiter

@@ -784,6 +784,7 @@
                 "description": { "dk": "Design og bestil et lægemiddel ved at gå hen til computeren og ind i programmet \"Design Lægemiddel\". Husk at tænke over sidegruppernes længde og ladning!" },
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
+                    "strict": true,
                     "item": "ContainerType.TUBE",
                     "liquids": [
                         { "type": "LiquidType.DESIGNED_DRUG" }
@@ -794,6 +795,7 @@
                 "description": {"dk": "Tag noget af dit designede kemikalie, og bland det i et nyt reagensglas sammen med CYP-enzym"},
                 "trigger": {
                     "type": "TriggerType.MIX",
+                    "strict": true,
                     "item": "ContainerType.TUBE",
                     "liquids": [
                         { "type": "LiquidType.DESIGNED_DRUG" },
@@ -805,6 +807,7 @@
                 "description": {"dk": "Tag nu og flyt dit reagensglas med kemikalie og CYP-enzym hen til varmeblokken og tænd. Dette er for at teste om enzymet nedbryder dit lægemiddel"},
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
+                    "strict": true,
                     "activation": "ActivationType.HEATER",
                     "liquids": [
                         { "type": "LiquidType.DESIGNED_DRUG" },
@@ -816,24 +819,24 @@
                     "quiz": {
                         "id": 1,
                         "video": "drug-liver-unchanged",
-                        "name": { "dk": "FIND PÅ SPØRGSMÅL" },
-                        "question": { "dk": "Noget?" },
+                        "name": { "dk": "CYP-enzymer og leveren" },
+                        "question": { "dk": "CYP-enzymer kan give en indikation af om lægemidlet vil blive udsat for hel eller delvis nedbrydning i leveren. Er det godt eller skidt hvis dit lægemiddel bliver ændret i leveren?" },
                         "correct": 1,
                         "answers": [
                             {
                                 "id": 0,
-                                "answer": { "dk": "JA!!!!" },
-                                "message": { "dk": "Nej." }
+                                "answer": { "dk": "Det er altid godt." },
+                                "message": { "dk": "Nej, dit svar er ikke helt korrekt." }
                             },
                             {
                                 "id": 1,
-                                "answer": { "dk": "Nej" },
-                                "message": { "dk": "Ja." }
+                                "answer": { "dk": "Det afhænger af ens lægemiddel." },
+                                "message": { "dk": "Ja, det er korrekt. Nogle lægemidler bliver først aktive efter at blive delvist nedbrudt, mens andre bliver deaktiveret ved nedbrydning i leveren." }
                             },
                             {
                                 "id": 2,
-                                "answer": { "dk": "Ja." },
-                                "message": { "dk": "Det er ikke helt korrekt." }
+                                "answer": { "dk": "Det er altid skidt." },
+                                "message": { "dk": "Nej, dit svar er ikke helt korrekt." }
                             }
                         ]
                     }
@@ -841,9 +844,10 @@
             },
 
             {
-                "description": { "dk": "Tilføj nu dit lægemiddel, uden CYP-enzym, og target receptor til en tom mikrotiterplade." },
+                "description": { "dk": "Tilføj nu target receptor og dit lægemiddel, uden CYP-enzym til en tom mikrotiterplade." },
                 "trigger": {
                     "type": "TriggerType.MIX",
+                    "strict": true,
                     "container": "ContainerType.MICROTITER",
                     "containerSubtype": "AntigenCoatingType.NONE",
                     "liquids": [
@@ -856,6 +860,7 @@
                 "description": { "dk": "Undersøg dit lægemiddel ved at tage mikrotiterpladen og sæt den i spektrofotometeret. For at være sikker på at dit lægemiddel kan binde til sit target, skal det højst have en IC50-værdi på log10([x]) = -6. IC50-værdien kan aflæses på spektrofotometeret som x-værdien dér hvor grafen har en y-værdi på 50." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
+                    "strict": true,
                     "activation": "ActivationType.SPECTROPM",
                     "activationSubtype": {"liquidType": "LiquidType.DESIGNED_DRUG","maxIc50": -6},
                     "liquids": [
@@ -865,7 +870,7 @@
                 }
             },
             {
-                "description": { "dk": "Når dit lægemiddel har en høj affinitet, er det muligvis på tide at teste det på dyr. Prøv at test det på en psoriasis-syg mus med forskellige administrationsformer. Hvis det ikke virker selvom det har høj affinitet, så prøv at eksperimentér med dets opløselighed (logD-værdien som kan ses i \"Lægemiddel designeren\" på computeren)."},
+                "description": { "dk": "Når dit lægemiddel har en høj affinitet, er det muligvis på tide at teste det på dyr. Prøv at teste det på en psoriasis-syg mus med forskellige administrationsformer. Hvis det ikke virker selvom det har høj affinitet, så prøv at eksperimentér med dets opløselighed (logD-værdien som kan ses i \"Lægemiddel designeren\" på computeren)."},
                 "trigger": {
                     "type": "TriggerType.MOUSE",
                     "alive": true,
