@@ -47,7 +47,6 @@ define([
             };
 
             self.getQuizVideo = function () {
-                //TODO: implement
                 // Finds the lowest number of video-quizzes to show - corresponding to the worst designed gene
                 var lowestNumber = Infinity;
 
@@ -71,8 +70,6 @@ define([
             };
 
             //Verifies the gene and returns new properties.
-            //TODO: implement the rest of Patrick's flowchart. Currently only does the steps 1-3.
-            // TODO: fire videos & quizzes
             self.verifyGeneAndGetProperties = function(gene) { //1.2.1) Hvis det er korrekt designet, overfør hver egenskab til hver mirkoorganisme*/
 
                 var returnObject = {firstError: Infinity, newProperties: []};
@@ -107,7 +104,6 @@ define([
 
 
                 _(MRNAs).each(function(mRNA){
-                    //TODO: implement her.
                     var values = self.examineMRNAandGetNewProperties(mRNA); //TODO: set quiz/video-numbers
 
                     returnObject.firstError = values.firstError < returnObject.firstError ?
@@ -116,10 +112,6 @@ define([
                     _.each(values.newProperties, function(newProperty) {
                         returnObject.newProperties.push(newProperty);
                     });
-                    //TODO: values.newProperties
-
-
-
 
                 });
 
@@ -148,7 +140,6 @@ define([
                     }
                 });
 
-                //TODO: tjek om mRNA starter med promoter - gør det.
 // Extract sub-mRNAs
                 _.each(promoterPositions, function(promoterPosition, index) {
                     var subMRNA = {promoter: {}, DNAs: []};
@@ -329,7 +320,6 @@ define([
                     console.log('subMRNAs.length: ' + subMRNAs.length);
 
                 _.each(subMRNAs, function(subMRNA) {
-                    //TODO: last two parts of the DNA-flow! (extract the new properties)
 
                     //Get start codon positions
                     var startPositions = [];
