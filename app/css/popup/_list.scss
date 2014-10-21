@@ -2,7 +2,7 @@
 
 .popup-list {
     ul {
-        padding: 0 50px;
+        padding: 0 0px;
         text-align: center;
         margin-top: 50px;
 
@@ -12,6 +12,7 @@
             text-align: center;
             display: inline-block;
             width: 120px;
+            vertical-align: top;
 
             img {
                 height: 80px;
