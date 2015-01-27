@@ -21,7 +21,7 @@ define([
 
             self.worktable1 = self.gameState.worktable1;
 
-            var tubeRackGuard = function () {// TODO: Fyr på hele worktable 1.
+            var bunsenGuard = function () {
                 if (!self.worktable1.bunsenBurner()) {
                     self.popupController.message('worktable1.bunsen_required.header', 'worktable1.bunsen_required.body');
                     return false;
@@ -32,9 +32,15 @@ define([
             self.tableSpacePetriController = new CompositeContainerController(self.worktable1.tableSpacePetri);
             self.tableSpaceMicroController = new CompositeContainerController(self.worktable1.tableSpaceMicro);
             self.tubeRackController = new CompositeContainerController(self.worktable1.tubeRack);
-            self.tubeRackController.dropGuard = tubeRackGuard;
             self.heaterController = new CompositeContainerController(self.worktable1.heater);
             self.electroporatorController = new SimpleContainerController(self.worktable1.electroporator, self.gameState);
+
+            self.tableSpacePetriController.dropGuard = bunsenGuard;
+            self.tableSpaceMicroController.dropGuard = bunsenGuard;
+            self.tubeRackController.dropGuard = bunsenGuard;
+            self.heaterController.dropGuard = bunsenGuard;
+            self.electroporatorController.dropGuard = bunsenGuard;
+
 
             self.toggleBunsen = function () {
                 self.worktable1.bunsenBurner.toggle();
