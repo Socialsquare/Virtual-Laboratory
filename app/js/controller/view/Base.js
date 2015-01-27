@@ -15,12 +15,14 @@ define([
     'factory/SpecialItem',
 
     'utils/ImageHelper',
-    'utils/DragHelper'
+    'utils/DragHelper',
+
+    'model/type/Liquid'
 
 ], function (ko, Base, gameState, ActivationType, router, popupController,
              quizController, experimentController,
              LiquidFactory, ContainerFactory, SpecialItemFactory,
-             ImageHelper, DragHelper) {
+             ImageHelper, DragHelper, LiquidType) {
 
     var Base = Base.extend({
 
@@ -42,6 +44,15 @@ define([
             self.templateName = templateName;
             self.hasMenu = ko.observable(true);
             self.shouldHidePipette = ko.observable(false); // false --> CAN show pipette.
+
+            // TODO: move to utility class?
+            self.smallPoxGuard = function(position, container) {
+                if ( container.contains(LiquidType.ANTIGEN_SMALLPOX)) {
+                    self.popupController.message('fumehood.smallpox.header', 'fumehood.smallpox.body');
+                    return false;
+                }
+                return true;
+            };
         },
 
         maybeHidePippete: function () {

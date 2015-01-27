@@ -23,10 +23,10 @@ define([
             self.gameState = gameState;
 
             // defaults
-            self.dropGuard = _.constant(true);
+            self.dropGuard = _.constant(true); //TODO: Patrick beliebe (Justin) this is only used in compositeContainers
             self.showPlaceholder = ko.observable(false);
 
-            self.handleContainerDrop = function (item) { //TODO: Implement.
+            self.handleContainerDrop = function (item) {
 
                 switch (simpleContainer.type()) {
                     case ContainerType.ELECTROPORATOR:

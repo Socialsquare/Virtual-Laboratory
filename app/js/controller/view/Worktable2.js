@@ -19,6 +19,12 @@ define([
             self.tubeRackController = new CompositeContainerController(self.worktable2.tubeRack);
             self.odController = new CompositeContainerController(self.worktable2.odMachine);
 
+
+            self.tableSpacePetriController.addDropGuard(self.smallPoxGuard);
+            self.tableSpaceMicroController.addDropGuard(self.smallPoxGuard);
+            self.tubeRackController.addDropGuard(self.smallPoxGuard);
+            self.odController.addDropGuard(self.smallPoxGuard);
+
             self.handleBlenderDrop = function (item) {
                 self.worktable2.blender.status(true);
                 _.delay(function () {

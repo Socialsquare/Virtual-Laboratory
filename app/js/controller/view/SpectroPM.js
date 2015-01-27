@@ -16,6 +16,7 @@ define([
 
             self.spectroPM = self.gameState.spectroPM;
             self.microSlotController = new CompositeContainerController(self.spectroPM.microSlot);
+            self.microSlotController.addDropGuard(self.smallPoxGuard);
 
             self.isClosed = ko.observable(false);
 

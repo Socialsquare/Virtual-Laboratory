@@ -14,9 +14,11 @@ define([
 
             self.tubeRackController = new CompositeContainerController(self.incubator.tubeRack);
             self.tubeRackController.imageGetter = self.ImageHelper.incubatorTubeImage;
+            self.tubeRackController.addDropGuard(self.smallPoxGuard);
 
             self.petriSpaceController = new CompositeContainerController(self.incubator.tableSpacePetri);
             self.petriSpaceController.imageGetter = self.ImageHelper.incubatorPetriImage;
+            self.petriSpaceController.addDropGuard(self.smallPoxGuard);
 
             self.changeTemp = function(val) {
                 self.incubator.temperature(self.incubator.temperature() + val);

@@ -28,7 +28,7 @@ define([
             self.compContainer = compContainer;
 
             // defaults
-            self.dropGuard = _.constant(true);
+            self.dropGuards = []; // guard-functions that should always take 2 parameters: dropGuard(position, container)
             self.showPlaceholder = ko.observable(false);
 
             switch (compContainer.type()) {
@@ -91,11 +91,19 @@ define([
                 throw 'Unsupported container type: ' + compContainer.type();
             }
 
-            self.dropHandler = function (position, tube) {
-                if (!self.dropGuard())
-                    return false;
+            self.addDropGuard = function(dropGuard) {
+                self.dropGuards.push(dropGuard);
+            };
 
-                self.compContainer.addAt(position, tube);
+            self.dropHandler = function (position, container) {
+                if (self.dropGuards.length > 0) { // Means that there are guards to check
+
+                    // if ANY dropGuard says no-go, then return false
+                    if(_.any(self.dropGuards, function(dropGuard){ return !dropGuard(position, container); }))
+                        return false;
+                }
+
+                self.compContainer.addAt(position, container);
 
                 return true;
             };

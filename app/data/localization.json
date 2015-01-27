@@ -148,6 +148,9 @@
         "worktable2.spleen_blended.header": "Milten er blevet homogeniseret",
         "worktable2.spleen_blended.body": "Der er tilføjet et reagensglas med homogeniseret milt til din beholdning.",
 
+        "fumehood.smallpox.header": "Pas på!",
+        "fumehood.smallpox.body": "Det er ikke sikkert at arbejde med Ebola her, tag det ind i stinkskabet for at arbejde forsvarligt.",
+
         "popup.ask_tutorial.header": "Vejledning",
         "popup.ask_tutorial.body": "Vil du have en kort introduktion til, hvordan du spiller spillet? Hvis det er første gang du spiller spillet anbefales det.",
         "popup.confirm_delete.header": "Bekræft",
@@ -192,8 +195,8 @@
 
         "item.name.petri_dish": "Petriskål",
         "item.name.microtiter": "Mikrotiterplade",
-        "item.name.microtiter_antigen_coated_tnf": "ELISA-Mikrotiterplade (TNF-alfa)",
-        "item.name.microtiter_antigen_coated_ebola": "ELISA-Mikrotiterplade (Ebola)",
+        "item.name.microtiter_antigen_coated_gout": "ELISA-Mikrotiterplade (TNF-alfa)",
+        "item.name.microtiter_antigen_coated_smallpox": "ELISA-Mikrotiterplade (Ebola)",
         "item.name.tube": "Reagensglas",
         "item.name.syringe": "Kanyle",
         "item.name.scalpel": "Skalpel",
@@ -500,8 +503,8 @@
 
         "item.name.petri_dish": "Petriskål",
         "item.name.microtiter": "Mikrotiterplade",
-        "item.name.microtiter_antigen_coated_tnf": "ELISA-Mikrotiterplade (TNF-alfa)",
-        "item.name.microtiter_antigen_coated_ebola": "ELISA-Mikrotiterplade (Ebola)",
+        "item.name.microtiter_antigen_coated_gout": "ELISA-Mikrotiterplade (TNF-alfa)",
+        "item.name.microtiter_antigen_coated_smallpox": "ELISA-Mikrotiterplade (Ebola)",
         "item.name.tube": "Reagensglas",
         "item.name.syringe": "Kanyle",
         "item.name.scalpel": "Skalpel",

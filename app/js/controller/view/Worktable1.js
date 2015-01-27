@@ -21,7 +21,7 @@ define([
 
             self.worktable1 = self.gameState.worktable1;
 
-            var bunsenGuard = function () {
+            var bunsenGuard = function (position, container) {
                 if (!self.worktable1.bunsenBurner()) {
                     self.popupController.message('worktable1.bunsen_required.header', 'worktable1.bunsen_required.body');
                     return false;
@@ -35,12 +35,14 @@ define([
             self.heaterController = new CompositeContainerController(self.worktable1.heater);
             self.electroporatorController = new SimpleContainerController(self.worktable1.electroporator, self.gameState);
 
-            self.tableSpacePetriController.dropGuard = bunsenGuard;
-            self.tableSpaceMicroController.dropGuard = bunsenGuard;
-            self.tubeRackController.dropGuard = bunsenGuard;
-            self.heaterController.dropGuard = bunsenGuard;
-            self.electroporatorController.dropGuard = bunsenGuard;
-
+            self.tableSpacePetriController.addDropGuard(bunsenGuard);
+            self.tableSpaceMicroController.addDropGuard(bunsenGuard);
+            self.tubeRackController.addDropGuard(bunsenGuard);
+            self.heaterController.addDropGuard(bunsenGuard);
+            self.tableSpacePetriController.addDropGuard(self.smallPoxGuard);
+            self.tableSpaceMicroController.addDropGuard(self.smallPoxGuard);
+            self.tubeRackController.addDropGuard(self.smallPoxGuard);
+            self.heaterController.addDropGuard(self.smallPoxGuard);
 
             self.toggleBunsen = function () {
                 self.worktable1.bunsenBurner.toggle();

@@ -16,6 +16,7 @@ define([
             self.result = ko.observable(0);
 
             self.tubeRackController = new CompositeContainerController(self.washing.tubeRack);
+            self.tubeRackController.addDropGuard(self.smallPoxGuard);
 
             self.activate = function () {
                 if (!self.washing.agent())
