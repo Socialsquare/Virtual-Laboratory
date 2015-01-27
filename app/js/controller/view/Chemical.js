@@ -69,7 +69,8 @@ define([
                 new ChemicalItemModel('item.name.petri_dish', function () { return new ContainerFactory.petri(); }),
                 new ChemicalItemModel('item.name.tube', function () { return new ContainerFactory.tube(); }),
                 new ChemicalItemModel('item.name.microtiter', function () { return new ContainerFactory.micro(); }),
-                new ChemicalItemModel('item.name.microtiter_antigen_coated', function () { return new ContainerFactory.microAntigenCoated(); })
+                new ChemicalItemModel('item.name.microtiter_antigen_coated_tnf', function () { return new ContainerFactory.microAntigenCoated(); }),
+                new ChemicalItemModel('item.name.microtiter_antigen_coated_ebola', function () { return new ContainerFactory.microAntigenCoated(); })
             ]);
 
             self.fridgeItems.pushAll([

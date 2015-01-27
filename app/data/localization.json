@@ -192,7 +192,8 @@
 
         "item.name.petri_dish": "Petriskål",
         "item.name.microtiter": "Mikrotiterplade",
-        "item.name.microtiter_antigen_coated": "ELISA-Mikrotiterplade",
+        "item.name.microtiter_antigen_coated_tnf": "ELISA-Mikrotiterplade (TNF-alfa)",
+        "item.name.microtiter_antigen_coated_ebola": "ELISA-Mikrotiterplade (Ebola)",
         "item.name.tube": "Reagensglas",
         "item.name.syringe": "Kanyle",
         "item.name.scalpel": "Skalpel",
@@ -499,7 +500,8 @@
 
         "item.name.petri_dish": "Petriskål",
         "item.name.microtiter": "Mikrotiterplade",
-        "item.name.microtiter_antigen_coated": "ELISA-Mikrotiterplade",
+        "item.name.microtiter_antigen_coated_tnf": "ELISA-Mikrotiterplade (TNF-alfa)",
+        "item.name.microtiter_antigen_coated_ebola": "ELISA-Mikrotiterplade (Ebola)",
         "item.name.tube": "Reagensglas",
         "item.name.syringe": "Kanyle",
         "item.name.scalpel": "Skalpel",
