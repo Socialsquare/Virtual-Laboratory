@@ -304,11 +304,11 @@
     },
     {
         "title": { "dk": "Produktion af antistoffer" },
-        "description": { "dk": "I denne øvelse skal du behandle en mus inficeret med kopper vha. antistoffer." },
-        "story": { "dk": "I øvelsen skal du vaccinere en rask mus med antigener fra koppevirus. Musens immunforsvar øger herefter produktionen af B-lymfocytter, som differentieres til plasmaceller - de antistofproducerende celler. Ved brug af ELISA er det herefter muligt at identificere de antistoffer, som binder til antigen fra kopper. Antistoffet produceres derefter i en høj koncentration og bruges så til behandling af en mus med kopper." },
+        "description": { "dk": "Her skal du producere dine egne antistoffer og bagefter bruge dem til at behandle sygdomme." },
+        "story": { "dk": "I denne øvelse skal du en vha. en mus producere antistoffer mod Ebola eller til behandling af leddegigt. Når man udsætter en rask mus for et fremmed stof, så vil musens immunforsvar reagere ved at producere antistoffer i mod det fremmede – ligesom når man bliver vaccineret. Det foregår ved, at nogle af musens B-lymfocytter bliver til plasmaceller, som er de celler der producerer antistoffer. Vi skal vha. ELISA finde frem de kopper-antistof-producerende plasmaceller og sekventere deres DNA. Med deres DNA til hjælp kan vi nemlig kopiere og producere antistofferne i laboratoriet." },
         "tasks": [
             {
-                "description": { "dk": "Lav en \"vaccine\" ved at blande antigen fra kopper med adjuvant i et reagensglas." },
+                "description": { "dk": "Lav en reagens til aktiv immunisering af musen ved at blande antigen med adjuvant. Den virker ligesom en vaccine i mod antigenet. Adjuvanten tilføjes for at forstærke den immunologiske reaktion." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",
@@ -333,12 +333,12 @@
                             {
                                 "id": 1,
                                 "answer": { "dk": "Adjuvanten er et hjælpestof i vaccinen." },
-                                "message": { "dk": "Korrekt! En adjuvant er en substans/et molekyle som øger immunogeniteten (styrken af vaccinen) når den blandes med antigenet. Adjuvanten har også en effekt på vaccinens sikkerhed, hvor vaccinen skal virke i kroppen, og hvor hurtigt vaccinen skal frigives i blodet eller vævet." }
+                                "message": { "dk": "Korrekt! En adjuvant er en substans/et molekyle som øger immunogeniciteten (styrken af immun-respons) når den blandes med antigenet. Adjuvanten har også en effekt på vaccinens sikkerhed, hvor vaccinen skal virke i kroppen, og hvor hurtigt vaccinen skal frigives i blodet eller vævet." }
                             },
                             {
                                 "id": 2,
                                 "answer": { "dk": "Adjuvanten er en celletype som producerer antigen." },
-                                "message": { "dk": "Nej, antigenet er cellerester fra bakterier og vira, og en adjuvant er ikke en celle." }
+                                "message": { "dk": "Nej, en adjuvant er ikke en celle og den virker kun som supplement til antigenet" }
                             }
                         ]
                     }
@@ -356,7 +356,7 @@
                 }
             },
             {
-                "description": { "dk": "Vaccinér en rask forsøgsmus. Musen bliver på den måde immun over for antigenet." },
+                "description": { "dk": "Immunisér en rask forsøgsmus. Musen bliver på den måde immun over for antigenet." },
                 "trigger": {
                     "type": "TriggerType.MOUSE",
                     "alive": true,
@@ -379,17 +379,17 @@
                             {
                                 "id": 0,
                                 "answer": { "dk": "At musen har fået indsprøjtet antigenet, og er blevet rask." },
-                                "message": { "dk": "Det er ikke helt korrekt, antigenet er rester fra en bakterie eller virus, som udløser forsvarsmekanismer i musens immunforsvar, bl.a. produktion af antistof. Antistoffet kan musen lagre i kroppen, til den igen bliver udsat for samme antigen. Derved har musen allerede et godt forsvar mod antigenet, og musen bliver ikke syg, når den udsættes for antigenet igen." }
+                                "message": { "dk": "Det er ikke helt korrekt, antigenet udløser forsvarsmekanismer i musens immunforsvar, bl.a. produktion af antistof. Antistoffet cirkulerer i musens blod og binder til antigenet hvorved musen beskyttes i mod dette. Men da det er en rask mus bliver ikke mere rask af at blive immuniseret" }
                             },
                             {
                                 "id": 1,
                                 "answer": { "dk": "At antigenet ikke har fremkaldt en immunreaktion" },
-                                "message": { "dk": "Nej, tværtimod" }
+                                "message": { "dk": "Nej, tværtimod. I så fald ville man ikke kunne vaccinere." }
                             },
                             {
                                 "id": 2,
                                 "answer": { "dk": "At antigenet har fremkaldt en immunreaktion" },
-                                "message": { "dk": "Korrekt. Når et antigen (rest fra en bakterie eller virus) kommer ind i vores krop, bliver det genkendt som noget fremmed af kroppens forsvarsceller. Dette fremkalder et hav af immunforsvarets mekanismer, bl.a. en stigning i kropstemperaturen – det vi kender som feber. Når musen får sprøjtet en lille smule antigen ind i kroppen, sker der samme forsvarsreaktion, hvilket ender med en produktion af antistof mod antigenet. Når musen udsættes for antigenet fra samme bakterie igen, er det antistofferne i musen som udsletter antigenet, så musen ikke bliver syg." }
+                                "message": { "dk": "Korrekt. Når et antigen kommer ind i vores krop, bliver det genkendt som fremmed af kroppens immunforsvar. Det fremkalder immunforsvarets mekanismer, bl.a. en stigning i kropstemperaturen – det vi kender som feber - og produktion af antistoffer. Når musen får sprøjtet en lille smule antigen ind i kroppen, sker samme forsvarsreaktion, hvilket ender med en produktion af antistof mod antigenet, der binder og uskadeliggør antigenet. Hvis musen udsættes for antigenet vil den allerede have antistoffer og dermed ikke blive syg." }
                             }
                         ]
                     }
@@ -423,24 +423,24 @@
                             {
                                 "id": 0,
                                 "answer": { "dk": "Milten er et lager for frit antistof." },
-                                "message": { "dk": "Det er næsten korrekt. I milten er der lagret B-celler. Når kroppen gentagnede gange udsættes for et antigen, lagres de B-celler, som producerer de specifikke antistoffer mod antigenet i milten. Når B-cellerne producerer antistoffer, forvandles de til plasmaceller." }
+                                "message": { "dk": "Det er næsten korrekt. I milten er der mange B-celler. Når kroppen gentagnede gange udsættes for et antigen, lagres de B-celler, som producerer de specifikke antistoffer mod antigenet i milten. Når B-cellerne producerer antistoffer, forvandles de til plasmaceller." }
                             },
                             {
                                 "id": 1,
                                 "answer": { "dk": "Milten lagrer antigener." },
-                                "message": { "dk": "Nej, milten lagrer ikke antigener, men B-celler som producerer antistof mod antigen. Antigener er rester fra bakterier og virus." }
+                                "message": { "dk": "Nej, milten lagrer ikke antigener, men B-celler som producerer antistof mod antigen. Antigener er det fremmede som kroppen udsættes for - fx virus eller bakterier." }
                             },
                             {
                                 "id": 2,
-                                "answer": { "dk": "I milten findes B-celler som producerer antistof." },
-                                "message": { "dk": "Korrekt! Når kroppen gentagnede gange udsættes for et antigen, lagres B-celler, som producerer antistoffer mod antigenet i milten. Når B-cellerne producerer antistoffer, forvandles de til plasmaceller." }
+                                "answer": { "dk": "I milten findes mange B-celler som producerer antistof." },
+                                "message": { "dk": "Korrekt! Når kroppen gentagnede gange udsættes for et antigen, lagres mange B-celler, som producerer antistoffer mod antigenet i milten. Når B-cellerne producerer antistoffer, forvandles de til plasmaceller." }
                             }
                         ]
                     }
                 }
             },
             {
-                "description": { "dk": "Milten skal nu homogeniseres i blenderen på det bagerste arbejdsbord." },
+                "description": { "dk": "Homogenisér musens milt i blenderen på det bagerste arbejdsbord." },
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -470,18 +470,18 @@
                         "answers": [
                             {
                                 "id": 0,
-                                "answer": { "dk": "Myeloma-celler, er celler, som producerer antistof" },
-                                "message": { "dk": "Nej, B-celler omdannes i milten til plasmaceller, som producerer antistoffer." }
+                                "answer": { "dk": "Myeloma-celler, er celler fra musen, som producerer antistof" },
+                                "message": { "dk": "Nej, musens plasmaceller producerer antistoffer. Myeloma celler er cancerceller" }
                             },
                             {
                                 "id": 1,
                                 "answer": { "dk": "Myeloma-celler er udødelige celler i modsætning til celler fra milten" },
-                                "message": { "dk": "Korrekt! Myeloma er cancer i plasmaceller (de antistofproducerende celler), og de udgør en udødelig hurtigvoksende antistof-producerende B-celle linje. Ved at bruge denne type celler, kan man på kort tid producere en stor mængde af det ønskede antistof, og det er hensigtsmæssigt, når man arbejder i laboratorium. Myeloma-celler kan ikke vokse på et hybridoma-medium." }
+                                "message": { "dk": "Korrekt! Myeloma er cancerceller oprindeligt fra plasmaceller, og de udgør en udødelig hurtigvoksende cellelinie. Ved at bruge denne type celler kan man forene deres udødelige egenskaber med evnen til at producere antistof, som cellerne fra musens milt kan. Man skaber derved skabe en ny cellelinie - hybridomacellerne." }
                             },
                             {
                                 "id": 2,
                                 "answer": { "dk": "Myeloma-celler producerer antigener" },
-                                "message": { "dk": "Nej, antigener er rester fra bakterier og vira (f.eks. dele af deres cellemembran), som fremkalder en forsvarsmekanisme, når kroppen eksponeres for dem." }
+                                "message": { "dk": "Nej, antigener er ofte rester fra bakterier og vira (f.eks. dele af deres cellemembran), som fremkalder et immun-respons, når kroppen kommer i kontakt med dem." }
                             }
                         ]
                     }
@@ -505,7 +505,7 @@
                 }
             },
             {
-                "description": { "dk": "Fortynd blandingen med saltvand. Mål derefter den optiske densitet af oplsøningen vha. OD-måleren på bagerste arbejdsbord (se evt. laboratorieudstyrsinformationen). Fortynd så meget, at OD-måleren viser en værdi mellem 3.4 og 4.0. Dette skal gøres, således at man opnår en meget lav koncentration af celler. Derefter kan man nemlig opsuge væske med kun én enkelt celle - i gennemsnit!"},
+                "description": { "dk": "Fortynd blandingen med vækstmedium. Du kan følge fortynding på OD-måleren, hvor du skal bruge en lav fortynding på mellem 3,4-4,0."},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",
@@ -518,7 +518,7 @@
                 }
             },
             {
-                "description": { "dk": "Fordel blandingen på en tom mikrotiterplade. Pga. fortyndingen er det muligt at fordele én celle i hvert brønd med pipetten."},
+                "description": { "dk": "Fordel blandingen på en tom mikrotiterplade. Pga. den kraftige fortyndingen vil der i gennemsnit kun komme én celle i hver brønd"},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.MICROTITER",
@@ -531,7 +531,7 @@
                 }
             },
             {
-                "description": { "dk": "Incubér mikrotiterpladen. Dette gøres ved at stille mikrotiterpladen i spektrofotometeret, eftersom det både har omrystning og varmelegeme." },
+                "description": { "dk": "Inkubér mikrotiterpladen. Dette gøres ved at stille mikrotiterpladen i spektrofotometeret, eftersom det både har omrystning og varmelegeme." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.SPECTROPM",
@@ -543,7 +543,7 @@
                 }
             },
             {
-                "description": { "dk": "Udtag væske fra brøndene i mikrotiterpladen og overfør denne til de tilsvarende brønde på en ELISA-mikrotiterplade. Dette gøres her i spillet blot ved at overføre én gang med pipetten."},
+                "description": { "dk": "Udtag væske fra hver brønd og overfør til en tilsvarende brønd på en ELISA-mikrotiterplade. I det Virtuelle Laboratorium behøver du dog kun at overføre én gang, og i virkeligheden skal mirkotiterpladen her først centrifugeres, sådan at man er sikker på kun at få væske uden cellen, men dette undlader vi her, da vi antager at cellen allerede ligger på bunden af brøndene."},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.MICROTITER",
@@ -589,14 +589,14 @@
                             {
                                 "id": 2,
                                 "answer": { "dk": "ELISA er en metode, der kan bruges til at producere store mængder at antistof" },
-                                "message": { "dk": "Nej. Antistof produceres af B-celler isoleret fra musens milt." }
+                                "message": { "dk": "Nej. Antistof produceres af plasmaceller (B-celler) isoleret fra musens milt." }
                             }
                         ]
                     }
                 }
             },
             {
-                "description": { "dk": "Tilsæt fluorescerende sekundært  antistof til alle brøndende på ELISA-pladen."},
+                "description": { "dk": "Tilsæt fluorescerende sekundært  antistof til alle brøndene på ELISA-pladen."},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "strict": true,
@@ -608,7 +608,7 @@
                 }
             },
             {
-                "description": { "dk": "Vask igen ELISA-pladen med buffer."},
+                "description": { "dk": "Vask ELISA-pladen med buffer igen."},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "strict": true,
@@ -621,7 +621,7 @@
                 }
             },
             {
-                "description": { "dk": "Tag ELISA-pladen med ind i UV-rummet og se nærmere på den. Notér hvilke brønde der fluorescerer. Herefter skal du se nærmere på den oprindelige mikrotiterplade og opsamle indholdet fra en brønd, der svarer til en fluorescerende brønd på ELISA-pladen (dette gøres ved at trykke på den pågældende brønd)."},
+                "description": { "dk": "Undersøg ELISA pladen i UV-rummet. Notér hvilke brønde der lyser op. Dem der lyser op har haft en væske med et antistof der kan binde til antigenet i brønden. Det er de antistof-producerende celler fra de brønde vi er interesseret."},
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -633,14 +633,14 @@
                 }
             },
             {
-                "description": { "dk": "Send indholdet fra brønden til sekventering ved at åbne computeren og vælge \"Send til sekventering\". Hermed burde du få et nyt DNA-element i DNA-designeren på computeren."},
+                "description": { "dk": "Opsaml indhold fra den modsvarende brønd på den centrifugerede mikrotiterplade, hvor cellen stadig ligger i bunden af brønden. Du har nu opsamlet en celle der producerer antistoffer i mod dit valgte antigen. Send cellen til sekventering så vi kan kopiere dens DNA."},
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.COMPUTER_ORDER_SEQUENCE"
                 }
             },
             {
-                "description": { "dk": "Design et stykke DNA på computeren som koder for antistoffet mod kopper, og desuden koder for resistens for Antibiotikum B. Husk det centrale dogme, når du designer genet."},
+                "description": { "dk": "Design et stykke DNA på computeren, som koder for musens antistof, og som desuden koder for resistens af Antibiotikum B. Husk det centrale dogme, når du designer genet, dvs. husk: ribosome binding site, promotor, start- og slutkodon, og terminator."},
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -651,7 +651,7 @@
             },
 
             {
-                "description": { "dk": "Bland indholdet af reagensglasset og dit designede DNA i et reagensglas. Overfør en del af blandingen til elektroporatoren med pipetten. På denne måde genmodificeres gærcellerne til at udtrykke det designede DNA." },
+                "description": { "dk": "Bland det bestilte DNA med mammale celler og fusionmedium i et reagensglas. Tilsæt blanding til elektroporatoren. På den måde hjælper du det genmodificerede DNA med at trænge ind i de mammale celler, der så kan begynder at producere antistof. Processen kaldes transfektion." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.ELECTROPORATOR",
@@ -663,10 +663,10 @@
             },
 
             {
-                "description": { "dk": "Fordel de gensplejsede gærceller i en petriskål og tilsæt Antibiotikum B. NB: I praksis støbes antibiotika ind i pladen, og man kan ikke blot tilsætte stoffet efterfølgende." },
+                "description": { "dk": "Tilsæt de gen-modificerede celler til et reagensglad og tilføj mere vækstmedium og antibiotikum B." },
                 "trigger": {
                     "type": "TriggerType.MIX",
-                    "container": "ContainerType.PETRI_DISH",
+                    "container": "ContainerType.TUBE",
                     "liquids": [
                         { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
                         { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
@@ -675,38 +675,7 @@
             },
 
             {
-                "description": { "dk": "Inkubér petriskålen." },
-                "trigger": {
-                    "type": "TriggerType.ACTIVATION",
-                    "activation": "ActivationType.INCUBATOR",
-                    "containers": [
-                        {
-                            "type": "ContainerType.PETRI_DISH",
-                            "liquids": [
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
-                            ]
-                        }
-                    ]
-
-                }
-            },
-
-            {
-                "description": { "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas med vækstmedie og Antibiotikum B." },
-                "trigger": {
-                    "type": "TriggerType.MIX",
-                    "container": "ContainerType.TUBE",
-                    "liquids": [
-                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" },
-                        { "type": "LiquidType.GROWTH_MEDIUM"}
-                    ]
-                }
-            },
-
-            {
-                "description": { "dk": "Inkubér reagensglasset." },
+                "description": { "dk": "Inkubér blandingen." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.INCUBATOR",
@@ -715,8 +684,7 @@
                             "type": "ContainerType.TUBE",
                             "liquids": [
                                 { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" },
-                                { "type": "LiquidType.GROWTH_MEDIUM"}
+                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
                             ]
                         }
                     ]
@@ -739,7 +707,7 @@
             },
 
             {
-                "description": { "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt." },
+                "description": { "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt. Tænk på at det er mammale celler" },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.FERMENTOR",
@@ -762,7 +730,7 @@
             },
 
             {
-                "description": { "dk": "Bestil en mus med kopper på computeren og giv derefter musen en indsprøjtning med antistoffet mod kopper."},
+                "description": { "dk": "Bestil en syg mus med Ebola eller Leddegigt på computeren og test dit antistoff ved at indsprøjte det i musen."},
                 "trigger": {
                     "type": "TriggerType.MOUSE",
                     "alive": true,
@@ -778,7 +746,7 @@
     {
         "title": { "dk": "Lægemiddeludvikling" },
         "description": { "dk": "I denne øvelse skal du designe et lægemiddel, teste det in vitro og hvis det egner sig, også in vivo" },
-        "story": { "dk": "Et enzym som spiller en afgørende rolle i psoriasis er blevet fundet og dets active site lokaliseret. Din opgave er at designe et lægemiddel som kan inhibere dette enzym og på den måde bekæmpe sygdommen." },
+        "story": { "dk": "Et enzym som spiller en afgørende rolle i psoriasis er blevet fundet og dets aktive site lokaliseret. Din opgave er at designe et lægemiddel som kan inhibere dette enzym og på den måde bekæmpe sygdommen." },
         "tasks": [
             {
                 "description": { "dk": "Design og bestil et lægemiddel ved at gå hen til computeren og ind i programmet \"Design Lægemiddel\". Husk at tænke over sidegruppernes længde og ladning!" },
