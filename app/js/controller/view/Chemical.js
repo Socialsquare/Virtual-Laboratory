@@ -75,8 +75,9 @@ define([
 
             self.fridgeItems.pushAll([
                 new ChemicalItemModel('item.name.yeast', function () { return self.inTube(LiquidFactory.microorganism.yeast()); }),
+                new ChemicalItemModel('item.name.mammalian', function () { return self.inTube(LiquidFactory.microorganism.yeast()); }),
                 new ChemicalItemModel('item.name.myeloma', function () { return self.inTube(LiquidFactory.microorganism.myeloma()); }),
-                new ChemicalItemModel('item.name.antibiotic_a', function () { return self.inTube(LiquidFactory.antibiotic.a()); }),
+                //(TODO: not used) new ChemicalItemModel('item.name.antibiotic_a', function () { return self.inTube(LiquidFactory.antibiotic.a()); }),
                 new ChemicalItemModel('item.name.antibiotic_b', function () { return self.inTube(LiquidFactory.antibiotic.b()); }),
                 new ChemicalItemModel('item.name.adjuvans', function () { return self.inTube(LiquidFactory.adjuvans()); }),
                 new ChemicalItemModel('item.name.antigen_gout', function () { return self.inTube(LiquidFactory.antigenGout()); }),
