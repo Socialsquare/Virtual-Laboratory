@@ -505,7 +505,7 @@
                 }
             },
             {
-                "description": { "dk": "Fortynd blandingen med vækstmedium. Du kan følge fortynding på OD-måleren, hvor du skal bruge en lav fortynding på mellem 3,4-4,0."},
+                "description": { "dk": "Fortynd blandingen med saltvand. Du kan følge fortynding på OD-måleren, hvor du skal bruge en lav fortynding på mellem 3,4-4,0."},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",
@@ -518,7 +518,7 @@
                 }
             },
             {
-                "description": { "dk": "Fordel blandingen på en tom mikrotiterplade. Pga. den kraftige fortyndingen vil der i gennemsnit kun komme én celle i hver brønd"},
+                "description": { "dk": "Fordel blandingen på en tom mikrotiterplade. Pga. den kraftige fortynding vil der i gennemsnit kun komme én celle i hver brønd"},
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.MICROTITER",
@@ -621,7 +621,7 @@
                 }
             },
             {
-                "description": { "dk": "Undersøg ELISA pladen i UV-rummet. Notér hvilke brønde der lyser op. Dem der lyser op har haft en væske med et antistof der kan binde til antigenet i brønden. Det er de antistof-producerende celler fra de brønde vi er interesseret."},
+                "description": { "dk": "Tag ELISA-pladen med ind i UV-rummet og se nærmere på den. Notér hvilke brønde der fluorescerer. Dem der lyser op har haft en væske med et antistof der kan binde til antigenet i brønden. Det er de antistof-producerende celler fra de brønde vi er interesserede i. Herefter skal du se nærmere på den oprindelige mikrotiterplade og opsamle indholdet fra en brønd, der svarer til en fluorescerende brønd på ELISA-pladen (dette gøres ved at trykke på den pågældende brønd)."},
                 "trigger": {
                     "type": "TriggerType.ACQUIRE",
                     "item": "ContainerType.TUBE",
@@ -633,7 +633,7 @@
                 }
             },
             {
-                "description": { "dk": "Opsaml indhold fra den modsvarende brønd på den centrifugerede mikrotiterplade, hvor cellen stadig ligger i bunden af brønden. Du har nu opsamlet en celle der producerer antistoffer i mod dit valgte antigen. Send cellen til sekventering så vi kan kopiere dens DNA."},
+                "description": { "dk": "Send indholdet fra brønden til sekventering ved at åbne computeren og vælge \"Send til sekventering\". Hermed burde du få et nyt DNA-element i DNA-designeren på computeren."},
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.COMPUTER_ORDER_SEQUENCE"
@@ -651,7 +651,7 @@
             },
 
             {
-                "description": { "dk": "Bland det bestilte DNA med mammale celler og fusionmedium i et reagensglas. Tilsæt blanding til elektroporatoren. På den måde hjælper du det genmodificerede DNA med at trænge ind i de mammale celler, der så kan begynder at producere antistof. Processen kaldes transfektion." },
+                "description": { "dk": "Bland det bestilte DNA med mammale celler i et reagensglas. Tilsæt blanding til elektroporatoren. På den måde hjælper du det genmodificerede DNA med at trænge ind i de mammale celler, der så kan begynder at producere antistof. Processen kaldes transfektion." },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.ELECTROPORATOR",
@@ -663,7 +663,7 @@
             },
 
             {
-                "description": { "dk": "Tilsæt de gen-modificerede celler til et reagensglad og tilføj mere vækstmedium og antibiotikum B." },
+                "description": { "dk": "Tilsæt de gen-modificerede celler til et reagensglas med vækstmedium og tilføj antibiotikum B." },
                 "trigger": {
                     "type": "TriggerType.MIX",
                     "container": "ContainerType.TUBE",

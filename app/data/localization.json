@@ -214,7 +214,7 @@
         "item.name.antigen_gout": "Antigen (TNF-alfa)",
         "item.name.antigen_smallpox": "Antigen (Ebola)",
         "item.name.buffer": "Buffer",
-        "item.name.salt_water": "Fusionsmedium",
+        "item.name.salt_water": "Saltvand",
         "item.name.cyp_enzyme": "CYP-enzym",
         "item.name.target_receptor": "Target receptor",
         "item.name.fluorescent_2nd_antibody": "Fluorescerende sekundært antistof",
@@ -523,7 +523,7 @@
         "item.name.antigen_gout": "Antigen (TNF-alfa)",
         "item.name.antigen_smallpox": "Antigen (Ebola)",
         "item.name.buffer": "Buffer",
-        "item.name.salt_water": "Fusionsmedium",
+        "item.name.salt_water": "Saltvand",
         "item.name.fluorescent_2nd_antibody": "Fluorescerende sekundært antistof",
 
         "liquid.description.insulin": "Insulin er et hormon, der hjælper med at omsætte den mad, du spiser, til energi i kroppen. Insulin dannes og udskilles i bugspytkirtlen, og hormonets funktion er at signalere, hvornår cellerne skal optage sukker fra blodbanen. Når man lider af diabetes, fungerer denne mekanisme ikke optimalt, og derfor forbliver sukkerstofferne i blodbanen og giver forhøjet blodsukker. ",
