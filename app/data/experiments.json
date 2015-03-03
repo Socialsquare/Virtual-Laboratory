@@ -730,7 +730,7 @@
             },
 
             {
-                "description": { "dk": "Bestil en syg mus med Ebola eller Leddegigt på computeren og test dit antistoff ved at indsprøjte det i musen."},
+                "description": { "dk": "Bestil en syg mus med Ebola på computeren og test dit antistof ved at indsprøjte det i musen."},
                 "trigger": {
                     "type": "TriggerType.MOUSE",
                     "alive": true,
