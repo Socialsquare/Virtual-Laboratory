@@ -3,6 +3,7 @@ var proxy = require('grunt-connect-proxy/lib/utils'),
     assets = require('./build-tools/assets'),
     path = require('path'),
     fs = require("fs"),
+    mkdirp = require('mkdirp'),
     mountFolder = function (connect, dir) {
         return connect.static(path.resolve(dir.toString()));
     };
@@ -170,8 +171,9 @@ module.exports = function (grunt) {
 
     grunt.registerTask('assets', function () {
         var data = assets.generate(process.cwd(), 'assets');
-
-        fs.writeFileSync(process.cwd() + '/dist/assets/preload.json', JSON.stringify(data));
+        var assetsDir = process.cwd() + '/dist/assets';
+        mkdirp.sync(assetsDir);
+        fs.writeFileSync(assetsDir + '/preload.json', JSON.stringify(data));
     });
 
     grunt.registerTask('setProductionBuild', function () {
