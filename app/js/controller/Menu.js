@@ -91,7 +91,7 @@ define([
             };
 
             self.showInformation = function() {
-                self.popupController.show('popup-instruments');
+                self.popupController.labInfo();
             };
 
             self.selectExperiment = function () {

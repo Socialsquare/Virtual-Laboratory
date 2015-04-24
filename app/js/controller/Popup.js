@@ -5,16 +5,19 @@ define([
     'lodash',
     'model/Popup',
     'model/Guide',
+    'model/HelpPopup',
     'utils/TextHelper',
     'utils/ImageHelper',
     'controller/Video'
 
-], function (ko, $, Base, _, PopupModel, GuideModel, TextHelper, ImageHelper, VideoController) {
+], function (ko, $, Base, _, PopupModel, GuideModel, HelpPopupModel, TextHelper, ImageHelper, VideoController, helpController) {
 
     var Popup = Base.extend({
 
         constructor: function () {
             var self = this;
+
+            self.helpPopupModel = new HelpPopupModel(self);
 
             self.imageHelper = ImageHelper;
             self.activeNotifications = ko.observableArray([]);
@@ -111,6 +114,11 @@ define([
                 return promise.always(function () {
                     self.hide(vm);
                 });
+            };
+
+            self.labInfo = function () {
+                self.activePopups.push(self.helpPopupModel);
+                return self.helpPopupModel;
             };
         }
     });

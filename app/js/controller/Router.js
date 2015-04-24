@@ -15,7 +15,9 @@ define([
 
             self.navigate = function (name) {
                 // ignore loading screen from history
-                if (!!self.currentRoute() && self.currentRoute() !== 'loading')
+                if (!!self.currentRoute()
+                    && self.currentRoute() !== 'loading'
+                    && self.currentRoute() !== name)
                     self.viewHistory.push(self.currentRoute());
 
                 self.currentRoute(name);

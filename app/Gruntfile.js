@@ -24,6 +24,8 @@ module.exports = function (grunt) {
                     { expand: true, src: [ '<%= dist_root %>'+'/data/experiments.json' ]},
                     // localization
                     { expand: true, src: [ '<%= dist_root %>'+'/data/localization.json' ]},
+                    // help entries
+                    { expand: true, src: [ '<%= dist_root %>'+'/data/help.json' ]},
                     // js
                     { expand: true, src: [ '<%= dist_root %>'+'/js/**' ]},
                     // views
@@ -48,6 +50,8 @@ module.exports = function (grunt) {
                     { expand: true, src: [ 'data/experiments.json' ], dest: '<%= dist_root %>' },
                     // localization
                     { expand: true, src: [ 'data/localization.json' ], dest: '<%= dist_root %>' },
+                    // help entries
+                    { expand: true, src: [ 'data/help.json' ], dest: '<%= dist_root %>' },
                     // js
                     { expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
                     // views

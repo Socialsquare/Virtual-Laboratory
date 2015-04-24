@@ -2,52 +2,72 @@
 
 .popup-instruments {
 
-  $width: 934px;
+    $width: 934px;
+    $nav-width: 255px;
 
-  padding: 30px;
+    padding: 30px;
 
-  color: white;
+    color: white;
 
-  left: 13px;
-  top: 10px;
-  width: $width;
-  height: 560px;
-
-  .inner {
-
+    left: 13px;
+    top: 10px;
     width: $width;
-    height: 390px;
-    overflow-y: scroll;
+    height: 560px;
 
-    li{
+    .inner {
 
-      .right-column {
-        vertical-align: top;
-      }
+        .nav {
+            overflow-y: auto;
+            float: left;
 
-      .list-box {
+            width: $nav-width;
+            height: 480px;
 
+            ul li {
+                position: relative;
 
-        display: inline-block;
-        width: $width * 0.48;
+                &.active {
+                    font-weight: bold;
+                }
 
-        h3 {
-          text-decoration: underline;
+                img {
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 10px;
+                }
+
+                span {
+                    position: absolute;
+                    margin-top: 5px;
+                }
+            }
         }
 
-        .img-centerer {
-          width: 100%;
-          text-align: center;
-          /*margin: 0 auto;*/
+        .content {
+            overflow-y: auto;
 
-          img {
-            /*vertical-align: middle;*/
-            max-width: 100%;
-            max-height: 200px;
-            display: inline-block;
-          }
+            padding-left: 30px;
+
+            width: $width - $nav-width - 30px;
+            height: 390px;
+
+            .title {
+                margin-bottom: 15px;
+                text-decoration: underline;
+            }
+
+            img {
+                margin-right: 20px;
+                max-width: 200px;
+            }
         }
-      }
     }
-  }
+
+    .help-btn-row {
+        position: absolute;
+        bottom: 20px;
+        /* width: 100%; */
+        text-align: center;
+        right: 21px;
+    }
 }

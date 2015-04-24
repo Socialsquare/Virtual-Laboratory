@@ -310,7 +310,8 @@
         "common.more_info": "Mere information",
         "common.sequence": "Sekvens",
         "common.info": "Information",
-        "common.help": "Hjælp"
+        "common.help": "Hjælp",
+        "common.goto": "Gå til"
     },
 
     "en": {
@@ -579,6 +580,7 @@
         "common.more_info": "Mere information",
         "common.sequence": "Sekvens",
         "common.info": "Information",
-        "common.help": "Hjælp"
+        "common.help": "Hjælp",
+        "common.goto": "Go to"
     }
 }

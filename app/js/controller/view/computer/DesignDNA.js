@@ -11,7 +11,7 @@ define([
     'service/DNA',
     'utils/utils'
 
-], function (ko, _, BaseComputer, popupController, GeneModel, TubeModel, DNAService, utils) {
+], function (ko, _, BaseComputer, popupController, GeneModel, TubeModel, dnaService, utils) {
 
     var DesignDNA = BaseComputer.extend({
 
@@ -19,7 +19,7 @@ define([
             var self = this;
             self.base('computer-design-dna', 'computer.screen.dna');
 
-            self.dnaService = new DNAService();
+            self.dnaService = dnaService;
             self.defaultAvailableDNA = ko.observableArray([]);
             self.dnaSequence = ko.observableArray([]);
 

@@ -13,5 +13,5 @@ define([
         }
     });
 
-    return DNAService;
+    return new DNAService();
 });

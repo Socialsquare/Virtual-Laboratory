@@ -1,0 +1,104 @@
+[
+    {
+        "title": "instruments.inventory.header",
+        "body": "instruments.inventory.body",
+        "image": "assets/images/inventory.jpg",
+        "route": ""
+    },
+    {
+        "title": "instruments.mouse-cage.header",
+        "body": "instruments.mouse-cage.body",
+        "image": "assets/images/mouse-view-info.jpg",
+        "route": "mouse"
+    },
+    {
+        "title": "instruments.spectropm.header",
+        "body": "instruments.spectropm.body",
+        "image": "assets/images/spectropm_view.png",
+        "route": "spectropm"
+    },
+    {
+        "title": "instruments.fumehood.header",
+        "body": "instruments.fumehood.body",
+        "image": "assets/images/overview_base-fumehood.png",
+        "route": "fumehood"
+    },
+    {
+        "title": "instruments.centrifuge.header",
+        "body": "instruments.centrifuge.body",
+        "image": "assets/images/centrifuge.png",
+        "route": "worktable2"
+    },
+    {
+        "title": "instruments.blender.header",
+        "body": "instruments.blender.body",
+        "image": "assets/images/blender.png",
+        "route": "worktable2"
+    },
+    {
+        "title": "instruments.gel-electrophoresis.header",
+        "body": "instruments.gel-electrophoresis.body",
+        "image": "assets/images/gel-electrophoresis.png",
+        "route": "worktable2"
+    },
+    {
+        "title": "instruments.od-machine.header",
+        "body": "instruments.od-machine.body",
+        "image": "assets/images/work2_od-on.png",
+        "route": "worktable2"
+    },
+    {
+        "title": "instruments.microscope.header",
+        "body": "instruments.microscope.body",
+        "image": "assets/images/microscope.png",
+        "route": "worktable1"
+    },
+    {
+        "title": "instruments.electroporator.header",
+        "body": "instruments.electroporator.body",
+        "image": "assets/images/electroporator.png",
+        "route": "worktable1"
+    },
+    {
+        "title": "instruments.heater.header",
+        "body": "instruments.heater.body",
+        "image": "assets/images/heater.png",
+        "route": "worktable1"
+    },
+    {
+        "title": "instruments.bunsen-burner.header",
+        "body": "instruments.bunsen-burner.body",
+        "image": "assets/images/bunsen-burner.png",
+        "route": "worktable1"
+    },
+    {
+        "title": "instruments.incubator.header",
+        "body": "instruments.incubator.body",
+        "image": "assets/images/incubator.png",
+        "route": "incubator"
+    },
+    {
+        "title": "instruments.fermentor.header",
+        "body": "instruments.fermentor.body",
+        "image": "assets/images/fermkroma_base.png",
+        "route": "fermentor"
+    },
+    {
+        "title": "instruments.computer.header",
+        "body": "instruments.computer.body",
+        "image": "assets/images/computer-thumbnail.png",
+        "route": "computer"
+    },
+    {
+        "title": "instruments.uv-room.header",
+        "body": "instruments.uv-room.body",
+        "image": "assets/images/uv_base.png",
+        "route": "uv"
+    },
+    {
+        "title": "instruments.washing-room.header",
+        "body": "instruments.washing-room.body",
+        "image": "assets/images/wash_results.png",
+        "route": "washing"
+    }
+]
