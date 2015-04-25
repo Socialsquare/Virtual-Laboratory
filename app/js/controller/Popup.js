@@ -1,127 +1,96 @@
-define([
-    'knockout',
-    'jquery',
-    'base',
-    'lodash',
-    'model/Popup',
-    'model/Guide',
-    'model/HelpPopup',
-    'utils/TextHelper',
-    'utils/ImageHelper',
-    'controller/Video'
-
-], function (ko, $, Base, _, PopupModel, GuideModel, HelpPopupModel, TextHelper, ImageHelper, VideoController, helpController) {
-
-    var Popup = Base.extend({
-
-        constructor: function () {
-            var self = this;
-
-            self.helpPopupModel = new HelpPopupModel(self);
-
-            self.imageHelper = ImageHelper;
-            self.activeNotifications = ko.observableArray([]);
-            self.activeNotification = ko.computed(function () {
-                return !self.activeNotifications.isEmpty();
+define(["require", "exports", 'knockout', 'jquery', 'lodash', 'model/Popup', 'model/Guide', 'model/HelpPopup', 'utils/ImageHelper', 'controller/Video'], function (require, exports, ko, $, _, PopupModel, GuideModel, HelpPopupModel, ImageHelper, VideoController) {
+    var Popup = (function () {
+        function Popup() {
+            var _this = this;
+            this.helpPopupModel = new HelpPopupModel(this);
+            this.imageHelper = ImageHelper;
+            this.activeNotifications = ko.observableArray([]);
+            this.activeNotification = ko.computed(function () {
+                return !_this.activeNotifications.isEmpty();
             });
-
-            self.activePopups = ko.observableArray([]);
-            self.activePopup = ko.computed(function () {
-                return !self.activePopups.isEmpty();
+            this.activePopups = ko.observableArray([]);
+            this.activePopup = ko.computed(function () {
+                return !_this.activePopups.isEmpty();
             });
-
-            self.show = function (name, viewData, asNotification) {
-                var vm = new PopupModel(name, viewData, self);
-                if (asNotification)
-                    self.activeNotifications.push(vm);
-                else
-                    self.activePopups.push(vm);
-                return vm;
-            };
-
-            self.showGuide = function(experimentController) {
-                var vm = new GuideModel(experimentController, self);
-                self.activePopups.push(vm);
-                return vm;
-            };
-
-            self.hide = function (popup) {
-                self.activePopups.remove(popup);
-                self.activeNotifications.remove(popup);
-            };
-
-            self.kvInfo = function (info) {
-                self.show('popup-kv-info', { info: info });
-            };
-
-            self.dnaInfo = function (dna) {
-                self.show('popup-dna-info', { dna: dna });
-            };
-
-            self.message = function (title, message) {
-                self.show('popup-message', { title: title, message: message });
-            };
-
-            self.microtiterCloseUp = function(microtiter) {
-
-                self.show('popup-microtiter', microtiter);
-            };
-
-            self.dataExport = function (data) {
-                self.show('popup-data-export', { csvData: data });
-            };
-
-            self.notify = function(title, message, closingTime) {
-                var delay = closingTime || 3000;
-
-                var vm = self.show('popup-notify', { title: title, message: message }, true);
-                _.delay(function () {
-                    self.hide(vm);
-                }, delay);
-            };
-
-            self.itemDetail = function (item) {
-                self.show('popup-item-detail', { item: item });
-            };
-
-            self.confirm = function (title, message) {
-                var promise = $.Deferred();
-                var vm = self.show('popup-dialog', { title: title, message: message, promise: promise });
-                return promise.always(function () {
-                    self.hide(vm);
-                });
-            };
-
-            self.video = function (sequence, controlsRequired) {
-                var videoController = new VideoController();
-                var vm = self.show('popup-video', { videoController: videoController });
-                return videoController.play(sequence, false, controlsRequired).done(function () {
-                    self.hide(vm);
-                });
-            };
-
-            self.select = function (title, message, options) {
-                var selected = ko.observable();
-                var promise = $.Deferred();
-
-                var vm = self.show('popup-select', {
-                    title: title,
-                    message: message,
-                    options: options,
-                    selected: selected,
-                    promise: promise });
-
-                return promise.always(function () {
-                    self.hide(vm);
-                });
-            };
-
-            self.labInfo = function () {
-                self.activePopups.push(self.helpPopupModel);
-                return self.helpPopupModel;
-            };
         }
-    });
-
+        Popup.prototype.show = function (name, viewData, asNotification) {
+            if (viewData === void 0) { viewData = {}; }
+            if (asNotification === void 0) { asNotification = false; }
+            var vm = new PopupModel(name, viewData, this);
+            if (asNotification)
+                this.activeNotifications.push(vm);
+            else
+                this.activePopups.push(vm);
+            return vm;
+        };
+        Popup.prototype.showGuide = function (experimentController) {
+            var vm = new GuideModel(experimentController, this);
+            this.activePopups.push(vm);
+            return vm;
+        };
+        Popup.prototype.hide = function (popup) {
+            this.activePopups.remove(popup);
+            this.activeNotifications.remove(popup);
+        };
+        Popup.prototype.kvInfo = function (info) {
+            this.show('popup-kv-info', { info: info });
+        };
+        Popup.prototype.dnaInfo = function (dna) {
+            this.show('popup-dna-info', { dna: dna });
+        };
+        Popup.prototype.message = function (title, message) {
+            this.show('popup-message', { title: title, message: message });
+        };
+        Popup.prototype.microtiterCloseUp = function (microtiter) {
+            this.show('popup-microtiter', microtiter);
+        };
+        Popup.prototype.dataExport = function (data) {
+            this.show('popup-data-export', { csvData: data });
+        };
+        Popup.prototype.notify = function (title, message, closingTime) {
+            var _this = this;
+            var delay = closingTime || 3000;
+            var vm = this.show('popup-notify', { title: title, message: message }, true);
+            _.delay(function () {
+                _this.hide(vm);
+            }, delay);
+        };
+        Popup.prototype.itemDetail = function (item) {
+            this.show('popup-item-detail', { item: item });
+        };
+        Popup.prototype.confirm = function (title, message) {
+            var _this = this;
+            var promise = $.Deferred();
+            var vm = this.show('popup-dialog', { title: title, message: message, promise: promise });
+            return promise.always(function () {
+                _this.hide(vm);
+            });
+        };
+        Popup.prototype.video = function (sequence, controlsRequired) {
+            var _this = this;
+            var videoController = new VideoController();
+            var vm = this.show('popup-video', { videoController: videoController });
+            return videoController.play(sequence, false, controlsRequired).done(function () {
+                _this.hide(vm);
+            });
+        };
+        Popup.prototype.select = function (title, message, options) {
+            var _this = this;
+            var selected = ko.observable();
+            var promise = $.Deferred();
+            var vm = this.show('popup-select', {
+                title: title,
+                message: message,
+                options: options,
+                selected: selected,
+                promise: promise });
+            return promise.always(function () { return _this.hide(vm); });
+        };
+        Popup.prototype.labInfo = function () {
+            this.activePopups.push(this.helpPopupModel);
+            return this.helpPopupModel;
+        };
+        return Popup;
+    })();
     return new Popup();
 });

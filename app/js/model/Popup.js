@@ -1,30 +1,19 @@
-define([
-    'knockout',
-    'base',
-    'utils/ImageHelper',
-    'utils/TextHelper'
-], function (ko, Base, ImageHelper, TextHelper) {
-
-    var PopupModel = Base.extend({
-
-        constructor: function (templateName, data, popupController) {
-            var self = this;
-
-            self.data = data;
-            self.templateName = templateName;
-            self.ImageHelper = ImageHelper;
-            self.TextHelper = TextHelper;
-            self.popupController = popupController;
-
-            self.hide = function () {
-                self.popupController.hide(self);
-            };
-
-            self.postRender = function() {
-
-            };
+define(["require", "exports", 'utils/ImageHelper', 'utils/TextHelper'], function (require, exports, ImageHelper, TextHelper) {
+    var PopupModel = (function () {
+        function PopupModel(templateName, data, popupController) {
+            this.data = data;
+            this.templateName = templateName;
+            this.ImageHelper = ImageHelper;
+            this.TextHelper = TextHelper;
+            this.popupController = popupController;
         }
-    });
-
+        PopupModel.prototype.hide = function () {
+            this.popupController.hide(this);
+        };
+        PopupModel.prototype.postRender = function () {
+            // noop
+        };
+        return PopupModel;
+    })();
     return PopupModel;
 });

@@ -66,6 +66,7 @@ module.exports = function (grunt) {
                     { expand: true, src: [ 'bower_components/**' ], dest: '<%= dist_root %>' }
                 ]
             },
+
             production: {
                 files: [
                     // data
@@ -93,7 +94,7 @@ module.exports = function (grunt) {
 
         watch: {
             dist: {
-                files: [ 'js/localization.json', 'js/**/*.js', 'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**' ],
+                files: [ 'js/localization.json', 'js/**/*.js', 'js/**/*.ts', 'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**' ],
                 //files: [ 'data/**', 'js/localization.json', 'js/**/*.js', 'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**' ],
                 tasks: [ 'build' ]
             }
@@ -110,6 +111,17 @@ module.exports = function (grunt) {
                     preserveLicenseComments: false,
                     optimize: "uglify2",
                     out: "dist/static/script.js"
+                }
+            }
+        },
+
+        ts: {
+            dist : {
+                src: [ "dist/js/**/*.ts" ],
+                options: {
+                    module: 'amd',
+                    failOnTypeErrors: false
+
                 }
             }
         },
@@ -194,9 +206,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-connect-proxy');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-preprocess');
+    grunt.loadNpmTasks("grunt-ts");
 
     // TODO: enable jshint when smellz is cleaned
-    grunt.registerTask('build', [ 'clean:dist', 'copy:dist', 'assets', 'sass:dist', 'preprocess:dist' ]);
+    grunt.registerTask('build', [ 'clean:dist', 'copy:dist', 'ts:dist', 'assets', 'sass:dist', 'preprocess:dist' ]);
 
     grunt.registerTask('production', [ 'setProductionBuild', 'clean:dist', 'copy:production', 'assets', 'requirejs:production', 'sass:dist', 'templateIndex', 'preprocess:dist' ]);
 
