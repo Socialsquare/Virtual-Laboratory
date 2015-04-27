@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    baseUrl: '/base/js',
+    baseUrl: '/base/dist/js',
 
 
     // frameworks to use
@@ -17,7 +17,7 @@ module.exports = function(config) {
     files: [
       'test-main.js',
       { pattern: 'test/**/*Spec.js', included: false },
-      { pattern: 'js/**/*.js', included: false },
+      { pattern: 'dist/js/**/*.js', included: false },
       { pattern: 'bower_components/**/*.js', included: false },
       { pattern: 'data/**', included: false },
       { pattern: 'test-data/**', included: false }

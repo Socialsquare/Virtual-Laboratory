@@ -8,30 +8,30 @@ var pathToModule = function(path) {
 Object.keys(window.__karma__.files).forEach(function(file) {
     if (TEST_REGEXP.test(file)) {
         // Normalize paths to RequireJS module names.
-        allTestFiles.push('../' + pathToModule(file));
+        allTestFiles.push('../../' + pathToModule(file));
     }
 });
 
 require.config({
     // Karma serves files under /base, which is the basePath from your config file
     paths: {
-        jquery: '../bower_components/jquery/dist/jquery',
-        jqueryui: '../bower_components/jquery-ui/jquery-ui',
-        flot: '../bower_components/jquery-flot/jquery.flot',
-        html5Loader: '../bower_components/jquery.html5loader/src/jquery.html5Loader',
-        lodash: '../bower_components/lodash/dist/lodash.compat',
-        knockout: '../bower_components/knockout/dist/knockout.debug',
-        mapping: '../bower_components/knockout-mapping/knockout.mapping',
-        jqueryuitouchpunch: '../bower_components/jqueryui-touch-punch/jquery.ui.touch-punch',
-        fastclick: '../bower_components/fastclick/lib/fastclick',
-        screenfull: '../bower_components/screenfull/dist/screenfull',
-        text: '../bower_components/requirejs-text/text',
-        json: '../bower_components/requirejs-plugins/src/json',
+        jquery: '../../bower_components/jquery/dist/jquery',
+        jqueryui: '../../bower_components/jquery-ui/jquery-ui',
+        flot: '../../bower_components/jquery-flot/jquery.flot',
+        html5Loader: '../../bower_components/jquery.html5loader/src/jquery.html5Loader',
+        lodash: '../../bower_components/lodash/dist/lodash.compat',
+        knockout: '../../bower_components/knockout/dist/knockout.debug',
+        mapping: '../../bower_components/knockout-mapping/knockout.mapping',
+        jqueryuitouchpunch: '../../bower_components/jqueryui-touch-punch/jquery.ui.touch-punch',
+        fastclick: '../../bower_components/fastclick/lib/fastclick',
+        screenfull: '../../bower_components/screenfull/dist/screenfull',
+        text: '../../bower_components/requirejs-text/text',
+        json: '../../bower_components/requirejs-plugins/src/json',
 
         base: 'libs/Base',
 
-        datadir: '../data',
-        testdatadir: '../test-data'
+        datadir: '../../data',
+        testdatadir: '../../test-data'
     },
     shim: {
         'html5Loader': ['jquery'],
@@ -42,7 +42,7 @@ require.config({
         'base': { exports: 'Base' }
     },
 
-    baseUrl: '/base/js',
+    baseUrl: '/base/dist/js',
 
     // dynamically load all test files
     deps: allTestFiles,

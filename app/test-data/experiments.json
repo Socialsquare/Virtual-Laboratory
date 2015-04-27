@@ -1,0 +1,32 @@
+[
+    {
+        "title": { "dk": "Test experiment 1" },
+        "description": { "dk": "Foo" },
+        "story": { "dk": "Bar" },
+        "tasks": [
+            {
+                "description": { "dk": "Task 1" },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.DEADLY" },
+                        { "type": "LiquidType.INSULIN" }
+                    ]
+                }
+            },
+            {
+                "description": { "dk": "Task 2" },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "item": "ContainerType.TUBE",
+                    "strict": true,
+                    "liquids": [
+                        { "type": "LiquidType.DEADLY" },
+                        { "type": "LiquidType.INSULIN" }
+                    ]
+                }
+            }
+        ]
+    }
+]
