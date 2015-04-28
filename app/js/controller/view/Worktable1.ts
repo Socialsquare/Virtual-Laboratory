@@ -10,9 +10,18 @@ import ActivationType = require('model/type/Activation');
 import SimpleContainerController = require('controller/SimpleContainer');
 import CompositeContainerController = require('controller/CompositeContainer');
 
+import Worktable1Model = require('model/Worktable1');
+
 import QuizHelper = require('utils/QuizHelper');
 
 class Worktable1 extends BaseViewController {
+
+    public worktable1: Worktable1Model;
+    public tableSpacePetriController: CompositeContainerController;
+    public tableSpaceMicroController: CompositeContainerController;
+    public tubeRackController: CompositeContainerController;
+    public heaterController: CompositeContainerController;
+    public electroporatorController: SimpleContainerController;
 
     constructor() {
         super('worktable1');

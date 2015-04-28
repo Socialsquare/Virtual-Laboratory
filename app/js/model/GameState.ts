@@ -26,6 +26,7 @@ class GameState {
 
     public inventory: Inventory;
 
+    // Global items
     public mouse: KnockoutObservable<MouseModel>;
     public pipette: PipetteModel;
 
@@ -43,10 +44,12 @@ class GameState {
 
     constructor() {
         this.activeComputerScreen = ko.observable(ComputerScreenType.MENU);
-        this.mouse = ko.observable(new MouseModel(MouseType.HEALTHY, MouseBloodType.NORMAL));
         this.sequencedDNA = ko.observableArray([]);
+
         this.inventory = new Inventory();
+
         this.pipette = new PipetteModel();
+        this.mouse = ko.observable(new MouseModel(MouseType.HEALTHY, MouseBloodType.NORMAL));
 
         this.askTutorial = ko.observable(false); //TODO: set to true
 

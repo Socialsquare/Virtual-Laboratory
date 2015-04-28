@@ -2,7 +2,14 @@ import ko = require(    'knockout');
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
 
+import IncubatorModel = require('model/Incubator');
+
 class IncubatorController extends BaseViewController {
+
+    public incubator: IncubatorModel;
+
+    public tubeRackController: CompositeContainerController;
+    public petriSpaceController: CompositeContainerController;
 
     constructor() {
         super('incubator');

@@ -1,8 +1,15 @@
 import ko = require('knockout');
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
+import FumehoodModel = require('model/Fumehood');
 
 class Fumehood extends BaseViewController {
+
+    public fumehood: FumehoodModel;
+
+    public tableSpacePetriController: CompositeContainerController;
+    public tableSpaceMicroController: CompositeContainerController;
+    public tubeRackController: CompositeContainerController;
 
     constructor() {
 
