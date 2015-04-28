@@ -2,6 +2,8 @@ import ko = require('knockout');
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
 
+import ActivationType = require('model/type/Activation');
+
 class Washing extends BaseViewController {
 
     constructor() {
@@ -62,7 +64,7 @@ class Washing extends BaseViewController {
 
                 if (res.feedback) this.popupController.notify('common.result', res.feedback);
 
-                this.experimentController.triggerActivation(this.ActivationType.WASHING, this.washing,
+                this.experimentController.triggerActivation(ActivationType.WASHING, this.washing,
                                                             { concentration: selectedObject.concentration });
             });
     }

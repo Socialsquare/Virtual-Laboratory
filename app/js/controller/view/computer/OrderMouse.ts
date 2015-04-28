@@ -8,6 +8,7 @@ import MouseModel = require('model/Mouse');
 import MouseType = require('model/type/Mouse');
 import MouseBloodType = require('model/type/MouseBlood');
 import ComputerScreenType = require('model/type/ComputerScreen');
+import ActivationType = require('model/type/Activation');
 
 import utils = require('utils/utils');
 
@@ -41,7 +42,7 @@ class OrderMouse extends BaseComputer {
 
                 this.changeScreen(this.Screens.MENU);
 
-                this.experimentController.triggerActivation(this.ActivationType.COMPUTER_ORDER_MOUSE, mouse);
+                this.experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_MOUSE, mouse);
             });
     }
 }

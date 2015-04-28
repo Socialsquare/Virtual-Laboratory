@@ -1,8 +1,6 @@
 import ko = require('knockout');
-import Base = require('base');
 
 import gameState = require('model/GameState');
-import ActivationType = require('model/type/Activation');
 
 import router = require('controller/Router');
 import popupController = require('controller/Popup');
@@ -30,11 +28,14 @@ class Base {
     public liquidFactory = LiquidFactory;
     public containerFactory = ContainerFactory;
     public specialItemFactory = SpecialItemFactory;
-    public ActivationType = ActivationType;
 
-    constructor(templateName) {
+    public templateName: string;
+    public hasMenu: KnockoutObservable<boolean>;
+    public shouldHidePipette: KnockoutObservable<boolean>;
 
+    constructor(templateName: string) {
         this.templateName = templateName;
+
         this.hasMenu = ko.observable(true);
         // false = CAN show pipette.
         this.shouldHidePipette = ko.observable(false);

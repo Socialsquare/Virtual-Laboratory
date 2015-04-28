@@ -1,7 +1,10 @@
 import ko = require(    'knockout');
 import _ = require('lodash');
+
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
+
+import ActivationType = require('model/type/Activation');
 import SpecialItemType = require('model/type/SpecialItem');
 
 
@@ -38,7 +41,7 @@ class Worktable2 extends BaseViewController {
 
             this.worktable2.blender.status(false);
 
-            this.experimentController.triggerActivation(this.ActivationType.BLENDER, item);
+            this.experimentController.triggerActivation(ActivationType.BLENDER, item);
         }, 1500);
     }
 }

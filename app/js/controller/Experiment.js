@@ -134,7 +134,7 @@ define([
                     if (!self.matchLiquids(trigger, item.microSlot.get(0))) return;
 
                     var activationSubtype = trigger.activationSubtype;
-                    if(!!activationSubtype) {
+                    if (!!activationSubtype) {
                         switch(activationSubtype.liquidType) {
                             case LiquidType.DESIGNED_DRUG:
 
@@ -145,7 +145,7 @@ define([
                                 if (!theDrug) return;
 
                                 var affinityScore = theDrug.getAffinityScore() - 8; //8 is a magic number from view/SpectroPM.js
-                                if('maxIc50' in activationSubtype && !(affinityScore < activationSubtype.maxIc50 ))
+                                if ('maxIc50' in activationSubtype && !(affinityScore < activationSubtype.maxIc50 ))
                                     return;
 
                                 break;

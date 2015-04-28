@@ -8,6 +8,8 @@ import drugService = require('service/Drug');
 
 import ContainerFactory = require('factory/Container');
 
+import ActivationType = require('model/type/Activation');
+
 import gameState = require('model/GameState');
 
 import utils = require('utils/utils');
@@ -80,7 +82,7 @@ class DesignDrug extends BaseComputer {
 
                 this.selectedScaffold(this.getEmptyScaffold());
 
-                this.experimentController.triggerActivation(this.ActivationType.COMPUTER_ORDER_DRUG, drugTube);
+                this.experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_DRUG, drugTube);
             });
     }
 }

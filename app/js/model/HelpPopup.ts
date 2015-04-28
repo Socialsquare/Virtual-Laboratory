@@ -1,7 +1,6 @@
 import ko = require('knockout');
 import $ = require('jquery');
 import _ = require('lodash');
-import Base = require('base');
 
 import router = require('controller/Router');
 

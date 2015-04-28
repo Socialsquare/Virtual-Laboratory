@@ -5,8 +5,11 @@ import popupController = require('controller/Popup');
 
 import gameState = require('model/GameState');
 import DNAElementModel = require('model/DNAElement');
+
 import LiquidType = require('model/type/Liquid');
 import MicroorganismType = require('model/type/Microorganism');
+import ActivationType = require('model/type/Activation');
+
 import LocalizationService = require('service/Localization');
 
 class Sequencing extends BaseComputer {
@@ -98,7 +101,7 @@ class Sequencing extends BaseComputer {
             this.gameState.sequencedDNA.push(dna);
         }
 
-        this.experimentController.triggerActivation(this.ActivationType.COMPUTER_ORDER_SEQUENCE, dna);
+        this.experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_SEQUENCE, dna);
     }
 
     public createDNAElement = (type) => {

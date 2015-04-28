@@ -117,11 +117,11 @@ module.exports = function (grunt) {
 
         ts: {
             dist : {
-                src: [ "dist/js/**/*.ts" ],
+                src: [ "typings/tsd.d.ts", "dist/js/**/*.ts" ],
                 options: {
                     module: 'amd',
-                    failOnTypeErrors: false
-
+                    failOnTypeErrors: false,
+                    sourceMaps: true
                 }
             }
         },

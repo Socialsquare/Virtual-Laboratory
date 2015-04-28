@@ -13,7 +13,6 @@ class BaseComputer extends BaseViewController {
 
         this.computer = this.gameState.computer;
         this.experimentController = experimentController;
-        this.ActivationType = ActivationType;
         this.Screens = ComputerScreenType;
 
         this.templateName = ko.observable(templateName);

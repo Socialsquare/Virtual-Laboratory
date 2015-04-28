@@ -1,13 +1,24 @@
 import ko = require('knockout');
 import _ = require('lodash');
+
 import ProducedEnzymeModel = require('model/ProducedEnzyme');
+
 import LiquidType = require('model/type/Liquid');
 import GrowerType = require('model/type/Grower');
 import PCSType = require('model/type/ProteinCodingSequence');
+import LocationType = require('model/type/Location');
 
 import experimentController = require('controller/Experiment');
 
 class SimpleContainer {
+
+    public type: KnockoutObservable<any>;
+    public subtype: KnockoutObservable<any>;
+    public maxConcentration: KnockoutObservable<number>;
+    public liquids: KnockoutObservableArray<any>;
+    public label: KnockoutObservable<string>;
+    public acquired: KnockoutObservable<boolean>;
+    public location: KnockoutObservable<LocationType>;
 
     constructor(type, maxConcentration) {
 

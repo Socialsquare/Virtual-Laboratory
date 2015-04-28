@@ -176,7 +176,7 @@ define([
                                     microtiter.microtiterWells().clearWellsAntibodies();
                                     microtiter.microtiterWells().clearWellsSecondaryAntibodies(false);
 
-                                }else {
+                                } else {
                                     //Let the wells of the microtiter plate keep their antibodies, and 2ndary, but ONLY if it has antibodies!
                                     microtiter.microtiterWells().clearWellsSecondaryAntibodies(true);
 
@@ -196,7 +196,7 @@ define([
                 console.log('TODO: remove. ItemType: '+item.type()+', ItemLocation: '+item.location()+', Total concentration in item #'+ index +': ' + item.getTotalConcentration());
 
                 if (item.type() !== ContainerType.MICROTITER)
-                { return; }
+                    return;
 
                 self.popupController.microtiterCloseUp(item);
             };

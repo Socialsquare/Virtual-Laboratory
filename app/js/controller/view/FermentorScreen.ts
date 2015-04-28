@@ -8,11 +8,21 @@ import LocalizationService = require('service/Localization');
 
 import LiquidFactory = require('factory/Liquid');
 import TubeModel = require('model/Tube');
+
 import LiquidType  = require('model/type/Liquid');
+import ActivationType = require('model/type/Activation');
 
 
 class FermentorScreen extends BaseViewController {
     //TODO: make and use a microorganism attribute "hasBeenInHighConcentration". Only organisms that fulfill this will grow in the fermentor
+
+    public plotData: KnockoutObservable<any>;
+    public graphTimer: KnockoutObservable<number>;
+    public turnedOn: KnockoutObservable<boolean>;
+
+    public turnedOn: KnockoutComputed<boolean>;
+    public activateButtonText: KnockoutComputed<string>;
+    public activateButtonColor: KnockoutComputed<string>;
 
     constructor() {
         super('fermentorscreen');
@@ -69,7 +79,7 @@ class FermentorScreen extends BaseViewController {
         this.turnedOn(true);
         this.fermentor.fermentorTank.hasRun(true);
 
-        this.experimentController.triggerActivation(this.ActivationType.FERMENTOR, this.fermentor);
+        this.experimentController.triggerActivation(ActivationType.FERMENTOR, this.fermentor);
     }
 
     public endFermentation = () => {

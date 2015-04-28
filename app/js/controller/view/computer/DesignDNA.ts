@@ -7,6 +7,8 @@ import popupController = require('controller/Popup');
 import GeneModel = require('model/Gene');
 import TubeModel = require('model/Tube');
 
+import ActivationType = require('model/type/Activation');
+
 import dnaService = require('service/DNA');
 import utils = require('utils/utils');
 
@@ -87,7 +89,7 @@ class DesignDNA extends BaseComputer {
 
         this.changeScreen(this.Screens.MENU);
 
-        this.experimentController.triggerActivation(this.ActivationType.COMPUTER_ORDER_DNA, tube);
+        this.experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_DNA, tube);
     }
 }
 

@@ -1,15 +1,25 @@
 import ko = require('knockout');
 import utils = require('utils/utils');
+
 import LocalizationService = require('service/Localization');
 import SimpleContainerModel = require('model/SimpleContainer');
 import MicrotiterWellsModel = require('model/MicrotiterWells');
 import TubeModel = require('model/Tube');
+
 import ContainerType = require('model/type/Container');
 import AntigenCoatingType = require('model/type/AntigenCoating');
 
+import popupController = require('controller/Popup');
+import gameState = require('model/GameState');
+
 class Microtiterplate extends SimpleContainerModel {
 
+    public antigenCoating: AntigenCoatingType;
+    public microtiterWells: KnockoutObservable<MicrotiterWellsModel>;
+    public subtype: AntigenCoatingType;
+
     constructor(antigenCoatingType) {
+
         super(ContainerType.MICROTITER, Math.pow(10, 12));
 
         this.antigenCoating = ko.observable(antigenCoatingType || AntigenCoatingType.NONE);
@@ -24,7 +34,7 @@ class Microtiterplate extends SimpleContainerModel {
         return this.microtiterWells().isWellFluorescent(index);
     }
 
-    public extractWellContents = (inventory, hideMicrotiter, popupController, wellIndex) => {
+    public extractWellContents = (hideMicrotiter, wellIndex) => {
 
         popupController.confirm('microtiter.extract_well.header', 'microtiter.extract_well.body')
             .then(() => {
@@ -43,7 +53,7 @@ class Microtiterplate extends SimpleContainerModel {
 
                 tube.well = clonedWell;
 
-                inventory.add(tube, LocalizationService.text('microtiter.acquired_tube.label'));
+                gameState.inventory.add(tube, LocalizationService.text('microtiter.acquired_tube.label'));
 
                 hideMicrotiter();
             });

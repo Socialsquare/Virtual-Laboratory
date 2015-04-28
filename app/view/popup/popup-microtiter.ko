@@ -8,9 +8,7 @@
         <li data-bind="css: 'well-slot' + $index()">
             <img class="hand" data-bind="attr: { src: $parents[1].popupController.imageHelper.microtiterWell($index(), $parent) },
             click: function(){ $parent.extractWellContents(
-                                                     $parents[3].gameState.inventory,
                                                      $parents[1].hide,
-                                                     $parents[1].popupController,
                                                      $index()); }">
         </li>
     </ul>

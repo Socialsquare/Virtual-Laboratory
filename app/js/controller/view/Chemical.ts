@@ -1,5 +1,4 @@
 import ko = require('knockout');
-import $ = require('jquery');
 import _ = require('lodash');
 
 import BaseViewController = require('controller/view/Base');
@@ -21,9 +20,9 @@ import utils = require('utils/utils');
 
 class Chemical extends BaseViewController {
 
-    public closetItems = ko.observableArray([]);
-    public drawerItems = ko.observableArray([]);
-    public fridgeItems = ko.observableArray([]);
+    public closetItems: KnockoutObservableArray<ChemicalItemMdeol> = ko.observableArray([]);
+    public drawerItems: KnockoutObservableArray<ChemicalItemMdeol> = ko.observableArray([]);
+    public fridgeItems: KnockoutObservableArray<ChemicalItemMdeol> = ko.observableArray([]);
 
     // TODO: remove app dep and use ko.postbox or similar
     constructor() {
@@ -83,7 +82,7 @@ class Chemical extends BaseViewController {
     }
 
     public itemTaken = (item) => {
-        //this.experimentController.triggerActivation(this.ActivationType.SUPPLY, item);
+        //this.experimentController.triggerActivation(ActivationType.SUPPLY, item);
     }
 
     public showList = (name) => {

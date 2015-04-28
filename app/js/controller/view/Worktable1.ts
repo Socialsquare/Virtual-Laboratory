@@ -1,9 +1,11 @@
 import ko = require('knockout');
 import _ = require('lodash');
-import $ = require('jquery');
+
 import BaseViewController = require('controller/view/Base');
+
 import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
+import ActivationType = require('model/type/Activation');
 
 import SimpleContainerController = require('controller/SimpleContainer');
 import CompositeContainerController = require('controller/CompositeContainer');
@@ -44,12 +46,12 @@ class Worktable1 extends BaseViewController {
 
     public toggleBunsen = () => {
         this.worktable1.bunsenBurner.toggle();
-        this.experimentController.triggerActivation(this.ActivationType.BUNSEN, this.worktable1.bunsenBurner());
+        this.experimentController.triggerActivation(ActivationType.BUNSEN, this.worktable1.bunsenBurner());
     }
 
     public toggleHeater = () => {
         this.worktable1.heater.status.toggle();
-        this.experimentController.triggerActivation(this.ActivationType.HEATER, this.worktable1.heater);
+        this.experimentController.triggerActivation(ActivationType.HEATER, this.worktable1.heater);
     }
 
     public activateElectroporator = () => {
@@ -77,7 +79,7 @@ class Worktable1 extends BaseViewController {
 
 
         this.worktable1.electroporator.activate();
-        this.experimentController.triggerActivation(this.ActivationType.ELECTROPORATOR, this.worktable1.electroporator);
+        this.experimentController.triggerActivation(ActivationType.ELECTROPORATOR, this.worktable1.electroporator);
 
 
     }
