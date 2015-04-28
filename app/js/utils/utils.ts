@@ -4,22 +4,20 @@ import mapping = require('knockout.mapping');
 import LiquidType = require('model/type/Liquid');
 import LiquidModel = require('model/Liquid');
 
-export = {
+class Utils {
     // Clone a knockout object by making it a plain object and
     // mapping it back to observables
-    klone: (obj: any) => {
+    static klone = (obj: any) => {
         return mapping.fromJS(ko.toJS(obj));
-    },
+    };
 
-    biology: {
+    static biology = {
         dilute: (factor: number, liquids: LiquidModel[]) => {
             var clones: LiquidModel[] = _.invoke(liquids, 'clone');
 
             _.each(clones, (liquid) => {
                 if (liquid.type() === LiquidType.MICROORGANISM)
                     liquid.concentration(liquid.concentration() / factor);
-
-                return liquid;
             });
 
             // Remove organisms whose concentration is below 1.
@@ -32,9 +30,9 @@ export = {
 
             return clones;
         }
-    },
+    };
 
-    math: {
+    static math = {
         getBaseLog: (base, num) => {
             return Math.log(num) / Math.log(base);
         },
@@ -47,13 +45,15 @@ export = {
         getConcentrationFromBiomass: (biomass) => {
             return biomass * Math.pow(10, 12);
         }
-    },
+    };
 
-    formatter: {
+    static formatter = {
         leadingZeros: (num, size) => {
             var s = num+"";
             while (s.length < size) s = "0" + s;
             return s;
         }
-    }
-};
+    };
+}
+
+export = Utils;

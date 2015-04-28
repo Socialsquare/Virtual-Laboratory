@@ -6,7 +6,7 @@ define([
     'model/type/MouseBlood',
     'model/type/Mouse',
     'model/type/Liquid',
-    'json!../../data/heartRate.json'
+    'json!datadir/heartRate.json'
 ], function (ko, Base, _, SpleenModel, MouseBloodType, MouseType, LiquidType, heartRateData) {
 
     var Mouse = Base.extend({

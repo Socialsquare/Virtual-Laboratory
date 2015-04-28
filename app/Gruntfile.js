@@ -20,12 +20,8 @@ module.exports = function (grunt) {
             /*dist: '<%= dist_root %>'*/
             dist: {
                 files: [
-                    // experiments
-                    { expand: true, src: [ '<%= dist_root %>'+'/data/experiments.json' ]},
-                    // localization
-                    { expand: true, src: [ '<%= dist_root %>'+'/data/localization.json' ]},
-                    // help entries
-                    { expand: true, src: [ '<%= dist_root %>'+'/data/help.json' ]},
+                    // static data files
+                    { expand: true, src: [ '<%= dist_root %>'+'/data/*.json' ]},
                     // js
                     { expand: true, src: [ '<%= dist_root %>'+'/js/**' ]},
                     // views
@@ -44,14 +40,8 @@ module.exports = function (grunt) {
             dist: {
 
                 files: [
-                    // data // assets //TODO: uncomment
-                    //{ expand: true, src: [ 'data/**' ], dest: '<%= dist_root %>' },
-                    // experiments //TODO: remove
-                    { expand: true, src: [ 'data/experiments.json' ], dest: '<%= dist_root %>' },
-                    // localization
-                    { expand: true, src: [ 'data/localization.json' ], dest: '<%= dist_root %>' },
-                    // help entries
-                    { expand: true, src: [ 'data/help.json' ], dest: '<%= dist_root %>' },
+                    // data
+                    { expand: true, src: [ 'data/*.json' ], dest: '<%= dist_root %>' },
                     // js
                     { expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
                     // views
