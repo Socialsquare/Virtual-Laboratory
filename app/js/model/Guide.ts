@@ -5,13 +5,12 @@ import PopupModel = require('model/Popup');
 class GuideModel extends PopupModel {
 
     constructor(experimentController, popupController) {
-        var viewData = {
+        super('popup-guide', {
             experiment: experimentController.activeExperiment(),
             activeTask: experimentController.activeTask()
-        };
+        }, popupController);
 
         this.experimentController = experimentController;
-        super('popup-guide', viewData, popupController);
     }
 
     public postRender = () => {
