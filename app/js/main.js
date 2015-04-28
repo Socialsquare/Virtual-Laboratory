@@ -10,6 +10,7 @@ require.config({
         lodash: '../bower_components/lodash/dist/lodash.compat',
         knockout: '../bower_components/knockout/dist/knockout.debug',
         mapping: '../bower_components/knockout-mapping/knockout.mapping',
+        'knockout.mapping': '../bower_components/knockout-mapping/knockout.mapping',
         jqueryuitouchpunch: '../bower_components/jqueryui-touch-punch/jquery.ui.touch-punch',
         fastclick: '../bower_components/fastclick/lib/fastclick',
         screenfull: '../bower_components/screenfull/dist/screenfull',

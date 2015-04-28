@@ -1,5 +1,5 @@
 import ko = require('knockout');
-import mapping = require('mapping');
+import mapping = require('knockout.mapping');
 import _ = require('lodash');
 
 import BaseViewController = require('controller/view/Base');
