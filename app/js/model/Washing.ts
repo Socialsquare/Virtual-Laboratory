@@ -10,7 +10,7 @@ import LocationType = require('model/type/Location');
 import utils = require('utils/utils');
 
 
-class Washing extends Base {
+class Washing {
 
     public washingTank: WashingTankModel;
     public tubeRack: TubeRackModel;

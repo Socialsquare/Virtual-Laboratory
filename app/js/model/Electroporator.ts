@@ -6,6 +6,10 @@ import OrganismPropertyModel = require('model/OrganismProperty');
 import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
 import DNAType = require('model/type/DNA');
+import DNAElementModel = require('model/DNAElement');
+
+// Helper type
+type DNAList = DNAElementModel[];
 
 class Electroporator extends SimpleContainerModel {
 
@@ -76,7 +80,6 @@ class Electroporator extends SimpleContainerModel {
         // newProperties are the OrganismProperties to add to the organisms
 
         // Er der 1 eller flere promotere i genet?
-        var MRNAs = [];
         var promoterPositions = gene.getPromoterPositions();
         var promLen = promoterPositions.length;
         if(promLen <= 0) {
@@ -98,7 +101,7 @@ class Electroporator extends SimpleContainerModel {
             return returnObject;
         }
 
-        MRNAs = gene.getMRNAs(promoterPositions, terminatorPositions);
+        var MRNAs = gene.getMRNAs(promoterPositions, terminatorPositions);
 
 
 
@@ -127,12 +130,12 @@ class Electroporator extends SimpleContainerModel {
         });
     }
 
-    public examineMRNAandGetNewProperties = (mRNA) => {
+    public examineMRNAandGetNewProperties = (mRNA: DNAList) => {
 
-        var values = {firstError: Infinity, newProperties: []};
+        var values = { firstError: Infinity, newProperties: [] };
         var subMRNAs = [];
 
-        var promoterPositions = [];
+        var promoterPositions: number[] = [];
         _.each(mRNA, (dna, index) => {
             if(dna.DNAType() === DNAType.PROMOTER) {
                 promoterPositions.push(index);

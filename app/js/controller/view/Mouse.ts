@@ -1,6 +1,7 @@
 import ko = require('knockout');
 import $ = require('jquery');
 import _ = require('lodash');
+
 import utils = require('utils/utils');
 import DataHelper = require('utils/DataHelper');
 import DropOnMouseHelper = require('utils/mouse/DropOnMouseHelper');
@@ -10,6 +11,7 @@ import VideoController = require('controller/Video');
 
 import MouseModel = require('model/Mouse');
 import SpleenModel = require('model/Spleen');
+import BottleModel = require('model/Bottle');
 
 import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
@@ -22,7 +24,19 @@ import LiquidFactory = require('factory/Liquid');
 
 class MouseController extends BaseViewController {
 
-    public videoController;
+    public videoController: VideoController;
+
+    public mouse: KnockoutObservable<MouseModel>;
+    public mouseDrinking: KnockoutObservable<boolean>;
+
+    public lowBloodSugarWarningToggle: KnockoutObservable<boolean>;
+    public highBloodSugarWarningToggle: KnockoutObservable<boolean>;
+    public diabetesDevelopedToggle: KnockoutObservable<boolean>;
+
+    public plotData: KnockoutObservableArray<any>;
+    public graphTimer: KnockoutObservable<number>;
+
+    public bottle: BottleModel;
 
     constructor() {
 
@@ -188,7 +202,6 @@ class MouseController extends BaseViewController {
     public handleDropOnMouse = (item) => {
         return DropOnMouseHelper.handleDrop(this, item);
     }
-
 }
 
 export = MouseController;

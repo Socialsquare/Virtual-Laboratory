@@ -14,10 +14,10 @@ class Gene extends LiquidModel {
     // TODO! type
     public dnaElements: KnockoutObservableArray<DNAElementModel>;
 
-    constructor(elements) {
+    constructor(elements = []) {
         super(LiquidType.GENE, ReactionCount.NEVER, true);
 
-        this.dnaElements = ko.observableArray(elements || []);
+        this.dnaElements = ko.observableArray(elements);
 
     }
 
@@ -47,12 +47,14 @@ class Gene extends LiquidModel {
 
     // Tested/Validated
     // Corresponding to step 3 in Patrick's flowchart
-    public getMRNAs = (promPoses, termPoses) => { //Extract all "mRNA's" in the gene
-        var postionPairs = []; //starting and end-position in the gene for the mRNA.
-        var mRNAPairs = [];
+    // Extract all "mRNA's" in the gene
+    public getMRNAs = (promPoses: number[], termPoses: number[]) => {
+        //starting and end-position in the gene for the mRNA.
+        var postionPairs: number[][] = [];
+        var mRNAPairs: DNAElementModel[][] = [];
 
         // Extract position-piars
-        while(promPoses.length > 0) {
+        while (promPoses.length > 0) {
             var firstPromoter = promPoses.shift();
 
             //1) nak alle terminals før første promoter.
@@ -76,7 +78,7 @@ class Gene extends LiquidModel {
             var promPos = pair[0];
             var termPos = pair[1];
 
-            var clone = _.filter(this.dnaElements(), (dna, index) => {
+            var clone = _.filter(this.dnaElements(), (dna: DNAElementModel, index: number) => {
                 return index >= promPos && index < termPos;
             });
 
@@ -85,8 +87,6 @@ class Gene extends LiquidModel {
 
         return mRNAPairs;
     }
-
-
 
     public hashCode = () => {
         return this._hashCode() + ":" + _.invoke(this.dnaElements, 'hashCode').join(',');

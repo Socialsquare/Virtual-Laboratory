@@ -27,7 +27,7 @@ class Trigger {
     public liquids: TriggerLiquid[];
     public strict: boolean;
 
-    constructor(values:any) {
+    constructor(values: any) {
         this.type       = S2T.trigger(values.type);
         this.item       = S2T.container(values.item);
         this.activation = S2T.activation(values.activation);

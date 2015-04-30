@@ -5,6 +5,7 @@ import LiquidType = require('model/type/Liquid');
 import SpecialItemType = require('model/type/SpecialItem');
 import LocationType = require('model/type/Location');
 
+
 class ImageHelper {
 
     static imageRoot = 'assets/images';
