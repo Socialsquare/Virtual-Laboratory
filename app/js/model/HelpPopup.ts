@@ -13,8 +13,9 @@ class Help extends PopupModel {
     public selectedEntry;
 
     constructor(popupController) {
-        super('popup-instruments', this, popupController);
+        super('popup-instruments', null, popupController);
 
+        this.data = this;
         this.entries = helpService.getHelpEntries();
         this.selectedEntry = ko.observable(this.entries[0]);
     }

@@ -1,4 +1,6 @@
-export = {
-    A: 'AntibioticType.A',
-    B: 'AntibioticType.B'
+enum Antibiotic {
+    A, // 'AntibioticType.A',
+    B, // 'AntibioticType.B'
 };
+
+export = Antibiotic;

@@ -11,37 +11,41 @@ import ContainerFactory = require('factory/Container');
 import ActivationType = require('model/type/Activation');
 
 import gameState = require('model/GameState');
+import SidegroupModel = require('model/Sidegroup');
+import SidegroupSlotModel = require('model/SidegroupSlot');
+import ScaffoldModel = require('model/Scaffold');
 
 import utils = require('utils/utils');
 
 
 class DesignDrug extends BaseComputer {
 
+    public sidegroups: SidegroupModel[];
+    public selectedScaffold: KnockoutObservable<ScaffoldModel>;
+
     constructor() {
         super('computer-design-drug', 'computer.screen.drug');
 
-        this.drugService = drugService;
         this.sidegroups = drugService.sidegroups;
-        this.popupController = popupController;
 
         this.selectedScaffold = ko.observable(this.getEmptyScaffold());
     }
 
     public getEmptyScaffold = () => {
-        return this.drugService.getScaffold("1");
+        return drugService.getScaffold("1");
     }
 
 
-    public showSidegroupInfo = (sidegroup) => {
+    public showSidegroupInfo = (sidegroup: SidegroupModel) => {
         var popupInfo = {pKa: sidegroup.info.pKa, weight: sidegroup.info.weight};
-        this.popupController.kvInfo(popupInfo);
+        popupController.kvInfo(popupInfo);
     }
 
-    public handleDrop = (slot, group) => {
+    public handleDrop = (slot: SidegroupSlotModel, group: SidegroupModel) => {
         slot.sidegroup(group);
     }
 
-    public slotDraggingHelper = (slot) => {
+    public slotDraggingHelper = (slot: SidegroupSlotModel) => {
         var dragger = $('<div>');
 
         $.get(slot.sidegroup().file(), (data) => {
@@ -54,31 +58,31 @@ class DesignDrug extends BaseComputer {
     }
 
     public getInfo = () => {
-        this.drugService.getDrugInfo(this.selectedScaffold().configurationString())
+        drugService.getDrugInfo(this.selectedScaffold().configurationString())
             .then((info) => {
-                this.popupController.kvInfo(info);
+                popupController.kvInfo(info);
             });
     }
 
     public getHelp = () => {
-        this.popupController.message('computer.screen.drug_design.help.header', 'computer.screen.drug_design.help.body');
+        popupController.message('computer.screen.drug_design.help.header', 'computer.screen.drug_design.help.body');
     }
 
     public order = () => {
         if (_.contains(this.selectedScaffold().configurationString(), 'R')) {
-            this.popupController.message('computer.screen.drug_design.cant_order.header', 'computer.screen.drug_design.cant_order.body');
+            popupController.message('computer.screen.drug_design.cant_order.header', 'computer.screen.drug_design.cant_order.body');
             return;
         }
 
-        this.drugService.getDrugInfo(this.selectedScaffold().configurationString())
+        drugService.getDrugInfo(this.selectedScaffold().configurationString())
             .then((info) => {
                 this.selectedScaffold().drugInfo = info;
 
-                this.selectedScaffold().drugInfo.passes = this.drugService.getDrugPassages(info.logD);
+                this.selectedScaffold().drugInfo.passes = drugService.getDrugPassages(info.logD);
 
                 var drugTube = ContainerFactory.tube().add(this.selectedScaffold().clone(), true);
 
-                this.gameState.inventory.add(drugTube);
+                gameState.inventory.add(drugTube);
 
                 this.selectedScaffold(this.getEmptyScaffold());
 

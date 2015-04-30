@@ -11,7 +11,7 @@ class OrganismProperty extends LiquidModel {
 
     public promoter: KnockoutObservable<any>;
     public proteinCodingSequenceType: KnockoutObservable<PCSType>;
-    public proteinCodingSequence: KnockoutObservable<DNAelement>;
+    public proteinCodingSequence: KnockoutObservable<DNAElementModel>;
 
     constructor(promoter, proteinCodingSequence) {
         super(LiquidType.ORGANISM_PROPERTY, ReactionCount.NEVER, false);

@@ -118,7 +118,7 @@ class CompositeContainerController {
         case ContainerType.PIPETTE:
 
             if (!item.hasTip()) {
-                this.popupController.message('pipette.missing_tip.header', 'pipette.missing_tip.body');
+                popupController.message('pipette.missing_tip.header', 'pipette.missing_tip.body');
 
             } else if (item.getTip().isEmpty()) {
 
@@ -126,50 +126,50 @@ class CompositeContainerController {
                 if (!this.compContainer.get(position).isEmpty()
                    && (item.getTip().contaminatedBy() == null || item.getTip().contaminatedBy() == this.compContainer.get(position))) {
 
-                    this.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
+                    popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
                     item.fillPipette(this.compContainer.get(position));
                 } else {
-                    this.popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
+                    popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
                 }
                 /*
                 //TODO: check if the current container is equal to the "contaminatedBy()" else if "null" just take the stuff
                 if(item.getTip().used())  {
-                this.popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
+                popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
                 } else if (! this.compContainer.get(position).isEmpty()) {
                 item.fillPipette(this.compContainer.get(position));
-                this.popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
+                popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
                 }*/
             } else {
                 item.emptyPipetteInto(this.compContainer.get(position));
-                this.popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
+                popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
             }
             break;
 
         case ContainerType.SYRINGE:
             if (item.isEmpty()) {
                 item.fillSyringe(this.compContainer.get(position));
-                this.popupController.notify('syringe.filled.header', 'syringe.filled.body', 2000);
+                popupController.notify('syringe.filled.header', 'syringe.filled.body', 2000);
                 return false;
             } else {
                 item.emptySyringeInto(this.compContainer.get(position));
-                this.popupController.notify('syringe.emptied.header', 'syringe.emptied.body', 2000);
+                popupController.notify('syringe.emptied.header', 'syringe.emptied.body', 2000);
                 return true;
             }
             break;
 
         case SpecialItemType.WASH_BOTTLE:
             this.compContainer.get(position).add(LiquidFactory.saltWater());
-            this.popupController.notify('wash_bottle.diluted.header', 'wash_bottle.diluted.body', 2000);
+            popupController.notify('wash_bottle.diluted.header', 'wash_bottle.diluted.body', 2000);
             return false;
             break;
 
         case SpecialItemType.BUFFER:
             switch(this.compContainer.get(position).type()) {
             case ContainerType.TUBE:
-                this.popupController.notify('buffer_tube.header', 'buffer_tube.body');
+                popupController.notify('buffer_tube.header', 'buffer_tube.body');
                 break;
             case ContainerType.PETRI_DISH:
-                this.popupController.notify('buffer_petri.header', 'buffer_petri.body');
+                popupController.notify('buffer_petri.header', 'buffer_petri.body');
                 break;
             case ContainerType.MICROTITER:
                 var microtiter = this.compContainer.get(position);
@@ -201,7 +201,7 @@ class CompositeContainerController {
         if (item.type() !== ContainerType.MICROTITER)
             return;
 
-        this.popupController.microtiterCloseUp(item);
+        popupController.microtiterCloseUp(item);
     }
 }
 

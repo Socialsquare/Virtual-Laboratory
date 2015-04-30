@@ -1,4 +1,6 @@
-export = {
-    ANY: 'AntigenCoatingType.ANY',
-    NONE: 'AntigenCoatingType.NONE'
+enum AntigenCoating {
+    ANY, // 'AntigenCoatingType.ANY',
+    NONE, // 'AntigenCoatingType.NONE'
 };
+
+export = AntigenCoating;

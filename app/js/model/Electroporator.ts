@@ -8,6 +8,7 @@ import LiquidType = require('model/type/Liquid');
 import DNAType = require('model/type/DNA');
 
 class Electroporator extends SimpleContainerModel {
+
     constructor() {
         super(ContainerType.ELECTROPORATOR, Math.pow(10, 13));
 
@@ -132,7 +133,7 @@ class Electroporator extends SimpleContainerModel {
         var subMRNAs = [];
 
         var promoterPositions = [];
-        _.each(mRNA,(dna, index) => {
+        _.each(mRNA, (dna, index) => {
             if(dna.DNAType() === DNAType.PROMOTER) {
                 promoterPositions.push(index);
             }

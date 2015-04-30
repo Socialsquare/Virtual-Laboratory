@@ -1,6 +1,9 @@
 import ko = require('knockout');
 import _ = require('lodash');
+
 import LiquidModel = require('model/Liquid');
+import DNAElementModel = require('model/DNAElement');
+
 import LiquidType = require('model/type/Liquid');
 import DNAType = require('model/type/DNA');
 import ReactionCount = require('model/ReactionCount');
@@ -9,7 +12,7 @@ import ReactionCount = require('model/ReactionCount');
 class Gene extends LiquidModel {
 
     // TODO! type
-    public dnaElements: KnockoutObservableArray<any>;
+    public dnaElements: KnockoutObservableArray<DNAElementModel>;
 
     constructor(elements) {
         super(LiquidType.GENE, ReactionCount.NEVER, true);

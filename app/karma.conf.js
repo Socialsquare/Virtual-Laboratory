@@ -2,71 +2,84 @@
 // Generated on Tue Jul 08 2014 23:06:01 GMT+0200 (CEST)
 
 module.exports = function(config) {
-  config.set({
+    config.set({
 
-    // base path that will be used to resolve all patterns (eg. files, exclude)
-    baseUrl: '/base/dist/js',
-
-
-    // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'requirejs'],
+        // base path that will be used to resolve all patterns (eg. files, exclude)
+        baseUrl: '/base/dist/js',
 
 
-    // list of files / patterns to load in the browser
-    files: [
-      'test-main.js',
-      { pattern: 'test/**/*Spec.js', included: false },
-      { pattern: 'dist/js/**/*.js', included: false },
-      { pattern: 'bower_components/**/*.js', included: false },
-      { pattern: 'data/**', included: false },
-      { pattern: 'test-data/**', included: false }
-    ],
+        // frameworks to use
+        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+        frameworks: ['jasmine', 'requirejs'],
 
 
-    // list of files to exclude
-    exclude: [
-
-    ],
-
-
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-
-    },
+        // list of files / patterns to load in the browser
+        files: [
+            'test-main.js',
+            { pattern: 'test/**/*Spec.{js,ts}', included: false },
+            { pattern: 'dist/js/**/*.js', included: false },
+            { pattern: 'bower_components/**/*.js', included: false },
+            { pattern: 'data/**', included: false },
+            { pattern: 'test-data/**', included: false }
+        ],
 
 
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+        // list of files to exclude
+        exclude: [
+
+        ],
 
 
-    // web server port
-    port: 9876,
+        // preprocess matching files before serving them to the browser
+        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+        preprocessors: {
+            '**/*.ts': 'typescript'
+        },
+
+        typescriptPreprocessor: {
+            // options passed to the typescript compiler
+            options: {
+                sourceRoot: 'dist/js/',
+                sourceMap: false, // (optional) Generates corresponding .map file.
+                // target: 'ES5', // (optional) Specify ECMAScript target version: 'ES3' (default), or 'ES5'
+                module: 'amd', // (optional) Specify module code generation: 'commonjs' or 'amd'
+                // noImplicitAny: true, // (optional) Warn on expressions and declarations with an implied 'any' type.
+                // noResolve: true, // (optional) Skip resolution and preprocessing.
+                // removeComments: true // (optional) Do not emit comments to output.
+
+            }
+        },
+
+        // test results reporter to use
+        // possible values: 'dots', 'progress'
+        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+        reporters: ['progress'],
 
 
-    // enable / disable colors in the output (reporters and logs)
-    colors: true,
+        // web server port
+        port: 9876,
 
 
-    // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+        // enable / disable colors in the output (reporters and logs)
+        colors: true,
 
 
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+        // level of logging
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+        logLevel: config.LOG_DISABLE,
 
 
-    // start these browsers
-    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+        // enable / disable watching file and executing tests whenever any file changes
+        autoWatch: true,
 
 
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
-  });
+        // start these browsers
+        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+        browsers: ['PhantomJS'],
+
+
+        // Continuous Integration mode
+        // if true, Karma captures browsers, runs the tests and exits
+        singleRun: false
+    });
 };

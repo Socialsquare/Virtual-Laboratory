@@ -1,4 +1,6 @@
-export = {
-    YEAST:   'MicroorganismType.YEAST',
-    MYELOMA: 'MicroorganismType.MYELOMA'
+enum Microorganism {
+    YEAST, //   'MicroorganismType.YEAST',
+    MYELOMA, // 'MicroorganismType.MYELOMA'
 };
+
+export = Microorganism;

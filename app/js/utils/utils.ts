@@ -16,8 +16,9 @@ class Utils {
             var clones: LiquidModel[] = _.invoke(liquids, 'clone');
 
             _.each(clones, (liquid) => {
-                if (liquid.type() === LiquidType.MICROORGANISM)
+                if (liquid.type() === LiquidType.MICROORGANISM) {
                     liquid.concentration(liquid.concentration() / factor);
+                }
             });
 
             // Remove organisms whose concentration is below 1.

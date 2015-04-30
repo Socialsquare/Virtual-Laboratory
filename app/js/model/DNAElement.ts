@@ -1,7 +1,9 @@
 import ko = require('knockout');
+
 import LiquidModel = require('model/Liquid');
-import LiquidType = require('model/type/Liquid');
 import ReactionCount = require('model/ReactionCount');
+
+import LiquidType = require('model/type/Liquid');
 import DNAType = require('model/type/DNA');
 import PCSType = require('model/type/ProteinCodingSequence');
 

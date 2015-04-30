@@ -1,4 +1,6 @@
-export = {
-    NORMAL:   'MouseBloodType.NORMAL',
-    DIABETIC: 'MouseBloodType.DIABETIC'
-};
+enum MouseBlood {
+    NORMAL, //   'MouseBloodType.NORMAL',
+    DIABETIC, // 'MouseBloodType.DIABETIC'
+}
+
+export = MouseBlood;
