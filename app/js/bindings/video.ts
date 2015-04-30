@@ -10,7 +10,8 @@ ko.bindingHandlers.videoLoop = {
             $(element).on('ended', function () {
                 this.play();
             });
-            $(element).get(0).play();
+            var videoTag: HTMLVideoElement = $(element).get(0);
+            videoTag.play();
         } else {
             $(element).off('ended');
         }

@@ -25,7 +25,6 @@ class FermentorScreen extends BaseViewController {
     public graphTimer: KnockoutObservable<number>;
     public turnedOn: KnockoutObservable<boolean>;
 
-    public turnedOn: KnockoutComputed<boolean>;
     public activateButtonText: KnockoutComputed<string>;
     public activateButtonColor: KnockoutComputed<string>;
 
@@ -106,19 +105,19 @@ class FermentorScreen extends BaseViewController {
                     return;
                 case LiquidType.ANTIBODY_GOUT:
                     options.push({ key: LocalizationService.text('fermentor.chromatograph_product.antibody_gout'),
-                                   liquidType: enzymeLiquidType});
+                                   value: enzymeLiquidType});
                     break;
                 case LiquidType.ANTIBODY_SMALLPOX:
                     options.push({ key: LocalizationService.text('fermentor.chromatograph_product.antibody_smallpox'),
-                                   liquidType: enzymeLiquidType});
+                                   value: enzymeLiquidType});
                     break;
                 case LiquidType.LIPASE_ENZYME:
                     options.push({ key: LocalizationService.text('fermentor.chromatograph_product.lipase'),
-                                   liquidType: enzymeLiquidType});
+                                   value: enzymeLiquidType});
                     break;
                 case LiquidType.INSULIN:
                     options.push({ key: LocalizationService.text('fermentor.chromatograph_product.insulin'),
-                                   liquidType: enzymeLiquidType});
+                                   value: enzymeLiquidType});
                     break;
                 }
             }
@@ -126,9 +125,9 @@ class FermentorScreen extends BaseViewController {
 
 
         if (options.length > 0) {
-            this.popupController.select('fermentor.chromatograph_select.header', 'fermentor.chromatograph_select.body', options)
+            this.popupController.select<LiquidType>('fermentor.chromatograph_select.header', 'fermentor.chromatograph_select.body', options)
                 .then((selectedObject) => {
-                    var selectedLiquidType = selectedObject.liquidType;
+                    var selectedLiquidType = selectedObject.value;
 
                     console.log('Test #1: '+ selectedLiquidType);
 
@@ -178,7 +177,7 @@ class FermentorScreen extends BaseViewController {
     public exportData = () => {
         var raw = this.plotData();
         var headers = ['time', 'biomass', 'substrate', 'product'];
-        var parsed = _(raw.biomass)
+        var parsed = _(<any[]>raw.biomass)
             .zip(raw.substrate, raw.product)
             .map((row) => {
                 return [row[0][0], row[0][1], row[1][1], row[2][1]];

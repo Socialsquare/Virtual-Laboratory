@@ -25,7 +25,7 @@ ko.bindingHandlers.scaffold = {
                     left: offset.x - parseInt(origin.attr('x'), 10) + 'px',
                     top: offset.y - parseInt(origin.attr('y'), 10) + 'px'
                 })
-                .html(docNode);
+                .html(<any>docNode);
         });
     }
 };
@@ -36,7 +36,7 @@ ko.bindingHandlers.svg = {
         $.get(path, function (data) {
             var svgNode = $("svg", data);
 	        var docNode = document.adoptNode(svgNode[0]);
-            $(element).html(docNode);
+            $(element).html(<any>docNode);
         });
     }
 };

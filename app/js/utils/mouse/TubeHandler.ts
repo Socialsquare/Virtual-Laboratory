@@ -48,18 +48,18 @@ class TubeHandler {
         // Choice based on mouse type
         if (MC.mouse().mouseType() === MouseType.PSORIASIS) {
             var options = [
-                {key: LocalizationService.text('mouse.drug_administration.injection_body'),
-                 administrationForm: AdministrationType.INJECTION_BODY},
-                {key: LocalizationService.text('mouse.drug_administration.pill'),
-                 administrationForm: AdministrationType.PILL},
-                {key: LocalizationService.text('mouse.drug_administration.cream'),
-                 administrationForm: AdministrationType.CREAM}
+                { key: LocalizationService.text('mouse.drug_administration.injection_body'),
+                  value: AdministrationType.INJECTION_BODY},
+                { key: LocalizationService.text('mouse.drug_administration.pill'),
+                  value: AdministrationType.PILL},
+                { key: LocalizationService.text('mouse.drug_administration.cream'),
+                  value: AdministrationType.CREAM}
             ];
 
 
-            popupController.select('mouse.drug_administration.header', 'mouse.drug_administration.body', options)
+            popupController.select<AdministrationType>('mouse.drug_administration.header', 'mouse.drug_administration.body', options)
                 .then((selectedObject) => {
-                    var administrationForm = selectedObject.administrationForm;
+                    var administrationForm = selectedObject.value;
 
                     switch(administrationForm) {
 

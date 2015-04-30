@@ -83,9 +83,9 @@ class VideoController {
     public isLooping: KnockoutObservable<boolean>;
     public loopLastInQueue: KnockoutObservable<boolean>;
 
-    public queue: KnockoutObservableArray<VideoModel>;
+    public queue: KnockoutObservableArray<string>;
     public controlsRequired: KnockoutObservable<boolean>;
-    public promise: JQueryDeferred;
+    public promise: JQueryDeferred<any>;
 
     constructor(enableFallback = false) {
 
@@ -96,7 +96,7 @@ class VideoController {
         this.isLooping = ko.observable(false);
         this.loopLastInQueue = ko.observable(false);
 
-        this.queue = ko.observableArray();
+        this.queue = ko.observableArray([]);
         this.controlsRequired = ko.observable(false);
         this.promise = null;
     }
@@ -109,12 +109,17 @@ class VideoController {
         return video;
     }
 
-    public play = (ids: string | string[], loopLast = false, controlsRequired = false) => {
+    public play = (_ids: string | string[], loopLast = false, controlsRequired = false) => {
         this.controlsRequired(controlsRequired);
         this.promise = $.Deferred();
 
-        if (!_.isArray(ids))
-            ids = [ids];
+        var ids: string[];
+
+        // TODO! smells bad
+        if (typeof _ids === 'string')
+            ids = [_ids];
+        else
+            ids = _ids
 
         this.isLooping(false);
 

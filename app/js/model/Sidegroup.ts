@@ -5,7 +5,7 @@ import SpecialItemType = require('model/type/SpecialItem');
 type SidegroupInfo = {
     pKa: number,
     weight: string,
-    bindingLength: string,
+    bindingLength: number,
     bindingTypes: string[]
 }
 

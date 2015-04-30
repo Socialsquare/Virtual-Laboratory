@@ -5,10 +5,11 @@ import experimentController = require('controller/Experiment');
 
 import TextHelper = require('utils/TextHelper');
 import LocationType = require('model/type/Location');
+import ItemModel = require('model/Item');
 
 class Inventory {
 
-    public items: KnockoutObservableArray<Item>;
+    public items: KnockoutObservableArray<ItemModel>;
 
     constructor() {
 

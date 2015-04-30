@@ -1,10 +1,17 @@
 import ko = require('knockout');
-import BaseViewController = require('controller/view/Base');
+
 import popupController = require('controller/Popup');
 import experimentController = require('controller/Experiment');
 import experimentService = require('service/Experiment');
 
+import BaseViewController = require('controller/view/Base');
+
+import ExperimentModel = require('model/Experiment');
+
 class ExperimentSelector extends BaseViewController {
+
+    public experiments: KnockoutObservableArray<ExperimentModel>
+    public selected: Knockout = ko.observable();
 
     constructor() {
         super('experiment-selector')

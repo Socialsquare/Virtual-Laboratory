@@ -7,11 +7,11 @@ import SidegroupModel = require('model/Sidegroup');
 class SidegroupSlot {
 
     public type: KnockoutObservable<SpecialItemType>;
-    public position: KnockoutObservable<number>;
-    public index: KnockoutObservable<number>;
+    public position: number;
+    public index: number;
     public sidegroup: KnockoutObservable<SidegroupModel>;
-    public optimalLength: KnockoutObservable<number>;
-    public bindingType: KnockoutObservable<string>;
+    public optimalLength: number;
+    public bindingType: string;
     public hasSidegroup: KnockoutComputed<boolean>;
 
     constructor(values) {

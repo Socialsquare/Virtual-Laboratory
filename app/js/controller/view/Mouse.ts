@@ -22,6 +22,11 @@ import SpecialItemType = require('model/type/SpecialItem');
 import ContainerFactory = require( 'factory/Container');
 import LiquidFactory = require('factory/Liquid');
 
+type PlotData = {
+    bloodData: number[][],
+    heartRateData: number[][]
+}
+
 class MouseController extends BaseViewController {
 
     public videoController: VideoController;
@@ -33,7 +38,7 @@ class MouseController extends BaseViewController {
     public highBloodSugarWarningToggle: KnockoutObservable<boolean>;
     public diabetesDevelopedToggle: KnockoutObservable<boolean>;
 
-    public plotData: KnockoutObservableArray<any>;
+    public plotData: KnockoutObservable<PlotData>;
     public graphTimer: KnockoutObservable<number>;
 
     public bottle: BottleModel;
@@ -117,7 +122,10 @@ class MouseController extends BaseViewController {
             return [i, this.mouse().heartRateData[dataIndex]];
         });
 
-        this.plotData({bloodData: bloodData, heartRateData: heartRateData});
+        this.plotData({
+            bloodData: bloodData,
+            heartRateData: heartRateData
+        });
     }
 
     public nextTimeStep = () => {

@@ -1,12 +1,24 @@
 import ko = require(    'knockout');
+
+import gameState = require('model/GameState');
+
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
 
+import UvRoomModel = require('model/UvRoom');
+
 class UvRoom extends BaseViewController {
+
+    public uvroom: UvRoomModel;
+
+    public tableSpacePetriController: CompositeContainerController;
+    public tableSpaceMicroController: CompositeContainerController;
+    public tubeRackController: CompositeContainerController;
+
     constructor() {
         super('uvroom');
 
-        this.uvroom = this.gameState.uvroom;
+        this.uvroom = gameState.uvroom;
 
         this.tableSpacePetriController = new CompositeContainerController(this.uvroom.tableSpacePetri);
         this.tableSpaceMicroController = new CompositeContainerController(this.uvroom.tableSpaceMicro);

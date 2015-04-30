@@ -5,6 +5,7 @@ import LiquidType = require('model/type/Liquid');
 import SpecialItemType = require('model/type/SpecialItem');
 import LocationType = require('model/type/Location');
 
+import SimpleContainerModel = require('model/SimpleContainer');
 
 class ImageHelper {
 
@@ -14,15 +15,15 @@ class ImageHelper {
         return ImageHelper.imageRoot + '/' + path;
     }
 
-    static emptyFull = (prefix) => {
+    static emptyFull = (prefix: string) => {
         return (position, container) => {
             var state = !container || container.isEmpty() ? 'empty' : 'full';
             return ImageHelper.img(prefix + (position + 1) + '_' + state + '.png');
         };
     }
 
-    static single = (prefix) => {
-        return (position, container) => {
+    static single = (prefix: string) => {
+        return (position: number, container: SimpleContainerModel = null) => {
             return ImageHelper.img(prefix + (position + 1) + '.png');
         };
     }

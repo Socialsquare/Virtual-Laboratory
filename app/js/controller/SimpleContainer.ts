@@ -30,7 +30,7 @@ class SimpleContainerController {
 
     public handleContainerDrop = (item) => {
 
-            switch (simpleContainer.type()) {
+            switch (this.simpleContainer.type()) {
             case ContainerType.ELECTROPORATOR:
                 if (item.type() === ContainerType.PIPETTE) {
                     if (!item.hasTip()) {
@@ -52,7 +52,7 @@ class SimpleContainerController {
                     } else if (!this.simpleContainer.isEmpty() && !item.getTip().isEmpty()) { // 3) hvis elektro har contents && pipette har contents --> spørg: Vil du tømme elektro og tilføje?
 
                         popupController.confirm('worktable1.electroporator_refill.header','worktable1.electroporator_refill.body')
-                            .then(function () {
+                            .then(() => {
                                 this.simpleContainer.clearContents();
                                 item.emptyPipetteInto(this.simpleContainer);
                                 popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
@@ -75,7 +75,7 @@ class SimpleContainerController {
                         } else {// 3) Check om begge har contents og prompt brugern (tøm fermentor og kanylen efter)
 
                             popupController.confirm("fermentor.empty_tank.header", "fermentor.empty_tank.body")
-                                .then(function () {
+                                .then(() => {
                                     //When accepted
 
                                     this.simpleContainer.clearContents();
@@ -83,7 +83,7 @@ class SimpleContainerController {
                                     item.emptySyringeInto(this.simpleContainer);
                                     gameState.fermentor.resetContents();
                                     popupController.notify('syringe.emptied.header', 'syringe.emptied.body', 2000);
-                                }).fail(function() {
+                                }).fail(() => {
                                     //When rejected
 
                                     var clonedLiqs = item.cloneLiquids();

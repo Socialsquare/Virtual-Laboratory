@@ -2,7 +2,9 @@ import ko = require('knockout');
 import $ = require('jquery');
 
 import popupController = require('controller/Popup');
+
 import QuizModel = require('model/Quiz');
+import PopupModel = require('model/Popup');
 
 class Quiz {
 

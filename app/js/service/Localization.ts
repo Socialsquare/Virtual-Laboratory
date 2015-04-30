@@ -13,23 +13,23 @@ class Localization {
         Localization.selectedLanguage(lang);
     }
 
-    static text(id: string) {
-        if (_.isObject(id)) {
-            var lang = Localization.selectedLanguage();
+    static text(id: string | {}) {
+        if (typeof id === 'string') {
+            var text = Localization.langData()[Localization.selectedLanguage()][id];
 
-            if (!id[Localization.selectedLanguage()]) {
-                // fallback to first available lang in alphabetical order
-                lang = _(id).keys().sortBy(_.identity).find();
-            }
+            if (!text) throw 'Unknown localization: ' + id + ' for language ' + Localization.selectedLanguage();
 
-            return id[lang];
+            return text;
         }
 
-        var text = Localization.langData()[Localization.selectedLanguage()][id];
+        var lang = Localization.selectedLanguage();
 
-        if (!text) throw 'Unknown localization: ' + id + ' for language ' + Localization.selectedLanguage();
+        if (!id[Localization.selectedLanguage()]) {
+            // fallback to first available lang in alphabetical order
+            lang = _(<any>id).keys().sortBy(_.identity).find();
+        }
 
-        return text;
+        return id[lang];
     }
 }
 

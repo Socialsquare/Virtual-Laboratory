@@ -9,7 +9,6 @@ import LocationType = require('model/type/Location');
 
 import utils = require('utils/utils');
 
-
 class Washing {
 
     public washingTank: WashingTankModel;
@@ -23,7 +22,7 @@ class Washing {
         this.tubeRack.location(LocationType.WASHING);
     }
 
-    public action = (concentration) => {
+    public action = (concentration: number) => {
         var liquids = this.washingTank.liquids();
         var result = 0;
         var feedback = '';

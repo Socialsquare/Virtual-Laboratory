@@ -10,12 +10,15 @@ import SpecialItemType = require('model/type/SpecialItem');
 import AntigenCoatingType = require('model/type/AntigenCoating');
 
 import CompositeContainerModel = require('model/CompositeContainer');
+import SimpleContainerModel = require('model/SimpleContainer');
 
 import LiquidFactory = require('factory/Liquid');
 
 import ImageHelper = require('utils/ImageHelper');
 import DragHelper = require('utils/DragHelper');
 
+type ImageGetter = (position: number, container?: SimpleContainerModel) => string;
+type Accepter = (item: any) => boolean;
 
 class CompositeContainerController {
 
@@ -25,6 +28,9 @@ class CompositeContainerController {
 
     public dropGuards: ((pos, container) => any)[];
     public showPlaceholder: KnockoutObservable<boolean>;
+
+    public accepter: Accepter;
+    public imageGetter: ImageGetter;
 
     constructor(compContainer) {
 
@@ -177,7 +183,7 @@ class CompositeContainerController {
                 this.compContainer.get(position).add(LiquidFactory.buffer());
 
                 this.compContainer.get(position).clearContents();
-                if (microtiter.antigenCoating() === AntigenCoatingType.NONE) {
+                if (microtiter.antigenCoating === AntigenCoatingType.NONE) {
                     microtiter.microtiterWells().clearWellsAntibodies();
                     microtiter.microtiterWells().clearWellsSecondaryAntibodies(false);
 

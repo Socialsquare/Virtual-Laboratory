@@ -20,16 +20,23 @@ import utils = require('utils/utils');
 
 class Chemical extends BaseViewController {
 
-    public closetItems: KnockoutObservableArray<ChemicalItemMdeol> = ko.observableArray([]);
-    public drawerItems: KnockoutObservableArray<ChemicalItemMdeol> = ko.observableArray([]);
-    public fridgeItems: KnockoutObservableArray<ChemicalItemMdeol> = ko.observableArray([]);
+    public closetItems: KnockoutObservableArray<ChemicalItemModel> = ko.observableArray([]);
+    public drawerItems: KnockoutObservableArray<ChemicalItemModel> = ko.observableArray([]);
+    public fridgeItems: KnockoutObservableArray<ChemicalItemModel> = ko.observableArray([]);
+
+    private groups: {
+        closet: { name: string, items: KnockoutObservableArray<ChemicalItemModel> },
+        fridge: { name: string, items: KnockoutObservableArray<ChemicalItemModel> },
+        drawer: { name: string, items: KnockoutObservableArray<ChemicalItemModel> }
+    }
 
     // TODO: remove app dep and use ko.postbox or similar
     constructor() {
         super('chemical');
+
         this.shouldHidePipette(true);
 
-        var groups = {
+        this.groups = {
             closet: { name: 'supply.closet_header', items: this.closetItems },
             fridge: { name: 'supply.fridge_header', items: this.fridgeItems },
             drawer: { name: 'supply.drawer_header', items: this.drawerItems }
@@ -87,8 +94,8 @@ class Chemical extends BaseViewController {
 
     public showList = (name) => {
         this.popupController.show('popup-list', {
-            title: groups[name].name,
-            items: groups[name].items,
+            title: this.groups[name].name,
+            items: this.groups[name].items,
             itemTaken: this.itemTaken
         });
     }

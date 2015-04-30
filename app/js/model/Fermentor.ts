@@ -3,6 +3,7 @@ import ko = require('knockout');
 import utils = require('utils/utils');
 
 import FermentorTankModel = require('model/FermentorTank');
+import ProducedEnzymeModel = require('model/ProducedEnzyme');
 
 import GrowerType = require('model/type/Grower');
 import LiquidType = require('model/type/Liquid');
@@ -17,7 +18,7 @@ class Fermentor {
     public timer: KnockoutObservable<number>;
     public hourResolution: KnockoutObservable<number>;
     public growerType: KnockoutObservable<GrowerType>;
-    public products: KnockoutObservableArray<any>; //TODO! type?
+    public products: KnockoutObservableArray<ProducedEnzymeModel>;
     public substrate: KnockoutObservable<number>;
     public biomassData: KnockoutObservableArray<any>;
     public substrateData: KnockoutObservableArray<any>;

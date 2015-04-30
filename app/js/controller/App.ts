@@ -2,11 +2,11 @@ import ko = require('knockout');
 import homescreen = require('homescreen');
 
 import popupController = require('controller/Popup');
-import BaseViewController = require('controller/view/Base');
-
-// controllers
-import MenuController = require('controller/Menu');
 import tutorialController = require('controller/Tutorial');
+
+// view controllers
+import BaseViewController = require('controller/view/Base');
+import MenuController = require('controller/Menu');
 import LoadingController = require('controller/view/Loading');
 import OverviewController = require('controller/view/Overview');
 import MouseController = require('controller/view/Mouse');
@@ -30,15 +30,19 @@ import SpecialItemFactory = require('factory/SpecialItem');
 
 class App extends BaseViewController {
 
-    public activeViewController = ko.observable();
+    public activeViewController: KnockoutObservable<BaseViewController>;
 
-    public menuController = new MenuController();
     public tutorialController = tutorialController;
+    public menuController: MenuController;
 
     private viewControllers;
 
     constructor(isWeb) {
         super('app');
+
+        this.activeViewController = ko.observable(null);
+
+        this.menuController = new MenuController();
 
         // encourage users on tablet to add the app to their homescreen
         homescreen();

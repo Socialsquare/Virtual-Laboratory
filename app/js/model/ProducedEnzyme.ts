@@ -18,7 +18,6 @@ class ProducedEnzyme extends LiquidModel {
 
         this.pcsType = pcsType;
         this.amount = parentGrowthAmount;
-        this.enzymeLiquidType = '';
 
         switch (pcsType) {  //TODO: change to OrganismProperty
         case PCSType.ANTIBODY_GOUT:

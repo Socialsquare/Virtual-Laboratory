@@ -8,6 +8,11 @@ import TextHelper = require('utils/TextHelper');
 import ImageHelper = require('utils/ImageHelper');
 import VideoController = require('controller/Video');
 
+interface SelectOption<T> {
+    key: string;
+    value: T;
+}
+
 class Popup {
 
     public imageHelper: any;
@@ -104,9 +109,9 @@ class Popup {
         });
     }
 
-    public select = (title, message, options) => {
+    select<T>(title, message, options: SelectOption<T>[]) {
         var selected = ko.observable();
-        var promise = $.Deferred();
+        var promise: JQueryDeferred<SelectOption<T>> = $.Deferred();
 
         var vm = this.show('popup-select', {
             title: title,

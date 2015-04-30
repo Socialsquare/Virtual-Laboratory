@@ -1,5 +1,7 @@
-export = {
-    NEVER:  'ReactionCount.NEVER',
-    ONCE:   'ReactionCount.ONCE',
-    ALWAYS: 'ReactionCount.ALWAYS'
+enum ReactionCount {
+    NEVER, //:  'ReactionCount.NEVER',
+    ONCE, //:   'ReactionCount.ONCE',
+    ALWAYS, //: 'ReactionCount.ALWAYS'
 };
+
+export = ReactionCount;

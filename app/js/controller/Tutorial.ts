@@ -1,12 +1,13 @@
 import ko = require('knockout');
+import TutorialMessage = require('model/TutorialMessage');
 import tutorialData = require('json!datadir/tutorial.json');
 
 class Tutorial {
 
     public active: KnockoutObservable<boolean>;
-    public messages: KnockoutObservableArray<any>;
+    public messages: KnockoutObservableArray<TutorialMessage>;
     public currentMessageIndex: KnockoutObservable<number>;
-    public currentMessage: KnockoutComputed<string>;
+    public currentMessage: KnockoutComputed<TutorialMessage>;
     public arrowImage: KnockoutComputed<string>;
     public arrowClasses: KnockoutComputed<string>;
 
@@ -15,7 +16,8 @@ class Tutorial {
         this.active = ko.observable(false);
 
         // hardcoded tutorial box positions
-        this.messages = ko.observableArray(tutorialData);
+        var msgs = _.map(tutorialData, (msg) => new TutorialMessage(msg));
+        this.messages = ko.observableArray(msgs);
 
         this.currentMessageIndex = ko.observable(0);
 

@@ -8,7 +8,6 @@ import LiquidType = require('model/type/Liquid');
 import SpleenModel = require('model/Spleen');
 import heartRateData = require('json!datadir/heartRate.json');
 
-
 class Mouse {
 
     public alive: KnockoutObservable<boolean>;
@@ -22,7 +21,7 @@ class Mouse {
     public heartRateIndex: number;
 
 
-    public bloodData: KnockoutObservable<number>;
+    public bloodData: KnockoutObservableArray<number>;
 
     public maveSukker: KnockoutObservable<number>;
     public blodSukker: KnockoutObservable<number>;
@@ -150,7 +149,7 @@ class Mouse {
         return cured;
     }
 
-    public vaccinate = (antigenType) => {
+    public vaccinate = (antigenType: LiquidType) => {
         if (antigenType === LiquidType.ANTIGEN_GOUT)
             this.spleen.antibodiesFor.push(LiquidType.ANTIBODY_GOUT);
         else
@@ -246,7 +245,7 @@ class Mouse {
 
 
         clone.alive(this.alive());
-        clone.isCut(this.isCut);
+        clone.isCut(this.isCut());
         clone.spleen = this.spleen.clone();
 
         clone.maveSukker(this.maveSukker());

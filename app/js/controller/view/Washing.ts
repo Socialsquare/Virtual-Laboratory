@@ -26,7 +26,7 @@ class Washing extends BaseViewController {
     }
 
     public activate = () => {
-        if (!this.washing.agent())
+        if (!this.washing.washingTank.isEmpty())
             this.popupController.message('washing.detergent_required.header', 'washing.detergent_required.body');
         else
             this.status.toggle();
@@ -54,26 +54,28 @@ class Washing extends BaseViewController {
 
         //TODO: i18n localization if necessary
         var options = [
-            {key: '1 mg/L', concentration: 1.0},
-            {key: '3 mg/L', concentration: 3.0},
-            {key: '10 mg/L', concentration: 10.0},
-            {key: '30 mg/L', concentration: 30.0},
-            {key: '100 mg/L', concentration: 100.0},
-            {key: '300 mg/L', concentration: 300.0},
-            {key: '1000 mg/L', concentration: 1000.0}
+            { key: '1 mg/L', value: 1.0 },
+            { key: '3 mg/L', value: 3.0 },
+            { key: '10 mg/L', value: 10.0 },
+            { key: '30 mg/L', value: 30.0 },
+            { key: '100 mg/L', value: 100.0 },
+            { key: '300 mg/L', value: 300.0 },
+            { key: '1000 mg/L', value: 1000.0 }
         ];
 
-        this.popupController.select('washing.concentration', 'washing.concentration.choose', options)
+        this.popupController.select<number>('washing.concentration', 'washing.concentration.choose', options)
             .then((selectedObject) => {
-                var res = this.washing.action(selectedObject.concentration);
+                var res = this.washing.action(selectedObject.value);
 
                 this.result(res.result);
                 this.status(false);
 
                 if (res.feedback) this.popupController.notify('common.result', res.feedback);
 
-                this.experimentController.triggerActivation(ActivationType.WASHING, this.washing,
-                                                            { concentration: selectedObject.concentration });
+                this.experimentController.triggerActivation(
+                    ActivationType.WASHING,
+                    this.washing,
+                    { concentration: selectedObject.value });
             });
     }
 }

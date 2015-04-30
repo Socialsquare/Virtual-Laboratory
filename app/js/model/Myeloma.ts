@@ -36,7 +36,7 @@ class Myeloma extends MicroorganismModel {
         this.concentration(Math.pow(10, 8));
     }
 
-    public react = (container) => {
+    public react = (container: SimpleContainerModel) => {
         var containsHybridomaMedium;
         var containsHomoSpleen = false;
 
@@ -45,7 +45,6 @@ class Myeloma extends MicroorganismModel {
 
         // Figure out whether it contains homospleen (and other stuff)
         _.each(container.liquids(), (liquid) => {
-
 
             if (liquid.type() === LiquidType.HOMO_SPLEEN) {
                 if (liquid.antibodiesFor().length > 0) //TODO: perhaps always set this, if it is mixed with homoSpleen?

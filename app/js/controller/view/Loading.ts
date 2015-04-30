@@ -10,6 +10,11 @@ import FeatureHelper = require('utils/FeatureHelper');
 
 class Loading extends BaseViewController {
 
+    public percent: KnockoutObservable<number>;
+    public isLoaded: KnockoutObservable<boolean>;
+
+    public experimentSelectorController: ExperimentSelectorController;
+
     constructor() {
         super('loading');
 
@@ -18,7 +23,6 @@ class Loading extends BaseViewController {
 
         this.percent = ko.observable(0);
         this.isLoaded = ko.observable(false);
-        this.localizationService = localizationService;
 
         $.html5Loader({
             filesToLoad: '../../assets/preload.json',
@@ -28,11 +32,10 @@ class Loading extends BaseViewController {
         });
 
         this.experimentSelectorController = new ExperimentSelectorController();
-
     }
 
     public selectLang = (langCode) => {
-        this.localizationService.setLanguage(langCode);
+        localizationService.setLanguage(langCode);
     }
 
     public enter = () => {

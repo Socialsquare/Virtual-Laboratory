@@ -1,12 +1,22 @@
 import ko = require('knockout');
 import $ = require('jquery');
 import _ = require('lodash');
+
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
+
+import SpectroPMModel = require('model/SpectroPM');
+
 import LiquidType = require('model/type/Liquid');
 import ActivationType = require('model/type/Activation');
 
 class SpectroPM extends BaseViewController {
+
+    public spectroPM: SpectroPMModel;
+    public microSlotController: CompositeContainerController;
+
+    public isClosed: KnockoutObservable<boolean>;
+    public plotData: KnockoutComputed<number[][]>;
 
     constructor() {
         super('spectropm');

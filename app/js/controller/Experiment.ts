@@ -4,10 +4,13 @@ import _ = require('lodash');
 import popupController = require('controller/Popup');
 import quizController = require('controller/Quiz');
 
+import TaskModel = require('model/Task');
 import LiquidModel = require('model/Liquid');
 import MouseModel = require('model/Mouse');
 import ExperimentModel = require('model/Experiment');
 import SimpleContainerModel = require('model/SimpleContainer');
+import QuizConsequenceModel = require('model/QuizConsequence');
+import VideoConsequenceModel = require('model/VideoConsequence');
 
 import LiquidType = require('model/type/Liquid');
 import ActivationType = require('model/type/Activation');
@@ -18,14 +21,15 @@ import ConsequenceType = require('model/type/Consequence');
 class Experiment {
 
     public activeExperiment: KnockoutObservable<ExperimentModel>;
-    public quizController: QuizController;
-    public popupController: PopupController;
+    public activeTask: KnockoutComputed<TaskModel>;
     public scrollAmount: number;
+    public hasExperiment: KnockoutComputed<boolean>;
+
+    public quizController = quizController;
+    public popupController = popupController;
 
     constructor() {
-        this.activeExperiment = ko.observable();
-        this.quizController = quizController;
-        this.popupController = popupController;
+        this.activeExperiment = ko.observable(null);
         this.scrollAmount = 0; //TODO: implement.
 
         this.hasExperiment = ko.computed(() => {
@@ -133,7 +137,7 @@ class Experiment {
         if (trigger.activation !== activation) return;
 
         if (trigger.activation === ActivationType.COMPUTER_ORDER_MOUSE) {
-            if (!this.match(trigger.mouse.type, item.mouseType())) return;
+            if (!this.match(trigger.mouseType, item.mouseType())) return;
         }
 
         if (trigger.activation === ActivationType.OD) {
@@ -168,9 +172,9 @@ class Experiment {
             }
         }
 
-        if (trigger.activation === ActivationType.DNA) {
-            if (!this.matchLiquids(trigger, item)) return;
-        }
+        // if (trigger.activation === ActivationType.DNA) {
+        //     if (!this.matchLiquids(trigger, item)) return;
+        // }
 
         if (trigger.activation === ActivationType.ELECTROPORATOR) {
             if (!this.matchLiquids(trigger, item)) return;
@@ -230,10 +234,10 @@ class Experiment {
 
         switch (conseq.type()) {
         case ConsequenceType.QUIZ:
-            this.quizController.startQuiz(conseq.quiz).then(this.markTaskFinished);
+            this.quizController.startQuiz((<QuizConsequenceModel>conseq).quiz).then(this.markTaskFinished);
             break;
         case ConsequenceType.VIDEO:
-            this.popupController.video(conseq.video, true).then(this.markTaskFinished);
+            this.popupController.video((<VideoConsequenceModel>conseq).video, true).then(this.markTaskFinished);
             break;
         }
     }

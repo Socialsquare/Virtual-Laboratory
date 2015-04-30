@@ -17,7 +17,7 @@ class SimpleContainer {
     public type: KnockoutObservable<any>;
     public subtype: KnockoutObservable<any>;
     public maxConcentration: KnockoutObservable<number>;
-    public liquids: KnockoutObservableArray<any>;
+    public liquids: KnockoutObservableArray<LiquidModel>;
     public label: KnockoutObservable<string>;
     public acquired: KnockoutObservable<boolean>;
     public location: KnockoutObservable<LocationType>;

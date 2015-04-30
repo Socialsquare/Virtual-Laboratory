@@ -4,7 +4,7 @@ enum SpecialItem {
     BUFFER, //         'SpecialItemType.BUFFER',
     WASH_BOTTLE, //    'SpecialItemType.WASH_BOTTLE',
     SIDEGROUP, //      'SpecialItemType.SIDEGROUP',
-    SIDEGROUP_SLOT, // 'SpecialItemType.SIDEGROUP_SLOT'
+    SIDEGROUP_SLOT //  'SpecialItemType.SIDEGROUP_SLOT'
 }
 
 export = SpecialItem;

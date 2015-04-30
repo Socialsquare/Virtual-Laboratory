@@ -9,16 +9,36 @@ import LocationType = require('model/type/Location');
 import AntigenCoatingType = require('model/type/AntigenCoating');
 import DNAType = require('model/type/DNA');
 import ProteinCodingSequenceType = require('model/type/ProteinCodingSequence');
+import MouseType = require('model/type/Mouse');
+import MouseBloodType = require('model/type/MouseBlood');
 
 class S2T {
 
     static consequence(s: string) {
         switch (s) {
         case "ConsequenceType.QUIZ": return ConsequenceType.QUIZ;
-        case "ConsequenceType.VIDEO":  return ConsequenceType.VIDEO;
-        case "ConsequenceType.QUIZ_VIDEO":  return ConsequenceType.QUIZ_VIDEO;
+        case "ConsequenceType.VIDEO": return ConsequenceType.VIDEO;
+        case "ConsequenceType.QUIZ_VIDEO": return ConsequenceType.QUIZ_VIDEO;
         default: return null;
-// default: throw "Unknown consequence string: " + s;
+        }
+    }
+
+    static mouseBlood(s: string) {
+        switch (s) {
+        case 'MouseBloodType.NORMAL': return MouseBloodType.NORMAL;
+        case 'MouseBloodType.DIABETIC': return MouseBloodType.DIABETIC;
+        default: return null;
+        }
+    }
+
+    static mouse(s: string) {
+        switch (s) {
+        case 'MouseType.HEALTHY': return MouseType.HEALTHY;
+        case 'MouseType.GOUT': return MouseType.GOUT;
+        case 'MouseType.SMALLPOX': return MouseType.SMALLPOX;
+        case 'MouseType.INSOMNIA': return MouseType.INSOMNIA;
+        case 'MouseType.PSORIASIS': return MouseType.PSORIASIS;
+        default: return null;
         }
     }
 
@@ -29,7 +49,6 @@ class S2T {
         case "TriggerType.ACTIVATION": return TriggerType.ACTIVATION;
         case "TriggerType.ACQUIRE": return TriggerType.ACQUIRE;
         default: return null;
-// default: throw "Unknown trigger string: " + s;
         }
     }
 
@@ -49,7 +68,6 @@ class S2T {
         case "ActivationType.FERMENTOR": return ActivationType.FERMENTOR;
         case "ActivationType.SPECTROPM": return ActivationType.SPECTROPM;
         default: return null;
-// default: throw "Unknown activation string: " + s;
         }
     }
 
@@ -83,7 +101,6 @@ class S2T {
         case 'ContainerType.PIPETTE': return ContainerType.PIPETTE;
         case 'ContainerType.FERMENTOR': return ContainerType.FERMENTOR;
         default: return null;
-// default: throw "Unknown container string: " + s;
         }
     }
 
@@ -119,7 +136,6 @@ class S2T {
         case "LiquidType.PRODUCED_ANTIBODY_POX": return LiquidType.PRODUCED_ANTIBODY_POX;
         case "LiquidType.FLUORESCENT_2ND_ANTIBODY": return LiquidType.FLUORESCENT_2ND_ANTIBODY;
         default: return null;
-// default: throw "Unknown liquid string: " + s;
         }
     }
 
@@ -128,7 +144,6 @@ class S2T {
         case "MicroorganismType.YEAST": return MicroorganismType.YEAST;
         case "MicroorganismType.MYELOMA": return MicroorganismType.MYELOMA;
         default: return null;
-// default: throw "Unknown microorganism string: " + s;
         }
     }
 
@@ -137,7 +152,6 @@ class S2T {
         case 'AntibioticType.A': return AntibioticType.A;
         case 'AntibioticType.B': return AntibioticType.B;
         default: return null;
-// default: throw "Unknown antibiotic string: " + s;
         }
     }
 
@@ -160,7 +174,6 @@ class S2T {
         case "LocationType.WORKTABLE2": return LocationType.WORKTABLE2;
         case "LocationType.INVENTORY": return LocationType.INVENTORY;
         default: return null;
-// default: throw "Unknown location string: " + s;
         }
     }
 
@@ -169,7 +182,6 @@ class S2T {
         case 'AntigenCoatingType.ANY': return AntigenCoatingType.ANY;
         case 'AntigenCoatingType.NONE': return AntigenCoatingType.NONE;
         default: return null;
-// default: throw "Unknown antigenCoating string: " + s;
         }
     }
 

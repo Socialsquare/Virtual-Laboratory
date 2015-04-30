@@ -2,6 +2,8 @@ import ko = require('knockout');
 import mapping = require('knockout.mapping');
 import _ = require('lodash');
 
+import BaseComputerViewController = require('controller/view/computer/Base');
+
 import BaseViewController = require('controller/view/Base');
 import MenuScreen = require('controller/view/computer/Menu');
 import DesignDNAScreen = require('controller/view/computer/DesignDNA');
@@ -14,8 +16,8 @@ import ComputerScreenType = require('model/type/ComputerScreen');
 
 class Computer extends BaseViewController {
 
-    public activeScreenController;
-    public hadHeader;
+    public activeScreenController: KnockoutObservable<BaseComputerViewController>;
+    public hasHeader: KnockoutComputed<boolean>;
 
     constructor() {
         super('computer');
