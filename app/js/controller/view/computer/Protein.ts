@@ -6,12 +6,19 @@ import popupController = require('controller/Popup');
 import gameState = require('model/GameState');
 import LiquidType = require('model/type/Liquid');
 
+import LiquidModel = require('model/Liquid');
+
 import LiquidFactory = require('factory/Liquid');
 import ContainerFactory = require('factory/Container');
 
 import TextHelper = require('utils/TextHelper');
 
 class Protein extends BaseComputer {
+
+    public availableProteins: KnockoutObservableArray<LiquidModel>;
+    public selectedIndex: KnockoutObservable<number>;
+    public selectedProtein: KnockoutComputed<LiquidModel>;
+    public TextHelper: TextHelper;
 
     constructor() {
         super('computer-order-protein', 'computer.screen.protein');

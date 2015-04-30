@@ -1,12 +1,19 @@
 import ko = require('knockout');
 import SpecialItemType = require('model/type/SpecialItem');
 
+// Helper type
+type SidegroupInfo = {
+    pKa: number,
+    weight: string,
+    bindingLength: string,
+    bindingTypes: string[]
+}
 
 class Sidegroup {
 
     public type: KnockoutObservable<SpecialItemType.SIDEGROUP>;
     public id: number;
-    public info: {};
+    public info: SidegroupInfo;
     public file: KnockoutComputed<string>;
 
     //TODO! all below are unused?
@@ -23,8 +30,8 @@ class Sidegroup {
         this.origin = ko.observable(values.origin);
         this.molarWeight = ko.observable(values.molarWeight);
 
-        this.file = ko.computed(function () {
-            return 'assets/svgs/sidegroup_' + self.id + '.svg';
+        this.file = ko.computed(() => {
+            return 'assets/svgs/sidegroup_' + this.id + '.svg';
         });
         // TODO: other field
     }

@@ -1,0 +1,14 @@
+[
+    {
+        "icon": "the_icon",
+        "type": "5",
+        "comment": "the_comment",
+        "link": "the_link",
+        "description": "the_description",
+        "sequence": "GATTACA",
+        "color": "the_color",
+        "name": "the_name",
+        "id": "the_id",
+        "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
+    }
+]

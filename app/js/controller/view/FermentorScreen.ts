@@ -4,9 +4,12 @@ import _ = require('lodash');
 import BaseViewController = require('controller/view/Base');
 import utils = require('utils/utils');
 import DataHelper = require('utils/DataHelper');
+
 import LocalizationService = require('service/Localization');
 
 import LiquidFactory = require('factory/Liquid');
+
+import FermentorModel = require('model/Fermentor');
 import TubeModel = require('model/Tube');
 
 import LiquidType  = require('model/type/Liquid');
@@ -15,6 +18,8 @@ import ActivationType = require('model/type/Activation');
 
 class FermentorScreen extends BaseViewController {
     //TODO: make and use a microorganism attribute "hasBeenInHighConcentration". Only organisms that fulfill this will grow in the fermentor
+
+    public fermentor: FermentorModel;
 
     public plotData: KnockoutObservable<any>;
     public graphTimer: KnockoutObservable<number>;

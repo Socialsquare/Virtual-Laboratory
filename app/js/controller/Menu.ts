@@ -9,6 +9,7 @@ import quizController = require('controller/Quiz');
 import experimentController = require('controller/Experiment');
 
 import gameState = require('model/GameState');
+
 import TipModel = require('model/Tip');
 import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
@@ -35,7 +36,7 @@ class Menu extends BaseViewController {
     public canScroll: KnockoutComputed<boolean>;
 
     constructor() {
-        super();
+        super('menu');
 
         this.gameState.inventory.items.subscribe(() => {
             this.boundScroll();

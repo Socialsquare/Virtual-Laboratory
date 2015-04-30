@@ -6,18 +6,17 @@ import LiquidType = require('model/type/Liquid');
 import ReactionCount = require('model/ReactionCount');
 import WellModel = require('model/Well');
 
-
 class MicrotiterWells extends LiquidModel {
 
     public wells: KnockoutObservableArray<WellModel>;
 
     //TODO: antigenCoatingType ?
-    constructor(antigenCoatingType) {
+    constructor() {
         super(LiquidType.MICROTITER_WELLS, ReactionCount.NEVER, false);
 
         this.wells = ko.observableArray([]);
 
-        for(var i = 0; i < 24; i++){
+        for (var i = 0; i < 24; i++) {
             this.wells.push(new WellModel());
         }
     }

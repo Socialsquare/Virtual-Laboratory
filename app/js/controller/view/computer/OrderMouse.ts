@@ -1,6 +1,7 @@
 import ko = require('knockout');
 
 import BaseComputer = require('controller/view/computer/Base');
+import experimentController = require('controller/Experiment');
 
 import gameState = require('model/GameState');
 import MouseModel = require('model/Mouse');
@@ -13,6 +14,10 @@ import ActivationType = require('model/type/Activation');
 import utils = require('utils/utils');
 
 class OrderMouse extends BaseComputer {
+
+    public availableMice: KnockoutObservableArray<MouseModel>;
+    public selectedIndex: KnockoutObservable<number>;
+    public selectedMouse: KnockoutComputed<MouseModel>;
 
     constructor() {
         super('computer-order-mouse', 'computer.screen.mouse');
@@ -42,7 +47,7 @@ class OrderMouse extends BaseComputer {
 
                 this.changeScreen(this.Screens.MENU);
 
-                this.experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_MOUSE, mouse);
+                experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_MOUSE, mouse);
             });
     }
 }

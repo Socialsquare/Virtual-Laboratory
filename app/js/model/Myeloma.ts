@@ -13,7 +13,7 @@ import SimpleContainerModel = require('model/SimpleContainer');
 
 class Myeloma extends MicroorganismModel {
 
-    public antibodiesFor: KnockoutObservableArray<string>;
+    public antibodiesFor: KnockoutObservableArray<LiquidType>;
     public isHybridoma: KnockoutObservable<boolean>;
 
     public hasSetAntibodiesInThese: KnockoutObservableArray<SimpleContainerModel>;

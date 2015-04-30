@@ -15,7 +15,7 @@ class Inventory {
         this.items = ko.observableArray([]);
     }
 
-    public add = (item, alternativeLabel) => {
+    public add = (item, alternativeLabel = "") => {
         // generate default label
         if (!item.acquired() && item.label) {
             if (alternativeLabel) {

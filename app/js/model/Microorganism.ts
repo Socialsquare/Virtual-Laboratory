@@ -14,7 +14,7 @@ import Utils = require('utils/utils');
 class Microorganism extends LiquidModel {
 
     public microorganismType: KnockoutObservable<MicroorganismType>;
-    public subtype: MicroorganismType;
+    public subtype: KnockoutObservable<MicroorganismType>;
 
     public living: KnockoutObservable<boolean>;
 	public name: KnockoutObservable<string>;
@@ -28,8 +28,9 @@ class Microorganism extends LiquidModel {
     constructor(microorganismType) {
         super(LiquidType.MICROORGANISM, ReactionCount.ALWAYS, true);
 
+        // TODO! derp duplicates?
         this.microorganismType = ko.observable(microorganismType);
-        this.subtype = this.microorganismType;
+        this.subtype = ko.observable(microorganismType);
 
         this.living = ko.observable(true);
 		this.name = ko.observable('');
@@ -79,8 +80,9 @@ class Microorganism extends LiquidModel {
 
         var dN_i = a_i * n_i * (k - n) / k * deltaTime;
         // Converts back to actual concentration
-        dN_i_concentration = Utils.math.getConcentrationFromBiomass(dN_i);
-        return dN_i_concentration; // I know this is lame, but it's _slightly_ better for readability
+        var dN_i_concentration = Utils.math.getConcentrationFromBiomass(dN_i);
+        // I know this is lame, but it's _slightly_ better for readability
+        return dN_i_concentration;
     }
 
     public getPhGrowthFactor = (ph) => {

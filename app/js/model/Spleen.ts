@@ -1,13 +1,15 @@
 import ko = require('knockout');
-import SpecialItemModel = require('model/SpecialItem');
-import SpecialItemType = require('model/type/SpecialItem');
 
+import SpecialItemType = require('model/type/SpecialItem');
+import LiquidType = require('model/type/Liquid');
+
+import SpecialItemModel = require('model/SpecialItem');
 
 class Spleen extends SpecialItemModel {
 
-    public antibodiesFor: KnockoutObservableArray<string>;
+    public antibodiesFor: KnockoutObservableArray<LiquidType>;
 
-    constructor(type) {
+    constructor() {
         super(SpecialItemType.SPLEEN);
 
         this.antibodiesFor = ko.observableArray([]);

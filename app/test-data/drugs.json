@@ -1,0 +1,157 @@
+{
+    "scaffolds": [
+        {
+            "name": "1",
+            "id": "1",
+            "offset": { "x": 510, "y": 110 },
+            "slots": [
+                {
+                    "index": 2,
+                    "position": { "x": 14, "y": 70 },
+                    "optimalLength": 4,
+                    "bindingType": "vdw"
+                },
+                {
+                    "index": 1,
+                    "position": { "x": 52, "y": 130 },
+                    "optimalLength": 5,
+                    "bindingType": "vdw"
+                },
+                {
+                    "index": 0,
+                    "position": { "x": 156, "y": 130 },
+                    "optimalLength": 4,
+                    "bindingType": "vdw"
+                }
+            ]
+        }
+    ],
+    "sidegroups": [
+        {
+            "id": 14,
+            "info": {
+                "pKa": 17.7,
+                "weight": "59.1 g/mol",
+                "bindingLength": 3,
+                "bindingTypes": ["hba", "hbd"]
+            }
+        },
+        {
+            "id": 15,
+            "info": {
+                "pKa": 18.5,
+                "weight": "73.1 g/mol",
+                "bindingLength": 3,
+                "bindingTypes": ["hba", "hbd"]
+            }
+        },
+        {
+            "id": 21,
+            "info": {
+                "pKa": 20.0,
+                "weight": "59.1 g/mol",
+                "bindingLength": 4,
+                "bindingTypes": ["vdw"]
+            }
+        },
+        {
+            "id": 22,
+            "info": {
+                "pKa": 19.6,
+                "weight": "59.1 g/mol",
+                "bindingLength": 5,
+                "bindingTypes": ["vdw"]
+            }
+        },
+        {
+            "id": 32,
+            "info": {
+                "pKa": 38.7,
+                "weight": "73.1 g/mol",
+                "bindingLength": 4,
+                "bindingTypes": ["vdw"]
+            }
+        },
+        {
+            "id": 43,
+            "info": {
+                "pKa": 36.6,
+                "weight": "44.1 g/mol",
+                "bindingLength": 3,
+                "bindingTypes": ["vdw"]
+            }
+        },
+        {
+            "id": 44,
+            "info": {
+                "pKa": 36.6,
+                "weight": "58.1 g/mol",
+                "bindingLength": 4,
+                "bindingTypes": ["vdw"]
+            }
+        },
+        {
+            "id": 45,
+            "info": {
+                "pKa": 36.6,
+                "weight": "72.1 g/mol",
+                "bindingLength": 5,
+                "bindingTypes": ["vdw"]
+            }
+        },
+        {
+            "id": 46,
+            "info": {
+                "pKa": 36.6,
+                "weight": "86.2 g/mol",
+                "bindingLength": 6,
+                "bindingTypes": ["vdw"]
+            }
+        },
+        {
+            "id": 4,
+            "info": {
+                "pKa": 55,
+                "weight": "57.1 g/mol",
+                "bindingLength": 4,
+                "bindingTypes": ["vdw"]
+            }
+        },
+        {
+            "id": 52,
+            "info": {
+                "pKa": 36.6,
+                "weight": "44.1 g/mol",
+                "bindingLength": 3,
+                "bindingTypes": ["vdw"]
+            }
+        },
+        {
+            "id": 53,
+            "info": {
+                "pKa": 15.6,
+                "weight": "60.1 g/mol",
+                "bindingLength": 4,
+                "bindingTypes": ["hba", "hbd"]
+            }
+        },
+        {
+            "id": 54,
+            "info": {
+                "pKa": 15.3,
+                "weight": "74.1 g/mol",
+                "bindingLength": 4,
+                "bindingTypes": ["hba", "hbd", "vdw"]
+            }
+        },
+        {
+            "id": 5,
+            "info": {
+                "pKa": 55,
+                "weight": "71.1 g/mol",
+                "bindingLength": 5,
+                "bindingTypes": ["vdw"]
+            }
+        }
+    ]
+}

@@ -14,7 +14,7 @@ class Liquid {
 
     public subtype: KnockoutObservable<any>;
 
-    constructor(type, reactionCount, isContaminating) {
+    constructor(type, reactionCount, isContaminating = false) {
         this.type = ko.observable(type);
         this.reactionCount = ko.observable(reactionCount);
         this.hasReacted = ko.observable(false);

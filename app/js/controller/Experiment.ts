@@ -4,7 +4,10 @@ import _ = require('lodash');
 import popupController = require('controller/Popup');
 import quizController = require('controller/Quiz');
 
+import LiquidModel = require('model/Liquid');
+import MouseModel = require('model/Mouse');
 import ExperimentModel = require('model/Experiment');
+import SimpleContainerModel = require('model/SimpleContainer');
 
 import LiquidType = require('model/type/Liquid');
 import ActivationType = require('model/type/Activation');
@@ -44,11 +47,11 @@ class Experiment {
     }
 
     // return whether a property is defined and matches another
-    public match = (property, expected) => {
+    public match = (property: any, expected: any) => {
         return _.isUndefined(property) || _.isNull(property) || property === expected;
     }
 
-    public matchLiquids = (trigger: TriggerModel, container) => {
+    public matchLiquids = (trigger: TriggerModel, container: SimpleContainerModel) => {
         if (_.isUndefined(trigger.liquids)) return true;
 
         if (trigger.strict) {
@@ -74,7 +77,7 @@ class Experiment {
         });
     }
 
-    public triggerMix = (addition, container) => {
+    public triggerMix = (addition: LiquidModel[], container: SimpleContainer) => {
         if (!this.hasExperiment()) return;
         if (!this.activeTask()) return; // This happens when all steps in an exercise are done
         var trigger = this.activeTask().trigger();
@@ -89,7 +92,7 @@ class Experiment {
         this.finishActiveTask();
     }
 
-    public triggerMouse = (mouse, item) => {
+    public triggerMouse = (mouse: MouseModel, item) => {
         if (!this.hasExperiment()) return;
         if (!this.activeTask()) return; // This happens when all steps in an exercise are done
 
@@ -107,7 +110,8 @@ class Experiment {
 
     public triggerAcquisition = (item) => {
         if (!this.hasExperiment()) return;
-        if (!this.activeTask()) return; // This happens when all steps in an exercise are done
+        // This happens when all steps in an exercise are done
+        if (!this.activeTask()) return;
 
         var trigger = this.activeTask().trigger();
 
@@ -118,12 +122,12 @@ class Experiment {
         this.finishActiveTask();
     }
 
-    public triggerActivation = (activation, item, extraProperties) => {
+    public triggerActivation = (activation: ActivationType, item, extraProperties = {}) => {
         if (!this.hasExperiment()) return;
-        if (!this.activeTask()) return; // This happens when all steps in an exercise are done
+        // This happens when all steps in an exercise are done
+        if (!this.activeTask()) return;
 
         var trigger = this.activeTask().trigger();
-        extraProperties = extraProperties ? extraProperties : {};
 
         if (trigger.type !== TriggerType.ACTIVATION) return;
         if (trigger.activation !== activation) return;
@@ -150,7 +154,8 @@ class Experiment {
 
                     if (!theDrug) return;
 
-                    var affinityScore = theDrug.getAffinityScore() - 8; //8 is a magic number from view/SpectroPM.js
+                    // 8 is a magic number from view/SpectroPM.js
+                    var affinityScore = theDrug.getAffinityScore() - 8;
                     if ('maxIc50' in activationSubtype && !(affinityScore < activationSubtype.maxIc50 ))
                         return;
 

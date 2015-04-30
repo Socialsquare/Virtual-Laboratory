@@ -1,7 +1,7 @@
-import LiquidType = require('model/type/Liquid');
 import ko = require('knockout');
-import Item = require('model/Item');
 
+import LiquidType = require('model/type/Liquid');
+import Item = require('model/Item');
 
 class SpecialItem extends Item {
 

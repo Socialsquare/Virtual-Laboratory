@@ -5,7 +5,7 @@ import SpecialItemType = require('model/type/SpecialItem');
 
 class Scalpel extends SpecialItemModel {
 
-    constructor(type) {
+    constructor() {
         super(SpecialItemType.SCALPEL);
     }
 }

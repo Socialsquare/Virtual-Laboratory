@@ -3,21 +3,26 @@ import _ = require('lodash');
 
 import BaseComputer = require('controller/view/computer/Base');
 import popupController = require('controller/Popup');
+import experimentController = require('controller/Experiment');
 
 import GeneModel = require('model/Gene');
 import TubeModel = require('model/Tube');
+import DNAElementModel = require('model/DNAElement');
 
 import ActivationType = require('model/type/Activation');
 
-import dnaService = require('service/DNA');
+import DNAService = require('service/DNA');
 import utils = require('utils/utils');
 
 class DesignDNA extends BaseComputer {
 
+    public defaultAvailableDNA: KnockoutObservableArray<DNAElementModel>;
+    public dnaSequence: KnockoutObservableArray<DNAElementModel>;
+    public availableDNA: KnockoutComputed<DNAElementModel>;
+
     constructor() {
         super('computer-design-dna', 'computer.screen.dna');
 
-        this.dnaService = dnaService;
         this.defaultAvailableDNA = ko.observableArray([]);
         this.dnaSequence = ko.observableArray([]);
 
@@ -25,24 +30,24 @@ class DesignDNA extends BaseComputer {
             return _.union(this.defaultAvailableDNA(), this.gameState.sequencedDNA());
         });
 
-        this.defaultAvailableDNA(this.dnaService.getDNAElements());
+        this.defaultAvailableDNA(DNAService.getDNAElements());
     }
 
-    public handleDrop = (dna) => {
+    public handleDrop = (dna: DNAElementModel) => {
         //TODO: On iPad there is a delay if we do not wait for last draw cycle to complete
         var clone = dna.clone();//TODO: test
         this.dnaSequence.push(clone);
     }
 
-    public moveDnaLeft = (dna) => {
+    public moveDnaLeft = (dna: DNAElementModel) => {
         this.moveDna(dna, -1);
     }
 
-    public moveDnaRight = (dna) => {
+    public moveDnaRight = (dna: DNAElementModel) => {
         this.moveDna(dna, 1);
     }
 
-    public moveDna = (dna, direction) => {
+    public moveDna = (dna: DNAElementModel, direction: number) => {
         var dnaSequence = this.dnaSequence();
 
         var matchIndex = _.findIndex(dnaSequence, (dnaElement) => dna === dnaElement);
@@ -68,11 +73,11 @@ class DesignDNA extends BaseComputer {
         this.dnaSequence(dnaSequence);
     }
 
-    public removeDNA = (dna) => {
+    public removeDNA = (dna: DNAElementModel) => {
         this.dnaSequence.remove(dna);
     }
 
-    public showInfo = (dna) => {
+    public showInfo = (dna: DNAElementModel) => {
         this.popupController.dnaInfo(dna);
     }
 
@@ -89,7 +94,7 @@ class DesignDNA extends BaseComputer {
 
         this.changeScreen(this.Screens.MENU);
 
-        this.experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_DNA, tube);
+        experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_DNA, tube);
     }
 }
 

@@ -2,8 +2,10 @@ import ko = require('knockout');
 import _ = require('lodash');
 
 import ProducedEnzymeModel = require('model/ProducedEnzyme');
+import LiquidModel = require('model/Liquid');
 
 import LiquidType = require('model/type/Liquid');
+import MicroorganismType = require('model/type/Microorganism');
 import GrowerType = require('model/type/Grower');
 import PCSType = require('model/type/ProteinCodingSequence');
 import LocationType = require('model/type/Location');
@@ -33,7 +35,7 @@ class SimpleContainer {
         this.location = ko.observable(null);
     }
 
-    public _addAll = (liquids, preventTrigger) => {
+    public _addAll = (liquids: LiquidModel[], preventTrigger = false) => {
         if (!this.canAddLiquids(liquids))
             return;
 
@@ -69,21 +71,22 @@ class SimpleContainer {
             experimentController.triggerMix(liquids, this);
     }
 
-    public addAll = (liquids, preventTrigger) => {
+    public addAll = (liquids, preventTrigger = false) => {
         this._addAll(liquids, preventTrigger);
         return this;
     }
 
-    public add = (liquid, preventTrigger) => {
+    public add = (liquid, preventTrigger = false) => {
         this._addAll([liquid], preventTrigger);
         return this;
     }
 
-    public canAddLiquids = (liquids) => {
+    public canAddLiquids = (liquids: LiquidModel[]) => {
         // stupid edge-case
         var containsSaltWater = _.any(liquids, (liquid) => {
             return liquid.type() === LiquidType.SALT_WATER;
         });
+
         if (liquids.length == 1 && containsSaltWater)
             return true;
 
@@ -102,13 +105,13 @@ class SimpleContainer {
         this.liquids.removeAll();
     }
 
-    public contains = (liquidType) => {
+    public contains = (liquidType: LiquidType) => {
         return _.any(this.liquids(), (liquid) => {
             return liquid.type() === liquidType;
         });
     }
 
-    public containsMicroorganism = (microorganismType) => {
+    public containsMicroorganism = (microorganismType: MicroorganismType) => {
         return _(this.liquids())
             .filter((liquid) => {
                 return liquid.type() === LiquidType.MICROORGANISM;
@@ -118,7 +121,7 @@ class SimpleContainer {
             });
     }
 
-    public containsAll = (liquidTypes) => {
+    public containsAll = (liquidTypes: LiquidType[]) => {
         return _.all(liquidTypes, (liquidType) => {
             return this.contains(liquidType);
         });
@@ -159,7 +162,7 @@ class SimpleContainer {
         });
     }
 
-    public growContentsOnce = (deltaTime, growerType, ph, temperature) => {
+    public growContentsOnce = (deltaTime: number, growerType: GrowerType, ph: number, temperature: number) => {
         // deltaTime is in hours!
         var producedEnzymes = [];
         var totalConc = this.getTotalConcentration();

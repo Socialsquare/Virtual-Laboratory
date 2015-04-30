@@ -4,8 +4,10 @@ import _ = require('lodash');
 
 import ScaffoldModel = require('model/Scaffold');
 import SidegroupModel = require('model/Sidegroup');
-import drugsData = require('json!../../data/drugs.json');
+import DrugPassagesModel = require('model/DrugPassages');
+import DrugInfoModel = require('model/DrugInfo');
 
+import drugsData = require('json!datadir/drugs.json');
 
 class Drug {
 
@@ -18,38 +20,24 @@ class Drug {
         var promise = $.Deferred();
 
         var testPath4 = 'data/drugs-data/' + drugConfig + '.json';
-        var test4 = $.getJSON(testPath4).done((data) => {
-            promise.resolve({
-                weight: data.weight + 'g/mol',
-                pKa: data.pka,
-                logD: data.logD,
-                logP: data.logP
-            });
+        var test4 = $.getJSON(testPath4).done((data: any) => {
+            var info = new DrugInfoModel(data);
+            info.passes = Drug.getDrugPassages(info.logD);
+            promise.resolve(info);
         });
 
         return promise;
     }
 
     static getScaffold(name: string) {
-        var raw = _.find(drugsData.scaffolds, (obj) => {
-            return obj.name === name;
-        });
-
-        return new ScaffoldModel(raw);
+        return _.find(Drug.scaffolds, (obj) => obj.name === name);
     }
 
     // TODO: properties
 
     //Given LogD, it can be determined where in the body the drug can go
     static getDrugPassages(logD: number) {
-        var values = {};
-        //Jannick also proposed > 3, but said 'start with 4'
-        values.canPassSkin = logD >= 4;
-        values.canPassBBB = logD >= 2 && logD <= 3;
-        values.canPassBlood = logD <= 5;
-        values.canPassIntestine = logD >= 1;
-
-        return values;
+        return new DrugPassagesModel(logD);
     }
 }
 

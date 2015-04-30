@@ -1,5 +1,6 @@
-import Item = require('model/Item');
 import ko = require('knockout');
+
+import Item = require('model/Item');
 
 class ChemicalItem extends Item {
 

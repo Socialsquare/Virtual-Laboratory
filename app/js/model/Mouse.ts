@@ -151,7 +151,7 @@ class Mouse {
     }
 
     public vaccinate = (antigenType) => {
-        if(antigenType === LiquidType.ANTIGEN_GOUT)
+        if (antigenType === LiquidType.ANTIGEN_GOUT)
             this.spleen.antibodiesFor.push(LiquidType.ANTIBODY_GOUT);
         else
             this.spleen.antibodiesFor.push(LiquidType.ANTIBODY_SMALLPOX);

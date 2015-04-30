@@ -13,7 +13,7 @@ class Fermentor extends BaseViewController {
         super('fermentor');
 
         this.fermentor = this.gameState.fermentor;
-        this.fermentorTankController = new SimpleContainerController(this.fermentor.fermentorTank, this.gameState);
+        this.fermentorTankController = new SimpleContainerController(this.fermentor.fermentorTank);
     }
 }
 

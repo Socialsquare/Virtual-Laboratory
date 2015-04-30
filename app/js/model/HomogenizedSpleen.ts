@@ -1,13 +1,13 @@
 import ko = require('knockout');
 
-import LiquidModel = require('model/Liquid');
 import LiquidType = require('model/type/Liquid');
-import ReactionCount = require('model/ReactionCount');
 
+import LiquidModel = require('model/Liquid');
+import ReactionCount = require('model/ReactionCount');
 
 class HomogenizedSpleen extends LiquidModel {
 
-    public antibodiesFor: KnockoutObservableArray<string>;
+    public antibodiesFor: KnockoutObservableArray<LiquidType>;
 
     constructor() {
         super(LiquidType.HOMO_SPLEEN, ReactionCount.NEVER, true);

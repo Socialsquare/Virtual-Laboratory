@@ -11,10 +11,10 @@ class Quiz {
     public activeQuiz: KnockoutObservable<QuizModel>;
     public quizFinished: KnockoutObservable<boolean>;
 
-    constructor(quiz) {
+    constructor() {
         this.currentPopupVM = null;
         this.quizPromise = null;
-        this.activeQuiz = ko.observable(quiz);
+        this.activeQuiz = ko.observable(null);
         this.quizFinished = ko.observable(false);
     }
 

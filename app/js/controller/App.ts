@@ -1,6 +1,8 @@
 import ko = require('knockout');
-import BaseViewController = require('controller/view/Base');
 import homescreen = require('homescreen');
+
+import popupController = require('controller/Popup');
+import BaseViewController = require('controller/view/Base');
 
 // controllers
 import MenuController = require('controller/Menu');
@@ -36,12 +38,13 @@ class App extends BaseViewController {
     private viewControllers;
 
     constructor(isWeb) {
-        super()
+        super('app');
 
         // encourage users on tablet to add the app to their homescreen
         homescreen();
 
-        spectropmController = new SpectroPMController();
+        var spectropmController = new SpectroPMController();
+
         this.viewControllers = {
             loading: new LoadingController(),
             overview: new OverviewController(),
@@ -67,15 +70,13 @@ class App extends BaseViewController {
         });
 
         // bootstrap the app by going to loading view
+        // TODO-release: switch to loading
         //this.router.navigate('loading');
         this.router.navigate('overview');
 
     }
 
-    public viewChange = (viewName) => {
-        // hide any potential active popup
-        this.popupController.hide();
-
+    public viewChange = (viewName: string) => {
         // exit current controller
         if (this.activeViewController()) {
             this.activeViewController().exit();

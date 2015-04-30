@@ -32,7 +32,7 @@ class Worktable1 extends BaseViewController {
         this.tableSpaceMicroController = new CompositeContainerController(this.worktable1.tableSpaceMicro);
         this.tubeRackController = new CompositeContainerController(this.worktable1.tubeRack);
         this.heaterController = new CompositeContainerController(this.worktable1.heater);
-        this.electroporatorController = new SimpleContainerController(this.worktable1.electroporator, this.gameState);
+        this.electroporatorController = new SimpleContainerController(this.worktable1.electroporator);
 
         this.tableSpacePetriController.addDropGuard(this.bunsenGuard);
         this.tableSpaceMicroController.addDropGuard(this.bunsenGuard);

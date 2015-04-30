@@ -3,6 +3,7 @@ import $ = require('jquery');
 
 import BaseComputer = require('controller/view/computer/Base');
 import popupController = require('controller/Popup');
+import experimentController = require('controller/Experiment');
 
 import drugService = require('service/Drug');
 
@@ -51,7 +52,7 @@ class DesignDrug extends BaseComputer {
         $.get(slot.sidegroup().file(), (data) => {
             var svgNode = $("svg", data);
 	        var docNode = document.adoptNode(svgNode[0]);
-            dragger.html(docNode);
+            dragger.html(<any>docNode);
         });
 
         return dragger;
@@ -78,15 +79,13 @@ class DesignDrug extends BaseComputer {
             .then((info) => {
                 this.selectedScaffold().drugInfo = info;
 
-                this.selectedScaffold().drugInfo.passes = drugService.getDrugPassages(info.logD);
-
                 var drugTube = ContainerFactory.tube().add(this.selectedScaffold().clone(), true);
 
                 gameState.inventory.add(drugTube);
 
                 this.selectedScaffold(this.getEmptyScaffold());
 
-                this.experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_DRUG, drugTube);
+                experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_DRUG, drugTube);
             });
     }
 }

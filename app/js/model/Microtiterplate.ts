@@ -18,12 +18,13 @@ class Microtiterplate extends SimpleContainerModel {
     public microtiterWells: KnockoutObservable<MicrotiterWellsModel>;
     public subtype: AntigenCoatingType;
 
-    constructor(antigenCoatingType) {
+    constructor(antigenCoatingType = AntigenCoatingType.NONE) {
 
         super(ContainerType.MICROTITER, Math.pow(10, 12));
 
-        this.antigenCoating = ko.observable(antigenCoatingType || AntigenCoatingType.NONE);
-        this.microtiterWells = ko.observable(new MicrotiterWellsModel(antigenCoatingType)); // For how transfer of this works, see the pipette.
+        this.antigenCoating = ko.observable(antigenCoatingType);
+        // For how transfer of this works, see the pipette.
+        this.microtiterWells = ko.observable(new MicrotiterWellsModel());
         this.subtype = this.antigenCoating;
     }
 

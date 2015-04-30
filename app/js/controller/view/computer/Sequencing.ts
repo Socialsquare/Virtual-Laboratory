@@ -1,9 +1,12 @@
 import ko = require('knockout');
+import _ = require('lodash');
 
 import BaseComputer = require('controller/view/computer/Base');
 import popupController = require('controller/Popup');
+import experimentController = require('controller/Experiment');
 
 import gameState = require('model/GameState');
+import TubeModel = require('model/Tube');
 import DNAElementModel = require('model/DNAElement');
 
 import LiquidType = require('model/type/Liquid');
@@ -14,13 +17,18 @@ import LocalizationService = require('service/Localization');
 
 class Sequencing extends BaseComputer {
 
+    public isValid: KnockoutObservable<boolean>;
+    public message: KnockoutObservable<string>;
+    public item: KnockoutObservable<any>; //TODO! type?
+    public consumeItem: () => void;
+
     constructor() {
         super('computer-sequencing', 'computer.screen.sequencing');
 
         this.isValid = ko.observable(false);
         this.message = ko.observable('');
         this.item = null;
-        this.consumeItem = null;
+        this.consumeItem = _.noop;
     }
 
     public handleDrop = (item, consumer) => {
@@ -36,7 +44,7 @@ class Sequencing extends BaseComputer {
         return false;
     }
 
-    public sendToSequencing = (tube) => {
+    public sendToSequencing = (tube: TubeModel) => {
         if (!tube) return;
         // reset message and create new dna element
         var dna = null;
@@ -101,7 +109,7 @@ class Sequencing extends BaseComputer {
             this.gameState.sequencedDNA.push(dna);
         }
 
-        this.experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_SEQUENCE, dna);
+        experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_SEQUENCE, dna);
     }
 
     public createDNAElement = (type) => {

@@ -35,7 +35,7 @@ class Trigger {
         this.loc        = S2T.loc(values.location);
         this.strict     = values.strict;
 
-        this.liquids = _.map(values.liquids, (l) => {
+        this.liquids = _.map(values.liquids, (l: TriggerLiquid) => {
             var triggerLiquid = { type: S2T.liquid(l.type) };
 
             if (l.subtype && triggerLiquid.type == LiquidType.MICROORGANISM)

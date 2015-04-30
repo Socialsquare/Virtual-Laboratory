@@ -1,17 +1,24 @@
 import ko = require('knockout');
 import _ = require('lodash');
+
 import utils = require('utils/utils');
+
 import SimpleContainerModel = require('model/SimpleContainer');
 import OrganismPropertyModel = require('model/OrganismProperty');
+import DNAElementModel = require('model/DNAElement');
+import GeneModel = require('model/Gene');
+
 import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
 import DNAType = require('model/type/DNA');
-import DNAElementModel = require('model/DNAElement');
 
-// Helper type
+// Helper types
 type DNAList = DNAElementModel[];
+type SubMRNA = { promoter: DNAElementModel, DNAs: DNAList }
 
 class Electroporator extends SimpleContainerModel {
+
+    public status: KnockoutObservable<boolean>;
 
     constructor() {
         super(ContainerType.ELECTROPORATOR, Math.pow(10, 13));
@@ -103,8 +110,6 @@ class Electroporator extends SimpleContainerModel {
 
         var MRNAs = gene.getMRNAs(promoterPositions, terminatorPositions);
 
-
-
         _(MRNAs).each((mRNA) => {
             var values = this.examineMRNAandGetNewProperties(mRNA); //TODO: set quiz/video-numbers
 
@@ -120,7 +125,7 @@ class Electroporator extends SimpleContainerModel {
         return returnObject;
     }
 
-    public transferGeneToAllOrganisms = (gene) => {
+    public transferGeneToAllOrganisms = (gene: GeneModel) => {
         _.each(this.liquids(), (microorganism) => {
             if(microorganism.type() === LiquidType.MICROORGANISM) {
 
@@ -133,7 +138,7 @@ class Electroporator extends SimpleContainerModel {
     public examineMRNAandGetNewProperties = (mRNA: DNAList) => {
 
         var values = { firstError: Infinity, newProperties: [] };
-        var subMRNAs = [];
+        var subMRNAs: SubMRNA[] = [];
 
         var promoterPositions: number[] = [];
         _.each(mRNA, (dna, index) => {
@@ -144,9 +149,10 @@ class Electroporator extends SimpleContainerModel {
 
         // Extract sub-mRNAs
         _.each(promoterPositions, (promoterPosition, index) => {
-            var subMRNA = {promoter: {}, DNAs: []};
+            var subMRNA: SubMRNA = { promoter: <DNAElementModel>{}, DNAs: <DNAList>[] };
 
-            subMRNA.DNAs = mRNA.slice(promoterPosition + 1, promoterPositions[index + 1]); //Apparently, .slice() even works with undefined. Awesome.
+            //Apparently, .slice() even works with undefined. Awesome.
+            subMRNA.DNAs = mRNA.slice(promoterPosition + 1, promoterPositions[index + 1]);
             subMRNA.promoter = mRNA[promoterPosition];
             subMRNAs.push(subMRNA);
         });
@@ -158,8 +164,6 @@ class Electroporator extends SimpleContainerModel {
             });
 
             if (!containsPCS) {
-
-
                 var containsRBS =_.any(subMRNA.DNAs, (dna) => {
                     return dna.DNAType() === DNAType.RIBOSOME_BINDING_SITE;
                 });
@@ -167,7 +171,7 @@ class Electroporator extends SimpleContainerModel {
                 if (!containsRBS) {
                     // Quiz #3 (no RBS)
                     values.firstError = 3 < values.firstError ? 3 : values.firstError;
-                }else{
+                } else {
 
                     var firstRBSIndex = _.findIndex(subMRNA.DNAs, (dna) => {
                         return dna.DNAType() === DNAType.RIBOSOME_BINDING_SITE;
@@ -182,7 +186,7 @@ class Electroporator extends SimpleContainerModel {
                         // Quiz #4 (no start codon)
                         values.firstError = 4 < values.firstError ? 4 : values.firstError;
                         console.log('Electro #1');
-                    }else {
+                    } else {
                         // Quiz # 5 (no PCS)
                         values.firstError = 5 < values.firstError ? 5 : values.firstError;
                         console.log('Electro #2');
@@ -312,14 +316,11 @@ class Electroporator extends SimpleContainerModel {
             if(!containsStopCodon) {
                 // Quiz # 6 (no stop codon)
                 values.firstError = 6 < values.firstError ? 6 : values.firstError;
-                console.log('Electro #8');
             }
 
             return containsStopCodon;
         });
 
-
-        console.log('subMRNAs.length: ' + subMRNAs.length);
 
         _.each(subMRNAs, (subMRNA) => {
 
@@ -340,11 +341,11 @@ class Electroporator extends SimpleContainerModel {
             });
 
 
-            var postionPairs = []; //starting and end-position in the gene for the mRNA.
-            var viableDNAlists = []; //NESTED LISTS! DNAs containing allowed PCSs
+            var postionPairs: number[][] = []; //starting and end-position in the gene for the mRNA.
+            var viableDNAlists: DNAList[] = []; //NESTED LISTS! DNAs containing allowed PCSs
 
             // Extract position-piars
-            while(startPositions.length > 0) {
+            while (startPositions.length > 0) {
                 var firstStartCodon = startPositions.shift();
 
                 //1) nak alle terminals før første promoter.

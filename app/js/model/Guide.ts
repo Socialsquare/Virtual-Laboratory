@@ -1,5 +1,7 @@
 import ko = require('knockout');
 import $ = require('jquery');
+
+import experimentController = require('controller/Experiment');
 import PopupModel = require('model/Popup');
 
 class GuideModel extends PopupModel {
@@ -9,16 +11,14 @@ class GuideModel extends PopupModel {
             experiment: experimentController.activeExperiment(),
             activeTask: experimentController.activeTask()
         }, popupController);
-
-        this.experimentController = experimentController;
     }
 
     public postRender = () => {
-        $('#popup-container .inner').scrollTop(this.experimentController.scrollAmount);
+        $('#popup-container .inner').scrollTop(experimentController.scrollAmount);
     }
 
     public hide = (domElement) => {
-        this.experimentController.scrollAmount = $('#popup-container .inner').scrollTop();
+        experimentController.scrollAmount = $('#popup-container .inner').scrollTop();
 
         this.popupController.hide(this);
     }

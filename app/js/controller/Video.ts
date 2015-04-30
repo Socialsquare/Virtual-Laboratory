@@ -87,7 +87,7 @@ class VideoController {
     public controlsRequired: KnockoutObservable<boolean>;
     public promise: JQueryDeferred;
 
-    constructor(enableFallback) {
+    constructor(enableFallback = false) {
 
         this.FeatureHelper = FeatureHelper;
         this.enableFallback = enableFallback && !FeatureHelper.autoPlay;
@@ -109,7 +109,7 @@ class VideoController {
         return video;
     }
 
-    public play = (ids, loopLast, controlsRequired) => {
+    public play = (ids: string | string[], loopLast = false, controlsRequired = false) => {
         this.controlsRequired(controlsRequired);
         this.promise = $.Deferred();
 

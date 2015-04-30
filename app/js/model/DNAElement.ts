@@ -7,10 +7,11 @@ import LiquidType = require('model/type/Liquid');
 import DNAType = require('model/type/DNA');
 import PCSType = require('model/type/ProteinCodingSequence');
 
+import S2T = require('utils/S2T');
+
 class DNAElement extends LiquidModel {
 
     public DNAType: KnockoutObservable<DNAType>;
-
     public proteinCodingSequence: KnockoutObservable<PCSType>;
 	public icon: KnockoutObservable<string>;
 	public name: KnockoutObservable<string>;
@@ -23,9 +24,9 @@ class DNAElement extends LiquidModel {
     constructor(values) {
         super(LiquidType.DNA, ReactionCount.ALWAYS, true);
 
-		this.DNAType = ko.observable(DNAType.fromInt(values.type));
+		this.DNAType = ko.observable(S2T.dnaFromId(values.type));
 
-        this.proteinCodingSequence = ko.observable(values.proteinCodingSequence);
+        this.proteinCodingSequence = ko.observable(S2T.pcs(values.proteinCodingSequence));
 		this.icon = values.icon;
 		this.name = ko.observable(values.name);
 		this.color = ko.observable(values.color);

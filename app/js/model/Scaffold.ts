@@ -38,10 +38,7 @@ class Scaffold extends LiquidModel {
 
         this.configurationString = ko.computed(() => {
             var sidegroups = _(this.slots())
-                .sort((slotA, slotB) => {
-
-                    return slotA.index > slotB.index;
-                })
+                .sortBy((slot) => slot.index)
                 .map((slot) => {
                     return slot.sidegroup() ? slot.sidegroup().id : 'R';
                 });

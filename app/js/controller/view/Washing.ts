@@ -1,10 +1,18 @@
 import ko = require('knockout');
+
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
 
 import ActivationType = require('model/type/Activation');
 
+import WashingModel = require('model/Washing');
+
 class Washing extends BaseViewController {
+
+    public washing: WashingModel;
+    public status: KnockoutObservable<boolean>;
+    public result: KnockoutObservable<number>;
+    public tubeRackController: CompositeContainerController;
 
     constructor() {
         super('washing');

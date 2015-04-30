@@ -7,7 +7,7 @@ import experimentService = require('service/Experiment');
 class ExperimentSelector extends BaseViewController {
 
     constructor() {
-        super()
+        super('experiment-selector')
 
         this.experiments = ko.observableArray([]);
         this.selected = ko.observable();

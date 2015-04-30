@@ -7,10 +7,12 @@ import MicroorganismType = require('model/type/Microorganism');
 import AntibioticType = require('model/type/Antibiotic');
 import LocationType = require('model/type/Location');
 import AntigenCoatingType = require('model/type/AntigenCoating');
+import DNAType = require('model/type/DNA');
+import ProteinCodingSequenceType = require('model/type/ProteinCodingSequence');
 
 class S2T {
 
-    static consequence = (s: string) => {
+    static consequence(s: string) {
         switch (s) {
         case "ConsequenceType.QUIZ": return ConsequenceType.QUIZ;
         case "ConsequenceType.VIDEO":  return ConsequenceType.VIDEO;
@@ -18,9 +20,9 @@ class S2T {
         default: return null;
 // default: throw "Unknown consequence string: " + s;
         }
-    };
+    }
 
-    static trigger = (s: string) => {
+    static trigger(s: string) {
         switch (s) {
         case "TriggerType.MIX": return TriggerType.MIX;
         case "TriggerType.MOUSE": return TriggerType.MOUSE;
@@ -29,9 +31,9 @@ class S2T {
         default: return null;
 // default: throw "Unknown trigger string: " + s;
         }
-    };
+    }
 
-    static activation = (s: string) => {
+    static activation(s: string) {
         switch (s) {
         case "ActivationType.WASHING": return ActivationType.WASHING;
         case "ActivationType.INCUBATOR": return ActivationType.INCUBATOR;
@@ -49,9 +51,9 @@ class S2T {
         default: return null;
 // default: throw "Unknown activation string: " + s;
         }
-    };
+    }
 
-    static container = (s: string) => {
+    static container(s: string) {
         switch (s) {
             // Simple
         case 'ContainerType.PETRI_DISH': return ContainerType.PETRI_DISH;
@@ -83,9 +85,9 @@ class S2T {
         default: return null;
 // default: throw "Unknown container string: " + s;
         }
-    };
+    }
 
-    static liquid = (s: string) => {
+    static liquid(s: string) {
         switch (s) {
         case "LiquidType.MICROORGANISM": return LiquidType.MICROORGANISM;
         case "LiquidType.ANTIBIOTIC": return LiquidType.ANTIBIOTIC;
@@ -119,27 +121,27 @@ class S2T {
         default: return null;
 // default: throw "Unknown liquid string: " + s;
         }
-    };
+    }
 
-    static microorganism = (s: string) => {
+    static microorganism(s: string) {
         switch (s) {
         case "MicroorganismType.YEAST": return MicroorganismType.YEAST;
         case "MicroorganismType.MYELOMA": return MicroorganismType.MYELOMA;
         default: return null;
 // default: throw "Unknown microorganism string: " + s;
         }
-    };
+    }
 
-    static antibiotic = (s: string) => {
+    static antibiotic(s: string) {
         switch (s) {
         case 'AntibioticType.A': return AntibioticType.A;
         case 'AntibioticType.B': return AntibioticType.B;
         default: return null;
 // default: throw "Unknown antibiotic string: " + s;
         }
-    };
+    }
 
-    static loc = (s: string) => {
+    static loc(s: string) {
         switch (s) {
         case "LocationType.CHEMICAL": return LocationType.CHEMICAL;
         case "LocationType.COMPUTER": return LocationType.COMPUTER;
@@ -160,16 +162,53 @@ class S2T {
         default: return null;
 // default: throw "Unknown location string: " + s;
         }
-    };
+    }
 
-    static antigenCoating = (s: string) => {
+    static antigenCoating(s: string) {
         switch (s) {
         case 'AntigenCoatingType.ANY': return AntigenCoatingType.ANY;
         case 'AntigenCoatingType.NONE': return AntigenCoatingType.NONE;
         default: return null;
 // default: throw "Unknown antigenCoating string: " + s;
         }
-    };
+    }
+
+    static dnaFromId(id: string) {
+        var lookup = [
+            DNAType.PROMOTER,
+            DNAType.RIBOSOME_BINDING_SITE,
+            DNAType.START_CODON,
+            DNAType.PROTEINKODENDE_SEKVENS,
+            DNAType.STOP_CODON,
+            DNAType.TERMINATOR
+        ];
+
+        return lookup[id];
+    }
+
+    static pcs(s: string) {
+        switch (s) {
+        case 'ProteinCodingSequenceType.NONE':
+            return ProteinCodingSequenceType.NONE;
+        case 'ProteinCodingSequenceType.ANTIBODY_GOUT':
+            return ProteinCodingSequenceType.ANTIBODY_GOUT;
+        case 'ProteinCodingSequenceType.ANTIBODY_SMALLPOX':
+            return ProteinCodingSequenceType.ANTIBODY_SMALLPOX;
+        case 'ProteinCodingSequenceType.INSULIN_2':
+            return ProteinCodingSequenceType.INSULIN_2;
+        case 'ProteinCodingSequenceType.INSULIN_1':
+            return ProteinCodingSequenceType.INSULIN_1;
+        case 'ProteinCodingSequenceType.GFP':
+            return ProteinCodingSequenceType.GFP;
+        case 'ProteinCodingSequenceType.LIPASE_ENZYME':
+            return ProteinCodingSequenceType.LIPASE_ENZYME;
+        case 'ProteinCodingSequenceType.ANTIBIOTIC_RES_A':
+            return ProteinCodingSequenceType.ANTIBIOTIC_RES_A;
+        case 'ProteinCodingSequenceType.ANTIBIOTIC_RES_B':
+            return ProteinCodingSequenceType.ANTIBIOTIC_RES_B;
+        default: return null;
+        }
+    }
 }
 
 export = S2T;

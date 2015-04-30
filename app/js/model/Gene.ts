@@ -23,7 +23,7 @@ class Gene extends LiquidModel {
 
     // Tested/Validated
     public getPromoterPositions = () => {
-        var positions = [];
+        var positions: number[] = [];
         _.each(this.dnaElements(), (dna, index) => {
             if(dna.DNAType() === DNAType.PROMOTER) { // dna.DNAType() _IS_ correct, as it is an observable. But when testing this might not be if not created through the computer-view
                 positions.push(index);
@@ -35,7 +35,7 @@ class Gene extends LiquidModel {
 
     // Tested/Validated
     public getTerminatorPositions = () => {
-        var positions = [];
+        var positions: number[] = [];
         _.each(this.dnaElements(), (dna, index) => {
             if(dna.DNAType() === DNAType.TERMINATOR) {
                 positions.push(index);

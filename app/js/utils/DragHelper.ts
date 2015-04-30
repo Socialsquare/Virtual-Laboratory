@@ -37,7 +37,6 @@ class DragHelper {
 
     static acceptedByInventory = DragHelper.nonAccepter([
         ContainerType.BOTTLE,
-        LiquidType.SIDEGROUP,
         LiquidType.DNA,
         ContainerType.PIPETTE,
         SpecialItemType.SIDEGROUP
