@@ -203,11 +203,11 @@ class CompositeContainerController {
         }
     }
 
-    public goToCloseUp = (index, item) => {
-        if (item.type() !== ContainerType.MICROTITER)
-            return;
-
-        popupController.microtiterCloseUp(item);
+    public goToCloseUp = (index: number, item) => {
+        if (item.type() === ContainerType.MICROTITER)
+            popupController.microtiterCloseUp(item);
+        else
+            popupController.itemDetail(item);
     }
 }
 

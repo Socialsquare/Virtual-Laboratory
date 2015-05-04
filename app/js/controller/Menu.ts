@@ -45,9 +45,10 @@ class Menu extends BaseViewController {
             return this.inventoryItemsWidth() > this.inventoryWidth;
         });
 
+        ko.rebind(this);
     }
 
-    public scrollInventory = (scrollRight) => {
+    scrollInventory(scrollRight) {
         this.stopScroll();
 
         if (!this.canScroll())
@@ -57,14 +58,14 @@ class Menu extends BaseViewController {
         this.scrollInterval = window.setInterval(this.scrollStep, 20);
     }
 
-    public scrollStep = () => {
+    scrollStep() {
         var diff = this.scrollRight ? -7 : 7;
         this.scrollValue(this.scrollValue() + diff);
 
         this.boundScroll();
     }
 
-    public boundScroll = () => {
+    boundScroll() {
         if (!this.canScroll()) {
             this.scrollValue(0);
             this.stopScroll();
@@ -83,23 +84,23 @@ class Menu extends BaseViewController {
         }
     }
 
-    public inventoryItemsWidth = () => {
+    inventoryItemsWidth() {
         return this.gameState.inventory.items().length * 91;
     }
 
-    public stopScroll = () => {
+    stopScroll() {
         window.clearInterval(this.scrollInterval);
     }
 
-    public showInformation = () => {
+    showInformation() {
         this.popupController.labInfo();
     }
 
-    public selectExperiment = () => {
+    selectExperiment() {
         this.router.navigate('loading');
     }
 
-    public fullscreen = () => {
+    fullscreen() {
         var body = document.getElementsByTagName('body')[0];
         if (screenfull.enabled) {
             screenfull.toggle(body);
@@ -109,22 +110,22 @@ class Menu extends BaseViewController {
         }
     }
 
-    public inventoryDropHandler = (item) => {
+    inventoryDropHandler(item) {
         if (this.gameState.inventory.hasItem(item))
             return false;
 
         this.gameState.inventory.add(item);
     }
 
-    public showGuide = () => {
+    showGuide() {
         this.popupController.showGuide(experimentController);
     }
 
-    public togglePipette = () => {
+    togglePipette() {
         this.gameState.pipette.active.toggle();
     }
 
-    public tipDropHandler = (pipette) => {
+    tipDropHandler(pipette) {
         if (!this.gameState.pipette.hasTip()) {
             this.gameState.pipette.addAt(0, new TipModel());
         } else {
@@ -133,7 +134,7 @@ class Menu extends BaseViewController {
         return false;
     }
 
-    public trashDropHandler = (item, consume) => {
+    trashDropHandler(item, consume) {
         if (item.type() === ContainerType.PIPETTE) {
             this.gameState.pipette.removeTip();
         } else {
@@ -143,9 +144,13 @@ class Menu extends BaseViewController {
         return false;
     }
 
-    public showItemDetails = (item) => {
-        var nonWriteables = [SpecialItemType.SCALPEL, SpecialItemType.SPLEEN,
-                             SpecialItemType.WASH_BOTTLE, SpecialItemType.BUFFER];
+    showItemDetails(item) {
+        var nonWriteables = [
+            SpecialItemType.SCALPEL,
+            SpecialItemType.SPLEEN,
+            SpecialItemType.WASH_BOTTLE,
+            SpecialItemType.BUFFER
+        ];
 
         if (_.contains(nonWriteables, item.type()))
             this.popupController.message(TextHelper.prettyName(item), TextHelper.description(item));
