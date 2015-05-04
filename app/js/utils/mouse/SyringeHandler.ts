@@ -25,12 +25,12 @@ class SyringeHandler {
 
         // Drawing blood
         else if (syringe.isEmpty()) {
-            popupController.confirm("mouse.ask_draw_blood.header", "mouse.ask_draw_blood.body").then(() => {
+            popupController.confirm("mouse.ask_draw_blood.header", "mouse.ask_draw_blood.body")
+                .then(() => MC.videoController.play('fast-injection'))
+                .then(() => {
+                    // consume the syringe
+                    gameState.inventory.remove(syringe);
 
-                // consume the syringe
-                gameState.inventory.remove(syringe);
-
-                MC.videoController.play('fast-injection', false).done(() => {
                     popupController.message('mouse.blood_drawn.header','mouse.blood_drawn.body');
 
                     var blood = LiquidFactory.mouseBlood(MC.mouse().mouseBloodType());
@@ -38,8 +38,7 @@ class SyringeHandler {
                     gameState.inventory.add(tube);
 
                     MC.runFromState();
-                })
-            });
+                });
             return false;
         }
 

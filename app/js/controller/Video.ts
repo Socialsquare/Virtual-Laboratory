@@ -75,6 +75,8 @@ var videos = [
 var timeout = 2000;
 
 class VideoController {
+    // Used for testing TODO! could be nicer
+    static autoFinish: boolean = false;
 
     public FeatureHelper: FeatureHelper;
     public enableFallback: boolean;
@@ -112,6 +114,11 @@ class VideoController {
     public play = (_ids: string | string[], loopLast = false, controlsRequired = false) => {
         this.controlsRequired(controlsRequired);
         this.promise = $.Deferred();
+
+        if (VideoController.autoFinish) {
+            this.promise.resolve();
+            return this.promise;
+        }
 
         var ids: string[];
 
