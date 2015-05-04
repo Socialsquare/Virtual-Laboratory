@@ -10,7 +10,6 @@ import MicroorganismType = require('model/type/Microorganism');
 import ReactionCount = require('model/ReactionCount');
 import Utils = require('utils/utils');
 
-
 class Microorganism extends LiquidModel {
 
     public microorganismType: KnockoutObservable<MicroorganismType>;
@@ -40,22 +39,24 @@ class Microorganism extends LiquidModel {
 		this.optimalTemp = ko.observable(0);
 		this.concentration = ko.observable(0);
         this.producedEnzymes = ko.observableArray([]);
+
+        ko.rebind(this);
     }
 
-    public addGene = (gene) => {
+    addGene(gene) {
         this.extraGenes.push(gene);
     }
 
-    public getGrowthRate = (ph, temperature) => {
+    getGrowthRate(ph, temperature) {
 
         return this.getPhGrowthFactor(ph) * this.getTempGrowthFactor(temperature) * 0.6; // TODO: optimize this magic number when the fermentor has plotting-implemented
     }
 
-    public grow = (growthAmount) =>{
+    grow(growthAmount) {
         this.concentration(this.concentration() + growthAmount);
     }
 
-    public getGrowthStep = (deltaTime, containerMaxConc, containerPrevTotalConc, ph, temperature) => {
+    getGrowthStep(deltaTime, containerMaxConc, containerPrevTotalConc, ph, temperature) {
 
         if (!this.living()) {
             return 0;
@@ -85,7 +86,7 @@ class Microorganism extends LiquidModel {
         return dN_i_concentration;
     }
 
-    public getPhGrowthFactor = (ph) => {
+    getPhGrowthFactor(ph) {
         var phDiff = ph - this.optimalPh();
         if(Math.abs(phDiff) >= 2) {
             this.living(false);
@@ -95,7 +96,8 @@ class Microorganism extends LiquidModel {
         return 1 - 1.0/4.0 * phDiff * phDiff;
     }
 
-    public getTempGrowthFactor = (temperature) => { //TODO
+    //TODO
+    getTempGrowthFactor(temperature) {
         var tempDiff = temperature - this.optimalTemp();
         if (tempDiff > 8) //tempDiff = [8; Inf]
         {

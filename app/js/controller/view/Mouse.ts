@@ -91,9 +91,11 @@ class MouseController extends BaseViewController {
 
 
         this.updatePlotData();
+
+        ko.rebind(this);
     }
 
-    public exportData = () => {
+    exportData() {
         var raw = this.plotData();
         var headers = ['time', 'bloodsugar', 'heart'];
         var parsed = _(raw.bloodData)
@@ -106,7 +108,7 @@ class MouseController extends BaseViewController {
         this.popupController.dataExport(DataHelper.toCSV(parsed, headers));
     }
 
-    public updatePlotData = () => {
+    updatePlotData() {
         var bloodData = _.map(_.range(0, 250), (i) => {
             return [i, this.mouse().bloodData()[i]];
         });
@@ -128,7 +130,7 @@ class MouseController extends BaseViewController {
         });
     }
 
-    public nextTimeStep = () => {
+    nextTimeStep() {
         this.mouse().nextBloodStep();
         this.mouse().nextHeartStep();
 
@@ -144,7 +146,7 @@ class MouseController extends BaseViewController {
         this.updatePlotData();
     }
 
-    public injectionFromState = () => {
+    injectionFromState() {
         if (this.mouse().alive()) {
             switch (this.mouse().mouseType()) {
             case MouseType.HEALTHY:
@@ -159,7 +161,7 @@ class MouseController extends BaseViewController {
         }
     }
 
-    public runFromState = () => {
+    runFromState() {
         if (this.mouse().alive()) {
             switch (this.mouse().mouseType()) {
             case MouseType.HEALTHY:
@@ -188,18 +190,20 @@ class MouseController extends BaseViewController {
         }
     }
 
-    public enter = () => {
+    enter() {
+        super.enter();
+
         this.runFromState();
 
         this.toggleSimulation(true);
     }
 
-    public exit = () => {
+    exit() {
         this.videoController.stop();
         this.toggleSimulation(false);
     }
 
-    public toggleSimulation = (enabled) => {
+    toggleSimulation(enabled) {
         if (enabled) {
             this.graphTimer(setInterval(this.nextTimeStep, 100));
         } else {
@@ -207,7 +211,7 @@ class MouseController extends BaseViewController {
         }
     }
 
-    public handleDropOnMouse = (item) => {
+    handleDropOnMouse(item) {
         return DropOnMouseHelper.handleDrop(this, item);
     }
 }

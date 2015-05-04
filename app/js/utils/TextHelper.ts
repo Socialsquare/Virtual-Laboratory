@@ -5,6 +5,10 @@ import localizationService = require('service/Localization');
 import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
 import LiquidType = require('model/type/Liquid');
+import MouseBloodType = require('model/type/MouseBlood');
+
+import LiquidModel = require('model/Liquid');
+import SimpleContainerModel = require('model/SimpleContainer');
 
 class TextHelper {
 
@@ -33,17 +37,31 @@ class TextHelper {
         }
     }
 
-    static label = (container) => {
-        var contents = _.map(container.liquids(), (l) => localizationService.text(TextHelper.prettyName(l)));
+    static label = (container: SimpleContainerModel) => {
+        var contents = _.map(container.liquids(), (l) => {
+            if (l.type() == LiquidType.MOUSE_BLOOD) {
+                var blood = localizationService.text(TextHelper.prettyNameFromType(l.type()));
+                var type = localizationService.text(TextHelper.prettyNameFromType(l.subtype()));
+                return blood + ' (' + type + ')';
+            }
+
+            return localizationService.text(TextHelper.prettyName(l))
+        });
 
         return localizationService.text('common.contains') + ': ' + contents.join(' & ');
     }
+
+    // static mouseBlood = (liquid: LiquidModel) => {
+    //     var blood = localizationService.text(TextHelper.prettyNameFromType(item.type()));
+    //     var type = localizationService.text(TextHelper.prettyNameFromType(item.subtype()));
+    //     return blood + ' (' + type + ')';
+    // }
 
     static prettyName = (item) => {
         return TextHelper.prettyNameFromType(item.type());
     }
 
-    static prettyNameFromType = (type: ContainerType | SpecialItemType | LiquidType) => {
+    static prettyNameFromType = (type: ContainerType | SpecialItemType | LiquidType | MouseBloodType) => {
         switch (type) {
         case ContainerType.PETRI_DISH:
             return 'item.name.petri_dish';
@@ -62,6 +80,11 @@ class TextHelper {
             return 'item.name.buffer';
         case SpecialItemType.WASH_BOTTLE:
             return 'item.name.wash_bottle';
+
+        case MouseBloodType.NORMAL:
+            return 'liquid.name.mouse_blood.normal';
+        case MouseBloodType.DIABETIC:
+            return 'liquid.name.mouse_blood.diabetic';
 
         case LiquidType.MICROORGANISM:
             return 'liquid.name.microorganism';
@@ -117,6 +140,8 @@ class TextHelper {
             return 'liquid.name.produced_antibody_gout';
         case LiquidType.PRODUCED_ANTIBODY_POX:
             return 'liquid.name.produced_antibody_pox';
+        case LiquidType.MOUSE_BLOOD:
+            return 'liquid.name.mouse_blood';
 
         default:
             throw 'TextHelper.prettyNameFromType: Unknown type: ' + type;

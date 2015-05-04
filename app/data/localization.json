@@ -107,6 +107,12 @@
         "mouse.drug_administration.pill": "Pille",
         "mouse.drug_administration.cream": "Creme",
 
+        "mouse.ask_draw_blood.header": "Kanylen er tom",
+        "mouse.ask_draw_blood.body": "Vil du tage en blodprøve fra musen?",
+
+        "mouse.blood_drawn.header": "Blodprøve taget",
+        "mouse.blood_drawn.body": "Der er lagt et reagensglas i din beholdning med blodprøven.",
+
         "washing.empty_tube.header": "Forbudt handling",
         "washing.empty_tube.body": "Dit reagensglas er tomt",
         "washing.detergent_required.header": "Forbudt handling",
@@ -253,6 +259,10 @@
         "liquid.name.produced_antibody_gout": "Produceret antistof (TNF-alfa)",
         "liquid.name.produced_antibody_pox": "Produceret antistof (Ebola)",
         "liquid.name.fluorescent_2nd_antibody": "Fluorescerende sekundært antistof",
+        "liquid.name.mouse_blood": "Museblod",
+
+        "liquid.name.mouse_blood.normal": "rask",
+        "liquid.name.mouse_blood.diabetic": "diabetisk",
 
         "instruments.title": "Udstyr i laboratoriet",
         "instruments.inventory.header": "Beholdningen",
@@ -559,7 +569,10 @@
         "liquid.name.produced_antibody_gout": "Produceret antistof (TNF-alfa)",
         "liquid.name.produced_antibody_pox": "Produceret antistof (Ebola)",
         "liquid.name.fluorescent_2nd_antibody": "Fluorescerende sekundært antistof",
+        "liquid.name.mouse_blood": "Museblod",
 
+        "liquid.name.mouse_blood.normal": "rask",
+        "liquid.name.mouse_blood.diabetic": "diabetisk",
 
         "experiment.change.header": "Skift øvelse",
         "experiment.change.body": "Er du sikker? Alle fremskridt i den nuværende øvelse går tabt.",

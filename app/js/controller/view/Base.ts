@@ -39,23 +39,25 @@ class Base {
         this.hasMenu = ko.observable(true);
         // false = CAN show pipette.
         this.shouldHidePipette = ko.observable(false);
+
+        ko.rebind(this);
     }
 
-    public maybeHidePippete = () => {
+    maybeHidePippete() {
         if (this.gameState.pipette.active()
             && this.shouldHidePipette()) {
             this.gameState.pipette.active.toggle();
         }
     }
 
-    public enter = () => {
+    enter() {
         this.maybeHidePippete();
     }
 
-    public exit = () => {}
+    exit() {}
 
     // TODO: move to utility class?
-    public smallPoxGuard = (position, container) => {
+    smallPoxGuard(position, container) {
         if (container.contains(LiquidType.ANTIGEN_SMALLPOX)) {
             this.popupController.message('fumehood.smallpox.header', 'fumehood.smallpox.body');
             return false;

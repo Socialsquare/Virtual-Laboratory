@@ -22,7 +22,7 @@ class BottleHandler {
         MC.mouse().giveJuice();
         MC.mouse().isInteracting(true);
         MC.videoController.play('fast-drink-spawn', false)
-            .done(function () {
+            .done(() => {
                 MC.mouseDrinking(false);
                 MC.mouse().isInteracting(false);
 

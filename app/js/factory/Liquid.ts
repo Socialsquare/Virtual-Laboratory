@@ -12,6 +12,7 @@ import FluorescentSecondaryAntibody = require('model/FluorescentSecondaryAntibod
 import MicroorganismType = require('model/type/Microorganism');
 import AntibioticType = require('model/type/Antibiotic');
 import LiquidType = require('model/type/Liquid');
+import MouseBloodType = require('model/type/MouseBlood');
 
 class LiquidFactory {
 
@@ -57,11 +58,11 @@ class LiquidFactory {
     };
 
     static hybridomaMedium = () => {
-        return new Liquid(LiquidType.HYBRIDOMA_MEDIUM, ReactionCount.NEVER);
+        return new Liquid(LiquidType.HYBRIDOMA_MEDIUM);
     };
 
     static growthMedium = () => {
-        return new Liquid(LiquidType.GROWTH_MEDIUM, ReactionCount.NEVER);
+        return new Liquid(LiquidType.GROWTH_MEDIUM);
     };
 
     static deadly = () => {
@@ -73,43 +74,43 @@ class LiquidFactory {
     };
 
     static insulin = () => {
-        return new Liquid(LiquidType.INSULIN, ReactionCount.NEVER);
+        return new Liquid(LiquidType.INSULIN);
     };
 
     static antigenGout = () => {
-        return new Liquid(LiquidType.ANTIGEN_GOUT, ReactionCount.NEVER);
+        return new Liquid(LiquidType.ANTIGEN_GOUT);
     };
 
     static antigenSmallpox = () => {
-        return new Liquid(LiquidType.ANTIGEN_SMALLPOX, ReactionCount.NEVER);
+        return new Liquid(LiquidType.ANTIGEN_SMALLPOX);
     };
 
     static antibodySmallpox = () => {
-        return new Liquid(LiquidType.ANTIBODY_SMALLPOX, ReactionCount.NEVER);
+        return new Liquid(LiquidType.ANTIBODY_SMALLPOX);
     };
 
     static antibodyGout = () => {
-        return new Liquid(LiquidType.ANTIBODY_GOUT, ReactionCount.NEVER);
+        return new Liquid(LiquidType.ANTIBODY_GOUT);
     };
 
     static adjuvans = () => {
-        return new Liquid(LiquidType.ADJUVANS, ReactionCount.NEVER);
+        return new Liquid(LiquidType.ADJUVANS);
     };
 
     static lipase = () => {
-        return new Liquid(LiquidType.LIPASE_ENZYME, ReactionCount.NEVER);
+        return new Liquid(LiquidType.LIPASE_ENZYME);
     };
 
     static gfp = () => {
-        return new Liquid(LiquidType.GFP, ReactionCount.NEVER);
+        return new Liquid(LiquidType.GFP);
     };
 
     static cypEnzyme = () => {
-        return new Liquid(LiquidType.CYP_ENZYME, ReactionCount.NEVER);
+        return new Liquid(LiquidType.CYP_ENZYME);
     };
 
     static targetRecptor = () => {
-        return new Liquid(LiquidType.TARGET_RECEPTOR, ReactionCount.NEVER);
+        return new Liquid(LiquidType.TARGET_RECEPTOR);
     };
 
     static juice = () => {
@@ -121,7 +122,13 @@ class LiquidFactory {
     };
 
     static buffer = () => {
-        return new Liquid(LiquidType.BUFFER, ReactionCount.NEVER);
+        return new Liquid(LiquidType.BUFFER);
+    };
+
+    static mouseBlood = (mouseBloodType: MouseBloodType) => {
+        var blood = new Liquid(LiquidType.MOUSE_BLOOD);
+        blood.subtype(mouseBloodType);
+        return blood;
     };
 }
 
