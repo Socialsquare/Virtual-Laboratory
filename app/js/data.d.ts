@@ -1,16 +1,48 @@
 declare module "json!datadir/localization.json" {
-    var text: string;
-    export = text;
+    var data: any;
+    export = data;
 }
 
 declare module "json!datadir/dna.json" {
-    var text: string;
-    export = text;
+    var data: [{
+        icon: string,
+        type: string,
+        comment: string,
+        link: string,
+        description: string,
+        sequence: string,
+        color: string,
+        name: string,
+        id: string,
+        proteinCodingSequence: string
+    }];
+    export = data;
 }
 
 declare module "json!datadir/drugs.json" {
-    var text: string;
-    export = text;
+    var data: {
+        scaffolds: [{
+            name: string,
+            id: string,
+            offset: { x: number, y: number },
+            slots: [{
+                index: number,
+                position: { x: number, y: number },
+                optimalLength: number,
+                bindingType: string
+            }]
+        }],
+        sidegroups: [{
+            id: number,
+            info: {
+                pKa: number,
+                weight: string,
+                bindingLength: number,
+                bindingTypes: string[]
+            }
+        }]
+    };
+    export = data;
 }
 
 declare module "json!datadir/experiments.json" {
@@ -19,13 +51,18 @@ declare module "json!datadir/experiments.json" {
 }
 
 declare module "json!datadir/heartRate.json" {
-    var text: string;
-    export = text;
+    var data: { xVals: number[] };
+    export = data;
 }
 
 declare module "json!datadir/help.json" {
-    var text: string;
-    export = text;
+    var data: [{
+        title: string,
+        body: string,
+        image: string,
+        route: string,
+    }];
+    export = data;
 }
 
 declare module "json!datadir/quiz.json" {
