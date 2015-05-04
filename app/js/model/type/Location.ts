@@ -1,20 +1,22 @@
+import ev = require('enumvalue');
+
 enum Location {
-    CHEMICAL, // "LocationType.CHEMICAL",
-    COMPUTER, // "LocationType.COMPUTER",
-    FERMENTOR, // "LocationType.FERMENTOR",
-    FERMENTORSCREEN, // "LocationType.FERMENTORSCREEN",
-    FUMEHOOD, // "LocationType.FUMEHOOD",
-    INCUBATOR, // "LocationType.INCUBATOR",
-    LOADING, // "LocationType.LOADING",
-    MOUSE, // "LocationType.MOUSE",
-    OVERVIEW, // "LocationType.OVERVIEW",
-    SPECTROPM, // "LocationType.SPECTROPM",
-    SPECTROPMSCREEN, // "LocationType.SPECTROPMSCREEN",
-    UVROOM, // "LocationType.UVROOM",
-    WASHING, // "LocationType.WASHING",
-    WORKTABLE1, // "LocationType.WORKTABLE1",
-    WORKTABLE2, // "LocationType.WORKTABLE2",
-    INVENTORY, // "LocationType.INVENTORY"
+    CHEMICAL = ev.next(), // "LocationType.CHEMICAL",
+    COMPUTER = ev.next(), // "LocationType.COMPUTER",
+    FERMENTOR = ev.next(), // "LocationType.FERMENTOR",
+    FERMENTORSCREEN = ev.next(), // "LocationType.FERMENTORSCREEN",
+    FUMEHOOD = ev.next(), // "LocationType.FUMEHOOD",
+    INCUBATOR = ev.next(), // "LocationType.INCUBATOR",
+    LOADING = ev.next(), // "LocationType.LOADING",
+    MOUSE = ev.next(), // "LocationType.MOUSE",
+    OVERVIEW = ev.next(), // "LocationType.OVERVIEW",
+    SPECTROPM = ev.next(), // "LocationType.SPECTROPM",
+    SPECTROPMSCREEN = ev.next(), // "LocationType.SPECTROPMSCREEN",
+    UVROOM = ev.next(), // "LocationType.UVROOM",
+    WASHING = ev.next(), // "LocationType.WASHING",
+    WORKTABLE1 = ev.next(), // "LocationType.WORKTABLE1",
+    WORKTABLE2 = ev.next(), // "LocationType.WORKTABLE2",
+    INVENTORY = ev.next(), // "LocationType.INVENTORY"
 }
 
 export = Location;

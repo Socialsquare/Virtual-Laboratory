@@ -1,6 +1,8 @@
+import ev = require('enumvalue');
+
 enum Microorganism {
-    YEAST, //   'MicroorganismType.YEAST',
-    MYELOMA, // 'MicroorganismType.MYELOMA'
+    YEAST   = ev.next(), // 'MicroorganismType.YEAST',
+    MYELOMA = ev.next(), // 'MicroorganismType.MYELOMA'
 };
 
 export = Microorganism;

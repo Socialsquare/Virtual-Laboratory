@@ -1,17 +1,19 @@
+import ev = require('enumvalue');
+
 enum Activation {
-    WASHING, // "ActivationType.WASHING",
-    INCUBATOR, // "ActivationType.INCUBATOR",
-    COMPUTER_ORDER_DNA, // "ActivationType.COMPUTER_ORDER_DNA",
-    COMPUTER_ORDER_MOUSE, // "ActivationType.COMPUTER_ORDER_MOUSE",
-    COMPUTER_ORDER_SEQUENCE, // "ActivationType.COMPUTER_ORDER_SEQUENCE",
-    COMPUTER_ORDER_DRUG, // "ActivationType.COMPUTER_ORDER_DRUG",
-    BUNSEN, // "ActivationType.BUNSEN",
-    ELECTROPORATOR, // "ActivationType.ELECTROPORATOR",
-    HEATER, // "ActivationType.HEATER",
-    OD, // "ActivationType.OD",
-    BLENDER, // "ActivationType.BLENDER",
-    FERMENTOR, // "ActivationType.FERMENTOR",
-    SPECTROPM, // "ActivationType.SPECTROPM"
+    WASHING                 = ev.next(), // "ActivationType.WASHING",
+    INCUBATOR               = ev.next(), // "ActivationType.INCUBATOR",
+    COMPUTER_ORDER_DNA      = ev.next(), // "ActivationType.COMPUTER_ORDER_DNA",
+    COMPUTER_ORDER_MOUSE    = ev.next(), // "ActivationType.COMPUTER_ORDER_MOUSE",
+    COMPUTER_ORDER_SEQUENCE = ev.next(), // "ActivationType.COMPUTER_ORDER_SEQUENCE",
+    COMPUTER_ORDER_DRUG     = ev.next(), // "ActivationType.COMPUTER_ORDER_DRUG",
+    BUNSEN                  = ev.next(), // "ActivationType.BUNSEN",
+    ELECTROPORATOR          = ev.next(), // "ActivationType.ELECTROPORATOR",
+    HEATER                  = ev.next(), // "ActivationType.HEATER",
+    OD                      = ev.next(), // "ActivationType.OD",
+    BLENDER                 = ev.next(), // "ActivationType.BLENDER",
+    FERMENTOR               = ev.next(), // "ActivationType.FERMENTOR",
+    SPECTROPM               = ev.next(), // "ActivationType.SPECTROPM"
 };
 
 export = Activation;

@@ -1,6 +1,8 @@
+import ev = require('enumvalue');
+
 enum AntigenCoating {
-    ANY, // 'AntigenCoatingType.ANY',
-    NONE, // 'AntigenCoatingType.NONE'
+    ANY = ev.next(), // 'AntigenCoatingType.ANY',
+    NONE = ev.next(), // 'AntigenCoatingType.NONE'
 };
 
 export = AntigenCoating;

@@ -8,8 +8,8 @@ import LiquidType = require('model/type/Liquid');
 
 class LiquidHelper {
 
-    static filter<T>(liquids: LiquidModel[], type: LiquidType): T[] {
-        return _.filter(liquids, (liquid) => liquid.type() === type);
+    static filter<T extends LiquidModel>(liquids: LiquidModel[], type: LiquidType): T[] {
+        return <T[]>_.filter(liquids, (liquid) => liquid.type() === type);
     }
 
     static mos(liquids) {

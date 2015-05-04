@@ -1,6 +1,8 @@
+import ev = require('enumvalue');
+
 enum Antibiotic {
-    A, // 'AntibioticType.A',
-    B, // 'AntibioticType.B'
+    A = ev.next(), // 'AntibioticType.A',
+    B = ev.next(), // 'AntibioticType.B'
 };
 
 export = Antibiotic;

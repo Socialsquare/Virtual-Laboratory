@@ -1,6 +1,8 @@
+import ev = require('enumvalue');
+
 enum MouseBlood {
-    NORMAL, //   'MouseBloodType.NORMAL',
-    DIABETIC, // 'MouseBloodType.DIABETIC'
+    NORMAL   = ev.next(), // 'MouseBloodType.NORMAL',
+    DIABETIC = ev.next(), // 'MouseBloodType.DIABETIC'
 }
 
 export = MouseBlood;

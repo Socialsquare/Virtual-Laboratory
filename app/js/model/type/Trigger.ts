@@ -1,8 +1,10 @@
+import ev = require('enumvalue');
+
 enum Trigger {
-    MIX, //        'TriggerType.MIX',
-    MOUSE, //      'TriggerType.MOUSE',
-    ACTIVATION, // 'TriggerType.ACTIVATION',
-    ACQUIRE, //    'TriggerType.ACQUIRE'
+    MIX        = ev.next(), // 'TriggerType.MIX',
+    MOUSE      = ev.next(), // 'TriggerType.MOUSE',
+    ACTIVATION = ev.next(), // 'TriggerType.ACTIVATION',
+    ACQUIRE    = ev.next(), // 'TriggerType.ACQUIRE'
 }
 
 export = Trigger;

@@ -1,10 +1,12 @@
+import ev = require('enumvalue');
+
 enum SpecialItem {
-    SCALPEL, //        'SpecialItemType.SCALPEL',
-    SPLEEN, //         'SpecialItemType.SPLEEN',
-    BUFFER, //         'SpecialItemType.BUFFER',
-    WASH_BOTTLE, //    'SpecialItemType.WASH_BOTTLE',
-    SIDEGROUP, //      'SpecialItemType.SIDEGROUP',
-    SIDEGROUP_SLOT //  'SpecialItemType.SIDEGROUP_SLOT'
+    SCALPEL        = ev.next(), // 'SpecialItemType.SCALPEL',
+    SPLEEN         = ev.next(), // 'SpecialItemType.SPLEEN',
+    BUFFER         = ev.next(), // 'SpecialItemType.BUFFER',
+    WASH_BOTTLE    = ev.next(), // 'SpecialItemType.WASH_BOTTLE',
+    SIDEGROUP      = ev.next(), // 'SpecialItemType.SIDEGROUP',
+    SIDEGROUP_SLOT = ev.next()  // 'SpecialItemType.SIDEGROUP_SLOT'
 }
 
 export = SpecialItem;

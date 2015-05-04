@@ -1,6 +1,8 @@
+import ev = require('enumvalue');
+
 enum Grower {
-    FERMENTOR, // 'GrowerType.FERMENTOR',
-    INCUBATOR, // 'GrowerType.INCUBATOR'
+    FERMENTOR = ev.next(), // 'GrowerType.FERMENTOR',
+    INCUBATOR = ev.next(), // 'GrowerType.INCUBATOR'
 }
 
 export = Grower;
