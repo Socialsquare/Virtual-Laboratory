@@ -8,3 +8,4 @@ logs
 .sass-cache
 /app/bower_components/
 /app/assets/preload.json
+/app/typings/
