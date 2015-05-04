@@ -2,12 +2,13 @@ import ko = require('knockout');
 import _ = require('lodash');
 
 import LiquidType = require('model/type/Liquid');
+import AntibioticType = require('model/type/Antibiotic');
 import PCSType = require('model/type/ProteinCodingSequence');
 
 import SimpleContainerModel = require('model/SimpleContainer');
 import LiquidModel = require('model/Liquid');
+import MicroorganismModel = require('model/Microorganism');
 import ReactionCount = require('model/ReactionCount');
-import AntibioticType = require('model/type/Antibiotic');
 
 class Antibiotic extends LiquidModel {
 
@@ -26,9 +27,11 @@ class Antibiotic extends LiquidModel {
     //This kills microorganisms without resistance
     public react = (container: SimpleContainerModel) => {
 
-        _.each(container.liquids(), (organism) => {
-            if (organism.type() !== LiquidType.MICROORGANISM)
+        _.each(container.liquids(), (liquid) => {
+            if (liquid.type() !== LiquidType.MICROORGANISM)
                 return;
+
+            var organism = <MicroorganismModel>liquid;
 
             var resistance =_.any(organism.extraProperties(), (extraProperty) => {
 

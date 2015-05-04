@@ -34,7 +34,7 @@ class TextHelper {
     }
 
     static label = (container) => {
-        var contents = _.map(container.liquids(), _.compose(localizationService.text, TextHelper.prettyName));
+        var contents = _.map(container.liquids(), (l) => localizationService.text(TextHelper.prettyName(l)));
 
         return localizationService.text('common.contains') + ': ' + contents.join(' & ');
     }

@@ -6,10 +6,12 @@ import MicroorganismType = require('model/type/Microorganism');
 import ContainerType = require('model/type/Container');
 import LocationType = require('model/type/Location');
 
+import HomogenizedSpleenModel = require('model/HomogenizedSpleen');
 import MicroorganismModel = require('model/Microorganism');
 import ReactionCount = require('model/ReactionCount');
 import SimpleContainerModel = require('model/SimpleContainer');
 
+import lh = require('utils/LiquidHelper');
 
 class Myeloma extends MicroorganismModel {
 
@@ -19,14 +21,12 @@ class Myeloma extends MicroorganismModel {
     public hasSetAntibodiesInThese: KnockoutObservableArray<SimpleContainerModel>;
 
     constructor() {
-
         super(MicroorganismType.MYELOMA);
 
         this.antibodiesFor = ko.observableArray([]);
         this.isHybridoma = ko.observable(false);
 
         this.hasSetAntibodiesInThese = ko.observableArray([]);
-
 
         this.living(true);
         this.extraGenes([]);
@@ -44,19 +44,18 @@ class Myeloma extends MicroorganismModel {
             return;
 
         // Figure out whether it contains homospleen (and other stuff)
-        _.each(container.liquids(), (liquid) => {
+        var homospleens = lh.homospleens(container.liquids());
+        _.each(homospleens, (homospleen) => {
 
-            if (liquid.type() === LiquidType.HOMO_SPLEEN) {
-                if (liquid.antibodiesFor().length > 0) //TODO: perhaps always set this, if it is mixed with homoSpleen?
-                    containsHomoSpleen = true;
+            if (homospleen.antibodiesFor().length > 0) //TODO: perhaps always set this, if it is mixed with homoSpleen?
+                containsHomoSpleen = true;
 
-                // Add antibodies it doesn't already contain.
-                _.each(liquid.antibodiesFor(), (antibodyType) => {
-                    if (!_.contains(this.antibodiesFor(), antibodyType)) {
-                        this.antibodiesFor.push(antibodyType);
-                    }
-                });
-            }
+            // Add antibodies it doesn't already contain.
+            _.each(homospleen.antibodiesFor(), (antibodyType) => {
+                if (!_.contains(this.antibodiesFor(), antibodyType)) {
+                    this.antibodiesFor.push(antibodyType);
+                }
+            });
         });
 
         containsHybridomaMedium = _.any(container.liquids(), (liquid) => {

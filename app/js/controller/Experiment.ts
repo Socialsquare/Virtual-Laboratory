@@ -81,7 +81,7 @@ class Experiment {
         });
     }
 
-    public triggerMix = (addition: LiquidModel[], container: SimpleContainer) => {
+    public triggerMix = (addition: LiquidModel[], container: SimpleContainerModel) => {
         if (!this.hasExperiment()) return;
         if (!this.activeTask()) return; // This happens when all steps in an exercise are done
         var trigger = this.activeTask().trigger();

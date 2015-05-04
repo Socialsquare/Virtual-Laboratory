@@ -1,7 +1,6 @@
 import ko = require('knockout');
 import $ = require('jquery');
 import _ = require('lodash');
-import screenfull = require('screenfull');
 
 import BaseViewController = require('controller/view/Base');
 import popupController = require('controller/Popup');

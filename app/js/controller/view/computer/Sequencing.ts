@@ -50,7 +50,7 @@ class Sequencing extends BaseComputer {
         var dna = null;
         //TODO: uncomment! //TODO: figure how to get the optimal concentration from dilution
 
-        console.log('TODO: tube.getTotalConc: '+ tube.getTotalConcentration());
+        console.log('TODO: tube.getTotalConc: ' + tube.getTotalConcentration());
 
         if (tube.getTotalConcentration() > 48) {
             this.isValid(false);

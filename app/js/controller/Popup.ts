@@ -14,6 +14,8 @@ interface SelectOption<T> {
 }
 
 class Popup {
+    // Used for testing TODO! could be nicer
+    public autoConfirm: boolean = false;
 
     public imageHelper: any;
     public activeNotification: any;
@@ -96,6 +98,11 @@ class Popup {
     public confirm = (title, message) => {
         var promise = $.Deferred();
         var vm = this.show('popup-dialog', { title: title, message: message, promise: promise });
+
+        if (this.autoConfirm) {
+            promise.resolve();
+        }
+
         return promise.always(() => {
             this.hide(vm);
         });

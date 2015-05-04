@@ -9,7 +9,6 @@ import GrowerType = require('model/type/Grower');
 import LiquidType = require('model/type/Liquid');
 import LocationType = require('model/type/Location');
 
-
 class Fermentor {
 
     public fermentorTank: FermentorTankModel;
@@ -33,7 +32,7 @@ class Fermentor {
         this.fermentorTank = new FermentorTankModel();
         this.fermentorTank.location(LocationType.FERMENTOR);
 
-        //TODO: implement field on organisms: microOrganism.hasBeenInHighConcentration.JavaNamingConventions().
+        // TODO: implement field on organisms: microOrganism.hasBeenInHighConcentration.JavaNamingConventions().
 
         this.temperature = ko.observable(30.0);
         this.ph = ko.observable(7.0);

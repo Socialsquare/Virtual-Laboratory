@@ -1,4 +1,4 @@
-var allTestFiles = ['extensions/extensions'];
+var allTestFiles = ['extensions/extensions', 'rebind'];
 var TEST_REGEXP = /(spec|test)\.js$/i;
 
 var pathToModule = function(path) {

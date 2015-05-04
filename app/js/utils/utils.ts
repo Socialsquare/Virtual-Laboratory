@@ -1,8 +1,13 @@
 import ko = require('knockout');
 import _ = require('lodash');
 import mapping = require('knockout.mapping');
+
 import LiquidType = require('model/type/Liquid');
+
 import LiquidModel = require('model/Liquid');
+import MicroorganismModel = require('model/Microorganism');
+
+import lh = require('utils/LiquidHelper');
 
 
 class Utils {
@@ -16,10 +21,8 @@ class Utils {
         dilute: (factor: number, liquids: LiquidModel[]) => {
             var clones: LiquidModel[] = _.invoke(liquids, 'clone');
 
-            _.each(clones, (liquid) => {
-                if (liquid.type() === LiquidType.MICROORGANISM) {
-                    liquid.concentration(liquid.concentration() / factor);
-                }
+            _.each(lh.mos(clones), (mo) => {
+                mo.concentration(mo.concentration() / factor);
             });
 
             // Remove organisms whose concentration is below 1.
@@ -27,7 +30,7 @@ class Utils {
                 if (liquid.type() !== LiquidType.MICROORGANISM)
                     return true;
 
-                return liquid.concentration() >= 1;
+                return (<MicroorganismModel>liquid).concentration() >= 1;
             });
 
             return clones;

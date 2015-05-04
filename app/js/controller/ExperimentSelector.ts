@@ -10,14 +10,14 @@ import ExperimentModel = require('model/Experiment');
 
 class ExperimentSelector extends BaseViewController {
 
-    public experiments: KnockoutObservableArray<ExperimentModel>
-    public selected: Knockout = ko.observable();
+    public experiments: KnockoutObservableArray<ExperimentModel>;
+    public selected: KnockoutObservable<ExperimentModel>;
 
     constructor() {
         super('experiment-selector')
 
         this.experiments = ko.observableArray([]);
-        this.selected = ko.observable();
+        this.selected = ko.observable(null);
 
         experimentService.getExperiments().done((experiments) => {
             this.experiments(experiments);

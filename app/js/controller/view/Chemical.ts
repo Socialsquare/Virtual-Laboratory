@@ -43,36 +43,36 @@ class Chemical extends BaseViewController {
         };
 
         this.closetItems.pushAll([
-            new ChemicalItemModel('item.name.deadly', () => { return this.inSyringe(LiquidFactory.deadly()); }),
-            new ChemicalItemModel('item.name.growth_medium', () => { return this.inTube(LiquidFactory.growthMedium()); }),
-            new ChemicalItemModel('item.name.growth_medium', () => { return this.inPetridish(LiquidFactory.growthMedium()); }),
-            new ChemicalItemModel('item.name.salt_water', () => { return this.specialItemFactory.washBottle(); }),
-            new ChemicalItemModel('item.name.buffer', () => { return this.specialItemFactory.buffer(); }),
-            new ChemicalItemModel('item.name.hybridoma_medium', () => { return this.inTube(LiquidFactory.hybridomaMedium()); })
+            new ChemicalItemModel('item.name.deadly', () => this.inSyringe(LiquidFactory.deadly())),
+            new ChemicalItemModel('item.name.growth_medium', () => this.inTube(LiquidFactory.growthMedium())),
+            new ChemicalItemModel('item.name.growth_medium', () => this.inPetridish(LiquidFactory.growthMedium())),
+            new ChemicalItemModel('item.name.salt_water', () => this.specialItemFactory.washBottle()),
+            new ChemicalItemModel('item.name.buffer', () => this.specialItemFactory.buffer()),
+            new ChemicalItemModel('item.name.hybridoma_medium', () => this.inTube(LiquidFactory.hybridomaMedium())),
         ]);
 
         this.drawerItems.pushAll([
-            new ChemicalItemModel('item.name.syringe', () => { return new ContainerFactory.syringe(); }),
-            new ChemicalItemModel('item.name.scalpel', () => { return new ScalpelModel(); }),
-            new ChemicalItemModel('item.name.petri_dish', () => { return new ContainerFactory.petri(); }),
-            new ChemicalItemModel('item.name.tube', () => { return new ContainerFactory.tube(); }),
-            new ChemicalItemModel('item.name.microtiter', () => { return new ContainerFactory.micro(); }),
-            new ChemicalItemModel('item.name.microtiter_antigen_coated_gout', () => { return new ContainerFactory.microAntigenCoated(); }),
-            new ChemicalItemModel('item.name.microtiter_antigen_coated_smallpox', () => { return new ContainerFactory.microAntigenCoated(); })
+            new ChemicalItemModel('item.name.syringe', () => ContainerFactory.syringe()),
+            new ChemicalItemModel('item.name.scalpel', () => new ScalpelModel()),
+            new ChemicalItemModel('item.name.petri_dish', () => ContainerFactory.petri()),
+            new ChemicalItemModel('item.name.tube', () => ContainerFactory.tube()),
+            new ChemicalItemModel('item.name.microtiter', () => ContainerFactory.micro()),
+            new ChemicalItemModel('item.name.microtiter_antigen_coated_gout', () => ContainerFactory.microAntigenCoated()),
+            new ChemicalItemModel('item.name.microtiter_antigen_coated_smallpox', () => ContainerFactory.microAntigenCoated()),
         ]);
 
         this.fridgeItems.pushAll([
-            new ChemicalItemModel('item.name.yeast', () => { return this.inTube(LiquidFactory.microorganism.yeast()); }),
-            new ChemicalItemModel('item.name.mammalian', () => { return this.inTube(LiquidFactory.microorganism.yeast()); }),
-            new ChemicalItemModel('item.name.myeloma', () => { return this.inTube(LiquidFactory.microorganism.myeloma()); }),
-            //(TODO: not used) new ChemicalItemModel('item.name.antibiotic_a', () => { return this.inTube(LiquidFactory.antibiotic.a()); }),
-            new ChemicalItemModel('item.name.antibiotic_b', () => { return this.inTube(LiquidFactory.antibiotic.b()); }),
-            new ChemicalItemModel('item.name.adjuvans', () => { return this.inTube(LiquidFactory.adjuvans()); }),
-            new ChemicalItemModel('item.name.antigen_gout', () => { return this.inTube(LiquidFactory.antigenGout()); }),
-            new ChemicalItemModel('item.name.cyp_enzyme', () => { return this.inTube(LiquidFactory.cypEnzyme())}),
-            new ChemicalItemModel('item.name.target_receptor', () => { return this.inTube(LiquidFactory.targetRecptor())}),
-            new ChemicalItemModel('item.name.fluorescent_2nd_antibody', () => { return this.inTube(LiquidFactory.fluorescentSecondaryAntibody()); }),
-            new ChemicalItemModel('item.name.antigen_smallpox', () => { return this.inTube(LiquidFactory.antigenSmallpox()); })
+            new ChemicalItemModel('item.name.yeast', () => this.inTube(LiquidFactory.microorganism.yeast())),
+            new ChemicalItemModel('item.name.mammalian', () => this.inTube(LiquidFactory.microorganism.yeast())),
+            new ChemicalItemModel('item.name.myeloma', () => this.inTube(LiquidFactory.microorganism.myeloma())),
+            //(TODO: not used) new ChemicalItemModel('item.name.antibiotic_a', () => this.inTube(LiquidFactory.antibiotic.a())),
+            new ChemicalItemModel('item.name.antibiotic_b', () => this.inTube(LiquidFactory.antibiotic.b())),
+            new ChemicalItemModel('item.name.adjuvans', () => this.inTube(LiquidFactory.adjuvans())),
+            new ChemicalItemModel('item.name.antigen_gout', () => this.inTube(LiquidFactory.antigenGout())),
+            new ChemicalItemModel('item.name.cyp_enzyme', () => this.inTube(LiquidFactory.cypEnzyme())),
+            new ChemicalItemModel('item.name.target_receptor', () => this.inTube(LiquidFactory.targetRecptor())),
+            new ChemicalItemModel('item.name.fluorescent_2nd_antibody', () => this.inTube(LiquidFactory.fluorescentSecondaryAntibody())),
+            new ChemicalItemModel('item.name.antigen_smallpox', () => this.inTube(LiquidFactory.antigenSmallpox())),
         ]);
     }
 
@@ -85,7 +85,7 @@ class Chemical extends BaseViewController {
     }
 
     public inSyringe = (liquid) => {
-        return new ContainerFactory.syringe().add(liquid, true);
+        return ContainerFactory.syringe().add(liquid, true);
     }
 
     public itemTaken = (item) => {

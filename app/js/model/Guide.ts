@@ -11,13 +11,15 @@ class GuideModel extends PopupModel {
             experiment: experimentController.activeExperiment(),
             activeTask: experimentController.activeTask()
         }, popupController);
+
+        ko.rebind(this);
     }
 
-    public postRender = () => {
+    postRender() {
         $('#popup-container .inner').scrollTop(experimentController.scrollAmount);
     }
 
-    public hide = (domElement) => {
+    hide() {
         experimentController.scrollAmount = $('#popup-container .inner').scrollTop();
 
         this.popupController.hide(this);

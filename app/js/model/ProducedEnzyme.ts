@@ -1,9 +1,10 @@
 import ko = require('knockout');
-import LiquidModel = require('model/Liquid');
-import ReactionCount = require('model/ReactionCount');
+
 import LiquidType = require('model/type/Liquid');
 import PCSType = require('model/type/ProteinCodingSequence');
 
+import LiquidModel = require('model/Liquid');
+import ReactionCount = require('model/ReactionCount');
 
 class ProducedEnzyme extends LiquidModel {
 
@@ -19,7 +20,8 @@ class ProducedEnzyme extends LiquidModel {
         this.pcsType = pcsType;
         this.amount = parentGrowthAmount;
 
-        switch (pcsType) {  //TODO: change to OrganismProperty
+        //TODO: change to OrganismProperty
+        switch (pcsType) {
         case PCSType.ANTIBODY_GOUT:
             this.enzymeLiquidType = LiquidType.ANTIBODY_GOUT;
             break;
@@ -48,6 +50,8 @@ class ProducedEnzyme extends LiquidModel {
             throw 'Unknown type of enzyme: '+ pcsType;
             break;
         }
+
+        this.type(this.enzymeLiquidType);
     }
 
     public clone = () => {

@@ -39,6 +39,7 @@ require([
     'extensions/extensions',
     'fastclick',
 
+    'rebind',
     'controller/App',
     // self-registering jquery plugins
     'jqueryui',
@@ -55,7 +56,7 @@ require([
     'bindings/svg',
     'bindings/common'
 
-], function(ko, ext, FastClick, App) {
+], function(ko, ext, FastClick, rebind, App) {
 
     FastClick.attach(document.body);
 

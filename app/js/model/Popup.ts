@@ -16,14 +16,16 @@ class PopupModel {
         this.ImageHelper = ImageHelper;
         this.TextHelper = TextHelper;
         this.popupController = popupController;
+
+        ko.rebind(this);
     }
 
-    public hide = () => {
-        this.popupController.hide(this);
-    }
-
-    public postRender = () => {
+    postRender() {
         // noop
+    }
+
+    hide() {
+        this.popupController.hide(this);
     }
 }
 

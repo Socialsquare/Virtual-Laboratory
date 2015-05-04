@@ -3,12 +3,15 @@ import _ = require('lodash');
 
 import ProducedEnzymeModel = require('model/ProducedEnzyme');
 import LiquidModel = require('model/Liquid');
+import MicroorganismModel = require('model/Microorganism');
 
 import LiquidType = require('model/type/Liquid');
 import MicroorganismType = require('model/type/Microorganism');
 import GrowerType = require('model/type/Grower');
 import PCSType = require('model/type/ProteinCodingSequence');
 import LocationType = require('model/type/Location');
+
+import lh = require('utils/LiquidHelper');
 
 import experimentController = require('controller/Experiment');
 
@@ -33,6 +36,12 @@ class SimpleContainer {
 
         // Used for location-checking
         this.location = ko.observable(null);
+
+        ko.rebind(this);
+    }
+
+    getMicroorganisms(): MicroorganismModel[] {
+        return lh.mos(this.liquids());
     }
 
     public _addAll = (liquids: LiquidModel[], preventTrigger = false) => {
@@ -90,12 +99,9 @@ class SimpleContainer {
         if (liquids.length == 1 && containsSaltWater)
             return true;
 
-
         var concentrationToBeAdded = 0; //Such javaNamingConventions. Wow.
-        _.each(liquids, (liquid) => {
-            if (liquid.type() !== LiquidType.MICROORGANISM) {     return;   }
-
-            concentrationToBeAdded += liquid.concentration();
+        _.each(lh.mos(liquids), (mo) => {
+            concentrationToBeAdded += mo.concentration();
         });
 
         return this.getTotalConcentration() + concentrationToBeAdded < this.maxConcentration();
@@ -112,13 +118,9 @@ class SimpleContainer {
     }
 
     public containsMicroorganism = (microorganismType: MicroorganismType) => {
-        return _(this.liquids())
-            .filter((liquid) => {
-                return liquid.type() === LiquidType.MICROORGANISM;
-            })
-            .any((microorganism) => {
-                return microorganism.microorganismType() === microorganismType;
-            });
+        return _.any(this.getMicroorganisms(), (microorganism) => {
+            return microorganism.microorganismType() === microorganismType;
+        });
     }
 
     public containsAll = (liquidTypes: LiquidType[]) => {
@@ -128,15 +130,9 @@ class SimpleContainer {
     }
 
     public getTotalConcentration = () => {
-        var concSum = 0;
-
-        _.each(this.liquids(), (liquid) => {
-            if (liquid.type() === LiquidType.MICROORGANISM) {
-                concSum += liquid.concentration();
-            }
-        });
-
-        return concSum;
+        return _.reduce(this.getMicroorganisms(), (sum, mo) => {
+            return sum + mo.concentration();
+        }, 0)
     }
 
     public isEmpty = () => {
@@ -170,9 +166,7 @@ class SimpleContainer {
         if (this.getTotalConcentration() >= this.maxConcentration())
             return producedEnzymes;
 
-        _.forEach(this.liquids(), (organism) => {
-            if (organism.type() !== LiquidType.MICROORGANISM)
-                return;
+        _.forEach(this.getMicroorganisms(), (organism) => {
 
             var growthAmount = 0;
 

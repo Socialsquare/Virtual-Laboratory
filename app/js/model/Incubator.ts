@@ -11,7 +11,6 @@ import GrowerType = require('model/type/Grower');
 import LocationType = require('model/type/Location');
 import ActivationType = require('model/type/Activation');
 
-
 class Incubator {
 
     public temperature: KnockoutObservable<number>;
@@ -46,9 +45,11 @@ class Incubator {
         this.timerText = ko.computed(() => {
             return '' + Math.round(this.timer()) + ' h';
         });
+
+        ko.rebind(this);
     }
 
-    public deactivate = () => {
+    deactivate() {
         clearTimeout(this.timerID());
         this.turnedOn(false);
         this.timerID(null);
@@ -56,7 +57,7 @@ class Incubator {
         experimentController.triggerActivation(ActivationType.INCUBATOR, this);
     }
 
-    public activate = () => {
+    activate() {
         this.turnedOn.toggle();
 
         if (this.turnedOn()) {
@@ -68,7 +69,7 @@ class Incubator {
     }
 
     //Grows all containers one hour
-    public growOneHour = () => {
+    growOneHour() {
         // For-løkke med mindre steps?
         if (this.timer() < 1) {
             this.deactivate();
@@ -86,7 +87,7 @@ class Incubator {
         this.timer(this.timer() - 1);
     }
 
-    public reset = () => {
+    reset() {
         this.tableSpacePetri.removeAll();
         this.tubeRack.removeAll();
 

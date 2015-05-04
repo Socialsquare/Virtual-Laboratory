@@ -34,13 +34,15 @@ class DNAElement extends LiquidModel {
 		this.description = ko.observable(values.description);
 		this.link = ko.observable(values.link);
 		this.comment = ko.observable(values.comment);
+
+        ko.rebind(this);
     }
 
-    public hashCode = () => {
+    hashCode() {
         return this._hashCode() + ":" + this.name() + ":" + this.DNAType();
     }
 
-    public clone = () => {
+    clone() {
         var clone = new DNAElement({
             type: 0,
             name: this.name(),

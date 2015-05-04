@@ -1,6 +1,7 @@
 import ko = require('knockout');
 import $ = require('jquery');
-import SimpleContainerController = require('controller/SimpleContainer');
+
+import FermentorTankController = require('controller/FermentorTank');
 import BaseViewController = require('controller/view/Base');
 import FermentorModel = require('model/Fermentor');
 
@@ -13,7 +14,7 @@ class Fermentor extends BaseViewController {
         super('fermentor');
 
         this.fermentor = this.gameState.fermentor;
-        this.fermentorTankController = new SimpleContainerController(this.fermentor.fermentorTank);
+        this.fermentorTankController = new FermentorTankController(this.fermentor.fermentorTank);
     }
 }
 

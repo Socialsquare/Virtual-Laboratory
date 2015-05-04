@@ -7,7 +7,7 @@ import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
 import ActivationType = require('model/type/Activation');
 
-import SimpleContainerController = require('controller/SimpleContainer');
+import ElectroporatorController = require('controller/Electroporator');
 import CompositeContainerController = require('controller/CompositeContainer');
 
 import Worktable1Model = require('model/Worktable1');
@@ -21,7 +21,7 @@ class Worktable1 extends BaseViewController {
     public tableSpaceMicroController: CompositeContainerController;
     public tubeRackController: CompositeContainerController;
     public heaterController: CompositeContainerController;
-    public electroporatorController: SimpleContainerController;
+    public electroporatorController: ElectroporatorController;
 
     constructor() {
         super('worktable1');
@@ -32,7 +32,7 @@ class Worktable1 extends BaseViewController {
         this.tableSpaceMicroController = new CompositeContainerController(this.worktable1.tableSpaceMicro);
         this.tubeRackController = new CompositeContainerController(this.worktable1.tubeRack);
         this.heaterController = new CompositeContainerController(this.worktable1.heater);
-        this.electroporatorController = new SimpleContainerController(this.worktable1.electroporator);
+        this.electroporatorController = new ElectroporatorController(this.worktable1.electroporator);
 
         this.tableSpacePetriController.addDropGuard(this.bunsenGuard);
         this.tableSpaceMicroController.addDropGuard(this.bunsenGuard);
