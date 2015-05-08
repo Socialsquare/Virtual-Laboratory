@@ -6,13 +6,13 @@
     <br />
 
     <div class="inner">
-        <span data-bind="i18n: data.experiment.story"></span>
+        <span data-bind="i18n: experiment.story"></span>
 
         <br />
         <br />
 
-        <ul data-bind="foreach: data.experiment.tasks">
-            <li data-bind="css: { finished: finished, active: $data === $parent.data.activeTask }">
+        <ul data-bind="foreach: experiment.tasks">
+            <li data-bind="css: { finished: finished, active: $parent.isActiveTask($data) }">
                 <span data-bind="text: $index() + 1"></span>. <span data-bind="i18n: description()"></span>
                 <i data-bind="visible: finished" class="fa fa-check"></i>
             </li>

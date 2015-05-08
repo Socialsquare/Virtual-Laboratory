@@ -15,9 +15,11 @@ class Router {
         this.hasBack = ko.computed(() => {
             return !this.viewHistory.isEmpty();
         });
+
+        ko.rebind(this);
     }
 
-    public navigate = (name) => {
+    navigate(name: string) {
         if (!!this.currentRoute()
             // ignore loading screen from history
             && this.currentRoute() !== 'loading'
@@ -28,7 +30,7 @@ class Router {
         this.currentRoute(name);
     }
 
-    public back = () => {
+    back() {
         var view = this.viewHistory.pop();
 
         if (!view)

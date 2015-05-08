@@ -32,13 +32,15 @@ class Loading extends BaseViewController {
         });
 
         this.experimentSelectorController = new ExperimentSelectorController();
+
+        ko.rebind(this);
     }
 
-    public selectLang = (langCode) => {
+    selectLang(langCode) {
         localizationService.setLanguage(langCode);
     }
 
-    public enter = () => {
+    enter() {
         this.maybeHidePippete();
         this.experimentSelectorController.selected(null);
 

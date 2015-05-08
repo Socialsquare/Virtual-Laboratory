@@ -12,6 +12,7 @@ require.config({
         // NOTE: using non-debug knockout
         knockout: '../bower_components/knockout/dist/knockout',
         mapping: '../bower_components/knockout-mapping/knockout.mapping',
+        'knockout.mapping': '../bower_components/knockout-mapping/knockout.mapping',
         jqueryuitouchpunch: '../bower_components/jqueryui-touch-punch/jquery.ui.touch-punch',
         fastclick: '../bower_components/fastclick/lib/fastclick',
         screenfull: '../bower_components/screenfull/dist/screenfull',

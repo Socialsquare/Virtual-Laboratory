@@ -1,28 +1,28 @@
 import ko = require('knockout');
-import BaseViewController = require('controller/view/Base');
-import tutorialController = require('controller/Tutorial');
-import FeatureHelper = require('utils/FeatureHelper');
 
+import BaseViewController = require('controller/view/Base');
+
+import tutorialController = require('controller/Tutorial');
+import popupController = require('controller/Popup');
+
+import FeatureHelper = require('utils/FeatureHelper');
 
 class Overview extends BaseViewController {
     constructor() {
         super('overview');
+
+        ko.rebind(this);
     }
 
-    public handleDoorClick = () => {
-        var vm = this.popupController.show('popup-door', {
-            goto: (name) => {
-                this.popupController.hide(vm);
-                this.router.navigate(name);
-            }
-        });
+    handleDoorClick() {
+        popupController.showDoor();
     }
 
-    public enter = () => {
+    enter() {
         if (this.gameState.askTutorial()) {
             this.gameState.askTutorial(false);
 
-            this.popupController.confirm('popup.ask_tutorial.header', 'popup.ask_tutorial.body')
+            popupController.confirm('popup.ask_tutorial.header', 'popup.ask_tutorial.body')
                 .done(() => {
                     tutorialController.startTutorial();
                 });

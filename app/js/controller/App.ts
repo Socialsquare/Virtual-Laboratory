@@ -77,7 +77,6 @@ class App extends BaseViewController {
         // TODO-release: switch to loading
         //this.router.navigate('loading');
         this.router.navigate('overview');
-
     }
 
     public viewChange = (viewName: string) => {

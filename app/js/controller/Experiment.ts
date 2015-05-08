@@ -22,7 +22,7 @@ class Experiment {
 
     public activeExperiment: KnockoutObservable<ExperimentModel>;
     public activeTask: KnockoutComputed<TaskModel>;
-    public scrollAmount: number;
+
     public hasExperiment: KnockoutComputed<boolean>;
 
     public quizController = quizController;
@@ -30,7 +30,6 @@ class Experiment {
 
     constructor() {
         this.activeExperiment = ko.observable(null);
-        this.scrollAmount = 0; //TODO: implement.
 
         this.hasExperiment = ko.computed(() => {
             return !!this.activeExperiment();

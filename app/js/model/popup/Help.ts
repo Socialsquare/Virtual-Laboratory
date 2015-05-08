@@ -12,19 +12,18 @@ class Help extends PopupModel {
     public entries;
     public selectedEntry;
 
-    constructor(popupController) {
-        super('popup-instruments', null, popupController);
+    constructor() {
+        super('popup-help');
 
-        this.data = this;
         this.entries = helpService.getHelpEntries();
         this.selectedEntry = ko.observable(this.entries[0]);
     }
 
-    public selectEntry = (entry) => {
+    selectEntry(entry) {
         this.selectedEntry(entry);
     }
 
-    public goToArea = () => {
+    goToArea() {
         var entry = this.selectedEntry();
 
         if (entry.route) {

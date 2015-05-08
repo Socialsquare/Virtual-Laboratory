@@ -5,6 +5,8 @@ import LiquidType = require('model/type/Liquid');
 import SpecialItemType = require('model/type/SpecialItem');
 import LocationType = require('model/type/Location');
 
+import MicrotiterplateModel = require('model/Microtiterplate');
+
 import SimpleContainerModel = require('model/SimpleContainer');
 
 class ImageHelper {
@@ -66,12 +68,7 @@ class ImageHelper {
         return ImageHelper.img('sidegroup_' + name + '.png');
     }
 
-    static microtiterWell = (index, microtiter) => {
-        /*//TODO: development stuff, remove
-          if(microtiter.microtiterWells().wells()[index].hasAntibody())
-          return ImageHelper.img('zoom_mkrt_well_uv_glow.png');
-          //TODO: development stuff, remove*/
-
+    static microtiterWell = (index: number, microtiter: MicrotiterplateModel) => {
         if (microtiter.location() === LocationType.UVROOM) {
             if (microtiter.isWellFluorescent(index)) {
                 return ImageHelper.img('zoom_mkrt_well_uv_glow.png')

@@ -1,10 +1,10 @@
 <div class="popup popup-list">
-    <h1 data-bind="i18n: data.title"></h1>
+    <h1 data-bind="i18n: title"></h1>
 
 	<hr />
 
-	<ul data-bind="foreach: data.items">
-        <li data-bind="drag: { item: itemGetter, consume: $parent.data.itemTaken.bind(null, $data)  }">
+	<ul data-bind="foreach: items">
+        <li data-bind="drag: { item: itemGetter, consume: $parent.itemTakenCallback.bind(null, $data)  }">
             <div class="hand">
                 <img data-bind="attr: { src: $parent.ImageHelper.draggingIcon(item())}">
                 <div data-bind="i18n: name"></div>
@@ -13,6 +13,6 @@
     </ul>
 
 	<div class="btn-row">
-        <button data-bind="click: hide, i18n: 'common.close'"></button>
+        <button data-bind="click: hide.bind(null), i18n: 'common.close'"></button>
     </div>
 </div>

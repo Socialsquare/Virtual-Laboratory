@@ -3,7 +3,6 @@ import _ = require('lodash');
 
 import TaskModel = require('model/Task');
 
-
 class Experiment {
 
     public id: KnockoutObservable<string>;

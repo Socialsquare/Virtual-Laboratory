@@ -78,30 +78,38 @@ class Chemical extends BaseViewController {
             new ChemicalItemModel('item.name.nucleotides', () => this.inTube(LiquidFactory.nucleotides())),
             new ChemicalItemModel('item.name.pcr_polymerase', () => this.inTube(LiquidFactory.pcrPolymerase())),
         ]);
+
+        ko.rebind(this);
     }
 
-    public inTube = (liquid) => {
+    inTube(liquid) {
         return new TubeModel().add(liquid, true);
     }
 
-    public inPetridish = (liquid) => {
+    inPetridish(liquid) {
         return new PetridishModel().add(liquid, true);
     }
 
-    public inSyringe = (liquid) => {
+    inSyringe(liquid) {
         return ContainerFactory.syringe().add(liquid, true);
     }
 
-    public itemTaken = (item) => {
+    itemTakenCallback(item) {
         //this.experimentController.triggerActivation(ActivationType.SUPPLY, item);
     }
 
-    public showList = (name) => {
-        this.popupController.show('popup-list', {
-            title: this.groups[name].name,
-            items: this.groups[name].items,
-            itemTaken: this.itemTaken
-        });
+    showList(name) {
+        this.popupController.chemicalList<ChemicalItemModel>(
+            this.groups[name].name,
+            this.groups[name].items(),
+            this.itemTakenCallback
+        );
+
+        // this.popupController.show('popup-list', {
+        //     title: this.groups[name].name,
+        //     items: this.groups[name].items,
+        //     itemTaken: this.itemTaken
+        // });
     }
 }
 

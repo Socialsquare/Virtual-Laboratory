@@ -2,12 +2,13 @@ import ko = require('knockout');
 import $ = require('jquery');
 import _ = require('lodash');
 
-import BaseViewController = require('controller/view/Base');
 import popupController = require('controller/Popup');
 import quizController = require('controller/Quiz');
 import experimentController = require('controller/Experiment');
 
 import gameState = require('model/GameState');
+
+import BaseViewController = require('controller/view/Base');
 
 import TipModel = require('model/Tip');
 import ContainerType = require('model/type/Container');
@@ -118,7 +119,7 @@ class Menu extends BaseViewController {
     }
 
     showGuide() {
-        this.popupController.showGuide(experimentController);
+        this.popupController.showGuide(experimentController.activeExperiment());
     }
 
     togglePipette() {
@@ -138,8 +139,7 @@ class Menu extends BaseViewController {
         if (item.type() === ContainerType.PIPETTE) {
             this.gameState.pipette.removeTip();
         } else {
-            this.popupController.confirm('popup.confirm_delete.header', 'popup.confirm_delete.body')
-                .then(consume);
+            this.popupController.confirm('popup.confirm_delete.header', 'popup.confirm_delete.body').then(consume);
         }
         return false;
     }

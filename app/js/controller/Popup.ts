@@ -1,11 +1,20 @@
 import ko = require('knockout');
 import $ = require('jquery');
 import _ = require('lodash');
+
+import MicrotiterplateModel = require('model/Microtiterplate');
+import ExperimentModel = require('model/Experiment');
+
 import PopupModel = require('model/Popup');
-import GuideModel = require('model/Guide');
-import HelpPopupModel = require('model/HelpPopup');
+import GuidePopupModel = require('model/popup/Guide');
+import MicrotiterPopupModel = require('model/popup/Microtiter');
+import HelpPopupModel = require('model/popup/Help');
+import ListPopupModel = require('model/popup/List');
+import DoorPopupModel = require('model/popup/Door');
+
 import TextHelper = require('utils/TextHelper');
 import ImageHelper = require('utils/ImageHelper');
+
 import VideoController = require('controller/Video');
 
 interface SelectOption<T> {
@@ -17,17 +26,20 @@ class Popup {
     // Used for testing TODO! could be nicer
     public autoConfirm: boolean = false;
 
-    public imageHelper: any;
-    public activeNotification: any;
-    public activeNotifications: any;
+    public imageHelper: ImageHelper;
 
-    public activePopups: any;
-    public activePopup: any;
+    public activeNotification: KnockoutComputed<boolean>;
+    public activeNotifications: KnockoutObservableArray<PopupModel>;
 
-    private helpPopupModel: any;
+    public activePopup: KnockoutComputed<boolean>;
+    public activePopups: KnockoutObservableArray<PopupModel>;
+
+    private helpPopupModel: HelpPopupModel;
+    private guidePopupModel: GuidePopupModel;
 
     constructor() {
-        this.helpPopupModel = new HelpPopupModel(this);
+        this.helpPopupModel = new HelpPopupModel();
+        this.guidePopupModel = new GuidePopupModel(null);
 
         this.imageHelper = ImageHelper;
         this.activeNotifications = ko.observableArray([]);
@@ -44,23 +56,32 @@ class Popup {
     }
 
     show(name, viewData = {}, asNotification = false) {
-        var vm = new PopupModel(name, viewData, this);
-        if (asNotification)
-            this.activeNotifications.push(vm);
-        else
-            this.activePopups.push(vm);
-        return vm;
+        var popup = new PopupModel(name, viewData, asNotification);
+        return this.showPopup(popup);
     }
 
-    showGuide(experimentController) {
-        var vm = new GuideModel(experimentController, this);
-        this.activePopups.push(vm);
-        return vm;
+    showPopup(popup: PopupModel) {
+        if (popup.isNotification)
+            this.activeNotifications.push(popup);
+        else
+            this.activePopups.push(popup);
+
+        popup.closePromise.then(() => this.hide(popup));
+
+        return popup;
     }
 
     hide(popup) {
         this.activePopups.remove(popup);
         this.activeNotifications.remove(popup);
+    }
+
+    showGuide(experiment: ExperimentModel) {
+        // this is a mess...
+        this.guidePopupModel.experiment = experiment;
+
+        this.guidePopupModel.resetPromise();
+        return this.showPopup(this.guidePopupModel);
     }
 
     kvInfo(info) {
@@ -75,29 +96,27 @@ class Popup {
         this.show('popup-message', { title: title, message: message });
     }
 
-    microtiterCloseUp(microtiter) {
-
-        this.show('popup-microtiter', microtiter);
+    microtiterCloseUp(microtiter: MicrotiterplateModel) {
+        this.showPopup(new MicrotiterPopupModel(microtiter));
     }
 
     dataExport(data) {
         this.show('popup-data-export', { csvData: data });
     }
 
-    notify(title, message, closingTime = 3000) {
+    notify(title: string, message: string, closingTime = 3000) {
         var delay = closingTime;
 
         var vm = this.show('popup-notify', { title: title, message: message }, true);
-        _.delay(() => {
-            this.hide(vm);
-        }, delay);
+
+        _.delay(() => this.hide(vm), delay);
     }
 
     itemDetail(item) {
         this.show('popup-item-detail', { item: item });
     }
 
-    confirm(title, message) {
+    confirm(title: string, message: string) {
         var promise = $.Deferred();
         var vm = this.show('popup-dialog', { title: title, message: message, promise: promise });
 
@@ -110,7 +129,7 @@ class Popup {
         });
     }
 
-    video(sequence, controlsRequired) {
+    video(sequence: string[], controlsRequired: boolean) {
         var videoController = new VideoController();
         var vm = this.show('popup-video', { videoController: videoController });
         return videoController.play(sequence, false, controlsRequired).done(() => {
@@ -133,8 +152,17 @@ class Popup {
     }
 
     labInfo() {
-        this.activePopups.push(this.helpPopupModel);
-        return this.helpPopupModel;
+        this.helpPopupModel.resetPromise();
+        return this.showPopup(this.helpPopupModel);
+    }
+
+    chemicalList<T>(title: string, items: T[], itemTakenCallback: (T) => void) {
+        var listPopup = new ListPopupModel<T>(title, items, itemTakenCallback);
+        return this.showPopup(listPopup);
+    }
+
+    showDoor() {
+        this.showPopup(new DoorPopupModel());
     }
 }
 

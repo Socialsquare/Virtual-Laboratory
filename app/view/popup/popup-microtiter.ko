@@ -1,16 +1,12 @@
-<!-- ko with: data -->
-<div class="popup-microtiter" data-bind="css: $data.location() === 'LocationType.UVROOM' ? 'zoom-microtiter-uv' : 'zoom-microtiter-normal' ">
+<div class="popup-microtiter" data-bind="css: microtiter.location() === 'LocationType.UVROOM' ? 'zoom-microtiter-uv' : 'zoom-microtiter-normal' ">
     <div class="fake-back-button hand" data-bind="click: $parent.hide.bind()">
         <img src="assets/images/top-button_back_gray.png" alt="Tilbage">
     </div>
 
-    <ul data-bind="foreach: microtiterWells().wells">
+    <ul data-bind="foreach: microtiter.microtiterWells().wells">
         <li data-bind="css: 'well-slot' + $index()">
-            <img class="hand" data-bind="attr: { src: $parents[1].popupController.imageHelper.microtiterWell($index(), $parent) },
-            click: function(){ $parent.extractWellContents(
-                                                     $parents[1].hide,
-                                                     $index()); }">
+            <img class="hand" data-bind="attr: { src: $parent.wellImage($index()) },
+            click: $parent.microtiter.extractWellContents.bind(null, $parent.hide, $index())">
         </li>
     </ul>
 </div>
-<!-- /ko -->
