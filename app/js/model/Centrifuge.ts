@@ -50,7 +50,7 @@ class CentrifugeModel extends CompositeContainerModel {
     }
 
     tryExtractContents(tube: TubeModel) {
-        if (tube.isEmpty())
+        if (!tube || tube.isEmpty())
             return;
 
         //TODO! extract correct things based on contents
@@ -81,6 +81,7 @@ class CentrifugeModel extends CompositeContainerModel {
 
         _.delay(() => {
             _.each(this.containers(), this.tryExtractContents);
+            this.status(false);
         });
     }
 }
