@@ -7,6 +7,8 @@ import ReactionCount = require('model/ReactionCount');
 import LiquidModel = require('model/Liquid');
 import WellModel = require('model/Well');
 
+// It's a liquid so it can be contained in a microtiterplate. And it's
+// shitty hack...
 class MicrotiterWells extends LiquidModel {
 
     public wells: KnockoutObservableArray<WellModel>;

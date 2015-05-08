@@ -81,6 +81,8 @@ class TextHelper {
         case MouseBloodType.DIABETIC:
             return 'liquid.name.mouse_blood.diabetic';
 
+        case LiquidType.MICROTITER_WELLS:
+            return 'liquid.name.microtiter_wells';
         case LiquidType.MICROORGANISM:
             return 'liquid.name.microorganism';
         case LiquidType.ANTIBIOTIC:
@@ -151,6 +153,8 @@ class TextHelper {
             return 'liquid.name.nucleotides';
         case LiquidType.PCR_POLYMERASE:
             return 'liquid.name.pcr_polymerase';
+        case LiquidType.BLUE_STAIN:
+            return 'liquid.name.blue_stain';
 
         default:
             throw 'TextHelper.prettyNameFromType: Unknown type: ' + type;

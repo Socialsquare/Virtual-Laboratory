@@ -11,6 +11,7 @@ import AntigenCoatingType = require('model/type/AntigenCoating');
 
 import CompositeContainerModel = require('model/CompositeContainer');
 import SimpleContainerModel = require('model/SimpleContainer');
+import MicrotiterplateModel = require('model/Microtiterplate');
 
 import LiquidFactory = require('factory/Liquid');
 
@@ -178,11 +179,10 @@ class CompositeContainerController {
                 popupController.notify('buffer_petri.header', 'buffer_petri.body');
                 break;
             case ContainerType.MICROTITER:
-                var microtiter = this.compContainer.get(position);
+                var microtiter: MicrotiterWellsModel = this.compContainer.get(position);
 
-                this.compContainer.get(position).add(LiquidFactory.buffer());
+                microtiter.get(position).clearContents();
 
-                this.compContainer.get(position).clearContents();
                 if (microtiter.antigenCoating === AntigenCoatingType.NONE) {
                     microtiter.microtiterWells().clearWellsAntibodies();
                     microtiter.microtiterWells().clearWellsSecondaryAntibodies(false);

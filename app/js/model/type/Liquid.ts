@@ -8,7 +8,6 @@ enum Liquid {
     GENE                     = ev.next(),
     ORGANISM_PROPERTY        = ev.next(),
     JUICE                    = ev.next(),
-    BUFFER                   = ev.next(),
     SALT_WATER               = ev.next(),
     MICROTITER_WELLS         = ev.next(),
     DEADLY                   = ev.next(),
@@ -39,6 +38,7 @@ enum Liquid {
     DIABETES_PRIMER          = ev.next(),
     NUCLEOTIDES              = ev.next(),
     PCR_POLYMERASE           = ev.next(),
+    BLUE_STAIN               = ev.next(),
 };
 
 export = Liquid;

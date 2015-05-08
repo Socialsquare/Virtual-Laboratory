@@ -121,10 +121,6 @@ class LiquidFactory {
         return new SaltWater();
     };
 
-    static buffer = () => {
-        return new Liquid(LiquidType.BUFFER);
-    };
-
     static mouseBlood = (mouseBloodType: MouseBloodType) => {
         var blood = new Liquid(LiquidType.MOUSE_BLOOD);
         blood.subtype(mouseBloodType);
@@ -141,6 +137,10 @@ class LiquidFactory {
 
     static pcrPolymerase = () => {
         return new Liquid(LiquidType.PCR_POLYMERASE);
+    }
+
+    static blueStain = () => {
+        return new Liquid(LiquidType.BLUE_STAIN);
     }
 }
 

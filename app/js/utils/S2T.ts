@@ -121,8 +121,6 @@ class S2T {
             return LiquidType.ORGANISM_PROPERTY;
         case "LiquidType.JUICE":
             return LiquidType.JUICE;
-        case "LiquidType.BUFFER":
-            return LiquidType.BUFFER;
         case "LiquidType.SALT_WATER":
             return LiquidType.SALT_WATER;
         case "LiquidType.MICROTITER_WELLS":
@@ -181,6 +179,8 @@ class S2T {
             return LiquidType.NUCLEOTIDES;
         case "LiquidType.PCR_POLYMERASE":
             return LiquidType.PCR_POLYMERASE;
+        case "LiquidType.BLUE_STAIN":
+            return LiquidType.BLUE_STAIN;
 
         default: return null;
         }

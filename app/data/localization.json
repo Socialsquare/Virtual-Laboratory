@@ -228,6 +228,7 @@
         "item.name.diabetes_primer": "Diabetes primer",
         "item.name.nucleotides": "Nucleotider",
         "item.name.pcr_polymerase": "PCR Polymerase",
+        "item.name.blue_stain": "Blå farve",
 
         "liquid.description.insulin": "Insulin er et hormon, der hjælper med at omsætte den mad, du spiser, til energi i kroppen. Insulin dannes og udskilles i bugspytkirtlen, og hormonets funktion er at signalere, hvornår cellerne skal optage sukker fra blodbanen. Når man lider af diabetes, fungerer denne mekanisme ikke optimalt, og derfor forbliver sukkerstofferne i blodbanen og giver forhøjet blodsukker. ",
         "liquid.description.lipase": "Lipase er et enzym, der nedbryder fedtstoffer i kroppen, så de kan optages og omdannes til energi.",
@@ -272,6 +273,9 @@
         "liquid.name.diabetes_primer": "Diabetes primer",
         "liquid.name.nucleotides": "Nucleotider",
         "liquid.name.pcr_polymerase": "PCR Polymerase",
+        "liquid.name.blue_stain": "Blå farve",
+
+        "liquid.name.microtiter_wells": "Mikrotiterbrønde",
 
         "liquid.name.mouse_blood.normal": "rask",
         "liquid.name.mouse_blood.diabetic": "diabetisk",

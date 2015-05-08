@@ -77,6 +77,7 @@ class Chemical extends BaseViewController {
             new ChemicalItemModel('item.name.diabetes_primer', () => this.inTube(LiquidFactory.diabetesPrimer())),
             new ChemicalItemModel('item.name.nucleotides', () => this.inTube(LiquidFactory.nucleotides())),
             new ChemicalItemModel('item.name.pcr_polymerase', () => this.inTube(LiquidFactory.pcrPolymerase())),
+            new ChemicalItemModel('item.name.blue_stain', () => this.inTube(LiquidFactory.blueStain())),
         ]);
 
         ko.rebind(this);
@@ -95,7 +96,7 @@ class Chemical extends BaseViewController {
     }
 
     itemTakenCallback(item) {
-        //this.experimentController.triggerActivation(ActivationType.SUPPLY, item);
+        this.experimentController.triggerActivation(ActivationType.SUPPLY, item);
     }
 
     showList(name) {
@@ -104,12 +105,6 @@ class Chemical extends BaseViewController {
             this.groups[name].items(),
             this.itemTakenCallback
         );
-
-        // this.popupController.show('popup-list', {
-        //     title: this.groups[name].name,
-        //     items: this.groups[name].items,
-        //     itemTaken: this.itemTaken
-        // });
     }
 }
 
