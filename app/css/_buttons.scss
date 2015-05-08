@@ -28,4 +28,14 @@ button {
     bottom: 40px;
     width: 100%;
     text-align: center;
+
+    .left {
+        position: absolute;
+        left: 0;
+    }
+
+    .right {
+        position: absolute;
+        right: 0;
+    }
 }

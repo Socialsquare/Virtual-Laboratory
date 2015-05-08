@@ -3,8 +3,8 @@
 
 	<hr />
 
-	<ul data-bind="foreach: items">
-        <li data-bind="drag: { item: itemGetter, consume: $parent.itemTakenCallback.bind(null, $data)  }">
+	<ul data-bind="foreach: pagedItems">
+        <li data-bind="drag: { item: itemGetter, consume: $parent.itemTakenCallback.bind(null, $data) }">
             <div class="hand">
                 <img data-bind="attr: { src: $parent.ImageHelper.draggingIcon(item())}">
                 <div data-bind="i18n: name"></div>
@@ -13,6 +13,10 @@
     </ul>
 
 	<div class="btn-row">
-        <button data-bind="click: hide.bind(null), i18n: 'common.close'"></button>
+        <button class="left" data-bind="click: prevPage, i18n: 'common.previous',
+                                        visible: hasPrevious"></button>
+        <button data-bind="click: hide, i18n: 'common.close'"></button>
+        <button class="right" data-bind="click: nextPage, i18n: 'common.next',
+                                         visible: hasNext()"></button>
     </div>
 </div>

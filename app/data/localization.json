@@ -326,6 +326,7 @@
         "centrifuge.extraction.body": "Hvad vil du ekstrahere?",
 
         "common.next": "Næste",
+        "common.previous": "Forrige",
         "common.contains": "Oprindeligt indhold",
         "common.loading": "Henter",
         "common.ok": "Okay",
