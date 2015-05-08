@@ -82,7 +82,7 @@ class CentrifugeModel extends CompositeContainerModel {
         _.delay(() => {
             _.each(this.containers(), this.tryExtractContents);
             this.status(false);
-        });
+        }, 2000);
     }
 }
 
