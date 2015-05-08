@@ -1,6 +1,6 @@
 import _ = require('lodash');
 
-import localizationService = require('service/Localization');
+import i18n = require('service/Localization');
 
 import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
@@ -38,24 +38,19 @@ class TextHelper {
     }
 
     static label = (container: SimpleContainerModel) => {
+        var subtyped = [ LiquidType.MOUSE_BLOOD, LiquidType.ANTIBIOTIC ];
         var contents = _.map(container.liquids(), (l) => {
-            if (l.type() == LiquidType.MOUSE_BLOOD) {
-                var blood = localizationService.text(TextHelper.prettyNameFromType(l.type()));
-                var type = localizationService.text(TextHelper.prettyNameFromType(l.subtype()));
-                return blood + ' (' + type + ')';
+            if (_.contains(subtyped, l.type())) {
+                var type = i18n.text(TextHelper.prettyNameFromType(l.type()));
+                var subtype = i18n.text(TextHelper.prettyNameFromType(l.subtype()));
+                return type + ' (' + subtype + ')';
             }
 
-            return localizationService.text(TextHelper.prettyName(l))
+            return i18n.text(TextHelper.prettyName(l))
         });
 
-        return localizationService.text('common.contains') + ': ' + contents.join(' & ');
+        return i18n.text('common.contains') + ': ' + contents.join(' & ');
     }
-
-    // static mouseBlood = (liquid: LiquidModel) => {
-    //     var blood = localizationService.text(TextHelper.prettyNameFromType(item.type()));
-    //     var type = localizationService.text(TextHelper.prettyNameFromType(item.subtype()));
-    //     return blood + ' (' + type + ')';
-    // }
 
     static prettyName = (item) => {
         return TextHelper.prettyNameFromType(item.type());
@@ -140,6 +135,7 @@ class TextHelper {
             return 'liquid.name.produced_antibody_gout';
         case LiquidType.PRODUCED_ANTIBODY_POX:
             return 'liquid.name.produced_antibody_pox';
+
         case LiquidType.MOUSE_BLOOD:
             return 'liquid.name.mouse_blood';
         case LiquidType.BUFFY_COAT:
@@ -148,6 +144,13 @@ class TextHelper {
             return 'liquid.name.red_blood_cells';
         case LiquidType.PLASMA:
             return 'liquid.name.plasma';
+
+        case LiquidType.DIABETES_PRIMER:
+            return 'liquid.name.diabetes_primer';
+        case LiquidType.NUCLEOTIDES:
+            return 'liquid.name.nucleotides';
+        case LiquidType.PCR_POLYMERASE:
+            return 'liquid.name.pcr_polymerase';
 
         default:
             throw 'TextHelper.prettyNameFromType: Unknown type: ' + type;

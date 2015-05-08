@@ -130,6 +130,18 @@ class LiquidFactory {
         blood.subtype(mouseBloodType);
         return blood;
     };
+
+    static diabetesPrimer = () => {
+        return new Liquid(LiquidType.DIABETES_PRIMER);
+    }
+
+    static nucleotides = () => {
+        return new Liquid(LiquidType.NUCLEOTIDES);
+    }
+
+    static pcrPolymerase = () => {
+        return new Liquid(LiquidType.PCR_POLYMERASE);
+    }
 }
 
 export = LiquidFactory;

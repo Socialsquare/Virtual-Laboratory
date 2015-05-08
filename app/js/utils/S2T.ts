@@ -107,39 +107,81 @@ class S2T {
 
     static liquid(s: string) {
         switch (s) {
-        case "LiquidType.MICROORGANISM": return LiquidType.MICROORGANISM;
-        case "LiquidType.ANTIBIOTIC": return LiquidType.ANTIBIOTIC;
-        case "LiquidType.GROWTH_MEDIUM": return LiquidType.GROWTH_MEDIUM;
-        case "LiquidType.DNA": return LiquidType.DNA;
-        case "LiquidType.GENE": return LiquidType.GENE;
-        case "LiquidType.ORGANISM_PROPERTY": return LiquidType.ORGANISM_PROPERTY;
-        case "LiquidType.JUICE": return LiquidType.JUICE;
-        case "LiquidType.BUFFER": return LiquidType.BUFFER;
-        case "LiquidType.SALT_WATER": return LiquidType.SALT_WATER;
-        case "LiquidType.MICROTITER_WELLS": return LiquidType.MICROTITER_WELLS;
-        case "LiquidType.DEADLY": return LiquidType.DEADLY;
-        case "LiquidType.HOMO_SPLEEN": return LiquidType.HOMO_SPLEEN;
-        case "LiquidType.HYBRIDOMA_MEDIUM": return LiquidType.HYBRIDOMA_MEDIUM;
-        case "LiquidType.INSULIN": return LiquidType.INSULIN;
-        case "LiquidType.ANTIBODY_GOUT": return LiquidType.ANTIBODY_GOUT;
-        case "LiquidType.ANTIBODY_SMALLPOX": return LiquidType.ANTIBODY_SMALLPOX;
-        case "LiquidType.ANTIGEN_GOUT": return LiquidType.ANTIGEN_GOUT;
-        case "LiquidType.ANTIGEN_SMALLPOX": return LiquidType.ANTIGEN_SMALLPOX;
-        case "LiquidType.ADJUVANS": return LiquidType.ADJUVANS;
-        case "LiquidType.LIPASE_ENZYME": return LiquidType.LIPASE_ENZYME;
-        case "LiquidType.GFP": return LiquidType.GFP;
-        case "LiquidType.DESIGNED_DRUG": return LiquidType.DESIGNED_DRUG;
-        case "LiquidType.CYP_ENZYME": return LiquidType.CYP_ENZYME;
-        case "LiquidType.TARGET_RECEPTOR": return LiquidType.TARGET_RECEPTOR;
-        case "LiquidType.PRODUCED_INSULIN": return LiquidType.PRODUCED_INSULIN;
-        case "LiquidType.PRODUCED_LIPASE": return LiquidType.PRODUCED_LIPASE;
-        case "LiquidType.PRODUCED_ANTIBODY_GOUT": return LiquidType.PRODUCED_ANTIBODY_GOUT;
-        case "LiquidType.PRODUCED_ANTIBODY_POX": return LiquidType.PRODUCED_ANTIBODY_POX;
-        case "LiquidType.FLUORESCENT_2ND_ANTIBODY": return LiquidType.FLUORESCENT_2ND_ANTIBODY;
-        case "LiquidType.MOUSE_BLOOD": return LiquidType.MOUSE_BLOOD;
-        case "LiquidType.BUFFY_COAT": return LiquidType.BUFFY_COAT;
-        case "LiquidType.RED_BLOOD_CELLS": return LiquidType.RED_BLOOD_CELLS;
-        case "LiquidType.PLASMA": return LiquidType.PLASMA;
+        case "LiquidType.MICROORGANISM":
+            return LiquidType.MICROORGANISM;
+        case "LiquidType.ANTIBIOTIC":
+            return LiquidType.ANTIBIOTIC;
+        case "LiquidType.GROWTH_MEDIUM":
+            return LiquidType.GROWTH_MEDIUM;
+        case "LiquidType.DNA":
+            return LiquidType.DNA;
+        case "LiquidType.GENE":
+            return LiquidType.GENE;
+        case "LiquidType.ORGANISM_PROPERTY":
+            return LiquidType.ORGANISM_PROPERTY;
+        case "LiquidType.JUICE":
+            return LiquidType.JUICE;
+        case "LiquidType.BUFFER":
+            return LiquidType.BUFFER;
+        case "LiquidType.SALT_WATER":
+            return LiquidType.SALT_WATER;
+        case "LiquidType.MICROTITER_WELLS":
+            return LiquidType.MICROTITER_WELLS;
+        case "LiquidType.DEADLY":
+            return LiquidType.DEADLY;
+        case "LiquidType.HOMO_SPLEEN":
+            return LiquidType.HOMO_SPLEEN;
+        case "LiquidType.HYBRIDOMA_MEDIUM":
+            return LiquidType.HYBRIDOMA_MEDIUM;
+        case "LiquidType.INSULIN":
+            return LiquidType.INSULIN;
+        case "LiquidType.ANTIBODY_GOUT":
+            return LiquidType.ANTIBODY_GOUT;
+        case "LiquidType.ANTIBODY_SMALLPOX":
+            return LiquidType.ANTIBODY_SMALLPOX;
+        case "LiquidType.ANTIGEN_GOUT":
+            return LiquidType.ANTIGEN_GOUT;
+        case "LiquidType.ANTIGEN_SMALLPOX":
+            return LiquidType.ANTIGEN_SMALLPOX;
+        case "LiquidType.ADJUVANS":
+            return LiquidType.ADJUVANS;
+        case "LiquidType.LIPASE_ENZYME":
+            return LiquidType.LIPASE_ENZYME;
+        case "LiquidType.GFP":
+            return LiquidType.GFP;
+        case "LiquidType.DESIGNED_DRUG":
+            return LiquidType.DESIGNED_DRUG;
+        case "LiquidType.CYP_ENZYME":
+            return LiquidType.CYP_ENZYME;
+        case "LiquidType.TARGET_RECEPTOR":
+            return LiquidType.TARGET_RECEPTOR;
+        case "LiquidType.PRODUCED_INSULIN":
+            return LiquidType.PRODUCED_INSULIN;
+        case "LiquidType.PRODUCED_LIPASE":
+            return LiquidType.PRODUCED_LIPASE;
+        case "LiquidType.PRODUCED_ANTIBODY_GOUT":
+            return LiquidType.PRODUCED_ANTIBODY_GOUT;
+        case "LiquidType.PRODUCED_ANTIBODY_POX":
+            return LiquidType.PRODUCED_ANTIBODY_POX;
+        case "LiquidType.FLUORESCENT_2ND_ANTIBODY":
+            return LiquidType.FLUORESCENT_2ND_ANTIBODY;
+
+        case "LiquidType.MOUSE_BLOOD":
+            return LiquidType.MOUSE_BLOOD;
+        case "LiquidType.BUFFY_COAT":
+            return LiquidType.BUFFY_COAT;
+        case "LiquidType.RED_BLOOD_CELLS":
+            return LiquidType.RED_BLOOD_CELLS;
+        case "LiquidType.PLASMA":
+            return LiquidType.PLASMA;
+
+        case "LiquidType.DIABETES_PRIMER":
+            return LiquidType.DIABETES_PRIMER;
+        case "LiquidType.NUCLEOTIDES":
+            return LiquidType.NUCLEOTIDES;
+        case "LiquidType.PCR_POLYMERASE":
+            return LiquidType.PCR_POLYMERASE;
+
         default: return null;
         }
     }

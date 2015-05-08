@@ -1,40 +1,44 @@
 import ev = require('enumvalue');
 
 enum Liquid {
-    MICROORGANISM            = ev.next(), // 'LiquidType.MICROORGANISM'
-    ANTIBIOTIC               = ev.next(), // 'LiquidType.ANTIBIOTIC'
-    GROWTH_MEDIUM            = ev.next(), // 'LiquidType.GROWTH_MEDIUM'
-    DNA                      = ev.next(), // 'LiquidType.DNA'
-    GENE                     = ev.next(), // 'LiquidType.GENE'
-    ORGANISM_PROPERTY        = ev.next(), // 'LiquidType.ORGANISM_PROPERTY'
-    JUICE                    = ev.next(), // 'LiquidType.JUICE'
-    BUFFER                   = ev.next(), // 'LiquidType.BUFFER'
-    SALT_WATER               = ev.next(), // 'LiquidType.SALT_WATER'
-    MICROTITER_WELLS         = ev.next(), // 'LiquidType.MICROTITER_WELLS'
-    DEADLY                   = ev.next(), // 'LiquidType.DEADLY'
-    HOMO_SPLEEN              = ev.next(), // 'LiquidType.HOMO_SPLEEN'
-    HYBRIDOMA_MEDIUM         = ev.next(), // 'LiquidType.HYBRIDOMA_MEDIUM'
-    INSULIN                  = ev.next(), // 'LiquidType.INSULIN'
-    ANTIBODY_GOUT            = ev.next(), // 'LiquidType.ANTIBODY_GOUT'
-    ANTIBODY_SMALLPOX        = ev.next(), // 'LiquidType.ANTIBODY_SMALLPOX'
-    ANTIGEN_GOUT             = ev.next(), // 'LiquidType.ANTIGEN_GOUT'
-    ANTIGEN_SMALLPOX         = ev.next(), // 'LiquidType.ANTIGEN_SMALLPOX'
-    ADJUVANS                 = ev.next(), // 'LiquidType.ADJUVANS'
-    LIPASE_ENZYME            = ev.next(), // 'LiquidType.LIPASE_ENZYME'
-    GFP                      = ev.next(), // 'LiquidType.GFP'
-    DESIGNED_DRUG            = ev.next(), // 'LiquidType.DESIGNED_DRUG'
-    CYP_ENZYME               = ev.next(), // 'LiquidType.CYP_ENZYME'
-    TARGET_RECEPTOR          = ev.next(), // 'LiquidType.TARGET_RECEPTOR'
-    PRODUCED_INSULIN         = ev.next(), // 'LiquidType.PRODUCED_INSULIN'
-    PRODUCED_LIPASE          = ev.next(), // 'LiquidType.PRODUCED_LIPASE'
-    PRODUCED_ANTIBODY_GOUT   = ev.next(), // 'LiquidType.PRODUCED_ANTIBODY_GOUT'
-    PRODUCED_ANTIBODY_POX    = ev.next(), // 'LiquidType.PRODUCED_ANTIBODY_POX'
-    FLUORESCENT_2ND_ANTIBODY = ev.next(), // 'LiquidType.FLUORESCENT_2ND_ANTIBODY'
-    MOUSE_BLOOD              = ev.next(), // 'LiquidType.MOUSE_BLOOD'
+    MICROORGANISM            = ev.next(),
+    ANTIBIOTIC               = ev.next(),
+    GROWTH_MEDIUM            = ev.next(),
+    DNA                      = ev.next(),
+    GENE                     = ev.next(),
+    ORGANISM_PROPERTY        = ev.next(),
+    JUICE                    = ev.next(),
+    BUFFER                   = ev.next(),
+    SALT_WATER               = ev.next(),
+    MICROTITER_WELLS         = ev.next(),
+    DEADLY                   = ev.next(),
+    HOMO_SPLEEN              = ev.next(),
+    HYBRIDOMA_MEDIUM         = ev.next(),
+    INSULIN                  = ev.next(),
+    ANTIBODY_GOUT            = ev.next(),
+    ANTIBODY_SMALLPOX        = ev.next(),
+    ANTIGEN_GOUT             = ev.next(),
+    ANTIGEN_SMALLPOX         = ev.next(),
+    ADJUVANS                 = ev.next(),
+    LIPASE_ENZYME            = ev.next(),
+    GFP                      = ev.next(),
+    DESIGNED_DRUG            = ev.next(),
+    CYP_ENZYME               = ev.next(),
+    TARGET_RECEPTOR          = ev.next(),
+    PRODUCED_INSULIN         = ev.next(),
+    PRODUCED_LIPASE          = ev.next(),
+    PRODUCED_ANTIBODY_GOUT   = ev.next(),
+    PRODUCED_ANTIBODY_POX    = ev.next(),
+    FLUORESCENT_2ND_ANTIBODY = ev.next(),
+    MOUSE_BLOOD              = ev.next(),
 
-    BUFFY_COAT               = ev.next(), // 'LiquidType.BUFFY_COAT'
-    PLASMA                   = ev.next(), // 'LiquidType.PLASMA'
-    RED_BLOOD_CELLS          = ev.next(), // 'LiquidType.RED_BLOOD_CELLS'
+    BUFFY_COAT               = ev.next(),
+    PLASMA                   = ev.next(),
+    RED_BLOOD_CELLS          = ev.next(),
+
+    DIABETES_PRIMER          = ev.next(),
+    NUCLEOTIDES              = ev.next(),
+    PCR_POLYMERASE           = ev.next(),
 };
 
 export = Liquid;

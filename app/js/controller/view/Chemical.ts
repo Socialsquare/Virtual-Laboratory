@@ -73,6 +73,10 @@ class Chemical extends BaseViewController {
             new ChemicalItemModel('item.name.target_receptor', () => this.inTube(LiquidFactory.targetRecptor())),
             new ChemicalItemModel('item.name.fluorescent_2nd_antibody', () => this.inTube(LiquidFactory.fluorescentSecondaryAntibody())),
             new ChemicalItemModel('item.name.antigen_smallpox', () => this.inTube(LiquidFactory.antigenSmallpox())),
+
+            new ChemicalItemModel('item.name.diabetes_primer', () => this.inTube(LiquidFactory.diabetesPrimer())),
+            new ChemicalItemModel('item.name.nucleotides', () => this.inTube(LiquidFactory.nucleotides())),
+            new ChemicalItemModel('item.name.pcr_polymerase', () => this.inTube(LiquidFactory.pcrPolymerase())),
         ]);
     }
 
