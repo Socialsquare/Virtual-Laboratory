@@ -16,6 +16,7 @@ class Worktable2 extends BaseViewController {
     public tableSpaceMicroController: CompositeContainerController;
     public tubeRackController: CompositeContainerController;
     public odController: CompositeContainerController;
+    public centrifugeController: CompositeContainerController;
 
     constructor() {
         super('worktable2');
@@ -26,14 +27,18 @@ class Worktable2 extends BaseViewController {
         this.tableSpaceMicroController = new CompositeContainerController(this.worktable2.tableSpaceMicro);
         this.tubeRackController = new CompositeContainerController(this.worktable2.tubeRack);
         this.odController = new CompositeContainerController(this.worktable2.odMachine);
+        this.centrifugeController = new CompositeContainerController(this.worktable2.centrifuge);
 
         this.tableSpacePetriController.addDropGuard(this.smallPoxGuard);
         this.tableSpaceMicroController.addDropGuard(this.smallPoxGuard);
         this.tubeRackController.addDropGuard(this.smallPoxGuard);
         this.odController.addDropGuard(this.smallPoxGuard);
+        this.centrifugeController.addDropGuard(this.smallPoxGuard);
+
+        ko.rebind(this);
     }
 
-    public handleBlenderDrop = (item) => {
+    handleBlenderDrop(item) {
         this.worktable2.blender.status(true);
         _.delay(() => {
 
@@ -49,6 +54,11 @@ class Worktable2 extends BaseViewController {
 
             this.experimentController.triggerActivation(ActivationType.BLENDER, item);
         }, 1500);
+    }
+
+    activateCentrifuge() {
+        this.worktable2.centrifuge.activate();
+        console.log("hej centrifuge");
     }
 }
 

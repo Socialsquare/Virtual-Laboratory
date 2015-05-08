@@ -44,18 +44,20 @@ class Experiment {
                 return !task.finished();
             });
         });
+
+        ko.rebind(this);
     }
 
-    public startExperiment = (experiment) => {
+    startExperiment(experiment) {
         this.activeExperiment(experiment);
     }
 
     // return whether a property is defined and matches another
-    public match = (property: any, expected: any) => {
+    match(property: any, expected: any) {
         return _.isUndefined(property) || _.isNull(property) || property === expected;
     }
 
-    public matchLiquids = (trigger: TriggerModel, container: SimpleContainerModel) => {
+    matchLiquids(trigger: TriggerModel, container: SimpleContainerModel) {
         if (_.isUndefined(trigger.liquids)) return true;
 
         if (trigger.strict) {
@@ -81,7 +83,7 @@ class Experiment {
         });
     }
 
-    public triggerMix = (addition: LiquidModel[], container: SimpleContainerModel) => {
+    triggerMix(addition: LiquidModel[], container: SimpleContainerModel) {
         if (!this.hasExperiment()) return;
         if (!this.activeTask()) return; // This happens when all steps in an exercise are done
         var trigger = this.activeTask().trigger();
@@ -96,7 +98,7 @@ class Experiment {
         this.finishActiveTask();
     }
 
-    public triggerMouse = (mouse: MouseModel, item) => {
+    triggerMouse(mouse: MouseModel, item) {
         if (!this.hasExperiment()) return;
         if (!this.activeTask()) return; // This happens when all steps in an exercise are done
 
@@ -112,7 +114,7 @@ class Experiment {
         this.finishActiveTask();
     }
 
-    public triggerAcquisition = (item) => {
+    triggerAcquisition(item) {
         if (!this.hasExperiment()) return;
         // This happens when all steps in an exercise are done
         if (!this.activeTask()) return;
@@ -126,7 +128,7 @@ class Experiment {
         this.finishActiveTask();
     }
 
-    public triggerActivation = (activation: ActivationType, item, extraProperties = {}) => {
+    triggerActivation(activation: ActivationType, item, extraProperties = {}) {
         if (!this.hasExperiment()) return;
         // This happens when all steps in an exercise are done
         if (!this.activeTask()) return;
@@ -224,7 +226,7 @@ class Experiment {
         this.finishActiveTask();
     }
 
-    public finishActiveTask = () => {
+    finishActiveTask() {
         if (!this.activeTask().hasConsequence()) {
             this.markTaskFinished();
             return;
@@ -242,7 +244,7 @@ class Experiment {
         }
     }
 
-    public markTaskFinished = () => {
+    markTaskFinished() {
         this.activeTask().finished(true);
 
         var allDone = _(this.activeExperiment().tasks()).invoke('finished').all();

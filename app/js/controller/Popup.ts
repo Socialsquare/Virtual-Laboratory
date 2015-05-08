@@ -39,9 +39,11 @@ class Popup {
         this.activePopup = ko.computed(() => {
             return !this.activePopups.isEmpty();
         });
+
+        ko.rebind(this);
     }
 
-    public show = (name, viewData = {}, asNotification = false) => {
+    show(name, viewData = {}, asNotification = false) {
         var vm = new PopupModel(name, viewData, this);
         if (asNotification)
             this.activeNotifications.push(vm);
@@ -50,39 +52,39 @@ class Popup {
         return vm;
     }
 
-    public showGuide = (experimentController) => {
+    showGuide(experimentController) {
         var vm = new GuideModel(experimentController, this);
         this.activePopups.push(vm);
         return vm;
     }
 
-    public hide = (popup) => {
+    hide(popup) {
         this.activePopups.remove(popup);
         this.activeNotifications.remove(popup);
     }
 
-    public kvInfo = (info) => {
+    kvInfo(info) {
         this.show('popup-kv-info', { info: info });
     }
 
-    public dnaInfo = (dna) => {
+    dnaInfo(dna) {
         this.show('popup-dna-info', { dna: dna });
     }
 
-    public message = (title, message) => {
+    message(title, message) {
         this.show('popup-message', { title: title, message: message });
     }
 
-    public microtiterCloseUp = (microtiter) => {
+    microtiterCloseUp(microtiter) {
 
         this.show('popup-microtiter', microtiter);
     }
 
-    public dataExport = (data) => {
+    dataExport(data) {
         this.show('popup-data-export', { csvData: data });
     }
 
-    public notify = (title, message, closingTime = 3000) => {
+    notify(title, message, closingTime = 3000) {
         var delay = closingTime;
 
         var vm = this.show('popup-notify', { title: title, message: message }, true);
@@ -91,11 +93,11 @@ class Popup {
         }, delay);
     }
 
-    public itemDetail = (item) => {
+    itemDetail(item) {
         this.show('popup-item-detail', { item: item });
     }
 
-    public confirm = (title, message) => {
+    confirm(title, message) {
         var promise = $.Deferred();
         var vm = this.show('popup-dialog', { title: title, message: message, promise: promise });
 
@@ -108,7 +110,7 @@ class Popup {
         });
     }
 
-    public video = (sequence, controlsRequired) => {
+    video(sequence, controlsRequired) {
         var videoController = new VideoController();
         var vm = this.show('popup-video', { videoController: videoController });
         return videoController.play(sequence, false, controlsRequired).done(() => {
@@ -130,7 +132,7 @@ class Popup {
         return promise.always(() => this.hide(vm));
     }
 
-    public labInfo = () => {
+    labInfo() {
         this.activePopups.push(this.helpPopupModel);
         return this.helpPopupModel;
     }

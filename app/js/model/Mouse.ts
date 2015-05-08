@@ -41,7 +41,8 @@ class Mouse {
 
         this.alive = ko.observable(true);
         this.isCut = ko.observable(false);
-        this.isInteracting = ko.observable(false); // Should be true when an interaction-video is playing.
+        // Indicates whether an interaction-video is playing.
+        this.isInteracting = ko.observable(false);
         this.spleen = new SpleenModel();
         this.mouseBloodType = ko.observable(mouseBloodType);
         this.mouseType = ko.observable(mouseType);

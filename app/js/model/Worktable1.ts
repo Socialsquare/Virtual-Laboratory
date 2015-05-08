@@ -9,7 +9,6 @@ import ElectroporatorModel = require('model/Electroporator');
 
 import LocationType = require('model/type/Location');
 
-
 class Worktable1 {
 
     public tableSpacePetri: PetriSpaceModel;
@@ -34,9 +33,11 @@ class Worktable1 {
         this.heater = new HeaterModel();
 
         this.bunsenBurner = ko.observable(false);
+
+        ko.rebind(this);
     }
 
-    public reset = () => {
+    reset() {
         this.tableSpacePetri.removeAll();
         this.tableSpaceMicro.removeAll();
         this.tubeRack.removeAll();

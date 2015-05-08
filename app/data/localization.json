@@ -260,6 +260,9 @@
         "liquid.name.produced_antibody_pox": "Produceret antistof (Ebola)",
         "liquid.name.fluorescent_2nd_antibody": "Fluorescerende sekundært antistof",
         "liquid.name.mouse_blood": "Museblod",
+        "liquid.name.buffy_coat": "Buffy coat",
+        "liquid.name.red_blood_cells": "Red blood cells",
+        "liquid.name.plasma": "Plasma",
 
         "liquid.name.mouse_blood.normal": "rask",
         "liquid.name.mouse_blood.diabetic": "diabetisk",
@@ -307,6 +310,11 @@
         "experiment.task_finished.body": "Du klarede en opgave",
         "experiment.completed.header": "Succes!",
         "experiment.completed.body": "Du er helt færdig med øvelsen. Tillykke med det!",
+
+        "centrifuge.unbalanced.header": "Ugyldigt",
+        "centrifuge.unbalanced.body": "Centrifugen skal være balanceret for at du kan anvende den. Hint: du kan anvende et reagensglas med saltvand for at balancere centrifugen.",
+        "centrifuge.extraction.header": "Centrifugen er færdig",
+        "centrifuge.extraction.body": "Hvad vil du ekstrahere?",
 
         "common.next": "Næste",
         "common.contains": "Oprindeligt indhold",
@@ -570,6 +578,9 @@
         "liquid.name.produced_antibody_pox": "Produceret antistof (Ebola)",
         "liquid.name.fluorescent_2nd_antibody": "Fluorescerende sekundært antistof",
         "liquid.name.mouse_blood": "Museblod",
+        "liquid.name.buffy_coat": "Buffy coat",
+        "liquid.name.red_blood_cells": "Red blood cells",
+        "liquid.name.plasma": "Plasma",
 
         "liquid.name.mouse_blood.normal": "rask",
         "liquid.name.mouse_blood.diabetic": "diabetisk",
@@ -580,6 +591,12 @@
         "experiment.task_finished.body": "Du klarede en opgave",
         "experiment.completed.header": "Succes!",
         "experiment.completed.body": "Du er helt færdig med øvelsen. Tillykke med det!",
+
+        "centrifuge.unbalanced.header": "Ugyldigt",
+        "centrifuge.unbalanced.body": "Centrifugen skal være balanceret for at du kan anvende den. Hint: du kan anvende et reagensglas med saltvand for at balancere centrifugen.",
+
+        "centrifuge.extraction.header": "Centrifugen er færdig",
+        "centrifuge.extraction.body": "Hvad vil du ekstrahere?",
 
         "common.next": "Næste",
         "common.contains": "Oprindeligt indhold",

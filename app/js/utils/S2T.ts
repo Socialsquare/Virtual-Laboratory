@@ -100,6 +100,7 @@ class S2T {
         case 'ContainerType.SPECTROPM_MACHINE': return ContainerType.SPECTROPM_MACHINE;
         case 'ContainerType.PIPETTE': return ContainerType.PIPETTE;
         case 'ContainerType.FERMENTOR': return ContainerType.FERMENTOR;
+        case 'ContainerType.CENTRIFUGE': return ContainerType.CENTRIFUGE;
         default: return null;
         }
     }
@@ -135,6 +136,10 @@ class S2T {
         case "LiquidType.PRODUCED_ANTIBODY_GOUT": return LiquidType.PRODUCED_ANTIBODY_GOUT;
         case "LiquidType.PRODUCED_ANTIBODY_POX": return LiquidType.PRODUCED_ANTIBODY_POX;
         case "LiquidType.FLUORESCENT_2ND_ANTIBODY": return LiquidType.FLUORESCENT_2ND_ANTIBODY;
+        case "LiquidType.MOUSE_BLOOD": return LiquidType.MOUSE_BLOOD;
+        case "LiquidType.BUFFY_COAT": return LiquidType.BUFFY_COAT;
+        case "LiquidType.RED_BLOOD_CELLS": return LiquidType.RED_BLOOD_CELLS;
+        case "LiquidType.PLASMA": return LiquidType.PLASMA;
         default: return null;
         }
     }

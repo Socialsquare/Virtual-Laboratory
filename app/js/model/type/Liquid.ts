@@ -31,6 +31,10 @@ enum Liquid {
     PRODUCED_ANTIBODY_POX    = ev.next(), // 'LiquidType.PRODUCED_ANTIBODY_POX'
     FLUORESCENT_2ND_ANTIBODY = ev.next(), // 'LiquidType.FLUORESCENT_2ND_ANTIBODY'
     MOUSE_BLOOD              = ev.next(), // 'LiquidType.MOUSE_BLOOD'
+
+    BUFFY_COAT               = ev.next(), // 'LiquidType.BUFFY_COAT'
+    PLASMA                   = ev.next(), // 'LiquidType.PLASMA'
+    RED_BLOOD_CELLS          = ev.next(), // 'LiquidType.RED_BLOOD_CELLS'
 };
 
 export = Liquid;

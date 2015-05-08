@@ -8,12 +8,23 @@
     .petri { @include tablespacepetri(600px, 460px); }
     .tuberack { @include tuberack(492px, 318px); }
 
-    .centrifuge {
+    .centrifuge-testtubeholder {
+        @include tuberack(857px, 229px);
+        width: 105px;
+        height: 38px;
+
+        .slot0, .slot1, .slot2 { height: 38px; }
+        .slot0 { width: 38px; }
+        .slot1 { width: 26px; }
+        .slot2 { height: 41px; }
+    }
+
+    .centrifuge-btn {
         position: absolute;
-        top: 203px;
-        left: 113px;
-        width: 117px;
-        height: 103px;
+        top: 334px;
+        left: 149px;
+        width: 74px;
+        height: 69px;
     }
 
     .blender {

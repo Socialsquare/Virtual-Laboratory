@@ -19,7 +19,7 @@ class Sequencing extends BaseComputer {
 
     public isValid: KnockoutObservable<boolean>;
     public message: KnockoutObservable<string>;
-    public item: KnockoutObservable<any>; //TODO! type?
+    public item: TubeModel;
     public consumeItem: () => void;
 
     constructor() {

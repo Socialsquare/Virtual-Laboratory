@@ -142,6 +142,12 @@ class TextHelper {
             return 'liquid.name.produced_antibody_pox';
         case LiquidType.MOUSE_BLOOD:
             return 'liquid.name.mouse_blood';
+        case LiquidType.BUFFY_COAT:
+            return 'liquid.name.buffy_coat';
+        case LiquidType.RED_BLOOD_CELLS:
+            return 'liquid.name.red_blood_cells';
+        case LiquidType.PLASMA:
+            return 'liquid.name.plasma';
 
         default:
             throw 'TextHelper.prettyNameFromType: Unknown type: ' + type;

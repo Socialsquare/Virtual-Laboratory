@@ -89,8 +89,6 @@ class Worktable1 extends BaseViewController {
 
         this.worktable1.electroporator.activate();
         this.experimentController.triggerActivation(ActivationType.ELECTROPORATOR, this.worktable1.electroporator);
-
-
     }
 
     public showElectroporatorQuiz = (quizNumber) => {
@@ -115,8 +113,6 @@ class Worktable1 extends BaseViewController {
             this.quizController.startQuiz(QuizHelper.electroporator.getQuiz6());
             break;
         }
-
-
     }
 
     public showElectroporatorVideos = (quizNumber) => {

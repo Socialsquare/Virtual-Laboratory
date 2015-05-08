@@ -8,7 +8,7 @@ import PetriSpaceModel = require('model/PetriSpace');
 import MicroSpaceModel = require('model/MicroSpace');
 import ODMachineModel = require('model/ODMachine');
 import BlenderModel = require('model/Blender');
-
+import CentrifugeModel = require('model/Centrifuge');
 
 class Worktable2 {
 
@@ -18,6 +18,7 @@ class Worktable2 {
 
     public odMachine: ODMachineModel;
     public blender: BlenderModel;
+    public centrifuge: CentrifugeModel;
 
     constructor() {
         this.tableSpacePetri = new PetriSpaceModel();
@@ -31,15 +32,20 @@ class Worktable2 {
 
         this.odMachine = new ODMachineModel();
         this.blender = new BlenderModel();
+        this.centrifuge = new CentrifugeModel();
+
+        ko.rebind(this);
     }
 
-    public reset = () => {
+    reset() {
         this.tableSpacePetri.removeAll();
         this.tableSpaceMicro.removeAll();
         this.tubeRack.removeAll();
 
         this.odMachine.removeAll();
         this.blender.status(false);
+        this.centrifuge.removeAll();
+        this.centrifuge.status(false);
     }
 }
 
