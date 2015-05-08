@@ -116,6 +116,12 @@ module.exports = function (grunt) {
             }
         },
 
+        karma: {
+            unit: {
+                configFile: "./karma.conf.js"
+            }
+        },
+
         // TODO: livereload
         connect: {
             production: {
@@ -194,6 +200,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-connect-proxy');
+    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-preprocess');
     grunt.loadNpmTasks("grunt-ts");
