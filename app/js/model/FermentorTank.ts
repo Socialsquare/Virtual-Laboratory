@@ -12,6 +12,8 @@ class FermentorTank extends SimpleContainerModel {
 
         //This is used when restarting the fermentor.
         this.hasRun = ko.observable(false);
+
+        ko.rebind(this);
     }
 }
 

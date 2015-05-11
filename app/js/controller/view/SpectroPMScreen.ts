@@ -2,6 +2,8 @@ import ko = require('knockout');
 import _ = require('lodash');
 
 import BaseViewController = require('controller/view/Base');
+import SpectroPMController = require('controller/view/SpectroPM');
+
 import utils = require('utils/utils');
 import DataHelper = require('utils/DataHelper');
 import LocalizationService = require('service/Localization');
@@ -12,14 +14,17 @@ import LiquidType  = require('model/type/Liquid');
 
 class SpectroPMScreen extends BaseViewController {
 
-    constructor(spectropmController) {
+    public spectropmController: SpectroPMController;
 
+    constructor(spectropmController: SpectroPMController) {
         super('spectropmscreen');
 
         this.spectropmController = spectropmController;
+
+        ko.rebind(this);
     }
 
-    public exportData = () => {
+    exportData() {
         var raw = this.spectropmController.plotData();
         var headers = ['log(conc)', 'affinity']; //TODO: i18n
         var parsed = _(raw.affinityData)

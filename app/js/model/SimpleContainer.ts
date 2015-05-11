@@ -44,7 +44,7 @@ class SimpleContainer {
         return lh.mos(this.liquids());
     }
 
-    public _addAll = (liquids: LiquidModel[], preventTrigger = false) => {
+    _addAll(liquids: LiquidModel[], preventTrigger = false) {
         if (!this.canAddLiquids(liquids))
             return;
 
@@ -82,17 +82,17 @@ class SimpleContainer {
             experimentController.triggerMix(liquids, this);
     }
 
-    public addAll = (liquids, preventTrigger = false) => {
+    addAll(liquids, preventTrigger = false) {
         this._addAll(liquids, preventTrigger);
         return this;
     }
 
-    public add = (liquid, preventTrigger = false) => {
+    add(liquid, preventTrigger = false) {
         this._addAll([liquid], preventTrigger);
         return this;
     }
 
-    public canAddLiquids = (liquids: LiquidModel[]) => {
+    canAddLiquids(liquids: LiquidModel[]) {
         // stupid edge-case
         var containsSaltWater = _.any(liquids, (liquid) => {
             return liquid.type() === LiquidType.SALT_WATER;
@@ -109,43 +109,43 @@ class SimpleContainer {
         return this.getTotalConcentration() + concentrationToBeAdded < this.maxConcentration();
     }
 
-    public clearContents = () => {
+    clearContents() {
         this.liquids.removeAll();
     }
 
-    public contains = (liquidType: LiquidType) => {
+    contains(liquidType: LiquidType) {
         return _.any(this.liquids(), (liquid) => {
             return liquid.type() === liquidType;
         });
     }
 
-    public containsMicroorganism = (microorganismType: MicroorganismType) => {
+    containsMicroorganism(microorganismType: MicroorganismType) {
         return _.any(this.getMicroorganisms(), (microorganism) => {
             return microorganism.microorganismType() === microorganismType;
         });
     }
 
-    public containsAll = (liquidTypes: LiquidType[]) => {
+    containsAll(liquidTypes: LiquidType[]) {
         return _.all(liquidTypes, (liquidType) => {
             return this.contains(liquidType);
         });
     }
 
-    public getTotalConcentration = () => {
+    getTotalConcentration() {
         return _.reduce(this.getMicroorganisms(), (sum, mo) => {
             return sum + mo.concentration();
         }, 0)
     }
 
-    public isEmpty = () => {
+    isEmpty() {
         return this.liquids.isEmpty();
     }
 
-    public cloneLiquids = () => {
+    cloneLiquids() {
         return _.invoke(this.liquids(), 'clone');
     }
 
-    public isFluorescent = () => {
+    isFluorescent() {
         return _.any(this.liquids(), (liquid) => {
             if (liquid.type() === LiquidType.MICROORGANISM) {
                 var mo = <MicroorganismModel>liquid;
@@ -161,7 +161,7 @@ class SimpleContainer {
         });
     }
 
-    public growContentsOnce = (deltaTime: number, growerType: GrowerType, ph: number, temperature: number) => {
+    growContentsOnce(deltaTime: number, growerType: GrowerType, ph: number, temperature: number) {
         // deltaTime is in hours!
         var producedEnzymes = [];
         var totalConc = this.getTotalConcentration();

@@ -3,6 +3,8 @@ import _ = require('lodash');
 
 import utils = require('utils/utils');
 
+import LiquidHelper = require('utils/LiquidHelper');
+
 import SimpleContainerModel = require('model/SimpleContainer');
 import OrganismPropertyModel = require('model/OrganismProperty');
 import DNAElementModel = require('model/DNAElement');
@@ -24,9 +26,11 @@ class Electroporator extends SimpleContainerModel {
         super(ContainerType.ELECTROPORATOR, Math.pow(10, 13));
 
         this.status = ko.observable(false);
+
+        ko.rebind(this);
     }
 
-    public activate = () => {
+    activate() {
         /*1) For hver liquid som er et "Gene"
           1.1) Overfør Gene til hver microorganisme - TJEK
           1.2) Kontrollér om det er korrekt designet
@@ -35,42 +39,36 @@ class Electroporator extends SimpleContainerModel {
 
         _.delay(this.status, 1000, false);
 
-        _(this.liquids()).each((gene) => {
-            if(gene.type() === LiquidType.GENE) {
-                // 1.1) Overfør Gene til hver microorganisme
-                this.transferGeneToAllOrganisms(gene);
+        _.each(LiquidHelper.genes(this.liquids()), (gene) => {
+            // 1.1) Overfør Gene til hver microorganisme
+            this.transferGeneToAllOrganisms(gene);
 
-                // 1.2) Kontrollér om det er korrekt designet //TODO: Resten skal laves efter Patrick's flowchart.
-                var values = this.verifyGeneAndGetProperties(gene);
-                var newProperties = values.newProperties;
+            // 1.2) Kontrollér om det er korrekt designet //TODO: Resten skal laves efter Patrick's flowchart.
+            var values = this.verifyGeneAndGetProperties(gene);
+            var newProperties = values.newProperties;
 
-                //1.2.1) Hvis det er korrekt designet, overfør hver egenskab til hver mirkoorganisme*/
-                _(this.liquids()).each((organism) => {
-                    if(organism.type() === LiquidType.MICROORGANISM) {
-                        organism.extraProperties.pushAll(newProperties);
-                        console.log('Modified organism.');
-                    }
-                });
-            }
+            //1.2.1) Hvis det er korrekt designet, overfør hver egenskab til hver mirkoorganisme*/
+
+            _.each(LiquidHelper.mos(this.liquids()), (organism) => {
+                organism.extraProperties.pushAll(newProperties);
+                console.log('Modified organism.');
+            });
         });
 
     }
 
-    public getQuizVideo = () => {
+    getQuizVideo() {
         // Finds the lowest number of video-quizzes to show - corresponding to the worst designed gene
         var lowestNumber = Infinity;
 
+        _.each(LiquidHelper.genes(this.liquids()), (gene) => {
+            // 1.1) Overfør Gene til hver microorganisme
+            this.transferGeneToAllOrganisms(gene);
 
-        _(this.liquids()).each((gene) => {
-            if(gene.type() === LiquidType.GENE) {
-                // 1.1) Overfør Gene til hver microorganisme
-                this.transferGeneToAllOrganisms(gene);
+            // 1.2) Kontrollér om det er korrekt designet //TODO: Resten skal laves efter Patrick's flowchart.
+            var values = this.verifyGeneAndGetProperties(gene);
 
-                // 1.2) Kontrollér om det er korrekt designet //TODO: Resten skal laves efter Patrick's flowchart.
-                var values = this.verifyGeneAndGetProperties(gene);
-
-                lowestNumber = values.firstError < lowestNumber ? values.firstError : lowestNumber;
-            }
+            lowestNumber = values.firstError < lowestNumber ? values.firstError : lowestNumber;
         });
 
         if (lowestNumber > 7)
@@ -80,7 +78,9 @@ class Electroporator extends SimpleContainerModel {
     }
 
     //Verifies the gene and returns new properties.
-    public verifyGeneAndGetProperties = (gene) => { //1.2.1) Hvis det er korrekt designet, overfør hver egenskab til hver mirkoorganisme*/
+    verifyGeneAndGetProperties(gene) {
+        //1.2.1) Hvis det er korrekt designet, overfør hver egenskab
+        //til hver mirkoorganisme*/
 
         var returnObject = {firstError: Infinity, newProperties: []};
         // firstError is for deciding which QuizVideo to show.
@@ -111,7 +111,8 @@ class Electroporator extends SimpleContainerModel {
         var MRNAs = gene.getMRNAs(promoterPositions, terminatorPositions);
 
         _(MRNAs).each((mRNA) => {
-            var values = this.examineMRNAandGetNewProperties(mRNA); //TODO: set quiz/video-numbers
+            // TODO: set quiz/video-numbers
+            var values = this.examineMRNAandGetNewProperties(mRNA);
 
             returnObject.firstError = values.firstError < returnObject.firstError ?
                 values.firstError : returnObject.firstError;
@@ -125,24 +126,21 @@ class Electroporator extends SimpleContainerModel {
         return returnObject;
     }
 
-    public transferGeneToAllOrganisms = (gene: GeneModel) => {
-        _.each(this.liquids(), (microorganism) => {
-            if(microorganism.type() === LiquidType.MICROORGANISM) {
-
-                var cloned = gene.clone();
-                microorganism.addGene(cloned);
-            }
+    transferGeneToAllOrganisms(gene: GeneModel) {
+        _.each(LiquidHelper.mos(this.liquids()), (microorganism) => {
+            var cloned = gene.clone();
+            microorganism.addGene(cloned);
         });
     }
 
-    public examineMRNAandGetNewProperties = (mRNA: DNAList) => {
+    examineMRNAandGetNewProperties(mRNA: DNAList) {
 
         var values = { firstError: Infinity, newProperties: [] };
         var subMRNAs: SubMRNA[] = [];
 
         var promoterPositions: number[] = [];
         _.each(mRNA, (dna, index) => {
-            if(dna.DNAType() === DNAType.PROMOTER) {
+            if (dna.DNAType() === DNAType.PROMOTER) {
                 promoterPositions.push(index);
             }
         });
@@ -205,7 +203,6 @@ class Electroporator extends SimpleContainerModel {
             _.each(subMRNA.DNAs, (dna, index) => {
                 if (dna.DNAType() === DNAType.PROTEINKODENDE_SEKVENS) {
                     lastPCSIndex = index > lastPCSIndex ? index : lastPCSIndex;
-
                 }
             });
 
@@ -220,11 +217,11 @@ class Electroporator extends SimpleContainerModel {
                 });
 
                 //(1) - does it contain RBS at all?
-                if(!containsRBS) {
+                if (!containsRBS) {
                     // Quiz #3 (no RBS)
                     values.firstError = 3 < values.firstError ? 3 : values.firstError;
                     console.log('Electro #3');
-                }else{
+                } else {
                     var firstRBSIndex = _.findIndex(subMRNA.DNAs, (dna) => {
                         return dna.DNAType() === DNAType.RIBOSOME_BINDING_SITE;
                     });
@@ -234,23 +231,17 @@ class Electroporator extends SimpleContainerModel {
                     });
 
                     //(2) - is there a Start Codon after the RBS?
-                    if (! containsStartCodon) {
+                    if (!containsStartCodon) {
                         // Quiz #4 (no start codon)
                         values.firstError = 4 < values.firstError ? 4 : values.firstError;
                         console.log('Electro #4');
-                    }else {//(3) - otherwise PCS is missing
+                    } else {//(3) - otherwise PCS is missing
                         // Quiz # 5 (no PCS)
                         values.firstError = 5 < values.firstError ? 5 : values.firstError;
                         console.log('Electro #5');
                     }
-
-
                 }
-
-
-
             }
-
 
             return containsRBSBeforeLastPCS;
         });
@@ -266,7 +257,8 @@ class Electroporator extends SimpleContainerModel {
             });
         });
 
-        // Er der i hvert sub-mRNA, efter første RBS, mindst et Start Codon (Start)?
+        // Er der i hvert sub-mRNA, efter første RBS, mindst et Start
+        // Codon (Start)?
         subMRNAs = _.filter(subMRNAs, (subMRNA) => {
             var containsStartCodon = _.any(subMRNA.DNAs, (dna) => {
                 return dna.DNAType() === DNAType.START_CODON;
@@ -281,7 +273,8 @@ class Electroporator extends SimpleContainerModel {
             return containsStartCodon;
         });
 
-        // Se bort fra alt DNA før det første Start Codon i de følgende kontroller, samt ignorér RBS.
+        // Se bort fra alt DNA før det første Start Codon i de
+        // følgende kontroller, samt ignorér RBS.
         _.each(subMRNAs, (subMRNA) => {
             var firstStartCodonIndex = _.findIndex(subMRNA.DNAs, (dna) => {
                 return dna.DNAType() === DNAType.START_CODON;
@@ -292,7 +285,8 @@ class Electroporator extends SimpleContainerModel {
             });
         });
 
-        // Er der i hvert sub-mRNA, efter første Start Codon et Proteinkodende Sekvens
+        // Er der i hvert sub-mRNA, efter første Start Codon et
+        // Proteinkodende Sekvens
         subMRNAs = _.filter(subMRNAs, (subMRNA) => {
             var containsPCS = _.any(subMRNA.DNAs, (dna) => {
                 return dna.DNAType() === DNAType.PROTEINKODENDE_SEKVENS;
@@ -340,9 +334,10 @@ class Electroporator extends SimpleContainerModel {
                 }
             });
 
-
-            var postionPairs: number[][] = []; //starting and end-position in the gene for the mRNA.
-            var viableDNAlists: DNAList[] = []; //NESTED LISTS! DNAs containing allowed PCSs
+            // Starting and end-position in the gene for the mRNA.
+            var postionPairs: number[][] = [];
+            // NESTED LISTS! DNAs containing allowed PCSs
+            var viableDNAlists: DNAList[] = [];
 
             // Extract position-piars
             while (startPositions.length > 0) {
@@ -387,7 +382,6 @@ class Electroporator extends SimpleContainerModel {
             });
 
         });
-
 
         return values;
     }

@@ -2,10 +2,13 @@ import ko = require('knockout');
 import $ = require('jquery');
 import _ = require('lodash');
 
+import LiquidHelper = require('utils/LiquidHelper');
+
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
 
 import SpectroPMModel = require('model/SpectroPM');
+import ScaffoldModel = require('model/Scaffold');
 
 import LiquidType = require('model/type/Liquid');
 import ActivationType = require('model/type/Activation');
@@ -16,7 +19,7 @@ class SpectroPM extends BaseViewController {
     public microSlotController: CompositeContainerController;
 
     public isClosed: KnockoutObservable<boolean>;
-    public plotData: KnockoutComputed<number[][]>;
+    public plotData: KnockoutComputed<{ affinityData: number[][] }>;
 
     constructor() {
         super('spectropm');
@@ -47,7 +50,7 @@ class SpectroPM extends BaseViewController {
         this.plotData = ko.computed(() => {
             if (this.canShowGraph()) {
                 // 1) find the designed drug
-                var theDrug = _.find(this.spectroPM.microSlot.get(0).liquids(), (liquid) => {
+                var theDrug = <ScaffoldModel>_.find(this.spectroPM.microSlot.get(0).liquids(), (liquid) => {
                     return liquid.type() === LiquidType.DESIGNED_DRUG;
                 });
 
@@ -71,9 +74,11 @@ class SpectroPM extends BaseViewController {
                 return {affinityData: []};
             }
         });
+
+        ko.rebind(this);
     }
 
-    public canShowGraph = () => {
+    canShowGraph() {
         if (!this.spectroPM.microSlot.hasContainerAt(0))
             return false;
 

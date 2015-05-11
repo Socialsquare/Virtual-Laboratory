@@ -11,7 +11,7 @@ type SidegroupInfo = {
 
 class Sidegroup {
 
-    public type: KnockoutObservable<SpecialItemType.SIDEGROUP>;
+    public type: KnockoutObservable<SpecialItemType>;
     public id: number;
     public info: SidegroupInfo;
     public file: KnockoutComputed<string>;

@@ -1,16 +1,21 @@
 import ko = require('knockout');
 import _ = require('lodash');
+
 import utils = require('utils/utils');
-import SimpleContainerModel = require('model/SimpleContainer');
+
 import ContainerType = require('model/type/Container');
+
+import SimpleContainerModel = require('model/SimpleContainer');
 
 class Syringe extends SimpleContainerModel {
 
     constructor() {
         super(ContainerType.SYRINGE, Math.pow(10,13));
+
+        ko.rebind(this);
     }
 
-    public fillSyringe = (container) => {
+    fillSyringe(container) {
         // 1st modify the syringe
         /*var cloned_liqs = utils.klone(container.liquids);*/
         var cloned_liqs = _.invoke(container.liquids(), 'clone');
@@ -24,7 +29,7 @@ class Syringe extends SimpleContainerModel {
         container.addAll(modified_liqs);
     }
 
-    public emptySyringeInto = (container) => {
+    emptySyringeInto(container) {
         var cloned_liqs = _.invoke(this.liquids(), 'clone');
         container.addAll(cloned_liqs);
         this.clearContents();

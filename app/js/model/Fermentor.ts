@@ -1,6 +1,7 @@
 import ko = require('knockout');
 
 import utils = require('utils/utils');
+import LiquidHelper = require('utils/LiquidHelper');
 
 import FermentorTankModel = require('model/FermentorTank');
 import ProducedEnzymeModel = require('model/ProducedEnzyme');
@@ -137,11 +138,8 @@ class Fermentor {
         for(var i = 0; i < this.hourResolution(); i++) {
             this.fermentorTank.growContentsOnce(deltaTime, this.growerType(), this.ph(), this.temperature());
 
-            _.each(this.fermentorTank.liquids(), (organism) => {
-                if (!(organism.type() === LiquidType.MICROORGANISM))
-                    return;
-
-
+            var mos = LiquidHelper.mos(this.fermentorTank.liquids());
+            _.each(mos, (organism) => {
                 // 1) find products and add to fermentor
                 _.each(organism.producedEnzymes(), (producedEnzyme) => {
 

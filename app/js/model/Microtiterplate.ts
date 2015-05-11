@@ -25,16 +25,18 @@ class Microtiterplate extends SimpleContainerModel {
         // For how transfer of this works, see the pipette.
         this.microtiterWells = ko.observable(new MicrotiterWellsModel());
         this.subtype = ko.observable(this.antigenCoating);
+
+        ko.rebind(this);
     }
 
-    public isWellFluorescent = (index) => {
+    isWellFluorescent(index) {
         if (this.isFluorescent())
             return true;
 
         return this.microtiterWells().isWellFluorescent(index);
     }
 
-    public extractWellContents = (hideMicrotiter, wellIndex) => {
+    extractWellContents(hideMicrotiter, wellIndex) {
 
         popupController.confirm('microtiter.extract_well.header', 'microtiter.extract_well.body')
             .then(() => {

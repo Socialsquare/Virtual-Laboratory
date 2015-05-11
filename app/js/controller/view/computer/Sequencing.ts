@@ -14,6 +14,7 @@ import MicroorganismType = require('model/type/Microorganism');
 import ActivationType = require('model/type/Activation');
 
 import LocalizationService = require('service/Localization');
+import LiquidHelper = require('utils/LiquidHelper');
 
 class Sequencing extends BaseComputer {
 
@@ -71,13 +72,8 @@ class Sequencing extends BaseComputer {
             return;
         }
 
-        var myelomasWithAntibodies = _.filter(tube.liquids(), (myeloma) => {
-            if (myeloma.type() !== LiquidType.MICROORGANISM)
-                return false;
-
-            if(myeloma.microorganismType() !== MicroorganismType.MYELOMA)
-                return false;
-
+        var myelomas = LiquidHelper.myelomas(tube.liquids());
+        var myelomasWithAntibodies = _.filter(myelomas, (myeloma) => {
             return myeloma.antibodiesFor().length > 0;
         });
 

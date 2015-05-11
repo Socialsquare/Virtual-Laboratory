@@ -18,18 +18,20 @@ class Quiz {
         this.quizPromise = null;
         this.activeQuiz = ko.observable(null);
         this.quizFinished = ko.observable(false);
+
+        ko.rebind(this);
     }
 
-    public isCorrect = (answer) => {
+    isCorrect(answer) {
         return answer.id() === this.activeQuiz().correct();
     }
 
-    public tryAnswer = (answer) => {
+    tryAnswer(answer) {
         if (this.isCorrect(answer)) this.quizFinished(true);
         answer.tried(true);
     }
 
-    public startQuiz = (quiz) => {
+    startQuiz(quiz) {
         this.quizPromise = $.Deferred();
 
         this.activeQuiz(quiz);
@@ -40,19 +42,19 @@ class Quiz {
         return this.quizPromise;
     }
 
-    public playQuizVideo = () => {
+    playQuizVideo() {
         if (this.activeQuiz().hasVideo()) {
             popupController.video(this.activeQuiz().video(), true);
         }
     }
 
-    public showQuizPopup = () => {
+    showQuizPopup() {
         this.currentPopupVM = popupController.show('popup-quiz', {
             quizController: this
         });
     }
 
-    public endQuiz = () => {
+    endQuiz() {
         popupController.hide(this.currentPopupVM);
         this.quizPromise.resolve();
     }

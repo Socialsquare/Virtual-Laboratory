@@ -129,7 +129,7 @@ class Popup {
         });
     }
 
-    video(sequence: string[], controlsRequired: boolean) {
+    video(sequence: string | string[], controlsRequired: boolean) {
         var videoController = new VideoController();
         var vm = this.show('popup-video', { videoController: videoController });
         return videoController.play(sequence, false, controlsRequired).done(() => {

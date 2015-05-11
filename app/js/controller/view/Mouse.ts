@@ -79,7 +79,11 @@ class MouseController extends BaseViewController {
 
         // End: Notifications
 
-        this.plotData = ko.observableArray([]);
+        this.plotData = ko.observable(<PlotData>{
+            bloodData: [[]],
+            heartRateData: [[]]
+        });
+
         this.graphTimer = ko.observable(null);
 
         this.bottle = ContainerFactory.bottle().add(LiquidFactory.juice(), true);

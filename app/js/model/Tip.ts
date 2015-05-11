@@ -18,6 +18,8 @@ class Tip extends SimpleContainerModel {
 
         this.contaminatedBy = ko.observable(null);
         this.microtiterWells = ko.observable(null);
+
+        ko.rebind(this);
     }
 }
 

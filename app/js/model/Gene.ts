@@ -49,7 +49,7 @@ class Gene extends LiquidModel {
     // Tested/Validated
     // Corresponding to step 3 in Patrick's flowchart
     // Extract all "mRNA's" in the gene
-    getMRNAs(promPoses: number[], termPoses: number[]) {
+    getMRNAs(promPoses: number[], termPoses: number[]): DNAElementModel[][] {
         //starting and end-position in the gene for the mRNA.
         var postionPairs: number[][] = [];
         var mRNAPairs: DNAElementModel[][] = [];

@@ -10,6 +10,7 @@ import HomogenizedSpleenModel = require('model/HomogenizedSpleen');
 import MicroorganismModel = require('model/Microorganism');
 import ReactionCount = require('model/ReactionCount');
 import SimpleContainerModel = require('model/SimpleContainer');
+import MicrotiterplateModel = require('model/Microtiterplate');
 
 import lh = require('utils/LiquidHelper');
 
@@ -72,12 +73,13 @@ class Myeloma extends MicroorganismModel {
 
         //if container.type() === microtiter && myeloma.isHybridoma() --> modify random Well.
         if (container.type() === ContainerType.MICROTITER && this.isHybridoma()) {
+            var microtiter = <MicrotiterplateModel>container;
 
-            var hasAlreadySetAntibodies = _.any(this.hasSetAntibodiesInThese(), (microtiter) => {
-                return microtiter === container;
+            var hasAlreadySetAntibodies = _.any(this.hasSetAntibodiesInThese(), (_microtiter) => {
+                return _microtiter === microtiter;
             });
 
-            var totalConcentration = container.getTotalConcentration();
+            var totalConcentration = microtiter.getTotalConcentration();
             var wellModificationCounter = 0;
 
             while(totalConcentration > 0 && wellModificationCounter < 24) {
@@ -88,14 +90,14 @@ class Myeloma extends MicroorganismModel {
             var indices = _.range(24);
             indices = _.sample(indices, wellModificationCounter);
 
-            if (! hasAlreadySetAntibodies) {
+            if (!hasAlreadySetAntibodies) {
                 //Set well--> contains
                 _.each(indices, (index) => {
-                    container.microtiterWells().wells()[index].hasAntibody(true);
+                    microtiter.microtiterWells().wells()[index].hasAntibody(true);
                     console.log('TODO: GREAT SUCCES! the well now contains antibodies!');
                 });
 
-                this.hasSetAntibodiesInThese.push(container);
+                this.hasSetAntibodiesInThese.push(microtiter);
             }
         }
     }

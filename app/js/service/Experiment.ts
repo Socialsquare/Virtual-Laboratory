@@ -2,11 +2,10 @@ import  _ = require('lodash');
 
 import ExperimentModel = require('model/Experiment');
 
-
 class Experiment {
 
     static getExperiments() {
-        var promise = $.Deferred();
+        var promise: JQueryDeferred<ExperimentModel[]> = $.Deferred();
 
         $.getJSON('/data/experiments.json').done((elements) => {
             var result = _.map(elements, element => new ExperimentModel(element));

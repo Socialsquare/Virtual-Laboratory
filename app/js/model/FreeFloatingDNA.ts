@@ -23,11 +23,7 @@ class FreeFloatingDNA extends LiquidModel {
     }
 
     clone() {
-        var clone = new FreeFloatingDNA();
-
-        clone.DNAType(this.DNAType());
-
-        return clone;
+        return new FreeFloatingDNA(this.DNAType());
     }
 }
 

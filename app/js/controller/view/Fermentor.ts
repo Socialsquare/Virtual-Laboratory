@@ -8,7 +8,7 @@ import FermentorModel = require('model/Fermentor');
 class Fermentor extends BaseViewController {
 
     public fermentor: FermentorModel;
-    public fermentorTankController: SimpleContainerController;
+    public fermentorTankController: FermentorTankController;
 
     constructor() {
         super('fermentor');
