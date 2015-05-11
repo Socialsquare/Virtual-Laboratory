@@ -58,7 +58,9 @@ class SimpleContainer {
 
                     // sum microorganism's concentration
                     if (_liquid.type() === LiquidType.MICROORGANISM) {
-                        _liquid.concentration(_liquid.concentration() + liquid.concentration());
+                        var _mt = <MicroorganismModel>_liquid;
+                        var mt = <MicroorganismModel>liquid;
+                        _mt.concentration(_mt.concentration() + mt.concentration());
                     }
                 }
             });
@@ -146,7 +148,8 @@ class SimpleContainer {
     public isFluorescent = () => {
         return _.any(this.liquids(), (liquid) => {
             if (liquid.type() === LiquidType.MICROORGANISM) {
-                return _.any(liquid.extraProperties(), (extraProperty) => {
+                var mo = <MicroorganismModel>liquid;
+                return _.any(mo.extraProperties(), (extraProperty) => {
                     return extraProperty.proteinCodingSequenceType() === PCSType.GFP;
                 })
             }

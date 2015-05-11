@@ -4,6 +4,10 @@ import _ = require('lodash');
 import popupController = require('controller/Popup');
 import quizController = require('controller/Quiz');
 
+import HeaterModel = require('model/Heater');
+import IncubatorModel = require('model/Incubator');
+import ScaffoldModel = require('model/Scaffold');
+import SpectroPMModel = require('model/SpectroPM');
 import TaskModel = require('model/Task');
 import LiquidModel = require('model/Liquid');
 import MouseModel = require('model/Mouse');
@@ -146,14 +150,14 @@ class Experiment {
         }
 
         if (trigger.activation === ActivationType.SPECTROPM) {
-            if (!this.matchLiquids(trigger, item.microSlot.get(0))) return;
+            var spectro = <SpectroPMModel>item;
+            if (!this.matchLiquids(trigger, spectro.microSlot.get(0))) return;
 
             var activationSubtype = trigger.activationSubtype;
             if (!!activationSubtype) {
                 switch(activationSubtype.liquidType) {
                 case LiquidType.DESIGNED_DRUG:
-
-                    var theDrug = _.find(item.microSlot.get(0).liquids(), (liquid) => {
+                    var theDrug = <ScaffoldModel>_.find(spectro.microSlot.get(0).liquids(), (liquid) => {
                         return liquid.type() === LiquidType.DESIGNED_DRUG;
                     });
 
@@ -186,7 +190,8 @@ class Experiment {
         }
 
         if (trigger.activation === ActivationType.HEATER) {
-            var valid = _(item.containers())
+            var heater = <HeaterModel>item;
+            var valid = _(heater.containers())
                 .compact()
                 .any(this.matchLiquids.bind(null, trigger));
             if (!valid) return;
@@ -198,8 +203,9 @@ class Experiment {
         }
 
         if (trigger.activation === ActivationType.INCUBATOR) {
-            var containers = _(item.tableSpacePetri.containers())
-                .union(item.tubeRack.containers())
+            var incubator = <IncubatorModel>item;
+            var containers = _(incubator.tableSpacePetri.containers())
+                .union(incubator.tubeRack.containers())
                 .compact()
                 .value();
 
@@ -207,7 +213,7 @@ class Experiment {
                 return _.any(containers, (incubatorContainer) => {
                     return this.match(triggerContainer.type, incubatorContainer.type())
                         && this.match(triggerContainer.containerSubtype, incubatorContainer.subtype())
-                        && this.matchLiquids({ strict: trigger.strict, liquids: triggerContainer.liquids }, incubatorContainer);
+                        && this.matchLiquids(new TriggerModel({ strict: trigger.strict, liquids: triggerContainer.liquids }), incubatorContainer);
                 });
             });
 

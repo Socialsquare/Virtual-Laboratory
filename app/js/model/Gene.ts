@@ -89,7 +89,7 @@ class Gene extends LiquidModel {
     }
 
     public hashCode = () => {
-        return this._hashCode() + ":" + _.invoke(this.dnaElements, 'hashCode').join(',');
+        return this._hashCode() + ":" + _.invoke(this.dnaElements(), 'hashCode').join(',');
     }
 
     public clone = () => {

@@ -9,6 +9,7 @@ import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
 import AntigenCoatingType = require('model/type/AntigenCoating');
 
+import MicrotiterWellsModel = require('model/MicrotiterWells');
 import CompositeContainerModel = require('model/CompositeContainer');
 import SimpleContainerModel = require('model/SimpleContainer');
 import MicrotiterplateModel = require('model/Microtiterplate');
@@ -179,7 +180,7 @@ class CompositeContainerController {
                 popupController.notify('buffer_petri.header', 'buffer_petri.body');
                 break;
             case ContainerType.MICROTITER:
-                var microtiter: MicrotiterWellsModel = this.compContainer.get(position);
+                var microtiter = <MicrotiterWellsModel>this.compContainer.get(position);
 
                 microtiter.get(position).clearContents();
 

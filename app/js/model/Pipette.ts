@@ -1,9 +1,14 @@
 import ko = require('knockout');
 import _ = require('lodash');
+
 import utils = require('utils/utils');
-import CompositeContainerModel = require('model/CompositeContainer');
+
 import ContainerType = require('model/type/Container');
 
+import CompositeContainerModel = require('model/CompositeContainer');
+import SimpleContainerModel = require('model/SimpleContainer');
+import MicrotiterplateModel = require('model/Microtiterplate');
+import TipModel = require('model/Tip');
 
 class Pipette extends CompositeContainerModel {
 
@@ -28,14 +33,14 @@ class Pipette extends CompositeContainerModel {
     }
 
     public getTip = () => {
-        return this.get(0);
+        return <TipModel>this.get(0);
     }
 
     public removeTip = () => {
         this.remove(0);
     }
 
-    public emptyPipetteInto = (container) => {
+    public emptyPipetteInto = (container: SimpleContainerModel) => {
         var clonedLiqs = _.invoke(this.getTip().liquids(), 'clone');
 
         container.addAll(clonedLiqs);
@@ -43,14 +48,14 @@ class Pipette extends CompositeContainerModel {
 
         // Special case for transfering 24 microtiter-wells at once:
         if (container.type() === ContainerType.MICROTITER && !!this.getTip().microtiterWells()) {
-
+            var microtiter = <MicrotiterplateModel>container;
             var clone = this.getTip().microtiterWells().clone();
             //TODO: merge instead of overwriting? Can't decide...
-            container.microtiterWells(clone);
+            microtiter.microtiterWells(clone);
         }
     }
 
-    public fillPipette = (container) => {
+    public fillPipette = (container: SimpleContainerModel) => {
         // 1st modify the pipette
         var clonedLiqs = _.invoke(container.liquids(), 'clone');
         var modifiedLiqs = utils.biology.dilute(50, clonedLiqs);
@@ -60,6 +65,7 @@ class Pipette extends CompositeContainerModel {
         modifiedLiqs = utils.biology.dilute(50/49, container.liquids());
 
         container.clearContents();
+
         // prevent trigger because we're not actually adding stuff
         container.addAll(modifiedLiqs, true);
 
@@ -76,7 +82,8 @@ class Pipette extends CompositeContainerModel {
 
         // Special case for transfering 24 microtiter-wells at once:
         if (container.type() === ContainerType.MICROTITER) {
-            this.getTip().microtiterWells(container.microtiterWells().clone());
+            var mt = <MicrotiterplateModel>container;
+            this.getTip().microtiterWells(mt.microtiterWells().clone());
         }
 
     }
