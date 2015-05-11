@@ -39,6 +39,8 @@ enum Liquid {
     NUCLEOTIDES              = ev.next(),
     PCR_POLYMERASE           = ev.next(),
     BLUE_STAIN               = ev.next(),
+    LYSIS                    = ev.next(),
+    FREE_FLOATING_DNA        = ev.next(),
 };
 
 export = Liquid;

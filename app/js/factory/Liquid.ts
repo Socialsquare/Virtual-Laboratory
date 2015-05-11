@@ -142,6 +142,10 @@ class LiquidFactory {
     static blueStain = () => {
         return new Liquid(LiquidType.BLUE_STAIN);
     }
+
+    static lysis = () => {
+        return new Liquid(LiquidType.LYSIS);
+    }
 }
 
 export = LiquidFactory;

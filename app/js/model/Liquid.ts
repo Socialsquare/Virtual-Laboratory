@@ -21,9 +21,11 @@ class Liquid {
         this.isContaminating = ko.observable(isContaminating);
 
         this.subtype = ko.observable(); // defaults to no subtype
+
+        ko.rebind(this);
     }
 
-    public _react = (container, fn) => {
+    protected _react(container, fn) {
         if (this.reactionCount() === ReactionCount.NEVER ||
             (this.hasReacted() && this.reactionCount() === ReactionCount.ONCE))
             return;
@@ -38,19 +40,19 @@ class Liquid {
         if (reacted) this.hasReacted(true);
     }
 
-    public react = (container) => {
+    react(container) {
         this._react(container, _.noop);
     }
 
-    public _hashCode = () => {
+    protected _hashCode() {
         return this.type() + ":" + this.reactionCount() + ":" + this.hasReacted();
     }
 
-    public hashCode = () => {
+    hashCode() {
         return this._hashCode();
     }
 
-    public clone = () => {
+    clone() {
         var clone = new Liquid(this.type(), this.reactionCount());
 
         clone.hasReacted(this.hasReacted());

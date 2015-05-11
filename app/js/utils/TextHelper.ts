@@ -156,6 +156,11 @@ class TextHelper {
         case LiquidType.BLUE_STAIN:
             return 'liquid.name.blue_stain';
 
+        case LiquidType.LYSIS:
+            return 'liquid.name.lysis';
+        case LiquidType.FREE_FLOATING_DNA:
+            return 'liquid.name.free_floating_dna';
+
         default:
             throw 'TextHelper.prettyNameFromType: Unknown type: ' + type;
         }

@@ -181,6 +181,10 @@ class S2T {
             return LiquidType.PCR_POLYMERASE;
         case "LiquidType.BLUE_STAIN":
             return LiquidType.BLUE_STAIN;
+        case "LiquidType.LYSIS":
+            return LiquidType.LYSIS;
+        case "LiquidType.FREE_FLOATING_DNA":
+            return LiquidType.FREE_FLOATING_DNA;
 
         default: return null;
         }
