@@ -19,14 +19,16 @@ class OrganismProperty extends LiquidModel {
         this.promoter = ko.observable(promoter);
         this.proteinCodingSequenceType = ko.observable(proteinCodingSequence.proteinCodingSequence());
         this.proteinCodingSequence = ko.observable(proteinCodingSequence);
+
+        ko.rebind(this);
     }
 
-    public hashCode = () => {
+    hashCode() {
         return this._hashCode() + ':' + this.promoter().hashCode() + ':' + this.proteinCodingSequence().hashCode();
     }
 
 
-    public clone = () => {
+    clone() {
         var clone = new OrganismProperty(this.promoter(), this.proteinCodingSequence());
 
         clone.hasReacted(this.hasReacted());

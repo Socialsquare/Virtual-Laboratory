@@ -34,9 +34,11 @@ class Myeloma extends MicroorganismModel {
         this.optimalPh(7.25); // http://en.wikipedia.org/wiki/Blood#Narrow_range_of_pH_values
         this.optimalTemp(37);
         this.concentration(Math.pow(10, 8));
+
+        ko.rebind(this);
     }
 
-    public react = (container: SimpleContainerModel) => {
+    react(container: SimpleContainerModel) {
         var containsHybridomaMedium;
         var containsHomoSpleen = false;
 
@@ -98,7 +100,7 @@ class Myeloma extends MicroorganismModel {
         }
     }
 
-    public clone = () => {
+    clone() {
         var clone = new Myeloma();
 
         clone.hasReacted(this.hasReacted());

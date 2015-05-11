@@ -180,9 +180,9 @@ class CompositeContainerController {
                 popupController.notify('buffer_petri.header', 'buffer_petri.body');
                 break;
             case ContainerType.MICROTITER:
-                var microtiter = <MicrotiterWellsModel>this.compContainer.get(position);
+                var microtiter = <MicrotiterplateModel>this.compContainer.get(position);
 
-                microtiter.get(position).clearContents();
+                microtiter.clearContents();
 
                 if (microtiter.antigenCoating === AntigenCoatingType.NONE) {
                     microtiter.microtiterWells().clearWellsAntibodies();

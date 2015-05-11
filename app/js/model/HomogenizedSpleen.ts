@@ -13,13 +13,15 @@ class HomogenizedSpleen extends LiquidModel {
         super(LiquidType.HOMO_SPLEEN, ReactionCount.NEVER, true);
 
         this.antibodiesFor = ko.observableArray([]);
+
+        ko.rebind(this);
     }
 
-    public hashCode = () => {
+    hashCode() {
         return this._hashCode() + ":" + this.antibodiesFor().join(',');
     }
 
-    public clone = () => {
+    clone() {
         var clone = new HomogenizedSpleen();
 
         clone.hasReacted(this.hasReacted());

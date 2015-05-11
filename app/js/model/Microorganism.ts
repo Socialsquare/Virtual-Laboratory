@@ -116,7 +116,7 @@ class Microorganism extends LiquidModel {
         }
     }
 
-    public hashCode = () => {
+    hashCode() {
         var geneHash = _.map(this.extraGenes(), (gene) => {
             return gene.hashCode();
         }).join(',');
@@ -134,7 +134,7 @@ class Microorganism extends LiquidModel {
             + ':' + this.optimalTemp();
     }
 
-    public clone = () => {
+    clone() {
         var clone = new Microorganism(this.microorganismType());
 
         clone.hasReacted(this.hasReacted());

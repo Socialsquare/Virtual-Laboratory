@@ -19,10 +19,11 @@ class Gene extends LiquidModel {
 
         this.dnaElements = ko.observableArray(elements);
 
+        ko.rebind(this);
     }
 
     // Tested/Validated
-    public getPromoterPositions = () => {
+    getPromoterPositions() {
         var positions: number[] = [];
         _.each(this.dnaElements(), (dna, index) => {
             if(dna.DNAType() === DNAType.PROMOTER) { // dna.DNAType() _IS_ correct, as it is an observable. But when testing this might not be if not created through the computer-view
@@ -34,7 +35,7 @@ class Gene extends LiquidModel {
     }
 
     // Tested/Validated
-    public getTerminatorPositions = () => {
+    getTerminatorPositions() {
         var positions: number[] = [];
         _.each(this.dnaElements(), (dna, index) => {
             if(dna.DNAType() === DNAType.TERMINATOR) {
@@ -48,7 +49,7 @@ class Gene extends LiquidModel {
     // Tested/Validated
     // Corresponding to step 3 in Patrick's flowchart
     // Extract all "mRNA's" in the gene
-    public getMRNAs = (promPoses: number[], termPoses: number[]) => {
+    getMRNAs(promPoses: number[], termPoses: number[]) {
         //starting and end-position in the gene for the mRNA.
         var postionPairs: number[][] = [];
         var mRNAPairs: DNAElementModel[][] = [];
@@ -88,11 +89,11 @@ class Gene extends LiquidModel {
         return mRNAPairs;
     }
 
-    public hashCode = () => {
+    hashCode() {
         return this._hashCode() + ":" + _.invoke(this.dnaElements(), 'hashCode').join(',');
     }
 
-    public clone = () => {
+    clone() {
         var clone = new Gene(_.invoke(this.dnaElements(), 'clone'));
 
         clone.hasReacted(this.hasReacted());

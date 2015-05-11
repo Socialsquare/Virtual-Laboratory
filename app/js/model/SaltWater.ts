@@ -10,9 +10,11 @@ class SaltWater extends LiquidModel {
 
     constructor() {
         super(LiquidType.SALT_WATER, ReactionCount.ONCE, false);
+
+        ko.rebind(this);
     }
 
-    public react = (container) => {
+    react(container) {
 
         var clonedLiqs = _.invoke(container.liquids(), 'clone');
         var modifiedLiqs = utils.biology.dilute(5, clonedLiqs);

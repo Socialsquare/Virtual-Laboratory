@@ -22,10 +22,12 @@ class Antibiotic extends LiquidModel {
         // TODO! derp duplicates?
         this.antibioticType = ko.observable(antibioticType);
         this.subtype = ko.observable(antibioticType);
+
+        ko.rebind(this);
     }
 
     //This kills microorganisms without resistance
-    public react = (container: SimpleContainerModel) => {
+    react(container: SimpleContainerModel) {
 
         _.each(container.liquids(), (liquid) => {
             if (liquid.type() !== LiquidType.MICROORGANISM)
@@ -51,11 +53,11 @@ class Antibiotic extends LiquidModel {
         });
     }
 
-    public hashCode = () => {
+    hashCode() {
         return this._hashCode() + ":" + this.antibioticType();
     }
 
-    public clone = () => {
+    clone() {
         var clone = new Antibiotic(this.antibioticType());
 
         clone.hasReacted(this.hasReacted());

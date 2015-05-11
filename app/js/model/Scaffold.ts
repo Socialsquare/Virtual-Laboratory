@@ -49,13 +49,15 @@ class Scaffold extends LiquidModel {
         this.file = ko.computed(() => {
             return 'assets/svgs/scaffold_' + this.configurationString() + '.svg';
         });
+
+        ko.rebind(this);
     }
 
-    public canBindToTarget = () => {
+    canBindToTarget() {
         return this.getAffinityScore() < 2;
     }
 
-    public getAffinityScore = () => {
+    getAffinityScore() {
         var slots = this.slots();
 
         // Lower is better, as it is an error-score
@@ -76,7 +78,7 @@ class Scaffold extends LiquidModel {
         return Math.sqrt(affinityScore);
     }
 
-    public clone = () => {
+    clone() {
         var clone = new Scaffold(this.initialValues);
 
         clone.hasReacted(this.hasReacted());

@@ -22,32 +22,34 @@ class MicrotiterWells extends LiquidModel {
         for (var i = 0; i < 24; i++) {
             this.wells.push(new WellModel());
         }
+
+        ko.rebind(this);
     }
 
-    public isWellFluorescent = (index) => {
+    isWellFluorescent(index) {
         return this.wells()[index].hasFluorescentSecondaryAntibody();
     }
 
-    public clone = () => {
+    clone() {
         var clone = new MicrotiterWells();
         clone.wells(_.invoke(this.wells(), 'clone'));
 
         return clone;
     }
 
-    public addFluorescentSecondaryAntibodies = () => {
+    addFluorescentSecondaryAntibodies() {
         _.each(this.wells(), (well) => {
             well.hasFluorescentSecondaryAntibody(true);
         });
     }
 
-    public clearWellsAntibodies = () => {
+    clearWellsAntibodies() {
         _.each(this.wells(), (well) => {
             well.hasAntibody(false);
         });
     }
 
-    public clearWellsSecondaryAntibodies = (checkForAntibodies) => {
+    clearWellsSecondaryAntibodies(checkForAntibodies) {
         _.each(this.wells(), (well) => {
             if (checkForAntibodies) {
                 if (!well.hasAntibody()) {

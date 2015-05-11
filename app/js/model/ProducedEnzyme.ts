@@ -52,9 +52,11 @@ class ProducedEnzyme extends LiquidModel {
         }
 
         this.type(this.enzymeLiquidType);
+
+        ko.rebind(this);
     }
 
-    public clone = () => {
+    clone() {
         var clone = new ProducedEnzyme(this.pcsType, this.amount);
 
         clone.enzymeLiquidType = this.enzymeLiquidType;
