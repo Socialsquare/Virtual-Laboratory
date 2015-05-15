@@ -9,14 +9,14 @@
     .tuberack { @include tuberack(492px, 318px); }
 
     .centrifuge-testtubeholder {
-        @include tuberack(857px, 229px);
-        width: 105px;
-        height: 38px;
+        @include tuberack(110px, 250px);
+        border: 1px solid black;
 
-        .slot0, .slot1, .slot2 { height: 38px; }
-        .slot0 { width: 38px; }
-        .slot1 { width: 26px; }
-        .slot2 { height: 41px; }
+        .slot0, .slot1, .slot2, .slot3 {
+            background-color: #FFF;
+            opacity: 0.5;
+            border: 1px solid red;
+        }
     }
 
     .centrifuge-btn {

@@ -1,0 +1,100 @@
+import ko = require('knockout');
+import _ = require('lodash');
+
+import popupController = require('controller/Popup');
+import TextHelper = require('utils/TextHelper');
+import CompositeContainerController = require('controller/CompositeContainer');
+
+import gameState = require('model/GameState');
+import CentrifugeModel = require('model/Centrifuge');
+
+import TubeModel = require('model/Tube');
+
+import ContainerType = require('model/type/Container');
+import LiquidType = require('model/type/Liquid');
+import DNAType = require('model/type/DNA');
+
+import ContainerFactory = require('factory/Container');
+import LiquidFactory = require('factory/Liquid');
+
+class CentrifugeController extends CompositeContainerController {
+
+    public compContainer: CentrifugeModel;
+
+    constructor(centrifugeModel: CentrifugeModel) {
+        super(centrifugeModel);
+
+        ko.rebind(this);
+    }
+
+    validateBalance() {
+        var slot0 = this.compContainer.get(0);
+        var slot1 = this.compContainer.get(1);
+        var slot2 = this.compContainer.get(2);
+        var slot3 = this.compContainer.get(3);
+
+        // Are tubes in valid positions
+        if (!slot0 !== !slot2 || !slot1 !== !slot3)
+            return false;
+
+        // Is slot0 and slot2 both full or empty
+        if (slot0 && slot2 && (!slot0.isEmpty() !== !slot2.isEmpty()))
+            return false;
+
+        // Is slot1 and slot3 both full or empty
+        if (slot1 && slot3 && (!slot1.isEmpty() !== !slot3.isEmpty()))
+            return false;
+
+        return true;
+    }
+
+    tryExtractContents(tube: TubeModel) {
+        if (!tube || tube.isEmpty())
+            return;
+
+        var extracted: TubeModel;
+
+        if (tube.contains(LiquidType.FREE_FLOATING_DNA)) {
+            // TODO!: what type of DNA should be extracted?
+            // Create DNA
+            extracted = ContainerFactory.tube()
+                .add(LiquidFactory.dna(DNAType.TERMINATOR));
+        }
+        else if (tube.contains(LiquidType.MOUSE_BLOOD)) {
+            // create buffy coat
+            var blood = tube.findByType(LiquidType.MOUSE_BLOOD);
+            extracted = ContainerFactory.tube()
+                .add(LiquidFactory.buffyCoat(blood.subtype()));
+        }
+
+        // Add the extracted content and remove the extractee
+        if (extracted) {
+            gameState.inventory.add(extracted);
+            this.compContainer.removeContainer(tube);
+
+            popupController.message(
+                'centrifuge.extraction.header',
+                'centrifuge.extraction.body'
+            );
+        }
+    }
+
+    activate() {
+        if (this.compContainer.status())
+            return;
+
+        if (!this.validateBalance()) {
+            popupController.message('centrifuge.unbalanced.header', 'centrifuge.unbalanced.body');
+            return;
+        }
+
+        this.compContainer.status(true);
+
+        _.delay(() => {
+            _.each(this.compContainer.containers(), this.tryExtractContents);
+            this.compContainer.status(false);
+        }, 2000);
+    }
+}
+
+export = CentrifugeController;

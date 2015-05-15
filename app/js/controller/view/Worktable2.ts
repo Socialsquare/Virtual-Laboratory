@@ -3,6 +3,7 @@ import _ = require('lodash');
 
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
+import CentrifugeController = require('controller/Centrifuge');
 
 import ActivationType = require('model/type/Activation');
 import SpecialItemType = require('model/type/SpecialItem');
@@ -16,7 +17,7 @@ class Worktable2 extends BaseViewController {
     public tableSpaceMicroController: CompositeContainerController;
     public tubeRackController: CompositeContainerController;
     public odController: CompositeContainerController;
-    public centrifugeController: CompositeContainerController;
+    public centrifugeController: CentrifugeController;
 
     constructor() {
         super('worktable2');
@@ -27,7 +28,7 @@ class Worktable2 extends BaseViewController {
         this.tableSpaceMicroController = new CompositeContainerController(this.worktable2.tableSpaceMicro);
         this.tubeRackController = new CompositeContainerController(this.worktable2.tubeRack);
         this.odController = new CompositeContainerController(this.worktable2.odMachine);
-        this.centrifugeController = new CompositeContainerController(this.worktable2.centrifuge);
+        this.centrifugeController = new CentrifugeController(this.worktable2.centrifuge);
 
         this.tableSpacePetriController.addDropGuard(this.smallPoxGuard);
         this.tableSpaceMicroController.addDropGuard(this.smallPoxGuard);
@@ -57,8 +58,7 @@ class Worktable2 extends BaseViewController {
     }
 
     activateCentrifuge() {
-        this.worktable2.centrifuge.activate();
-        console.log("hej centrifuge");
+        this.centrifugeController.activate();
     }
 }
 

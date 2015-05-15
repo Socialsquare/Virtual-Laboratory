@@ -68,6 +68,11 @@ class CompositeContainer {
         this.containers.setAt(position, null);
     }
 
+    removeContainer(container: SimpleContainerModel) {
+        var idx = _.findIndex(this.containers(), c => c === container);
+        this.remove(idx);
+    }
+
     removeAll() {
         this.containers(new Array(this.capacity));
     }

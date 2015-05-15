@@ -14,6 +14,7 @@ import MicroorganismType = require('model/type/Microorganism');
 import AntibioticType = require('model/type/Antibiotic');
 import LiquidType = require('model/type/Liquid');
 import MouseBloodType = require('model/type/MouseBlood');
+import DNAType = require('model/type/DNA');
 
 class LiquidFactory {
 
@@ -27,7 +28,6 @@ class LiquidFactory {
             micro.optimalPh(6.0);
             micro.optimalTemp(35);
             micro.concentration(Math.pow(10, 8));
-
 
             return micro;
         },
@@ -120,6 +120,12 @@ class LiquidFactory {
 
     static saltWater = () => {
         return new SaltWater();
+    };
+
+    static dna = (dnaType: DNAType) => {
+        var dna = new Liquid(LiquidType.DNA);
+        dna.subtype(dnaType);
+        return dna;
     };
 
     static mouseBlood = (mouseBloodType: MouseBloodType) => {

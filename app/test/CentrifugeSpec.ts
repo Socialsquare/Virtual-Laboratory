@@ -1,3 +1,5 @@
+import gameState = require('model/GameState');
+
 import popupController = require('controller/Popup');
 
 import CF = require('factory/Container');
@@ -5,18 +7,23 @@ import LF = require('factory/Liquid');
 
 import CentrifugeModel = require('model/Centrifuge');
 
+import CentrifugeController = require('controller/Centrifuge');
+
+import MouseBloodType = require('model/type/MouseBlood');
+
 describe('Centrifuge', () => {
 
     var centrifuge: CentrifugeModel;
+    var centrifugeCtrl: CentrifugeController;
 
     beforeEach(() => {
         //popupController.autoConfirm = true;
         centrifuge = new CentrifugeModel();
+        centrifugeCtrl = new CentrifugeController(centrifuge);
     });
 
     afterEach(() => {
         //popupController.autoConfirm = false;
-        centrifuge = new CentrifugeModel();
     });
 
     it('should not be able to activate when unbalanced with empty tubes', () => {
@@ -25,7 +32,7 @@ describe('Centrifuge', () => {
 
         centrifuge.addAt(0, emptyTube0);
 
-        centrifuge.activate();
+        centrifugeCtrl.activate();
 
         expect(centrifuge.status()).toBeFalsy();
 
@@ -40,19 +47,19 @@ describe('Centrifuge', () => {
 
         centrifuge.addAt(0, tube0);
 
-        centrifuge.activate();
+        centrifugeCtrl.activate();
 
         expect(centrifuge.status()).toBeFalsy();
 
         centrifuge.addAt(3, tube1);
 
-        centrifuge.activate();
+        centrifugeCtrl.activate();
 
         expect(centrifuge.status()).toBeFalsy();
     });
 
     it('should be able activate when empty', () => {
-        centrifuge.activate();
+        centrifugeCtrl.activate();
 
         expect(centrifuge.status()).toBeTruthy();
     });
@@ -64,7 +71,7 @@ describe('Centrifuge', () => {
         centrifuge.addAt(0, emptyTube0);
         centrifuge.addAt(2, emptyTube1);
 
-        centrifuge.activate();
+        centrifugeCtrl.activate();
 
         expect(centrifuge.status()).toBeTruthy();
     });
@@ -76,7 +83,7 @@ describe('Centrifuge', () => {
         centrifuge.addAt(0, tube0);
         centrifuge.addAt(2, tube1);
 
-        centrifuge.activate();
+        centrifugeCtrl.activate();
 
         expect(centrifuge.status()).toBeTruthy();
     });
@@ -88,7 +95,7 @@ describe('Centrifuge', () => {
         centrifuge.addAt(0, emptyTube);
         centrifuge.addAt(2, tube);
 
-        centrifuge.activate();
+        centrifugeCtrl.activate();
 
         expect(centrifuge.status()).toBeFalsy();
     });
@@ -100,7 +107,7 @@ describe('Centrifuge', () => {
         centrifuge.addAt(1, emptyTube);
         centrifuge.addAt(3, tube);
 
-        centrifuge.activate();
+        centrifugeCtrl.activate();
 
         expect(centrifuge.status()).toBeFalsy();
     });
