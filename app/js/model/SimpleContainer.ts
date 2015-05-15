@@ -134,6 +134,10 @@ class SimpleContainer extends InventoryItem {
         });
     }
 
+    findByType(type: LiquidType) {
+        return _.find(this.liquids(), (l) => l.type() == type);
+    }
+
     containsAll(liquidTypes: LiquidType[]) {
         return _.all(liquidTypes, (liquidType) => {
             return this.contains(liquidType);

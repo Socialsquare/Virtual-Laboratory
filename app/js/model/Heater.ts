@@ -61,9 +61,8 @@ class HeaterModel extends CompositeContainerModel {
             ];
 
             if (tube.containsAll(requiredForFFD)) {
-                var buffyCoat = <BuffyCoatModel>_.find(tube.liquids(), (liquid) => {
-                    return liquid.type() == LiquidType.BUFFY_COAT;
-                });
+
+                var buffyCoat = <BuffyCoatModel>tube.findByType(LiquidType.BUFFY_COAT);
 
                 tube.clearContents();
 
