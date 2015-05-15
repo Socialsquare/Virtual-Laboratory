@@ -140,8 +140,8 @@ class LiquidFactory {
         return new Liquid(LiquidType.NUCLEOTIDES);
     }
 
-    static pcrPolymerase = () => {
-        return new Liquid(LiquidType.PCR_POLYMERASE);
+    static dnaPolymerase = () => {
+        return new Liquid(LiquidType.DNA_POLYMERASE);
     }
 
     static blueStain = () => {

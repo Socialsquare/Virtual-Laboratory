@@ -177,8 +177,8 @@ class S2T {
             return LiquidType.DIABETES_PRIMER;
         case "LiquidType.NUCLEOTIDES":
             return LiquidType.NUCLEOTIDES;
-        case "LiquidType.PCR_POLYMERASE":
-            return LiquidType.PCR_POLYMERASE;
+        case "LiquidType.DNA_POLYMERASE":
+            return LiquidType.DNA_POLYMERASE;
         case "LiquidType.BLUE_STAIN":
             return LiquidType.BLUE_STAIN;
         case "LiquidType.LYSIS":

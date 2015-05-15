@@ -151,8 +151,8 @@ class TextHelper {
             return 'liquid.name.diabetes_primer';
         case LiquidType.NUCLEOTIDES:
             return 'liquid.name.nucleotides';
-        case LiquidType.PCR_POLYMERASE:
-            return 'liquid.name.pcr_polymerase';
+        case LiquidType.DNA_POLYMERASE:
+            return 'liquid.name.dna_polymerase';
         case LiquidType.BLUE_STAIN:
             return 'liquid.name.blue_stain';
 
