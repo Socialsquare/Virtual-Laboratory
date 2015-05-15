@@ -170,6 +170,9 @@
         "popup.home_screen.header": "Vigtigt!",
         "popup.home_screen.body": "Det Virtuelle Laboratorium 2.0 spilles bedst, hvis du tilføjer det til din hjemmeskærm og åbner spillet derfra.",
 
+        "popup.free_floating_dna_created.header": "Frit flydende DNA dannet",
+        "popup.free_floating_dna_created_screen.body": "Der er dannet fritflydende DNA i reagensglasset. Husk at notere indholdet på reagensglassets mærkat!",
+
         "pipette.filled.header": "Information",
         "pipette.filled.body": "Du har suget indhold op med pipetten.",
         "pipette.emptied.header": "Information",

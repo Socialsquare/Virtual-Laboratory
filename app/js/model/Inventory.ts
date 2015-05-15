@@ -4,19 +4,23 @@ import _ = require('lodash');
 import experimentController = require('controller/Experiment');
 
 import TextHelper = require('utils/TextHelper');
+
+import InventoryItem = require('model/InventoryItem');
+
 import LocationType = require('model/type/Location');
-import ItemModel = require('model/Item');
 
 class Inventory {
 
-    public items: KnockoutObservableArray<ItemModel>;
+    public items: KnockoutObservableArray<InventoryItem>;
 
     constructor() {
 
         this.items = ko.observableArray([]);
+
+        ko.rebind(this);
     }
 
-    public add = (item, alternativeLabel = "") => {
+    add(item, alternativeLabel = "") {
         // generate default label
         if (!item.acquired() && item.label) {
             if (alternativeLabel) {
@@ -39,15 +43,15 @@ class Inventory {
         this.items.push(item);
     }
 
-    public hasItem = (item) => {
+    hasItem(item) {
         return _.contains(this.items(), item);
     }
 
-    public remove = (item) => {
+    remove(item) {
         this.items.remove(item);
     }
 
-    public reset = () => {
+    reset() {
         this.items.removeAll();
     }
 }

@@ -28,6 +28,7 @@ require.config({
         screenfull: '../../bower_components/screenfull/dist/screenfull',
         text: '../../bower_components/requirejs-text/text',
         json: '../../bower_components/requirejs-plugins/src/json',
+        signals: '../../bower_components/js-signals/dist/signals',
 
         base: './libs/Base',
 

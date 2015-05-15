@@ -59,7 +59,7 @@ class Worktable1 extends BaseViewController {
     }
 
     public toggleHeater = () => {
-        this.worktable1.heater.status.toggle();
+        this.worktable1.heater.toggle();
         this.experimentController.triggerActivation(ActivationType.HEATER, this.worktable1.heater);
     }
 

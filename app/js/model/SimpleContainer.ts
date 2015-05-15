@@ -1,6 +1,7 @@
 import ko = require('knockout');
 import _ = require('lodash');
 
+import InventoryItem = require('model/InventoryItem');
 import ProducedEnzymeModel = require('model/ProducedEnzyme');
 import LiquidModel = require('model/Liquid');
 import MicroorganismModel = require('model/Microorganism');
@@ -15,7 +16,9 @@ import lh = require('utils/LiquidHelper');
 
 import experimentController = require('controller/Experiment');
 
-class SimpleContainer {
+import signals = require('signals');
+
+class SimpleContainer extends InventoryItem {
 
     public type: KnockoutObservable<any>;
     public subtype: KnockoutObservable<any>;
@@ -25,7 +28,10 @@ class SimpleContainer {
     public acquired: KnockoutObservable<boolean>;
     public location: KnockoutObservable<LocationType>;
 
+    public liquidsAdded: Signal;
+
     constructor(type, maxConcentration) {
+        super('simpleContainer');
 
         this.type = ko.observable(type);
         this.subtype = ko.observable(); // defaults to no subtype
@@ -33,6 +39,7 @@ class SimpleContainer {
         this.liquids = ko.observableArray([]);
         this.label = ko.observable('');
         this.acquired = ko.observable(false);
+        this.liquidsAdded = new signals.Signal();
 
         // Used for location-checking
         this.location = ko.observable(null);
@@ -44,7 +51,7 @@ class SimpleContainer {
         return lh.mos(this.liquids());
     }
 
-    _addAll(liquids: LiquidModel[], preventTrigger = false) {
+    protected _addAll(liquids: LiquidModel[], preventTrigger = false) {
         if (!this.canAddLiquids(liquids))
             return;
 
@@ -80,6 +87,8 @@ class SimpleContainer {
 
         if (!preventTrigger)
             experimentController.triggerMix(liquids, this);
+
+        this.liquidsAdded.dispatch();
     }
 
     addAll(liquids, preventTrigger = false) {

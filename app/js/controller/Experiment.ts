@@ -193,7 +193,7 @@ class Experiment {
             var heater = <HeaterModel>item;
             var valid = _(heater.containers())
                 .compact()
-                .any(this.matchLiquids.bind(null, trigger));
+                .any(_.partial(this.matchLiquids, trigger));
             if (!valid) return;
         }
 

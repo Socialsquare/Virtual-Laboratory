@@ -6,26 +6,27 @@ import SimpleContainerModel = require('model/SimpleContainer');
 import ContainerType = require('model/type/Container');
 import LocationType = require('model/type/Location');
 
-
 class CompositeContainer {
 
     public type: KnockoutObservable<ContainerType>;
     public capacity: number;
     public containers: KnockoutObservableArray<SimpleContainerModel>;
 
-    public acceptedType: KnockoutObservable<any>; //TODO! type?
+    public acceptedType: KnockoutObservable<ContainerType>; //TODO! type?
     public location: KnockoutObservable<LocationType>;
 
-    constructor(capacity, acceptedType, type) {
+    constructor(capacity: number, acceptedType: ContainerType, type: ContainerType) {
 
         this.type = ko.observable(type);
         this.capacity = capacity;
         this.containers = ko.observableArray(new Array(capacity));
         this.acceptedType = ko.observable(acceptedType);
         this.location = ko.observable(null);
+
+        ko.rebind(this);
     }
 
-    public _addAt = (position, container) => {
+    _addAt(position: number, container: SimpleContainerModel) {
         if (container.type() !== this.acceptedType()) {
             // TODO: notify error
             return false;
@@ -41,25 +42,25 @@ class CompositeContainer {
         return true;
     }
 
-    public addAt = (position, container) => {
+    addAt(position, container) {
         this._addAt(position, container);
         return this;
     }
 
-    public anyContainsAll = (liquidTypes) => {
+    anyContainsAll(liquidTypes) {
         // TODO: for each container
         throw 'NotYetImplementedException';
     }
 
-    public get = (position) => {
+    get(position: number) {
         return this.containers()[position];
     }
 
-    public hasContainerAt = (position) => {
+    hasContainerAt(position: number) {
         return !!this.get(position);
     }
 
-    public remove = (position) => {
+    remove(position: number) {
         var container = this.get(position);
         if (!container)
             return;
@@ -67,11 +68,11 @@ class CompositeContainer {
         this.containers.setAt(position, null);
     }
 
-    public removeAll = () => {
+    removeAll() {
         this.containers(new Array(this.capacity));
     }
 
-    public growContentsOnce = (deltaTime, growerType, ph, temperature) => {
+    growContentsOnce(deltaTime, growerType, ph, temperature) {
         // deltaTime is in "hours"
         _.forEach(this.containers(), (container) => {
             if(!container)

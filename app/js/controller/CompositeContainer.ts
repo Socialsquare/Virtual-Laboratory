@@ -121,7 +121,7 @@ class CompositeContainerController {
         return true;
     }
 
-    public handleContainerDrop = (position, item) => {
+    public handleContainerDrop = (position: number, item) => {
         switch(item.type()) {
         case ContainerType.PIPETTE:
 
@@ -191,7 +191,6 @@ class CompositeContainerController {
                 } else {
                     //Let the wells of the microtiter plate keep their antibodies, and 2ndary, but ONLY if it has antibodies!
                     microtiter.microtiterWells().clearWellsSecondaryAntibodies(true);
-
                 }
 
                 return false;

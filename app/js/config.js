@@ -20,6 +20,7 @@ require.config({
         json: '../bower_components/requirejs-plugins/src/json',
         snapsvg: '../bower_components/snap.svg/dist/snap.svg',
         homescreen: '../bower_components/add-to-homescreen/src/addtohomescreen',
+        signals: '../bower_components/js-signals/dist/signals',
 
         base: 'libs/Base',
 

@@ -4,26 +4,26 @@ import LiquidModel = require('model/Liquid');
 import ReactionCount = require('model/ReactionCount');
 
 import LiquidType = require('model/type/Liquid');
-import DNAType = require('model/type/DNA');
+import MouseBloodType = require('model/type/MouseBlood');
 
 class FreeFloatingDNA extends LiquidModel {
 
-    public DNAType: KnockoutObservable<DNAType>;
+    public bloodType: KnockoutObservable<MouseBloodType>;
 
-    constructor(dnaType: DNAType) {
+    constructor(bloodType: MouseBloodType) {
         super(LiquidType.FREE_FLOATING_DNA, ReactionCount.ALWAYS, true);
 
-		this.DNAType = ko.observable(dnaType);
+		this.bloodType = ko.observable(bloodType);
 
         ko.rebind(this);
     }
 
     hashCode() {
-        return this._hashCode() + ":" + this.DNAType();
+        return this._hashCode() + ":" + this.bloodType();
     }
 
     clone() {
-        return new FreeFloatingDNA(this.DNAType());
+        return new FreeFloatingDNA(this.bloodType());
     }
 }
 

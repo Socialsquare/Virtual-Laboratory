@@ -4,17 +4,13 @@ import _ = require('lodash');
 import BaseViewController = require('controller/view/Base');
 import popupController = require('controller/Popup');
 
-import TubeModel = require('model/Tube');
-import PetridishModel = require('model/Petridish');
-import MicrotiterplateModel = require('model/Microtiterplate');
 import ChemicalItemModel = require('model/ChemicalItem');
-import SyringeModel = require('model/Syringe');
-import ScalpelModel = require('model/Scalpel');
 
 import ActivationType = require('model/type/Activation');
 
 import LiquidFactory = require('factory/Liquid');
 import ContainerFactory = require('factory/Container');
+import SpecialItemFactory = require('factory/SpecialItem');
 
 import utils = require('utils/utils');
 
@@ -46,14 +42,14 @@ class Chemical extends BaseViewController {
             new ChemicalItemModel('item.name.deadly', () => this.inSyringe(LiquidFactory.deadly())),
             new ChemicalItemModel('item.name.growth_medium', () => this.inTube(LiquidFactory.growthMedium())),
             new ChemicalItemModel('item.name.growth_medium', () => this.inPetridish(LiquidFactory.growthMedium())),
-            new ChemicalItemModel('item.name.salt_water', () => this.specialItemFactory.washBottle()),
-            new ChemicalItemModel('item.name.buffer', () => this.specialItemFactory.buffer()),
+            new ChemicalItemModel('item.name.salt_water', () => SpecialItemFactory.washBottle()),
+            new ChemicalItemModel('item.name.buffer', () => SpecialItemFactory.buffer()),
             new ChemicalItemModel('item.name.hybridoma_medium', () => this.inTube(LiquidFactory.hybridomaMedium())),
         ]);
 
         this.drawerItems.pushAll([
             new ChemicalItemModel('item.name.syringe', () => ContainerFactory.syringe()),
-            new ChemicalItemModel('item.name.scalpel', () => new ScalpelModel()),
+            new ChemicalItemModel('item.name.scalpel', () => SpecialItemFactory.scalpel()),
             new ChemicalItemModel('item.name.petri_dish', () => ContainerFactory.petri()),
             new ChemicalItemModel('item.name.tube', () => ContainerFactory.tube()),
             new ChemicalItemModel('item.name.microtiter', () => ContainerFactory.micro()),
@@ -85,11 +81,11 @@ class Chemical extends BaseViewController {
     }
 
     inTube(liquid) {
-        return new TubeModel().add(liquid, true);
+        return ContainerFactory.tube().add(liquid, true);
     }
 
     inPetridish(liquid) {
-        return new PetridishModel().add(liquid, true);
+        return ContainerFactory.petri().add(liquid, true);
     }
 
     inSyringe(liquid) {

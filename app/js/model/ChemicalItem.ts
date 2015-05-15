@@ -1,15 +1,15 @@
 import ko = require('knockout');
 
-import Item = require('model/Item');
+import InventoryItem = require('model/InventoryItem');
 
-class ChemicalItem extends Item {
+class ChemicalItem {
 
-    public itemGetter: () => any;
-    public item: KnockoutObservable<Item>;
+    public itemGetter: () => InventoryItem;
+    public item: KnockoutObservable<InventoryItem>;
+    public name: KnockoutObservable<string>;
 
     constructor(name, itemGetter) {
-        super(name);
-
+        this.name = ko.observable(name);
         this.itemGetter = itemGetter;
         this.item = ko.observable(itemGetter());
     }

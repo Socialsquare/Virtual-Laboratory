@@ -3,11 +3,12 @@ import ko = require('knockout');
 import Liquid = require('model/Liquid');
 import ReactionCount = require('model/ReactionCount');
 import Microorganism = require('model/Microorganism');
-import MyelomaModel = require('model/Myeloma');
+import Myeloma = require('model/Myeloma');
 import Antibiotic = require('model/Antibiotic');
 import HomogenizedSpleen = require('model/HomogenizedSpleen');
 import SaltWater = require('model/SaltWater');
 import FluorescentSecondaryAntibody = require('model/FluorescentSecondaryAntibody');
+import BuffyCoat = require('model/BuffyCoat');
 
 import MicroorganismType = require('model/type/Microorganism');
 import AntibioticType = require('model/type/Antibiotic');
@@ -32,7 +33,7 @@ class LiquidFactory {
         },
 
         myeloma: () => {
-            return new MyelomaModel();
+            return new Myeloma();
         }
     };
 
@@ -125,6 +126,10 @@ class LiquidFactory {
         var blood = new Liquid(LiquidType.MOUSE_BLOOD);
         blood.subtype(mouseBloodType);
         return blood;
+    };
+
+    static buffyCoat = (mouseBloodType: MouseBloodType) => {
+        return new BuffyCoat(mouseBloodType);
     };
 
     static diabetesPrimer = () => {

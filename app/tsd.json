@@ -34,6 +34,9 @@
     },
     "flot/jquery.flot.d.ts": {
       "commit": "00e7f3fede5f2df55b56c72f40a144824f0f0bfa"
+    },
+    "js-signals/js-signals.d.ts": {
+      "commit": "68114f9ff37de0f92c94126b6e0164e026a1737a"
     }
   }
 }
