@@ -6,12 +6,12 @@ import ReactionCount = require('model/ReactionCount');
 import LiquidType = require('model/type/Liquid');
 import MouseBloodType = require('model/type/MouseBlood');
 
-class FreeFloatingDNA extends LiquidModel {
+class ClumpedCells extends LiquidModel {
 
     public bloodType: KnockoutObservable<MouseBloodType>;
 
     constructor(bloodType: MouseBloodType) {
-        super(LiquidType.FREE_FLOATING_DNA, ReactionCount.ALWAYS, true);
+        super(LiquidType.CLUMPED_CELLS, ReactionCount.ALWAYS, true);
 
 		this.bloodType = ko.observable(bloodType);
 
@@ -23,10 +23,10 @@ class FreeFloatingDNA extends LiquidModel {
     }
 
     clone() {
-        var clone = new FreeFloatingDNA(this.bloodType());
+        var clone = new ClumpedCells(this.bloodType());
 
         return clone;
     }
 }
 
-export = FreeFloatingDNA;
+export = ClumpedCells;

@@ -185,6 +185,8 @@ class S2T {
             return LiquidType.LYSIS;
         case "LiquidType.FREE_FLOATING_DNA":
             return LiquidType.FREE_FLOATING_DNA;
+        case "LiquidType.CLUMPED_CELLS":
+            return LiquidType.CLUMPED_CELLS;
 
         default: return null;
         }

@@ -9,6 +9,8 @@ import HomogenizedSpleen = require('model/HomogenizedSpleen');
 import SaltWater = require('model/SaltWater');
 import FluorescentSecondaryAntibody = require('model/FluorescentSecondaryAntibody');
 import BuffyCoat = require('model/BuffyCoat');
+import FreeFloatingDNA = require('model/FreeFloatingDNA');
+import ClumpedCells = require('model/ClumpedCells');
 
 import MicroorganismType = require('model/type/Microorganism');
 import AntibioticType = require('model/type/Antibiotic');
@@ -156,6 +158,14 @@ class LiquidFactory {
 
     static lysis = () => {
         return new Liquid(LiquidType.LYSIS);
+    }
+
+    static freeFloatingDNA = (mouseBloodType: MouseBloodType) => {
+        return new FreeFloatingDNA(mouseBloodType);
+    }
+
+    static clumpedCells = (mouseBloodType: MouseBloodType) => {
+        return new ClumpedCells(mouseBloodType);
     }
 }
 

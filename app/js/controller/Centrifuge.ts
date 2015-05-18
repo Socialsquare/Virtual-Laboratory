@@ -9,6 +9,8 @@ import gameState = require('model/GameState');
 import CentrifugeModel = require('model/Centrifuge');
 
 import TubeModel = require('model/Tube');
+import FreeFloatingDNAModel = require('model/FreeFloatingDNA');
+import ClumpedCellsModel = require('model/ClumpedCells');
 
 import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
@@ -54,11 +56,12 @@ class CentrifugeController extends CompositeContainerController {
 
         var extracted: TubeModel;
 
-        if (tube.contains(LiquidType.FREE_FLOATING_DNA)) {
-            // TODO!: what type of DNA should be extracted?
-            // Create DNA
+        if (tube.contains(LiquidType.CLUMPED_CELLS)) {
+            // created free floating dna
+            var cc = <ClumpedCellsModel>tube.findByType(LiquidType.CLUMPED_CELLS);
+
             extracted = ContainerFactory.tube()
-                .add(LiquidFactory.dna(DNAType.TERMINATOR));
+                .add(LiquidFactory.freeFloatingDNA(cc.bloodType()));
         }
         else if (tube.contains(LiquidType.MOUSE_BLOOD)) {
             // create buffy coat

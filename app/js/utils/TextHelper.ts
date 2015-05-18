@@ -37,12 +37,17 @@ class TextHelper {
         }
     }
 
+    static i18nFromType(type: LiquidType) {
+        return i18n.text(TextHelper.prettyNameFromType(type));
+    }
+
     static label = (container: SimpleContainerModel) => {
         var subtyped = [ LiquidType.MOUSE_BLOOD, LiquidType.ANTIBIOTIC ];
+
         var contents = _.map(container.liquids(), (l) => {
             if (_.contains(subtyped, l.type())) {
-                var type = i18n.text(TextHelper.prettyNameFromType(l.type()));
-                var subtype = i18n.text(TextHelper.prettyNameFromType(l.subtype()));
+                var type = TextHelper.i18nFromType(l.type());
+                var subtype = TextHelper.i18nFromType(l.subtype());
                 return type + ' (' + subtype + ')';
             }
 
@@ -160,6 +165,8 @@ class TextHelper {
             return 'liquid.name.lysis';
         case LiquidType.FREE_FLOATING_DNA:
             return 'liquid.name.free_floating_dna';
+        case LiquidType.CLUMPED_CELLS:
+            return 'liquid.name.clumped_cells';
 
         default:
             throw 'TextHelper.prettyNameFromType: Unknown type: ' + type;

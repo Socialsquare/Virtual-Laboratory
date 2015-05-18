@@ -7,6 +7,7 @@ import LiquidType = require('model/type/Liquid');
 import MouseBloodType = require('model/type/MouseBlood');
 
 import FreeFloatingDNAModel = require('model/FreeFloatingDNA');
+import ClumpedCellsModel = require('model/ClumpedCells');
 
 describe('Heater machine', () => {
     var heater: HeaterModel;
@@ -27,7 +28,7 @@ describe('Heater machine', () => {
         expect(heater.status()).toBeFalsy();
     });
 
-    it('should be able to form free floating DNA', () => {
+    it('should be able to form clumped cells', () => {
         var bloodType = MouseBloodType.DIABETIC;
 
         var tube = CF.tube();
@@ -37,37 +38,37 @@ describe('Heater machine', () => {
 
         heater.addAt(0, tube);
 
-        expect(tube.contains(LiquidType.FREE_FLOATING_DNA)).toBeFalsy();
+        expect(tube.contains(LiquidType.CLUMPED_CELLS)).toBeFalsy();
 
         heater.toggle();
 
-        expect(tube.contains(LiquidType.FREE_FLOATING_DNA)).toBeFalsy();
+        expect(tube.contains(LiquidType.CLUMPED_CELLS)).toBeFalsy();
 
         tube.add(LF.lysis());
 
-        expect(tube.contains(LiquidType.FREE_FLOATING_DNA)).toBeFalsy();
+        expect(tube.contains(LiquidType.CLUMPED_CELLS)).toBeFalsy();
 
         tube.add(LF.saltWater());
 
-        expect(tube.contains(LiquidType.FREE_FLOATING_DNA)).toBeFalsy();
+        expect(tube.contains(LiquidType.CLUMPED_CELLS)).toBeFalsy();
 
         tube.add(LF.buffyCoat(bloodType));
 
-        // The free floating DNA should now be formed and the other
+        // The clumped cells should now be formed and the other
         // liquids should have been consumed
-        expect(tube.contains(LiquidType.FREE_FLOATING_DNA)).toBeTruthy();
+        expect(tube.contains(LiquidType.CLUMPED_CELLS)).toBeTruthy();
         expect(tube.contains(LiquidType.BUFFY_COAT)).toBeFalsy();
         expect(tube.contains(LiquidType.SALT_WATER)).toBeFalsy();
         expect(tube.contains(LiquidType.LYSIS)).toBeFalsy();
 
-        // The free floating DNA should be of the same blood type as
+        // The clumped cells should be of the same blood type as
         // the original buffy coat
-        var ffd = <FreeFloatingDNAModel>tube.findByType(LiquidType.FREE_FLOATING_DNA);
-        expect(ffd).toBeDefined();
-        expect(ffd.bloodType()).toBe(bloodType);
+        var cc = <ClumpedCellsModel>tube.findByType(LiquidType.CLUMPED_CELLS);
+        expect(cc).toBeDefined();
+        expect(cc.bloodType()).toBe(bloodType);
     });
 
-    it('should be able to form free floating DNA when activating last', () => {
+    it('should be able to form clumped cells when activating last', () => {
         var tube = CF.tube()
             .add(LF.buffyCoat(MouseBloodType.DIABETIC))
             .add(LF.lysis())
@@ -75,10 +76,10 @@ describe('Heater machine', () => {
 
         heater.addAt(0, tube);
 
-        expect(tube.contains(LiquidType.FREE_FLOATING_DNA)).toBeFalsy();
+        expect(tube.contains(LiquidType.CLUMPED_CELLS)).toBeFalsy();
 
         heater.toggle();
 
-        expect(tube.contains(LiquidType.FREE_FLOATING_DNA)).toBeTruthy();
+        expect(tube.contains(LiquidType.CLUMPED_CELLS)).toBeTruthy();
     });
 });

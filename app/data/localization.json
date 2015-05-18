@@ -170,8 +170,8 @@
         "popup.home_screen.header": "Vigtigt!",
         "popup.home_screen.body": "Det Virtuelle Laboratorium 2.0 spilles bedst, hvis du tilføjer det til din hjemmeskærm og åbner spillet derfra.",
 
-        "popup.free_floating_dna_created.header": "Frit flydende DNA dannet",
-        "popup.free_floating_dna_created_screen.body": "Der er dannet fritflydende DNA i reagensglasset. Husk at notere indholdet på reagensglassets mærkat!",
+        "popup.clumped_cells_created.header": "Sammenklumpede celler dannet",
+        "popup.clumped_cells_created_screen.body": "Der er dannet sammenklumpede celler i reagensglasset. Husk at notere indholdet på reagensglassets mærkat!",
 
         "pipette.filled.header": "Information",
         "pipette.filled.body": "Du har suget indhold op med pipetten.",
@@ -280,6 +280,7 @@
         "liquid.name.blue_stain": "Blå farve",
         "liquid.name.lysis": "Lysis",
         "liquid.name.free_floating_dna": "Frit flydende DNA",
+        "liquid.name.clumped_cells": "Sammenklumpede celler",
 
         "liquid.name.microtiter_wells": "Mikrotiterbrønde",
 

@@ -3,8 +3,6 @@ import _ = require('lodash');
 
 import popupController = require('controller/Popup');
 
-import FreeFloatingDNAModel = require('model/FreeFloatingDNA');
-
 import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
 
@@ -12,6 +10,8 @@ import CompositeContainerModel = require('model/CompositeContainer');
 import SimpleContainerModel = require('model/SimpleContainer');
 import TubeModel = require('model/Tube');
 import BuffyCoatModel = require('model/BuffyCoat');
+import FreeFloatingDNAModel = require('model/FreeFloatingDNA');
+import ClumpedCellsModel = require('model/ClumpedCells');
 
 class HeaterModel extends CompositeContainerModel {
 
@@ -66,11 +66,11 @@ class HeaterModel extends CompositeContainerModel {
 
                 tube.clearContents();
 
-                tube.add(new FreeFloatingDNAModel(buffyCoat.bloodType()));
+                tube.add(new ClumpedCellsModel(buffyCoat.bloodType()));
 
                 popupController.message(
-                    'popup.free_floating_dna_created.header',
-                    'popup.free_floating_dna_created_screen.body'
+                    'popup.clumped_cells_created.header',
+                    'popup.clumped_cells_created_screen.body'
                 );
             }
         });

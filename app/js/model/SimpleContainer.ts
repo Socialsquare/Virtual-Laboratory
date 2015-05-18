@@ -91,7 +91,7 @@ class SimpleContainer extends InventoryItem {
         this.liquidsAdded.dispatch();
     }
 
-    addAll(liquids, preventTrigger = false) {
+    addAll(liquids: LiquidModel[], preventTrigger = false) {
         this._addAll(liquids, preventTrigger);
         return this;
     }
