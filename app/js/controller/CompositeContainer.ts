@@ -86,6 +86,11 @@ class CompositeContainerController {
             this.accepter = DragHelper.acceptTube;
             break;
 
+        case ContainerType.PCR_MACHINE:
+            this.imageGetter = ImageHelper.pcrMachineTubeImage;
+            this.accepter = DragHelper.acceptTube;
+            break;
+
         case ContainerType.UV_TUBE_RACK:
             this.imageGetter = ImageHelper.uvTubeRackImage;
             this.accepter = DragHelper.acceptTube;

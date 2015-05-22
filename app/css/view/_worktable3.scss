@@ -5,8 +5,8 @@
     background-image: url(#{$img-path}/work3_base.png);
 
     .tuberack {
-        @include tuberack(492px, 318px);
-        border: 1px solid black;
+        @include tuberack(692px, 318px);
+        border: 2px solid black;
 
         .slot0, .slot1, .slot2, .slot3, .slot4 {
             background-color: #FFF;
@@ -16,13 +16,34 @@
     }
 
     .icebath {
-        @include tuberack(192px, 318px);
-        border: 1px solid blue;
+        @include tuberack(350px, 318px);
+        border: 2px solid blue;
 
         .slot0, .slot1, .slot2, .slot3, .slot4 {
             background-color: #FFF;
             opacity: 0.5;
             border: 1px solid red;
         }
+    }
+
+    /* TODO-PCR */
+    .pcr-machine {
+        @include tuberack(30px, 318px);
+        border: 2px solid green;
+
+        .slot0, .slot1 {
+            background-color: #FFF;
+            opacity: 0.5;
+            border: 1px solid red;
+        }
+    }
+
+    /* TODO-PCR */
+    .pcr-machine-btn {
+        position: absolute;
+        top: 480px;
+        left: 50px;
+        width: 74px;
+        height: 69px;
     }
 }

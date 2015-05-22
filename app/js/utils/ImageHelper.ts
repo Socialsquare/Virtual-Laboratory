@@ -41,6 +41,8 @@ class ImageHelper {
     static sidegroupEmptySlot = ImageHelper.single('scaffold_R');
 
     static odMachineTubeImage = _.constant(ImageHelper.img('work2_od-on.png'));
+    // TODO-PCR
+    static pcrMachineTubeImage = ImageHelper.emptyFull('tube');
 
     static tableSpacePetriImage = (position, petri) => {
         var state = !petri || petri.isEmpty() ? 'empty' : 'full';

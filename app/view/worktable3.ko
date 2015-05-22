@@ -4,4 +4,9 @@
 
     <div class="icebath" data-bind="template: { name: 'compContainer', data: iceBathController }"></div>
 
+    <div class="pcr-machine" data-bind="template: { name: 'compContainer', data: pcrMachineController }"></div>
+
+    <div class="pcr-machine-btn hand" data-bind="click: activatePCRMachine">
+        <img src="assets/images/work1_electroporator-on.png" alt="Centrifuge button">
+    </div>
 </div>

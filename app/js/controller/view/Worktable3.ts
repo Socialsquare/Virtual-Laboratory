@@ -8,6 +8,7 @@ import LiquidType = require('model/type/Liquid');
 import ActivationType = require('model/type/Activation');
 
 import CompositeContainerController = require('controller/CompositeContainer');
+import PCRMachineController = require('controller/PCRMachine');
 
 import Worktable3Model = require('model/Worktable3');
 
@@ -17,6 +18,7 @@ class Worktable3 extends BaseViewController {
 
     public tubeRackController: CompositeContainerController;
     public iceBathController: CompositeContainerController;
+    public pcrMachineController: PCRMachineController;
 
     constructor() {
         super('worktable3');
@@ -25,7 +27,12 @@ class Worktable3 extends BaseViewController {
 
         this.tubeRackController = new CompositeContainerController(this.worktable3.tubeRack);
         this.iceBathController = new CompositeContainerController(this.worktable3.iceBath);
+        this.pcrMachineController = new PCRMachineController(this.worktable3.pcrMachine);
 
+    }
+
+    activatePCRMachine() {
+        this.pcrMachineController.activate();
     }
 }
 

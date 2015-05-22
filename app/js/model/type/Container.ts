@@ -31,6 +31,7 @@ enum Container {
     PIPETTE           = ev.next(),
     FERMENTOR         = ev.next(),
     CENTRIFUGE        = ev.next(),
+    PCR_MACHINE       = ev.next(),
 }
 
 export = Container;
