@@ -191,9 +191,8 @@ class Experiment {
 
         if (trigger.activation === ActivationType.HEATER) {
             var heater = <HeaterModel>item;
-            var valid = _(heater.containers())
-                .compact()
-                .any(_.partial(this.matchLiquids, trigger));
+            var compacted = _.compact(heater.containers());
+            var valid = _.any(compacted, _.partial(this.matchLiquids, trigger));
             if (!valid) return;
         }
 
@@ -204,10 +203,8 @@ class Experiment {
 
         if (trigger.activation === ActivationType.INCUBATOR) {
             var incubator = <IncubatorModel>item;
-            var containers = _(incubator.tableSpacePetri.containers())
-                .union(incubator.tubeRack.containers())
-                .compact()
-                .value();
+            var unioned = _.union(incubator.tableSpacePetri.containers(), incubator.tubeRack.containers());
+            var containers = _.compact(unioned);
 
             var valid = _.all(trigger.containers, (triggerContainer) => {
                 return _.any(containers, (incubatorContainer) => {
@@ -252,7 +249,7 @@ class Experiment {
     markTaskFinished() {
         this.activeTask().finished(true);
 
-        var allDone = _(this.activeExperiment().tasks()).invoke('finished').all();
+        var allDone = _.all(_.invoke(this.activeExperiment().tasks(), 'finished'));
         if (allDone) {
             popupController.message('experiment.completed.header', 'experiment.completed.body');
         } else {

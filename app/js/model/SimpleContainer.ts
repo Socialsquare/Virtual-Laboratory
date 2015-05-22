@@ -77,12 +77,9 @@ class SimpleContainer extends InventoryItem {
         });
 
         // react
-        _(this.liquids())
-            .union(liquids)
-            .each((liquid) => {
-
-                liquid.react(this);
-            });
+        _.each(_.union(this.liquids(), liquids), (liquid) => {
+            liquid.react(this);
+        });
 
 
         if (!preventTrigger)
