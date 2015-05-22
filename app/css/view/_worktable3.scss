@@ -1,0 +1,28 @@
+/* view/worktable3.scss */
+
+.worktable3-view {
+    @include view;
+    background-image: url(#{$img-path}/work3_base.png);
+
+    .tuberack {
+        @include tuberack(492px, 318px);
+        border: 1px solid black;
+
+        .slot0, .slot1, .slot2, .slot3, .slot4 {
+            background-color: #FFF;
+            opacity: 0.5;
+            border: 1px solid red;
+        }
+    }
+
+    .icebath {
+        @include tuberack(192px, 318px);
+        border: 1px solid blue;
+
+        .slot0, .slot1, .slot2, .slot3, .slot4 {
+            background-color: #FFF;
+            opacity: 0.5;
+            border: 1px solid red;
+        }
+    }
+}

@@ -2,34 +2,35 @@ import ev = require('enumvalue');
 
 enum Container {
     // Simple
-    PETRI_DISH        = ev.next(), // 'ContainerType.PETRI_DISH',
-    MICROTITER        = ev.next(), // 'ContainerType.MICROTITER',
-    TUBE              = ev.next(), // 'ContainerType.TUBE',
-    BOTTLE            = ev.next(), // 'ContainerType.BOTTLE',
-    SYRINGE           = ev.next(), // 'ContainerType.SYRINGE',
-    PIPETTE_TIP       = ev.next(), // 'ContainerType.PIPETTE_TIP',
+    PETRI_DISH        = ev.next(),
+    MICROTITER        = ev.next(),
+    TUBE              = ev.next(),
+    BOTTLE            = ev.next(),
+    SYRINGE           = ev.next(),
+    PIPETTE_TIP       = ev.next(),
 
     // Composite
-    PETRI_SPACE       = ev.next(), // 'ContainerType.PETRI_SPACE',
-    MICRO_SPACE       = ev.next(), // 'ContainerType.MICRO_SPACE',
-    TUBE_RACK         = ev.next(), // 'ContainerType.TUBE_RACK',
-    UV_PETRI_SPACE    = ev.next(), // 'ContainerType.UV_PETRI_SPACE',
-    UV_MICRO_SPACE    = ev.next(), // 'ContainerType.UV_MICRO_SPACE',
-    UV_TUBE_RACK      = ev.next(), // 'ContainerType.UV_TUBE_RACK',
+    PETRI_SPACE       = ev.next(),
+    MICRO_SPACE       = ev.next(),
+    TUBE_RACK         = ev.next(),
+    UV_PETRI_SPACE    = ev.next(),
+    UV_MICRO_SPACE    = ev.next(),
+    UV_TUBE_RACK      = ev.next(),
+    ICE_BATH          = ev.next(),
 
     // Simple machines
-    BLENDER           = ev.next(), // 'ContainerType.BLENDER',
-    ELECTROPORATOR    = ev.next(), // 'ContainerType.ELECTROPORATOR',
-    FERMENTOR_TANK    = ev.next(), // 'ContainerType.FERMENTOR_TANK',
-    WASHING_TANK      = ev.next(), // 'ContainerType.WASHING_TANK',
+    BLENDER           = ev.next(),
+    ELECTROPORATOR    = ev.next(),
+    FERMENTOR_TANK    = ev.next(),
+    WASHING_TANK      = ev.next(),
 
     // Composite machines
-    HEATER            = ev.next(), // 'ContainerType.HEATER',
-    OD_MACHINE        = ev.next(), // 'ContainerType.OD_MACHINE',
-    SPECTROPM_MACHINE = ev.next(), // 'ContainerType.SPECTROPM_MACHINE',
-    PIPETTE           = ev.next(), // 'ContainerType.PIPETTE',
-    FERMENTOR         = ev.next(), // 'ContainerType.FERMENTOR',
-    CENTRIFUGE        = ev.next(), // 'ContainerType.CENTRIFUGE',
+    HEATER            = ev.next(),
+    OD_MACHINE        = ev.next(),
+    SPECTROPM_MACHINE = ev.next(),
+    PIPETTE           = ev.next(),
+    FERMENTOR         = ev.next(),
+    CENTRIFUGE        = ev.next(),
 }
 
 export = Container;

@@ -7,6 +7,7 @@ import MouseModel = require('model/Mouse');
 import PipetteModel = require('model/Pipette');
 import Worktable1Model = require('model/Worktable1');
 import Worktable2Model = require('model/Worktable2');
+import Worktable3Model = require('model/Worktable3');
 import FumehoodModel = require('model/Fumehood');
 import IncubatorModel = require('model/Incubator');
 import SpectroPMModel = require('model/SpectroPM');
@@ -33,6 +34,7 @@ class GameState {
     // Areas
     public worktable1: Worktable1Model;
     public worktable2: Worktable2Model;
+    public worktable3: Worktable3Model;
     public fumehood: FumehoodModel;
     public incubator: IncubatorModel;
     public spectroPM: SpectroPMModel;
@@ -55,6 +57,7 @@ class GameState {
 
         this.worktable1 = new Worktable1Model();
         this.worktable2 = new Worktable2Model();
+        this.worktable3 = new Worktable3Model();
         this.fumehood = new FumehoodModel();
         this.incubator = new IncubatorModel();
         this.spectroPM = new SpectroPMModel();
@@ -73,6 +76,7 @@ class GameState {
         this.pipette.removeTip();
         this.worktable1.reset();
         this.worktable2.reset();
+        this.worktable3.reset();
         this.fumehood.reset();
         this.incubator.reset();
         this.spectroPM.reset();

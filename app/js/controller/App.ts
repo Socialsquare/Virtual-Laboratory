@@ -15,6 +15,7 @@ import ComputerController = require('controller/view/Computer');
 import FumehoodController = require('controller/view/Fumehood');
 import Worktable1Controller = require('controller/view/Worktable1');
 import Worktable2Controller = require('controller/view/Worktable2');
+import Worktable3Controller = require('controller/view/Worktable3');
 import IncubatorController = require('controller/view/Incubator');
 import SpectroPMController = require('controller/view/SpectroPM');
 import SpectroPMScreenController = require('controller/view/SpectroPMScreen');
@@ -27,6 +28,7 @@ import DesignDNAController = require('controller/view/computer/DesignDNA');
 import ContainerFactory = require('factory/Container');
 import LiquidFactory = require('factory/Liquid');
 import SpecialItemFactory = require('factory/SpecialItem');
+import MouseBloodType = require('model/type/MouseBlood');
 
 class App extends BaseViewController {
 
@@ -56,6 +58,7 @@ class App extends BaseViewController {
             chemical: new ChemicalController(),
             worktable1: new Worktable1Controller(),
             worktable2: new Worktable2Controller(),
+            worktable3: new Worktable3Controller(),
             fumehood: new FumehoodController(),
             incubator: new IncubatorController(),
             mouse: new MouseController(),

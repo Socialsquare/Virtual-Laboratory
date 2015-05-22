@@ -64,6 +64,11 @@ class CompositeContainerController {
             this.accepter = DragHelper.acceptTube;
             break;
 
+        case ContainerType.ICE_BATH:
+            this.imageGetter = ImageHelper.iceBathImage;
+            this.accepter = DragHelper.acceptTube;
+            break;
+
         case ContainerType.HEATER:
             this.imageGetter = ImageHelper.heaterTubeImage;
             this.accepter = DragHelper.acceptTube;

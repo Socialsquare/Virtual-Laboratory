@@ -33,6 +33,7 @@ class ImageHelper {
     static incubatorTubeImage = ImageHelper.emptyFull('incubator_tube');
     static incubatorPetriImage = ImageHelper.emptyFull('incubator_dish');
     static tubeRackImage = ImageHelper.emptyFull('tube');
+    static iceBathImage = ImageHelper.emptyFull('tube');
 
     static heaterTubeImage = ImageHelper.single('work1-heater_');
     static tableSpaceMicroImage = ImageHelper.single('micro');

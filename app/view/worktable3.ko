@@ -1,0 +1,7 @@
+<div class="worktable3-view">
+
+    <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
+
+    <div class="icebath" data-bind="template: { name: 'compContainer', data: iceBathController }"></div>
+
+</div>
