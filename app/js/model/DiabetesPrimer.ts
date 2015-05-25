@@ -8,22 +8,18 @@ import MouseBloodType = require('model/type/MouseBlood');
 
 class DiabetesPrimer extends LiquidModel {
 
-    public isCopied: KnockoutObservable<boolean>;
-
-    constructor(isCopied = false) {
+    constructor() {
         super(LiquidType.DIABETES_PRIMER, ReactionCount.NEVER, true);
-
-        this.isCopied(isCopied);
 
         ko.rebind(this);
     }
 
     hashCode() {
-        return this._hashCode() + ":" + this.isCopied();
+        return this._hashCode();
     }
 
     clone() {
-        return new DiabetesPrimer(this.isCopied());
+        return new DiabetesPrimer();
     }
 }
 

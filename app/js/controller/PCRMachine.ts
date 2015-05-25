@@ -11,8 +11,10 @@ import CompositeContainerController = require('controller/CompositeContainer');
 import PCRMachineModel = require('model/PCRMachine');
 import TubeModel = require('model/Tube');
 import DiabetesPrimerModel = require('model/DiabetesPrimer');
+import FreeFloatingDNAModel = require('model/FreeFloatingDNA');
 
 import LiquidType = require('model/type/Liquid');
+import MouseBloodType = require('model/type/MouseBlood');
 
 import ContainerFactory = require('factory/Container');
 import LiquidFactory = require('factory/Liquid');
@@ -29,11 +31,15 @@ class PCRMachine extends CompositeContainerController {
 
     tryCopyDNA(tube: TubeModel) {
         // copy diabetes dna if diabetes primers is present
-        var diabetesDNA = <DiabetesPrimerModel>tube.findByType(LiquidType.FREE_FLOATING_DNA);
+        var ffd = <FreeFloatingDNAModel>tube.findByType(LiquidType.FREE_FLOATING_DNA);
+
+        if (!ffd)
+            return;
+
         var required = [LiquidType.DIABETES_PRIMER, LiquidType.FREE_FLOATING_DNA];
 
-        if (tube.containsAllStrict(required) && diabetesDNA)
-            diabetesDNA.isCopied(true);
+        if (ffd.bloodType() === MouseBloodType.DIABETIC && tube.containsAllStrict(required))
+            ffd.isCopied(true);
 
         popupController.message('pcr.dna-copied.header', 'pcr.dna-copied.body');
     }
