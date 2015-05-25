@@ -336,6 +336,9 @@
         "centrifuge.extraction.header": "Centrifugen er færdig",
         "centrifuge.extraction.body": "Hvad vil du ekstrahere?",
 
+        "pcr.dna-copied.header": "DNA er blevet kopieret",
+        "pcr.dna-copied.body": "En milliard gange",
+
         "common.next": "Næste",
         "common.previous": "Forrige",
         "common.contains": "Oprindeligt indhold",

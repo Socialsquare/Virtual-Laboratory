@@ -11,6 +11,7 @@ import FluorescentSecondaryAntibody = require('model/FluorescentSecondaryAntibod
 import BuffyCoat = require('model/BuffyCoat');
 import FreeFloatingDNA = require('model/FreeFloatingDNA');
 import ClumpedCells = require('model/ClumpedCells');
+import DiabetesPrimer = require('model/DiabetesPrimer');
 
 import MicroorganismType = require('model/type/Microorganism');
 import AntibioticType = require('model/type/Antibiotic');
@@ -141,7 +142,7 @@ class LiquidFactory {
     };
 
     static diabetesPrimer = () => {
-        return new Liquid(LiquidType.DIABETES_PRIMER);
+        return new DiabetesPrimer();
     }
 
     static nucleotides = () => {

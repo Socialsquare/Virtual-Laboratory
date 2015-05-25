@@ -1,16 +1,18 @@
 import ko = require('knockout');
 import _ = require('lodash');
 
-import popupController = require('controller/Popup');
 import TextHelper = require('utils/TextHelper');
+
+import popupController = require('controller/Popup');
+import gameState = require('model/GameState');
+
 import CompositeContainerController = require('controller/CompositeContainer');
 
-import gameState = require('model/GameState');
 import PCRMachineModel = require('model/PCRMachine');
-
 import TubeModel = require('model/Tube');
+import DiabetesPrimerModel = require('model/DiabetesPrimer');
 
-import DNAType = require('model/type/DNA');
+import LiquidType = require('model/type/Liquid');
 
 import ContainerFactory = require('factory/Container');
 import LiquidFactory = require('factory/Liquid');
@@ -25,8 +27,25 @@ class PCRMachine extends CompositeContainerController {
         ko.rebind(this);
     }
 
+    tryCopyDNA(tube: TubeModel) {
+        // copy diabetes dna if diabetes primers is present
+        var diabetesDNA = <DiabetesPrimerModel>tube.findByType(LiquidType.FREE_FLOATING_DNA);
+        var required = [LiquidType.DIABETES_PRIMER, LiquidType.FREE_FLOATING_DNA];
+
+        if (tube.containsAllStrict(required) && diabetesDNA)
+            diabetesDNA.isCopied(true);
+
+        popupController.message('pcr.dna-copied.header', 'pcr.dna-copied.body');
+    }
+
     activate() {
-        console.log(this.compContainer.containers());
+        this.compContainer.status(true);
+
+        _.delay(() => {
+            _.each(this.compContainer.containers(), this.tryCopyDNA);
+
+            this.compContainer.status(false);
+        }, 2000);
     }
 }
 
