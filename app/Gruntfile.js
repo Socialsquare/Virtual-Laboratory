@@ -93,10 +93,10 @@ module.exports = function (grunt) {
         requirejs: {
             production: {
                 options: {
-                    baseUrl: "js",
-                    mainConfigFile: "js/config.js",
-                    name: '../node_modules/almond/almond',
-                    mainConfigFile: 'js/config.js',
+                    baseUrl: "dist/js",
+                    mainConfigFile: "dist/js/config.js",
+                    name: '../../node_modules/almond/almond',
+                    mainConfigFile: 'dist/js/config.js',
                     findNestedDependencies: true,
                     preserveLicenseComments: false,
                     optimize: "uglify2",
@@ -208,7 +208,7 @@ module.exports = function (grunt) {
     // TODO: enable jshint when smellz is cleaned
     grunt.registerTask('build', [ 'clean:dist', 'copy:dist', 'ts:dist', 'assets', 'sass:dist', 'preprocess:dist' ]);
 
-    grunt.registerTask('production', [ 'setProductionBuild', 'clean:dist', 'copy:production', 'assets', 'requirejs:production', 'sass:dist', 'templateIndex', 'preprocess:dist' ]);
+    grunt.registerTask('production', [ 'setProductionBuild', 'build', 'requirejs:production', 'templateIndex' ]);
 
     grunt.registerTask('default', [ 'build', 'configureProxies:dist', 'connect:dist', 'watch:dist' ]);
 
