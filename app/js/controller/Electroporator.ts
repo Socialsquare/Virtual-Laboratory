@@ -1,4 +1,3 @@
-import gameState = require('model/GameState');
 import popupController = require('controller/Popup');
 
 import SimpleContainerController = require('controller/SimpleContainer');

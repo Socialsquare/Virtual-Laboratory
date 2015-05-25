@@ -7,6 +7,8 @@ class PetriSpace extends CompositeContainerModel {
 
     constructor(capacity = 3, type = ContainerType.PETRI_SPACE) {
         super(capacity, ContainerType.PETRI_DISH, type);
+
+        ko.rebind(this);
     }
 }
 

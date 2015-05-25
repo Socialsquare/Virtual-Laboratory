@@ -1,8 +1,5 @@
-import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
 import MouseType = require('model/type/Mouse');
-import MouseBloodType = require('model/type/MouseBlood');
-import SpecialItemType = require('model/type/SpecialItem');
 
 import experimentController = require('controller/Experiment');
 import popupController = require('controller/Popup');

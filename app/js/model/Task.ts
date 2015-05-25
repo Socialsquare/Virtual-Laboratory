@@ -1,7 +1,6 @@
 import ko = require('knockout');
 
 import TriggerModel = require('model/Trigger');
-import QuizModel = require('model/Quiz');
 import BaseConsequenceModel = require('model/Consequence');
 import QuizConsequenceModel = require('model/QuizConsequence');
 import VideoConsequenceModel = require('model/VideoConsequence');
@@ -9,7 +8,6 @@ import VideoConsequenceModel = require('model/VideoConsequence');
 import ConsequenceType = require('model/type/Consequence');
 
 import S2T = require('utils/S2T');
-
 
 class Task {
 
@@ -49,6 +47,7 @@ class Task {
             return !!this.consequence();
         });
 
+        ko.rebind(this);
     }
 }
 

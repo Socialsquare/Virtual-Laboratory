@@ -5,8 +5,6 @@ import BaseViewController = require('controller/view/Base');
 import tutorialController = require('controller/Tutorial');
 import popupController = require('controller/Popup');
 
-import FeatureHelper = require('utils/FeatureHelper');
-
 class Overview extends BaseViewController {
     constructor() {
         super('overview');

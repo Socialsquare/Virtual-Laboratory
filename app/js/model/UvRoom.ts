@@ -23,9 +23,11 @@ class UvRoom {
 
         this.tubeRack = new TubeRackModel(ContainerType.UV_TUBE_RACK);
         this.tubeRack.location(LocationType.UVROOM);
+
+        ko.rebind(this);
     }
 
-    public reset = () => {
+    reset() {
         this.tableSpacePetri.removeAll();
         this.tableSpaceMicro.removeAll();
         this.tubeRack.removeAll();

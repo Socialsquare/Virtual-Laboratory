@@ -5,9 +5,11 @@ class Menu extends BaseComputer {
 
     constructor() {
         super('computer-menu', 'computer.menu');
+
+        ko.rebind(this);
     }
 
-    public screenChanger = (screenName) => {
+    screenChanger(screenName) {
         return () => this.changeScreen(screenName);
     }
 }

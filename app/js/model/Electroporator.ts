@@ -1,8 +1,6 @@
 import ko = require('knockout');
 import _ = require('lodash');
 
-import utils = require('utils/utils');
-
 import LiquidHelper = require('utils/LiquidHelper');
 
 import SimpleContainerModel = require('model/SimpleContainer');
@@ -11,7 +9,6 @@ import DNAElementModel = require('model/DNAElement');
 import GeneModel = require('model/Gene');
 
 import ContainerType = require('model/type/Container');
-import LiquidType = require('model/type/Liquid');
 import DNAType = require('model/type/DNA');
 
 // Helper types

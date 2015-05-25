@@ -7,6 +7,8 @@ class TubeRack extends CompositeContainerModel {
 
     constructor(type = ContainerType.TUBE_RACK) {
         super(6, ContainerType.TUBE, type);
+
+        ko.rebind(this);
     }
 }
 

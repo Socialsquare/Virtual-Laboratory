@@ -4,9 +4,6 @@ import SyringeHandler = require('utils/mouse/SyringeHandler');
 import TubeHandler = require('utils/mouse/TubeHandler');
 
 import ContainerType = require('model/type/Container');
-import LiquidType = require('model/type/Liquid');
-import MouseType = require('model/type/Mouse');
-import MouseBloodType = require('model/type/MouseBlood');
 import SpecialItemType = require('model/type/SpecialItem');
 
 import MouseViewController = require('controller/view/Mouse');

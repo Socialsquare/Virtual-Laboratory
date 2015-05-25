@@ -10,7 +10,7 @@ var dragConsume = null;
 type DragOptions = {
     item?: any, //TODO! type
     dim: boolean,
-    consume: () => any,
+    consume: () => void,
     offset: {
         left: number,
         top: number

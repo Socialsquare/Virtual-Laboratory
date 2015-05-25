@@ -1,9 +1,7 @@
 import ko = require('knockout');
 
 import BaseComputer = require('controller/view/computer/Base');
-import popupController = require('controller/Popup');
 
-import gameState = require('model/GameState');
 import LiquidType = require('model/type/Liquid');
 
 import LiquidModel = require('model/Liquid');

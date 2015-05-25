@@ -39,22 +39,24 @@ class Worktable2 extends BaseViewController {
         ko.rebind(this);
     }
 
+    performBlending(item) {
+        if (item.type() === SpecialItemType.SPLEEN) {
+            var antibodies = item.antibodiesFor();
+            var homogenizedSpleen = this.liquidFactory.homoSpleen(antibodies);
+
+            this.gameState.inventory.add(this.containerFactory.tube().add(homogenizedSpleen));
+            this.popupController.message('worktable2.spleen_blended.header','worktable2.spleen_blended.body');
+        }
+
+        this.worktable2.blender.status(false);
+
+        this.experimentController.triggerActivation(ActivationType.BLENDER, item);
+    }
+
     handleBlenderDrop(item) {
         this.worktable2.blender.status(true);
-        _.delay(() => {
 
-            if(item.type() === SpecialItemType.SPLEEN) {
-                var antibodies = item.antibodiesFor();
-                var homogenizedSpleen = this.liquidFactory.homoSpleen(antibodies);
-
-                this.gameState.inventory.add(this.containerFactory.tube().add(homogenizedSpleen));
-                this.popupController.message('worktable2.spleen_blended.header','worktable2.spleen_blended.body');
-            }
-
-            this.worktable2.blender.status(false);
-
-            this.experimentController.triggerActivation(ActivationType.BLENDER, item);
-        }, 1500);
+        _.delay(this.performBlending, 1500, item);
     }
 
     activateCentrifuge() {

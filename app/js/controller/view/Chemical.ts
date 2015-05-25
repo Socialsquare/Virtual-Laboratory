@@ -1,8 +1,6 @@
 import ko = require('knockout');
-import _ = require('lodash');
 
 import BaseViewController = require('controller/view/Base');
-import popupController = require('controller/Popup');
 
 import ChemicalItemModel = require('model/ChemicalItem');
 
@@ -11,8 +9,6 @@ import ActivationType = require('model/type/Activation');
 import LiquidFactory = require('factory/Liquid');
 import ContainerFactory = require('factory/Container');
 import SpecialItemFactory = require('factory/SpecialItem');
-
-import utils = require('utils/utils');
 
 class Chemical extends BaseViewController {
 

@@ -1,4 +1,3 @@
-import LocalizationService = require('service/Localization');
 import QuizModel = require('model/Quiz');
 
 class QuizHelper {

@@ -3,7 +3,6 @@ import _ = require('lodash');
 
 import BaseViewController = require('controller/view/Base');
 
-import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
 import ActivationType = require('model/type/Activation');
 
@@ -43,9 +42,11 @@ class Worktable1 extends BaseViewController {
         this.tableSpaceMicroController.addDropGuard(this.smallPoxGuard);
         this.tubeRackController.addDropGuard(this.smallPoxGuard);
         this.heaterController.addDropGuard(this.smallPoxGuard);
+
+        ko.rebind(this);
     }
 
-    public bunsenGuard = (position, container) => {
+    bunsenGuard(position, container) {
         if (!this.worktable1.bunsenBurner()) {
             this.popupController.message('worktable1.bunsen_required.header', 'worktable1.bunsen_required.body');
             return false;
@@ -53,17 +54,17 @@ class Worktable1 extends BaseViewController {
         return true;
     }
 
-    public toggleBunsen = () => {
+    toggleBunsen() {
         this.worktable1.bunsenBurner.toggle();
         this.experimentController.triggerActivation(ActivationType.BUNSEN, this.worktable1.bunsenBurner());
     }
 
-    public toggleHeater = () => {
+    toggleHeater() {
         this.worktable1.heater.toggle();
         this.experimentController.triggerActivation(ActivationType.HEATER, this.worktable1.heater);
     }
 
-    public activateElectroporator = () => {
+    activateElectroporator() {
         var containsOrganism = _.any(this.worktable1.electroporator.liquids(), (liquid) => {
             return liquid.type() === LiquidType.MICROORGANISM;
         });
@@ -91,7 +92,7 @@ class Worktable1 extends BaseViewController {
         this.experimentController.triggerActivation(ActivationType.ELECTROPORATOR, this.worktable1.electroporator);
     }
 
-    public showElectroporatorQuiz = (quizNumber) => {
+    showElectroporatorQuiz(quizNumber) {
 
         switch (quizNumber) {
         case 1:
@@ -115,7 +116,7 @@ class Worktable1 extends BaseViewController {
         }
     }
 
-    public showElectroporatorVideos = (quizNumber) => {
+    showElectroporatorVideos(quizNumber) {
         var videoNumbers = [];
 
         // Video #1 = elektroporatoring

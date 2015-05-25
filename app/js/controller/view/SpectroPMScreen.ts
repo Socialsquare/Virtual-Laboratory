@@ -4,13 +4,7 @@ import _ = require('lodash');
 import BaseViewController = require('controller/view/Base');
 import SpectroPMController = require('controller/view/SpectroPM');
 
-import utils = require('utils/utils');
 import DataHelper = require('utils/DataHelper');
-import LocalizationService = require('service/Localization');
-
-import LiquidFactory = require('factory/Liquid');
-import TubeModel = require('model/Tube');
-import LiquidType  = require('model/type/Liquid');
 
 class SpectroPMScreen extends BaseViewController {
 

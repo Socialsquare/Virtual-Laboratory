@@ -2,7 +2,6 @@ import ko = require(    'knockout');
 import _ = require('lodash');
 
 import BaseComputer = require('controller/view/computer/Base');
-import popupController = require('controller/Popup');
 import experimentController = require('controller/Experiment');
 
 import GeneModel = require('model/Gene');
@@ -12,7 +11,6 @@ import DNAElementModel = require('model/DNAElement');
 import ActivationType = require('model/type/Activation');
 
 import DNAService = require('service/DNA');
-import utils = require('utils/utils');
 
 class DesignDNA extends BaseComputer {
 

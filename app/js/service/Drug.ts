@@ -1,4 +1,3 @@
-import ko = require('knockout');
 import $ = require('jquery');
 import _ = require('lodash');
 
@@ -19,8 +18,8 @@ class Drug {
 
         var promise = $.Deferred();
 
-        var testPath4 = 'data/drugs-data/' + drugConfig + '.json';
-        var test4 = $.getJSON(testPath4).done((data: any) => {
+        var url = 'data/drugs-data/' + drugConfig + '.json';
+        $.getJSON(url).done((data: any) => {
             var info = new DrugInfoModel(data);
             info.passes = Drug.getDrugPassages(info.logD);
             promise.resolve(info);

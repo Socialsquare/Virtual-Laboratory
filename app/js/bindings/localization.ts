@@ -1,6 +1,5 @@
 import $ = require('jquery');
 import ko = require('knockout');
-import _ = require('lodash');
 import localizationService = require('service/Localization');
 
 ko.bindingHandlers.i18n = {

@@ -10,7 +10,6 @@ import CompositeContainerModel = require('model/CompositeContainer');
 import SimpleContainerModel = require('model/SimpleContainer');
 import TubeModel = require('model/Tube');
 import BuffyCoatModel = require('model/BuffyCoat');
-import FreeFloatingDNAModel = require('model/FreeFloatingDNA');
 import ClumpedCellsModel = require('model/ClumpedCells');
 
 class HeaterModel extends CompositeContainerModel {

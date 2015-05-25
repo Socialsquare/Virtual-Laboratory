@@ -1,6 +1,3 @@
-import ko = require('knockout');
-import $ = require('jquery');
-
 import FermentorTankController = require('controller/FermentorTank');
 import BaseViewController = require('controller/view/Base');
 import FermentorModel = require('model/Fermentor');

@@ -6,9 +6,7 @@ import MicroorganismType = require('model/type/Microorganism');
 import ContainerType = require('model/type/Container');
 import LocationType = require('model/type/Location');
 
-import HomogenizedSpleenModel = require('model/HomogenizedSpleen');
 import MicroorganismModel = require('model/Microorganism');
-import ReactionCount = require('model/ReactionCount');
 import SimpleContainerModel = require('model/SimpleContainer');
 import MicrotiterplateModel = require('model/Microtiterplate');
 

@@ -12,7 +12,6 @@ import HelpPopupModel = require('model/popup/Help');
 import ListPopupModel = require('model/popup/List');
 import DoorPopupModel = require('model/popup/Door');
 
-import TextHelper = require('utils/TextHelper');
 import ImageHelper = require('utils/ImageHelper');
 
 import VideoController = require('controller/Video');

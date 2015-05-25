@@ -2,19 +2,15 @@ import ko = require('knockout');
 import _ = require('lodash');
 
 import popupController = require('controller/Popup');
-import TextHelper = require('utils/TextHelper');
 import CompositeContainerController = require('controller/CompositeContainer');
 
 import gameState = require('model/GameState');
 import CentrifugeModel = require('model/Centrifuge');
 
 import TubeModel = require('model/Tube');
-import FreeFloatingDNAModel = require('model/FreeFloatingDNA');
 import ClumpedCellsModel = require('model/ClumpedCells');
 
-import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
-import DNAType = require('model/type/DNA');
 
 import ContainerFactory = require('factory/Container');
 import LiquidFactory = require('factory/Liquid');
@@ -82,6 +78,12 @@ class CentrifugeController extends CompositeContainerController {
         }
     }
 
+    // TODO: this might be a bad name
+    private finishActivate() {
+        _.each(this.compContainer.containers(), this.tryExtractContents);
+        this.compContainer.status(false);
+    }
+
     activate() {
         if (this.compContainer.status())
             return;
@@ -93,10 +95,7 @@ class CentrifugeController extends CompositeContainerController {
 
         this.compContainer.status(true);
 
-        _.delay(() => {
-            _.each(this.compContainer.containers(), this.tryExtractContents);
-            this.compContainer.status(false);
-        }, 2000);
+        _.delay(this.finishActivate, 2000);
     }
 }
 

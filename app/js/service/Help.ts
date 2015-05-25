@@ -1,5 +1,4 @@
 import _ = require('lodash');
-import $ = require('jquery');
 
 import HelpEntry = require('model/HelpEntry');
 import helpData = require('json!datadir/help.json');

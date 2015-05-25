@@ -1,5 +1,3 @@
-import ko = require('knockout');
-
 import SpecialItemModel = require('model/SpecialItem');
 import Scalpel = require('model/Scalpel');
 import Syringe = require('model/Syringe');

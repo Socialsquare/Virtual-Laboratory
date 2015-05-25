@@ -8,10 +8,12 @@ class SpectroPMMachine extends CompositeContainerModel {
 
     constructor() {
         super(1, ContainerType.MICROTITER, ContainerType.SPECTROPM_MACHINE);
+
+        ko.rebind(this);
     }
 
     //TODO all the things!
-    public hasMicrotiter = () => {
+    hasMicrotiter() {
         return this.hasContainerAt(0);
     }
 }

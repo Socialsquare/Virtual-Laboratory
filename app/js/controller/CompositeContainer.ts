@@ -1,15 +1,12 @@
 import ko = require('knockout');
 import _ = require('lodash');
 
-import utils = require('utils/utils');
-
 import popupController = require('controller/Popup');
 
 import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
 import AntigenCoatingType = require('model/type/AntigenCoating');
 
-import MicrotiterWellsModel = require('model/MicrotiterWells');
 import CompositeContainerModel = require('model/CompositeContainer');
 import SimpleContainerModel = require('model/SimpleContainer');
 import MicrotiterplateModel = require('model/Microtiterplate');
@@ -179,7 +176,6 @@ class CompositeContainerController {
             this.compContainer.get(position).add(LiquidFactory.saltWater());
             popupController.notify('wash_bottle.diluted.header', 'wash_bottle.diluted.body', 2000);
             return false;
-            break;
 
         case SpecialItemType.BUFFER:
             switch(this.compContainer.get(position).type()) {

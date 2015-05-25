@@ -1,8 +1,5 @@
 import ko = require('knockout');
-import $ = require('jquery');
 import _ = require('lodash');
-
-import LiquidHelper = require('utils/LiquidHelper');
 
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
@@ -39,10 +36,7 @@ class SpectroPM extends BaseViewController {
 
             _.delay(this.isClosed, 1500, false);
 
-            _.delay(() => {
-                if (!this.canShowGraph())
-                    this.popupController.message('spectropm.no_useful.header','spectropm.no_useful.body');
-            },2000);
+            _.delay(this.warnCanShowGraph, 2000);
 
             this.experimentController.triggerActivation(ActivationType.SPECTROPM, this.spectroPM);
         });
@@ -76,6 +70,11 @@ class SpectroPM extends BaseViewController {
         });
 
         ko.rebind(this);
+    }
+
+    warnCanShowGraph() {
+        if (!this.canShowGraph())
+            this.popupController.message('spectropm.no_useful.header','spectropm.no_useful.body');
     }
 
     canShowGraph() {

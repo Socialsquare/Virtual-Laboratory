@@ -6,6 +6,8 @@ class Bottle extends SimpleContainerModel {
 
     constructor() {
         super(ContainerType.BOTTLE, 10);
+
+        ko.rebind(this);
     }
 }
 

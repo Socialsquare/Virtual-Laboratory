@@ -4,7 +4,6 @@ import LiquidModel = require('model/Liquid');
 import ReactionCount = require('model/ReactionCount');
 
 import LiquidType = require('model/type/Liquid');
-import MouseBloodType = require('model/type/MouseBlood');
 
 class DiabetesPrimer extends LiquidModel {
 

@@ -6,6 +6,8 @@ class Tube extends SimpleContainerModel {
 
     constructor() {
         super(ContainerType.TUBE, Math.pow(10,13));
+
+        ko.rebind(this);
     }
 }
 

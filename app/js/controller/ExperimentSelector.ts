@@ -1,7 +1,6 @@
 import ko = require('knockout');
 
 import popupController = require('controller/Popup');
-import experimentController = require('controller/Experiment');
 import experimentService = require('service/Experiment');
 
 import BaseViewController = require('controller/view/Base');

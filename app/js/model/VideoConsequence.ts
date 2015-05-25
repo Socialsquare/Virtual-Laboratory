@@ -13,6 +13,8 @@ class VideoConsequence extends ConsequenceModel {
         super(ConsequenceType.VIDEO);
 
         this.video = video;
+
+        ko.rebind(this);
     }
 }
 

@@ -5,7 +5,6 @@ import BaseComputer = require('controller/view/computer/Base');
 import popupController = require('controller/Popup');
 import experimentController = require('controller/Experiment');
 
-import gameState = require('model/GameState');
 import TubeModel = require('model/Tube');
 import DNAElementModel = require('model/DNAElement');
 
@@ -30,9 +29,11 @@ class Sequencing extends BaseComputer {
         this.message = ko.observable('');
         this.item = null;
         this.consumeItem = _.noop;
+
+        ko.rebind(this);
     }
 
-    public handleDrop = (item, consumer) => {
+    handleDrop(item, consumer) {
 
         this.item = item;
         this.consumeItem = consumer;
@@ -45,7 +46,7 @@ class Sequencing extends BaseComputer {
         return false;
     }
 
-    public sendToSequencing = (tube: TubeModel) => {
+    sendToSequencing(tube: TubeModel) {
         if (!tube) return;
         // reset message and create new dna element
         var dna = null;
@@ -77,13 +78,19 @@ class Sequencing extends BaseComputer {
             return myeloma.antibodiesFor().length > 0;
         });
 
-        var antibodies = _.reduce(myelomasWithAntibodies, (acc, myeloma) => {
-            _.each(myeloma.antibodiesFor(), (antibodyString) => {
-                acc.push(antibodyString);
-            });
+        var antibodies = _(myelomasWithAntibodies)
+            .map(myeloma => myeloma.antibodiesFor())
+            .flatten()
+            .value();
 
-            return acc;
-        }, []);
+        // TODO: if antibodies above can be confirmed (test!) equal to below, remove!
+        // var antibodies = _.reduce(myelomasWithAntibodies, (acc, myeloma) => {
+        //     _.each(myeloma.antibodiesFor(), (antibodyString) => {
+        //         acc.push(antibodyString);
+        //     });
+
+        //     return acc;
+        // }, []);
 
         antibodies = _.unique(antibodies);
 
@@ -108,7 +115,7 @@ class Sequencing extends BaseComputer {
         experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_SEQUENCE, dna);
     }
 
-    public createDNAElement = (type) => {
+    createDNAElement(type) {
         var icon = 'assets/images/icon_dna_dummy.png';
         var name = '';
         var pscType = '';

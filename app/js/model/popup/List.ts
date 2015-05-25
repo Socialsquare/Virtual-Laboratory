@@ -1,7 +1,7 @@
+/* tslint:disable:align */
+
 import ko = require('knockout');
 import _ = require('lodash');
-
-import router = require('controller/Router');
 
 import PopupModel = require('model/Popup');
 

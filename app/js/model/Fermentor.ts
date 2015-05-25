@@ -7,7 +7,6 @@ import FermentorTankModel = require('model/FermentorTank');
 import ProducedEnzymeModel = require('model/ProducedEnzyme');
 
 import GrowerType = require('model/type/Grower');
-import LiquidType = require('model/type/Liquid');
 import LocationType = require('model/type/Location');
 
 class Fermentor {
@@ -64,9 +63,11 @@ class Fermentor {
         });
 
         this.initalizeData();
+
+        ko.rebind(this);
     }
 
-    public initalizeData = () => {
+    initalizeData() {
         var biomassData =_.map(_.range(0, 250), (i) => {
             return utils.math.getBiomassFromConcentration(this.fermentorTank.getTotalConcentration());
         });
@@ -84,11 +85,11 @@ class Fermentor {
         this.productData(productData);
     }
 
-    public activate = () => {
+    activate() {
         //TODO: config-file
     }
 
-    public resetContents = () => {
+    resetContents() {
         var dilutionFactor = this.fermentorTank.getTotalConcentration() / Math.pow(10,7);
         var clonedLiqs = this.fermentorTank.cloneLiquids();
         clonedLiqs = utils.biology.dilute(dilutionFactor, clonedLiqs);
@@ -102,7 +103,7 @@ class Fermentor {
         this.initalizeData();
     }
 
-    public storeGrowthStep = () => {
+    storeGrowthStep() {
         // Biomass
         var biomassData = this.biomassData();
         var first = biomassData.shift();
@@ -127,7 +128,7 @@ class Fermentor {
     }
 
     // Grows all containers one hour
-    public growOneHour = () => {
+    growOneHour() {
         // For-løkke med mindre steps
         // Magic number, but it corresponds to the amount of sugar an organism consumes per unit of growth.
         var sugarConsumption = 1.87;
@@ -168,7 +169,7 @@ class Fermentor {
         this.storeGrowthStep();
     }
 
-    public reset = () => {
+    reset() {
         this.fermentorTank.clearContents();
 
         this.temperature(30.0);

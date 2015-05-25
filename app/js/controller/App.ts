@@ -1,7 +1,6 @@
 import ko = require('knockout');
 import homescreen = require('homescreen');
 
-import popupController = require('controller/Popup');
 import tutorialController = require('controller/Tutorial');
 
 // view controllers
@@ -27,7 +26,6 @@ import WashingController = require('controller/view/Washing');
 import DesignDNAController = require('controller/view/computer/DesignDNA');
 import ContainerFactory = require('factory/Container');
 import LiquidFactory = require('factory/Liquid');
-import SpecialItemFactory = require('factory/SpecialItem');
 import MouseBloodType = require('model/type/MouseBlood');
 
 class App extends BaseViewController {
@@ -75,6 +73,15 @@ class App extends BaseViewController {
         this.router.currentRoute.subscribe((routeName) => {
             this.viewChange(routeName);
         });
+
+        // var l = ContainerFactory.tube()
+        //     .add(LiquidFactory.lysis());
+
+        this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.buffyCoat(MouseBloodType.DIABETIC)));
+        // this.gameState.inventory.add(l);
+        this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.mouseBlood(MouseBloodType.DIABETIC)));
+        this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.saltWater()));
+        this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.freeFloatingDNA(MouseBloodType.DIABETIC)));
 
         // bootstrap the app by going to loading view
         // TODO-release: switch to loading

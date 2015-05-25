@@ -1,5 +1,3 @@
-import ko = require(    'knockout');
-
 import gameState = require('model/GameState');
 
 import BaseViewController = require('controller/view/Base');

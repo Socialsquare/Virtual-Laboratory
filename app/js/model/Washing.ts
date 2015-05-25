@@ -20,9 +20,11 @@ class Washing {
 
         this.tubeRack = new TubeRackModel();
         this.tubeRack.location(LocationType.WASHING);
+
+        ko.rebind(this);
     }
 
-    public action = (concentration: number) => {
+    action(concentration: number) {
         var liquids = this.washingTank.liquids();
         var result = 0;
         var feedback = '';
@@ -52,7 +54,7 @@ class Washing {
         return { result: result, feedback: feedback };
     }
 
-    public reset = () => {
+    reset() {
         this.tubeRack.removeAll();
         this.washingTank.clearContents();
     }

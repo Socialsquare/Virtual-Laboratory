@@ -48,7 +48,6 @@ class ProducedEnzyme extends LiquidModel {
             break;
         default:
             throw 'Unknown type of enzyme: '+ pcsType;
-            break;
         }
 
         this.type(this.enzymeLiquidType);

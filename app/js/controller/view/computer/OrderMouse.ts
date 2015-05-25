@@ -3,15 +3,11 @@ import ko = require('knockout');
 import BaseComputer = require('controller/view/computer/Base');
 import experimentController = require('controller/Experiment');
 
-import gameState = require('model/GameState');
 import MouseModel = require('model/Mouse');
 
 import MouseType = require('model/type/Mouse');
 import MouseBloodType = require('model/type/MouseBlood');
-import ComputerScreenType = require('model/type/ComputerScreen');
 import ActivationType = require('model/type/Activation');
-
-import utils = require('utils/utils');
 
 class OrderMouse extends BaseComputer {
 
@@ -35,9 +31,11 @@ class OrderMouse extends BaseComputer {
         this.selectedMouse = ko.computed(() => {
             return this.availableMice()[this.selectedIndex()];
         });
+
+        ko.rebind(this);
     }
 
-    public orderMouse = () => {
+    orderMouse() {
         this.popupController
             .confirm('computer.screen.mouse_confirm.header', 'computer.screen.mouse_confirm.body')
             .then(() => {

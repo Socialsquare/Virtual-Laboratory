@@ -6,6 +6,8 @@ class WashingTank extends SimpleContainerModel {
 
     constructor() {
         super(ContainerType.WASHING_TANK, Math.pow(10, 13));
+
+        ko.rebind(this);
     }
 }
 

@@ -1,5 +1,4 @@
 import ko = require('knockout');
-import _ = require('lodash');
 
 class Well {
 

@@ -21,9 +21,11 @@ class Fumehood {
 
         this.tubeRack = new TubeRackModel();
         this.tubeRack.location(LocationType.FUMEHOOD);
+
+        ko.rebind(this);
     }
 
-    public reset = () => {
+    reset() {
         this.tableSpacePetri.removeAll();
         this.tableSpaceMicro.removeAll();
         this.tubeRack.removeAll();

@@ -1,15 +1,7 @@
 import ko = require('knockout');
-import _ = require('lodash');
-
-import popupController = require('controller/Popup');
 
 import SimpleContainerModel = require('model/SimpleContainer');
-import SyringeModel = require('model/Syringe');
-import gameState = require('model/GameState');
 
-import ContainerType = require('model/type/Container');
-
-import ImageHelper = require('utils/ImageHelper');
 import DragHelper = require('utils/DragHelper');
 
 class SimpleContainerController<T extends SimpleContainerModel> {

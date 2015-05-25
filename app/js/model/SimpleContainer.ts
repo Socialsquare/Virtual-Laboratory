@@ -1,3 +1,4 @@
+/* tslint:disable: align */
 import ko = require('knockout');
 import _ = require('lodash');
 
@@ -153,7 +154,7 @@ class SimpleContainer extends InventoryItem {
     getTotalConcentration() {
         return _.reduce(this.getMicroorganisms(), (sum, mo) => {
             return sum + mo.concentration();
-        }, 0)
+        }, 0);
     }
 
     isEmpty() {

@@ -13,6 +13,8 @@ class QuizConsequence extends ConsequenceModel {
         super(ConsequenceType.QUIZ);
 
         this.quiz = new QuizModel(quiz);
+
+        ko.rebind(this);
     }
 }
 

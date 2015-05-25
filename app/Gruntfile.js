@@ -78,8 +78,14 @@ module.exports = function (grunt) {
             }
         },
 
-        jshint: {
-            dist: [ 'Gruntfile.js', 'js/**/*.js', '!js/libs/**/*' ]
+        tslint: {
+            options: {
+                formatter: "prose",
+                configuration: grunt.file.readJSON("tslint.json")
+            },
+            files: {
+                src: [ '!Gruntfile.js', 'js/**/*.ts' ]
+            }
         },
 
         watch: {
@@ -204,6 +210,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-preprocess');
     grunt.loadNpmTasks("grunt-ts");
+    grunt.loadNpmTasks('grunt-tslint');
 
     // TODO: enable jshint when smellz is cleaned
     grunt.registerTask('build', [ 'clean:dist', 'copy:dist', 'ts:dist', 'assets', 'sass:dist', 'preprocess:dist' ]);

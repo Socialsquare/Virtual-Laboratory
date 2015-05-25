@@ -192,8 +192,8 @@ class Experiment {
         if (trigger.activation === ActivationType.HEATER) {
             var heater = <HeaterModel>item;
             var compacted = _.compact(heater.containers());
-            var valid = _.any(compacted, _.partial(this.matchLiquids, trigger));
-            if (!valid) return;
+            var validHeater = _.any(compacted, _.partial(this.matchLiquids, trigger));
+            if (!validHeater) return;
         }
 
         if (trigger.activation === ActivationType.WASHING) {
@@ -206,7 +206,7 @@ class Experiment {
             var unioned = _.union(incubator.tableSpacePetri.containers(), incubator.tubeRack.containers());
             var containers = _.compact(unioned);
 
-            var valid = _.all(trigger.containers, (triggerContainer) => {
+            var validIncubator = _.all(trigger.containers, (triggerContainer) => {
                 return _.any(containers, (incubatorContainer) => {
                     return this.match(triggerContainer.type, incubatorContainer.type())
                         && this.match(triggerContainer.containerSubtype, incubatorContainer.subtype())
@@ -214,7 +214,7 @@ class Experiment {
                 });
             });
 
-            if (!valid) return;
+            if (!validIncubator) return;
         }
 
         if (trigger.activation === ActivationType.COMPUTER_ORDER_DRUG) {

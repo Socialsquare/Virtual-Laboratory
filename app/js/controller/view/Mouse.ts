@@ -1,8 +1,6 @@
 import ko = require('knockout');
-import $ = require('jquery');
 import _ = require('lodash');
 
-import utils = require('utils/utils');
 import DataHelper = require('utils/DataHelper');
 import DropOnMouseHelper = require('utils/mouse/DropOnMouseHelper');
 
@@ -10,21 +8,19 @@ import BaseViewController = require('controller/view/Base');
 import VideoController = require('controller/Video');
 
 import MouseModel = require('model/Mouse');
-import SpleenModel = require('model/Spleen');
 import BottleModel = require('model/Bottle');
 
-import ContainerType = require('model/type/Container');
-import LiquidType = require('model/type/Liquid');
 import MouseType = require('model/type/Mouse');
 import MouseBloodType = require('model/type/MouseBlood');
-import SpecialItemType = require('model/type/SpecialItem');
 
 import ContainerFactory = require( 'factory/Container');
 import LiquidFactory = require('factory/Liquid');
 
+type DataPoint = [number, number];
+
 type PlotData = {
-    bloodData: number[][],
-    heartRateData: number[][]
+    bloodData: DataPoint[],
+    heartRateData: DataPoint[]
 }
 
 class MouseController extends BaseViewController {
@@ -119,11 +115,11 @@ class MouseController extends BaseViewController {
     }
 
     updatePlotData() {
-        var bloodData = _.map(_.range(0, 250), (i) => {
+        var bloodData = _.map(_.range(0, 250), (i): [number, number] => {
             return [i, this.mouse().bloodData()[i]];
         });
 
-        var heartRateData = _.map(_.range(0,250), (i) => {
+        var heartRateData = _.map(_.range(0,250), (i): [number, number] => {
 
             if (!this.mouse().alive())
                 return [i, 0];

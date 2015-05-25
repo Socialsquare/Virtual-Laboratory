@@ -1,3 +1,4 @@
+/* tslint:disable: align */
 import ko = require('knockout');
 import _ = require('lodash');
 

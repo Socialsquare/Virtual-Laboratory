@@ -1,12 +1,9 @@
 import ko = require('knockout');
-import _ = require('lodash');
 
 import experimentController = require('controller/Experiment');
 
 import TubeRackModel = require('model/TubeRack');
 import PetriSpaceModel = require('model/PetriSpace');
-import MicroSpaceModel = require('model/MicroSpace');
-import ContainerType = require('model/type/Container');
 import GrowerType = require('model/type/Grower');
 import LocationType = require('model/type/Location');
 import ActivationType = require('model/type/Activation');

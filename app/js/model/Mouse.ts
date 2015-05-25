@@ -152,7 +152,7 @@ class Mouse {
     public storeBloodStep = () => {
 
         var bloodData = this.bloodData();
-        var first = bloodData.shift();
+        bloodData.shift();
 
         bloodData.push(this.blodSukker());
         this.bloodData(bloodData);
@@ -195,15 +195,15 @@ class Mouse {
 
         //4.1 - hvis brugeren har givet musen insulin, foroeg 'insulin-produktion'
         if(this.insulinDose() > 0) {
-            var magic = Math.min(this.insulinDose()/3 , 0.6);
-            this.insulinProduktion(this.insulinProduktion() + magic*2);
-            this.insulinDose(this.insulinDose() - magic);
+            var insulinMagic = Math.min(this.insulinDose()/3 , 0.6);
+            this.insulinProduktion(this.insulinProduktion() + insulinMagic * 2);
+            this.insulinDose(this.insulinDose() - insulinMagic);
         }
 
         if(this.juiceDose() > 0) {
-            var magic = Math.min(this.juiceDose()/3, 0.3);
-            this.maveSukker(this.maveSukker() + magic*2);
-            this.juiceDose(this.juiceDose() - magic);
+            var juiceMagic = Math.min(this.juiceDose()/3, 0.3);
+            this.maveSukker(this.maveSukker() + juiceMagic * 2);
+            this.juiceDose(this.juiceDose() - juiceMagic);
         }
 
         //5. fjern blodsukker ved at forbruge insulin.

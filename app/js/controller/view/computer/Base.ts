@@ -2,7 +2,6 @@ import ko = require('knockout');
 
 import BaseViewController = require('controller/view/Base');
 
-import ActivationType = require('model/type/Activation');
 import ComputerScreenType = require('model/type/ComputerScreen');
 
 class BaseComputer extends BaseViewController {

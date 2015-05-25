@@ -3,7 +3,6 @@ import ko = require('knockout');
 import TubeRackModel = require('model/TubeRack');
 import PetriSpaceModel = require('model/PetriSpace');
 import MicroSpaceModel = require('model/MicroSpace');
-import ContainerTypeModel = require('model/type/Container');
 import HeaterModel = require('model/Heater');
 import ElectroporatorModel = require('model/Electroporator');
 

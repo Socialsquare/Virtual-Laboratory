@@ -1,5 +1,4 @@
 import _ = require('lodash');
-import $ = require('jquery');
 
 import DNAElement = require('model/DNAElement');
 import DNAData = require('json!datadir/dna.json');

@@ -1,5 +1,3 @@
-import ko = require('knockout');
-
 import Tube = require('model/Tube');
 import Petridish = require('model/Petridish');
 import Microtiterplate = require('model/Microtiterplate');

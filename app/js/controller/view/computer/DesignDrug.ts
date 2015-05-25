@@ -16,9 +16,6 @@ import SidegroupModel = require('model/Sidegroup');
 import SidegroupSlotModel = require('model/SidegroupSlot');
 import ScaffoldModel = require('model/Scaffold');
 
-import utils = require('utils/utils');
-
-
 class DesignDrug extends BaseComputer {
 
     public sidegroups: SidegroupModel[];
@@ -30,23 +27,25 @@ class DesignDrug extends BaseComputer {
         this.sidegroups = drugService.sidegroups;
 
         this.selectedScaffold = ko.observable(this.getEmptyScaffold());
+
+        ko.rebind(this);
     }
 
-    public getEmptyScaffold = () => {
+    getEmptyScaffold() {
         return drugService.getScaffold("1");
     }
 
 
-    public showSidegroupInfo = (sidegroup: SidegroupModel) => {
+    showSidegroupInfo(sidegroup: SidegroupModel) {
         var popupInfo = {pKa: sidegroup.info.pKa, weight: sidegroup.info.weight};
         popupController.kvInfo(popupInfo);
     }
 
-    public handleDrop = (slot: SidegroupSlotModel, group: SidegroupModel) => {
+    handleDrop(slot: SidegroupSlotModel, group: SidegroupModel) {
         slot.sidegroup(group);
     }
 
-    public slotDraggingHelper = (slot: SidegroupSlotModel) => {
+    slotDraggingHelper(slot: SidegroupSlotModel) {
         var dragger = $('<div>');
 
         $.get(slot.sidegroup().file(), (data) => {
@@ -58,18 +57,18 @@ class DesignDrug extends BaseComputer {
         return dragger;
     }
 
-    public getInfo = () => {
+    getInfo() {
         drugService.getDrugInfo(this.selectedScaffold().configurationString())
             .then((info) => {
                 popupController.kvInfo(info);
             });
     }
 
-    public getHelp = () => {
+    getHelp() {
         popupController.message('computer.screen.drug_design.help.header', 'computer.screen.drug_design.help.body');
     }
 
-    public order = () => {
+    order() {
         if (_.contains(this.selectedScaffold().configurationString(), 'R')) {
             popupController.message('computer.screen.drug_design.cant_order.header', 'computer.screen.drug_design.cant_order.body');
             return;

@@ -1,6 +1,5 @@
 import ko = require('knockout');
 
-import ContainerType = require('model/type/Container');
 import LocationType = require('model/type/Location');
 
 import TubeRackModel = require('model/TubeRack');

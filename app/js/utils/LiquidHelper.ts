@@ -5,7 +5,6 @@ import MicroorganismModel = require('model/Microorganism');
 import HomogenizedSpleenModel = require('model/HomogenizedSpleen');
 import GeneModel = require('model/Gene');
 import MyelomaModel = require('model/Myeloma');
-import ScaffoldModel = require('model/Scaffold');
 
 import LiquidType = require('model/type/Liquid');
 import MicroorganismType = require('model/type/Microorganism');

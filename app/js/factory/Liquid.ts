@@ -1,5 +1,3 @@
-import ko = require('knockout');
-
 import Liquid = require('model/Liquid');
 import ReactionCount = require('model/ReactionCount');
 import Microorganism = require('model/Microorganism');

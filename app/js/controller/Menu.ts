@@ -13,7 +13,6 @@ import BaseViewController = require('controller/view/Base');
 import TipModel = require('model/Tip');
 import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
-import QuizModel = require('model/Quiz');
 
 import ImageHelper = require('utils/ImageHelper');
 import TextHelper = require('utils/TextHelper');

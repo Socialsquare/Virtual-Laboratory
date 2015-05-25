@@ -7,7 +7,6 @@ import SpecialItemType = require('model/type/SpecialItem');
 import LiquidType = require('model/type/Liquid');
 import MouseBloodType = require('model/type/MouseBlood');
 
-import LiquidModel = require('model/Liquid');
 import SimpleContainerModel = require('model/SimpleContainer');
 
 class TextHelper {

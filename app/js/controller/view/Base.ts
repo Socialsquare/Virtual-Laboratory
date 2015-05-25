@@ -1,3 +1,5 @@
+/* tslint:disable:no-empty */
+
 import ko = require('knockout');
 
 import gameState = require('model/GameState');

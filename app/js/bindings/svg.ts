@@ -1,7 +1,5 @@
 import $ = require('jquery');
 import ko = require('knockout');
-import _ = require('lodash');
-
 
 ko.bindingHandlers.scaffold = {
     update: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
@@ -9,15 +7,12 @@ ko.bindingHandlers.scaffold = {
         var path = scaffold.file();
         var offset = scaffold.offset;
 
-        $.get(path, function (data) {
+        $.get(path, (data) => {
             var svgNode = $("svg", data);
 	        var docNode = document.adoptNode(svgNode[0]);
-
             var origin = $(docNode).find('text[fill="rgb(255,0,0)"]')
                 .hide()
-                .filter(function (idx, node) {
-                    return $(node).text() === '1';
-                })
+                .filter((idx, node) => $(node).text() === '1')
                 .first();
 
             $(element)
@@ -33,6 +28,7 @@ ko.bindingHandlers.scaffold = {
 ko.bindingHandlers.svg = {
     update: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
         var path = ko.unwrap(valueAccessor());
+
         $.get(path, function (data) {
             var svgNode = $("svg", data);
 	        var docNode = document.adoptNode(svgNode[0]);

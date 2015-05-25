@@ -7,6 +7,8 @@ class Scalpel extends SpecialItemModel {
 
     constructor() {
         super(SpecialItemType.SCALPEL);
+
+        ko.rebind(this);
     }
 }
 

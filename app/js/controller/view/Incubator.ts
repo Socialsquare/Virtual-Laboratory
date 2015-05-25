@@ -1,4 +1,3 @@
-import ko = require(    'knockout');
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
 

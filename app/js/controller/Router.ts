@@ -1,4 +1,3 @@
-import $ = require('jquery');
 import ko = require('knockout');
 
 class Router {
