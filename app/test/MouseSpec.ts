@@ -43,4 +43,26 @@ describe('Mouse', () => {
             expect(tube.contains(LiquidType.MOUSE_BLOOD)).toBeTruthy();
         });
     });
+
+    describe('Injections', () => {
+        it('should not allow random injections', () => {
+
+            var syringe = ContainerFactory.syringe();
+
+            syringe.add(LiquidFactory.gfp());
+
+            expect(DropOnMouseHelper.handleDrop(mc, syringe)).toBeFalsy();
+
+            syringe.clearContents();
+            syringe.addAll([LiquidFactory.adjuvans(), LiquidFactory.antigenSmallpox()]);
+
+            expect(DropOnMouseHelper.handleDrop(mc, syringe)).toBeTruthy();
+
+            syringe.clearContents();
+            syringe.add(LiquidFactory.deadly());
+
+            expect(DropOnMouseHelper.handleDrop(mc, syringe)).toBeTruthy();
+
+        });
+    });
 });

@@ -61,14 +61,20 @@ class MouseController extends BaseViewController {
             if (blodSukker < 1.5 && !this.lowBloodSugarWarningToggle()) {
                 this.lowBloodSugarWarningToggle(true);
                 this.popupController.message('mouse.warning_insulin.header', 'mouse.warning_insulin.body');
-            } else if (blodSukker > this.mouse().maxBlodSukker() * 0.8
-                       && !this.highBloodSugarWarningToggle() && this.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
+            }
+
+            else if (blodSukker > this.mouse().maxBlodSukker() * 0.8
+                     && !this.highBloodSugarWarningToggle()
+                     && this.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
 
                 this.highBloodSugarWarningToggle(true);
                 this.popupController.message('mouse.warning_diabetes_risk.header', 'mouse.warning_diabetes_risk.body');
 
-            } else if (blodSukker >= this.mouse().maxBlodSukker()
-                       && !this.diabetesDevelopedToggle() && this.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
+            }
+
+            else if (blodSukker >= this.mouse().maxBlodSukker()
+                     && !this.diabetesDevelopedToggle()
+                     && this.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
 
                 this.diabetesDevelopedToggle(true);
                 this.popupController.message('mouse.warning_diabetes.header', 'mouse.warning_diabetes.body');

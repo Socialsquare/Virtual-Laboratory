@@ -139,6 +139,8 @@ class SyringeHandler {
               experimentController.triggerMouse(MC.mouse(), syringe);
               });*/
         }
+
+        return true;
     }
 };
 

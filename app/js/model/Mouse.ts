@@ -5,6 +5,7 @@ import MouseBloodType = require('model/type/MouseBlood');
 import MouseType = require('model/type/Mouse');
 import LiquidType = require('model/type/Liquid');
 
+import SyringeModel = require('model/Syringe');
 import SpleenModel = require('model/Spleen');
 import heartRateData = require('json!datadir/heartRate.json');
 
@@ -104,33 +105,21 @@ class Mouse {
     // END: Initializing stuff for the bloodsugar simulation
 
 
-    // Used for determining whether the contents in the syringe is allowed to inject into the mouse GENERALLY.
-    // This does NOT take MouseType into consideration.
-    public areContentsAllowed = (syringe) => {
-        //TODO: allowed contents of the syringe. It shouldn't be allowed to inject random shit.
-        var allowedInjections = [[LiquidType.DEADLY], [LiquidType.INSULIN], [LiquidType.DESIGNED_DRUG],
-                                 [LiquidType.ADJUVANS, LiquidType.ANTIGEN_SMALLPOX], [LiquidType.ADJUVANS, LiquidType.ANTIGEN_GOUT],
-                                 [LiquidType.ANTIBODY_GOUT], [LiquidType.ANTIBODY_SMALLPOX]
-                                ];
+    // Used for determining whether the contents in the syringe is
+    // allowed to inject into the mouse GENERALLY. This does NOT take
+    // MouseType into consideration.
+    public areContentsAllowed = (syringe: SyringeModel) => {
+        var allowedInjections = [
+            [LiquidType.DEADLY],
+            [LiquidType.INSULIN],
+            [LiquidType.DESIGNED_DRUG],
+            [LiquidType.ADJUVANS, LiquidType.ANTIGEN_SMALLPOX],
+            [LiquidType.ADJUVANS, LiquidType.ANTIGEN_GOUT],
+            [LiquidType.ANTIBODY_GOUT],
+            [LiquidType.ANTIBODY_SMALLPOX]
+        ];
 
-        var inputsLength = syringe.liquids().length;
-
-        for(var i = 0; i < allowedInjections.length; i++) {
-            var allowedInjection = allowedInjections[i];
-            var allowedLength = allowedInjection.length;
-
-            if (inputsLength !== allowedLength)
-                continue;
-
-            var containsOnlyAllowed = _.every(allowedInjection, function(allowedLiquidType) {
-                return syringe.contains(allowedLiquidType);
-            });
-
-            if (containsOnlyAllowed)
-                return true;
-        }
-
-        return false;
+        return _.some(allowedInjections, syringe.containsAllStrict);
     }
 
     public cureDesignedDrug = () => {

@@ -141,6 +141,15 @@ class SimpleContainer extends InventoryItem {
         });
     }
 
+    containsAllStrict(liquidTypes: LiquidType[]) {
+        if (this.liquids().length != liquidTypes.length)
+            return false;
+
+        var containedTypes = _.map(this.liquids(), l => l.type());
+
+        return _(containedTypes).difference(liquidTypes).isEmpty();
+    }
+
     getTotalConcentration() {
         return _.reduce(this.getMicroorganisms(), (sum, mo) => {
             return sum + mo.concentration();
