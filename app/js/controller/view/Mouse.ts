@@ -149,7 +149,8 @@ class MouseController extends BaseViewController {
 
             this.videoController.play('fast-die-insulin', false).then(() => {
                 this.mouse().alive(false);
-                this.popupController.message('mouse.died_insulin.header', 'mouse.died_insulin.body');
+                this.mouseDrinking(false);
+                this.popupController.message('mouse.died_glucose.header', 'mouse.died_glucose.body');
             });
         }
 

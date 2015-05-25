@@ -49,7 +49,7 @@ class Mouse {
         this.mouseType = ko.observable(mouseType);
         this.heartRateData = heartRateData.xVals;
         this.heartRateIndex = 0;
-        this.description = ko.computed(() => {
+        this.description = ko.pureComputed(() => {
             switch (this.mouseType()) {
             case MouseType.GOUT:
                 return 'mouse.description.gout';
@@ -91,7 +91,7 @@ class Mouse {
         this.juiceDose = ko.observable(0);
         this.insulinDose = ko.observable(0);
 
-        this.mouseBloodType.subscribe(function(bloodType){
+        this.mouseBloodType.subscribe((bloodType) => {
             this.updateBloodType();
         });
 
@@ -232,7 +232,6 @@ class Mouse {
 
     public clone = () => {
         var clone = new Mouse(this.mouseType(), this.mouseBloodType());
-
 
         clone.alive(this.alive());
         clone.isCut(this.isCut());

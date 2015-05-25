@@ -58,6 +58,8 @@
         "mouse.cured_smallpox.body": "Du har kureret musen for Ebola.",
         "mouse.died.header": "Musen er død",
         "mouse.died.body": "Du har slået musen ihjel.",
+        "mouse.died_glucose.header": "Musen er død",
+        "mouse.died_glucose.body": "Du har slået musen ihjel ved at give den for meget glucose.",
         "mouse.died_insulin.header": "Musen er død",
         "mouse.died_insulin.body": "Du har slået musen ihjel ved at give den for meget insulin.",
         "mouse.warning_insulin.header": "Pas på!",
