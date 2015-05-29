@@ -23,19 +23,19 @@ class TubeHandler {
         }
 
         if (!tube.contains(LiquidType.DESIGNED_DRUG)) {
-            popupController.message('mouse.no_drug.header', -'mouse.no_drug.header');
+            popupController.message('mouse.no_drug.header', 'mouse.no_drug.header');
             return false;
         }
 
         // Are the contents allowed?
         if (!MC.mouse().areContentsAllowed(tube)) {
-            popupController.message('mouse.tube_not_allowed.header','mouse.tube_not_allowed.body');
+            popupController.message('mouse.tube_not_allowed.header', 'mouse.tube_not_allowed.body');
             return false;
         }
 
         // May only contain ONE designed drug
         if (! (tube.liquids().length === 1 && tube.contains(LiquidType.DESIGNED_DRUG) )) {
-            popupController.message('mouse.tube_not_allowed.header','mouse.tube_not_allowed.body');
+            popupController.message('mouse.tube_not_allowed.header', 'mouse.tube_not_allowed.body');
             return false;
         }
 
@@ -57,7 +57,7 @@ class TubeHandler {
                 .then((selectedObject) => {
                     var administrationForm = selectedObject.value;
 
-                    switch(administrationForm) {
+                    switch (administrationForm) {
 
                     case AdministrationType.INJECTION_BODY:
                         console.log('TODO: not really a TODO - injection-body');
@@ -68,7 +68,7 @@ class TubeHandler {
                             popupController.video(values.videos, true)
                                 .done(() => {
 
-                                    if(values.reachedTarget) {
+                                    if (values.reachedTarget) {
                                         popupController.message('mouse.drug_cured.header', 'mouse.drug_cured.body');
                                         MC.experimentController.triggerMouse(MC.mouse(), tube);
                                         MC.mouse().cureDesignedDrug();
@@ -90,7 +90,7 @@ class TubeHandler {
                             popupController.video(values.videos, true)
                                 .done(() => {
 
-                                    if(values.reachedTarget) {
+                                    if (values.reachedTarget) {
                                         popupController.message('mouse.drug_cured.header', 'mouse.drug_cured.body');
                                         MC.experimentController.triggerMouse(MC.mouse(), tube);
                                         MC.mouse().cureDesignedDrug();

@@ -8,7 +8,7 @@ class SpecialItem extends InventoryItem {
     public type: KnockoutObservable<LiquidType>;
 
     constructor(type) {
-        super("special");
+        super('special');
 
         this.type = ko.observable(type);
     }

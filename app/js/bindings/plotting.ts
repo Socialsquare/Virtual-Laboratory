@@ -14,8 +14,8 @@ ko.bindingHandlers.plotFermentor = {
         $.plot(
             $(element),
             [
-                { data: biomassData, label: 'Biomasse', yaxis:1 },
-                { data: substrateData, label: 'Substrat', yaxis:1 },
+                { data: biomassData, label: 'Biomasse', yaxis: 1 },
+                { data: substrateData, label: 'Substrat', yaxis: 1 },
                 { data: productData, label: 'Produkt', yaxis: 2 }
             ],
             {
@@ -41,8 +41,8 @@ ko.bindingHandlers.plotDrugAffinitySmall = {
             $(element),
             [{ data: affinityData }],
             {
-                xaxis: { min:-9, max: -3, show: false },
-                yaxis: { min: 0, max: 100, show: false }
+                xaxis: { min: -9, max: -3,  show: false },
+                yaxis: { min:  0, max: 100, show: false }
             });
     }
 };
@@ -60,8 +60,8 @@ ko.bindingHandlers.plotDrugAffinity = {
             $(element),
             [{ data: affinityData }],
             {
-                xaxis: { min:-9, max: -3 },
-                yaxis: { min: 0, max: 100 }
+                xaxis: { min: -9, max: -3 },
+                yaxis: { min:  0, max: 100 }
             });
     }
 };

@@ -22,13 +22,13 @@ class SyringeHandler {
 
         // Drawing blood
         else if (syringe.isEmpty()) {
-            popupController.confirm("mouse.ask_draw_blood.header", "mouse.ask_draw_blood.body")
+            popupController.confirm('mouse.ask_draw_blood.header', 'mouse.ask_draw_blood.body')
                 .then(() => MC.videoController.play('fast-injection'))
                 .then(() => {
                     // consume the syringe
                     gameState.inventory.remove(syringe);
 
-                    popupController.message('mouse.blood_drawn.header','mouse.blood_drawn.body');
+                    popupController.message('mouse.blood_drawn.header', 'mouse.blood_drawn.body');
 
                     var blood = LiquidFactory.mouseBlood(MC.mouse().mouseBloodType());
                     var tube = ContainerFactory.tube().add(blood);
@@ -41,7 +41,7 @@ class SyringeHandler {
 
         // Disallowed contents
         else if (!MC.mouse().areContentsAllowed(syringe)) {
-            popupController.message('mouse.syringe_not_allowed.header','mouse.syringe_not_allowed.body');
+            popupController.message('mouse.syringe_not_allowed.header', 'mouse.syringe_not_allowed.body');
             return false;
         }
 
@@ -86,12 +86,12 @@ class SyringeHandler {
             MC.injectionFromState().done(() => {
                 if (syringe.contains(LiquidType.ANTIGEN_GOUT)) {
                     MC.mouse().vaccinate(LiquidType.ANTIGEN_GOUT);
-                    popupController.message('mouse.vaccinated_gout.header','mouse.vaccinated_gout.body');
+                    popupController.message('mouse.vaccinated_gout.header', 'mouse.vaccinated_gout.body');
                 }
 
                 if (syringe.contains(LiquidType.ANTIGEN_SMALLPOX)) {
                     MC.mouse().vaccinate(LiquidType.ANTIGEN_SMALLPOX);
-                    popupController.message('mouse.vaccinated_smallpox.header','mouse.vaccinated_smallpox.body');
+                    popupController.message('mouse.vaccinated_smallpox.header', 'mouse.vaccinated_smallpox.body');
                 }
 
                 experimentController.triggerMouse(MC.mouse(), syringe);
@@ -107,7 +107,7 @@ class SyringeHandler {
                     experimentController.triggerMouse(MC.mouse(), syringe);
 
                     MC.mouse().cure(LiquidType.ANTIBODY_SMALLPOX);
-                    popupController.message('mouse.cured_smallpox.header','mouse.cured_smallpox.body');
+                    popupController.message('mouse.cured_smallpox.header', 'mouse.cured_smallpox.body');
 
                     MC.runFromState();
                     MC.mouse().isInteracting(false);
@@ -121,7 +121,7 @@ class SyringeHandler {
                     experimentController.triggerMouse(MC.mouse(), syringe);
 
                     MC.mouse().cure(LiquidType.ANTIBODY_GOUT);
-                    popupController.message('mouse.cured_gout.header','mouse.cured_gout.body');
+                    popupController.message('mouse.cured_gout.header', 'mouse.cured_gout.body');
                     MC.runFromState();
                     MC.mouse().isInteracting(false);
                 });

@@ -8,14 +8,16 @@ class Well {
     constructor() {
         this.hasAntibody = ko.observable(false);
         this.hasFluorescentSecondaryAntibody = ko.observable(false);
+
+        ko.rebind(this);
     }
 
-    public reset = () => {
+    reset() {
         this.hasAntibody(false);
         this.hasFluorescentSecondaryAntibody(false);
     }
 
-    public clone = () => {
+    clone() {
         var clone = new Well();
         clone.hasAntibody(this.hasAntibody());
         clone.hasFluorescentSecondaryAntibody(this.hasFluorescentSecondaryAntibody());

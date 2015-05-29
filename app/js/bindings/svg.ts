@@ -8,7 +8,7 @@ ko.bindingHandlers.scaffold = {
         var offset = scaffold.offset;
 
         $.get(path, (data) => {
-            var svgNode = $("svg", data);
+            var svgNode = $('svg', data);
 	        var docNode = document.adoptNode(svgNode[0]);
             var origin = $(docNode).find('text[fill="rgb(255,0,0)"]')
                 .hide()
@@ -30,7 +30,7 @@ ko.bindingHandlers.svg = {
         var path = ko.unwrap(valueAccessor());
 
         $.get(path, function (data) {
-            var svgNode = $("svg", data);
+            var svgNode = $('svg', data);
 	        var docNode = document.adoptNode(svgNode[0]);
             $(element).html(<any>docNode);
         });

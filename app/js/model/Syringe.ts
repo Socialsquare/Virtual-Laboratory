@@ -10,7 +10,7 @@ import SimpleContainerModel = require('model/SimpleContainer');
 class Syringe extends SimpleContainerModel {
 
     constructor() {
-        super(ContainerType.SYRINGE, Math.pow(10,13));
+        super(ContainerType.SYRINGE, Math.pow(10, 13));
 
         ko.rebind(this);
     }
@@ -24,7 +24,7 @@ class Syringe extends SimpleContainerModel {
         this.addAll(modified_liqs);
 
         // 2nd modify the container
-        modified_liqs = utils.biology.dilute(50/49, container.liquids());
+        modified_liqs = utils.biology.dilute(50 / 49, container.liquids());
         container.clearContents();
         container.addAll(modified_liqs);
     }

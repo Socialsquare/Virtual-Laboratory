@@ -21,7 +21,6 @@ import MouseType = require('model/type/Mouse');
 import MouseBloodType = require('model/type/MouseBlood');
 import ComputerScreenType = require('model/type/ComputerScreen');
 
-
 class GameState {
 
     public activeComputerScreen: KnockoutObservable<ComputerScreenType>;
@@ -66,9 +65,11 @@ class GameState {
         this.fermentor = new FermentorModel();
         this.uvroom = new UvRoomModel();
         this.washing = new WashingModel();
+
+        ko.rebind(this);
     }
 
-    public reset = () => {
+    reset() {
         this.activeComputerScreen(ComputerScreenType.MENU);
         this.sequencedDNA.removeAll();
         this.mouse(new MouseModel(MouseType.HEALTHY, MouseBloodType.NORMAL));

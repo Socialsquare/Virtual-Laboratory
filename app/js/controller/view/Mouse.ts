@@ -119,7 +119,7 @@ class MouseController extends BaseViewController {
             return [i, this.mouse().bloodData()[i]];
         });
 
-        var heartRateData = _.map(_.range(0,250), (i): [number, number] => {
+        var heartRateData = _.map(_.range(0, 250), (i): [number, number] => {
 
             if (!this.mouse().alive())
                 return [i, 0];

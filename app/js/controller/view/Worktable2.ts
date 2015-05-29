@@ -45,7 +45,7 @@ class Worktable2 extends BaseViewController {
             var homogenizedSpleen = this.liquidFactory.homoSpleen(antibodies);
 
             this.gameState.inventory.add(this.containerFactory.tube().add(homogenizedSpleen));
-            this.popupController.message('worktable2.spleen_blended.header','worktable2.spleen_blended.body');
+            this.popupController.message('worktable2.spleen_blended.header', 'worktable2.spleen_blended.body');
         }
 
         this.worktable2.blender.status(false);

@@ -11,7 +11,7 @@ import SimpleContainerModel = require('model/SimpleContainer');
 
 class TextHelper {
 
-    static description = (item) => {
+    static description(item) {
         switch (item.type()) {
         case SpecialItemType.SCALPEL:
             return 'item.description.scalpel';
@@ -40,7 +40,7 @@ class TextHelper {
         return i18n.text(TextHelper.prettyNameFromType(type));
     }
 
-    static label = (container: SimpleContainerModel) => {
+    static label(container: SimpleContainerModel) {
         var subtyped = [ LiquidType.MOUSE_BLOOD, LiquidType.ANTIBIOTIC ];
 
         var contents = _.map(container.liquids(), (l) => {
@@ -50,17 +50,17 @@ class TextHelper {
                 return type + ' (' + subtype + ')';
             }
 
-            return i18n.text(TextHelper.prettyName(l))
+            return i18n.text(TextHelper.prettyName(l));
         });
 
         return i18n.text('common.contains') + ': ' + contents.join(' & ');
     }
 
-    static prettyName = (item) => {
+    static prettyName(item) {
         return TextHelper.prettyNameFromType(item.type());
     }
 
-    static prettyNameFromType = (type: ContainerType | SpecialItemType | LiquidType | MouseBloodType) => {
+    static prettyNameFromType(type: ContainerType | SpecialItemType | LiquidType | MouseBloodType) {
         switch (type) {
         case ContainerType.PETRI_DISH:
             return 'item.name.petri_dish';

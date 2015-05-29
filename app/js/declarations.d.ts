@@ -3,7 +3,7 @@
  */
 
 // The add to homescreen button
-declare module "homescreen" {
+declare module 'homescreen' {
     var fn: () => void;
     export = fn;
 }
@@ -15,5 +15,5 @@ interface JQueryStatic {
 
 // iOS has a `standalone` property on window.navigator
 interface Navigator {
-  standalone: boolean
+    standalone: boolean;
 }

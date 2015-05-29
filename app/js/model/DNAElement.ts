@@ -39,7 +39,7 @@ class DNAElement extends LiquidModel {
     }
 
     hashCode() {
-        return this._hashCode() + ":" + this.name() + ":" + this.DNAType();
+        return this._hashCode() + ':' + this.name() + ':' + this.DNAType();
     }
 
     clone() {

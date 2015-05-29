@@ -18,7 +18,7 @@ class HomogenizedSpleen extends LiquidModel {
     }
 
     hashCode() {
-        return this._hashCode() + ":" + this.antibodiesFor().join(',');
+        return this._hashCode() + ':' + this.antibodiesFor().join(',');
     }
 
     clone() {

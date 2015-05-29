@@ -100,6 +100,8 @@ class Mouse {
 
         var bloodData = _.map(_.range(0, 250), (i) => this.meanBlodSukker());
         this.bloodData(bloodData);
+
+        ko.rebind(this);
     }
 
     // END: Initializing stuff for the bloodsugar simulation
@@ -108,7 +110,7 @@ class Mouse {
     // Used for determining whether the contents in the syringe is
     // allowed to inject into the mouse GENERALLY. This does NOT take
     // MouseType into consideration.
-    public areContentsAllowed = (syringe: SyringeModel) => {
+    areContentsAllowed(syringe: SyringeModel) {
         var allowedInjections = [
             [LiquidType.DEADLY],
             [LiquidType.INSULIN],
@@ -122,15 +124,15 @@ class Mouse {
         return _.some(allowedInjections, syringe.containsAllStrict);
     }
 
-    public cureDesignedDrug = () => {
+    cureDesignedDrug() {
         this.mouseType(MouseType.HEALTHY);
     }
 
-    public giveDrug = (designedDrug, administrationForm) => {
+    giveDrug(designedDrug, administrationForm) {
         return 'TODO:'; //TODO: implement
     }
 
-    public cure = (antibodyType) => {
+    cure(antibodyType) {
         var cured = (this.mouseType() === MouseType.GOUT && antibodyType === LiquidType.ANTIBODY_GOUT)
             || (this.mouseType() === MouseType.SMALLPOX && antibodyType === LiquidType.ANTIBODY_SMALLPOX);
 
@@ -139,7 +141,7 @@ class Mouse {
         return cured;
     }
 
-    public vaccinate = (antigenType: LiquidType) => {
+    vaccinate(antigenType: LiquidType) {
         if (antigenType === LiquidType.ANTIGEN_GOUT)
             this.spleen.antibodiesFor.push(LiquidType.ANTIBODY_GOUT);
         else
@@ -149,7 +151,7 @@ class Mouse {
     // END: Functions for exercise 3: Antibodies
 
     // BEGIN: Functions for the bloodsugar simulation
-    public storeBloodStep = () => {
+    storeBloodStep() {
 
         var bloodData = this.bloodData();
         bloodData.shift();
@@ -158,19 +160,19 @@ class Mouse {
         this.bloodData(bloodData);
     }
 
-    public hasLethalBloodSugar = () => {
+    hasLethalBloodSugar() {
         return this.blodSukker() < this.minBlodSukker() || this.blodSukker() >= this.killBlodSukker();
     }
 
-    public giveJuice = () => {
+    giveJuice() {
         this.juiceDose(this.juiceDose() + 3);
     }
 
-    public givInsulin = () => {
+    givInsulin() {
         this.insulinDose(this.insulinDose() + 35);
     }
 
-    public nextHeartStep = () =>{
+    nextHeartStep() {
         this.heartRateIndex += 1;
 
         if (this.heartRateIndex >= this.heartRateData.length) {
@@ -178,30 +180,31 @@ class Mouse {
         }
     }
 
-    public nextBloodStep = () => {
+    nextBloodStep() {
 
         //1. kontrolleres om musen er i live
-        if(!this.alive()) { return; }
+        if (!this.alive())
+            return;
 
         //3. udregnes sukkeroptag fra mave til blod
-        if(this.maveSukker() > 0.0001) {
+        if (this.maveSukker() > 0.0001) {
             var sukkerRatio = this.maveSukker() / this.blodSukker() * 0.2;
             this.maveSukker(this.maveSukker() - sukkerRatio);
             this.blodSukker(this.blodSukker() + sukkerRatio);
         }
 
         //4. hvis BlodSukker != MeanBlodSukker, foroeg/formindst insulin-niveauet afhaengigt af produktionen
-        this.insulinProduktion( (this.blodSukker() - this.meanBlodSukker()) * this.insulinProduktivitet() );
+        this.insulinProduktion((this.blodSukker() - this.meanBlodSukker()) * this.insulinProduktivitet());
 
         //4.1 - hvis brugeren har givet musen insulin, foroeg 'insulin-produktion'
-        if(this.insulinDose() > 0) {
-            var insulinMagic = Math.min(this.insulinDose()/3 , 0.6);
+        if (this.insulinDose() > 0) {
+            var insulinMagic = Math.min(this.insulinDose() / 3 , 0.6);
             this.insulinProduktion(this.insulinProduktion() + insulinMagic * 2);
             this.insulinDose(this.insulinDose() - insulinMagic);
         }
 
-        if(this.juiceDose() > 0) {
-            var juiceMagic = Math.min(this.juiceDose()/3, 0.3);
+        if (this.juiceDose() > 0) {
+            var juiceMagic = Math.min(this.juiceDose() / 3, 0.3);
             this.maveSukker(this.maveSukker() + juiceMagic * 2);
             this.juiceDose(this.juiceDose() - juiceMagic);
         }
@@ -213,24 +216,24 @@ class Mouse {
     }
     // END: Functions for the bloodsugar simulation
 
-    public updateBloodType = () => {
-        switch(this.mouseBloodType()) {
+    updateBloodType() {
+        switch (this.mouseBloodType()) {
         case MouseBloodType.NORMAL:
             this.meanBlodSukker(5);
-            this.insulinProduktivitet(1/4.0);
-            this.insulinEffektivitet(1/10.0);
+            this.insulinProduktivitet(1 / 4.0);
+            this.insulinEffektivitet(1 / 10.0);
             break;
         case MouseBloodType.DIABETIC:
             this.meanBlodSukker(8);
-            this.insulinProduktivitet(1/6.0);
-            this.insulinEffektivitet(1/15.0);
+            this.insulinProduktivitet(1 / 6.0);
+            this.insulinEffektivitet(1 / 15.0);
             break;
         default:
             throw 'Unknown mouseBloodType for the mouse';
         }
     }
 
-    public clone = () => {
+    clone() {
         var clone = new Mouse(this.mouseType(), this.mouseBloodType());
 
         clone.alive(this.alive());

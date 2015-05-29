@@ -19,7 +19,7 @@ class BuffyCoat extends LiquidModel {
     }
 
     hashCode() {
-        return this._hashCode() + ":" + this.bloodType();
+        return this._hashCode() + ':' + this.bloodType();
     }
 
     clone() {

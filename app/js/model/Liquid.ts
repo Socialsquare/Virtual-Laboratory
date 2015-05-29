@@ -10,7 +10,7 @@ class Liquid {
     public type: KnockoutObservable<LiquidType>;
     public reactionCount: KnockoutObservable<ReactionCount>;
     public hasReacted: KnockoutObservable<boolean>;
-    public isContaminating: KnockoutObservable<boolean>
+    public isContaminating: KnockoutObservable<boolean>;
 
     public subtype: KnockoutObservable<any>;
 
@@ -32,7 +32,9 @@ class Liquid {
 
         var reacted = false;
         _.forEach(container.liquids(), (liquid) => {
-            if (this == liquid) return;
+            if (this === liquid)
+                return;
+
             fn(liquid);
             reacted = true;
         });
@@ -45,7 +47,7 @@ class Liquid {
     }
 
     protected _hashCode() {
-        return this.type() + ":" + this.reactionCount() + ":" + this.hasReacted();
+        return this.type() + ':' + this.reactionCount() + ':' + this.hasReacted();
     }
 
     hashCode() {

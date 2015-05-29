@@ -23,6 +23,8 @@ type DragOptions = {
 ko.bindingHandlers.drag = {
     update: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
 
+        var options = <DragOptions>valueAccessor();
+
         var defaults = {
             dim: false,
             consume: _.noop,
@@ -38,7 +40,7 @@ ko.bindingHandlers.drag = {
             }
         };
 
-        var options = <DragOptions>_.defaults(valueAccessor(), defaults);
+        options = <DragOptions>_.defaults(valueAccessor(), defaults);
 
         $(element).draggable({
             containment: 'window',

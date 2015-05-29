@@ -15,7 +15,6 @@ import TubeModel = require('model/Tube');
 import LiquidType  = require('model/type/Liquid');
 import ActivationType = require('model/type/Activation');
 
-
 class FermentorScreen extends BaseViewController {
     //TODO: make and use a microorganism attribute "hasBeenInHighConcentration". Only organisms that fulfill this will grow in the fermentor
 
@@ -47,9 +46,11 @@ class FermentorScreen extends BaseViewController {
         this.fermentor = this.gameState.fermentor;
 
         this.updatePlotData();
+
+        ko.rebind(this);
     }
 
-    public activateFermentor = () => {
+    activateFermentor() {
         // User starts the run
         if (!this.turnedOn()) {
             if (this.fermentor.fermentorTank.hasRun()) {
@@ -58,7 +59,7 @@ class FermentorScreen extends BaseViewController {
                         this.fermentor.resetContents();
                         this.startFermentation();
                     });
-            }else {
+            } else {
                 this.startFermentation();
             }
 
@@ -72,13 +73,11 @@ class FermentorScreen extends BaseViewController {
         }
     }
 
-    public startFermentation = () => {
-        var totalConc = this.fermentor.fermentorTank.getTotalConcentration();
-        console.log('Started the fermentation with a totalConc of: ' + totalConc);
-        console.log('logconc: ' + utils.math.getBaseLog(10,totalConc));
-
+    startFermentation() {
         this.popupController.notify('fermentor.start.header', 'fermentor.start.body');
+
         var graphTimer = setInterval(this.nextTimeStep, 100);
+
         this.graphTimer(graphTimer);
         this.turnedOn(true);
         this.fermentor.fermentorTank.hasRun(true);
@@ -86,7 +85,7 @@ class FermentorScreen extends BaseViewController {
         this.experimentController.triggerActivation(ActivationType.FERMENTOR, this.fermentor);
     }
 
-    public endFermentation = () => {
+    endFermentation() {
         clearTimeout(this.graphTimer());
         this.turnedOn(false);
         this.graphTimer(null);
@@ -94,10 +93,9 @@ class FermentorScreen extends BaseViewController {
 
         var options = [];
 
-
         // Populate the list of possible products
         _.each(this.fermentor.products(), (producedEnzyme) => {
-            if(utils.math.getBiomassFromConcentration(producedEnzyme.amount) > 0.2){
+            if (utils.math.getBiomassFromConcentration(producedEnzyme.amount) > 0.2){
                 var enzymeLiquidType = producedEnzyme.enzymeLiquidType;
 
                 switch (enzymeLiquidType) {
@@ -129,8 +127,6 @@ class FermentorScreen extends BaseViewController {
                 .then((selectedObject) => {
                     var selectedLiquidType = selectedObject.value;
 
-                    console.log('Test #1: '+ selectedLiquidType);
-
                     var newLiquid = null;
 
                     switch (selectedLiquidType) {
@@ -157,14 +153,15 @@ class FermentorScreen extends BaseViewController {
                     }
 
                 });
-        }else {
+        } else {
             this.popupController.message('fermentor.failed.header', 'fermentor.failed.body');
         }
 
     }
 
-    public nextTimeStep = () => {
-        if(this.fermentor.timer() >= 60 || this.fermentor.substrate() <= 0) { //If reaches ran for 48 hours
+    nextTimeStep() {
+        // If reaches ran for 48 hours
+        if (this.fermentor.timer() >= 60 || this.fermentor.substrate() <= 0) {
             this.endFermentation();
             return;
         }
@@ -174,7 +171,7 @@ class FermentorScreen extends BaseViewController {
         this.updatePlotData();
     }
 
-    public exportData = () => {
+    exportData() {
         var raw = this.plotData();
         var headers = ['time', 'biomass', 'substrate', 'product'];
         var parsed = _(<any[]>raw.biomass)
@@ -187,15 +184,15 @@ class FermentorScreen extends BaseViewController {
         this.popupController.dataExport(DataHelper.toCSV(parsed, headers));
     }
 
-    public changeTemp = (val) => {
+    changeTemp(val: number) {
         this.fermentor.temperature(this.fermentor.temperature() + val);
     }
 
-    public changePh = (val) => {
+    changePh(val: number) {
         this.fermentor.ph(this.fermentor.ph() + val);
     }
 
-    public updatePlotData = () => {
+    updatePlotData() {
 
         var biomassData = _.map(_.range(0, 250), (i) => {
             return [i, this.fermentor.biomassData()[i]];

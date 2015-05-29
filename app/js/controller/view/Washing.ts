@@ -23,16 +23,18 @@ class Washing extends BaseViewController {
 
         this.tubeRackController = new CompositeContainerController(this.washing.tubeRack);
         this.tubeRackController.addDropGuard(this.smallPoxGuard);
+
+        ko.rebind(this);
     }
 
-    public activate = () => {
+    activate() {
         if (!this.washing.washingTank.isEmpty())
             this.popupController.message('washing.detergent_required.header', 'washing.detergent_required.body');
         else
             this.status.toggle();
     }
 
-    public reset = () => {
+    reset() {
         if (!this.result()) return;
 
         this.result(0);
@@ -40,7 +42,7 @@ class Washing extends BaseViewController {
         this.washing.washingTank.clearContents();
     }
 
-    public handleWashingDrop = (item) => {
+    handleWashingDrop(item) {
         if (this.status()) return false;
 
         if (item.isEmpty()) {

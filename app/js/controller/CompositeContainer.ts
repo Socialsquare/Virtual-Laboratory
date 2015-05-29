@@ -110,13 +110,15 @@ class CompositeContainerController {
         default:
             throw 'Unsupported container type: ' + compContainer.type();
         }
+
+        ko.rebind(this);
     }
 
-    public addDropGuard = (dropGuard) => {
+    addDropGuard(dropGuard) {
         this.dropGuards.push(dropGuard);
     }
 
-    public dropHandler = (position, container) => {
+    dropHandler(position, container) {
         if (this.dropGuards.length > 0) {
             // if ANY dropGuard says no-go, then return false
             if (_.any(this.dropGuards, (dropGuard) => !dropGuard(position, container)))
@@ -128,8 +130,8 @@ class CompositeContainerController {
         return true;
     }
 
-    public handleContainerDrop = (position: number, item) => {
-        switch(item.type()) {
+    handleContainerDrop(position: number, item) {
+        switch (item.type()) {
         case ContainerType.PIPETTE:
 
             if (!item.hasTip()) {
@@ -139,7 +141,7 @@ class CompositeContainerController {
 
                 // Check for contamination
                 if (!this.compContainer.get(position).isEmpty()
-                   && (item.getTip().contaminatedBy() == null || item.getTip().contaminatedBy() == this.compContainer.get(position))) {
+                   && (item.getTip().contaminatedBy() === null || item.getTip().contaminatedBy() === this.compContainer.get(position))) {
 
                     popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
                     item.fillPipette(this.compContainer.get(position));
@@ -178,7 +180,7 @@ class CompositeContainerController {
             return false;
 
         case SpecialItemType.BUFFER:
-            switch(this.compContainer.get(position).type()) {
+            switch (this.compContainer.get(position).type()) {
             case ContainerType.TUBE:
                 popupController.notify('buffer_tube.header', 'buffer_tube.body');
                 break;
@@ -209,7 +211,7 @@ class CompositeContainerController {
         }
     }
 
-    public goToCloseUp = (index: number, item) => {
+    goToCloseUp(index: number, item) {
         if (item.type() === ContainerType.MICROTITER)
             popupController.microtiterCloseUp(item);
         else

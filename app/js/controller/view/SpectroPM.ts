@@ -74,7 +74,7 @@ class SpectroPM extends BaseViewController {
 
     warnCanShowGraph() {
         if (!this.canShowGraph())
-            this.popupController.message('spectropm.no_useful.header','spectropm.no_useful.body');
+            this.popupController.message('spectropm.no_useful.header', 'spectropm.no_useful.body');
     }
 
     canShowGraph() {
@@ -96,7 +96,7 @@ class SpectroPM extends BaseViewController {
 
         return allDrugs.length === 1
             && allReceptors.length === 1
-            && liquids.length === 2
+            && liquids.length === 2;
     }
 }
 

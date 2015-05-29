@@ -12,11 +12,11 @@ class DropOnMouseHelper {
 
     static handleDrop(MC: MouseViewController, item) {
 
-        if(MC.mouse().isInteracting())
+        if (MC.mouse().isInteracting())
             return false;
 
         //TODO: decision tree based on 1st item, 2nd mouseType
-        switch(item.type()) {
+        switch (item.type()) {
         case ContainerType.BOTTLE:
             return BottleHandler.handle(MC, item);
 

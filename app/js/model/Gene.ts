@@ -24,7 +24,7 @@ class Gene extends LiquidModel {
     getPromoterPositions() {
         var positions: number[] = [];
         _.each(this.dnaElements(), (dna, index) => {
-            if(dna.DNAType() === DNAType.PROMOTER) { // dna.DNAType() _IS_ correct, as it is an observable. But when testing this might not be if not created through the computer-view
+            if (dna.DNAType() === DNAType.PROMOTER) { // dna.DNAType() _IS_ correct, as it is an observable. But when testing this might not be if not created through the computer-view
                 positions.push(index);
             }
         });
@@ -36,7 +36,7 @@ class Gene extends LiquidModel {
     getTerminatorPositions() {
         var positions: number[] = [];
         _.each(this.dnaElements(), (dna, index) => {
-            if(dna.DNAType() === DNAType.TERMINATOR) {
+            if (dna.DNAType() === DNAType.TERMINATOR) {
                 positions.push(index);
             }
         });
@@ -69,7 +69,7 @@ class Gene extends LiquidModel {
                 return promPos > firstTerminal;
             });
 
-            postionPairs.push([firstPromoter,firstTerminal]);
+            postionPairs.push([firstPromoter, firstTerminal]);
         }
 
         // Extract mRNA
@@ -88,7 +88,7 @@ class Gene extends LiquidModel {
     }
 
     hashCode() {
-        return this._hashCode() + ":" + _.invoke(this.dnaElements(), 'hashCode').join(',');
+        return this._hashCode() + ':' + _.invoke(this.dnaElements(), 'hashCode').join(',');
     }
 
     clone() {

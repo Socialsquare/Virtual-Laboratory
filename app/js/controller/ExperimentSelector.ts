@@ -13,7 +13,7 @@ class ExperimentSelector extends BaseViewController {
     public selected: KnockoutObservable<ExperimentModel>;
 
     constructor() {
-        super('experiment-selector')
+        super('experiment-selector');
 
         this.experiments = ko.observableArray([]);
         this.selected = ko.observable(null);
@@ -21,17 +21,19 @@ class ExperimentSelector extends BaseViewController {
         experimentService.getExperiments().done((experiments) => {
             this.experiments(experiments);
         });
+
+        ko.rebind(this);
     }
 
-    public select = (experiment) => {
+    select(experiment) {
         this.selected(experiment);
     }
 
-    public goBack = () => {
+    goBack() {
         this.router.back();
     }
 
-    public start = () => {
+    start() {
         if (this.experimentController.hasExperiment()) {
             popupController.confirm('experiment.change.header', 'experiment.change.body')
                 .then(() => {

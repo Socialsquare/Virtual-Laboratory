@@ -13,18 +13,18 @@ class ImageHelper {
 
     static imageRoot = 'assets/images';
 
-    static img = (path) => {
+    static img(path) {
         return ImageHelper.imageRoot + '/' + path;
     }
 
-    static emptyFull = (prefix: string) => {
+    static emptyFull(prefix: string) {
         return (position, container) => {
             var state = !container || container.isEmpty() ? 'empty' : 'full';
             return ImageHelper.img(prefix + (position + 1) + '_' + state + '.png');
         };
     }
 
-    static single = (prefix: string) => {
+    static single(prefix: string) {
         return (position: number, container: SimpleContainerModel = null) => {
             return ImageHelper.img(prefix + (position + 1) + '.png');
         };
@@ -44,52 +44,50 @@ class ImageHelper {
     // TODO-PCR
     static pcrMachineTubeImage = ImageHelper.emptyFull('tube');
 
-    static tableSpacePetriImage = (position, petri) => {
+    static tableSpacePetriImage(position, petri) {
         var state = !petri || petri.isEmpty() ? 'empty' : 'full';
         return ImageHelper.img('petri_' + state + '.png');
     }
 
-    static spectroPMMicroSlotImage = () => {
+    static spectroPMMicroSlotImage() {
         return ImageHelper.img('spectropm_micro.png');
     }
 
-    static uvTubeRackImage = (position, tube) => {
+    static uvTubeRackImage(position, tube) {
         var state = tube.isEmpty() ? 'empty' : (tube.isFluorescent() ? 'glow' : 'full');
         return ImageHelper.img('uv_tube' + (position + 1) + '_' + state + '.png');
     }
 
-    static uvTableSpacePetriImage = (position, dish) => {
+    static uvTableSpacePetriImage(position, dish) {
         var state = !dish || dish.isEmpty() ? 'empty' : (dish.isFluorescent() ? 'glow' : 'full');
         return ImageHelper.img('uv_petri' + (position + 1) + '_' + state + '.png');
     }
 
-    static scaffoldImage = (name) => {
+    static scaffoldImage(name) {
         return ImageHelper.img('scaffold_' + name + '.png');
     }
 
-    static sidegroupImage = (name) => {
+    static sidegroupImage(name) {
         return ImageHelper.img('sidegroup_' + name + '.png');
     }
 
-    static microtiterWell = (index: number, microtiter: MicrotiterplateModel) => {
+    static microtiterWell(index: number, microtiter: MicrotiterplateModel) {
         if (microtiter.location() === LocationType.UVROOM) {
-            if (microtiter.isWellFluorescent(index)) {
-                return ImageHelper.img('zoom_mkrt_well_uv_glow.png')
-            } else if (microtiter.isEmpty()) {
+            if (microtiter.isWellFluorescent(index))
+                return ImageHelper.img('zoom_mkrt_well_uv_glow.png');
+            else if (microtiter.isEmpty())
                 return ImageHelper.img('zoom_mkrt_well_uv_empty.png');
-            } else {
-                return ImageHelper.img('zoom_mkrt_well_uv_full.png')
-            }
+            else
+                return ImageHelper.img('zoom_mkrt_well_uv_full.png');
         }
 
-        if (microtiter.isEmpty()) {
+        if (microtiter.isEmpty())
             return ImageHelper.img('zoom_mkrt_well_empty.png');
-        } else {
+        else
             return ImageHelper.img('zoom_mkrt_well_dense.png');
-        }
     }
 
-    static inventoryIcon = (item) => {
+    static inventoryIcon(item) {
         switch (item.type()) {
         case ContainerType.PETRI_DISH:
             return ImageHelper.img('icon_cup_petri.png');
@@ -120,7 +118,7 @@ class ImageHelper {
         }
     }
 
-    static draggingIcon = (item) => {
+    static draggingIcon(item) {
         switch (item.type()) {
         case ContainerType.PETRI_DISH:
             return ImageHelper.img('icon_cup_petri.png');

@@ -68,7 +68,7 @@ class Trigger {
                     type: S2T.container(c.type),
                     containerSubtype: S2T.antigenCoating(c.containerSubtype),
                     liquids: this.parseLiquids(c.liquids)
-                }
+                };
             });
         }
 
@@ -82,15 +82,15 @@ class Trigger {
         this.liquids = this.parseLiquids(values.liquids);
     }
 
-    parseLiquids(raw:any) {
+    parseLiquids(raw: any) {
         return _.map(raw, (l: any) => {
             var triggerLiquid: TriggerLiquid = { type: S2T.liquid(l.type) };
 
-            if (l.subtype && triggerLiquid.type == LiquidType.MICROORGANISM)
-                triggerLiquid.subtype = S2T.microorganism(l.subtype)
+            if (l.subtype && triggerLiquid.type === LiquidType.MICROORGANISM)
+                triggerLiquid.subtype = S2T.microorganism(l.subtype);
 
-            if (l.subtype && triggerLiquid.type == LiquidType.ANTIBIOTIC)
-                triggerLiquid.subtype = S2T.antibiotic(l.subtype)
+            if (l.subtype && triggerLiquid.type === LiquidType.ANTIBIOTIC)
+                triggerLiquid.subtype = S2T.antibiotic(l.subtype);
 
             return triggerLiquid;
         });

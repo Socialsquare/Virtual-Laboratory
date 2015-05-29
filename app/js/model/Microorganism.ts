@@ -88,12 +88,12 @@ class Microorganism extends LiquidModel {
 
     getPhGrowthFactor(ph) {
         var phDiff = ph - this.optimalPh();
-        if(Math.abs(phDiff) >= 2) {
+        if (Math.abs(phDiff) >= 2) {
             this.living(false);
             return 0;
         }
 
-        return 1 - 1.0/4.0 * phDiff * phDiff;
+        return 1 - 1.0 / 4.0 * phDiff * phDiff;
     }
 
     //TODO
@@ -106,7 +106,7 @@ class Microorganism extends LiquidModel {
         }
         else if (tempDiff > 0) //tempDiff = [0;8]
         {
-            return 1 - 1.0/64.0 * tempDiff*tempDiff;
+            return 1 - 1.0 / 64.0 * tempDiff * tempDiff;
         }
         else if (tempDiff < -20) //tempDiff = [-Inf; -20]
         { // "Frozen", just survive and wait for better times

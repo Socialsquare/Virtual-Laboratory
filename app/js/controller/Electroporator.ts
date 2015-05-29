@@ -1,3 +1,5 @@
+import ko = require('knockout');
+
 import popupController = require('controller/Popup');
 
 import SimpleContainerController = require('controller/SimpleContainer');
@@ -10,9 +12,11 @@ class Electroporator extends SimpleContainerController<ElectroporatorModel> {
 
     constructor(electroporator: ElectroporatorModel) {
         super(electroporator);
+
+        ko.rebind(this);
     }
 
-    public handleContainerDrop = (item) => {
+    handleContainerDrop(item) {
         //TODO: test
         if (item.type() === ContainerType.PIPETTE) {
             if (!item.hasTip()) {
@@ -25,7 +29,7 @@ class Electroporator extends SimpleContainerController<ElectroporatorModel> {
                 // 2) hvis elektro har contents && pipette er tom --> sug alt
 
                 // Check for contamination
-                if (item.getTip().contaminatedBy() == null || item.getTip().contaminatedBy() == this.simpleContainer) {
+                if (item.getTip().contaminatedBy() === null || item.getTip().contaminatedBy() === this.simpleContainer) {
                     popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
                     item.fillPipette(this.simpleContainer);
                 } else {

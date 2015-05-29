@@ -13,9 +13,11 @@ class Spleen extends SpecialItemModel {
         super(SpecialItemType.SPLEEN);
 
         this.antibodiesFor = ko.observableArray([]);
+
+        ko.rebind(this);
     }
 
-    public clone = () => {
+    clone() {
         var clone = new Spleen();
         clone.antibodiesFor(this.antibodiesFor());
 

@@ -80,7 +80,7 @@ class CompositeContainer {
     growContentsOnce(deltaTime, growerType, ph, temperature) {
         // deltaTime is in "hours"
         _.forEach(this.containers(), (container) => {
-            if(!container)
+            if (!container)
                 return;
 
             container.growContentsOnce(deltaTime, growerType, ph, temperature);

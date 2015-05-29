@@ -20,7 +20,7 @@ class Inventory {
         ko.rebind(this);
     }
 
-    add(item, alternativeLabel = "") {
+    add(item, alternativeLabel = '') {
         // generate default label
         if (!item.acquired() && item.label) {
             if (alternativeLabel) {
@@ -36,7 +36,7 @@ class Inventory {
 
         item.acquired(true);
 
-        if(item.hasOwnProperty('location')) {
+        if (item.hasOwnProperty('location')) {
             item.location(LocationType.INVENTORY);
         }
 

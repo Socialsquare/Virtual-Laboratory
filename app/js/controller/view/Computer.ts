@@ -32,16 +32,18 @@ class Computer extends BaseViewController {
         screenControllers[ComputerScreenType.PROTEIN] = new ProteinScreen();
 
         // TODO: subscription seemed to fail
-        this.activeScreenController = ko.computed(() => {
+        this.activeScreenController = ko.pureComputed(() => {
             return screenControllers[this.gameState.activeComputerScreen()];
         });
 
-        this.hasHeader = ko.computed(() => {
+        this.hasHeader = ko.pureComputed(() => {
             return this.gameState.activeComputerScreen() !== ComputerScreenType.MENU;
         });
+
+        ko.rebind(this);
     }
 
-    public goToMenu = () => {
+    goToMenu() {
         this.gameState.activeComputerScreen(ComputerScreenType.MENU);
     }
 }

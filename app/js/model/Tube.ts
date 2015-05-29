@@ -10,7 +10,7 @@ class Tube extends SimpleContainerModel {
     public well: WellModel;
 
     constructor() {
-        super(ContainerType.TUBE, Math.pow(10,13));
+        super(ContainerType.TUBE, Math.pow(10, 13));
 
         ko.rebind(this);
     }

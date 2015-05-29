@@ -159,7 +159,7 @@ class Experiment {
 
             var activationSubtype = trigger.activationSubtype;
             if (!!activationSubtype) {
-                switch(activationSubtype.liquidType) {
+                switch (activationSubtype.liquidType) {
                 case LiquidType.DESIGNED_DRUG:
                     var theDrug = <ScaffoldModel>_.find(spectro.microSlot.get(0).liquids(), (liquid) => {
                         return liquid.type() === LiquidType.DESIGNED_DRUG;

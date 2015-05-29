@@ -21,7 +21,7 @@ class FreeFloatingDNA extends LiquidModel {
     }
 
     hashCode() {
-        return this._hashCode() + ":" + this.bloodType() + ":" + this.isCopied();
+        return this._hashCode() + ':' + this.bloodType() + ':' + this.isCopied();
     }
 
     clone() {

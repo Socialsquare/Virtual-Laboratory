@@ -34,9 +34,11 @@ class Protein extends BaseComputer {
         this.selectedProtein = ko.computed(() => {
             return this.availableProteins()[this.selectedIndex()];
         });
+
+        ko.rebind(this);
     }
 
-    public orderProtein = () => {
+    orderProtein() {
         var liquid = null;
 
         switch (this.selectedProtein().type()) {

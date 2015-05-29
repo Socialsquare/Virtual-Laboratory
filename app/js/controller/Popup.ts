@@ -70,7 +70,7 @@ class Popup {
         return popup;
     }
 
-    hide(popup) {
+    hide(popup: PopupModel) {
         this.activePopups.remove(popup);
         this.activeNotifications.remove(popup);
     }
@@ -91,7 +91,7 @@ class Popup {
         this.show('popup-dna-info', { dna: dna });
     }
 
-    message(title, message) {
+    message(title: string, message: string) {
         this.show('popup-message', { title: title, message: message });
     }
 

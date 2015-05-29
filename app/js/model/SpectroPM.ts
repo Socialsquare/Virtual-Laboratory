@@ -19,7 +19,7 @@ class SpectroPM {
 
             var addSucces = this.microSlot._addAt(position, container);
 
-            if(addSucces) {
+            if (addSucces) {
                 _.each(container.liquids(), (liquid) => {
                     liquid.react(container);
                 });

@@ -1,0 +1,57 @@
+{
+    "fast-drink-spawn": "fast_drink_spawn",
+    "fast-injection-lethal": "fast_injection_lethal",
+    "fast-dead-cut": "fast_dead_cut",
+
+    "fast-loop": "fast_loop",
+    "fast-injection": "fast_injection",
+    "fast-die-insulin": "fast_die_insulin",
+
+    "smallpox-cure": "smallpox_cure",
+    "smallpox-injection": "smallpox_injection",
+    "smallpox-loop": "smallpox_loop",
+
+    "slow-cure-gout": "slow_cure_gout",
+    "slow-injection-body-gout": "slow_injection_body",
+    "slow-loop-gout": "slow_loop",
+
+    "psoriasis-loop": "psoriasis_loop",
+    "psoriasis-cure": "psoriasis_cure",
+    "psoriasis-injection": "psoriasis_injection",
+    "psoriasis-pill": "psoriasis_pill",
+    "psoriasis-cream": "psoriasis_cream",
+
+    "slow-loop": "slow_loop",
+    "slow-sleeping": "slow_sleeping",
+    "slow-wake": "slow_wake",
+    "slow-cure-insomnia": "slow_cure_insomnia",
+    "slow-cream": "slow_cream",
+    "slow-pill": "slow_pill",
+    "slow-injection-head": "slow_injection_head",
+    "slow-injection-body": "slow_injection_body",
+    "slow-injection-body-faint": "slow_injection_body_faint",
+
+    "mousemap-pso-blood-inj-body": "mousemap_pso_blood_inj_body",
+    "mousemap-pso-blood-liver": "mousemap_pso_blood_liver",
+    "mousemap-pso-liver": "mousemap_pso_liver",
+    "mousemap-pso-pill-intestine": "mousemap_pso_pill_intestine",
+    "mousemap-pso-skin": "mousemap_pso_skin",
+
+    "drug-barrier-failure": "drug_barrier_failure",
+    "drug-barrier-success": "drug_barrier_success",
+    "drug-blood-failure": "drug_blood_failure",
+    "drug-blood-success": "drug_blood_success",
+    "drug-liver-changed": "drug_liver_changed",
+    "drug-liver-changed-grey": "drug_liver_changed_grey",
+    "drug-liver-unchanged": "drug_liver_unchanged",
+    "drug-target-failure": "drug_target_failure",
+    "drug-target-success": "drug_target_success",
+
+    "electroporator1": "electroporator01",
+    "electroporator2": "electroporator02",
+    "electroporator3": "electroporator03",
+    "electroporator4": "electroporator04",
+    "electroporator5": "electroporator05",
+    "electroporator6": "electroporator06",
+    "electroporator7": "electroporator07"
+}

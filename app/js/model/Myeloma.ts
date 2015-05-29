@@ -41,7 +41,7 @@ class Myeloma extends MicroorganismModel {
         var containsHybridomaMedium;
         var containsHomoSpleen = false;
 
-        if(container.location() !== LocationType.SPECTROPM)
+        if (container.location() !== LocationType.SPECTROPM)
             return;
 
         // Figure out whether it contains homospleen (and other stuff)
@@ -80,7 +80,7 @@ class Myeloma extends MicroorganismModel {
             var totalConcentration = microtiter.getTotalConcentration();
             var wellModificationCounter = 0;
 
-            while(totalConcentration > 0 && wellModificationCounter < 24) {
+            while (totalConcentration > 0 && wellModificationCounter < 24) {
                 totalConcentration -= 50; //24 * 2;//TODO: magic number corresponding to the concentration needed for having a single cell in a well. iiish
                 wellModificationCounter++;
             }

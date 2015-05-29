@@ -16,9 +16,9 @@ class S2T {
 
     static consequence(s: string) {
         switch (s) {
-        case "ConsequenceType.QUIZ": return ConsequenceType.QUIZ;
-        case "ConsequenceType.VIDEO": return ConsequenceType.VIDEO;
-        case "ConsequenceType.QUIZ_VIDEO": return ConsequenceType.QUIZ_VIDEO;
+        case 'ConsequenceType.QUIZ': return ConsequenceType.QUIZ;
+        case 'ConsequenceType.VIDEO': return ConsequenceType.VIDEO;
+        case 'ConsequenceType.QUIZ_VIDEO': return ConsequenceType.QUIZ_VIDEO;
         default: return null;
         }
     }
@@ -44,29 +44,29 @@ class S2T {
 
     static trigger(s: string) {
         switch (s) {
-        case "TriggerType.MIX": return TriggerType.MIX;
-        case "TriggerType.MOUSE": return TriggerType.MOUSE;
-        case "TriggerType.ACTIVATION": return TriggerType.ACTIVATION;
-        case "TriggerType.ACQUIRE": return TriggerType.ACQUIRE;
+        case 'TriggerType.MIX': return TriggerType.MIX;
+        case 'TriggerType.MOUSE': return TriggerType.MOUSE;
+        case 'TriggerType.ACTIVATION': return TriggerType.ACTIVATION;
+        case 'TriggerType.ACQUIRE': return TriggerType.ACQUIRE;
         default: return null;
         }
     }
 
     static activation(s: string) {
         switch (s) {
-        case "ActivationType.WASHING": return ActivationType.WASHING;
-        case "ActivationType.INCUBATOR": return ActivationType.INCUBATOR;
-        case "ActivationType.COMPUTER_ORDER_DNA": return ActivationType.COMPUTER_ORDER_DNA;
-        case "ActivationType.COMPUTER_ORDER_MOUSE": return ActivationType.COMPUTER_ORDER_MOUSE;
-        case "ActivationType.COMPUTER_ORDER_SEQUENCE": return ActivationType.COMPUTER_ORDER_SEQUENCE;
-        case "ActivationType.COMPUTER_ORDER_DRUG": return ActivationType.COMPUTER_ORDER_DRUG;
-        case "ActivationType.BUNSEN": return ActivationType.BUNSEN;
-        case "ActivationType.ELECTROPORATOR": return ActivationType.ELECTROPORATOR;
-        case "ActivationType.HEATER": return ActivationType.HEATER;
-        case "ActivationType.OD": return ActivationType.OD;
-        case "ActivationType.BLENDER": return ActivationType.BLENDER;
-        case "ActivationType.FERMENTOR": return ActivationType.FERMENTOR;
-        case "ActivationType.SPECTROPM": return ActivationType.SPECTROPM;
+        case 'ActivationType.WASHING': return ActivationType.WASHING;
+        case 'ActivationType.INCUBATOR': return ActivationType.INCUBATOR;
+        case 'ActivationType.COMPUTER_ORDER_DNA': return ActivationType.COMPUTER_ORDER_DNA;
+        case 'ActivationType.COMPUTER_ORDER_MOUSE': return ActivationType.COMPUTER_ORDER_MOUSE;
+        case 'ActivationType.COMPUTER_ORDER_SEQUENCE': return ActivationType.COMPUTER_ORDER_SEQUENCE;
+        case 'ActivationType.COMPUTER_ORDER_DRUG': return ActivationType.COMPUTER_ORDER_DRUG;
+        case 'ActivationType.BUNSEN': return ActivationType.BUNSEN;
+        case 'ActivationType.ELECTROPORATOR': return ActivationType.ELECTROPORATOR;
+        case 'ActivationType.HEATER': return ActivationType.HEATER;
+        case 'ActivationType.OD': return ActivationType.OD;
+        case 'ActivationType.BLENDER': return ActivationType.BLENDER;
+        case 'ActivationType.FERMENTOR': return ActivationType.FERMENTOR;
+        case 'ActivationType.SPECTROPM': return ActivationType.SPECTROPM;
         default: return null;
         }
     }
@@ -107,85 +107,85 @@ class S2T {
 
     static liquid(s: string) {
         switch (s) {
-        case "LiquidType.MICROORGANISM":
+        case 'LiquidType.MICROORGANISM':
             return LiquidType.MICROORGANISM;
-        case "LiquidType.ANTIBIOTIC":
+        case 'LiquidType.ANTIBIOTIC':
             return LiquidType.ANTIBIOTIC;
-        case "LiquidType.GROWTH_MEDIUM":
+        case 'LiquidType.GROWTH_MEDIUM':
             return LiquidType.GROWTH_MEDIUM;
-        case "LiquidType.DNA":
+        case 'LiquidType.DNA':
             return LiquidType.DNA;
-        case "LiquidType.GENE":
+        case 'LiquidType.GENE':
             return LiquidType.GENE;
-        case "LiquidType.ORGANISM_PROPERTY":
+        case 'LiquidType.ORGANISM_PROPERTY':
             return LiquidType.ORGANISM_PROPERTY;
-        case "LiquidType.JUICE":
+        case 'LiquidType.JUICE':
             return LiquidType.JUICE;
-        case "LiquidType.SALT_WATER":
+        case 'LiquidType.SALT_WATER':
             return LiquidType.SALT_WATER;
-        case "LiquidType.MICROTITER_WELLS":
+        case 'LiquidType.MICROTITER_WELLS':
             return LiquidType.MICROTITER_WELLS;
-        case "LiquidType.DEADLY":
+        case 'LiquidType.DEADLY':
             return LiquidType.DEADLY;
-        case "LiquidType.HOMO_SPLEEN":
+        case 'LiquidType.HOMO_SPLEEN':
             return LiquidType.HOMO_SPLEEN;
-        case "LiquidType.HYBRIDOMA_MEDIUM":
+        case 'LiquidType.HYBRIDOMA_MEDIUM':
             return LiquidType.HYBRIDOMA_MEDIUM;
-        case "LiquidType.INSULIN":
+        case 'LiquidType.INSULIN':
             return LiquidType.INSULIN;
-        case "LiquidType.ANTIBODY_GOUT":
+        case 'LiquidType.ANTIBODY_GOUT':
             return LiquidType.ANTIBODY_GOUT;
-        case "LiquidType.ANTIBODY_SMALLPOX":
+        case 'LiquidType.ANTIBODY_SMALLPOX':
             return LiquidType.ANTIBODY_SMALLPOX;
-        case "LiquidType.ANTIGEN_GOUT":
+        case 'LiquidType.ANTIGEN_GOUT':
             return LiquidType.ANTIGEN_GOUT;
-        case "LiquidType.ANTIGEN_SMALLPOX":
+        case 'LiquidType.ANTIGEN_SMALLPOX':
             return LiquidType.ANTIGEN_SMALLPOX;
-        case "LiquidType.ADJUVANS":
+        case 'LiquidType.ADJUVANS':
             return LiquidType.ADJUVANS;
-        case "LiquidType.LIPASE_ENZYME":
+        case 'LiquidType.LIPASE_ENZYME':
             return LiquidType.LIPASE_ENZYME;
-        case "LiquidType.GFP":
+        case 'LiquidType.GFP':
             return LiquidType.GFP;
-        case "LiquidType.DESIGNED_DRUG":
+        case 'LiquidType.DESIGNED_DRUG':
             return LiquidType.DESIGNED_DRUG;
-        case "LiquidType.CYP_ENZYME":
+        case 'LiquidType.CYP_ENZYME':
             return LiquidType.CYP_ENZYME;
-        case "LiquidType.TARGET_RECEPTOR":
+        case 'LiquidType.TARGET_RECEPTOR':
             return LiquidType.TARGET_RECEPTOR;
-        case "LiquidType.PRODUCED_INSULIN":
+        case 'LiquidType.PRODUCED_INSULIN':
             return LiquidType.PRODUCED_INSULIN;
-        case "LiquidType.PRODUCED_LIPASE":
+        case 'LiquidType.PRODUCED_LIPASE':
             return LiquidType.PRODUCED_LIPASE;
-        case "LiquidType.PRODUCED_ANTIBODY_GOUT":
+        case 'LiquidType.PRODUCED_ANTIBODY_GOUT':
             return LiquidType.PRODUCED_ANTIBODY_GOUT;
-        case "LiquidType.PRODUCED_ANTIBODY_POX":
+        case 'LiquidType.PRODUCED_ANTIBODY_POX':
             return LiquidType.PRODUCED_ANTIBODY_POX;
-        case "LiquidType.FLUORESCENT_2ND_ANTIBODY":
+        case 'LiquidType.FLUORESCENT_2ND_ANTIBODY':
             return LiquidType.FLUORESCENT_2ND_ANTIBODY;
 
-        case "LiquidType.MOUSE_BLOOD":
+        case 'LiquidType.MOUSE_BLOOD':
             return LiquidType.MOUSE_BLOOD;
-        case "LiquidType.BUFFY_COAT":
+        case 'LiquidType.BUFFY_COAT':
             return LiquidType.BUFFY_COAT;
-        case "LiquidType.RED_BLOOD_CELLS":
+        case 'LiquidType.RED_BLOOD_CELLS':
             return LiquidType.RED_BLOOD_CELLS;
-        case "LiquidType.PLASMA":
+        case 'LiquidType.PLASMA':
             return LiquidType.PLASMA;
 
-        case "LiquidType.DIABETES_PRIMER":
+        case 'LiquidType.DIABETES_PRIMER':
             return LiquidType.DIABETES_PRIMER;
-        case "LiquidType.NUCLEOTIDES":
+        case 'LiquidType.NUCLEOTIDES':
             return LiquidType.NUCLEOTIDES;
-        case "LiquidType.DNA_POLYMERASE":
+        case 'LiquidType.DNA_POLYMERASE':
             return LiquidType.DNA_POLYMERASE;
-        case "LiquidType.BLUE_STAIN":
+        case 'LiquidType.BLUE_STAIN':
             return LiquidType.BLUE_STAIN;
-        case "LiquidType.LYSIS":
+        case 'LiquidType.LYSIS':
             return LiquidType.LYSIS;
-        case "LiquidType.FREE_FLOATING_DNA":
+        case 'LiquidType.FREE_FLOATING_DNA':
             return LiquidType.FREE_FLOATING_DNA;
-        case "LiquidType.CLUMPED_CELLS":
+        case 'LiquidType.CLUMPED_CELLS':
             return LiquidType.CLUMPED_CELLS;
 
         default: return null;
@@ -194,8 +194,8 @@ class S2T {
 
     static microorganism(s: string) {
         switch (s) {
-        case "MicroorganismType.YEAST": return MicroorganismType.YEAST;
-        case "MicroorganismType.MYELOMA": return MicroorganismType.MYELOMA;
+        case 'MicroorganismType.YEAST': return MicroorganismType.YEAST;
+        case 'MicroorganismType.MYELOMA': return MicroorganismType.MYELOMA;
         default: return null;
         }
     }
@@ -210,22 +210,22 @@ class S2T {
 
     static loc(s: string) {
         switch (s) {
-        case "LocationType.CHEMICAL": return LocationType.CHEMICAL;
-        case "LocationType.COMPUTER": return LocationType.COMPUTER;
-        case "LocationType.FERMENTOR": return LocationType.FERMENTOR;
-        case "LocationType.FERMENTORSCREEN": return LocationType.FERMENTORSCREEN;
-        case "LocationType.FUMEHOOD": return LocationType.FUMEHOOD;
-        case "LocationType.INCUBATOR": return LocationType.INCUBATOR;
-        case "LocationType.LOADING": return LocationType.LOADING;
-        case "LocationType.MOUSE": return LocationType.MOUSE;
-        case "LocationType.OVERVIEW": return LocationType.OVERVIEW;
-        case "LocationType.SPECTROPM": return LocationType.SPECTROPM;
-        case "LocationType.SPECTROPMSCREEN": return LocationType.SPECTROPMSCREEN;
-        case "LocationType.UVROOM": return LocationType.UVROOM;
-        case "LocationType.WASHING": return LocationType.WASHING;
-        case "LocationType.WORKTABLE1": return LocationType.WORKTABLE1;
-        case "LocationType.WORKTABLE2": return LocationType.WORKTABLE2;
-        case "LocationType.INVENTORY": return LocationType.INVENTORY;
+        case 'LocationType.CHEMICAL': return LocationType.CHEMICAL;
+        case 'LocationType.COMPUTER': return LocationType.COMPUTER;
+        case 'LocationType.FERMENTOR': return LocationType.FERMENTOR;
+        case 'LocationType.FERMENTORSCREEN': return LocationType.FERMENTORSCREEN;
+        case 'LocationType.FUMEHOOD': return LocationType.FUMEHOOD;
+        case 'LocationType.INCUBATOR': return LocationType.INCUBATOR;
+        case 'LocationType.LOADING': return LocationType.LOADING;
+        case 'LocationType.MOUSE': return LocationType.MOUSE;
+        case 'LocationType.OVERVIEW': return LocationType.OVERVIEW;
+        case 'LocationType.SPECTROPM': return LocationType.SPECTROPM;
+        case 'LocationType.SPECTROPMSCREEN': return LocationType.SPECTROPMSCREEN;
+        case 'LocationType.UVROOM': return LocationType.UVROOM;
+        case 'LocationType.WASHING': return LocationType.WASHING;
+        case 'LocationType.WORKTABLE1': return LocationType.WORKTABLE1;
+        case 'LocationType.WORKTABLE2': return LocationType.WORKTABLE2;
+        case 'LocationType.INVENTORY': return LocationType.INVENTORY;
         default: return null;
         }
     }

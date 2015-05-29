@@ -74,8 +74,8 @@ class Worktable1 extends BaseViewController {
         });
 
         // check if electroporator contains both genes and organisms. If not, show a message.
-        if (! (containsGene && containsOrganism)) {
-            this.popupController.message('worktable1.electroporator_wont_start.header','worktable1.electroporator_wont_start.body');
+        if (!(containsGene && containsOrganism)) {
+            this.popupController.message('worktable1.electroporator_wont_start.header', 'worktable1.electroporator_wont_start.body');
             return;
         }
 
@@ -84,7 +84,7 @@ class Worktable1 extends BaseViewController {
         this.showElectroporatorVideos(quizNumber).done(() => { //TODO: uncomment
             this.showElectroporatorQuiz(quizNumber);
             if (quizNumber > 6)
-                this.popupController.notify('worktable1.electroporator_success.header','worktable1.electroporator_success.body', 3500);
+                this.popupController.notify('worktable1.electroporator_success.header', 'worktable1.electroporator_success.body', 3500);
         });
 
 
@@ -139,22 +139,22 @@ class Worktable1 extends BaseViewController {
             videoNumbers = [1];
             break;
         case 2:
-            videoNumbers = [1,2];
+            videoNumbers = [1, 2];
             break;
         case 3:
-            videoNumbers = [1,2,3];
+            videoNumbers = [1, 2, 3];
             break;
         case 4:
-            videoNumbers = [1,2,3,4];
+            videoNumbers = [1, 2, 3, 4];
             break;
         case 5:
-            videoNumbers = [1,2,3,4,5];
+            videoNumbers = [1, 2, 3, 4, 5];
             break;
         case 6:
-            videoNumbers = [1,2,3,4,5];
+            videoNumbers = [1, 2, 3, 4, 5];
             break;
         default:
-            videoNumbers = [1,2,3,4,5,6];
+            videoNumbers = [1, 2, 3, 4, 5, 6];
             break;
         }
 

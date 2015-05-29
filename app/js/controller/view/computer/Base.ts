@@ -7,12 +7,14 @@ class BaseComputer extends BaseViewController {
     public title: KnockoutObservable<string>;
 
     constructor(templateName, title) {
-        super(templateName)
+        super(templateName);
 
         this.title = ko.observable(title);
+
+        ko.rebind(this);
     }
 
-    public changeScreen = (name) => {
+    changeScreen(name) {
         this.gameState.activeComputerScreen(name);
     }
 }

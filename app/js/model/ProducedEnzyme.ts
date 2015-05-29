@@ -47,7 +47,7 @@ class ProducedEnzyme extends LiquidModel {
             this.enzymeLiquidType = LiquidType.ANTIBIOTIC;
             break;
         default:
-            throw 'Unknown type of enzyme: '+ pcsType;
+            throw 'Unknown type of enzyme: ' + pcsType;
         }
 
         this.type(this.enzymeLiquidType);

@@ -20,7 +20,7 @@ class Chemical extends BaseViewController {
         closet: { name: string, items: KnockoutObservableArray<ChemicalItemModel> },
         fridge: { name: string, items: KnockoutObservableArray<ChemicalItemModel> },
         drawer: { name: string, items: KnockoutObservableArray<ChemicalItemModel> }
-    }
+    };
 
     // TODO: remove app dep and use ko.postbox or similar
     constructor() {

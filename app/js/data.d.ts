@@ -1,9 +1,9 @@
-declare module "json!datadir/localization.json" {
+declare module 'json!datadir/localization.json' {
     var data: any;
     export = data;
 }
 
-declare module "json!datadir/dna.json" {
+declare module 'json!datadir/dna.json' {
     var data: [{
         icon: string,
         type: string,
@@ -19,7 +19,7 @@ declare module "json!datadir/dna.json" {
     export = data;
 }
 
-declare module "json!datadir/drugs.json" {
+declare module 'json!datadir/drugs.json' {
     var data: {
         scaffolds: [{
             name: string,
@@ -45,17 +45,17 @@ declare module "json!datadir/drugs.json" {
     export = data;
 }
 
-declare module "json!datadir/experiments.json" {
+declare module 'json!datadir/experiments.json' {
     var text: string;
     export = text;
 }
 
-declare module "json!datadir/heartRate.json" {
+declare module 'json!datadir/heartRate.json' {
     var data: { xVals: number[] };
     export = data;
 }
 
-declare module "json!datadir/help.json" {
+declare module 'json!datadir/help.json' {
     var data: [{
         title: string,
         body: string,
@@ -65,12 +65,29 @@ declare module "json!datadir/help.json" {
     export = data;
 }
 
-declare module "json!datadir/quiz.json" {
+declare module 'json!datadir/quiz.json' {
+    var data: {
+        quizzes: [{
+            id: number,
+            name: { [language: string]: string; },
+            question: { [language: string]: string; },
+            correct: number,
+            answers: [{
+                id: number,
+                answer: { [language: string]: string; },
+                message: { [language: string]: string; }
+            }]
+        }]
+    };
+    export = data;
+}
+
+declare module 'json!datadir/tutorial.json' {
     var text: string;
     export = text;
 }
 
-declare module "json!datadir/tutorial.json" {
-    var text: string;
-    export = text;
+declare module 'json!datadir/videos.json' {
+    var data: { [id: string]: string; };
+    export = data;
 }

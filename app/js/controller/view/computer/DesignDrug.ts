@@ -32,7 +32,7 @@ class DesignDrug extends BaseComputer {
     }
 
     getEmptyScaffold() {
-        return drugService.getScaffold("1");
+        return drugService.getScaffold('1');
     }
 
 
@@ -49,7 +49,7 @@ class DesignDrug extends BaseComputer {
         var dragger = $('<div>');
 
         $.get(slot.sidegroup().file(), (data) => {
-            var svgNode = $("svg", data);
+            var svgNode = $('svg', data);
 	        var docNode = document.adoptNode(svgNode[0]);
             dragger.html(<any>docNode);
         });

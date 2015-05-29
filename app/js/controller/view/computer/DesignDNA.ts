@@ -30,23 +30,26 @@ class DesignDNA extends BaseComputer {
         });
 
         this.defaultAvailableDNA(DNAService.getDNAElements());
+
+        ko.rebind(this);
     }
 
-    public handleDrop = (dna: DNAElementModel) => {
+    handleDrop(dna: DNAElementModel) {
         //TODO: On iPad there is a delay if we do not wait for last draw cycle to complete
-        var clone = dna.clone();//TODO: test
+        //TODO: test
+        var clone = dna.clone();
         this.dnaSequence.push(clone);
     }
 
-    public moveDnaLeft = (dna: DNAElementModel) => {
+    moveDnaLeft(dna: DNAElementModel) {
         this.moveDna(dna, -1);
     }
 
-    public moveDnaRight = (dna: DNAElementModel) => {
+    moveDnaRight(dna: DNAElementModel) {
         this.moveDna(dna, 1);
     }
 
-    public moveDna = (dna: DNAElementModel, direction: number) => {
+    moveDna(dna: DNAElementModel, direction: number) {
         var dnaSequence = this.dnaSequence();
 
         var matchIndex = _.findIndex(dnaSequence, (dnaElement) => dna === dnaElement);
@@ -72,15 +75,15 @@ class DesignDNA extends BaseComputer {
         this.dnaSequence(dnaSequence);
     }
 
-    public removeDNA = (dna: DNAElementModel) => {
+    removeDNA(dna: DNAElementModel) {
         this.dnaSequence.remove(dna);
     }
 
-    public showInfo = (dna: DNAElementModel) => {
+    showInfo(dna: DNAElementModel) {
         this.popupController.dnaInfo(dna);
     }
 
-    public orderDNA = () => {
+    orderDNA() {
         // clone sequence, add to gene, put in tube
         var sequenceClone = ko.toJS(this.dnaSequence);
         var gene = new GeneModel(sequenceClone);

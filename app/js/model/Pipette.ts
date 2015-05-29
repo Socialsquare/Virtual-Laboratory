@@ -26,21 +26,23 @@ class Pipette extends CompositeContainerModel {
 
             return this.get(0).isEmpty();
         });
+
+        ko.rebind(this);
     }
 
-    public hasTip = () => {
+    hasTip() {
         return this.hasContainerAt(0);
     }
 
-    public getTip = () => {
+    getTip() {
         return <TipModel>this.get(0);
     }
 
-    public removeTip = () => {
+    removeTip() {
         this.remove(0);
     }
 
-    public emptyPipetteInto = (container: SimpleContainerModel) => {
+    emptyPipetteInto(container: SimpleContainerModel) {
         var clonedLiqs = _.invoke(this.getTip().liquids(), 'clone');
 
         container.addAll(clonedLiqs);
@@ -55,14 +57,14 @@ class Pipette extends CompositeContainerModel {
         }
     }
 
-    public fillPipette = (container: SimpleContainerModel) => {
+    fillPipette(container: SimpleContainerModel) {
         // 1st modify the pipette
         var clonedLiqs = _.invoke(container.liquids(), 'clone');
         var modifiedLiqs = utils.biology.dilute(50, clonedLiqs);
         this.getTip().addAll(modifiedLiqs);
 
         // 2nd modify the container
-        modifiedLiqs = utils.biology.dilute(50/49, container.liquids());
+        modifiedLiqs = utils.biology.dilute(50 / 49, container.liquids());
 
         container.clearContents();
 

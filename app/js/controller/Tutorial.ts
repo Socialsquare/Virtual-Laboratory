@@ -1,4 +1,5 @@
 import ko = require('knockout');
+
 import TutorialMessage = require('model/TutorialMessage');
 import tutorialData = require('json!datadir/tutorial.json');
 
@@ -35,9 +36,11 @@ class Tutorial {
             var ver = this.currentMessage().arrowLeft ? 'left' : 'right';
             return hor + ' ' + ver;
         });
+
+        ko.rebind(this);
     }
 
-    public next = () => {
+    next() {
         if (this.currentMessageIndex() === this.messages().length - 1) {
             this.active(false);
         } else {
@@ -45,7 +48,7 @@ class Tutorial {
         }
     }
 
-    public startTutorial = () => {
+    startTutorial() {
         this.active(true);
     }
 }

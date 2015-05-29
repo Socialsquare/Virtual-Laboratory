@@ -105,7 +105,7 @@ class SimpleContainer extends InventoryItem {
             return liquid.type() === LiquidType.SALT_WATER;
         });
 
-        if (liquids.length == 1 && containsSaltWater)
+        if (liquids.length === 1 && containsSaltWater)
             return true;
 
         var concentrationToBeAdded = 0; //Such javaNamingConventions. Wow.
@@ -133,7 +133,7 @@ class SimpleContainer extends InventoryItem {
     }
 
     findByType(type: LiquidType) {
-        return _.find(this.liquids(), (l) => l.type() == type);
+        return _.find(this.liquids(), (l) => l.type() === type);
     }
 
     containsAll(liquidTypes: LiquidType[]) {
@@ -143,7 +143,7 @@ class SimpleContainer extends InventoryItem {
     }
 
     containsAllStrict(liquidTypes: LiquidType[]) {
-        if (this.liquids().length != liquidTypes.length)
+        if (this.liquids().length !== liquidTypes.length)
             return false;
 
         var containedTypes = _.map(this.liquids(), l => l.type());
@@ -171,13 +171,10 @@ class SimpleContainer extends InventoryItem {
                 var mo = <MicroorganismModel>liquid;
                 return _.any(mo.extraProperties(), (extraProperty) => {
                     return extraProperty.proteinCodingSequenceType() === PCSType.GFP;
-                })
+                });
             }
 
-            if (liquid.type() === LiquidType.FLUORESCENT_2ND_ANTIBODY)
-                return true;
-
-            return false;
+            return liquid.type() === LiquidType.FLUORESCENT_2ND_ANTIBODY;
         });
     }
 
@@ -197,7 +194,7 @@ class SimpleContainer extends InventoryItem {
                 //TODO: produce enzymes
                 growthAmount = organism.getGrowthStep(deltaTime, this.maxConcentration(), totalConc, ph, temperature);
 
-                if (organism.producedEnzymes().length == 0) {
+                if (organism.producedEnzymes().length === 0) {
 
                     var extraLen = organism.extraProperties().length;
                     //For-each

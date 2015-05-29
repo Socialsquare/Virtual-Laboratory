@@ -17,6 +17,21 @@
         "no-trailing-whitespace": true,
         "no-unreachable": true,
         "no-unused-expression": true,
-        "no-unused-variable": true
+        "no-unused-variable": true,
+        "no-use-before-declare": true,
+        "no-var-requires": true,
+
+        "quotemark": [true, "single"],
+        "radix": true,
+        "semicolon": true,
+        "triple-equals": true,
+        "whitespace": [
+            true,
+            "check-branch",
+            "check-decl",
+            "check-operator",
+            "check-separator",
+            "check-type"
+        ]
     }
 }

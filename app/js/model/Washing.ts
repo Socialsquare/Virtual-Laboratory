@@ -31,7 +31,7 @@ class Washing {
 
         // check if agents contain other stuff
         var indexOfOther = _.findIndex(liquids, (liquid) => {
-            return liquid.type() != LiquidType.LIPASE_ENZYME;
+            return liquid.type() !== LiquidType.LIPASE_ENZYME;
         });
 
         // if found other, bad result

@@ -17,9 +17,11 @@ class SimpleContainerController<T extends SimpleContainerModel> {
         this.simpleContainer = simpleContainer;
 
         this.showPlaceholder = ko.observable(false);
+
+        ko.rebind(this);
     }
 
-    public handleContainerDrop = (item) => {
+    handleContainerDrop(item) {
         throw 'Needs implementation';
     }
 }

@@ -86,7 +86,7 @@ class Electroporator extends SimpleContainerModel {
         // Er der 1 eller flere promotere i genet?
         var promoterPositions = gene.getPromoterPositions();
         var promLen = promoterPositions.length;
-        if(promLen <= 0) {
+        if (promLen <= 0) {
             // Quiz #1 , missing promoter
             returnObject.firstError = 1;
 
@@ -96,11 +96,11 @@ class Electroporator extends SimpleContainerModel {
         // Er der en terminator efter den sidste promoter?
         var terminatorPositions = gene.getTerminatorPositions();
         var termLen = terminatorPositions.length;
-        if(termLen <= 0) {
+        if (termLen <= 0) {
             returnObject.firstError = 2;
             return returnObject;
         }
-        else if(! (terminatorPositions[termLen-1] > promoterPositions[promLen-1]))  {
+        else if (!(terminatorPositions[termLen - 1] > promoterPositions[promLen - 1]))  {
             returnObject.firstError = 2;
             return returnObject;
         }
@@ -153,13 +153,13 @@ class Electroporator extends SimpleContainerModel {
         });
 
 
-        subMRNAs =_.filter(subMRNAs, (subMRNA) => {
+        subMRNAs = _.filter(subMRNAs, (subMRNA) => {
             var containsPCS = _.any(subMRNA.DNAs, (dna) => {
-                return dna.DNAType() === DNAType.PROTEINKODENDE_SEKVENS
+                return dna.DNAType() === DNAType.PROTEINKODENDE_SEKVENS;
             });
 
             if (!containsPCS) {
-                var containsRBS =_.any(subMRNA.DNAs, (dna) => {
+                var containsRBS = _.any(subMRNA.DNAs, (dna) => {
                     return dna.DNAType() === DNAType.RIBOSOME_BINDING_SITE;
                 });
 
@@ -194,7 +194,7 @@ class Electroporator extends SimpleContainerModel {
 
 
         // FLow, page 2
-        subMRNAs =_.filter(subMRNAs, (subMRNA) => {
+        subMRNAs = _.filter(subMRNAs, (subMRNA) => {
             var containsRBSBeforeLastPCS = false;
             var lastPCSIndex = 0;
             _.each(subMRNA.DNAs, (dna, index) => {
@@ -289,7 +289,7 @@ class Electroporator extends SimpleContainerModel {
                 return dna.DNAType() === DNAType.PROTEINKODENDE_SEKVENS;
             });
 
-            if(!containsPCS) {
+            if (!containsPCS) {
                 // Quiz # 5 (no PCS)
                 values.firstError = 5 < values.firstError ? 5 : values.firstError;
                 console.log('Electro #7');
@@ -304,7 +304,7 @@ class Electroporator extends SimpleContainerModel {
                 return dna.DNAType() === DNAType.STOP_CODON;
             });
 
-            if(!containsStopCodon) {
+            if (!containsStopCodon) {
                 // Quiz # 6 (no stop codon)
                 values.firstError = 6 < values.firstError ? 6 : values.firstError;
             }
@@ -318,7 +318,7 @@ class Electroporator extends SimpleContainerModel {
             //Get start codon positions
             var startPositions = [];
             _.each(subMRNA.DNAs, (dna, index) => {
-                if(dna.DNAType() === DNAType.START_CODON) {
+                if (dna.DNAType() === DNAType.START_CODON) {
                     startPositions.push(index);
                 }
             });
@@ -326,7 +326,7 @@ class Electroporator extends SimpleContainerModel {
             //Get stop codon positions
             var stopPositions = [];
             _.each(subMRNA.DNAs, (dna, index) => {
-                if(dna.DNAType() === DNAType.STOP_CODON) {
+                if (dna.DNAType() === DNAType.STOP_CODON) {
                     stopPositions.push(index);
                 }
             });
@@ -353,7 +353,7 @@ class Electroporator extends SimpleContainerModel {
                     return startPosition > firstStop;
                 });
 
-                postionPairs.push([firstStartCodon,firstStop]);
+                postionPairs.push([firstStartCodon, firstStop]);
             }
 
             // Extract relevant DNA

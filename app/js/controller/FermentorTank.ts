@@ -14,7 +14,7 @@ class FermentorTank extends SimpleContainerController<FermentorTankModel> {
         super(fermentorTank);
     }
 
-    public handleContainerDrop = (item) => {
+    handleContainerDrop(item) {
         //TODO: test
         if (item.type() === ContainerType.SYRINGE) {
             // 1) Check of syringe er tom? (gør intet)
@@ -29,7 +29,7 @@ class FermentorTank extends SimpleContainerController<FermentorTankModel> {
             }
 
             // 3) Check om begge har contents og prompt brugern (tøm fermentor og kanylen efter)
-            popupController.confirm("fermentor.empty_tank.header", "fermentor.empty_tank.body").then(() => {
+            popupController.confirm('fermentor.empty_tank.header', 'fermentor.empty_tank.body').then(() => {
                 this.simpleContainer.clearContents();
                 //This is used when restarting the fermentor
                 this.simpleContainer.hasRun(false);

@@ -68,15 +68,15 @@ class Fermentor {
     }
 
     initalizeData() {
-        var biomassData =_.map(_.range(0, 250), (i) => {
+        var biomassData = _.map(_.range(0, 250), (i) => {
             return utils.math.getBiomassFromConcentration(this.fermentorTank.getTotalConcentration());
         });
 
-        var substrateData =_.map(_.range(0, 250), (i) => {
+        var substrateData = _.map(_.range(0, 250), (i) => {
             return this.substrate();
         });
 
-        var productData =_.map(_.range(0, 250), (i) => {
+        var productData = _.map(_.range(0, 250), (i) => {
             return 0.0;
         });
 
@@ -90,11 +90,11 @@ class Fermentor {
     }
 
     resetContents() {
-        var dilutionFactor = this.fermentorTank.getTotalConcentration() / Math.pow(10,7);
+        var dilutionFactor = this.fermentorTank.getTotalConcentration() / Math.pow(10, 7);
         var clonedLiqs = this.fermentorTank.cloneLiquids();
         clonedLiqs = utils.biology.dilute(dilutionFactor, clonedLiqs);
         this.fermentorTank.clearContents();
-        this.fermentorTank.addAll(clonedLiqs,true);
+        this.fermentorTank.addAll(clonedLiqs, true);
 
         this.products([]);
 
@@ -136,7 +136,7 @@ class Fermentor {
 
         var concBefore = this.fermentorTank.getTotalConcentration();
 
-        for(var i = 0; i < this.hourResolution(); i++) {
+        for (var i = 0; i < this.hourResolution(); i++) {
             this.fermentorTank.growContentsOnce(deltaTime, this.growerType(), this.ph(), this.temperature());
 
             var mos = LiquidHelper.mos(this.fermentorTank.liquids());
@@ -144,14 +144,14 @@ class Fermentor {
                 // 1) find products and add to fermentor
                 _.each(organism.producedEnzymes(), (producedEnzyme) => {
 
-                    var match = _.find(this.products(), (product) => { return product.enzymeLiquidType === producedEnzyme.enzymeLiquidType });
+                    var match = _.find(this.products(), (product) => {
+                        return product.enzymeLiquidType === producedEnzyme.enzymeLiquidType;
+                    });
 
-
-                    if (!match) {
+                    if (!match)
                         this.products.push(producedEnzyme);
-                    } else { //if in fermentorProducts --> update concentration
+                    else //if in fermentorProducts --> update concentration
                         match.amount += producedEnzyme.amount;
-                    }
                 });
 
                 // 2) Set products to []

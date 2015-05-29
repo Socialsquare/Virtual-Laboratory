@@ -104,7 +104,7 @@ class Menu extends BaseViewController {
         var body = document.getElementsByTagName('body')[0];
         if (screenfull.enabled) {
             screenfull.toggle(body);
-            $("#app").toggleClass('fullscreen', screenfull.isFullscreen);
+            $('#app').toggleClass('fullscreen', screenfull.isFullscreen);
         } else {
             alert('Full screen is not supported on your device :(');
         }

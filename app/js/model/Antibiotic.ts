@@ -35,9 +35,9 @@ class Antibiotic extends LiquidModel {
 
             var organism = <MicroorganismModel>liquid;
 
-            var resistance =_.any(organism.extraProperties(), (extraProperty) => {
+            var resistance = _.any(organism.extraProperties(), (extraProperty) => {
 
-                switch(this.antibioticType()){
+                switch (this.antibioticType()){
                 case AntibioticType.A:
                     return extraProperty.proteinCodingSequenceType() === PCSType.ANTIBIOTIC_RES_A;
                 case AntibioticType.B:
@@ -47,14 +47,14 @@ class Antibiotic extends LiquidModel {
                 }
             });
 
-            if(!resistance) {
+            if (!resistance) {
                 organism.living(false);
             }
         });
     }
 
     hashCode() {
-        return this._hashCode() + ":" + this.antibioticType();
+        return this._hashCode() + ':' + this.antibioticType();
     }
 
     clone() {

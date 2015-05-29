@@ -52,118 +52,118 @@ class LiquidFactory {
         }
     };
 
-    static homoSpleen = (antibody) => {
+    static homoSpleen(antibody) {
         var homogenizedSpleen = new HomogenizedSpleen();
 
         homogenizedSpleen.antibodiesFor.push(antibody);
         return homogenizedSpleen;
-    };
+    }
 
-    static hybridomaMedium = () => {
+    static hybridomaMedium() {
         return new Liquid(LiquidType.HYBRIDOMA_MEDIUM);
-    };
+    }
 
-    static growthMedium = () => {
+    static growthMedium() {
         return new Liquid(LiquidType.GROWTH_MEDIUM);
-    };
+    }
 
-    static deadly = () => {
+    static deadly() {
         return new Liquid(LiquidType.DEADLY, ReactionCount.ALWAYS);
-    };
+    }
 
-    static fluorescentSecondaryAntibody = () => {
+    static fluorescentSecondaryAntibody() {
         return new FluorescentSecondaryAntibody();
-    };
+    }
 
-    static insulin = () => {
+    static insulin() {
         return new Liquid(LiquidType.INSULIN);
-    };
+    }
 
-    static antigenGout = () => {
+    static antigenGout() {
         return new Liquid(LiquidType.ANTIGEN_GOUT);
-    };
+    }
 
-    static antigenSmallpox = () => {
+    static antigenSmallpox() {
         return new Liquid(LiquidType.ANTIGEN_SMALLPOX);
-    };
+    }
 
-    static antibodySmallpox = () => {
+    static antibodySmallpox() {
         return new Liquid(LiquidType.ANTIBODY_SMALLPOX);
-    };
+    }
 
-    static antibodyGout = () => {
+    static antibodyGout() {
         return new Liquid(LiquidType.ANTIBODY_GOUT);
-    };
+    }
 
-    static adjuvans = () => {
+    static adjuvans() {
         return new Liquid(LiquidType.ADJUVANS);
-    };
+    }
 
-    static lipase = () => {
+    static lipase() {
         return new Liquid(LiquidType.LIPASE_ENZYME);
-    };
+    }
 
-    static gfp = () => {
+    static gfp() {
         return new Liquid(LiquidType.GFP);
-    };
+    }
 
-    static cypEnzyme = () => {
+    static cypEnzyme() {
         return new Liquid(LiquidType.CYP_ENZYME);
-    };
+    }
 
-    static targetRecptor = () => {
+    static targetRecptor() {
         return new Liquid(LiquidType.TARGET_RECEPTOR);
-    };
+    }
 
-    static juice = () => {
+    static juice() {
         return new Liquid(LiquidType.JUICE, ReactionCount.ALWAYS);
-    };
+    }
 
-    static saltWater = () => {
+    static saltWater() {
         return new SaltWater();
-    };
+    }
 
-    static dna = (dnaType: DNAType) => {
+    static dna(dnaType: DNAType) {
         var dna = new Liquid(LiquidType.DNA);
         dna.subtype(dnaType);
         return dna;
-    };
+    }
 
-    static mouseBlood = (mouseBloodType: MouseBloodType) => {
+    static mouseBlood(mouseBloodType: MouseBloodType) {
         var blood = new Liquid(LiquidType.MOUSE_BLOOD);
         blood.subtype(mouseBloodType);
         return blood;
-    };
+    }
 
-    static buffyCoat = (mouseBloodType: MouseBloodType) => {
+    static buffyCoat(mouseBloodType: MouseBloodType) {
         return new BuffyCoat(mouseBloodType);
-    };
+    }
 
-    static diabetesPrimer = () => {
+    static diabetesPrimer() {
         return new DiabetesPrimer();
     }
 
-    static nucleotides = () => {
+    static nucleotides() {
         return new Liquid(LiquidType.NUCLEOTIDES);
     }
 
-    static dnaPolymerase = () => {
+    static dnaPolymerase() {
         return new Liquid(LiquidType.DNA_POLYMERASE);
     }
 
-    static blueStain = () => {
+    static blueStain() {
         return new Liquid(LiquidType.BLUE_STAIN);
     }
 
-    static lysis = () => {
+    static lysis() {
         return new Liquid(LiquidType.LYSIS);
     }
 
-    static freeFloatingDNA = (mouseBloodType: MouseBloodType) => {
+    static freeFloatingDNA(mouseBloodType: MouseBloodType) {
         return new FreeFloatingDNA(mouseBloodType);
     }
 
-    static clumpedCells = (mouseBloodType: MouseBloodType) => {
+    static clumpedCells(mouseBloodType: MouseBloodType) {
         return new ClumpedCells(mouseBloodType);
     }
 }
