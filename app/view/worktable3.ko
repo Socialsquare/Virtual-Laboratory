@@ -8,5 +8,6 @@
 
     <div class="pcr-machine-btn hand" data-bind="click: activatePCRMachine">
         <img src="assets/images/work1_electroporator-on.png" alt="Centrifuge button">
+        <span data-bind="visible: pcrMachineController.compContainer.status">TURNED ON</span>
     </div>
 </div>

@@ -23,6 +23,9 @@ class PCRMachine extends CompositeContainerController {
     }
 
     tryCopyDNA(tube: TubeModel) {
+        if (!tube)
+            return;
+
         // copy diabetes dna if diabetes primers is present
         var ffd = <FreeFloatingDNAModel>tube.findByType(LiquidType.FREE_FLOATING_DNA);
 
@@ -31,10 +34,13 @@ class PCRMachine extends CompositeContainerController {
 
         var required = [LiquidType.DIABETES_PRIMER, LiquidType.FREE_FLOATING_DNA];
 
-        if (ffd.bloodType() === MouseBloodType.DIABETIC && tube.containsAllStrict(required))
+        if (ffd.bloodType() === MouseBloodType.DIABETIC && tube.containsAllStrict(required)) {
             ffd.isCopied(true);
-
-        popupController.message('pcr.dna-copied.header', 'pcr.dna-copied.body');
+            popupController.video('electroporator1', false);
+        }
+        // TODO-PCR: message if nothing happens?
+        // TODO-PCR: correct video
+        //popup.message('pcr.dna-copied.header', 'pcr.dna-copied.body');
     }
 
     performPCR() {
