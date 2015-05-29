@@ -6,8 +6,6 @@ import ContainerType = require('model/type/Container');
 import CompositeContainerModel = require('model/CompositeContainer');
 import SimpleContainerModel = require('model/SimpleContainer');
 
-
-//TODO: remove inline CSS from $this.ko
 class SpectroPM {
 
     public microSlot: CompositeContainerModel;
@@ -28,9 +26,11 @@ class SpectroPM {
             }
             return this.microSlot;
         };
+
+        ko.rebind(this);
     }
 
-    public reset = () => {
+    reset() {
         this.microSlot.removeAll();
     }
 }

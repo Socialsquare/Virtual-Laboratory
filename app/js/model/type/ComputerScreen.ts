@@ -1,12 +1,12 @@
 import ev = require('enumvalue');
 
 enum ComputerScreen {
-    MENU        = ev.next(), //        'ComputerScreenType.MENU',
-    DESIGN_DNA  = ev.next(), //  'ComputerScreenType.DESIGN_DNA',
-    DESIGN_DRUG = ev.next(), // 'ComputerScreenType.DESIGN_DRUG',
-    ORDER_MOUSE = ev.next(), // 'ComputerScreenType.ORDER_MOUSE',
-    SEQUENCING  = ev.next(), //  'ComputerScreenType.SEQUENCING',
-    PROTEIN     = ev.next(), //     'ComputerScreenType.PROTEIN'
+    MENU        = ev.next(),
+    DESIGN_DNA  = ev.next(),
+    DESIGN_DRUG = ev.next(),
+    ORDER_MOUSE = ev.next(),
+    SEQUENCING  = ev.next(),
+    PROTEIN     = ev.next(),
 };
 
 export = ComputerScreen;

@@ -8,10 +8,8 @@ import LiquidType = require('model/type/Liquid');
 import DNAType = require('model/type/DNA');
 import ReactionCount = require('model/ReactionCount');
 
-
 class Gene extends LiquidModel {
 
-    // TODO! type
     public dnaElements: KnockoutObservableArray<DNAElementModel>;
 
     constructor(elements = []) {

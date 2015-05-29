@@ -8,17 +8,29 @@ import AntigenCoatingType = require('model/type/AntigenCoating');
 
 class Container {
 
-    static tube = () => new Tube();
+    static tube() {
+        return new Tube();
+    }
 
-    static petri = () => new Petridish();
+    static petri() {
+        return new Petridish();
+    }
 
-    static micro = () => new Microtiterplate();
+    static micro() {
+        return new Microtiterplate();
+    }
 
-    static microAntigenCoated = () => new Microtiterplate(AntigenCoatingType.ANY);
+    static microAntigenCoated() {
+        return new Microtiterplate(AntigenCoatingType.ANY);
+    }
 
-    static syringe = () => new Syringe();
+    static syringe() {
+        return new Syringe();
+    }
 
-    static bottle = () => new Bottle();
+    static bottle() {
+        return new Bottle();
+    }
 }
 
 export = Container;

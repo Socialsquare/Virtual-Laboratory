@@ -6,7 +6,7 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "fastclick/fastclick.d.ts": {
-      "commit": "00e7f3fede5f2df55b56c72f40a144824f0f0bfa"
+      "commit": "86d1044eb34dfb80b86a7aa181ed1bd95116cbbe"
     },
     "jquery/jquery.d.ts": {
       "commit": "00e7f3fede5f2df55b56c72f40a144824f0f0bfa"

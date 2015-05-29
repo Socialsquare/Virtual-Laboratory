@@ -27,10 +27,8 @@ class List<T> extends PopupModel {
         this.currentPage = ko.observable(0);
 
         this.pagedItems = ko.pureComputed(() => {
-            return _(this.items())
-                .drop(this.currentPage() * this.pageSize)
-                .take(this.pageSize)
-                .value();
+            var dropped = _.drop(this.items(), this.currentPage() * this.pageSize);
+            return _.take(dropped, this.pageSize);
         }, this);
 
         this.hasNext = ko.pureComputed(() => {

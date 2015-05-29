@@ -15,6 +15,8 @@ import FermentorModel = require('model/Fermentor');
 import UvRoomModel = require('model/UvRoom');
 import WashingModel = require('model/Washing');
 
+import DNAElementModel = require('model/DNAElement');
+
 import MouseType = require('model/type/Mouse');
 import MouseBloodType = require('model/type/MouseBlood');
 import ComputerScreenType = require('model/type/ComputerScreen');
@@ -23,7 +25,7 @@ import ComputerScreenType = require('model/type/ComputerScreen');
 class GameState {
 
     public activeComputerScreen: KnockoutObservable<ComputerScreenType>;
-    public sequencedDNA: KnockoutObservableArray<any>;
+    public sequencedDNA: KnockoutObservableArray<DNAElementModel>;
 
     public inventory: Inventory;
 

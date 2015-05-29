@@ -1,13 +1,14 @@
-import ko = require(    'knockout');
+import ko = require('knockout');
 import _ = require('lodash');
 
-import BaseComputer = require('controller/view/computer/Base');
 import experimentController = require('controller/Experiment');
 
+import BaseComputer = require('controller/view/computer/Base');
 import GeneModel = require('model/Gene');
 import TubeModel = require('model/Tube');
 import DNAElementModel = require('model/DNAElement');
 
+import ComputerScreenType = require('model/type/ComputerScreen');
 import ActivationType = require('model/type/Activation');
 
 import DNAService = require('service/DNA');
@@ -16,7 +17,7 @@ class DesignDNA extends BaseComputer {
 
     public defaultAvailableDNA: KnockoutObservableArray<DNAElementModel>;
     public dnaSequence: KnockoutObservableArray<DNAElementModel>;
-    public availableDNA: KnockoutComputed<DNAElementModel>;
+    public availableDNA: KnockoutComputed<DNAElementModel[]>;
 
     constructor() {
         super('computer-design-dna', 'computer.screen.dna');
@@ -24,7 +25,7 @@ class DesignDNA extends BaseComputer {
         this.defaultAvailableDNA = ko.observableArray([]);
         this.dnaSequence = ko.observableArray([]);
 
-        this.availableDNA = ko.computed(() => {
+        this.availableDNA = ko.pureComputed(() => {
             return _.union(this.defaultAvailableDNA(), this.gameState.sequencedDNA());
         });
 
@@ -90,7 +91,7 @@ class DesignDNA extends BaseComputer {
         // reset the sequence and go to computer menu
         this.dnaSequence.removeAll();
 
-        this.changeScreen(this.Screens.MENU);
+        this.changeScreen(ComputerScreenType.MENU);
 
         experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_DNA, tube);
     }

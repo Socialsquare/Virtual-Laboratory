@@ -66,7 +66,7 @@ class Sequencing extends BaseComputer {
             return;
         }
 
-        if (!tube.hasOwnProperty('well') || !tube.well.hasAntibody()) {
+        if (!tube.well || !tube.well.hasAntibody()) {
             console.log('TODO: remove #1');
             this.isValid(false);
             popupController.message('computer.screen.sequencing.fail_header', 'computer.screen.sequencing.missing_antibody');

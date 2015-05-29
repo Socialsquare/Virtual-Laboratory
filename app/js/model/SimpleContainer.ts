@@ -148,7 +148,7 @@ class SimpleContainer extends InventoryItem {
 
         var containedTypes = _.map(this.liquids(), l => l.type());
 
-        return _(containedTypes).difference(liquidTypes).isEmpty();
+        return _.isEmpty(_.difference(containedTypes, liquidTypes));
     }
 
     getTotalConcentration() {

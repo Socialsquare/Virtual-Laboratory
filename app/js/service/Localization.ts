@@ -25,7 +25,7 @@ class Localization {
 
         if (!id[Localization.selectedLanguage()]) {
             // fallback to first available lang in alphabetical order
-            lang = _(<any>id).keys().sortBy(_.identity).find();
+            lang = _(id).keys().sortBy(_.identity).first();
         }
 
         return id[lang];

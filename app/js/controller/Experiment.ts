@@ -22,6 +22,10 @@ import TriggerType = require('model/type/Trigger');
 import TriggerModel = require('model/Trigger');
 import ConsequenceType = require('model/type/Consequence');
 
+type TriggerExtraProperties = {
+    concentration?: number
+};
+
 class Experiment {
 
     public activeExperiment: KnockoutObservable<ExperimentModel>;
@@ -131,7 +135,7 @@ class Experiment {
         this.finishActiveTask();
     }
 
-    triggerActivation(activation: ActivationType, item, extraProperties = {}) {
+    triggerActivation(activation: ActivationType, item, extraProperties: TriggerExtraProperties = {}) {
         if (!this.hasExperiment()) return;
         // This happens when all steps in an exercise are done
         if (!this.activeTask()) return;

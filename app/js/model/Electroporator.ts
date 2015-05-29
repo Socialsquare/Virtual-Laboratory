@@ -105,7 +105,7 @@ class Electroporator extends SimpleContainerModel {
             return returnObject;
         }
 
-        var MRNAs = gene.getMRNAs(promoterPositions, terminatorPositions);
+        var MRNAs: DNAList[] = gene.getMRNAs(promoterPositions, terminatorPositions);
 
         _(MRNAs).each((mRNA) => {
             // TODO: set quiz/video-numbers

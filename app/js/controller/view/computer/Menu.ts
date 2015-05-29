@@ -1,5 +1,7 @@
 import ko = require('knockout');
+
 import BaseComputer = require('controller/view/computer/Base');
+import ComputerScreenType = require('model/type/ComputerScreen');
 
 class Menu extends BaseComputer {
 
@@ -10,7 +12,7 @@ class Menu extends BaseComputer {
     }
 
     screenChanger(screenName) {
-        return () => this.changeScreen(screenName);
+        return () => this.changeScreen(ComputerScreenType[screenName]);
     }
 }
 
