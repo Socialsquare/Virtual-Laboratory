@@ -2,8 +2,12 @@ import ko = require('knockout');
 import $ = require('jquery');
 import _ = require('lodash');
 
+import SelectOption = require('controller/SelectOption');
+
 import MicrotiterplateModel = require('model/Microtiterplate');
 import ExperimentModel = require('model/Experiment');
+
+import TubeExtractionType = require('model/type/TubeExtraction');
 
 import PopupModel = require('model/Popup');
 import GuidePopupModel = require('model/popup/Guide');
@@ -11,15 +15,11 @@ import MicrotiterPopupModel = require('model/popup/Microtiter');
 import HelpPopupModel = require('model/popup/Help');
 import ListPopupModel = require('model/popup/List');
 import DoorPopupModel = require('model/popup/Door');
+import TubeExtractionPopupModel = require('model/popup/TubeExtraction');
 
 import ImageHelper = require('utils/ImageHelper');
 
 import VideoController = require('controller/Video');
-
-interface SelectOption<T> {
-    key: string;
-    value: T;
-}
 
 class Popup {
     // Used for testing TODO! could be nicer
@@ -162,6 +162,12 @@ class Popup {
 
     showDoor() {
         this.showPopup(new DoorPopupModel());
+    }
+
+    tubeExtraction(type: TubeExtractionType) {
+        var vm = <TubeExtractionPopupModel>this.showPopup(new TubeExtractionPopupModel(type));
+
+        return vm.promise.always(() => this.hide(vm));
     }
 }
 

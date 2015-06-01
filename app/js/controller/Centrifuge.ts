@@ -11,6 +11,7 @@ import TubeModel = require('model/Tube');
 import ClumpedCellsModel = require('model/ClumpedCells');
 
 import LiquidType = require('model/type/Liquid');
+import TubeExtractionType = require('model/type/TubeExtraction');
 
 import ContainerFactory = require('factory/Container');
 import LiquidFactory = require('factory/Liquid');
@@ -50,37 +51,48 @@ class CentrifugeController extends CompositeContainerController {
         if (!tube || tube.isEmpty())
             return;
 
-        var extracted: TubeModel;
-
         if (tube.contains(LiquidType.CLUMPED_CELLS)) {
-            // created free floating dna
-            var cc = <ClumpedCellsModel>tube.findByType(LiquidType.CLUMPED_CELLS);
+            popupController.tubeExtraction(TubeExtractionType.FROM_CLUMPED_CELLS)
+                .then((selected: LiquidType) => {
+                    var cc = <ClumpedCellsModel>tube.findByType(LiquidType.CLUMPED_CELLS);
+                    var extraction = ContainerFactory.tube();
 
-            extracted = ContainerFactory.tube()
-                .add(LiquidFactory.freeFloatingDNA(cc.bloodType()));
+                    switch (selected) {
+                    case LiquidType.FREE_FLOATING_DNA:
+                        extraction.add(LiquidFactory.freeFloatingDNA(cc.bloodType()));
+                        break;
+                    default:
+                        throw 'Invalid selected extraction';
+                    }
+
+                    gameState.inventory.add(extraction);
+                    this.compContainer.removeContainer(tube);
+                });
         }
         else if (tube.contains(LiquidType.MOUSE_BLOOD)) {
-            // create buffy coat
-            var blood = tube.findByType(LiquidType.MOUSE_BLOOD);
-            extracted = ContainerFactory.tube()
-                .add(LiquidFactory.buffyCoat(blood.subtype()));
-        }
+            popupController.tubeExtraction(TubeExtractionType.FROM_MOUSE_BLOOD)
+                .then((selected: LiquidType) => {
+                    var blood = tube.findByType(LiquidType.MOUSE_BLOOD);
+                    var extraction = ContainerFactory.tube();
 
-        // Add the extracted content and remove the extractee
-        if (extracted) {
-            gameState.inventory.add(extracted);
-            this.compContainer.removeContainer(tube);
+                    switch (selected) {
+                    case LiquidType.BUFFY_COAT:
+                        extraction.add(LiquidFactory.buffyCoat(blood.subtype()));
+                        break;
+                    default:
+                        throw 'Invalid selected extraction';
+                    }
 
-            popupController.message(
-                'centrifuge.extraction.header',
-                'centrifuge.extraction.body'
-            );
+                    gameState.inventory.add(extraction);
+                    this.compContainer.removeContainer(tube);
+                });
         }
     }
 
     // TODO: this might be a bad name
     private finishActivate() {
         _.each(this.compContainer.containers(), this.tryExtractContents);
+
         this.compContainer.status(false);
     }
 

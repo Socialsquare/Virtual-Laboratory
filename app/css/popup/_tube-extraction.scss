@@ -1,0 +1,62 @@
+/* popup/tube-extraction.scss */
+
+.popup-tube-extraction {
+    $width: 600px;
+
+    padding: 30px;
+
+    left: 290px;
+    top: 50px;
+    width: $width;
+    height: 480px;
+
+    color: white;
+
+    .extraction {
+        position:relative;
+
+        width: 80px;
+        height: 200px;
+
+        background-repeat: no-repeat;
+
+        &.from-mouse-blood {
+            background-image: url(#{$img-path}/tube_extraction_blood.png);
+
+            .buffy-coat {
+                background-color: red;
+                opacity: 0.5;
+                width: 80px;
+                height: 20px;
+                position: absolute;
+                top: 114px;
+            }
+
+            .red-blood-cells {
+                background-color: blue;
+                opacity: 0.5;
+                width: 80px;
+                height: 40px;
+                position: absolute;
+                top: 134px;
+            }
+        }
+
+        &.from-clumped-cells {
+            background-image: url(#{$img-path}/tube_extraction_clumped_cells.png);
+
+            .ffd {
+                background-color: white;
+                opacity: 0.5;
+                width: 80px;
+                height: 80px;
+                position: absolute;
+                top: 114px;
+            }
+        }
+    }
+
+    .btn-row {
+        width: $width;
+    }
+}

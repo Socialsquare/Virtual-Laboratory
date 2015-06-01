@@ -175,6 +175,9 @@
         "popup.clumped_cells_created.header": "Sammenklumpede celler dannet",
         "popup.clumped_cells_created_screen.body": "Der er dannet sammenklumpede celler i reagensglasset. Husk at notere indholdet på reagensglassets mærkat!",
 
+        "popup.tube-extraction.header": "Centrifugen er færdig",
+        "popup.tube-extraction.body": "Vælg hvad du vil ekstrahere",
+
         "pipette.filled.header": "Information",
         "pipette.filled.body": "Du har suget indhold op med pipetten.",
         "pipette.emptied.header": "Information",
@@ -335,8 +338,6 @@
 
         "centrifuge.unbalanced.header": "Ugyldigt",
         "centrifuge.unbalanced.body": "Centrifugen skal være balanceret for at du kan anvende den. Hint: du kan anvende et reagensglas med saltvand for at balancere centrifugen.",
-        "centrifuge.extraction.header": "Centrifugen er færdig",
-        "centrifuge.extraction.body": "Hvad vil du ekstrahere?",
 
         "pcr.dna-copied.header": "DNA er blevet kopieret",
         "pcr.dna-copied.body": "En milliard gange",
