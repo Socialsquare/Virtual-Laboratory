@@ -46,7 +46,7 @@
                  data-bind="drag: { item: gameState.pipette, helper: 'original', revert: false, offset:
                  { top: 185 + gameState.pipette.hasTip() * 45, left: 15 + gameState.pipette.hasTip() * (-10)} },
                             visible: gameState.pipette.active,
-                            css: { tip: gameState.pipette.hasTip() }">
+                            css: { tip: gameState.pipette.hasTip(), empty: gameState.pipette.isEmpty() }">
             </div>
 
             <div class="popup-cover" style="display: none"
