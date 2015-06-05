@@ -71,6 +71,7 @@ class Chemical extends BaseViewController {
             new ChemicalItemModel('item.name.dna_polymerase', () => this.inTube(LiquidFactory.dnaPolymerase())),
             new ChemicalItemModel('item.name.blue_stain', () => this.inTube(LiquidFactory.blueStain())),
             new ChemicalItemModel('item.name.lysis', () => this.inTube(LiquidFactory.lysis())),
+            new ChemicalItemModel('item.name.salt_water', () => this.inTube(LiquidFactory.saltWater())),
         ]);
 
         ko.rebind(this);
