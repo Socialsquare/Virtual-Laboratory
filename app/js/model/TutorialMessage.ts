@@ -6,6 +6,7 @@ class TutorialMessage {
     public y: number;
     public arrowTop: boolean;
     public arrowLeft: boolean;
+    public hideArrow: boolean;
 
     constructor(values: any) {
         this.title = values.title;
