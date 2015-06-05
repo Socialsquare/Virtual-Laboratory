@@ -8,6 +8,22 @@
         "arrowLeft": false
     },
     {
+        "title": "Eksperiment valg",
+        "message": "Du kan altid vælge et nyt eksperiment, men vær opmærksom på at dine ting og fremskridt mistes.",
+        "x": 628,
+        "y": 85,
+        "arrowTop": true,
+        "arrowLeft": false
+    },
+    {
+        "title": "Fuldskærm",
+        "message": "Åbn spillet i fuldskærm.",
+        "x": 682,
+        "y": 85,
+        "arrowTop": true,
+        "arrowLeft": false
+    },
+    {
         "title": "Guiden",
         "message": "Guiden viser dig hvad det næste skridt i dit eksperiment er, og krydser opgaverne af når du har gennemført dem.",
         "x": 25,
