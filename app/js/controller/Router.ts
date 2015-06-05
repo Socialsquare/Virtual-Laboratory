@@ -11,7 +11,7 @@ class Router {
 
         this.viewHistory = ko.observableArray([]);
 
-        this.hasBack = ko.computed(() => {
+        this.hasBack = ko.pureComputed(() => {
             return !this.viewHistory.isEmpty();
         });
 

@@ -14,6 +14,7 @@ class TutorialMessage {
         this.y = values.y;
         this.arrowTop = values.arrowTop;
         this.arrowLeft = values.arrowLeft;
+        this.hideArrow = values.hideArrow;
     }
 }
 

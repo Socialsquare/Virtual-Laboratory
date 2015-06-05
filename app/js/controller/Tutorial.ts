@@ -22,16 +22,16 @@ class Tutorial {
 
         this.currentMessageIndex = ko.observable(0);
 
-        this.currentMessage = ko.computed(() => {
+        this.currentMessage = ko.pureComputed(() => {
             return this.messages()[this.currentMessageIndex()];
         });
 
-        this.arrowImage = ko.computed(() => {
+        this.arrowImage = ko.pureComputed(() => {
             var state = this.currentMessage().arrowTop ? 'up' : 'down';
             return 'assets/images/arrow_' + state + '.png';
         });
 
-        this.arrowClasses = ko.computed(() => {
+        this.arrowClasses = ko.pureComputed(() => {
             var hor = this.currentMessage().arrowTop ? 'top' : 'bottom';
             var ver = this.currentMessage().arrowLeft ? 'left' : 'right';
             return hor + ' ' + ver;

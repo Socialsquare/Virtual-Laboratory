@@ -7,7 +7,7 @@ require.config({
         jqueryui: '../bower_components/jquery-ui/ui/jquery-ui',*/
         flot: '../bower_components/jquery-flot/jquery.flot',
         html5Loader: '../bower_components/jquery.html5loader/src/jquery.html5Loader',
-        lodash: '../bower_components/lodash/dist/lodash.compat',
+        lodash: '../bower_components/lodash/lodash',
         knockout: '../bower_components/knockout/dist/knockout.debug',
         mapping: '../bower_components/knockout-mapping/knockout.mapping',
         'knockout.mapping': '../bower_components/knockout-mapping/knockout.mapping',

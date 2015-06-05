@@ -1,15 +1,23 @@
 [
     {
+        "title": "Hjælp",
+        "message": "Hjælpevinduet giver dig information om alle laboratoriets apparater og egenskaber. Brug det hvis du er i tvivl om hvor et apparat befinder sig eller hvordan det virker.",
+        "x": 578,
+        "y": 85,
+        "arrowTop": true,
+        "arrowLeft": false
+    },
+    {
         "title": "Guiden",
-        "message": "Her er guiden",
+        "message": "Guiden viser dig hvad det næste skridt i dit eksperiment er, og krydser opgaverne af når du har gennemført dem.",
         "x": 25,
         "y": 380,
         "arrowTop": false,
         "arrowLeft": true
     },
     {
-        "title": "Beholdning",
-        "message": "Her er din beholdning af ting",
+        "title": "Beholdningen",
+        "message": "Her kan du opbevare og transportere ting som du finder og producerer gennem spillet. Du kan klikke på en ting for at læse om det og skrive noter.",
         "x": 370,
         "y": 380,
         "arrowTop": false,
@@ -17,15 +25,15 @@
     },
     {
         "title": "Pipetten",
-        "message": "Den skal du bruge hele tiden",
-        "x": 440,
+        "message": "Pipetten bruges til at transportere og flytte væsker mellem reagensglas og andre beholdere. Klik på ikonet for at bruge pipetten frem.",
+        "x": 666,
         "y": 380,
         "arrowTop": false,
         "arrowLeft": false
     },
     {
         "title": "Ny pipette spids",
-        "message": "Få en ny pipette spids",
+        "message": "Når pipetten bruges bliver spidsen beskidt. Her kan du påsætte en ny og ren spids.",
         "x": 550,
         "y": 380,
         "arrowTop": false,
@@ -33,15 +41,15 @@
     },
     {
         "title": "Skraldespanden",
-        "message": "Smid ting ud og nak pipette spidsen",
-        "x": 665,
+        "message": "Her kan du smide ting ud som du ikke længere har brug for. Du kan også fjerne pipette spidsen ved at trække den over skraldespanden.",
+        "x": 440,
         "y": 380,
         "arrowTop": false,
         "arrowLeft": false
     },
     {
         "title": "Forsyninger",
-        "message": "Her kan du få nogle ting",
+        "message": "I forsyningsskabet kan du hente mange forskellige væsker og redskaber til brug i dine eksperimenter.",
         "x": 400,
         "y": 220,
         "arrowTop": true,
@@ -49,23 +57,23 @@
     },
     {
         "title": "Døren",
-        "message": "Her kan du komme til computeren og sådan noget",
+        "message": "Gennem døren har du adgang til computeren, vaskemaskinen og UV rummet.",
         "x": 510,
         "y": 190,
         "arrowTop": true,
         "arrowLeft": true
     },
     {
-        "title": "Stinkhætten",
-        "message": "Lav ting der ikke skal stinke",
+        "title": "Stinkskab",
+        "message": "I stinkskabet kan du arbejde med udstyr og kemikalier, som danner giftige dampe.",
         "x": 140,
         "y": 370,
         "arrowTop": true,
         "arrowLeft": true
     },
     {
-        "title": "Arbejdsborderne",
-        "message": "På bordene kan du lave alt muligt",
+        "title": "Arbejdsborde",
+        "message": "På arbejdsbordene finder du forskellige apparater som du skal bruge i dine eksperimenter. Du kan finde information om alle apparater i hjælpevinduet.",
         "x": 450,
         "y": 150,
         "arrowTop": false,
@@ -73,7 +81,7 @@
     },
     {
         "title": "Musen",
-        "message": "Musen kan dræbes og fodres",
+        "message": "Musen finder du i sit bur på bordet. Du kan tage blodprøver og udføre forskellige forsøg med musen.",
         "x": 590,
         "y": 310,
         "arrowTop": true,
@@ -81,7 +89,7 @@
     },
     {
         "title": "Fermentoren",
-        "message": "Her kan du fermenterer ting",
+        "message": "Fermentoren er en gæringsbeholder, der bruges til at gro produktionsceller under kontrollerede forhold. Mere information kan findes i hjælpevinduet.",
         "x": 600,
         "y": 50,
         "arrowTop": false,
@@ -89,7 +97,7 @@
     },
     {
         "title": "Spektrofotometer",
-        "message": "Spektakulær maskine",
+        "message": "Spektrofotometer bruges til at bestemme koncentrationen af et stof eller protein i en opløsning.",
         "x": 380,
         "y": 190,
         "arrowTop": true,
@@ -97,15 +105,15 @@
     },
     {
         "title": "Inkubatoren",
-        "message": "Her kan du inkubere ting",
+        "message": "En inkubator er et varmeskab, der bruges til at gro celler under kontrollerede forhold.",
         "x": 410,
         "y": 220,
         "arrowTop": false,
         "arrowLeft": true
     },
     {
-        "title": "Det var det",
-        "message": "Held og lykke",
+        "title": "God fornøjelse!",
+        "message": "Husk at du kan få hjælp til dine eksperimenter gennem hjælpevinduet og guiden.",
         "x": 330,
         "y": 180,
         "hideArrow": true

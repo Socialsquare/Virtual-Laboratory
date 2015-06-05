@@ -54,7 +54,7 @@ class GameState {
         this.pipette = new PipetteModel();
         this.mouse = ko.observable(new MouseModel(MouseType.HEALTHY, MouseBloodType.NORMAL));
 
-        this.askTutorial = ko.observable(false); //TODO: set to true
+        this.askTutorial = ko.observable(false); //TODO-release: set to true
 
         this.worktable1 = new Worktable1Model();
         this.worktable2 = new Worktable2Model();
