@@ -5,6 +5,7 @@ import SimpleContainerModel = require('model/SimpleContainer');
 
 import ContainerType = require('model/type/Container');
 import LocationType = require('model/type/Location');
+import LiquidType = require('model/type/Liquid');
 
 class CompositeContainer {
 
@@ -12,7 +13,7 @@ class CompositeContainer {
     public capacity: number;
     public containers: KnockoutObservableArray<SimpleContainerModel>;
 
-    public acceptedType: KnockoutObservable<ContainerType>; //TODO! type?
+    public acceptedType: KnockoutObservable<ContainerType>;
     public location: KnockoutObservable<LocationType>;
 
     constructor(capacity: number, acceptedType: ContainerType, type: ContainerType) {
@@ -42,14 +43,15 @@ class CompositeContainer {
         return true;
     }
 
-    addAt(position, container) {
+    addAt(position: number, container: SimpleContainerModel) {
         this._addAt(position, container);
         return this;
     }
 
-    anyContainsAll(liquidTypes) {
-        // TODO: for each container
-        throw 'NotYetImplementedException';
+    anyContainsAll(liquidTypes: LiquidType[]) {
+        _.some(this.containers(), (container) => {
+            return container.containsAll(liquidTypes);
+        });
     }
 
     get(position: number) {
@@ -77,7 +79,7 @@ class CompositeContainer {
         this.containers(new Array(this.capacity));
     }
 
-    growContentsOnce(deltaTime, growerType, ph, temperature) {
+    growContentsOnce(deltaTime: number, growerType: number, ph: number, temperature: number) {
         // deltaTime is in "hours"
         _.forEach(this.containers(), (container) => {
             if (!container)

@@ -2,7 +2,7 @@
   "name": "vlab",
   "dependencies": {
     "jquery": "~2.1.1",
-    "lodash": "~2.4.1",
+    "lodash": "~3.9.3",
     "requirejs": "~2.1.14",
     "knockout": "~3.3.0",
     "knockout-mapping": "~2.4.1",
