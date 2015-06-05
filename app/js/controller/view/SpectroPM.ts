@@ -41,7 +41,7 @@ class SpectroPM extends BaseViewController {
             this.experimentController.triggerActivation(ActivationType.SPECTROPM, this.spectroPM);
         });
 
-        this.plotData = ko.computed(() => {
+        this.plotData = ko.pureComputed(() => {
             if (this.canShowGraph()) {
                 // 1) find the designed drug
                 var theDrug = <ScaffoldModel>_.find(this.spectroPM.microSlot.get(0).liquids(), (liquid) => {

@@ -17,7 +17,7 @@ class ODMachine extends CompositeContainerModel {
     constructor() {
         super(1, ContainerType.TUBE, ContainerType.OD_MACHINE);
 
-        this.hasTube = ko.computed(() => {
+        this.hasTube = ko.pureComputed(() => {
             return this.hasContainerAt(0);
         });
 
@@ -26,7 +26,7 @@ class ODMachine extends CompositeContainerModel {
                 experimentController.triggerActivation(ActivationType.OD, this.get(0));
         });
 
-        this.display = ko.computed(() => {
+        this.display = ko.pureComputed(() => {
             if (!this.hasTube())
                 return '';
 

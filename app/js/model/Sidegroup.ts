@@ -30,7 +30,7 @@ class Sidegroup {
         this.origin = ko.observable(values.origin);
         this.molarWeight = ko.observable(values.molarWeight);
 
-        this.file = ko.computed(() => {
+        this.file = ko.pureComputed(() => {
             return 'assets/svgs/sidegroup_' + this.id + '.svg';
         });
         // TODO: other field

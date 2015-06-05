@@ -22,7 +22,7 @@ class SidegroupSlot {
         this.optimalLength = values.optimalLength;
         this.bindingType = values.bindingType;
 
-        this.hasSidegroup = ko.computed(() => {
+        this.hasSidegroup = ko.pureComputed(() => {
             return !!this.sidegroup();
         });
     }

@@ -35,11 +35,11 @@ class Incubator {
         this.tubeRack = new TubeRackModel();
         this.tubeRack.location(LocationType.INCUBATOR);
 
-        this.temperatureText = ko.computed(() => {
+        this.temperatureText = ko.pureComputed(() => {
             return '' + this.temperature().toFixed(1) + ' °C';
         });
 
-        this.timerText = ko.computed(() => {
+        this.timerText = ko.pureComputed(() => {
             return '' + Math.round(this.timer()) + ' h';
         });
 

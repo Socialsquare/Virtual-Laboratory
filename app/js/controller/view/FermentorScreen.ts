@@ -35,11 +35,11 @@ class FermentorScreen extends BaseViewController {
         this.turnedOn = ko.observable(false);
 
         //Used to determine whether the fermentor has run. If it has, and has contents, start/stop should ask whether one wants to reuse its contents
-        this.activateButtonText = ko.computed(() => {
+        this.activateButtonText = ko.pureComputed(() => {
             return this.turnedOn() ? 'Stop' : 'Start'; //TODO: i18n
         });
 
-        this.activateButtonColor = ko.computed(() => {
+        this.activateButtonColor = ko.pureComputed(() => {
             return this.turnedOn() ? 'red-btn' : 'green-btn';
         });
 

@@ -22,7 +22,7 @@ class Quiz {
 
         this.video = ko.observable(values.video);
 
-        this.hasVideo = ko.computed(() => {
+        this.hasVideo = ko.pureComputed(() => {
             return !!this.video();
         });
 

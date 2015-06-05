@@ -20,7 +20,7 @@ class Pipette extends CompositeContainerModel {
 
         this.active = ko.observable(false);
 
-        this.isEmpty = ko.computed(() => {
+        this.isEmpty = ko.pureComputed(() => {
             if (!this.hasTip())
                 return false;
 

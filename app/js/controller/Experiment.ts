@@ -39,11 +39,11 @@ class Experiment {
     constructor() {
         this.activeExperiment = ko.observable(null);
 
-        this.hasExperiment = ko.computed(() => {
+        this.hasExperiment = ko.pureComputed(() => {
             return !!this.activeExperiment();
         });
 
-        this.activeTask = ko.computed(() => {
+        this.activeTask = ko.pureComputed(() => {
             if (!this.hasExperiment())
                 return null;
 

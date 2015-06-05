@@ -43,7 +43,7 @@ class Task {
             }
         }
 
-        this.hasConsequence = ko.computed(() => {
+        this.hasConsequence = ko.pureComputed(() => {
             return !!this.consequence();
         });
 

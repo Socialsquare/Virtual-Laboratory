@@ -41,7 +41,7 @@ class Menu extends BaseViewController {
             this.boundScroll();
         });
 
-        this.canScroll = ko.computed(() => {
+        this.canScroll = ko.pureComputed(() => {
             return this.inventoryItemsWidth() > this.inventoryWidth;
         });
 

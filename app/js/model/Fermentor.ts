@@ -47,15 +47,15 @@ class Fermentor {
         this.substrateData = ko.observableArray([]);
         this.productData = ko.observableArray([]);
 
-        this.temperatureText = ko.computed(() => {
+        this.temperatureText = ko.pureComputed(() => {
             return 'Temperatur: ' + this.temperature().toFixed(1) + ' °C';
         });
 
-        this.phText = ko.computed(() => {
+        this.phText = ko.pureComputed(() => {
             return 'pH: ' + this.ph().toFixed(1);
         });
 
-        this.timerText = ko.computed(() => {
+        this.timerText = ko.pureComputed(() => {
             var hours = Math.floor(this.timer());
             var minutes = Math.round((this.timer() - hours) * 60);
 

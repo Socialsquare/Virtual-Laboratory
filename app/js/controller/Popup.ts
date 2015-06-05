@@ -47,7 +47,7 @@ class Popup {
         });
 
         this.activePopups = ko.observableArray([]);
-        this.activePopup = ko.computed(() => {
+        this.activePopup = ko.pureComputed(() => {
             return !this.activePopups.isEmpty();
         });
 

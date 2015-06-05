@@ -31,7 +31,7 @@ class Protein extends BaseComputer {
         ]);
 
         this.selectedIndex = ko.observable(0);
-        this.selectedProtein = ko.computed(() => {
+        this.selectedProtein = ko.pureComputed(() => {
             return this.availableProteins()[this.selectedIndex()];
         });
 

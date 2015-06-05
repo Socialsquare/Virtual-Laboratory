@@ -37,7 +37,7 @@ class Scaffold extends LiquidModel {
 
         this.slots = ko.observableArray(slots);
 
-        this.configurationString = ko.computed(() => {
+        this.configurationString = ko.pureComputed(() => {
             var sidegroups = _(this.slots())
                 .sortBy((slot) => slot.index)
                 .map((slot) => {
@@ -47,7 +47,7 @@ class Scaffold extends LiquidModel {
             return this.id + '_' + sidegroups.join('_');
         });
 
-        this.file = ko.computed(() => {
+        this.file = ko.pureComputed(() => {
             return 'assets/svgs/scaffold_' + this.configurationString() + '.svg';
         });
 

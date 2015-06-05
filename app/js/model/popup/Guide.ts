@@ -19,7 +19,7 @@ class GuideModel extends PopupModel {
 
         // This is C/P from experiment controller... :(
         // Work around to avoid circular deps
-        this.activeTask = ko.computed(() => {
+        this.activeTask = ko.pureComputed(() => {
             if (!this.experiment)
                 return null;
 
