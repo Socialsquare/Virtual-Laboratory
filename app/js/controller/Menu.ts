@@ -37,9 +37,7 @@ class Menu extends BaseViewController {
     constructor() {
         super('menu');
 
-        this.gameState.inventory.items.subscribe(() => {
-            this.boundScroll();
-        });
+        this.gameState.inventory.items.subscribe(() => this.boundScroll());
 
         this.canScroll = ko.pureComputed(() => {
             return this.inventoryItemsWidth() > this.inventoryWidth;

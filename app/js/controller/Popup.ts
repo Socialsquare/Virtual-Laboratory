@@ -42,14 +42,10 @@ class Popup {
 
         this.imageHelper = ImageHelper;
         this.activeNotifications = ko.observableArray([]);
-        this.activeNotification = ko.computed(() => {
-            return !this.activeNotifications.isEmpty();
-        });
+        this.activeNotification = ko.pureComputed(() => !this.activeNotifications.isEmpty());
 
         this.activePopups = ko.observableArray([]);
-        this.activePopup = ko.pureComputed(() => {
-            return !this.activePopups.isEmpty();
-        });
+        this.activePopup = ko.pureComputed(() => !this.activePopups.isEmpty());
 
         ko.rebind(this);
     }
@@ -117,15 +113,16 @@ class Popup {
 
     confirm(title: string, message: string) {
         var promise = $.Deferred();
-        var vm = this.show('popup-dialog', { title: title, message: message, promise: promise });
-
-        if (this.autoConfirm) {
-            promise.resolve();
-        }
-
-        return promise.always(() => {
-            this.hide(vm);
+        var vm = this.show('popup-dialog', {
+            title: title,
+            message: message,
+            promise: promise
         });
+
+        if (this.autoConfirm)
+            promise.resolve();
+
+        return promise.always(() => this.hide(vm));
     }
 
     video(sequence: string | string[], controlsRequired: boolean) {

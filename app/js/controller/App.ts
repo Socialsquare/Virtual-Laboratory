@@ -2,6 +2,7 @@ import ko = require('knockout');
 import homescreen = require('homescreen');
 
 import tutorialController = require('controller/Tutorial');
+import hudController = require('controller/HUD');
 
 // view controllers
 import BaseViewController = require('controller/view/Base');
@@ -30,6 +31,7 @@ class App extends BaseViewController {
     public activeViewController: KnockoutObservable<BaseViewController>;
 
     public tutorialController = tutorialController;
+    public hudController = hudController;
     public menuController: MenuController;
 
     private viewControllers;
@@ -47,23 +49,23 @@ class App extends BaseViewController {
         var spectropmController = new SpectroPMController();
 
         this.viewControllers = {
-            loading: new LoadingController(),
-            overview: new OverviewController(),
-            computer: new ComputerController(),
-            chemical: new ChemicalController(),
-            worktable1: new Worktable1Controller(),
-            worktable2: new Worktable2Controller(),
-            worktable3: new Worktable3Controller(),
-            fumehood: new FumehoodController(),
-            incubator: new IncubatorController(),
-            mouse: new MouseController(),
-            spectropm: spectropmController,
-            spectropmscreen: new SpectroPMScreenController(spectropmController),
-            fermentor: new FermentorController(),
-            fermentorscreen: new FermentorScreenController(),
-            uvroom: new UvRoomController(),
-            washing: new WashingController(),
-            designDNA: new DesignDNAController() //TODO: remove
+            loading         : new LoadingController(),
+            overview        : new OverviewController(),
+            computer        : new ComputerController(),
+            chemical        : new ChemicalController(),
+            worktable1      : new Worktable1Controller(),
+            worktable2      : new Worktable2Controller(),
+            worktable3      : new Worktable3Controller(),
+            fumehood        : new FumehoodController(),
+            incubator       : new IncubatorController(),
+            mouse           : new MouseController(),
+            spectropm       : spectropmController,
+            spectropmscreen : new SpectroPMScreenController(spectropmController),
+            fermentor       : new FermentorController(),
+            fermentorscreen : new FermentorScreenController(),
+            uvroom          : new UvRoomController(),
+            washing         : new WashingController(),
+            designDNA       : new DesignDNAController() //TODO: remove
         };
 
         // setup routing

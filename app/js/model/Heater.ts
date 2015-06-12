@@ -2,6 +2,7 @@ import ko = require('knockout');
 import _ = require('lodash');
 
 import popupController = require('controller/Popup');
+import hudController = require('controller/HUD');
 
 import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
@@ -29,7 +30,7 @@ class HeaterModel extends CompositeContainerModel {
         var didAdd = super._addAt(position, container);
 
         if (didAdd) {
-            container.liquidsAdded.add(this.checkTubes);
+            container.liquidsAdded.add(this.liquidAdded);
         }
 
         return didAdd;
@@ -38,19 +39,21 @@ class HeaterModel extends CompositeContainerModel {
     remove(position: number) {
         var container = this.get(position);
         if (container)
-            container.liquidsAdded.remove(this.checkTubes);
+            container.liquidsAdded.remove(this.liquidAdded);
 
         super.remove(position);
+    }
+
+    liquidAdded() {
+        hudController.flashTimePassing();
+        this.checkTubes();
     }
 
     checkTubes() {
         if (!this.status())
             return;
 
-        _.each(this.containers(), (tube) => {
-            if (!tube)
-                return;
-
+        _(this.containers()).compact().each(tube => {
             // When mixing lysis, salt and buffy coat you get free
             // floating dna with the same blood type as the buffy coat
             var requiredForFFD = [

@@ -38,11 +38,11 @@ class GuideModel extends PopupModel {
     postRender() {
         super.postRender();
 
-        $('#popup-container .inner').scrollTop(this.scrollAmount);
+        $('.popup-container .inner').scrollTop(this.scrollAmount);
     }
 
     hide() {
-        this.scrollAmount = $('#popup-container .inner').scrollTop();
+        this.scrollAmount = $('.popup-container .inner').scrollTop();
 
         super.hide();
     }
