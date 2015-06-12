@@ -2,6 +2,7 @@ import ko = require('knockout');
 import _ = require('lodash');
 
 import utils = require('utils/utils');
+import popupController = require('controller/Popup');
 
 import ContainerType = require('model/type/Container');
 
@@ -58,6 +59,15 @@ class Pipette extends CompositeContainerModel {
     }
 
     fillPipette(container: SimpleContainerModel) {
+        // Warn user and cancel filling if tip is dirty
+        //
+        // TODO: check if the current container is equal to the contaminatedBy()
+        var contaminator = this.getTip().contaminatedBy();
+        if (contaminator && contaminator !== container) {
+            popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
+            return;
+        }
+
         // 1st modify the pipette
         var clonedLiqs = _.invoke(container.liquids(), 'clone');
         var modifiedLiqs = utils.biology.dilute(50, clonedLiqs);
@@ -88,6 +98,8 @@ class Pipette extends CompositeContainerModel {
             this.getTip().microtiterWells(mt.microtiterWells().clone());
         }
 
+        // TODO: this might not be needed when graphics for the pipette are implemented
+        popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
     }
 }
 

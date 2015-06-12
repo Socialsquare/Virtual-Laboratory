@@ -136,26 +136,8 @@ class CompositeContainerController {
 
             if (!item.hasTip()) {
                 popupController.message('pipette.missing_tip.header', 'pipette.missing_tip.body');
-
             } else if (item.getTip().isEmpty()) {
-
-                // Check for contamination
-                if (!this.compContainer.get(position).isEmpty()
-                   && (item.getTip().contaminatedBy() === null || item.getTip().contaminatedBy() === this.compContainer.get(position))) {
-
-                    popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
-                    item.fillPipette(this.compContainer.get(position));
-                } else {
-                    popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
-                }
-                /*
-                //TODO: check if the current container is equal to the "contaminatedBy()" else if "null" just take the stuff
-                if(item.getTip().used())  {
-                popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
-                } else if (! this.compContainer.get(position).isEmpty()) {
                 item.fillPipette(this.compContainer.get(position));
-                popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
-                }*/
             } else {
                 item.emptyPipetteInto(this.compContainer.get(position));
                 popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
