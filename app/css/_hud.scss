@@ -1,0 +1,14 @@
+/* view/base.scss */
+
+.hud-container {
+    .time-passing {
+        position: absolute;
+
+        top: 400px;
+        left: 100px;
+
+        color: red;
+
+        font-size: 20px;
+    }
+}
