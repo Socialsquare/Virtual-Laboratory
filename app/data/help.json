@@ -100,5 +100,11 @@
         "body": "instruments.washing-room.body",
         "image": "assets/images/wash_results.png",
         "route": "washing"
+    },
+    {
+        "title": "instruments.pcr-machine.header",
+        "body": "instruments.pcr-machine.body",
+        "image": "assets/images/wash_results.png",
+        "route": "worktable3"
     }
 ]

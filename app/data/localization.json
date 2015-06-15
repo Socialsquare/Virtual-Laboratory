@@ -327,7 +327,8 @@
         "instruments.uv-room.body": "Her kan du se væsker lyse, hvis de indeholder celler eller molekyler med fluorescens. Placer først mikrotiterpladen på bordet ved at trække pladen fra beholdningen hen over skyggen på bordet og give slip. Klik på pladen for at se hvilken brønd der fluorescerer (lyser grønt). Klik derefter på den respektive brønd. Der fremkommer nu et reagensglas med brøndens indhold i beholdningen. Computeren kan tilgås ved at trykke på døren i laboratoriet.",
         "instruments.washing-room.header": "Vaskerum",
         "instruments.washing-room.body": "I vaskemaskinen kan du teste dit vaskeenzym (lipase) i forskellige koncentrationer. Benyt det fremstillede enzym i vaskemaskinen ved at trække reagensglasset med enzymet hen over vaskemaskinens sæbeskuffe og give slip. Klik derefter på den orange startknap. Computeren kan tilgås ved at trykke på døren i laboratoriet.",
-
+        "instruments.pcr-machine.header": "PCR maskine",
+        "instruments.pcr-machine.body": "PCR står for Polymerase Chain Reaction og er en teknik som bruges til at opformere gener.",
 
         "experiment.change.header": "Skift øvelse",
         "experiment.change.body": "Er du sikker? Alle fremskridt i den nuværende øvelse går tabt.",
@@ -349,6 +350,7 @@
         "common.ok": "Okay",
         "common.close": "Luk",
         "common.cancel": "Fortryd",
+        "common.skip": "Spring over",
         "common.exercise": "Øvelse",
         "common.result": "Resultat",
         "common.description": "Beskrivelse",
