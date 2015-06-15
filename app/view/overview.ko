@@ -1,6 +1,9 @@
 <div class="overview-view">
-    <div class="hand" data-bind="route: 'spectropm'">
+    <div class="hand" data-bind="if: apparatusEnabled('CORNER', 'CORNER_SPECTRO'), route: 'spectropm'">
         <img src="assets/images/special_spektro.png" class="spectrophotometer" alt="Go to spectrophotometer">
+    </div>
+    <div class="hand" data-bind="if: apparatusEnabled('CORNER', 'CORNER_FOOBAR'), route: 'fumehood'">
+        <img src="assets/images/overview_base-door.png" class="spectrophotometer" alt="Go to spectrophotometer">
     </div>
     <div class="hand" data-bind="click: handleDoorClick">
         <img src="assets/images/overview_base-door.png" class="door" alt="Go to door">

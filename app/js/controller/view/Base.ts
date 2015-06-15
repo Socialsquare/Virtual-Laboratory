@@ -17,6 +17,8 @@ import ImageHelper = require('utils/ImageHelper');
 import DragHelper = require('utils/DragHelper');
 
 import LiquidType = require('model/type/Liquid');
+import ApparatusType = require('model/type/Apparatus');
+import ApparatusLocationType = require('model/type/ApparatusLocation');
 
 import SimpleContainerModel = require('model/SimpleContainer');
 
@@ -45,6 +47,19 @@ class Base {
         this.shouldHidePipette = ko.observable(false);
 
         ko.rebind(this);
+    }
+
+    // Relayed for use in templates (could also be implemented as a custom binding)
+    apparatusEnabled(location: string, type: string) {
+        var experiment = experimentController.activeExperiment();
+
+        if (!experiment)
+            return false;
+
+        return experiment.apparatus.apparatusEnabled(
+            ApparatusLocationType[location],
+            ApparatusType[type]
+        );
     }
 
     maybeHidePippete() {

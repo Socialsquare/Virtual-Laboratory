@@ -1,5 +1,12 @@
 <div class="uv-view">
     <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
     <div class="petri" data-bind="template: { name: 'compContainer', data: tableSpacePetriController }"></div>
-    <div class="micro" data-bind="template: { name: 'compContainer', data: tableSpaceMicroController }"></div>
+    <div class="micro" data-bind="template: {
+                                      if: apparatusEnabled('UV_ROOM', 'UV_ROOM_MICROTITER'),
+                                      name: 'compContainer', data: tableSpaceMicroController
+                                  }">
+    </div>
+    <div class="gel" data-bind="if: apparatusEnabled('UV_ROOM', 'UV_ROOM_GEL')">
+        <img src="assets/images/overview_base-door.png" class="door" alt="Go to door">
+    </div>
 </div>

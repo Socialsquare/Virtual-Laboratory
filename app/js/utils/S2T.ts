@@ -11,6 +11,8 @@ import DNAType = require('model/type/DNA');
 import ProteinCodingSequenceType = require('model/type/ProteinCodingSequence');
 import MouseType = require('model/type/Mouse');
 import MouseBloodType = require('model/type/MouseBlood');
+import ApparatusType = require('model/type/Apparatus');
+import ApparatusLocationType = require('model/type/ApparatusLocation');
 
 class S2T {
 
@@ -19,6 +21,24 @@ class S2T {
         case 'ConsequenceType.QUIZ': return ConsequenceType.QUIZ;
         case 'ConsequenceType.VIDEO': return ConsequenceType.VIDEO;
         case 'ConsequenceType.QUIZ_VIDEO': return ConsequenceType.QUIZ_VIDEO;
+        default: return null;
+        }
+    }
+
+    static apparatus(s: string) {
+        switch (s) {
+        case 'ApparatusType.CORNER_SPECTRO': return ApparatusType.CORNER_SPECTRO;
+        case 'ApparatusType.CORNER_FOOBAR': return ApparatusType.CORNER_SPECTRO;
+        case 'ApparatusType.UV_ROOM_MICROTITER': return ApparatusType.UV_ROOM_MICROTITER;
+        case 'ApparatusType.UV_ROOM_GEL': return ApparatusType.UV_ROOM_GEL;
+        default: return null;
+        }
+    }
+
+    static apparatusLocation(s: string) {
+        switch (s) {
+        case 'ApparatusLocationType.CORNER': return ApparatusLocationType.CORNER;
+        case 'ApparatusLocationType.UV_ROOM': return ApparatusLocationType.UV_ROOM;
         default: return null;
         }
     }

@@ -3,6 +3,10 @@
         "title": { "dk": "Enzymer til vaskemiddel" },
         "description": { "dk": "I denne øvelse skal du genmodificere gær, sådan at det producerer lipase der kan anvendes til tøjvask." },
         "story": { "dk": "Et nyt enzym er netop blevet identificeret i en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven." },
+        "apparatus": {
+            "ApparatusLocationType.CORNER": "ApparatusType.CORNER_FOOBAR",
+            "ApparatusLocationType.UV_ROOM": "ApparatusType.UV_ROOM_GEL"
+        },
         "tasks": [
             {
                 "description": { "dk": "Design et stykke DNA på computeren som koder for enzymet lipase og som desuden koder for resistens for Antibiotikum B. Husk det centrale dogme, når du designer genet." },
