@@ -5,7 +5,7 @@ import MouseBloodType = require('model/type/MouseBlood');
 import MouseType = require('model/type/Mouse');
 import LiquidType = require('model/type/Liquid');
 
-import SyringeModel = require('model/Syringe');
+import SimpleContainerModel = require('model/SimpleContainer');
 import SpleenModel = require('model/Spleen');
 import heartRateData = require('json!datadir/heartRate.json');
 
@@ -110,7 +110,7 @@ class Mouse {
     // Used for determining whether the contents in the syringe is
     // allowed to inject into the mouse GENERALLY. This does NOT take
     // MouseType into consideration.
-    areContentsAllowed(syringe: SyringeModel) {
+    areContentsAllowed(container: SimpleContainerModel) {
         var allowedInjections = [
             [LiquidType.DEADLY],
             [LiquidType.INSULIN],
@@ -121,7 +121,7 @@ class Mouse {
             [LiquidType.ANTIBODY_SMALLPOX]
         ];
 
-        return _.some(allowedInjections, syringe.containsAllStrict);
+        return _.some(allowedInjections, container.containsAllStrict);
     }
 
     cureDesignedDrug() {

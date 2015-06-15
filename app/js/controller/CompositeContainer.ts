@@ -25,7 +25,7 @@ class CompositeContainerController {
 
     public compContainer: CompositeContainerModel;
 
-    public dropGuards: ((pos, container) => any)[];
+    public dropGuards: ((pos, container) => boolean)[];
     public showPlaceholder: KnockoutObservable<boolean>;
 
     public accepter: Accepter;
@@ -118,10 +118,10 @@ class CompositeContainerController {
         this.dropGuards.push(dropGuard);
     }
 
-    dropHandler(position, container) {
-        if (this.dropGuards.length > 0) {
+    dropHandler(position: number, container: SimpleContainerModel) {
+        if (!_.isEmpty(this.dropGuards)) {
             // if ANY dropGuard says no-go, then return false
-            if (_.any(this.dropGuards, (dropGuard) => !dropGuard(position, container)))
+            if (_.any(this.dropGuards, dropGuard => !dropGuard(position, container)))
                 return false;
         }
 
@@ -133,7 +133,6 @@ class CompositeContainerController {
     handleContainerDrop(position: number, item) {
         switch (item.type()) {
         case ContainerType.PIPETTE:
-
             if (!item.hasTip()) {
                 popupController.message('pipette.missing_tip.header', 'pipette.missing_tip.body');
             } else if (item.getTip().isEmpty()) {

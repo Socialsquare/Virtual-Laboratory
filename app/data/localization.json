@@ -342,6 +342,10 @@
 
         "pcr.dna-copied.header": "DNA er blevet kopieret",
         "pcr.dna-copied.body": "En milliard gange",
+        "pcr.ask-video.header": "Ved du hvordan PCR maskinen virker?",
+        "pcr.ask-video.body": "Vil du se en video, som beskriver hvordan PCR maskinen virker?",
+        "pcr.acquired-other.header": "Vi har hjulpet dig lidt",
+        "pcr.acquired-other.body": "Vi har udført eksperimentet på den anden mus så du ikke behøver gøre det. Reagensglasset med resultatet er lagt i din beholdning.",
 
         "common.next": "Næste",
         "common.previous": "Forrige",

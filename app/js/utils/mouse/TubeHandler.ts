@@ -9,15 +9,17 @@ import AdministrationType = require('model/type/Administration');
 
 import MouseViewController = require('controller/view/Mouse');
 
+import TubeModel = require('model/Tube');
+
 class TubeHandler {
 
-    static handle(MC: MouseViewController, tube) {
+    static handle(MC: MouseViewController, tube: TubeModel) {
 
         if (!MC.mouse().alive())
             return false;
 
         // Is the mouse psoriasis or insomnia?
-        if (!(MC.mouse().mouseType() === MouseType.PSORIASIS || MC.mouse().mouseType() === MouseType.INSOMNIA) ) {
+        if (!(MC.mouse().mouseType() === MouseType.PSORIASIS || MC.mouse().mouseType() === MouseType.INSOMNIA)) {
             popupController.notify('mouse.drug_not_correct_type.header', 'mouse.drug_not_correct_type.body');
             return false;
         }
@@ -34,7 +36,7 @@ class TubeHandler {
         }
 
         // May only contain ONE designed drug
-        if (! (tube.liquids().length === 1 && tube.contains(LiquidType.DESIGNED_DRUG) )) {
+        if (!(tube.liquids().length === 1 && tube.contains(LiquidType.DESIGNED_DRUG))) {
             popupController.message('mouse.tube_not_allowed.header', 'mouse.tube_not_allowed.body');
             return false;
         }
@@ -60,7 +62,6 @@ class TubeHandler {
                     switch (administrationForm) {
 
                     case AdministrationType.INJECTION_BODY:
-                        console.log('TODO: not really a TODO - injection-body');
                         MC.videoController.play('psoriasis-injection', false).done(() => {
 
                             var values = QuizHelper.drugStepsBeforeCure.getPsoriasisBodyInjection(drug);
@@ -133,78 +134,3 @@ class TubeHandler {
 }
 
 export = TubeHandler;
-
-//TODO: won't implement this, as it is nonsense to design ONE drug, but treat two diseases.
-/*else if (MC.mouse().mouseType() === MouseType.INSOMNIA) {
-  var options = [
-  {
-  key: LocalizationService.text('mouse.drug_administration.injection_body'),
-  administrationForm: AdministrationType.INJECTION_BODY
-  },
-  {
-  key: LocalizationService.text('mouse.drug_administration.injection_head'),
-  administrationForm: AdministrationType.INJECTION_HEAD
-  },
-  {
-  key: LocalizationService.text('mouse.drug_administration.pill'),
-  administrationForm: AdministrationType.PILL
-  },
-  {
-  key: LocalizationService.text('mouse.drug_administration.cream'),
-  administrationForm: AdministrationType.CREAM
-  }
-  ];
-
-
-  MC.popupController.select('washing.concentration', 'washing.concentration.choose', options)
-  .then(function (selectedObject) {
-  var administrationForm = selectedObject.administrationForm;
-  //TODO: var res = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
-
-  switch(administrationForm) {
-  case AdministrationType.INJECTION_HEAD:
-  MC.videoController.play('slow-injection-body-faint', false).done(function() {
-  MC.videoController.play('slow-injection-head', false).done(function() {
-  MC.videoController.play('slow-wake', false).done(function() {
-
-  var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
-
-  MC.runFromState();
-  MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
-
-  });
-  });
-  });
-  break;
-
-  case AdministrationType.INJECTION_BODY:
-  MC.videoController.play('slow-injection-body', false).done(function() {
-  var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
-
-  MC.runFromState();
-  MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
-  });
-  break;
-
-  case AdministrationType.PILL:
-  MC.videoController.play('slow-pill', false).done(function() {
-  var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
-
-  MC.runFromState();
-  MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
-  });
-  break;
-
-  case AdministrationType.CREAM:
-  MC.videoController.play('slow-cream', false).done(function() {
-  var result = MC.mouse().giveDrug(tube.liquids()[0], administrationForm);
-
-  MC.runFromState();
-  MC.experimentController.triggerMouse('designed-drug', tube); //TODO: handling
-  });
-  break;
-  }
-
-  });
-
-  }*/

@@ -18,6 +18,8 @@ import DragHelper = require('utils/DragHelper');
 
 import LiquidType = require('model/type/Liquid');
 
+import SimpleContainerModel = require('model/SimpleContainer');
+
 class Base {
 
     public gameState = gameState;
@@ -59,7 +61,7 @@ class Base {
     exit() {}
 
     // TODO: move to utility class?
-    smallPoxGuard(position, container) {
+    smallPoxGuard(position: number, container: SimpleContainerModel) {
         if (container.contains(LiquidType.ANTIGEN_SMALLPOX)) {
             this.popupController.message('fumehood.smallpox.header', 'fumehood.smallpox.body');
             return false;

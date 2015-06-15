@@ -10,6 +10,7 @@ import ElectroporatorController = require('controller/Electroporator');
 import CompositeContainerController = require('controller/CompositeContainer');
 
 import Worktable1Model = require('model/Worktable1');
+import SimpleContainerModel = require('model/SimpleContainer');
 
 import QuizHelper = require('utils/QuizHelper');
 
@@ -46,7 +47,7 @@ class Worktable1 extends BaseViewController {
         ko.rebind(this);
     }
 
-    bunsenGuard(position, container) {
+    bunsenGuard(position: number, container: SimpleContainerModel) {
         if (!this.worktable1.bunsenBurner()) {
             this.popupController.message('worktable1.bunsen_required.header', 'worktable1.bunsen_required.body');
             return false;
