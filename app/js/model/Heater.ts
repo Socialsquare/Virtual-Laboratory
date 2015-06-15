@@ -53,7 +53,9 @@ class HeaterModel extends CompositeContainerModel {
         if (!this.status())
             return;
 
-        _(this.containers()).compact().each(tube => {
+        _.each(this.containers(), tube => {
+            if (!tube) return;
+
             // When mixing lysis, salt and buffy coat you get free
             // floating dna with the same blood type as the buffy coat
             var requiredForFFD = [

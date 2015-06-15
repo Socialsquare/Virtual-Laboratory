@@ -18,6 +18,8 @@ describe('Mouse', () => {
         popupController.autoConfirm = true;
         VideoController.autoFinish = true;
 
+        gameState.reset();
+
         mc = new MouseViewController();
     });
 
