@@ -22,6 +22,11 @@ class PCRMachine extends CompositeContainerController {
         ko.rebind(this);
     }
 
+    handleContainerDrop(position: number, item) {
+        // Prevent mixing when tubes are in the PCR machine
+        return;
+    }
+
     tryCopyDNA(tube: TubeModel) {
         if (!tube)
             return;
