@@ -52,7 +52,8 @@ class CentrifugeController extends CompositeContainerController {
             return;
 
         if (tube.contains(LiquidType.CLUMPED_CELLS)) {
-            popupController.tubeExtraction(TubeExtractionType.FROM_CLUMPED_CELLS)
+            popupController
+                .tubeExtraction(TubeExtractionType.FROM_CLUMPED_CELLS)
                 .then((selected: LiquidType) => {
                     var cc = <ClumpedCellsModel>tube.findByType(LiquidType.CLUMPED_CELLS);
                     var extraction = ContainerFactory.tube();
@@ -65,8 +66,13 @@ class CentrifugeController extends CompositeContainerController {
                         throw 'Invalid selected extraction';
                     }
 
-                    gameState.inventory.add(extraction);
-                    this.compContainer.removeContainer(tube);
+                    // TODO!: show the correct video
+                    popupController
+                        .video('electroporator1', false)
+                        .then(() => {
+                            gameState.inventory.add(extraction);
+                            this.compContainer.removeContainer(tube);
+                        });
                 });
         }
         else if (tube.contains(LiquidType.MOUSE_BLOOD)) {
@@ -83,8 +89,13 @@ class CentrifugeController extends CompositeContainerController {
                         throw 'Invalid selected extraction';
                     }
 
-                    gameState.inventory.add(extraction);
-                    this.compContainer.removeContainer(tube);
+                    // TODO!: show the correct video
+                    popupController
+                        .video('electroporator1', false)
+                        .then(() => {
+                            gameState.inventory.add(extraction);
+                            this.compContainer.removeContainer(tube);
+                        });
                 });
         }
     }
