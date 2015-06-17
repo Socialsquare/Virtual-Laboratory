@@ -14,19 +14,19 @@ import MouseType = require('model/type/Mouse');
 import MouseBloodType = require('model/type/MouseBlood');
 
 type TriggerLiquid = {
-    type: LiquidType,
-    subtype?: MicroorganismType | AntibioticType
+    type: LiquidType;
+    subtype?: MicroorganismType | AntibioticType;
 };
 
 type TriggerContainers = {
-    type: ContainerType,
-    liquids: TriggerLiquid[],
-    containerSubtype: AntigenCoatingType
+    type: ContainerType;
+    liquids: TriggerLiquid[];
+    containerSubtype: AntigenCoatingType;
 }[];
 
 type ActivationSubType = {
-    liquidType: LiquidType,
-    maxIc50: number
+    liquidType: LiquidType;
+    maxIc50: number;
 };
 
 class Trigger {

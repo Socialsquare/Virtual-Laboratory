@@ -3,10 +3,10 @@ import SpecialItemType = require('model/type/SpecialItem');
 
 // Helper type
 type SidegroupInfo = {
-    pKa: number,
-    weight: string,
-    bindingLength: number,
-    bindingTypes: string[]
+    pKa: number;
+    weight: string;
+    bindingLength: number;
+    bindingTypes: string[];
 }
 
 class Sidegroup {

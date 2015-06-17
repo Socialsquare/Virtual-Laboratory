@@ -8,15 +8,15 @@ var dragData = null;
 var dragConsume = null;
 
 type DragOptions = {
-    item?: any, //TODO! type
-    dim: boolean,
-    consume: () => void,
+    item?: any; //TODO! type
+    dim: boolean;
+    consume: () => void;
     offset: {
-        left: number,
+        left: number;
         top: number
     },
-    revert: string,
-    hide: boolean,
+    revert: string;
+    hide: boolean;
     helper: (event, ui) => JQuery
 };
 
@@ -89,7 +89,7 @@ ko.bindingHandlers.drop = {
                 // dropped elsewhere and this drop is probably the
                 // result of an overlapping drop area
                 if (!dragData) return;
-
+                debugger;
                 var accepted = handler(dragData, dragConsume);
                 if (accepted !== false)
                     dragConsume();

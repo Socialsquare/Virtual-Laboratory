@@ -19,8 +19,8 @@ import LiquidFactory = require('factory/Liquid');
 type DataPoint = [number, number];
 
 type PlotData = {
-    bloodData: DataPoint[],
-    heartRateData: DataPoint[]
+    bloodData: DataPoint[];
+    heartRateData: DataPoint[];
 }
 
 class MouseController extends BaseViewController {

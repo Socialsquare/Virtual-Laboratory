@@ -13,7 +13,10 @@ import DNAType = require('model/type/DNA');
 
 // Helper types
 type DNAList = DNAElementModel[];
-type SubMRNA = { promoter: DNAElementModel, DNAs: DNAList }
+type SubMRNA = {
+    promoter: DNAElementModel;
+    DNAs: DNAList;
+}
 
 class Electroporator extends SimpleContainerModel {
 
