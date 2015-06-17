@@ -9,3 +9,4 @@ logs
 /app/bower_components/
 /app/assets/preload.json
 /app/typings/
+/app/.tscache/
