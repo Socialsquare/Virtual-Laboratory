@@ -6,7 +6,8 @@ enum SpecialItem {
     BUFFER         = ev.next(), // 'SpecialItemType.BUFFER',
     WASH_BOTTLE    = ev.next(), // 'SpecialItemType.WASH_BOTTLE',
     SIDEGROUP      = ev.next(), // 'SpecialItemType.SIDEGROUP',
-    SIDEGROUP_SLOT = ev.next()  // 'SpecialItemType.SIDEGROUP_SLOT'
+    SIDEGROUP_SLOT = ev.next(), // 'SpecialItemType.SIDEGROUP_SLOT'
+    MOUSE          = ev.next()  // 'SpecialItemType.MOUSE',
 }
 
 export = SpecialItem;

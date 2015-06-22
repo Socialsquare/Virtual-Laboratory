@@ -41,8 +41,7 @@ class OrderMouse extends BaseComputer {
             .confirm('computer.screen.mouse_confirm.header', 'computer.screen.mouse_confirm.body')
             .then(() => {
                 var mouse = this.selectedMouse();
-                this.gameState.mouse(mouse.clone());
-                //TODO: not enough with setting mouse on gameState it seems?
+                this.gameState.inventory.add(mouse.clone());
 
                 this.changeScreen(ComputerScreenType.MENU);
 

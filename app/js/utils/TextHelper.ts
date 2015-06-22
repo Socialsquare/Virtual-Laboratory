@@ -21,6 +21,8 @@ class TextHelper {
             return 'item.description.wash_bottle';
         case SpecialItemType.BUFFER:
             return 'item.description.buffer';
+        case SpecialItemType.MOUSE:
+            return 'item.description.scalpel';
 
         case LiquidType.INSULIN:
             return 'liquid.description.insulin';

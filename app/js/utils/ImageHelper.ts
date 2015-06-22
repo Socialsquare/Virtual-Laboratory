@@ -112,6 +112,9 @@ class ImageHelper {
 
         case SpecialItemType.WASH_BOTTLE:
             return ImageHelper.img('icon_wash_bottle.png');
+        
+        case SpecialItemType.MOUSE:
+            return ImageHelper.img('icon_mouse.png');
 
         default:
             throw 'Unknown inventory item: ' + item.type();
@@ -149,6 +152,9 @@ class ImageHelper {
 
         case SpecialItemType.WASH_BOTTLE:
             return ImageHelper.img('icon_wash_bottle.png');
+        
+        case SpecialItemType.MOUSE:
+            return ImageHelper.img('icon_mouse.png');
 
         default:
             throw 'Unknown dragging item: ' + item.type();

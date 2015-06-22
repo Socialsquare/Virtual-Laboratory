@@ -57,7 +57,8 @@ class DragHelper {
         ContainerType.SYRINGE,
         ContainerType.BOTTLE,
         ContainerType.TUBE,
-        SpecialItemType.SCALPEL
+        SpecialItemType.SCALPEL,
+        SpecialItemType.MOUSE
     ]);
 
     static consumeItemFrom = (item, collection) => {

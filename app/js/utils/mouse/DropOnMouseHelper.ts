@@ -2,6 +2,7 @@ import BottleHandler = require('utils/mouse/BottleHandler');
 import ScalpelHandler = require('utils/mouse/ScalpelHandler');
 import SyringeHandler = require('utils/mouse/SyringeHandler');
 import TubeHandler = require('utils/mouse/TubeHandler');
+import MouseHandler = require('utils/mouse/MouseHandler');
 
 import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
@@ -19,16 +20,19 @@ class DropOnMouseHelper {
         switch (item.type()) {
         case ContainerType.BOTTLE:
             return BottleHandler.handle(MC, item);
-
+ 
         case SpecialItemType.SCALPEL:
             return ScalpelHandler.handle(MC, item);
+
+        case SpecialItemType.MOUSE:
+            return MouseHandler.handle(MC, item);
 
         case ContainerType.SYRINGE:
             return SyringeHandler.handle(MC, item);
 
         case ContainerType.TUBE:
             return TubeHandler.handle(MC, item);
-
+        
         }
     }
 }

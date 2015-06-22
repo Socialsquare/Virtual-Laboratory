@@ -9,7 +9,10 @@ import SimpleContainerModel = require('model/SimpleContainer');
 import SpleenModel = require('model/Spleen');
 import heartRateData = require('json!datadir/heartRate.json');
 
-class Mouse {
+import SpecialItemModel = require('model/SpecialItem');
+import SpecialItemType = require('model/type/SpecialItem');
+
+class Mouse extends SpecialItemModel {
 
     public alive: KnockoutObservable<boolean>;
     public isCut: KnockoutObservable<boolean>;
@@ -39,6 +42,8 @@ class Mouse {
     public description: KnockoutComputed<string>;
 
     constructor(mouseType, mouseBloodType) {
+
+        super(SpecialItemType.MOUSE);
 
         this.alive = ko.observable(true);
         this.isCut = ko.observable(false);
