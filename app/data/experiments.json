@@ -772,7 +772,8 @@
                     "liquids": [
                         { "type": "LiquidType.DESIGNED_DRUG" },
                         { "type": "LiquidType.CYP_ENZYME" }
-                    ]
+                    ],
+                    "liquidsOrdered": true
                 }
             },
             {

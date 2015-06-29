@@ -42,6 +42,7 @@ class Trigger {
     public liquids: TriggerLiquid[];
     public strict: boolean;
     public concentration: number;
+    public liquidsOrdered: boolean;
 
     // Mouse trigger
     public alive: boolean;
@@ -57,6 +58,7 @@ class Trigger {
         this.location          = S2T.loc(values.location);
         this.strict            = values.strict;
         this.concentration     = values.concentration;
+        this.liquidsOrdered    = values.liquidsOrdered;
 
         this.alive             = values.alive;
         this.mouseType         = S2T.mouse(values.mouseType);
