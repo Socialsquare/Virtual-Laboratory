@@ -4,11 +4,15 @@ import _ = require('lodash');
 
 import ImageHelper = require('utils/ImageHelper');
 
+var fromInterceptor = null;
+var currentContainer = null;
 var dragData = null;
 var dragConsume = null;
 
 type DragOptions = {
     item?: any; //TODO! type
+    targetContainer?: any;
+    currentContainer?: any;
     dim: boolean;
     consume: () => void;
     offset: {
@@ -56,8 +60,11 @@ ko.bindingHandlers.drag = {
                 else if (options.hide)
                     $(this).addClass('hidden');
 
+
                 dragData = _.isFunction(options.item) ? options.item() : options.item;
                 dragConsume = options.consume;
+                currentContainer = options.currentContainer;
+                fromInterceptor = options.interceptor;
             },
 
             stop: function (event, ui) {
@@ -88,13 +95,35 @@ ko.bindingHandlers.drop = {
                 // if dragData is null the data was already
                 // dropped elsewhere and this drop is probably the
                 // result of an overlapping drop area
-                if (!dragData) return;
-                debugger;
-                var accepted = handler(dragData, dragConsume);
-                if (accepted !== false)
-                    dragConsume();
 
-                dragData = null;
+                if (!dragData)
+                    return;
+
+                if (!fromInterceptor) {
+                    var accepted = handler(dragData, dragConsume, currentContainer);
+                    if (accepted !== false)
+                        dragConsume();
+
+                    return;
+                }
+
+                var toInterceptor = options.interceptor;
+                fromInterceptor(dragData, currentContainer, options.targetContainer)
+                    .then(() => {
+                        if (toInterceptor)
+                            return toInterceptor(dragData, currentContainer, options.targetContainer)
+
+                        return $.Deferred().resolve();
+                    })
+                    .then(() => {
+                        var accepted = handler(dragData, dragConsume, currentContainer);
+                        if (accepted !== false)
+                            dragConsume();
+                    })
+                    .always(() => {
+                        dragData = null
+                        fromInterceptor = null;
+                    });
             }
         });
     }

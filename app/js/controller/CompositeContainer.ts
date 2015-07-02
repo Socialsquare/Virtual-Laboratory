@@ -28,6 +28,7 @@ class CompositeContainerController {
     public dropGuards: ((pos, container) => boolean)[];
     public showPlaceholder: KnockoutObservable<boolean>;
 
+    public dragDropInterceptor: (any) => boolean;
     public accepter: Accepter;
     public imageGetter: ImageGetter;
 
@@ -40,6 +41,7 @@ class CompositeContainerController {
         // guard-functions that should always take 2 parameters: dropGuard(position, container)
         this.dropGuards = [];
         this.showPlaceholder = ko.observable(false);
+        this.dragDropInterceptor = null;
 
         switch (compContainer.type()) {
         case ContainerType.PETRI_SPACE:
