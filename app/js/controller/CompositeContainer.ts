@@ -28,7 +28,7 @@ class CompositeContainerController {
     public dropGuards: ((pos, container) => boolean)[];
     public showPlaceholder: KnockoutObservable<boolean>;
 
-    public dragDropInterceptor: (any) => boolean;
+    public dragDropInterceptor: (item, fromContainer, toContainer) => JQueryDeferred<boolean>;
     public accepter: Accepter;
     public imageGetter: ImageGetter;
 

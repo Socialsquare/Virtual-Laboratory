@@ -21,7 +21,8 @@ type DragOptions = {
     },
     revert: string;
     hide: boolean;
-    helper: (event, ui) => JQuery
+    helper: (event, ui) => JQuery;
+    interceptor?: (any) => boolean;
 };
 
 ko.bindingHandlers.drag = {
