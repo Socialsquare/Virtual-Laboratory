@@ -30,8 +30,6 @@ require.config({
         json: '../../bower_components/requirejs-plugins/src/json',
         signals: '../../bower_components/js-signals/dist/signals',
 
-        base: './libs/Base',
-
         datadir: '../../data',
         testdatadir: '../../test-data'
     },
@@ -41,7 +39,6 @@ require.config({
         'jqueryuitouchpunch': ['jqueryui'],
         'flot': ['jquery'],
         'screenfull': { exports: 'screenfull' },
-        'base': { exports: 'Base' }
     },
 
     baseUrl: '/base/dist/js',
