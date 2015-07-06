@@ -20,17 +20,16 @@ class IceBath extends CompositeContainerController {
         super(iceBathModel);
 
         ko.rebind(this);
+    }
 
-        this.dragDropInterceptor = (tube, fromContainer, toContainer) => {
-
-            if (tube.contains(LiquidType.FREE_FLOATING_DNA)
-                && toContainer.type() !== ContainerType.ICE_BATH) {
-                return popupController
-                    .confirm('experiment.change.header', 'experiment.change.body');
-            }
-
-            return $.Deferred().resolve();
+    dragDropInterceptor(tube, fromContainer, toContainer) {
+        if (tube.contains(LiquidType.FREE_FLOATING_DNA)
+            && toContainer.type() !== ContainerType.ICE_BATH) {
+            return popupController
+                .confirm('experiment.change.header', 'experiment.change.body');
         }
+
+        return $.Deferred().resolve();
     }
 }
 
