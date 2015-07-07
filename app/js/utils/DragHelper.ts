@@ -6,18 +6,21 @@ import SpecialItemType = require('model/type/SpecialItem');
 
 class DragHelper {
 
-    static accepter = (types) => {
+    static accepter(types) {
         return (item) => {
             return item && item.type && _.contains(types, item.type());
         };
     };
 
-    static nonAccepter = (types) => {
+    static nonAccepter(types) {
         return (item) => {
             return item && item.type && !_.contains(types, item.type());
         };
     };
 
+    static consumeItemFrom(item, collection) {
+        return () => collection.remove(item);
+    };
 
     static acceptTube = DragHelper.accepter([ContainerType.TUBE]);
 
@@ -60,12 +63,6 @@ class DragHelper {
         SpecialItemType.SCALPEL,
         SpecialItemType.MOUSE
     ]);
-
-    static consumeItemFrom = (item, collection) => {
-        return function () {
-            collection.remove(item);
-        };
-    };
 }
 
 export = DragHelper;

@@ -4,6 +4,7 @@ import BaseViewController = require('controller/view/Base');
 
 import CompositeContainerController = require('controller/CompositeContainer');
 import PCRMachineController = require('controller/PCRMachine');
+import IceBathController = require('controller/IceBath');
 
 import Worktable3Model = require('model/Worktable3');
 
@@ -21,7 +22,7 @@ class Worktable3 extends BaseViewController {
         this.worktable3 = this.gameState.worktable3;
 
         this.tubeRackController = new CompositeContainerController(this.worktable3.tubeRack);
-        this.iceBathController = new CompositeContainerController(this.worktable3.iceBath);
+        this.iceBathController = new IceBathController(this.worktable3.iceBath);
         this.pcrMachineController = new PCRMachineController(this.worktable3.pcrMachine);
 
         ko.rebind(this);

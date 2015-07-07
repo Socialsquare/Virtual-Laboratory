@@ -114,6 +114,16 @@ class CompositeContainerController {
         ko.rebind(this);
     }
 
+
+    // Enables composite containers to intercept and reject or
+    // otherwise react to drag/drop actions based on the to and from
+    // container. Default is to accept blindly. It is used for example
+    // for the IceBath to warn the user when removing things (FFD)
+    // that should be cooled.
+    dragDropInterceptor(item, fromContainer, toContainer) {
+        return $.Deferred().resolve();
+    }
+
     addDropGuard(dropGuard) {
         this.dropGuards.push(dropGuard);
     }

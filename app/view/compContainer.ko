@@ -1,7 +1,7 @@
 <ul data-bind="foreach: compContainer.containers">
     <!-- ko ifnot: $parent.compContainer.hasContainerAt($index()) -->
     <li data-bind="css: 'slot' + $index(),
-                   drop: { handler: $parent.dropHandler.bind(null, $index()), accept: $parent.accepter },
+                   drop: { handler: $parent.dropHandler.bind(null, $index()), accept: $parent.accepter, targetContainer: $parent.compContainer, interceptor: $parent.dragDropInterceptor },
                    if: $parent.showPlaceholder">
 
         <img data-bind="css: { placeholder: $parent.showPlaceholder },
@@ -12,8 +12,8 @@
     <li class="hand" data-bind="css: 'slot' + $index()">
         <img data-bind="attr: { src: $parent.imageGetter($index(), $data) },
                         click: $parent.goToCloseUp.bind(null, $index(), $data),
-                        drag: { item: $data, dim: true, consume: $parent.compContainer.remove.bind(null, $index()) },
-                        drop: { handler: $parent.handleContainerDrop.bind(null, $index()), accept: $parent.DragHelper.acceptedByComposite }">
+                        drag: { item: $data, dim: true, consume: $parent.compContainer.remove.bind(null, $index()), currentContainer: $parent.compContainer, interceptor: $parent.dragDropInterceptor },
+                        drop: { handler: $parent.handleContainerDrop.bind(null, $index()), accept: $parent.DragHelper.acceptedByComposite, targetContainer: $parent.compContainer, interceptor: $parent.dragDropInterceptor }">
     </li>
     <!-- /ko -->
 </ul>

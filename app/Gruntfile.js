@@ -137,16 +137,10 @@ module.exports = function (grunt) {
                     host: '0.0.0.0',
                     middleware: function (connect, options) {
                         return [
-                            mountFolder(connect, options.base),
-                            proxy.proxyRequest
+                            mountFolder(connect, options.base)
                         ];
                     }
-                },
-                proxies: [{
-                    context: '/',
-                    host: 'www.virtueltlaboratorium.dk',
-                    changeOrigin: true
-                }]
+                }
             },
             dist: {
                 options: {
@@ -156,16 +150,10 @@ module.exports = function (grunt) {
                     middleware: function (connect, options) {
                         return [
                             tplProcess.middleware(grunt, 'dist/'),
-                            mountFolder(connect, options.base),
-                            proxy.proxyRequest
+                            mountFolder(connect, options.base)
                         ];
                     }
-                },
-                proxies: [{
-                    context: '/',
-                    host: 'www.virtueltlaboratorium.dk',
-                    changeOrigin: true,
-                }]
+                }
             }
         },
 

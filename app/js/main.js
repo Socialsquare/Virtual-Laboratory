@@ -3,8 +3,6 @@ require.config({
 
         jquery: '../bower_components/jquery/dist/jquery',
         jqueryui: '../bower_components/jquery-ui/jquery-ui',
-        /*jquery: '../bower_components/jquery/jquery',
-        jqueryui: '../bower_components/jquery-ui/ui/jquery-ui',*/
         flot: '../bower_components/jquery-flot/jquery.flot',
         html5Loader: '../bower_components/jquery.html5loader/src/jquery.html5Loader',
         lodash: '../bower_components/lodash/lodash',
@@ -20,8 +18,6 @@ require.config({
         homescreen: '../bower_components/add-to-homescreen/src/addtohomescreen',
         signals: '../bower_components/js-signals/dist/signals',
 
-        base: 'libs/Base',
-
         datadir: '../data'
     },
     shim: {
@@ -30,7 +26,6 @@ require.config({
         'jqueryuitouchpunch': ['jquery', 'jqueryui'],
         'flot': ['jquery'],
         'screenfull': { exports: 'screenfull' },
-        'base': { exports: 'Base' },
         'homescreen': { exports: 'addToHomescreen' }
     }
 });
