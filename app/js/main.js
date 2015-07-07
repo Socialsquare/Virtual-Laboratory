@@ -43,6 +43,9 @@ require([
     'flot',
     'html5Loader',
 
+    // global modules
+    'screenfull',
+
     // self-registering knockout bindings and extensions
     'bindings/dragging',
     'bindings/video',
