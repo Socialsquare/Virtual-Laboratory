@@ -56,7 +56,7 @@ require([
 
     FastClick.attach(document.body);
 
-    //TODO: Confirm before navigating away
+    //TODO-release: Confirm before navigating away
     /*window.onbeforeunload = function (e) {
         e = e || window.event;
         var message = 'Spillet gemmes ikke hvis du navigerer væk';

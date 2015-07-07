@@ -11,6 +11,7 @@ import SpectroPMModel = require('model/SpectroPM');
 import TaskModel = require('model/Task');
 import LiquidModel = require('model/Liquid');
 import MouseModel = require('model/Mouse');
+import TriggerModel = require('model/Trigger');
 import ExperimentModel = require('model/Experiment');
 import SimpleContainerModel = require('model/SimpleContainer');
 import QuizConsequenceModel = require('model/QuizConsequence');
@@ -19,7 +20,6 @@ import VideoConsequenceModel = require('model/VideoConsequence');
 import LiquidType = require('model/type/Liquid');
 import ActivationType = require('model/type/Activation');
 import TriggerType = require('model/type/Trigger');
-import TriggerModel = require('model/Trigger');
 import ConsequenceType = require('model/type/Consequence');
 
 type TriggerExtraProperties = {

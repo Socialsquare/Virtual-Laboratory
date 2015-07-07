@@ -28,7 +28,7 @@ class S2T {
     static apparatus(s: string) {
         switch (s) {
         case 'ApparatusType.CORNER_SPECTRO': return ApparatusType.CORNER_SPECTRO;
-        case 'ApparatusType.CORNER_FOOBAR': return ApparatusType.CORNER_SPECTRO;
+        case 'ApparatusType.CORNER_FOOBAR': return ApparatusType.CORNER_FOOBAR;
         case 'ApparatusType.UV_ROOM_MICROTITER': return ApparatusType.UV_ROOM_MICROTITER;
         case 'ApparatusType.UV_ROOM_GEL': return ApparatusType.UV_ROOM_GEL;
         default: return null;

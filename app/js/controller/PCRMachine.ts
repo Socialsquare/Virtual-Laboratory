@@ -43,11 +43,8 @@ class PCRMachine extends CompositeContainerController {
         var required = [LiquidType.DIABETES_PRIMER, LiquidType.FREE_FLOATING_DNA];
         var tubeIsCopyable = tube.containsAllStrict(required);
 
-        if (ffd.bloodType() === MouseBloodType.DIABETIC && tubeIsCopyable) {
-            popupController.message('pcr.acquired-other.header', 'pcr.acquired-other.body');
-
+        if (ffd.bloodType() === MouseBloodType.DIABETIC && tubeIsCopyable)
             ffd.isCopied(true);
-        }
 
         // When the PCR machine successfully runs on mouse blood,
         // provide the user with the result of the opposite blood type
@@ -58,6 +55,8 @@ class PCRMachine extends CompositeContainerController {
             clone.isCopied(ffd.bloodType() === MouseBloodType.DIABETIC);
 
             gameState.inventory.add(ContainerFactory.tube().add(clone));
+
+            popupController.message('pcr.acquired-other.header', 'pcr.acquired-other.body');
         }
     }
 

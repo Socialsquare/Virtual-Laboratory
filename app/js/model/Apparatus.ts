@@ -1,4 +1,3 @@
-import _ = require('lodash');
 import S2T = require('utils/S2T');
 import ApparatusType = require('model/type/Apparatus');
 import ApparatusLocationType = require('model/type/ApparatusLocation');
@@ -14,7 +13,7 @@ class Apparatus {
     }
 
     apparatusEnabled(location: ApparatusLocationType, type: ApparatusType) {
-        return this.config[location] == type;
+        return this.config[location] === type;
     }
 
     static parse(values: any) {
