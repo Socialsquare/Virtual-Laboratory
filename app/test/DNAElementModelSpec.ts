@@ -11,9 +11,16 @@ describe('DNA element model', () => {
         var dna = new DNAElementModel(dnaData[0]);
 
         // Check some random values
-        expect(dna.icon).toBe("the_icon");
+        expect(dna.icon()).toBe("the_icon");
         expect(dna.DNAType()).toBe(DNAType.TERMINATOR);
-        expect(dna.proteinCodingSequence()).toBe(ProteinCodingSequenceType.NONE);
+        expect(dna.proteinCodingSequence()).toBe(ProteinCodingSequenceType.ANTIBODY_SMALLPOX);
         expect(dna.sequence()).toBe("GATTACA");
+
+        // Test cloning
+        var clone = dna.clone();
+        expect(clone.icon()).toBe("the_icon");
+        expect(clone.DNAType()).toBe(DNAType.TERMINATOR);
+        expect(clone.proteinCodingSequence()).toBe(ProteinCodingSequenceType.ANTIBODY_SMALLPOX);
+        expect(clone.sequence()).toBe("GATTACA");
     });
 });

@@ -27,7 +27,7 @@ class DNAElement extends LiquidModel {
 		this.DNAType = ko.observable(S2T.dnaFromId(values.type));
 
         this.proteinCodingSequence = ko.observable(S2T.pcs(values.proteinCodingSequence));
-		this.icon = values.icon;
+		this.icon = ko.observable(values.icon);
 		this.name = ko.observable(values.name);
 		this.color = ko.observable(values.color);
 		this.sequence = ko.observable(values.sequence);
@@ -46,14 +46,16 @@ class DNAElement extends LiquidModel {
         var clone = new DNAElement({
             type: 0,
             name: this.name(),
+            icon: this.icon(),
             color: this.color(),
             sequence: this.sequence(),
             description: this.description(),
             link: this.link(),
             comment: this.comment(),
-            proteinCodingSequence: this.proteinCodingSequence()
+            proteinCodingSequence: "fake"
         });
 
+        clone.proteinCodingSequence(this.proteinCodingSequence());
         clone.DNAType(this.DNAType());
         clone.hasReacted(this.hasReacted());
 
