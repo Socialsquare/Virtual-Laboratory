@@ -25,6 +25,10 @@ import UvRoomController = require('controller/view/UvRoom');
 import WashingController = require('controller/view/Washing');
 //TODO: remove, just for dummy-data
 import DesignDNAController = require('controller/view/computer/DesignDNA');
+import ContainerFactory = require('factory/Container');
+import LiquidFactory = require('factory/Liquid');
+import SpecialItemFactory = require('factory/SpecialItem');
+import MouseBloodType = require('model/type/MouseBlood');
 
 class App extends BaseViewController {
 
@@ -73,9 +77,20 @@ class App extends BaseViewController {
             this.viewChange(routeName);
         });
 
+        // this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.buffyCoat(MouseBloodType.DIABETIC)));
+        // this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.lysis()));
+        // this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.mouseBlood(MouseBloodType.DIABETIC)));
+        // this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.saltWater()));
+        // this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.freeFloatingDNA(MouseBloodType.DIABETIC)));
+
+        // this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.clumpedCells(MouseBloodType.DIABETIC)));
+
+        this.gameState.inventory.add(SpecialItemFactory.gel());
+
         // bootstrap the app by going to loading view
         // TODO-release: switch to loading
-        this.router.navigate('loading');
+        //this.router.navigate('loading');
+        this.router.navigate('overview');
 
         ko.rebind(this);
     }

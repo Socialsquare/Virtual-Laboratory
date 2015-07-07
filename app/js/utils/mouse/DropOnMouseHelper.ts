@@ -20,7 +20,7 @@ class DropOnMouseHelper {
         switch (item.type()) {
         case ContainerType.BOTTLE:
             return BottleHandler.handle(MC, item);
- 
+
         case SpecialItemType.SCALPEL:
             return ScalpelHandler.handle(MC, item);
 
@@ -32,7 +32,7 @@ class DropOnMouseHelper {
 
         case ContainerType.TUBE:
             return TubeHandler.handle(MC, item);
-        
+
         }
     }
 }

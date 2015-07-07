@@ -69,7 +69,7 @@ class SimpleContainer extends InventoryItem {
                     return false;
                 }
             }
-            
+
             var exists = false;
             _.each(this.liquids(), (_liquid) => {
                 if (_liquid.hashCode() === liquid.hashCode()) {
@@ -83,7 +83,7 @@ class SimpleContainer extends InventoryItem {
                     }
                 }
             });
-       
+
 
             if (!exists)
                 this.liquids.push(liquid);

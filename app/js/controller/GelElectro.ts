@@ -1,8 +1,6 @@
 import ko = require('knockout');
 import _ = require('lodash');
 
-import popupController = require('controller/Popup');
-
 import DragHelper = require('utils/DragHelper');
 
 import GelModel = require('model/Gel');

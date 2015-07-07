@@ -52,7 +52,7 @@ class DNAElement extends LiquidModel {
             description: this.description(),
             link: this.link(),
             comment: this.comment(),
-            proteinCodingSequence: "fake"
+            proteinCodingSequence: 'fake'
         });
 
         clone.proteinCodingSequence(this.proteinCodingSequence());
