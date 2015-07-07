@@ -15,4 +15,4 @@ class MouseItem {
     }
 }
 
-export = ChemicalItem;
+export = MouseItem;
