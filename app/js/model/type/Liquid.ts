@@ -9,6 +9,7 @@ enum Liquid {
     ORGANISM_PROPERTY        = ev.next(),
     JUICE                    = ev.next(),
     SALT_WATER               = ev.next(),
+    WATER                    = ev.next(),
     MICROTITER_WELLS         = ev.next(),
     DEADLY                   = ev.next(),
     HOMO_SPLEEN              = ev.next(),

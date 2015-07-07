@@ -231,6 +231,7 @@
         "item.name.antigen_smallpox": "Antigen (Ebola)",
         "item.name.buffer": "Buffer",
         "item.name.salt_water": "Saltvand",
+        "item.name.water": "Vand",
         "item.name.cyp_enzyme": "CYP-enzym",
         "item.name.target_receptor": "Target receptor",
         "item.name.fluorescent_2nd_antibody": "Fluorescerende sekundært antistof",
@@ -340,7 +341,7 @@
         "experiment.completed.body": "Du er helt færdig med øvelsen. Tillykke med det!",
 
         "centrifuge.unbalanced.header": "Ugyldigt",
-        "centrifuge.unbalanced.body": "Centrifugen skal være balanceret for at du kan anvende den. Hint: du kan anvende et reagensglas med saltvand for at balancere centrifugen.",
+        "centrifuge.unbalanced.body": "Centrifugen skal være balanceret for at du kan anvende den. Hint: du kan anvende et reagensglas med vand for at balancere centrifugen.",
 
         "pcr.dna-copied.header": "DNA er blevet kopieret",
         "pcr.dna-copied.body": "En milliard gange",

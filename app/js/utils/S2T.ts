@@ -207,6 +207,8 @@ class S2T {
             return LiquidType.FREE_FLOATING_DNA;
         case 'LiquidType.CLUMPED_CELLS':
             return LiquidType.CLUMPED_CELLS;
+        case 'LiquidType.WATER':
+            return LiquidType.WATER;
 
         default: return null;
         }

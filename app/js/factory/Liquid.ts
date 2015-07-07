@@ -123,6 +123,10 @@ class LiquidFactory {
         return new SaltWater();
     }
 
+    static water() {
+        return new Liquid(LiquidType.WATER);
+    }
+
     static dna(dnaType: DNAType) {
         var dna = new Liquid(LiquidType.DNA);
         dna.subtype(dnaType);

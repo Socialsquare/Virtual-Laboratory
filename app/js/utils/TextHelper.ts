@@ -121,6 +121,8 @@ class TextHelper {
             return 'liquid.name.antigen_smallpox';
         case LiquidType.SALT_WATER:
             return 'item.name.salt_water';
+        case LiquidType.WATER:
+            return 'item.name.water';
         case LiquidType.FLUORESCENT_2ND_ANTIBODY:
             return 'liquid.name.fluorescent_2nd_antibody';
         case LiquidType.ADJUVANS:
