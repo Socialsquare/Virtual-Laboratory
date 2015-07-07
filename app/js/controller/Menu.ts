@@ -146,7 +146,8 @@ class Menu extends BaseViewController {
             SpecialItemType.SCALPEL,
             SpecialItemType.SPLEEN,
             SpecialItemType.WASH_BOTTLE,
-            SpecialItemType.BUFFER
+            SpecialItemType.BUFFER,
+            SpecialItemType.GEL
         ];
 
         if (_.contains(nonWriteables, item.type()))

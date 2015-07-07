@@ -23,6 +23,8 @@ class TextHelper {
             return 'item.description.buffer';
         case SpecialItemType.MOUSE:
             return 'item.description.scalpel';
+        case SpecialItemType.GEL:
+            return 'item.description.gel';
 
         case LiquidType.INSULIN:
             return 'liquid.description.insulin';
@@ -81,6 +83,8 @@ class TextHelper {
             return 'item.name.buffer';
         case SpecialItemType.WASH_BOTTLE:
             return 'item.name.wash_bottle';
+        case SpecialItemType.GEL:
+            return 'item.name.gel';
 
         case MouseBloodType.NORMAL:
             return 'liquid.name.mouse_blood.normal';

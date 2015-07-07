@@ -42,6 +42,7 @@ class Chemical extends BaseViewController {
             new ChemicalItemModel('item.name.buffer', () => SpecialItemFactory.buffer()),
             new ChemicalItemModel('item.name.hybridoma_medium', () => this.inTube(LiquidFactory.hybridomaMedium())),
             new ChemicalItemModel('item.name.water', () => this.inTube(LiquidFactory.water())),
+            new ChemicalItemModel('item.name.gel', () => SpecialItemFactory.gel()),
         ]);
 
         this.drawerItems.pushAll([

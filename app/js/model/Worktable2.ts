@@ -8,6 +8,7 @@ import MicroSpaceModel = require('model/MicroSpace');
 import ODMachineModel = require('model/ODMachine');
 import BlenderModel = require('model/Blender');
 import CentrifugeModel = require('model/Centrifuge');
+import GelElectroModel = require('model/GelElectro');
 
 class Worktable2 {
 
@@ -18,6 +19,7 @@ class Worktable2 {
     public odMachine: ODMachineModel;
     public blender: BlenderModel;
     public centrifuge: CentrifugeModel;
+    public gelElectro: GelElectroModel;
 
     constructor() {
         this.tableSpacePetri = new PetriSpaceModel();
@@ -32,6 +34,7 @@ class Worktable2 {
         this.odMachine = new ODMachineModel();
         this.blender = new BlenderModel();
         this.centrifuge = new CentrifugeModel();
+        this.gelElectro = new GelElectroModel();
 
         ko.rebind(this);
     }

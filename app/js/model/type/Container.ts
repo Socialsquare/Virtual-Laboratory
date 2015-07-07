@@ -8,6 +8,7 @@ enum Container {
     BOTTLE            = ev.next(),
     SYRINGE           = ev.next(),
     PIPETTE_TIP       = ev.next(),
+    LANE              = ev.next(),
 
     // Composite
     PETRI_SPACE       = ev.next(),
