@@ -37,16 +37,12 @@ class OrderMouse extends BaseComputer {
     }
 
     orderMouse() {
-        this.popupController
-            .confirm('computer.screen.mouse_confirm.header', 'computer.screen.mouse_confirm.body')
-            .then(() => {
-                var mouse = this.selectedMouse();
-                this.gameState.inventory.add(mouse.clone());
+        var mouse = this.selectedMouse();
+        this.gameState.inventory.add(mouse.clone());
 
-                this.changeScreen(ComputerScreenType.MENU);
+        this.changeScreen(ComputerScreenType.MENU);
 
-                experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_MOUSE, mouse);
-            });
+        experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_MOUSE, mouse);
     }
 }
 
