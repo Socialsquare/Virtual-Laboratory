@@ -23,8 +23,9 @@ import FermentorController = require('controller/view/Fermentor');
 import FermentorScreenController = require('controller/view/FermentorScreen');
 import UvRoomController = require('controller/view/UvRoom');
 import WashingController = require('controller/view/Washing');
+import GelElectroController = require('controller/view/GelElectro');
+
 //TODO: remove, just for dummy-data
-import DesignDNAController = require('controller/view/computer/DesignDNA');
 import ContainerFactory = require('factory/Container');
 import LiquidFactory = require('factory/Liquid');
 import SpecialItemFactory = require('factory/SpecialItem');
@@ -69,7 +70,7 @@ class App extends BaseViewController {
             fermentorscreen : new FermentorScreenController(),
             uvroom          : new UvRoomController(),
             washing         : new WashingController(),
-            designDNA       : new DesignDNAController() //TODO: remove
+            gelelectro      : new GelElectroController(),
         };
 
         // setup routing

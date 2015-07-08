@@ -1,0 +1,23 @@
+<div class="gelelectro-view">
+
+    <div class="gelelectro" data-bind="with: gelElectroController">
+        <div class="btn hand" data-bind="click: activate">
+            <img src="assets/images/work1_electroporator-on.png" data-bind="visible: !gelElectroModel.status()">
+        </div>
+
+        <div class="tray">
+            <!-- ko ifnot: gelElectroModel.hasGel() -->
+            <div class="gel-slot" data-bind="drop: { handler: dropHandler, accept: dropAccepter }">
+            </div>
+            <!-- /ko -->
+            <!-- ko if: gelElectroModel.hasGel() -->
+            <div class="gel-slot filled hand" data-bind="drag: { item: gelElectroModel.gelSlot, dim: true, consume: removeGel}">
+                <ul data-bind="foreach: gelElectroModel.gelSlot().lanes">
+                    <li data-bind="css: 'lane' + $index()">
+                    </li>
+                </ul>
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
