@@ -7,6 +7,6 @@
                                   }">
     </div>
     <div class="gel" data-bind="if: apparatusEnabled('UV_ROOM', 'UV_ROOM_GEL')">
-        <img src="assets/images/overview_base-door.png" class="door" alt="Go to door">
+        <div style="width: 100px; height: 100px; background-color: red; opacity: .5; position: absolute; top: 390px; left: 160px;"></div>
     </div>
 </div>

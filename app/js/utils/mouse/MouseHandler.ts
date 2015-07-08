@@ -1,7 +1,3 @@
-import MouseType = require('model/type/Mouse');
-
-import experimentController = require('controller/Experiment');
-
 import MouseViewController = require('controller/view/Mouse');
 
 import MouseModel = require('model/Mouse');

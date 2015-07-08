@@ -9,6 +9,6 @@
         "color": "the_color",
         "name": "the_name",
         "id": "the_id",
-        "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
+        "proteinCodingSequence": "ProteinCodingSequenceType.ANTIBODY_SMALLPOX"
     }
 ]

@@ -71,7 +71,7 @@ class SimpleContainer extends InventoryItem {
                     }
                 }
             });
-       
+
 
             if (!exists)
                 this.liquids.push(liquid);

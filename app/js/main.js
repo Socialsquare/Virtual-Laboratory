@@ -43,6 +43,9 @@ require([
     'flot',
     'html5Loader',
 
+    // global modules
+    'screenfull',
+
     // self-registering knockout bindings and extensions
     'bindings/dragging',
     'bindings/video',
@@ -56,7 +59,7 @@ require([
 
     FastClick.attach(document.body);
 
-    //TODO: Confirm before navigating away
+    //TODO-release: Confirm before navigating away
     /*window.onbeforeunload = function (e) {
         e = e || window.event;
         var message = 'Spillet gemmes ikke hvis du navigerer væk';

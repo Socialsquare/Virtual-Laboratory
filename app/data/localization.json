@@ -177,6 +177,8 @@
 
         "popup.tube-extraction.header": "Centrifugen er færdig",
         "popup.tube-extraction.body": "Vælg hvad du vil ekstrahere",
+        "popup.warn_icebath_ffd.header": "Pas på",
+        "popup.warn_icebath_ffd.body": "Frit-flydende DNA kan dø hvis det ikke holdes afkølet. Er du sikker på at du vil flytte det væk fra isbadet?",
 
         "pipette.filled.header": "Information",
         "pipette.filled.body": "Du har suget indhold op med pipetten.",
@@ -206,6 +208,7 @@
         "item.description.spleen": "Milten udgør en del af kroppens lymfesystem, der bekæmper infektioner. Altså bidrager milten til vores immunforsvar.",
         "item.description.buffer": "Du kan bruge bufferen til at skylle mikrotiterbakkerne. Dette er relevant når man arbejder med ELISA.",
         "item.description.wash_bottle": "Du kan bruge sprøjteflasken til at fortynde opløsninger med faktor 5",
+        "item.description.gel": "Gel bruges i gel electrophoresis maskinen",
 
         "item.name.petri_dish": "Petriskål",
         "item.name.microtiter": "Mikrotiterplade",
@@ -229,6 +232,7 @@
         "item.name.antigen_smallpox": "Antigen (Ebola)",
         "item.name.buffer": "Buffer",
         "item.name.salt_water": "Saltvand",
+        "item.name.water": "Vand",
         "item.name.cyp_enzyme": "CYP-enzym",
         "item.name.target_receptor": "Target receptor",
         "item.name.fluorescent_2nd_antibody": "Fluorescerende sekundært antistof",
@@ -238,6 +242,7 @@
         "item.name.dna_polymerase": "DNA Polymerase",
         "item.name.blue_stain": "Blå farve",
         "item.name.lysis": "Lysis",
+        "item.name.gel": "Gel",
 
         "liquid.description.insulin": "Insulin er et hormon, der hjælper med at omsætte den mad, du spiser, til energi i kroppen. Insulin dannes og udskilles i bugspytkirtlen, og hormonets funktion er at signalere, hvornår cellerne skal optage sukker fra blodbanen. Når man lider af diabetes, fungerer denne mekanisme ikke optimalt, og derfor forbliver sukkerstofferne i blodbanen og giver forhøjet blodsukker. ",
         "liquid.description.lipase": "Lipase er et enzym, der nedbryder fedtstoffer i kroppen, så de kan optages og omdannes til energi.",
@@ -338,7 +343,7 @@
         "experiment.completed.body": "Du er helt færdig med øvelsen. Tillykke med det!",
 
         "centrifuge.unbalanced.header": "Ugyldigt",
-        "centrifuge.unbalanced.body": "Centrifugen skal være balanceret for at du kan anvende den. Hint: du kan anvende et reagensglas med saltvand for at balancere centrifugen.",
+        "centrifuge.unbalanced.body": "Centrifugen skal være balanceret for at du kan anvende den. Hint: du kan anvende et reagensglas med vand for at balancere centrifugen.",
 
         "pcr.dna-copied.header": "DNA er blevet kopieret",
         "pcr.dna-copied.body": "En milliard gange",

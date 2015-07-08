@@ -2,29 +2,34 @@ import SpecialItemModel = require('model/SpecialItem');
 import Scalpel = require('model/Scalpel');
 import Syringe = require('model/Syringe');
 import Spleen = require('model/Spleen');
+import Gel = require('model/Gel');
 
 import SpecialItemType = require('model/type/SpecialItem');
 
 class SpecialItem {
-    static scalpel = () => {
+    static scalpel() {
         return new Scalpel();
-    };
+    }
 
-    static syringe = () => {
+    static syringe() {
         return new Syringe();
-    };
+    }
 
-    static spleen = () => {
+    static spleen() {
         return new Spleen();
-    };
+    }
 
-    static washBottle = () => {
+    static washBottle() {
         return new SpecialItemModel(SpecialItemType.WASH_BOTTLE);
-    };
+    }
 
-    static buffer = () => {
+    static buffer() {
         return new SpecialItemModel(SpecialItemType.BUFFER);
-    };
+    }
+
+    static gel() {
+        return new Gel();
+    }
 }
 
 export = SpecialItem;

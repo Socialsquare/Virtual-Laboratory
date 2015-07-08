@@ -8,9 +8,6 @@ import CompositeContainerController = require('controller/CompositeContainer');
 import LiquidType = require('model/type/Liquid');
 import ContainerType = require('model/type/Container');
 import IceBathModel = require('model/IceBath');
-import SimpleContainerModel = require('model/SimpleContainer');
-
-import DragHelper = require('utils/DragHelper');
 
 class IceBath extends CompositeContainerController {
 
@@ -26,7 +23,7 @@ class IceBath extends CompositeContainerController {
         if (tube.contains(LiquidType.FREE_FLOATING_DNA)
             && toContainer.type() !== ContainerType.ICE_BATH) {
             return popupController
-                .confirm('experiment.change.header', 'experiment.change.body');
+                .confirm('popup.warn_icebath_ffd.header', 'popup.warn_icebath_ffd.body');
         }
 
         return $.Deferred().resolve();

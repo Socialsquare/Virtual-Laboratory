@@ -16,8 +16,8 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: [
             'test-main.js',
-            { pattern: 'test/**/*Spec.{js,ts}', included: false },
-            { pattern: 'dist/js/**/*.js', included: false },
+            { pattern: 'test/**/*Spec.{js,ts,js.map}', included: false },
+            { pattern: 'dist/js/**/*.{js,js.map}', included: false },
             { pattern: 'bower_components/**/*.js', included: false },
             { pattern: 'data/**', included: false },
             { pattern: 'test-data/**', included: false }
@@ -40,7 +40,8 @@ module.exports = function(config) {
             // options passed to the typescript compiler
             options: {
                 sourceRoot: 'dist/js/',
-                sourceMap: false, // (optional) Generates corresponding .map file.
+                sourceMap: true, // (optional) Generates corresponding .map file.
+                mapRoot: 'dist/js/',
                 // target: 'ES5', // (optional) Specify ECMAScript target version: 'ES3' (default), or 'ES5'
                 module: 'amd', // (optional) Specify module code generation: 'commonjs' or 'amd'
                 // noImplicitAny: true, // (optional) Warn on expressions and declarations with an implied 'any' type.
@@ -66,7 +67,7 @@ module.exports = function(config) {
 
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_DISABLE,
+        logLevel: config.LOG_DEBUG,
 
 
         // enable / disable watching file and executing tests whenever any file changes
@@ -75,8 +76,13 @@ module.exports = function(config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+
         browsers: ['PhantomJS'],
 
+        phantomjsLauncher: {
+            // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
+            exitOnResourceError: true
+        },
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits

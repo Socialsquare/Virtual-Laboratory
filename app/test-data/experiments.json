@@ -3,6 +3,10 @@
         "title": { "dk": "Test experiment 1" },
         "description": { "dk": "Foo" },
         "story": { "dk": "Bar" },
+        "apparatus": {
+            "ApparatusLocationType.CORNER": "ApparatusType.CORNER_FOOBAR",
+            "ApparatusLocationType.UV_ROOM": "ApparatusType.UV_ROOM_GEL"
+        },
         "tasks": [
             {
                 "description": { "dk": "Task 1" },

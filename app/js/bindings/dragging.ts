@@ -112,7 +112,7 @@ ko.bindingHandlers.drop = {
                 fromInterceptor(dragData, currentContainer, options.targetContainer)
                     .then(() => {
                         if (toInterceptor)
-                            return toInterceptor(dragData, currentContainer, options.targetContainer)
+                            return toInterceptor(dragData, currentContainer, options.targetContainer);
 
                         return $.Deferred().resolve();
                     })
@@ -122,7 +122,7 @@ ko.bindingHandlers.drop = {
                             dragConsume();
                     })
                     .always(() => {
-                        dragData = null
+                        dragData = null;
                         fromInterceptor = null;
                     });
             }
