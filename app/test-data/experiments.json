@@ -26,6 +26,18 @@
                         { "type": "LiquidType.INSULIN" }
                     ]
                 }
+            },
+            {
+                "description": { "dk": "Task 3" },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [
+                        { "type": "LiquidType.DEADLY" },
+                        { "type": "LiquidType.INSULIN" }
+                    ],
+                    "strictlyOrdered": true
+                }
             }
         ]
     }

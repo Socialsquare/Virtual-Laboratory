@@ -90,6 +90,18 @@ class Experiment {
         });
     }
 
+    matchLiquidOrder(trigger: TriggerModel, container: SimpleContainerModel) {
+        if (_.isUndefined(trigger.liquids)) return true;
+        if (trigger.strictlyOrdered) {
+            var liquidPairs = _.zip(container.liquids(), trigger.liquids);
+            return _.all(liquidPairs, (pair) => {
+                return pair[0].type() === pair[1].type;
+            });
+        }
+
+        return true;
+    }
+
     triggerMix(addition: LiquidModel[], container: SimpleContainerModel) {
         if (!this.hasExperiment()) return;
         if (!this.activeTask()) return; // This happens when all steps in an exercise are done
@@ -101,6 +113,7 @@ class Experiment {
         if (!this.match(trigger.containerSubtype, container.subtype())) return;
 
         if (!this.matchLiquids(trigger, container)) return;
+        if (!this.matchLiquidOrder(trigger, container)) return;
 
         this.finishActiveTask();
     }

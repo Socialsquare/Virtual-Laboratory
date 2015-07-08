@@ -56,20 +56,8 @@ class SimpleContainer extends InventoryItem {
         if (!this.canAddLiquids(liquids))
             return;
 
-        var task = experimentController.activeTask();
         // merge in new liquids
         _.each(liquids, (liquid) => {
-            if (task && task.trigger().liquidsOrdered) {
-                // make sure the order of liquids isn't broken
-                var pos = this.liquids().length;
-                var taskLiquids = task.trigger().liquids;
-                var taskLiquid = taskLiquids[pos];
-                if (taskLiquid.type !== liquid.type()) {
-                    //todo: should we return liquids to its original state?
-                    return false;
-                }
-            }
-            
             var exists = false;
             _.each(this.liquids(), (_liquid) => {
                 if (_liquid.hashCode() === liquid.hashCode()) {

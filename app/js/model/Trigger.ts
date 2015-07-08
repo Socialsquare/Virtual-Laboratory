@@ -41,8 +41,8 @@ class Trigger {
     public location: LocationType;
     public liquids: TriggerLiquid[];
     public strict: boolean;
+    public strictlyOrdered: boolean;
     public concentration: number;
-    public liquidsOrdered: boolean;
 
     // Mouse trigger
     public alive: boolean;
@@ -57,8 +57,8 @@ class Trigger {
         this.containerSubtype  = S2T.antigenCoating(values.containerSubtype);
         this.location          = S2T.loc(values.location);
         this.strict            = values.strict;
+        this.strictlyOrdered   = values.strictlyOrdered;
         this.concentration     = values.concentration;
-        this.liquidsOrdered    = values.liquidsOrdered;
 
         this.alive             = values.alive;
         this.mouseType         = S2T.mouse(values.mouseType);

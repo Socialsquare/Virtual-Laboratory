@@ -17,13 +17,15 @@ define([
                 "liquids": [
                     { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
                     { "type": "LiquidType.GENE"}
-                ]
+                ],
+                "strictlyOrdered": true
             };
 
             var tm = new TriggerModel(values);
 
             expect(tm.type).toBe(TriggerType.ACTIVATION);
             expect(tm.activation).toBe(ActivationType.ELECTROPORATOR);
+            expect(tm.strictlyOrdered).toBe(true);
         });
     });
 });

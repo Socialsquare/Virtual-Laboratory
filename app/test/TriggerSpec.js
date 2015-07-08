@@ -83,5 +83,28 @@ define([
 
             expect(finishedTasks().length).toBe(2);
         });
+
+        it('should not allow liquids to be added out of order', function () {
+            // finish first task
+            var tube = CF.tube();
+            tube.add(LF.deadly());
+            tube.add(LF.insulin());
+            expect(finishedTasks().length).toBe(1);
+
+            var tube2 = CF.tube();
+            tube2.add(LF.insulin());
+            tube2.add(LF.deadly());
+            expect(finishedTasks().length).toBe(2);
+
+            var tube3 = CF.tube();
+            tube3.add(LF.insulin());
+            tube3.add(LF.deadly());
+            expect(finishedTasks().length).toBe(2);
+
+            var tube4 = CF.tube();
+            tube4.add(LF.deadly());
+            tube4.add(LF.insulin());
+            expect(finishedTasks().length).toBe(3);
+        });
     });
 });
