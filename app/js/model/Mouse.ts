@@ -87,7 +87,7 @@ class Mouse extends SpecialItemModel {
         this.maveSukker = ko.observable(0);
         this.blodSukker = ko.observable(0);
         this.meanBlodSukker = ko.observable(0);
-        this.maxBlodSukker = ko.observable(12);
+        this.maxBlodSukker = ko.observable(12); // If blood sugar is above `maxBlodsukker` the mouse gets diabetes
         this.minBlodSukker = ko.observable(0.5); // The mouse dies if bloodSugar gets below this threshold
         this.killBlodSukker = ko.observable(20); // The mouse dies if bloodSugar gets above this threshold
         this.insulinProduktion = ko.observable(0);
