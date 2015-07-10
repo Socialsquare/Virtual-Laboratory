@@ -4,6 +4,7 @@ import i18n = require('service/Localization');
 
 import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
+import MouseType = require('model/type/Mouse');
 import LiquidType = require('model/type/Liquid');
 import MouseBloodType = require('model/type/MouseBlood');
 
@@ -22,7 +23,20 @@ class TextHelper {
         case SpecialItemType.BUFFER:
             return 'item.description.buffer';
         case SpecialItemType.MOUSE:
-            return 'item.description.scalpel';
+            switch (item.mouseType()) {
+            case MouseType.HEALTHY:
+                return 'item.description.mouse.healthy';
+            case MouseType.GOUT:
+                return 'item.description.mouse.gout';
+            case MouseType.SMALLPOX:
+                return 'item.description.mouse.smallpox';
+            case MouseType.INSOMNIA:
+                return 'item.description.mouse.insomnia';
+            case MouseType.PSORIASIS:
+                return 'item.description.mouse.psoriasis';
+            default:
+                throw 'Unknown mouse type: ' + item.mouseType();
+            }
         case SpecialItemType.GEL:
             return 'item.description.gel';
 
@@ -83,6 +97,8 @@ class TextHelper {
             return 'item.name.buffer';
         case SpecialItemType.WASH_BOTTLE:
             return 'item.name.wash_bottle';
+        case SpecialItemType.MOUSE:
+            return 'item.name.mouse';
         case SpecialItemType.GEL:
             return 'item.name.gel';
 

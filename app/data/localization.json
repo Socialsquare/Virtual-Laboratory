@@ -209,6 +209,11 @@
         "item.description.buffer": "Du kan bruge bufferen til at skylle mikrotiterbakkerne. Dette er relevant når man arbejder med ELISA.",
         "item.description.wash_bottle": "Du kan bruge sprøjteflasken til at fortynde opløsninger med faktor 5",
         "item.description.gel": "Gel bruges i gel electrophoresis maskinen",
+        "item.description.mouse.healthy": "Rask mus",
+        "item.description.mouse.gout": "Mus med TNF-alfa",
+        "item.description.mouse.psoriasis": "Mus med psoriasis",
+        "item.description.mouse.smallpox": "Mus med Ebola",
+        "item.description.mouse.insomnia": "Mus der lider af søvnløshed",
 
         "item.name.petri_dish": "Petriskål",
         "item.name.microtiter": "Mikrotiterplade",
@@ -243,6 +248,7 @@
         "item.name.blue_stain": "Blå farve",
         "item.name.lysis": "Lysis",
         "item.name.gel": "Gel",
+        "item.name.mouse": "Mus",
 
         "liquid.description.insulin": "Insulin er et hormon, der hjælper med at omsætte den mad, du spiser, til energi i kroppen. Insulin dannes og udskilles i bugspytkirtlen, og hormonets funktion er at signalere, hvornår cellerne skal optage sukker fra blodbanen. Når man lider af diabetes, fungerer denne mekanisme ikke optimalt, og derfor forbliver sukkerstofferne i blodbanen og giver forhøjet blodsukker. ",
         "liquid.description.lipase": "Lipase er et enzym, der nedbryder fedtstoffer i kroppen, så de kan optages og omdannes til energi.",
