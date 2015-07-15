@@ -9,13 +9,65 @@
     .tuberack { @include tuberack(492px, 318px); }
 
     .gelelectro {
+        $gelW: 186px;
+        $gelH: 133px;
+        $gelX: 470px;
+        $gelY: 188px;
         position: absolute;
+        top: $gelY;
+        left: $gelX;
 
-        top: 188px;
-        left: 520px;
+        width: $gelW;
+        height: $gelH;
 
-        width: 286px;
-        height: 133px;
+        .btn {
+            position: absolute;
+            top: 18px;
+            left: 190px;
+            width: 74px;
+            height: 69px;
+        }
+
+        .tray {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+
+            width: $gelW;
+            height: $gelH;
+
+            background-color: grey;
+
+            .gel-slot {
+                position: relative;
+                top: 10px;
+                left: 10px;
+
+                width: $gelW - 20px;
+                height: $gelH - 20px;
+
+                background-color: #CCC;
+
+                &.filled {
+                    background-color: #18F;
+                }
+            }
+        }
+
+        @for $i from 0 through 4 {
+            .lane#{$i} {
+                position: absolute;
+                top: 10px + ($i * 25px);
+                left: 20px;
+                width: 10px;
+                height: 20px;
+                background-color: blue;
+
+                &.filled {
+                    background-color: cyan;
+                }
+            }
+        }
     }
 
     .centrifuge-testtubeholder {

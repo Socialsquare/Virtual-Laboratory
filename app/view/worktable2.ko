@@ -10,7 +10,27 @@
         <img src="assets/images/work1_electroporator-on.png" alt="Centrifuge button" data-bind="visible: worktable2.centrifuge.status()">
     </div>
 
-    <div class="gelelectro hand" data-bind="route: 'gelelectro'"></div>
+    <div class="gelelectro" data-bind="with: gelElectroController">
+        <div class="btn hand" data-bind="click: activate">
+            <img src="assets/images/work1_electroporator-on.png" data-bind="visible: gelElectroModel.status()">
+        </div>
+
+        <div class="tray">
+            <!-- ko ifnot: gelElectroModel.hasGel() -->
+            <div class="gel-slot" data-bind="drop: { handler: gelDropHandler, accept: gelDropAccepter }">
+            </div>
+            <!-- /ko -->
+            <!-- ko if: gelElectroModel.hasGel() -->
+            <div class="gel-slot filled hand" data-bind="drag: { item: gelElectroModel.gelSlot, dim: true, consume: removeGel},
+                                                         drop: { handler: pipetteDropHandler, accept: pipetteDropAccepter }">
+                <ul class="lanes" data-bind="foreach: gelElectroModel.gelSlot().lanes">
+                    <li data-bind="attr: { class: 'lane lane' + $index() }, css: { filled: !isEmpty() }">
+                    </li>
+                </ul>
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
 
     <div class="blender" data-bind="css: { on: worktable2.blender.status() }"></div>
     <div class="blender-hit" data-bind="drop: { handler: handleBlenderDrop, accept: DragHelper.acceptedByBlender }"></div>

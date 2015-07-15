@@ -23,7 +23,6 @@ import FermentorController = require('controller/view/Fermentor');
 import FermentorScreenController = require('controller/view/FermentorScreen');
 import UvRoomController = require('controller/view/UvRoom');
 import WashingController = require('controller/view/Washing');
-import GelElectroController = require('controller/view/GelElectro');
 
 //TODO: remove, just for dummy-data
 import ContainerFactory = require('factory/Container');
@@ -70,7 +69,6 @@ class App extends BaseViewController {
             fermentorscreen : new FermentorScreenController(),
             uvroom          : new UvRoomController(),
             washing         : new WashingController(),
-            gelelectro      : new GelElectroController(),
         };
 
         // setup routing
@@ -78,15 +76,16 @@ class App extends BaseViewController {
             this.viewChange(routeName);
         });
 
-        // this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.buffyCoat(MouseBloodType.DIABETIC)));
-        // this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.lysis()));
-        // this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.mouseBlood(MouseBloodType.DIABETIC)));
-        // this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.saltWater()));
-        // this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.freeFloatingDNA(MouseBloodType.DIABETIC)));
-
-        // this.gameState.inventory.add(ContainerFactory.tube().add(LiquidFactory.clumpedCells(MouseBloodType.DIABETIC)));
-
-        this.gameState.inventory.add(SpecialItemFactory.gel());
+        var iadd = this.gameState.inventory.add;
+        var t = ContainerFactory.tube;
+        // iadd(t().add(LiquidFactory.buffyCoat(MouseBloodType.DIABETIC)));
+        // iadd(t().add(LiquidFactory.lysis()));
+        // iadd(t().add(LiquidFactory.water()));
+        // iadd(t().add(LiquidFactory.mouseBlood(MouseBloodType.DIABETIC)));
+        // iadd(t().add(LiquidFactory.saltWater()));
+        // iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.DIABETIC)));
+        // iadd(t().add(LiquidFactory.clumpedCells(MouseBloodType.DIABETIC)));
+        iadd(SpecialItemFactory.gel());
 
         // bootstrap the app by going to loading view
         // TODO-release: switch to loading

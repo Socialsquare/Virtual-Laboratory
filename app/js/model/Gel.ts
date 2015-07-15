@@ -17,6 +17,10 @@ class Gel extends SpecialItemModel {
 
         ko.rebind(this);
     }
+
+    getVacantLane() {
+        return _.find(this.lanes(), (lane) => lane.isEmpty());
+    }
 }
 
 export = Gel;

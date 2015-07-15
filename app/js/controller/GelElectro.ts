@@ -6,6 +6,7 @@ import routerController = require('controller/Router');
 
 import DragHelper = require('utils/DragHelper');
 
+import PipetteModel = require('model/Pipette');
 import GelModel = require('model/Gel');
 import GelElectroModel = require('model/GelElectro');
 
@@ -13,7 +14,8 @@ class GelElectroController {
 
     public gelElectroModel: GelElectroModel;
 
-    public dropAccepter = DragHelper.acceptGel;
+    public gelDropAccepter = DragHelper.acceptGel;
+    public pipetteDropAccepter = DragHelper.acceptPipette;
 
     constructor(gelElectroModel: GelElectroModel) {
         this.gelElectroModel = gelElectroModel;
@@ -21,13 +23,23 @@ class GelElectroController {
         ko.rebind(this);
     }
 
-    dropHandler(gel: GelModel) {
+    gelDropHandler(gel: GelModel) {
         if (this.gelElectroModel.gelSlot())
             return false;
 
         this.gelElectroModel.gelSlot(gel);
-
         return true;
+    }
+
+    pipetteDropHandler(pipette: PipetteModel) {
+        if (!this.gelElectroModel.gelSlot())
+            return false;
+        var lane = this.gelElectroModel.gelSlot().getVacantLane();
+        if (lane)
+            pipette.emptyPipetteInto(lane)
+        else
+            popupController.message('gelelectro.no-empty-lanes.header',
+                                    'gelelectro.no-empty-lanes.body');
     }
 
     removeGel() {

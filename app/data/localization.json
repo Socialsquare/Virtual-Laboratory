@@ -358,6 +358,9 @@
         "pcr.acquired-other.header": "Vi har hjulpet dig lidt",
         "pcr.acquired-other.body": "Vi har udført eksperimentet på den anden mus så du ikke behøver gøre det. Reagensglasset med resultatet er lagt i din beholdning.",
 
+        "gelelectro.no-empty-lanes.header": "Ingen tomme brønde",
+        "gelelectro.no-empty-lanes.body": "Der er ingen tomme brønde tilbage i gelen",
+
         "common.next": "Næste",
         "common.previous": "Forrige",
         "common.contains": "Oprindeligt indhold",
