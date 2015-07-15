@@ -124,9 +124,7 @@ class Menu extends BaseViewController {
     }
 
     tipDropHandler(pipette) {
-        if (!this.gameState.pipette.hasTip()) {
-            this.gameState.pipette.addAt(0, new TipModel());
-        } else {
+        if (!this.gameState.pipette.newTip()) {
             this.popupController.notify('pipette.existing_tip.header', 'pipette.existing_tip.body');
         }
         return false;

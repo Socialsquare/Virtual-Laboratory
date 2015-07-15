@@ -23,7 +23,7 @@ class Pipette extends CompositeContainerModel {
 
         this.isEmpty = ko.pureComputed(() => {
             if (!this.hasTip())
-                return false;
+                return true;
 
             return this.get(0).isEmpty();
         });
@@ -43,6 +43,14 @@ class Pipette extends CompositeContainerModel {
         this.remove(0);
     }
 
+    newTip() {
+        if (this.hasTip())
+            return false;
+
+        this.addAt(0, new TipModel());
+        return true;
+    }
+
     emptyPipetteInto(container: SimpleContainerModel) {
         var clonedLiqs = _.invoke(this.getTip().liquids(), 'clone');
 
@@ -58,14 +66,25 @@ class Pipette extends CompositeContainerModel {
         }
     }
 
+    // Fill the pipette from a container. The pipette cannot be filled
+    // if the tip has been used in another type of liquid before.
+    //
+    // Returns a boolean indicating whether the pipette was
+    // succesfully filled.
     fillPipette(container: SimpleContainerModel) {
         // Warn user and cancel filling if tip is dirty
         //
         // TODO: check if the current container is equal to the contaminatedBy()
         var contaminator = this.getTip().contaminatedBy();
-        if (contaminator && contaminator !== container) {
-            popupController.message('pipette.dirty_tip.header', 'pipette.dirty_tip.body');
-            return;
+        if (contaminator) {
+            // && contaminator !== container
+            var contaminatorTypes = _.map(contaminator.liquids(), (l) => l.type());
+            var isSameLiquids = container.containsAllStrict(contaminatorTypes);
+            if (!isSameLiquids) {
+                popupController.message('pipette.dirty_tip.header',
+                                        'pipette.dirty_tip.body');
+                return false;
+            }
         }
 
         // 1st modify the pipette
@@ -100,6 +119,8 @@ class Pipette extends CompositeContainerModel {
 
         // TODO: this might not be needed when graphics for the pipette are implemented
         popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
+
+        return true;
     }
 }
 

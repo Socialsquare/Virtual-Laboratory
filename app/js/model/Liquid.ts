@@ -10,11 +10,12 @@ class Liquid {
     public type: KnockoutObservable<LiquidType>;
     public reactionCount: KnockoutObservable<ReactionCount>;
     public hasReacted: KnockoutObservable<boolean>;
+    // Determines whether a liquid contaminates the pipette
     public isContaminating: KnockoutObservable<boolean>;
 
     public subtype: KnockoutObservable<any>;
 
-    constructor(type, reactionCount = ReactionCount.NEVER, isContaminating = false) {
+    constructor(type, reactionCount = ReactionCount.NEVER, isContaminating = true) {
         this.type = ko.observable(type);
         this.reactionCount = ko.observable(reactionCount);
         this.hasReacted = ko.observable(false);
