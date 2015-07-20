@@ -182,7 +182,7 @@ class Experiment {
 
                     // 8 is a magic number from view/SpectroPM.js
                     var affinityScore = theDrug.getAffinityScore() - 8;
-                    if ('maxIc50' in activationSubtype && !(affinityScore < activationSubtype.maxIc50 ))
+                    if ('maxIc50' in activationSubtype && !(affinityScore < activationSubtype.maxIc50))
                         return;
 
                     break;
@@ -209,7 +209,7 @@ class Experiment {
         if (trigger.activation === ActivationType.HEATER) {
             var heater = <HeaterModel>item;
             var compacted = _.compact(heater.containers());
-            var validHeater = _.any(compacted, _.partial(this.matchLiquids, trigger));
+            var validHeater = _.isEmpty(compacted) || _.any(compacted, _.partial(this.matchLiquids, trigger));
             if (!validHeater) return;
         }
 

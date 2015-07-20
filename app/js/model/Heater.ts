@@ -1,11 +1,14 @@
 import ko = require('knockout');
 import _ = require('lodash');
 
+import experimentController = require('controller/Experiment');
 import popupController = require('controller/Popup');
 import hudController = require('controller/HUD');
 
 import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
+import LocationType = require('model/type/Location');
+import ActivationType = require('model/type/Activation');
 
 import CompositeContainerModel = require('model/CompositeContainer');
 import SimpleContainerModel = require('model/SimpleContainer');
@@ -22,6 +25,7 @@ class HeaterModel extends CompositeContainerModel {
         super(3, ContainerType.TUBE, ContainerType.HEATER);
 
         this.status = ko.observable(false);
+        this.location(LocationType.HEATER);
 
         ko.rebind(this);
     }
@@ -82,6 +86,10 @@ class HeaterModel extends CompositeContainerModel {
 
     toggle() {
         this.status.toggle();
+
+        if (this.status()) {
+            experimentController.triggerActivation(ActivationType.HEATER, this);
+        }
 
         this.checkTubes();
     }

@@ -19,6 +19,7 @@ enum Location {
     WORKTABLE3      = ev.next(),
     INVENTORY       = ev.next(),
     ICE_BATH        = ev.next(),
+    HEATER          = ev.next(),
 }
 
 export = Location;
