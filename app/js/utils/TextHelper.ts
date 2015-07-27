@@ -25,7 +25,12 @@ class TextHelper {
         case SpecialItemType.MOUSE:
             switch (item.mouseType()) {
             case MouseType.HEALTHY:
-                return 'item.description.mouse.healthy';
+                switch (item.mouseBloodType()) {
+                case MouseBloodType.NORMAL:
+                    return 'item.description.mouse.healthy';
+                case MouseBloodType.DIABETIC:
+                    return 'item.description.mouse.diabetic';
+                }
             case MouseType.GOUT:
                 return 'item.description.mouse.gout';
             case MouseType.SMALLPOX:
