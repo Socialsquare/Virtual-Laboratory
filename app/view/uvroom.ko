@@ -6,7 +6,8 @@
                                       name: 'compContainer', data: tableSpaceMicroController
                                   }">
     </div>
-    <div class="gel" data-bind="if: apparatusEnabled('UV_ROOM', 'UV_ROOM_GEL')">
-        <div style="width: 100px; height: 100px; background-color: red; opacity: .5; position: absolute; top: 390px; left: 160px;"></div>
+    <div class="gel" data-bind="drag: { item: uvroom.gel, dim: true, consume: removeGel}, drop: { handler: handleGelDrop, accept: DragHelper.acceptGel }">
+        <div style="width: 300px; height: 100px; background-color: red; opacity: .5;" data-bind="visible: uvroom.hasGel(), click: viewGel"></div>
     </div>
+
 </div>

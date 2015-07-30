@@ -1,3 +1,4 @@
+import ko = require('knockout');
 import gameState = require('model/GameState');
 
 import BaseViewController = require('controller/view/Base');
@@ -21,6 +22,19 @@ class UvRoom extends BaseViewController {
         this.tableSpacePetriController = new CompositeContainerController(this.uvroom.tableSpacePetri);
         this.tableSpaceMicroController = new CompositeContainerController(this.uvroom.tableSpaceMicro);
         this.tubeRackController = new CompositeContainerController(this.uvroom.tubeRack);
+    }
+
+    handleGelDrop(gel) {
+        this.uvroom.gel(gel);
+        debugger;
+    }
+
+    viewGel() {
+        this.popupController.gelInfo(this.uvroom.gel);
+    }
+
+    removeGel() {
+        this.uvroom.gel(null);
     }
 }
 

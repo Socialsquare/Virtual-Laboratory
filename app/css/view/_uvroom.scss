@@ -62,3 +62,8 @@
   }
   .petri { @include tablespacepetri(560px, 470px); }
 }
+
+.gel { 
+    @include tablespacegel(80px, 390px);
+    border: 1px solid black;
+}

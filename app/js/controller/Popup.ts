@@ -87,6 +87,10 @@ class Popup {
         this.show('popup-dna-info', { dna: dna });
     }
 
+    gelInfo(gel) {
+        this.show('popup-gel-info', { gel: gel });
+    }
+
     message(title: string, message: string) {
         this.show('popup-message', { title: title, message: message });
     }
