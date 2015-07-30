@@ -13,13 +13,6 @@ import SpecialItemModel = require('model/SpecialItem');
 import SpecialItemType = require('model/type/SpecialItem');
 
 class Mouse extends SpecialItemModel {
-
-    public alive: KnockoutObservable<boolean>;
-    public isCut: KnockoutObservable<boolean>;
-    // Should be true when an interaction-video is playing.
-    public isInteracting: KnockoutObservable<boolean>;
-    public spleen: SpleenModel;
-    public mouseBloodType: KnockoutObservable<MouseBloodType>;
     public mouseType: KnockoutObservable<MouseType>;
     public heartRateData: any;
     public heartRateIndex: number;

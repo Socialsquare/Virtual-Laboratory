@@ -27,7 +27,7 @@ class MouseController extends BaseViewController {
 
     public videoController: VideoController;
 
-    public mouse: KnockoutObservable<MouseModel>;
+    public mousecage: KnockoutObservable<MouseCageModel>;
     public mouseDrinking: KnockoutObservable<boolean>;
 
     public lowBloodSugarWarningToggle: KnockoutObservable<boolean>;
@@ -45,7 +45,7 @@ class MouseController extends BaseViewController {
 
         this.videoController = new VideoController(true);
 
-        this.mouse = this.gameState.mouse;
+        this.mousecage = this.gameState.mousecage;
         this.mouseDrinking = ko.observable(false);
 
         // Begin: Notifications
@@ -58,23 +58,17 @@ class MouseController extends BaseViewController {
                 this.lowBloodSugarWarningToggle(true);
                 this.popupController.message('mouse.warning_insulin.header', 'mouse.warning_insulin.body');
             }
-
             else if (blodSukker > this.mouse().maxBlodSukker() * 0.8
                      && !this.highBloodSugarWarningToggle()
                      && this.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
-
                 this.highBloodSugarWarningToggle(true);
                 this.popupController.message('mouse.warning_diabetes_risk.header', 'mouse.warning_diabetes_risk.body');
-
             }
-
             else if (blodSukker >= this.mouse().maxBlodSukker()
                      && !this.diabetesDevelopedToggle()
                      && this.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
-
                 this.diabetesDevelopedToggle(true);
                 this.popupController.message('mouse.warning_diabetes.header', 'mouse.warning_diabetes.body');
-
                 this.mouse().mouseBloodType(MouseBloodType.DIABETIC);
             }
         });
@@ -92,7 +86,7 @@ class MouseController extends BaseViewController {
 
         //TODO: modify to object /w two fields
         /*            this.plotData(_.map(_.range(0, 250), (i) => {
-                      return [i, this.mouse().bloodData()[i]];
+                      return [i, this.mousecage.mouse().bloodData()[i]];
                       }));*/
 
 
@@ -115,19 +109,22 @@ class MouseController extends BaseViewController {
     }
 
     updatePlotData() {
+        if(!this.mousecage.hasMouse())
+            return;
+
         var bloodData = _.map(_.range(0, 250), (i): [number, number] => {
-            return [i, this.mouse().bloodData()[i]];
+            return [i, this.mousecage.mouse().bloodData()[i]];
         });
 
         var heartRateData = _.map(_.range(0, 250), (i): [number, number] => {
 
-            if (!this.mouse().alive())
+            if (!this.mousecage.mouse().alive())
                 return [i, 0];
 
-            var dataIndex = this.mouse().heartRateIndex + i;
-            dataIndex = dataIndex % this.mouse().heartRateData.length;
+            var dataIndex = this.mousecage.mouse().heartRateIndex + i;
+            dataIndex = dataIndex % this.mousecage.mouse().heartRateData.length;
 
-            return [i, this.mouse().heartRateData[dataIndex]];
+            return [i, this.mousecage.mouse().heartRateData[dataIndex]];
         });
 
         this.plotData({
@@ -137,14 +134,17 @@ class MouseController extends BaseViewController {
     }
 
     nextTimeStep() {
-        this.mouse().nextBloodStep();
-        this.mouse().nextHeartStep();
+        if(!this.mousecage.hasMouse())
+            return;
 
-        if (this.mouse().hasLethalBloodSugar()) {
+        this.mousecage.mouse().nextBloodStep();
+        this.mousecage.mouse().nextHeartStep();
+
+        if (this.mousecage.mouse().hasLethalBloodSugar()) {
             this.toggleSimulation(false);
 
             this.videoController.play('fast-die-insulin', false).then(() => {
-                this.mouse().alive(false);
+                this.mousecage.mouse().alive(false);
                 this.mouseDrinking(false);
                 this.popupController.message('mouse.died_glucose.header', 'mouse.died_glucose.body');
             });
@@ -154,8 +154,11 @@ class MouseController extends BaseViewController {
     }
 
     injectionFromState() {
-        if (this.mouse().alive()) {
-            switch (this.mouse().mouseType()) {
+        if(!this.mousecage.hasMouse())
+            return;
+
+        if (this.mousecage.mouse().alive()) {
+            switch (this.mousecage.mouse().mouseType()) {
             case MouseType.HEALTHY:
                 return this.videoController.play('fast-injection', false);
 
@@ -169,8 +172,11 @@ class MouseController extends BaseViewController {
     }
 
     runFromState() {
-        if (this.mouse().alive()) {
-            switch (this.mouse().mouseType()) {
+        if(!this.mousecage.hasMouse())
+            return;
+
+        if (this.mousecage.mouse().alive()) {
+            switch (this.mousecage.mouse().mouseType()) {
             case MouseType.HEALTHY:
                 this.videoController.play('fast-loop', true);
                 break;
@@ -201,8 +207,7 @@ class MouseController extends BaseViewController {
         super.enter();
 
         this.runFromState();
-
-        this.toggleSimulation(true);
+        this.toggleSimulation(!!this.mousecage.hasMouse());
     }
 
     exit() {
@@ -220,6 +225,12 @@ class MouseController extends BaseViewController {
 
     handleDropOnMouse(item) {
         return DropOnMouseHelper.handleDrop(this, item);
+    }
+    
+    removeMouse() {
+        this.videoController.stop();
+        this.toggleSimulation(false);
+        this.mousecage.mouse(null);
     }
 }
 

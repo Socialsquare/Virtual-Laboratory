@@ -12,8 +12,7 @@ import MouseViewController = require('controller/view/Mouse');
 class DropOnMouseHelper {
 
     static handleDrop(MC: MouseViewController, item) {
-
-        if (MC.mouse().isInteracting())
+        if (MC.mousecage.hasMouse() && MC.mousecage.mouse().isInteracting())
             return false;
 
         //TODO: decision tree based on 1st item, 2nd mouseType

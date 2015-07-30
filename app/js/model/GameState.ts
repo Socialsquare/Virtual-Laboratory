@@ -3,7 +3,7 @@
 import ko = require('knockout');
 
 import Inventory = require('model/Inventory');
-import MouseModel = require('model/Mouse');
+import MouseCageModel = require('model/MouseCage');
 import PipetteModel = require('model/Pipette');
 import Worktable1Model = require('model/Worktable1');
 import Worktable2Model = require('model/Worktable2');
@@ -17,8 +17,6 @@ import WashingModel = require('model/Washing');
 
 import DNAElementModel = require('model/DNAElement');
 
-import MouseType = require('model/type/Mouse');
-import MouseBloodType = require('model/type/MouseBlood');
 import ComputerScreenType = require('model/type/ComputerScreen');
 
 class GameState {
@@ -29,13 +27,13 @@ class GameState {
     public inventory: Inventory;
 
     // Global items
-    public mouse: KnockoutObservable<MouseModel>;
     public pipette: PipetteModel;
 
     // Areas
     public worktable1: Worktable1Model;
     public worktable2: Worktable2Model;
     public worktable3: Worktable3Model;
+    public mousecage: MouseCageModel;
     public fumehood: FumehoodModel;
     public incubator: IncubatorModel;
     public spectroPM: SpectroPMModel;
@@ -52,13 +50,13 @@ class GameState {
         this.inventory = new Inventory();
 
         this.pipette = new PipetteModel();
-        this.mouse = ko.observable(new MouseModel(MouseType.HEALTHY, MouseBloodType.NORMAL));
 
         this.askTutorial = ko.observable(false); //TODO-release: set to true
 
         this.worktable1 = new Worktable1Model();
         this.worktable2 = new Worktable2Model();
         this.worktable3 = new Worktable3Model();
+        this.mousecage = new MouseCageModel();
         this.fumehood = new FumehoodModel();
         this.incubator = new IncubatorModel();
         this.spectroPM = new SpectroPMModel();
@@ -72,7 +70,6 @@ class GameState {
     reset() {
         this.activeComputerScreen(ComputerScreenType.MENU);
         this.sequencedDNA.removeAll();
-        this.mouse(new MouseModel(MouseType.HEALTHY, MouseBloodType.NORMAL));
 
         this.inventory.reset();
 
@@ -80,6 +77,7 @@ class GameState {
         this.worktable1.reset();
         this.worktable2.reset();
         this.worktable3.reset();
+        this.mousecage.reset();
         this.fumehood.reset();
         this.incubator.reset();
         this.spectroPM.reset();
