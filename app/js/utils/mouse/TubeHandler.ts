@@ -14,12 +14,17 @@ import TubeModel = require('model/Tube');
 class TubeHandler {
 
     static handle(MC: MouseViewController, tube: TubeModel) {
+        if (!MC.mousecage.hasMouse()) {
+            return false;
+        }
 
-        if (!MC.mouse().alive())
+        var mouse = MC.mousecage.mouse();
+
+        if (!mouse.alive())
             return false;
 
         // Is the mouse psoriasis or insomnia?
-        if (!(MC.mouse().mouseType() === MouseType.PSORIASIS || MC.mouse().mouseType() === MouseType.INSOMNIA)) {
+        if (!(mouse.mouseType() === MouseType.PSORIASIS || mouse.mouseType() === MouseType.INSOMNIA)) {
             popupController.notify('mouse.drug_not_correct_type.header', 'mouse.drug_not_correct_type.body');
             return false;
         }
@@ -30,7 +35,7 @@ class TubeHandler {
         }
 
         // Are the contents allowed?
-        if (!MC.mouse().areContentsAllowed(tube)) {
+        if (!mouse.areContentsAllowed(tube)) {
             popupController.message('mouse.tube_not_allowed.header', 'mouse.tube_not_allowed.body');
             return false;
         }
@@ -44,7 +49,7 @@ class TubeHandler {
         var drug = tube.liquids()[0];
 
         // Choice based on mouse type
-        if (MC.mouse().mouseType() === MouseType.PSORIASIS) {
+        if (mouse.mouseType() === MouseType.PSORIASIS) {
             var options = [
                 { key: LocalizationService.text('mouse.drug_administration.injection_body'),
                   value: AdministrationType.INJECTION_BODY},
@@ -71,8 +76,8 @@ class TubeHandler {
 
                                     if (values.reachedTarget) {
                                         popupController.message('mouse.drug_cured.header', 'mouse.drug_cured.body');
-                                        MC.experimentController.triggerMouse(MC.mouse(), tube);
-                                        MC.mouse().cureDesignedDrug();
+                                        MC.experimentController.triggerMouse(mouse, tube);
+                                        mouse.cureDesignedDrug();
                                     }else {
                                         popupController.message('mouse.drug_not_effective.header', 'mouse.drug_not_effective.body');
                                     }
@@ -93,8 +98,8 @@ class TubeHandler {
 
                                     if (values.reachedTarget) {
                                         popupController.message('mouse.drug_cured.header', 'mouse.drug_cured.body');
-                                        MC.experimentController.triggerMouse(MC.mouse(), tube);
-                                        MC.mouse().cureDesignedDrug();
+                                        MC.experimentController.triggerMouse(mouse, tube);
+                                        mouse.cureDesignedDrug();
                                     }else {
                                         popupController.message('mouse.drug_not_effective.header', 'mouse.drug_not_effective.body');
                                     }
@@ -116,8 +121,8 @@ class TubeHandler {
 
                                     if (values.reachedTarget) {
                                         popupController.message('mouse.drug_cured.header', 'mouse.drug_cured.body');
-                                        MC.experimentController.triggerMouse(MC.mouse(), tube);
-                                        MC.mouse().cureDesignedDrug();
+                                        MC.experimentController.triggerMouse(mouse, tube);
+                                        mouse.cureDesignedDrug();
                                     } else {
                                         popupController.message('mouse.drug_not_effective.header', 'mouse.drug_not_effective.body');
                                     }

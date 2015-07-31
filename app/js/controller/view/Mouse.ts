@@ -53,25 +53,28 @@ class MouseController extends BaseViewController {
         this.lowBloodSugarWarningToggle = ko.observable(false); // Such name. Wow.
         this.highBloodSugarWarningToggle = ko.observable(false);
         this.diabetesDevelopedToggle = ko.observable(false);
-        this.mousecage.mouse().blodSukker.subscribe((blodSukker) => {
-            if (blodSukker < 1.5 && !this.lowBloodSugarWarningToggle()) {
-                this.lowBloodSugarWarningToggle(true);
-                this.popupController.message('mouse.warning_insulin.header', 'mouse.warning_insulin.body');
-            }
-            else if (blodSukker > this.mousecage.mouse().maxBlodSukker() * 0.8
-                     && !this.highBloodSugarWarningToggle()
-                     && this.mousecage.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
-                this.highBloodSugarWarningToggle(true);
-                this.popupController.message('mouse.warning_diabetes_risk.header', 'mouse.warning_diabetes_risk.body');
-            }
-            else if (blodSukker >= this.mousecage.mouse().maxBlodSukker()
-                     && !this.diabetesDevelopedToggle()
-                     && this.mousecage.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
-                this.diabetesDevelopedToggle(true);
-                this.popupController.message('mouse.warning_diabetes.header', 'mouse.warning_diabetes.body');
-                this.mousecage.mouse().mouseBloodType(MouseBloodType.DIABETIC);
-            }
-        });
+
+        if (this.mousecage.hasMouse()) {
+            this.mousecage.mouse().blodSukker.subscribe((blodSukker) => {
+                if (blodSukker < 1.5 && !this.lowBloodSugarWarningToggle()) {
+                    this.lowBloodSugarWarningToggle(true);
+                    this.popupController.message('mouse.warning_insulin.header', 'mouse.warning_insulin.body');
+                }
+                else if (blodSukker > this.mousecage.mouse().maxBlodSukker() * 0.8
+                         && !this.highBloodSugarWarningToggle()
+                         && this.mousecage.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
+                    this.highBloodSugarWarningToggle(true);
+                    this.popupController.message('mouse.warning_diabetes_risk.header', 'mouse.warning_diabetes_risk.body');
+                }
+                else if (blodSukker >= this.mousecage.mouse().maxBlodSukker()
+                         && !this.diabetesDevelopedToggle()
+                         && this.mousecage.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
+                    this.diabetesDevelopedToggle(true);
+                    this.popupController.message('mouse.warning_diabetes.header', 'mouse.warning_diabetes.body');
+                    this.mousecage.mouse().mouseBloodType(MouseBloodType.DIABETIC);
+                }
+            });
+        }
 
         // End: Notifications
 
