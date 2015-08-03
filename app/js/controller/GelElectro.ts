@@ -69,6 +69,7 @@ class GelElectroController {
 
     finishActivate() {
         this.gelElectroModel.status(false);
+        this.calculateResults();
     }
 
     activate() {
@@ -78,6 +79,11 @@ class GelElectroController {
         this.gelElectroModel.status(true);
 
         _.delay(this.finishActivate, 2000);
+    }
+
+    calculateResults() {
+        var lanes = this.gelElectroModel.gelSlot().lanes();
+        lanes.map((l) => l.calculateValue());
     }
 }
 
