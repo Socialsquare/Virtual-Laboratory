@@ -5,6 +5,8 @@
 
     <hr />
 
+    <div class="view-gel" data-bind="css: { stained: isStained() }"></div>
+
     <!-- /ko -->
 
     <div class="btn-row float-clear">

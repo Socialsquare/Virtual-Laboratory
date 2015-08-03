@@ -65,6 +65,12 @@ class DragHelper {
         SpecialItemType.SCALPEL,
         SpecialItemType.MOUSE
     ]);
+
+
+    static acceptedByGelElectro = DragHelper.accepter([
+        ContainerType.PIPETTE,
+        ContainerType.TUBE
+    ]);
 }
 
 export = DragHelper;

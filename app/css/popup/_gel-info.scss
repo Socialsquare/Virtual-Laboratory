@@ -1,0 +1,16 @@
+/* popup/gel-info.scss */
+
+.popup-gel-info {
+    height: 480px;
+
+    .view-gel {
+
+        height: 350px;
+                
+        &.stained {
+            background-color: #18F;
+        }
+    
+    }
+
+}

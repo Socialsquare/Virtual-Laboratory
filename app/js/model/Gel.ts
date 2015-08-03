@@ -9,11 +9,13 @@ import SpecialItemType = require('model/type/SpecialItem');
 class Gel extends SpecialItemModel {
 
     public lanes: KnockoutObservableArray<LaneModel>;
+    public isStained: KnockoutObservable<boolean>;
 
     constructor() {
         super(SpecialItemType.GEL);
 
         this.lanes = ko.observableArray(_.range(4).map((i) => new LaneModel()));
+        this.isStained = ko.observable(false);
 
         ko.rebind(this);
     }

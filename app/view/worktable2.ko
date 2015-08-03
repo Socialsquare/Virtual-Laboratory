@@ -17,12 +17,13 @@
 
         <div class="tray">
             <!-- ko ifnot: gelElectroModel.hasGel() -->
-            <div class="gel-slot" data-bind="drop: { handler: gelDropHandler, accept: gelDropAccepter }">
+            <div class="gel-slot" data-bind="drop: { handler: trayDropHandler, accept: trayDropAccepter }">
             </div>
             <!-- /ko -->
             <!-- ko if: gelElectroModel.hasGel() -->
             <div class="gel-slot filled hand" data-bind="drag: { item: gelElectroModel.gelSlot, dim: true, consume: removeGel},
-                                                         drop: { handler: pipetteDropHandler, accept: pipetteDropAccepter }">
+                                                         drop: { handler: gelDropHandler, accept: gelDropAccepter },
+                                                         click: viewGel">
                 <ul class="lanes" data-bind="foreach: gelElectroModel.gelSlot().lanes">
                     <li data-bind="attr: { class: 'lane lane' + $index() }, css: { filled: !isEmpty() }">
                     </li>
