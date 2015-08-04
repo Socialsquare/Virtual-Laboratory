@@ -10,6 +10,7 @@ enum Activation {
     BUNSEN                  = ev.next(),
     ELECTROPORATOR          = ev.next(),
     HEATER                  = ev.next(),
+    ICE_BATH                = ev.next(),
     OD                      = ev.next(),
     BLENDER                 = ev.next(),
     FERMENTOR               = ev.next(),

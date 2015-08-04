@@ -5,6 +5,7 @@ import popupController = require('controller/Popup');
 import quizController = require('controller/Quiz');
 
 import HeaterModel = require('model/Heater');
+import IceBathModel = require('model/IceBath');
 import IncubatorModel = require('model/Incubator');
 import ScaffoldModel = require('model/Scaffold');
 import SpectroPMModel = require('model/SpectroPM');
@@ -211,6 +212,13 @@ class Experiment {
             var compacted = _.compact(heater.containers());
             var validHeater = _.isEmpty(compacted) || _.any(compacted, _.partial(this.matchLiquids, trigger));
             if (!validHeater) return;
+        }
+        
+        if (trigger.activation === ActivationType.ICE_BATH) {
+            var iceBath = <IceBathModel>item;
+            var compacted = _.compact(iceBath.containers());
+            var validIceBath = _.isEmpty(compacted) || _.any(compacted, _.partial(this.matchLiquids, trigger));
+            if (!validIceBath) return;
         }
 
         if (trigger.activation === ActivationType.WASHING) {
