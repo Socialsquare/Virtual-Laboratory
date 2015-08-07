@@ -23,21 +23,23 @@
     <!-- /ko -->
 
     <!-- ko with: experimentSelectorController -->
-    <table>
-        <thead>
-            <tr>
-                <th data-bind="i18n: 'common.exercise'"></th>
-                <th data-bind="i18n: 'common.description'"></th>
-            </tr>
-        </thead>
+    <div id="experiments">
+        <table style="margin-bottom: 50px;">
+            <thead>
+                <tr>
+                    <th data-bind="i18n: 'common.exercise'"></th>
+                    <th data-bind="i18n: 'common.description'"></th>
+                </tr>
+            </thead>
 
-        <tbody data-bind="foreach: experiments">
-            <tr class="hand" data-bind="click: $parent.select, css: { highlight: $parent.selected() === $data }">
-                <td data-bind="i18n: title"></td>
-                <td data-bind="i18n: description"></td>
-            </tr>
-        </tbody>
-    </table>
+            <tbody data-bind="foreach: experiments">
+                <tr class="hand" data-bind="click: $parent.select, css: { highlight: $parent.selected() === $data }">
+                    <td data-bind="i18n: title"></td>
+                    <td data-bind="i18n: description"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <div class="btn-row">
         <button data-bind="click: start, enable: selected, i18n: 'loading.start_exercise'"></button>
