@@ -30,7 +30,9 @@ class UvRoom extends BaseViewController {
     }
 
     viewGel() {
-        this.popupController.gelInfo(this.uvroom.gel);
+        if (this.uvroom.gel.isStained()) {
+            this.popupController.gelInfo(this.uvroom.gel);
+        }
     }
 
     removeGel() {
