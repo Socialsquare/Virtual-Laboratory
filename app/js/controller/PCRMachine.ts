@@ -2,6 +2,7 @@ import ko = require('knockout');
 import _ = require('lodash');
 
 import popupController = require('controller/Popup');
+import experimentController = require('controller/Experiment');
 import gameState = require('model/GameState');
 
 import CompositeContainerController = require('controller/CompositeContainer');
@@ -10,6 +11,7 @@ import PCRMachineModel = require('model/PCRMachine');
 import TubeModel = require('model/Tube');
 import FreeFloatingDNAModel = require('model/FreeFloatingDNA');
 
+import ActivationType = require('model/type/Activation');
 import LiquidType = require('model/type/Liquid');
 import MouseBloodType = require('model/type/MouseBlood');
 
@@ -70,6 +72,7 @@ class PCRMachine extends CompositeContainerController {
         var doActivation = () => {
             this.compContainer.status(true);
             _.delay(this.performPCR, 2000);
+            experimentController.triggerActivation(ActivationType.PCR, this.compContainer);
         };
 
         popupController

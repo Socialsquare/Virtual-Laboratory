@@ -16,6 +16,7 @@ enum Activation {
     FERMENTOR               = ev.next(),
     SPECTROPM               = ev.next(),
     SUPPLY                  = ev.next(),
+    PCR                     = ev.next(),
 };
 
 export = Activation;

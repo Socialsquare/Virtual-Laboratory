@@ -6,6 +6,7 @@ import quizController = require('controller/Quiz');
 
 import HeaterModel = require('model/Heater');
 import IceBathModel = require('model/IceBath');
+import PCRMachineModel = require('model/PCRMachine');
 import IncubatorModel = require('model/Incubator');
 import ScaffoldModel = require('model/Scaffold');
 import SpectroPMModel = require('model/SpectroPM');
@@ -219,6 +220,13 @@ class Experiment {
             var compacted = _.compact(iceBath.containers());
             var validIceBath = _.isEmpty(compacted) || _.any(compacted, _.partial(this.matchLiquids, trigger));
             if (!validIceBath) return;
+        }
+
+        if (trigger.activation === ActivationType.PCR) {
+            var pcrMachine = <PCRMachineModel>item;
+            var compacted = _.compact(pcrMachine.containers());
+            var validPCR = _.isEmpty(compacted) || _.any(compacted, _.partial(this.matchLiquids, trigger));
+            if (!validPCR) return;
         }
 
         if (trigger.activation === ActivationType.WASHING) {
