@@ -22,8 +22,7 @@
             <!-- /ko -->
             <!-- ko if: gelElectroModel.hasGel() -->
             <div class="gel-slot filled hand" data-bind="drag: { item: gelElectroModel.gelSlot, dim: true, consume: removeGel},
-                                                         drop: { handler: gelDropHandler, accept: gelDropAccepter },
-                                                         click: viewGel">
+                                                         drop: { handler: gelDropHandler, accept: gelDropAccepter }">
                 <ul class="lanes" data-bind="foreach: gelElectroModel.gelSlot().lanes">
                     <li data-bind="attr: { class: 'lane lane' + $index() }, css: { filled: !isEmpty() }">
                     </li>
