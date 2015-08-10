@@ -10,11 +10,11 @@ import MouseBloodType = require('model/type/MouseBlood');
 
 class Lane extends SimpleContainerModel {
 
-    public value: KnockoutObservable<number>;
+    public value: number;
 
     constructor() {
         super(ContainerType.LANE, 100); // Math.pow(10, 13)
-        this.value = ko.observable(0);
+        this.value = 0;
 
         ko.rebind(this);
     }
@@ -23,14 +23,13 @@ class Lane extends SimpleContainerModel {
         var ffd = <FreeFloatingDNAModel>super.findByType(LiquidType.FREE_FLOATING_DNA);
         if (ffd) {
             if (ffd.bloodType() === MouseBloodType.DIABETIC) {
-                this.value = 100;
+                this.value = 120;
             } else {
-                this.value = 10;
+                this.value = 30;
             }
         } else {
-            this.value = 0;
+            this.value = 10;
         }
-        var value = this.value;
     }
 }
 

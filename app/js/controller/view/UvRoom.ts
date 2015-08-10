@@ -26,7 +26,6 @@ class UvRoom extends BaseViewController {
 
     handleGelDrop(gel) {
         this.uvroom.gel(gel);
-        debugger;
     }
 
     viewGel() {

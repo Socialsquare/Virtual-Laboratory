@@ -1,5 +1,6 @@
 import ko = require('knockout');
 import _ = require('lodash');
+import $ = require('jquery');
 
 import popupController = require('controller/Popup');
 import routerController = require('controller/Router');
@@ -69,7 +70,6 @@ class GelElectroController {
 
     finishActivate() {
         this.gelElectroModel.status(false);
-        this.calculateResults();
     }
 
     activate() {
@@ -78,12 +78,13 @@ class GelElectroController {
 
         this.gelElectroModel.status(true);
 
-        _.delay(this.finishActivate, 2000);
-    }
+        _.each(this.gelElectroModel.gelSlot().lanes(), function(lane, i) {
+            lane.calculateValue();
+            var laneElm = $('#lane'+i);
+            laneElm.animate({ width: lane.value}, 2000);
+        });
 
-    calculateResults() {
-        var lanes = this.gelElectroModel.gelSlot().lanes();
-        lanes.map((l) => l.calculateValue());
+        _.delay(this.finishActivate, 2000);
     }
 }
 
