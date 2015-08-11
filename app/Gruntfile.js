@@ -1,5 +1,4 @@
-var proxy = require('grunt-connect-proxy/lib/utils'),
-    tplProcess = require('./build-tools/tpl-process'),
+var tplProcess = require('./build-tools/tpl-process'),
     assets = require('./build-tools/assets'),
     path = require('path'),
     fs = require("fs"),
@@ -75,6 +74,14 @@ module.exports = function (grunt) {
                     dest: '<%= dist_root %>/static/main.css',
                     ext: '.css'
                 }]
+            }
+        },
+
+        sass: {
+            dist : {
+                files: {
+                    '<%= dist_root %>/static/main.css' : 'css/main.scss'
+                }
             }
         },
 
@@ -188,12 +195,11 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-connect-proxy');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-preprocess');
@@ -205,7 +211,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('production', [ 'setProductionBuild', 'build', 'requirejs:production', 'templateIndex' ]);
 
-    grunt.registerTask('default', [ 'build', 'configureProxies:dist', 'connect:dist', 'watch:dist' ]);
+    grunt.registerTask('default', [ 'build', 'connect:dist', 'watch:dist' ]);
 
     grunt.registerTask('serve-production', [ 'production', 'connect:production:keepalive' ]);
 };
