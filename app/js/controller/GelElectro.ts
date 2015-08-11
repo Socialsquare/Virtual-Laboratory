@@ -21,7 +21,7 @@ class GelElectroController {
     public gelElectroModel: GelElectroModel;
 
     public trayDropAccepter = DragHelper.acceptGel;
-    public gelDropAccepter = DragHelper.acceptedByGelElectro;
+    public gelDropAccepter = DragHelper.acceptedByGel;
 
     constructor(gelElectroModel: GelElectroModel) {
         this.gelElectroModel = gelElectroModel;
@@ -69,6 +69,7 @@ class GelElectroController {
     }
 
     finishActivate() {
+        this.gelElectroModel.gelSlot().isElectrofied(true);
         this.gelElectroModel.status(false);
     }
 

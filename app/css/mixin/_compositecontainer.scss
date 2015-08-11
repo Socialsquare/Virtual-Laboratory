@@ -73,17 +73,3 @@
   }
 }
 
-@mixin tablespacegel($left, $top) {
-  @extend .composite-container;
-
-  position: absolute;
-  left: $left;
-  top: $top;
-  width: 300px;
-  height: 100px;
-
-  .slot0 {
-    width: 300px;
-    height: 100px;
-  }
-}

@@ -6,8 +6,22 @@
                                       name: 'compContainer', data: tableSpaceMicroController
                                   }">
     </div>
-    <div class="gel" data-bind="drag: { item: uvroom.gel, dim: true, consume: removeGel}, drop: { handler: handleGelDrop, accept: DragHelper.acceptGel }">
-        <div style="width: 300px; height: 100px; background-color: red; opacity: .5;" data-bind="visible: uvroom.hasGel(), click: viewGel"></div>
+
+    <div class="tray">
+        <!-- ko ifnot: uvroom.hasGel() -->
+        <div class="gel" data-bind="drop: { handler: handleGelDrop, accept: DragHelper.acceptGel }"></div>
+        <!-- /ko -->
+        <!-- ko if: uvroom.hasGel() -->
+        <div class="gel filled hand" data-bind="drag: { item: uvroom.gel, dim: true, consume: removeGel},
+                                                drop: { handler: handleGelDrop, accept: DragHelper.acceptedByGel},
+                                                click: viewGel">
+            <ul class="lanes" data-bind="foreach: uvroom.gel().lanes, css: { stained: uvroom.gel().isStained() }">
+                <li class="lane" data-bind="attr: { id: 'lane' + $index() }, 
+                                            css: { filled: !isEmpty() }, 
+                                            style: { width: 1.35*value+'px' }"></li>
+            </ul>
+        </div>
+        <!-- /ko -->
     </div>
 
 </div>

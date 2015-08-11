@@ -61,9 +61,56 @@
     }
   }
   .petri { @include tablespacepetri(560px, 470px); }
-}
+    
+  .tray {
+    $gelW: 250px;
+    $gelH: 130px;
+    position: absolute;
+    top: 420px;
+    left: 120px;
 
-.gel { 
-    @include tablespacegel(80px, 390px);
-    border: 1px solid black;
+    width: $gelW;
+    height: $gelH;
+
+    background-color: grey;
+
+    .gel {
+      position: relative;
+      top: 10px;
+      left: 10px;
+
+      width: $gelW - 20px;
+      height: $gelH - 20px;
+
+      background-color: #CCC;
+
+      &.filled {
+        background-color: #18F;
+      }
+    }
+
+    .lanes {
+      width: 100%;
+      height: 100%;
+
+      &.stained {
+        background-color: navy;
+      }
+    }
+
+    @for $i from 0 through 4 {
+      #lane#{$i} {
+        position: absolute;
+        top: 10px + ($i * 25px);
+        left: 20px;
+        width: 10px;
+        height: 20px;
+        background-color: blue;
+            
+        &.filled {
+          background-color: cyan;
+        }
+      }
+    }
+  }
 }

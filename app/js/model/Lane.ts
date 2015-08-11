@@ -14,7 +14,7 @@ class Lane extends SimpleContainerModel {
 
     constructor() {
         super(ContainerType.LANE, 100); // Math.pow(10, 13)
-        this.value = 0;
+        this.value = 10;
 
         ko.rebind(this);
     }
@@ -27,8 +27,6 @@ class Lane extends SimpleContainerModel {
             } else {
                 this.value = 30;
             }
-        } else {
-            this.value = 10;
         }
     }
 }

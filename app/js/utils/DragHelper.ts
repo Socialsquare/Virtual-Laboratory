@@ -66,8 +66,7 @@ class DragHelper {
         SpecialItemType.MOUSE
     ]);
 
-
-    static acceptedByGelElectro = DragHelper.accepter([
+    static acceptedByGel = DragHelper.accepter([
         ContainerType.PIPETTE,
         ContainerType.TUBE
     ]);
