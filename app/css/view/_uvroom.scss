@@ -11,38 +11,76 @@
     .slot0, .slot1, .slot2, .slot3, .slot4, .slot5 { position: absolute; }
 
     .slot0 {
-      width: 100px;
-      height: 209px;
-    }
-    .slot1 {
-      width: 72px;
+      width: 48px;
       height: 125px;
-      left: 59px;
+      left: 20px;
+      top: 30px;
+
+      & img {
+        position: absolute;
+        left: -20px;
+        top: -30px;
+      }
+    }
+    
+    .slot1 {
+      width: 35px;
+      height: 125px;
+      left: 72px;
       top: 40px;
+
+      & img {
+        position: absolute;
+        left: -13px;
+      }
     }
     .slot2 {
-      width: 63px;
-      height: 125px;
-      left: 101px;
-      top: 44px;
+      width: 35px;
+      height: 130px;
+      left: 111px;
+      top: 40px;
+
+      & img {
+        position: absolute;
+        left: -10px;
+        top: 4px;
+      }
     }
+
     .slot3 {
-      width: 69px;
+      width: 39px;
       height: 133px;
-      left: 140px;
+      left: 150px;
       top: 41px;
+
+      & img {
+        position: absolute;
+        left: -10px;
+      }
     }
+
     .slot4 {
-      width: 68px;
+      width: 39px;
       height: 132px;
-      left: 184px;
+      left: 194px;
       top: 44px;
+
+      & img {
+        position: absolute;
+        left: -10px;
+      }
     }
+    
     .slot5 {
-      width: 74px;
+      width: 45px;
       height: 137px;
-      left: 225px;
+      left: 238px;
       top: 46px;
+
+      & img {
+        position: absolute;
+        left: -13px;
+      }
     }
   }
 
