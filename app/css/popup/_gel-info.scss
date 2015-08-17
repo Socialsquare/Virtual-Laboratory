@@ -3,14 +3,25 @@
 .popup-gel-info {
     height: 480px;
 
-    .view-gel {
-
+    .lanes {
         height: 350px;
-                
-        &.stained {
-            background-color: #18F;
+        background-color: navy;
+        width: 100%;
+    }
+
+    @for $i from 0 through 4 {
+      #lane#{$i} {
+        position: relative;
+        top: 25px + ($i * 45px);
+        left: 40px;
+        width: 20px;
+        height: 40px;
+        background-color: blue;
+            
+        &.filled {
+          background-color: cyan;
         }
-    
+      }
     }
 
 }

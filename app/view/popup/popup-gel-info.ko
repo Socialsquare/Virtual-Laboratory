@@ -1,11 +1,16 @@
 <div class="popup popup-gel-info">
+    
     <!-- ko with: data.gel -->
 
     <h1>Gel</h1>
 
     <hr />
 
-    <div class="view-gel" data-bind="css: { stained: isStained() }"></div>
+    <ul class="lanes" data-bind="foreach: lanes">
+        <li class="lane" data-bind="attr: { id: 'lane' + $index() }, 
+                                            css: { filled: !isEmpty() }, 
+                                            style: { width: 6*value+'px' }"></li>
+    </ul>
 
     <!-- /ko -->
 
