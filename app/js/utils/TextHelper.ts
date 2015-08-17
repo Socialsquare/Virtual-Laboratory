@@ -42,7 +42,7 @@ class TextHelper {
             default:
                 throw 'Unknown mouse type: ' + item.mouseType();
             }
-        case SpecialItemType.GEL:
+        case ContainerType.GEL:
             return 'item.description.gel';
 
         case LiquidType.INSULIN:
@@ -93,6 +93,8 @@ class TextHelper {
             return 'item.name.tube';
         case ContainerType.SYRINGE:
             return 'item.name.syringe';
+        case ContainerType.GEL:
+            return 'item.name.gel';
 
         case SpecialItemType.SCALPEL:
             return 'item.name.scalpel';
@@ -104,8 +106,6 @@ class TextHelper {
             return 'item.name.wash_bottle';
         case SpecialItemType.MOUSE:
             return 'item.name.mouse';
-        case SpecialItemType.GEL:
-            return 'item.name.gel';
 
         case MouseBloodType.NORMAL:
             return 'liquid.name.mouse_blood.normal';

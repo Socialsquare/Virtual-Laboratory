@@ -4,9 +4,11 @@ import $ = require('jquery');
 
 import popupController = require('controller/Popup');
 import routerController = require('controller/Router');
+import experimentController = require('controller/Experiment');
 
 import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
+import ActivationType = require('model/type/Activation');
 import DragHelper = require('utils/DragHelper');
 
 import SimpleContainerModel = require('model/SimpleContainer');
@@ -30,7 +32,7 @@ class GelElectroController {
     }
 
     trayDropHandler(gel: GelModel) {
-        if (this.gelElectroModel.gelSlot())
+        if (this.gelElectroModel.hasGel())
             return false;
 
         this.gelElectroModel.gelSlot(gel);
@@ -38,25 +40,27 @@ class GelElectroController {
     }
 
     gelDropHandler(item) {
-        if (!this.gelElectroModel.gelSlot())
+        if (!this.gelElectroModel.hasGel())
             return false;
+         
+        if (item.type() !== ContainerType.PIPETTE) return false;
         
-        var lane = this.gelElectroModel.gelSlot().getVacantLane();
-        if (!lane) {
-            popupController.message('gelelectro.no-empty-lanes.header',
-                                    'gelelectro.no-empty-lanes.body');
-            return;
+        if (item.getTip().contains(LiquidType.BLUE_STAIN)) {
+            this.gelElectroModel.gelSlot().isStained(true);
+            item.getTip().clearContents();
+            experimentController.triggerActivation(ActivationType.BLUE_STAIN, this.gelElectroModel.gelSlot());
+        } else {
+            var lane = this.gelElectroModel.gelSlot().getVacantLane();
+            if (!lane) {
+                popupController.message('gelelectro.no-empty-lanes.header',
+                                        'gelelectro.no-empty-lanes.body');
+                return false;
+            } 
+
+            experimentController.triggerAcquisition(lane);
+            item.emptyPipetteInto(lane);
         } 
         
-        if (item.type() === ContainerType.PIPETTE) {
-            item.emptyPipetteInto(lane);
-        } else if (item.type() === ContainerType.TUBE && item.contains(LiquidType.BLUE_STAIN)) {
-            this.gelElectroModel.gelSlot().isStained(true);
-            item.clearContents();
-        } else {
-            return false;
-        }
-            
         return true;
     }
 
@@ -71,10 +75,14 @@ class GelElectroController {
     finishActivate() {
         this.gelElectroModel.gelSlot().isElectrofied(true);
         this.gelElectroModel.status(false);
+        experimentController.triggerActivation(ActivationType.GELELECTRO, this.gelElectroModel.gelSlot());
     }
 
     activate() {
         if (this.gelElectroModel.status())
+            return;
+
+        if (!this.gelElectroModel.hasGel())
             return;
 
         this.gelElectroModel.status(true);

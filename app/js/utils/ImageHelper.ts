@@ -100,6 +100,9 @@ class ImageHelper {
 
         case ContainerType.SYRINGE:
             return ImageHelper.img('icon_med_inj.png');
+        
+        case ContainerType.GEL:
+            return ImageHelper.img('icon_gel.png');
 
         case SpecialItemType.SCALPEL:
             return ImageHelper.img('icon_scalpel.png');
@@ -115,9 +118,6 @@ class ImageHelper {
 
         case SpecialItemType.MOUSE:
             return ImageHelper.img('icon_mouse.png');
-
-        case SpecialItemType.GEL:
-            return ImageHelper.img('icon_gel.png');
 
         default:
             throw 'Unknown inventory item: ' + item.type();
@@ -144,6 +144,9 @@ class ImageHelper {
         case ContainerType.SYRINGE:
             return ImageHelper.img('icon_med_inj.png');
 
+        case ContainerType.GEL:
+            return ImageHelper.img('icon_gel.png');
+
         case SpecialItemType.SPLEEN:
             return ImageHelper.img('icon_spleen.png');
 
@@ -158,9 +161,6 @@ class ImageHelper {
 
         case SpecialItemType.MOUSE:
             return ImageHelper.img('icon_mouse.png');
-
-        case SpecialItemType.GEL:
-            return ImageHelper.img('icon_gel.png');
 
         default:
             throw 'Unknown dragging item: ' + item.type();

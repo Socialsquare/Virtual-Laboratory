@@ -4,9 +4,11 @@ import gameState = require('model/GameState');
 import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
 import SpecialItemType = require('model/type/SpecialItem');
+import ActivationType = require('model/type/Activation');
 
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
+import experimentController = require('controller/Experiment');
 
 import UvRoomModel = require('model/UvRoom');
 import GelModel = require('model/Gel');
@@ -31,19 +33,21 @@ class UvRoom extends BaseViewController {
 
     handleGelDrop(item) {
         switch (item.type()) {
-            case SpecialItemType.GEL:
+            case ContainerType.GEL:
                 this.uvroom.gel(item);
                 break;
-            case ContainerType.TUBE:
-                if (item.contains(LiquidType.BLUE_STAIN) && this.uvroom.gel().isElectrofied()) {
-                    this.uvroom.gel().isStained(true);
-                }
+            case ContainerType.PIPETTE:
+                this.uvroom.gel().isStained(true);
+                item.getTip().clearContents();
+                experimentController.triggerActivation(ActivationType.BLUE_STAIN, this.uvroom.gel());
                 break;
         }
+        
     }
 
     viewGel() {
         if (this.uvroom.gel().isStained()) {
+            experimentController.triggerActivation(ActivationType.GEL, this.uvroom.gel());
             this.popupController.gelInfo(this.uvroom.gel());
         }
     }

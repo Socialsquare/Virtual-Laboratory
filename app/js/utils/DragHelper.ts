@@ -22,7 +22,7 @@ class DragHelper {
         return () => collection.remove(item);
     };
 
-    static acceptGel = DragHelper.accepter([SpecialItemType.GEL]);
+    static acceptGel = DragHelper.accepter([ContainerType.GEL]);
 
     static acceptTube = DragHelper.accepter([ContainerType.TUBE]);
 

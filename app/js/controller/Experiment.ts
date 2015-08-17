@@ -249,6 +249,18 @@ class Experiment {
 
             if (!validIncubator) return;
         }
+        
+        if (trigger.activation === ActivationType.GELELECTRO) {
+
+        }
+
+        if (trigger.activation === ActivationType.BLUE_STAIN) {
+        
+        }
+        
+        if (trigger.activation === ActivationType.GEL) {
+        
+        }
 
         if (trigger.activation === ActivationType.COMPUTER_ORDER_DRUG) {
             // currently don't validate anything about the designed drug

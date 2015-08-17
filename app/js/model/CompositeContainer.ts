@@ -2,12 +2,13 @@ import ko = require('knockout');
 import _ = require('lodash');
 
 import SimpleContainerModel = require('model/SimpleContainer');
+import SpecialItemModel = require('model/SpecialItem');
 
 import ContainerType = require('model/type/Container');
 import LocationType = require('model/type/Location');
 import LiquidType = require('model/type/Liquid');
 
-class CompositeContainer {
+class CompositeContainer extends SpecialItemModel {
 
     public type: KnockoutObservable<ContainerType>;
     public capacity: number;
@@ -17,6 +18,7 @@ class CompositeContainer {
     public location: KnockoutObservable<LocationType>;
 
     constructor(capacity: number, acceptedType: ContainerType, type: ContainerType) {
+        super('compositecontainer');
 
         this.type = ko.observable(type);
         this.capacity = capacity;

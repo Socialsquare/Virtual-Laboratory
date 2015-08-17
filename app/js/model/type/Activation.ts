@@ -17,6 +17,9 @@ enum Activation {
     SPECTROPM               = ev.next(),
     SUPPLY                  = ev.next(),
     PCR                     = ev.next(),
+    GELELECTRO              = ev.next(),
+    BLUE_STAIN              = ev.next(),
+    GEL                     = ev.next(),
 };
 
 export = Activation;

@@ -18,6 +18,7 @@ enum Container {
     UV_MICRO_SPACE    = ev.next(),
     UV_TUBE_RACK      = ev.next(),
     ICE_BATH          = ev.next(),
+    GEL               = ev.next(),
 
     // Simple machines
     BLENDER           = ev.next(),

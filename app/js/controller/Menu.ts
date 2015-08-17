@@ -145,7 +145,7 @@ class Menu extends BaseViewController {
             SpecialItemType.SPLEEN,
             SpecialItemType.WASH_BOTTLE,
             SpecialItemType.BUFFER,
-            SpecialItemType.GEL,
+            ContainerType.GEL,
             SpecialItemType.MOUSE
         ];
 

@@ -8,7 +8,6 @@ enum SpecialItem {
     SIDEGROUP      = ev.next(),
     SIDEGROUP_SLOT = ev.next(),
     MOUSE          = ev.next(),
-    GEL            = ev.next(),
 }
 
 export = SpecialItem;
