@@ -94,7 +94,7 @@
                 }
             },
             {
-                "description": { "dk": "Place the in the PCR machine" },
+                "description": { "dk": "Place the tube in the PCR machine" },
                 "trigger": {
                     "type": "TriggerType.ACTIVATION",
                     "activation": "ActivationType.PCR",
