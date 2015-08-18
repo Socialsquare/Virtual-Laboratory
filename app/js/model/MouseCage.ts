@@ -1,7 +1,5 @@
 import ko = require('knockout');
 
-import LocationType = require('model/type/Location');
-
 import MouseModel = require('model/Mouse');
 import MouseType = require('model/type/Mouse');
 import MouseBloodType = require('model/type/MouseBlood');

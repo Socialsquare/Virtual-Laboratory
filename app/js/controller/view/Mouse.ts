@@ -7,7 +7,6 @@ import DropOnMouseHelper = require('utils/mouse/DropOnMouseHelper');
 import BaseViewController = require('controller/view/Base');
 import VideoController = require('controller/Video');
 
-import MouseModel = require('model/Mouse');
 import BottleModel = require('model/Bottle');
 
 import MouseType = require('model/type/Mouse');
@@ -112,8 +111,7 @@ class MouseController extends BaseViewController {
     }
 
     updatePlotData() {
-        if(!this.mousecage.hasMouse())
-            return;
+        if (!this.mousecage.hasMouse()) return;
 
         var bloodData = _.map(_.range(0, 250), (i): [number, number] => {
             return [i, this.mousecage.mouse().bloodData()[i]];
@@ -137,8 +135,7 @@ class MouseController extends BaseViewController {
     }
 
     nextTimeStep() {
-        if(!this.mousecage.hasMouse())
-            return;
+        if (!this.mousecage.hasMouse()) return;
 
         this.mousecage.mouse().nextBloodStep();
         this.mousecage.mouse().nextHeartStep();
@@ -157,8 +154,7 @@ class MouseController extends BaseViewController {
     }
 
     injectionFromState() {
-        if(!this.mousecage.hasMouse())
-            return;
+        if (!this.mousecage.hasMouse()) return;
 
         if (this.mousecage.mouse().alive()) {
             switch (this.mousecage.mouse().mouseType()) {
@@ -175,8 +171,7 @@ class MouseController extends BaseViewController {
     }
 
     runFromState() {
-        if(!this.mousecage.hasMouse())
-            return;
+        if (!this.mousecage.hasMouse()) return;
 
         if (this.mousecage.mouse().alive()) {
             switch (this.mousecage.mouse().mouseType()) {
@@ -229,7 +224,7 @@ class MouseController extends BaseViewController {
     handleDropOnMouse(item) {
         return DropOnMouseHelper.handleDrop(this, item);
     }
-    
+
     removeMouse() {
         this.videoController.stop();
         this.toggleSimulation(false);

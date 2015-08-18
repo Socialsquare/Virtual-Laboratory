@@ -214,7 +214,7 @@ class Experiment {
             var validHeater = _.isEmpty(compacted) || _.any(compacted, _.partial(this.matchLiquids, trigger));
             if (!validHeater) return;
         }
-        
+
         if (trigger.activation === ActivationType.ICE_BATH) {
             var iceBath = <IceBathModel>item;
             var compacted = _.compact(iceBath.containers());
@@ -249,17 +249,17 @@ class Experiment {
 
             if (!validIncubator) return;
         }
-        
+
         if (trigger.activation === ActivationType.GELELECTRO) {
 
         }
 
         if (trigger.activation === ActivationType.BLUE_STAIN) {
-        
+
         }
-        
+
         if (trigger.activation === ActivationType.GEL) {
-        
+
         }
 
         if (trigger.activation === ActivationType.COMPUTER_ORDER_DRUG) {

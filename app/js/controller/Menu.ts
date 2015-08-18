@@ -10,7 +10,6 @@ import gameState = require('model/GameState');
 
 import BaseViewController = require('controller/view/Base');
 
-import TipModel = require('model/Tip');
 import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
 

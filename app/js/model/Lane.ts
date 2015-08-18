@@ -3,7 +3,6 @@ import ko = require('knockout');
 import ContainerType = require('model/type/Container');
 
 import SimpleContainerModel = require('model/SimpleContainer');
-import LaneModel = require('model/Lane');
 import FreeFloatingDNAModel = require('model/FreeFloatingDNA');
 import LiquidType = require('model/type/Liquid');
 import MouseBloodType = require('model/type/MouseBlood');

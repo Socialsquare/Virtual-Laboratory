@@ -26,7 +26,7 @@ class UvRoom {
 
         this.tubeRack = new TubeRackModel(ContainerType.UV_TUBE_RACK);
         this.tubeRack.location(LocationType.UVROOM);
-        
+
         this.gel = ko.observable(null);
         this.hasGel = ko.pureComputed(() => !!this.gel(), this);
 

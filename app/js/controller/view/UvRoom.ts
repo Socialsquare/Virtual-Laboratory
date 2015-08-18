@@ -1,9 +1,6 @@
-import ko = require('knockout');
 import gameState = require('model/GameState');
 
 import ContainerType = require('model/type/Container');
-import LiquidType = require('model/type/Liquid');
-import SpecialItemType = require('model/type/SpecialItem');
 import ActivationType = require('model/type/Activation');
 
 import BaseViewController = require('controller/view/Base');
@@ -11,7 +8,6 @@ import CompositeContainerController = require('controller/CompositeContainer');
 import experimentController = require('controller/Experiment');
 
 import UvRoomModel = require('model/UvRoom');
-import GelModel = require('model/Gel');
 
 class UvRoom extends BaseViewController {
 
@@ -42,7 +38,6 @@ class UvRoom extends BaseViewController {
                 experimentController.triggerActivation(ActivationType.BLUE_STAIN, this.uvroom.gel());
                 break;
         }
-        
     }
 
     viewGel() {

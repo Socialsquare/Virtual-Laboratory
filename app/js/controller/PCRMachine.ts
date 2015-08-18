@@ -42,7 +42,7 @@ class PCRMachine extends CompositeContainerController {
         if (!ffd)
             return;
 
-        var required = [LiquidType.DIABETES_PRIMER, LiquidType.FREE_FLOATING_DNA, LiquidType.DNA_POLYMERASE, LiquidType.NUCLEOTIDES]; 
+        var required = [LiquidType.DIABETES_PRIMER, LiquidType.FREE_FLOATING_DNA, LiquidType.DNA_POLYMERASE, LiquidType.NUCLEOTIDES];
         var tubeIsCopyable = tube.containsAllStrict(required);
 
         if (ffd.bloodType() === MouseBloodType.DIABETIC && tubeIsCopyable)

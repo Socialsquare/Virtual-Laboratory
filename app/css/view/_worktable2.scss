@@ -57,6 +57,10 @@
         .lanes {
             width: 100%;
             height: 100%;
+      
+            &.stained {
+                background-color: navy;
+            }
         }
 
         @for $i from 0 through 4 {
