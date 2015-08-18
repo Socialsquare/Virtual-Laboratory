@@ -76,17 +76,6 @@ class App extends BaseViewController {
             this.viewChange(routeName);
         });
 
-        var iadd = this.gameState.inventory.add;
-        var t = ContainerFactory.tube;
-        // iadd(t().add(LiquidFactory.buffyCoat(MouseBloodType.DIABETIC)));
-        // iadd(t().add(LiquidFactory.lysis()));
-        // iadd(t().add(LiquidFactory.water()));
-        // iadd(t().add(LiquidFactory.mouseBlood(MouseBloodType.DIABETIC)));
-        // iadd(t().add(LiquidFactory.saltWater()));
-        // iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.DIABETIC)));
-        // iadd(t().add(LiquidFactory.clumpedCells(MouseBloodType.DIABETIC)));
-        iadd(SpecialItemFactory.gel());
-
         // bootstrap the app by going to loading view
         // TODO-release: switch to loading
         //this.router.navigate('loading');
