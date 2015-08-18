@@ -74,8 +74,8 @@
                     "liquids": [
                         { "type": "LiquidType.FREE_FLOATING_DNA" },
                         { "type": "LiquidType.DIABETES_PRIMER" },
-                        { "type": "LiquidType.NUCLEOTIDE" },
-                        { "type": "LiquidType.POLYMERASE" }
+                        { "type": "LiquidType.NUCLEOTIDES" },
+                        { "type": "LiquidType.DNA_POLYMERASE" }
                     ]
                 }
             },
