@@ -24,7 +24,7 @@ class IceBath extends CompositeContainerController {
 
     dragDropInterceptor(tube, fromContainer, toContainer) {
         if (tube.contains(LiquidType.FREE_FLOATING_DNA)
-            && toContainer.type() !== ContainerType.ICE_BATH) {
+            && (!toContainer || toContainer.type() !== ContainerType.ICE_BATH)) {
             return popupController
                 .confirm('popup.warn_icebath_ffd.header', 'popup.warn_icebath_ffd.body');
         }
