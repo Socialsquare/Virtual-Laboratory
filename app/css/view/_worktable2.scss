@@ -75,6 +75,15 @@
                 &.filled {
                     background-color: cyan;
                 }
+
+                &.result-10 {
+                    width: 10px; 
+                }
+
+                &.result-100 {
+                    width: 125px; 
+                    background-color: cyan;
+                }
             }
         }
     }

@@ -3,7 +3,7 @@
     <div class="petri" data-bind="template: { name: 'compContainer', data: tableSpacePetriController }"></div>
     <div class="micro" data-bind="template: { name: 'compContainer', data: tableSpaceMicroController }"></div>
     <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
-
+    
     <div class="centrifuge-testtubeholder" data-bind="template: { name: 'compContainer', data: centrifugeController }"></div>
 
     <div class="centrifuge-btn hand" data-bind="click: activateCentrifuge">
@@ -23,9 +23,10 @@
             <!-- ko if: gelElectroModel.hasGel() -->
             <div class="gel-slot filled hand" data-bind="drag: { item: gelElectroModel.gelSlot, dim: true, consume: removeGel},
                                                          drop: { handler: gelDropHandler, accept: gelDropAccepter }">
-                <ul class="lanes" data-bind="foreach: gelElectroModel.gelSlot().lanes, css: { stained: gelElectroModel.gelSlot().isStained() }">
-                    <li class="lane" data-bind="attr: { id: 'lane' + $index() }, css: { filled: !isEmpty() }">
-                    </li>
+                <ul class="lanes" data-bind="foreach: gelElectroModel.gelSlot().lanes ">
+                    <li class="lane" data-bind="attr: { id: 'lane' + $index(), class: 'result-' + value() },
+                                                css: { filled: !isEmpty() } "></li>
+
                 </ul>
             </div>
             <!-- /ko -->

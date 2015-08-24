@@ -15,7 +15,7 @@
         <div class="gel filled hand" data-bind="drag: { item: uvroom.gel, dim: true, consume: removeGel},
                                                 drop: { handler: handleGelDrop, accept: DragHelper.acceptedByGel},
                                                 click: viewGel">
-            <ul class="lanes" data-bind="foreach: uvroom.gel().lanes, css: { stained: uvroom.gel().isStained() }">
+            <ul class="lanes" data-bind="foreach: uvroom.gel().lanes ">
                 <li class="lane" data-bind="attr: { id: 'lane' + $index() }, 
                                             css: { filled: !isEmpty() }, 
                                             style: { width: 1.35*value+'px' }"></li>

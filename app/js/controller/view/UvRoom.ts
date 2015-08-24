@@ -28,23 +28,14 @@ class UvRoom extends BaseViewController {
     }
 
     handleGelDrop(item) {
-        switch (item.type()) {
-            case ContainerType.GEL:
-                this.uvroom.gel(item);
-                break;
-            case ContainerType.PIPETTE:
-                this.uvroom.gel().isStained(true);
-                item.getTip().clearContents();
-                experimentController.triggerActivation(ActivationType.BLUE_STAIN, this.uvroom.gel());
-                break;
-        }
+        if (item.type() !== ContainerType.GEL) return false;
+        
+        this.uvroom.gel(item);
     }
 
     viewGel() {
-        if (this.uvroom.gel().isStained()) {
-            experimentController.triggerActivation(ActivationType.GEL, this.uvroom.gel());
-            this.popupController.gelInfo(this.uvroom.gel());
-        }
+        experimentController.triggerActivation(ActivationType.GEL, this.uvroom.gel());
+        this.popupController.gelInfo(this.uvroom.gel());
     }
 
     removeGel() {
