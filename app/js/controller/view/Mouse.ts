@@ -35,6 +35,8 @@ class MouseController extends BaseViewController {
     public diabetesDevelopedToggle: KnockoutObservable<boolean>;
 
     public plotData: KnockoutObservable<PlotData>;
+    public hartRateToggle: KnockoutObservable<boolean>;
+
     public graphTimer: KnockoutObservable<number>;
 
     public bottle: BottleModel;
@@ -53,6 +55,7 @@ class MouseController extends BaseViewController {
         this.lowBloodSugarWarningToggle = ko.observable(false); // Such name. Wow.
         this.highBloodSugarWarningToggle = ko.observable(false);
         this.diabetesDevelopedToggle = ko.observable(false);
+        this.hartRateToggle = ko.observable(false);
 
         if (this.mousecage.hasMouse()) {
             this.mousecage.mouse().bloodSugar.subscribe((bloodSugar) => {
@@ -112,6 +115,10 @@ class MouseController extends BaseViewController {
 
         this.popupController.dataExport(DataHelper.toCSV(parsed, headers));
     }
+    
+    toggleHartRate() {
+        this.hartRateToggle(!this.hartRateToggle());
+    }
 
     updatePlotData() {
         if (!this.mousecage.hasMouse()) return;
@@ -120,16 +127,19 @@ class MouseController extends BaseViewController {
             return [i, this.mousecage.mouse().bloodData()[i]];
         });
 
-        var heartRateData = _.map(_.range(0, 250), (i): [number, number] => {
-
-            if (!this.mousecage.mouse().alive())
-                return [i, 0];
-
-            var dataIndex = this.mousecage.mouse().heartRateIndex + i;
-            dataIndex = dataIndex % this.mousecage.mouse().heartRateData.length;
-
-            return [i, this.mousecage.mouse().heartRateData[dataIndex]];
-        });
+        var heartRateData: number[][];
+        if (this.hartRateToggle()) {
+            heartRateData = _.map(_.range(0, 250), (i): [number, number] => {
+    
+                if (!this.mousecage.mouse().alive())
+                    return [i, 0];
+    
+                var dataIndex = this.mousecage.mouse().heartRateIndex + i;
+                dataIndex = dataIndex % this.mousecage.mouse().heartRateData.length;
+    
+                return [i, this.mousecage.mouse().heartRateData[dataIndex]];
+            });
+        }
 
         this.plotData({
             bloodData: bloodData,

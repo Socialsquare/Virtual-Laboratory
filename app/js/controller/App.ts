@@ -79,12 +79,14 @@ class App extends BaseViewController {
         // bootstrap the app by going to loading view
         // TODO-release: switch to loading
         //this.router.navigate('loading');
-        this.router.navigate('overview');
+        this.router.navigate('mouse');
 
         ko.rebind(this);
     }
 
     viewChange(viewName: string) {
+        console.log(viewName);
+        
         // exit current controller
         if (this.activeViewController()) {
             this.activeViewController().exit();

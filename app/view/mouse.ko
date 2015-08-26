@@ -25,4 +25,8 @@
     <div class="hand export-btn" data-bind="click: exportData">
         <img src="assets/images/icon_spreadsheet.png" alt="Export data">
     </div>
+
+    <div class="hand hr-toggle-btn" data-bind="click: toggleHartRate">
+        <img src="assets/images/icon_spreadsheet.png" alt="HR toggle">
+    </div>
 </div>
