@@ -29,4 +29,8 @@
     <div class="hand hr-toggle-btn" data-bind="click: toggleHartRate">
         <img src="assets/images/icon_spreadsheet.png" alt="HR toggle">
     </div>
+
+    <div class="hand bloodsuger-toggle-btn" data-bind="click: toggleBloodSuger">
+        <img src="assets/images/icon_spreadsheet.png" alt="Blood suger toggle">
+    </div>
 </div>

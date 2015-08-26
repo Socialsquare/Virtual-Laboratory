@@ -36,6 +36,7 @@ class MouseController extends BaseViewController {
 
     public plotData: KnockoutObservable<PlotData>;
     public hartRateToggle: KnockoutObservable<boolean>;
+    public bloodSugerToggle: KnockoutObservable<boolean>;
 
     public graphTimer: KnockoutObservable<number>;
 
@@ -56,6 +57,7 @@ class MouseController extends BaseViewController {
         this.highBloodSugarWarningToggle = ko.observable(false);
         this.diabetesDevelopedToggle = ko.observable(false);
         this.hartRateToggle = ko.observable(false);
+        this.bloodSugerToggle = ko.observable(true);
 
         if (this.mousecage.hasMouse()) {
             this.mousecage.mouse().bloodSugar.subscribe((bloodSugar) => {
@@ -120,12 +122,19 @@ class MouseController extends BaseViewController {
         this.hartRateToggle(!this.hartRateToggle());
     }
 
+    toggleBloodSuger() {
+        this.bloodSugerToggle(!this.bloodSugerToggle());
+    }
+
     updatePlotData() {
         if (!this.mousecage.hasMouse()) return;
 
-        var bloodData = _.map(_.range(0, 250), (i): [number, number] => {
-            return [i, this.mousecage.mouse().bloodData()[i]];
-        });
+        var bloodData: number[][];
+        if (this.bloodSugerToggle()) {
+            var bloodData = _.map(_.range(0, 250), (i): [number, number] => {
+                return [i, this.mousecage.mouse().bloodData()[i]];
+            });
+        }
 
         var heartRateData: number[][];
         if (this.hartRateToggle()) {
