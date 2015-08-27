@@ -36,9 +36,17 @@ class MouseController extends BaseViewController {
 
     public plotData: KnockoutObservable<PlotData>;
     public hartRateToggle: KnockoutObservable<boolean>;
+    
     public bloodSugerToggle: KnockoutObservable<boolean>;
 
     public graphTimer: KnockoutObservable<number>;
+    
+    public graphStartPosition: number = 0;
+    public graphEndPosition: number = 250;
+    public hartRateGraphStartPosition: number;
+    public hartRateGraphEndPosition: number;
+    public bloodSugerGraphStartPosition: number;
+    public bloodSugerGraphEndPosition: number;
 
     public bottle: BottleModel;
 
@@ -53,11 +61,17 @@ class MouseController extends BaseViewController {
 
         // Begin: Notifications
 
-        this.lowBloodSugarWarningToggle = ko.observable(false); // Such name. Wow.
+        this.lowBloodSugarWarningToggle = ko.observable(false);
         this.highBloodSugarWarningToggle = ko.observable(false);
         this.diabetesDevelopedToggle = ko.observable(false);
+
         this.hartRateToggle = ko.observable(false);
         this.bloodSugerToggle = ko.observable(true);
+
+        this.hartRateGraphStartPosition = this.graphEndPosition;
+        this.hartRateGraphEndPosition = this.graphEndPosition;
+        this.bloodSugerGraphStartPosition = this.graphEndPosition;
+        this.bloodSugerGraphEndPosition = this.graphEndPosition;
 
         if (this.mousecage.hasMouse()) {
             this.mousecage.mouse().bloodSugar.subscribe((bloodSugar) => {
@@ -118,27 +132,45 @@ class MouseController extends BaseViewController {
         this.popupController.dataExport(DataHelper.toCSV(parsed, headers));
     }
     
-    toggleHartRate() {
+    toggleHartRate(): void {
+        if (!this.hartRateToggle()) {
+            this.hartRateGraphStartPosition = this.graphEndPosition;
+        }
         this.hartRateToggle(!this.hartRateToggle());
     }
 
-    toggleBloodSuger() {
+    toggleBloodSuger(): void {
+        if (!this.bloodSugerToggle()) {
+            this.bloodSugerGraphStartPosition = this.graphEndPosition;
+        }
         this.bloodSugerToggle(!this.bloodSugerToggle());
     }
 
     updatePlotData() {
         if (!this.mousecage.hasMouse()) return;
 
-        var bloodData: number[][];
+        var bloodData: number[][] = [];
+        var positions: number[] = [];
         if (this.bloodSugerToggle()) {
-            var bloodData = _.map(_.range(0, 250), (i): [number, number] => {
+            if (this.bloodSugerGraphStartPosition > this.graphStartPosition){
+                this.bloodSugerGraphStartPosition = this.bloodSugerGraphStartPosition - 1;
+            }
+            positions = _.range(this.bloodSugerGraphStartPosition,
+                                this.bloodSugerGraphEndPosition);
+            var bloodData = _.map(positions, (i): [number, number] => {
                 return [i, this.mousecage.mouse().bloodData()[i]];
             });
         }
 
-        var heartRateData: number[][];
+        var heartRateData: number[][] = [];
         if (this.hartRateToggle()) {
-            heartRateData = _.map(_.range(0, 250), (i): [number, number] => {
+            if (this.hartRateGraphStartPosition > this.graphStartPosition){
+                this.hartRateGraphStartPosition = this.hartRateGraphStartPosition - 1;
+            }
+            positions = _.range(this.hartRateGraphStartPosition,
+                                this.hartRateGraphEndPosition)
+
+            heartRateData = _.map(positions, (i): [number, number] => {
     
                 if (!this.mousecage.mouse().alive())
                     return [i, 0];
