@@ -5,7 +5,7 @@ class DataHelper {
     static toCSV(data: number[][], headers: string[]) {
         var dataRows = _.map(data, (points) => {
             return _.map(points, (p) => {
-                if (p == null) {
+                if (p === null) {
                     return '';
                 } else {
                     return p.toFixed(2);

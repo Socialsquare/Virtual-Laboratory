@@ -86,7 +86,7 @@ class App extends BaseViewController {
 
     viewChange(viewName: string) {
         console.log(viewName);
-        
+
         // exit current controller
         if (this.activeViewController()) {
             this.activeViewController().exit();
