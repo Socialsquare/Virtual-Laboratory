@@ -37,11 +37,11 @@ class MouseController extends BaseViewController {
 
     public plotData: KnockoutObservable<PlotData>;
     public isHrGraphEnabled: KnockoutObservable<boolean>;
-    
+
     public isBloodSugarGraphEnabled: KnockoutObservable<boolean>;
 
     public graphTimer: KnockoutObservable<number>;
-    
+
     public simulationInterval: number = 100;  // millisecond
     public graphRangeStart: number = 0;
     public graphRangeEnd: number = 250;
@@ -66,13 +66,13 @@ class MouseController extends BaseViewController {
 
         this.isHrGraphEnabled = ko.observable(false);
         this.isBloodSugarGraphEnabled = ko.observable(true);
-        
+
         this.graphRange = _.range(this.graphRangeStart, this.graphRangeEnd);
-        
-        this.graphBloodRange = ko.observableArray(_.map(this.graphRange,
-            (v) => { return false; }));
-        this.graphHrRange = ko.observableArray(_.map(this.graphRange,
-            (v) => { return false; }));
+
+        this.graphBloodRange =
+            ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
+        this.graphHrRange =
+            ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
 
         if (this.mousecage.hasMouse()) {
             this.mousecage.mouse().bloodSugar.subscribe((bloodSugar) => {
@@ -136,7 +136,7 @@ class MouseController extends BaseViewController {
 
         this.popupController.dataExport(DataHelper.toCSV(parsed, headers));
     }
-    
+
     toggleHartRate(): void {
         this.isHrGraphEnabled(!this.isHrGraphEnabled());
     }
@@ -144,7 +144,7 @@ class MouseController extends BaseViewController {
     toggleBloodSugar(): void {
         this.isBloodSugarGraphEnabled(!this.isBloodSugarGraphEnabled());
     }
-    
+
     updateGraphRanges() {
         this.graphHrRange.shift();
         if (this.isHrGraphEnabled()) {
@@ -160,7 +160,7 @@ class MouseController extends BaseViewController {
             this.graphBloodRange.push(false);
         }
     }
-    
+
     /**
      * Generates blood sugar leveldata for plot graph.
      * If mouse is dead sugar level is 0.
@@ -168,7 +168,6 @@ class MouseController extends BaseViewController {
      * @return {Array}
      */
     getBloodDataForPlot() {
-        var bloodData: number[][] = [];
         var bloodData = _.map(this.graphRange, (i): [number, number] => {
             var sugar = null;
             if (!this.mousecage.mouse().alive()) {
