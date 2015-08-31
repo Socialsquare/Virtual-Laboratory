@@ -30,7 +30,7 @@
         <img src="assets/images/icon_spreadsheet.png" alt="HR toggle">
     </div>
 
-    <div class="hand bloodsuger-toggle-btn" data-bind="click: toggleBloodSuger">
+    <div class="hand bloodsuger-toggle-btn" data-bind="click: toggleBloodSugar">
         <img src="assets/images/icon_spreadsheet.png" alt="Blood suger toggle">
     </div>
 </div>

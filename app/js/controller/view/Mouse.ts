@@ -12,6 +12,7 @@ import BottleModel = require('model/Bottle');
 
 import MouseType = require('model/type/Mouse');
 import MouseBloodType = require('model/type/MouseBlood');
+import heartRateJsonData = require('json!datadir/heartRate.json');
 
 import ContainerFactory = require( 'factory/Container');
 import LiquidFactory = require('factory/Liquid');
@@ -35,18 +36,18 @@ class MouseController extends BaseViewController {
     public diabetesDevelopedToggle: KnockoutObservable<boolean>;
 
     public plotData: KnockoutObservable<PlotData>;
-    public hartRateToggle: KnockoutObservable<boolean>;
+    public isHrGraphEnabled: KnockoutObservable<boolean>;
     
-    public bloodSugerToggle: KnockoutObservable<boolean>;
+    public isBloodSugarGraphEnabled: KnockoutObservable<boolean>;
 
     public graphTimer: KnockoutObservable<number>;
     
-    public graphStartPosition: number = 0;
-    public graphEndPosition: number = 250;
-    public hartRateGraphStartPosition: number;
-    public hartRateGraphEndPosition: number;
-    public bloodSugerGraphStartPosition: number;
-    public bloodSugerGraphEndPosition: number;
+    public simulationInterval: number = 100;  // millisecond
+    public graphRangeStart: number = 0;
+    public graphRangeEnd: number = 250;
+    public graphRange: number[] = [];
+    public graphHrRange: KnockoutObservableArray<boolean>;
+    public graphBloodRange: KnockoutObservableArray<boolean>;
 
     public bottle: BottleModel;
 
@@ -59,19 +60,19 @@ class MouseController extends BaseViewController {
         this.mousecage = this.gameState.mousecage;
         this.mouseDrinking = ko.observable(false);
 
-        // Begin: Notifications
-
         this.lowBloodSugarWarningToggle = ko.observable(false);
         this.highBloodSugarWarningToggle = ko.observable(false);
         this.diabetesDevelopedToggle = ko.observable(false);
 
-        this.hartRateToggle = ko.observable(false);
-        this.bloodSugerToggle = ko.observable(true);
-
-        this.hartRateGraphStartPosition = this.graphEndPosition;
-        this.hartRateGraphEndPosition = this.graphEndPosition;
-        this.bloodSugerGraphStartPosition = this.graphEndPosition;
-        this.bloodSugerGraphEndPosition = this.graphEndPosition;
+        this.isHrGraphEnabled = ko.observable(false);
+        this.isBloodSugarGraphEnabled = ko.observable(true);
+        
+        this.graphRange = _.range(this.graphRangeStart, this.graphRangeEnd);
+        
+        this.graphBloodRange = ko.observableArray(_.map(this.graphRange,
+            (v) => { return false; }));
+        this.graphHrRange = ko.observableArray(_.map(this.graphRange,
+            (v) => { return false; }));
 
         if (this.mousecage.hasMouse()) {
             this.mousecage.mouse().bloodSugar.subscribe((bloodSugar) => {
@@ -95,8 +96,6 @@ class MouseController extends BaseViewController {
             });
         }
 
-        // End: Notifications
-
         this.plotData = ko.observable(<PlotData>{
             bloodData: [[]],
             heartRateData: [[]]
@@ -108,24 +107,30 @@ class MouseController extends BaseViewController {
 
         this.glucoseBagController = new GlucoseBagController(this.mousecage.glucoseBag);
 
-        //TODO: modify to object /w two fields
-        /*            this.plotData(_.map(_.range(0, 250), (i) => {
-                      return [i, this.mousecage.mouse().bloodData()[i]];
-                      }));*/
-
-
         this.updatePlotData();
 
         ko.rebind(this);
     }
 
     exportData() {
+        // FIXME: I think this should export more than what's currently
+        // FIXME: on the display graph but with a sane limit...
+        // FIXME: perhaps we can adjust size of it based on
+        // FIXME: time/clock/watch of an experiment...
         var raw = this.plotData();
         var headers = ['time', 'bloodsugar', 'heart'];
         var parsed = _(raw.bloodData)
             .zip(raw.heartRateData)
             .map((row) => {
-                return [row[0][0], row[0][1], row[1][1]];
+                var bloodsugar = row[0][1];
+                var hr;
+                if (row[1][1]) {
+                    hr = _.sample(heartRateJsonData.pulse);
+                } else {
+                    hr = row[1][1]; // either null or 0
+                }
+                var line = [row[0][0], bloodsugar, hr];
+                return line;
             })
             .value();
 
@@ -133,54 +138,79 @@ class MouseController extends BaseViewController {
     }
     
     toggleHartRate(): void {
-        if (!this.hartRateToggle()) {
-            this.hartRateGraphStartPosition = this.graphEndPosition;
-        }
-        this.hartRateToggle(!this.hartRateToggle());
+        this.isHrGraphEnabled(!this.isHrGraphEnabled());
     }
 
-    toggleBloodSuger(): void {
-        if (!this.bloodSugerToggle()) {
-            this.bloodSugerGraphStartPosition = this.graphEndPosition;
+    toggleBloodSugar(): void {
+        this.isBloodSugarGraphEnabled(!this.isBloodSugarGraphEnabled());
+    }
+    
+    updateGraphRanges() {
+        this.graphHrRange.shift();
+        if (this.isHrGraphEnabled()) {
+            this.graphHrRange.push(true);
+        } else {
+            this.graphHrRange.push(false);
         }
-        this.bloodSugerToggle(!this.bloodSugerToggle());
+
+        this.graphBloodRange.shift();
+        if (this.isBloodSugarGraphEnabled()) {
+            this.graphBloodRange.push(true);
+        } else {
+            this.graphBloodRange.push(false);
+        }
+    }
+    
+    /**
+     * Generates blood sugar leveldata for plot graph.
+     * If mouse is dead sugar level is 0.
+     * if blood sugar level graph is disabled sugar level is null.
+     * @return {Array}
+     */
+    getBloodDataForPlot() {
+        var bloodData: number[][] = [];
+        var bloodData = _.map(this.graphRange, (i): [number, number] => {
+            var sugar = null;
+            if (!this.mousecage.mouse().alive()) {
+                sugar = 0;
+            } else if (this.graphBloodRange()[i]) {
+                sugar = this.mousecage.mouse().bloodData()[i];
+            }
+            return [i, sugar];
+        });
+        return bloodData;
+    }
+
+    /**
+     * Generates pulse data for plot graph.
+     * If mouse is dead it's HR is 0.
+     * if HR graph is disabled HR is null.
+     * @return {Array}
+     */
+    getHrDataForPlot() {
+        var hrData = [];
+        hrData = _.map(this.graphRange, (i): [number, number] => {
+            var hr = null;
+
+            var dataIndex = this.mousecage.mouse().heartRateIndex + i;
+            dataIndex = dataIndex % this.mousecage.mouse().heartRateData.length;
+            if (!this.mousecage.mouse().alive()) {
+                hr = 0;
+            } else if (this.graphHrRange()[i]) {
+                hr = this.mousecage.mouse().heartRateData[dataIndex];
+            }
+            return [i, hr];
+        });
+        return hrData;
     }
 
     updatePlotData() {
+
         if (!this.mousecage.hasMouse()) return;
 
-        var bloodData: number[][] = [];
-        var positions: number[] = [];
-        if (this.bloodSugerToggle()) {
-            if (this.bloodSugerGraphStartPosition > this.graphStartPosition){
-                this.bloodSugerGraphStartPosition = this.bloodSugerGraphStartPosition - 1;
-            }
-            positions = _.range(this.bloodSugerGraphStartPosition,
-                                this.bloodSugerGraphEndPosition);
-            var bloodData = _.map(positions, (i): [number, number] => {
-                return [i, this.mousecage.mouse().bloodData()[i]];
-            });
-        }
-
-        var heartRateData: number[][] = [];
-        if (this.hartRateToggle()) {
-            if (this.hartRateGraphStartPosition > this.graphStartPosition){
-                this.hartRateGraphStartPosition = this.hartRateGraphStartPosition - 1;
-            }
-            positions = _.range(this.hartRateGraphStartPosition,
-                                this.hartRateGraphEndPosition)
-
-            heartRateData = _.map(positions, (i): [number, number] => {
-    
-                if (!this.mousecage.mouse().alive())
-                    return [i, 0];
-    
-                var dataIndex = this.mousecage.mouse().heartRateIndex + i;
-                dataIndex = dataIndex % this.mousecage.mouse().heartRateData.length;
-    
-                return [i, this.mousecage.mouse().heartRateData[dataIndex]];
-            });
-        }
+        this.updateGraphRanges();
+        var bloodData = this.getBloodDataForPlot();
+        var heartRateData = this.getHrDataForPlot();
 
         this.plotData({
             bloodData: bloodData,
@@ -269,7 +299,7 @@ class MouseController extends BaseViewController {
 
     toggleSimulation(enabled) {
         if (enabled) {
-            this.graphTimer(setInterval(this.nextTimeStep, 100));
+            this.graphTimer(setInterval(this.nextTimeStep, this.simulationInterval));
         } else {
             clearTimeout(this.graphTimer());
         }
