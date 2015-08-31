@@ -48,7 +48,10 @@ module.exports = function(config) {
                 // noResolve: true, // (optional) Skip resolution and preprocessing.
                 // removeComments: true // (optional) Do not emit comments to output.
 
-            }
+            },
+            typings: [
+                'typings/tsd.d.ts'
+            ],
         },
 
         // test results reporter to use
@@ -86,6 +89,6 @@ module.exports = function(config) {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false
+        singleRun: true
     });
 };
