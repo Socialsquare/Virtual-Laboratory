@@ -29,7 +29,7 @@ class Mouse extends SpecialItemModel {
     public insulinProduktion: KnockoutObservable<number>;
     public insulinProduktivitet: KnockoutObservable<number>;
     public insulinEffektivitet: KnockoutObservable<number>;
-    public juiceDose: KnockoutObservable<number>;
+    public glucoseDose: KnockoutObservable<number>;
     public insulinDose: KnockoutObservable<number>;
 
     public description: KnockoutComputed<string>;
@@ -86,7 +86,7 @@ class Mouse extends SpecialItemModel {
         this.insulinProduktion = ko.observable(0);
         this.insulinProduktivitet = ko.observable(0);
         this.insulinEffektivitet = ko.observable(0.1);
-        this.juiceDose = ko.observable(0);
+        this.glucoseDose = ko.observable(0);
         this.insulinDose = ko.observable(0);
 
         this.mouseBloodType.subscribe((bloodType) => {
@@ -162,7 +162,11 @@ class Mouse extends SpecialItemModel {
     }
 
     giveJuice() {
-        this.juiceDose(this.juiceDose() + 3);
+        this.glucoseDose(this.glucoseDose() + 3);
+    }
+
+    giveGlucose() {
+        this.glucoseDose(this.glucoseDose() + 3);
     }
 
     givInsulin() {
@@ -200,10 +204,10 @@ class Mouse extends SpecialItemModel {
             this.insulinDose(this.insulinDose() - insulinMagic);
         }
 
-        if (this.juiceDose() > 0) {
-            var juiceMagic = Math.min(this.juiceDose() / 3, 0.3);
-            this.maveSukker(this.maveSukker() + juiceMagic * 2);
-            this.juiceDose(this.juiceDose() - juiceMagic);
+        if (this.glucoseDose() > 0) {
+            var glucoseMagic = Math.min(this.glucoseDose() / 3, 0.3);
+            this.maveSukker(this.maveSukker() + glucoseMagic * 2);
+            this.glucoseDose(this.glucoseDose() - glucoseMagic);
         }
 
         //5. fjern blodsukker ved at forbruge insulin.
@@ -245,7 +249,7 @@ class Mouse extends SpecialItemModel {
         clone.insulinProduktion(this.insulinProduktion());
         clone.insulinProduktivitet(this.insulinProduktivitet());
         clone.insulinEffektivitet(this.insulinEffektivitet());
-        clone.juiceDose(this.juiceDose());
+        clone.glucoseDose(this.glucoseDose());
         clone.insulinDose(this.insulinDose());
 
         clone.bloodData(this.bloodData());

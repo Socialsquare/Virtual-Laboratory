@@ -6,6 +6,7 @@ import DropOnMouseHelper = require('utils/mouse/DropOnMouseHelper');
 
 import BaseViewController = require('controller/view/Base');
 import VideoController = require('controller/Video');
+import GlucoseBagController = require('controller/GlucoseBag');
 
 import BottleModel = require('model/Bottle');
 
@@ -85,6 +86,8 @@ class MouseController extends BaseViewController {
         this.graphTimer = ko.observable(null);
 
         this.bottle = ContainerFactory.bottle().add(LiquidFactory.juice(), true);
+
+        this.glucoseBagController = new GlucoseBagController(this.mousecage.glucoseBag);
 
         //TODO: modify to object /w two fields
         /*            this.plotData(_.map(_.range(0, 250), (i) => {
