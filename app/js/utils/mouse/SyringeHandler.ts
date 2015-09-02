@@ -76,7 +76,7 @@ class SyringeHandler {
 
             mouse.isInteracting(true);
             MC.injectionFromState().done(() => {
-                mouse.givInsulin();
+                mouse.giveInsulin();
                 mouse.isInteracting(false);
 
                 MC.runFromState();

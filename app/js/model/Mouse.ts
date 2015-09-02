@@ -20,15 +20,15 @@ class Mouse extends SpecialItemModel {
 
     public bloodData: KnockoutObservableArray<number>;
 
-    public maveSukker: KnockoutObservable<number>;
-    public blodSukker: KnockoutObservable<number>;
-    public meanBlodSukker: KnockoutObservable<number>;
-    public maxBlodSukker: KnockoutObservable<number>;
-    public minBlodSukker: KnockoutObservable<number>;
-    public killBlodSukker: KnockoutObservable<number>;
-    public insulinProduktion: KnockoutObservable<number>;
-    public insulinProduktivitet: KnockoutObservable<number>;
-    public insulinEffektivitet: KnockoutObservable<number>;
+    public bloodSugar: KnockoutObservable<number>;
+    public stomachBloodSugar: KnockoutObservable<number>;
+    public meanBloodSugar: KnockoutObservable<number>;
+    public maxBloodSugar: KnockoutObservable<number>;
+    public minBloodSugar: KnockoutObservable<number>;
+    public killBloodSugar: KnockoutObservable<number>;
+    public insulinproduction: KnockoutObservable<number>;
+    public insulinProductivity: KnockoutObservable<number>;
+    public insulinEfficiency: KnockoutObservable<number>;
     public glucoseDose: KnockoutObservable<number>;
     public insulinDose: KnockoutObservable<number>;
 
@@ -77,15 +77,15 @@ class Mouse extends SpecialItemModel {
         // BEGIN: Initializing stuff for the bloodsugar simulation
         this.bloodData = ko.observableArray([]);
 
-        this.maveSukker = ko.observable(0);
-        this.blodSukker = ko.observable(0);
-        this.meanBlodSukker = ko.observable(0);
-        this.maxBlodSukker = ko.observable(12); // If blood sugar is above `maxBlodsukker` the mouse gets diabetes
-        this.minBlodSukker = ko.observable(0.5); // The mouse dies if bloodSugar gets below this threshold
-        this.killBlodSukker = ko.observable(20); // The mouse dies if bloodSugar gets above this threshold
-        this.insulinProduktion = ko.observable(0);
-        this.insulinProduktivitet = ko.observable(0);
-        this.insulinEffektivitet = ko.observable(0.1);
+        this.stomachBloodSugar = ko.observable(0);
+        this.bloodSugar = ko.observable(0);
+        this.meanBloodSugar = ko.observable(0);
+        this.maxBloodSugar = ko.observable(12); // If blood sugar is above `maxBlodsukker` the mouse gets diabetes
+        this.minBloodSugar = ko.observable(0.5); // The mouse dies if bloodSugar gets below this threshold
+        this.killBloodSugar = ko.observable(20); // The mouse dies if bloodSugar gets above this threshold
+        this.insulinProduction = ko.observable(0);
+        this.insulinProductivity = ko.observable(0);
+        this.insulinEfficiency = ko.observable(0.1);
         this.glucoseDose = ko.observable(0);
         this.insulinDose = ko.observable(0);
 
@@ -93,9 +93,9 @@ class Mouse extends SpecialItemModel {
             this.updateBloodType(bloodType);
         });
         this.mouseBloodType(mouseBloodType);
-        this.blodSukker(this.meanBlodSukker());
+        this.bloodSugar(this.meanBloodSugar());
 
-        var bloodData = _.map(_.range(0, 250), (i) => this.meanBlodSukker());
+        var bloodData = _.map(_.range(0, 250), (i) => this.meanBloodSugar());
         this.bloodData(bloodData);
 
         ko.rebind(this);
@@ -153,12 +153,12 @@ class Mouse extends SpecialItemModel {
         var bloodData = this.bloodData();
         bloodData.shift();
 
-        bloodData.push(this.blodSukker());
+        bloodData.push(this.bloodSugar());
         this.bloodData(bloodData);
     }
 
     hasLethalBloodSugar() {
-        return this.blodSukker() < this.minBlodSukker() || this.blodSukker() >= this.killBlodSukker();
+        return this.bloodSugar() < this.minBloodSugar() || this.bloodSugar() >= this.killBloodSugar();
     }
 
     giveJuice() {
@@ -169,7 +169,7 @@ class Mouse extends SpecialItemModel {
         this.glucoseDose(this.glucoseDose() + 3);
     }
 
-    givInsulin() {
+    giveInsulin() {
         this.insulinDose(this.insulinDose() + 35);
     }
 
@@ -183,35 +183,35 @@ class Mouse extends SpecialItemModel {
 
     nextBloodStep() {
 
-        //1. kontrolleres om musen er i live
+        //1. check whether mouse is alive
         if (!this.alive())
             return;
 
-        //3. udregnes sukkeroptag fra mave til blod
-        if (this.maveSukker() > 0.0001) {
-            var sukkerRatio = this.maveSukker() / this.blodSukker() * 0.2;
-            this.maveSukker(this.maveSukker() - sukkerRatio);
-            this.blodSukker(this.blodSukker() + sukkerRatio);
+        //2. calculate sugar intake from stomach to blood 
+        if (this.stomachBloodSugar() > 0.0001) {
+            var sukkerRatio = this.stomachBloodSugar() / this.bloodSugar() * 0.2;
+            this.stomachBloodSugar(this.stomachBloodSugar() - sukkerRatio);
+            this.bloodSugar(this.bloodSugar() + sukkerRatio);
         }
 
-        //4. hvis BlodSukker != MeanBlodSukker, foroeg/formindst insulin-niveauet afhaengigt af produktionen
-        this.insulinProduktion((this.blodSukker() - this.meanBlodSukker()) * this.insulinProduktivitet());
+        //3. f BloodSugar != MeanBloodSugar, increase/decrease insulin levels depending on productivity 
+        this.insulinProduction((this.bloodSugar() - this.meanBloodSugar()) * this.insulinProductivity());
 
-        //4.1 - hvis brugeren har givet musen insulin, foroeg 'insulin-produktion'
+        //4. if the user has given the mouse insulin, increase insulin prodction 
         if (this.insulinDose() > 0) {
             var insulinMagic = Math.min(this.insulinDose() / 3 , 0.6);
-            this.insulinProduktion(this.insulinProduktion() + insulinMagic * 2);
+            this.insulinProduction(this.insulinProduction() + insulinMagic * 2);
             this.insulinDose(this.insulinDose() - insulinMagic);
         }
 
         if (this.glucoseDose() > 0) {
             var glucoseMagic = Math.min(this.glucoseDose() / 3, 0.3);
-            this.maveSukker(this.maveSukker() + glucoseMagic * 2);
+            this.stomachBloodSugar(this.stomachBloodSugar() + glucoseMagic * 2);
             this.glucoseDose(this.glucoseDose() - glucoseMagic);
         }
 
-        //5. fjern blodsukker ved at forbruge insulin.
-        this.blodSukker(this.blodSukker() - this.insulinProduktion() * this.insulinEffektivitet());
+        //5. remove blood sugar by increasing insulin 
+        this.bloodSugar(this.bloodSugar() - this.insulinProduction() * this.insulinEfficiency());
 
         this.storeBloodStep();
     }
@@ -220,14 +220,14 @@ class Mouse extends SpecialItemModel {
     updateBloodType(bloodTypeNewVal): void {
         switch (bloodTypeNewVal) {
         case MouseBloodType.NORMAL:
-            this.meanBlodSukker(5);
-            this.insulinProduktivitet(1 / 4.0);
-            this.insulinEffektivitet(1 / 10.0);
+            this.meanBloodSugar(5);
+            this.insulinProductivity(1 / 4.0);
+            this.insulinEfficiency(1 / 10.0);
             break;
         case MouseBloodType.DIABETIC:
-            this.meanBlodSukker(8);
-            this.insulinProduktivitet(1 / 6.0);
-            this.insulinEffektivitet(1 / 15.0);
+            this.meanBloodSugar(8);
+            this.insulinProductivity(1 / 6.0);
+            this.insulinEfficiency(1 / 15.0);
             break;
         default:
             throw 'Unknown mouseBloodType for the mouse';
@@ -241,14 +241,14 @@ class Mouse extends SpecialItemModel {
         clone.isCut(this.isCut());
         clone.spleen = this.spleen.clone();
 
-        clone.maveSukker(this.maveSukker());
-        clone.blodSukker(this.blodSukker());
-        clone.meanBlodSukker(this.meanBlodSukker());
-        clone.maxBlodSukker(this.maxBlodSukker());
-        clone.minBlodSukker(this.minBlodSukker());
-        clone.insulinProduktion(this.insulinProduktion());
-        clone.insulinProduktivitet(this.insulinProduktivitet());
-        clone.insulinEffektivitet(this.insulinEffektivitet());
+        clone.stomachBloodSugar(this.stomachBloodSugar());
+        clone.bloodSugar(this.bloodSugar());
+        clone.meanBloodSugar(this.meanBloodSugar());
+        clone.maxBloodSugar(this.maxBloodSugar());
+        clone.minBloodSugar(this.minBloodSugar());
+        clone.insulinProduction(this.insulinProduction());
+        clone.insulinProductivity(this.insulinProductivity());
+        clone.insulinEfficiency(this.insulinEfficiency());
         clone.glucoseDose(this.glucoseDose());
         clone.insulinDose(this.insulinDose());
 
