@@ -10,12 +10,20 @@
 
         <link rel="stylesheet" type="text/css" href="static/main.css" />
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        
 
         <!-- @if BUILD='production' -->
+        <script>window.BUILD = 'production';</script>
         <script src="static/script.js"></script>
         <!-- @endif -->
 
         <!-- @if BUILD='dev' -->
+        <script>window.BUILD = 'dev';</script>
+        <script type="text/javascript" data-main="js/main.js" src="bower_components/requirejs/require.js"></script>
+        <!-- @endif -->
+
+        <!-- @if BUILD='test' -->
+        <script>window.BUILD = 'test';</script>
         <script type="text/javascript" data-main="js/main.js" src="bower_components/requirejs/require.js"></script>
         <!-- @endif -->
 
