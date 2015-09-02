@@ -138,11 +138,11 @@ class MouseController extends BaseViewController {
     }
 
     toggleHartRate(): void {
-        this.isHrGraphEnabled(!this.isHrGraphEnabled());
+        this.isHrGraphEnabled.toggle();
     }
 
     toggleBloodSugar(): void {
-        this.isBloodSugarGraphEnabled(!this.isBloodSugarGraphEnabled());
+        this.isBloodSugarGraphEnabled.toggle();
     }
 
     updateGraphRanges() {
