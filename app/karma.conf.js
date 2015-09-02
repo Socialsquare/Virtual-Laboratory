@@ -16,7 +16,7 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: [
             'test-main.js',
-            { pattern: 'test/**/*Spec.{js,ts,js.map}', included: false },
+            { pattern: 'dist/test/*.{js,js.map}', included: false },
             { pattern: 'dist/js/**/*.{js,js.map}', included: false },
             { pattern: 'bower_components/**/*.js', included: false },
             { pattern: 'data/**', included: false },
@@ -32,11 +32,11 @@ module.exports = function(config) {
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {
-            '**/*.ts': 'typescript'
-        },
+        //preprocessors: {
+        //    '**/*.ts': 'typescript'
+        //},
 
-        typescriptPreprocessor: {
+/*        typescriptPreprocessor: {
             // options passed to the typescript compiler
             options: {
                 sourceRoot: 'dist/js/',
@@ -52,7 +52,7 @@ module.exports = function(config) {
             typings: [
                 'typings/tsd.d.ts'
             ],
-        },
+        },*/
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
@@ -74,7 +74,7 @@ module.exports = function(config) {
 
 
         // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: true,
+        autoWatch: false,
 
 
         // start these browsers

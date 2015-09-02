@@ -19,7 +19,6 @@ describe('Mouse', () => {
         VideoController.autoFinish = true;
 
         gameState.reset();
-
         mc = new MouseViewController();
     });
 

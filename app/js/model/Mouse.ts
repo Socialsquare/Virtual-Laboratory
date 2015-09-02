@@ -90,10 +90,9 @@ class Mouse extends SpecialItemModel {
         this.insulinDose = ko.observable(0);
 
         this.mouseBloodType.subscribe((bloodType) => {
-            this.updateBloodType();
+            this.updateBloodType(bloodType);
         });
-
-        this.updateBloodType();
+        this.mouseBloodType(mouseBloodType);
         this.blodSukker(this.meanBlodSukker());
 
         var bloodData = _.map(_.range(0, 250), (i) => this.meanBlodSukker());
@@ -214,8 +213,8 @@ class Mouse extends SpecialItemModel {
     }
     // END: Functions for the bloodsugar simulation
 
-    updateBloodType() {
-        switch (this.mouseBloodType()) {
+    updateBloodType(bloodTypeNewVal): void {
+        switch (bloodTypeNewVal) {
         case MouseBloodType.NORMAL:
             this.meanBlodSukker(5);
             this.insulinProduktivitet(1 / 4.0);
