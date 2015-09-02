@@ -222,6 +222,9 @@ class MouseController extends BaseViewController {
 
         this.mousecage.mouse().nextBloodStep();
         this.mousecage.mouse().nextHeartStep();
+        
+        // push value to plot and add it to export collection
+        // this.mousecage.mouse().nextGlucoseInfusionRateStep();
 
         if (this.mousecage.mouse().hasLethalBloodSugar()) {
             this.toggleSimulation(false);
