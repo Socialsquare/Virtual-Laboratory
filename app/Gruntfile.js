@@ -36,6 +36,19 @@ module.exports = function (grunt) {
         },
 
         copy: {
+        	test: {
+        		files: [
+    		        { expand: true, src: [ 'data/*.json' ], dest: '<%= dist_root %>' },
+    		        { expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
+    		        { expand: true, src: [ 'test/**' ], dest: '<%= dist_root %>' },
+    		        { expand: true, src: [ 'view/**' ], dest: '<%= dist_root %>' },
+    		        { expand: true, src: [ 'index.html' ], dest: '<%= dist_root %>' },
+    		        { expand: true, src: [ 'assets/**' ], dest: '<%= dist_root %>' },
+    		        { expand: true, src: [ 'css/**/*.css' ], dest: '<%= dist_root %>' },
+    		        { expand: true, src: [ 'bower_components/**' ], dest: '<%= dist_root %>' }
+		        ]
+        	},
+        	
             dist: {
 
                 files: [
@@ -126,6 +139,14 @@ module.exports = function (grunt) {
                     failOnTypeErrors: false,
                     sourceMaps: true
                 }
+            },
+            test: {
+            	src: [ "typings/tsd.d.ts", "dist/js/**/*.{d.ts,ts}", "dist/test/*.{d.ts,ts}" ],
+            	options: {
+            		module: 'amd',
+            		failOnTypeErrors: false,
+            		sourceMaps: true
+            	}
             }
         },
 
@@ -193,6 +214,10 @@ module.exports = function (grunt) {
         grunt.config('env', 'production');
     });
 
+    grunt.registerTask('setUnitTestBuildEnv', function () {
+    	grunt.config('env', 'test');
+    });
+
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-sass');
@@ -214,4 +239,8 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [ 'build', 'connect:dist', 'watch:dist' ]);
 
     grunt.registerTask('serve-production', [ 'production', 'connect:production:keepalive' ]);
+
+    grunt.registerTask('test', ['setUnitTestBuildEnv', 'clean:dist',
+                                'copy:test', 'ts:test', 'assets', 'sass:dist',
+                                'preprocess:dist', 'karma' ]);
 };
