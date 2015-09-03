@@ -26,6 +26,12 @@ class Lane extends SimpleContainerModel {
             this.value(100);
         }
     }
+
+    isStained() {
+        var ffd = super.findByType(LiquidType.FREE_FLOATING_DNA);
+        var blueStain = super.findByType(LiquidType.BLUE_STAIN);
+        return ffd && blueStain;
+    }
 }
 
 export = Lane;

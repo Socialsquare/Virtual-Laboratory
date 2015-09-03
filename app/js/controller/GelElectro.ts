@@ -39,18 +39,43 @@ class GelElectroController {
             return false;
 
         if (item.type() !== ContainerType.PIPETTE) return false;
+        
+        var tip = item.getTip();
+        if (tip.contains(LiquidType.FREE_FLOATING_DNA)) {
+            return this.gelDropDNA(item);
+        } else if (tip.contains(LiquidType.BLUE_STAIN)) {
+            return this.gelDropBlueStain(item);
+        }
 
-        var lane = this.gelElectroModel.gelSlot().getVacantLane();
+        return false;
+    }
+
+    gelDropDNA(pipette) {
+        var lane = this.gelElectroModel.gelSlot().getVacantLane(); 
+    
         if (!lane) {
             popupController.message('gelelectro.no-empty-lanes.header',
                                     'gelelectro.no-empty-lanes.body');
             return false;
         }
 
+        pipette.emptyPipetteInto(lane);
         experimentController.triggerAcquisition(lane);
-        item.emptyPipetteInto(lane);
+    }
 
-        return true;
+    gelDropBlueStain(pipette) {
+        var lane = this.gelElectroModel.gelSlot().getUnstainedLane(); 
+
+        if (!lane) {
+            popupController.message('gelelectro.no-unstained-lanes.header',
+                                        'gelelectro.no-unstained-lanes.body');
+
+            return false;
+        }
+               
+        pipette.emptyPipetteInto(lane);
+        experimentController.triggerAcquisition(lane);
+    
     }
 
     viewGel() {

@@ -23,6 +23,10 @@ class Gel extends CompositeContainerModel {
     getVacantLane() {
         return _.find(this.lanes(), (lane) => lane.isEmpty());
     }
+
+    getUnstainedLane() {
+        return _.find(this.lanes(), (lane) => !lane.isEmpty() && !lane.isStained());
+    }
 }
 
 export = Gel;

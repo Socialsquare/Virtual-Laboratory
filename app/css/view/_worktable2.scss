@@ -49,8 +49,9 @@
                 background-color: #CCC;
 
                 &.filled {
-                    background-color: #18F;
+                    background-color: #18F; 
                 }
+
             }
         }
 
@@ -76,13 +77,17 @@
                     background-color: cyan;
                 }
 
+                &.stained {
+                    background-color: #0A5299;
+                }
+
                 &.result-10 {
                     width: 10px; 
                 }
 
                 &.result-100 {
                     width: 125px; 
-                    background-color: cyan;
+                    background-color: #0A5299;
                 }
             }
         }
