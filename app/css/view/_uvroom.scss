@@ -148,6 +148,19 @@
         &.filled {
           background-color: cyan;
         }
+
+        &.stained {
+            background-color: #0A5299;
+        }
+
+        &.result-10 {
+            width: 10px; 
+        }
+
+        &.result-100 {
+            width: 710px; 
+            background-color: #0A5299;
+        }
       }
     }
   }

@@ -6,10 +6,11 @@
 
     <hr />
 
+
+
     <ul class="lanes" data-bind="foreach: lanes">
-        <li class="lane" data-bind="attr: { id: 'lane' + $index() }, 
-                                            css: { filled: !isEmpty() }, 
-                                            style: { width: 6*value+'px' }"></li>
+        <li class="lane" data-bind="attr: { id: 'lane' + $index(), class: 'result-' + value() }, 
+                                            css: { filled: !isEmpty(), stained: isStained() }"></li>
     </ul>
 
     <!-- /ko -->

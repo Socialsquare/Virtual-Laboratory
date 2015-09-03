@@ -16,9 +16,8 @@
                                                 drop: { handler: handleGelDrop, accept: DragHelper.acceptedByGel},
                                                 click: viewGel">
             <ul class="lanes" data-bind="foreach: uvroom.gel().lanes ">
-                <li class="lane" data-bind="attr: { id: 'lane' + $index() }, 
-                                            css: { filled: !isEmpty() }, 
-                                            style: { width: 1.35*value+'px' }"></li>
+                <li class="lane" data-bind="attr: { id: 'lane' + $index(), class: 'result-' + value() }, 
+                                            css: { filled: !isEmpty(), stained: isStained() }"></li>
             </ul>
         </div>
         <!-- /ko -->
