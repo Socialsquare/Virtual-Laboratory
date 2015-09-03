@@ -56,7 +56,7 @@ class Mouse extends SpecialItemModel {
 
         this.stomachBloodSugar = ko.observable(0);
         this.bloodSugar = ko.observable(0);
-        this.meanBloodSugar = ko.computed(this.meanBloodSugar, this);
+        this.meanBloodSugar = ko.computed(this.computeMeanBlodSugar, this);
         
         // If blood sugar is above `maxBloodSugar` the mouse gets diabetes
         this.maxBloodSugar = ko.observable(12);
@@ -73,13 +73,9 @@ class Mouse extends SpecialItemModel {
         this.glucoseDose = ko.observable(0);
         this.insulinDose = ko.observable(0);
 
-        this.mouseBloodType.subscribe((bloodType) => {
-            this.updateBloodType(bloodType);
-        });
-        this.mouseBloodType(mouseBloodType);
         this.bloodSugar(this.meanBloodSugar());
 
-        var bloodData = _.map(_.range(0, 250), (i) => this.meanBloodSugar());
+        var bloodData = _.map(_.range(0, 250), (i) => null);
         this.bloodData(bloodData);
 
         ko.rebind(this);
