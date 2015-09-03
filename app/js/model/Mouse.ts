@@ -176,7 +176,7 @@ class Mouse extends SpecialItemModel {
     giveInsulin() {
         this.insulinDose(this.insulinDose() + 35);
     }
-
+    
     nextHeartStep() {
         this.heartRateIndex += 1;
 

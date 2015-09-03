@@ -108,7 +108,7 @@
     .hr-toggle-btn {
         position: absolute;
         top: 578px;
-        left: 227px;
+        left: 220px;
 
         img {
             height: 24px;
@@ -118,7 +118,17 @@
     .bloodsugar-toggle-btn {
         position: absolute;
         top: 570px;
-        left: 287px;
+        left: 260px;
+
+        img {
+            height: 24px;
+        }
+    }
+
+    .glucose-infusion-rate-toggle-btn {
+        position: absolute;
+        top: 570px;
+        left: 300px;
 
         img {
             height: 24px;

@@ -39,6 +39,7 @@ class MouseController extends BaseViewController {
     public isHrGraphEnabled: KnockoutObservable<boolean>;
 
     public isBloodSugarGraphEnabled: KnockoutObservable<boolean>;
+    public isGirGraphEnabled: KnockoutObservable<boolean>;
 
     public graphTimer: KnockoutObservable<number>;
 
@@ -48,6 +49,9 @@ class MouseController extends BaseViewController {
     public graphRange: number[] = [];
     public graphHrRange: KnockoutObservableArray<boolean>;
     public graphBloodRange: KnockoutObservableArray<boolean>;
+    public graphGirRange: KnockoutObservableArray<boolean>;
+    
+    public glucoseData: KnockoutObservableArray<boolean>;
 
     public bottle: BottleModel;
 
@@ -66,13 +70,18 @@ class MouseController extends BaseViewController {
 
         this.isHrGraphEnabled = ko.observable(false);
         this.isBloodSugarGraphEnabled = ko.observable(true);
-
+        this.isGirGraphEnabled = ko.observable(true);
+        
         this.graphRange = _.range(this.graphRangeStart, this.graphRangeEnd);
 
         this.graphBloodRange =
             ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
         this.graphHrRange =
             ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
+        this.graphGirRange =
+            ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
+        this.glucoseData =
+            ko.observableArray(_.map(this.graphRange, (v) => { return null; }));
 
         if (this.mousecage.hasMouse()) {
             this.mousecage.mouse().bloodSugar.subscribe((bloodSugar) => {
@@ -137,6 +146,10 @@ class MouseController extends BaseViewController {
         this.popupController.dataExport(DataHelper.toCSV(parsed, headers));
     }
 
+    toggleGlucoseInfusionRate(): void {
+        this.isGirGraphEnabled.toggle();
+    }
+
     toggleHartRate(): void {
         this.isHrGraphEnabled.toggle();
     }
@@ -158,6 +171,13 @@ class MouseController extends BaseViewController {
             this.graphBloodRange.push(true);
         } else {
             this.graphBloodRange.push(false);
+        }
+
+        this.graphGirRange.shift();
+        if (this.isGirGraphEnabled()) {
+            this.graphGirRange.push(true);
+        } else {
+            this.graphGirRange.push(false);
         }
     }
 
@@ -202,6 +222,26 @@ class MouseController extends BaseViewController {
         });
         return hrData;
     }
+    /**
+     * Generates Glucose Infusion Rate data for plot graph.
+     * If mouse is dead it's GIR is 0.
+     * if HR graph is disabled GIR is null.
+     * @return {Array}
+     */
+    getGirDataForPlot() {
+        var girData = [];
+        girData = _.map(this.graphRange, (i): [number, number] => {
+            var gir = null;
+
+            if (!this.mousecage.mouse().alive()) {
+                gir = 0;
+            } else if (this.graphGirRange()[i]) {
+                gir = this.glucoseData()[i];
+            }
+            return [i, gir];
+        });
+        return girData;
+    }
 
     updatePlotData() {
 
@@ -210,11 +250,18 @@ class MouseController extends BaseViewController {
         this.updateGraphRanges();
         var bloodData = this.getBloodDataForPlot();
         var heartRateData = this.getHrDataForPlot();
+        var glucoseInfusionRateData = this.getGirDataForPlot();
 
         this.plotData({
             bloodData: bloodData,
-            heartRateData: heartRateData
+            heartRateData: heartRateData,
+            glucoseInfusionRateData: glucoseInfusionRateData
         });
+    }
+
+    storeGlucoseStep() {
+        this.glucoseData.shift()
+        this.glucoseData.push(this.mousecage.mouse().glucoseDose())
     }
 
     nextTimeStep() {
@@ -223,9 +270,8 @@ class MouseController extends BaseViewController {
         this.mousecage.mouse().nextBloodStep();
         this.mousecage.mouse().nextHeartStep();
         
-        // push value to plot and add it to export collection
-        // this.mousecage.mouse().nextGlucoseInfusionRateStep();
-
+        this.storeGlucoseStep()
+        
         if (this.mousecage.mouse().hasLethalBloodSugar()) {
             this.toggleSimulation(false);
 

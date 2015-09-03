@@ -33,4 +33,8 @@
     <div class="hand bloodsugar-toggle-btn" data-bind="click: toggleBloodSugar">
         <img src="assets/images/icon_spreadsheet.png" alt="Blood suger toggle">
     </div>
+
+    <div class="hand glucose-infusion-rate-toggle-btn" data-bind="click: toggleGlucoseInfusionRate">
+        <img src="assets/images/icon_spreadsheet.png" alt="GIR toggle">
+    </div>
 </div>
