@@ -14,7 +14,7 @@
                     drag: { item: mousecage.mouse , consume: removeMouse }"></div>
 
 
-    <div class="glucose-bag" data-bind="with: glucoseBagController">
+    <div class="glucose-bag" data-bind="with: glucoseBagController, visible: apparatusEnabled('MOUSE_CAGE', 'GLUCOSE_BAG')">
         <div class="btn hand" data-bind="click: activate">
             <div style="background: red; width: 40px; height: 40px;" data-bind="visible: glucoseBag.status()"></div>
         </div>

@@ -1,5 +1,14 @@
 [
     {
+        "title": { "dk": "Hyperinsulinemic euglycemic clamp (experiment #1)" },
+        "description": { "dk": "In this experiment you will measure whole body insulin sensitivity based on the direct relationship between the rate of glucose infusion necessary to maintain euglycemia and insulin action." },
+        "story": { "dk": "The hyperinsulinemic euglycemic clamp is considered the gold standard for measuring whole body and tissue specific insulin action. This method allows the scientist to perform the experiment on conscious, unstressed mice in vivo (whole living organism). During the clamp, the fasting mouse is infused with insulin to achieve a state of hyperinsulinemia. Blood glucose is measured from the carotid artery and euglycemia is maintained by adjusting the glucose infusion rate (GIR)." },
+        "apparatus": {
+            "ApparatusLocationType.MOUSE_CAGE": "ApparatusType.GLUCOSE_BAG"
+        },
+        "tasks": []
+    },
+    {
         "title": { "dk": "Genetic test for diabetes risk (experiment #2)" },
         "description": { "dk": "In this exercise you will test whether a mouse has a high risk of developing type 2 diabetes" },
         "story": { "dk": "Genetic tests are used as a tool with many laboratory methods to look at changes in genes, which are DNA instructions inherited by ones mother and father. Probably you know that the police uses genetic testing to identify criminals in a crime scene, but the tests are also used by health practitioners and researchers to identify increased risks of health problems for better prevention possibilities, for example diabetes. In this exercise you will use a genetic test to determine whether a mouse carries copies of a genetic variation that can greatly increase the risk of developing diabetes." },
