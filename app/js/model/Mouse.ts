@@ -13,13 +13,13 @@ import SpecialItemModel = require('model/SpecialItem');
 import SpecialItemType = require('model/type/SpecialItem');
 
 class Mouse extends SpecialItemModel {
-    public mouseType: KnockoutObservable<MouseType>;
     public heartRateData: any;
     public heartRateIndex: number;
+    public spleen: SpleenModel;
 
-
+    public mouseType: KnockoutObservable<MouseType>;
     public bloodData: KnockoutObservableArray<number>;
-
+    public mouseBloodType: KnockoutObservable<MouseBloodType>;
     public bloodSugar: KnockoutObservable<number>;
     public stomachBloodSugar: KnockoutObservable<number>;
     public meanBloodSugar: KnockoutComputed<number>;
@@ -31,15 +31,19 @@ class Mouse extends SpecialItemModel {
     public insulinEfficiency: KnockoutComputed<number>;
     public glucoseDose: KnockoutObservable<number>;
     public insulinDose: KnockoutObservable<number>;
-
     public description: KnockoutComputed<string>;
+    public isCut: KnockoutObservable<boolean>;
+    public alive: KnockoutObservable<boolean>;
+    public isInteracting: KnockoutObservable<boolean>;
 
     constructor(mouseType, mouseBloodType) {
 
         super(SpecialItemType.MOUSE);
 
-        if (-1 === $.inArray(mouseBloodType, [MouseBloodType.NORMAL, MouseBloodType.DIABETIC]))
+        if (-1 === $.inArray(mouseBloodType,
+                [MouseBloodType.NORMAL, MouseBloodType.DIABETIC])) {
             throw 'Unknown mouseBloodType for the mouse';
+        }
 
         this.alive = ko.observable(true);
         this.isCut = ko.observable(false);
@@ -50,13 +54,13 @@ class Mouse extends SpecialItemModel {
         this.mouseType = ko.observable(mouseType);
         this.heartRateData = heartRateData.xVals;
         this.heartRateIndex = 0;
-        this.description = ko.pureComputed(this.computeDescription, this);
+        this.description = ko.pureComputed(this.computeDescription);
 
         this.bloodData = ko.observableArray([]);
 
         this.stomachBloodSugar = ko.observable(0);
         this.bloodSugar = ko.observable(0);
-        this.meanBloodSugar = ko.computed(this.computeMeanBlodSugar, this);
+        this.meanBloodSugar = ko.pureComputed(this.computeMeanBloodSugar);
         
         // If blood sugar is above `maxBloodSugar` the mouse gets diabetes
         this.maxBloodSugar = ko.observable(12);
@@ -68,8 +72,10 @@ class Mouse extends SpecialItemModel {
         this.killBloodSugar = ko.observable(20);
 
         this.insulinProduction = ko.observable(0);
-        this.insulinProductivity = ko.computed(this.computeInsulinProductivity, this);
-        this.insulinEfficiency = ko.computed(this.computeInsulinEfficiency, this);
+        this.insulinProductivity =
+            ko.pureComputed(this.computeInsulinProductivity);
+        this.insulinEfficiency =
+            ko.pureComputed(this.computeInsulinEfficiency);
         this.glucoseDose = ko.observable(0);
         this.insulinDose = ko.observable(0);
 
@@ -81,33 +87,66 @@ class Mouse extends SpecialItemModel {
         ko.rebind(this);
     }
     
-    computeDescription() {
+    public computeDescription = ():string => {
         switch (this.mouseType()) {
-        case MouseType.GOUT:
-            return 'mouse.description.gout';
-
-        case MouseType.SMALLPOX:
-            return 'mouse.description.smallpox';
-
-        case MouseType.INSOMNIA:
-            return 'mouse.description.insomnia';
-
-        case MouseType.PSORIASIS:
-            return 'mouse.description.psoriasis';
+            case MouseType.GOUT:
+                return 'mouse.description.gout';
+    
+            case MouseType.SMALLPOX:
+                return 'mouse.description.smallpox';
+    
+            case MouseType.INSOMNIA:
+                return 'mouse.description.insomnia';
+    
+            case MouseType.PSORIASIS:
+                return 'mouse.description.psoriasis';
+            }
+    
+            switch (this.mouseBloodType()) {
+            case MouseBloodType.NORMAL:
+                return 'mouse.description.healthy';
+    
+            case MouseBloodType.DIABETIC:
+                return 'mouse.description.diabetic';
+    
+            default:
+                return '';
         }
-
+    }
+    
+    public computeInsulinProductivity = ():number => {
         switch (this.mouseBloodType()) {
-        case MouseBloodType.NORMAL:
-            return 'mouse.description.healthy';
-
-        case MouseBloodType.DIABETIC:
-            return 'mouse.description.diabetic';
-
-        default:
-            return '';
+            case MouseBloodType.NORMAL:
+                return 1 / 4.0;
+            case MouseBloodType.DIABETIC:
+                return 1 / 6.0;
+            default:
+                return 0;
         }
     }
 
+    public computeMeanBloodSugar = ():number => {
+        switch (this.mouseBloodType()) {
+            case MouseBloodType.NORMAL:
+                return 5;
+            case MouseBloodType.DIABETIC:
+                return 8;
+            default:
+                return 0;
+        }
+    }
+
+    public computeInsulinEfficiency = ():number => {
+        switch (this.mouseBloodType()) {
+            case MouseBloodType.NORMAL:
+                return 1 / 10.0;
+            case MouseBloodType.DIABETIC:
+                return 1 / 15.0;
+            default:
+                return 0;
+        }
+    }
+    
     // Used for determining whether the contents in the syringe is
     // allowed to inject into the mouse GENERALLY. This does NOT take
     // MouseType into consideration.
@@ -218,39 +257,6 @@ class Mouse extends SpecialItemModel {
         this.bloodSugar(this.bloodSugar() - this.insulinProduction() * this.insulinEfficiency());
 
         this.storeBloodStep();
-    }
-
-    computeInsulinEfficiency() {
-        switch (this.mouseBloodType()) {
-        case MouseBloodType.NORMAL:
-            return 1 / 10.0;
-        case MouseBloodType.DIABETIC:
-            return 1 / 15.0;
-        default:
-            return 0;
-        }
-    }
-
-    computeMeanBlodSugar() {
-        switch (this.mouseBloodType()) {
-        case MouseBloodType.NORMAL:
-            return 5;
-        case MouseBloodType.DIABETIC:
-            return 8;
-        default:
-            return 0;
-        }
-    }
-    
-    computeInsulinProductivity() {
-        switch (this.mouseBloodType()) {
-        case MouseBloodType.NORMAL:
-            return 1 / 4.0;
-        case MouseBloodType.DIABETIC:
-            return 1 / 6.0;
-        default:
-            return 0;
-        }
     }
 
     clone() {
