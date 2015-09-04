@@ -9,6 +9,7 @@ import VideoController = require('controller/Video');
 import GlucoseBagController = require('controller/GlucoseBag');
 
 import BottleModel = require('model/Bottle');
+import MouseCage = require('model/MouseCage');
 
 import MouseType = require('model/type/Mouse');
 import MouseBloodType = require('model/type/MouseBlood');
@@ -28,7 +29,7 @@ class MouseController extends BaseViewController {
 
     public videoController: VideoController;
 
-    public mousecage: KnockoutObservable<MouseCageModel>;
+    public mousecage: MouseCage;
     public mouseDrinking: KnockoutObservable<boolean>;
 
     public lowBloodSugarWarningToggle: KnockoutObservable<boolean>;
@@ -50,8 +51,9 @@ class MouseController extends BaseViewController {
     public graphHrRange: KnockoutObservableArray<boolean>;
     public graphBloodRange: KnockoutObservableArray<boolean>;
     public graphGirRange: KnockoutObservableArray<boolean>;
-    
-    public glucoseData: KnockoutObservableArray<boolean>;
+
+    public glucoseData: KnockoutObservableArray<number>;
+    public glucoseBagController: GlucoseBagController;
 
     public bottle: BottleModel;
 
@@ -261,7 +263,7 @@ class MouseController extends BaseViewController {
 
     storeGlucoseStep() {
         this.glucoseData.shift()
-        this.glucoseData.push(this.mousecage.mouse().glucoseDose())
+        this.glucoseData.push(this.glucoseBagController.glucoseBag.glucoseInfusionRate())
     }
 
     nextTimeStep() {
