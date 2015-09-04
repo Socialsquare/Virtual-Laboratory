@@ -16,7 +16,7 @@
 
     <div class="glucose-bag" data-bind="with: glucoseBagController">
         <div class="btn hand" data-bind="click: activate">
-            <div style="background: red; width: 40px; height: 40px;" data-bind="visible: glucoseBagModel.status()"></div>
+            <div style="background: red; width: 40px; height: 40px;" data-bind="visible: glucoseBag.status()"></div>
         </div>
     </div>
 

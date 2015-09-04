@@ -5,16 +5,16 @@ import GlucoseBagModel = require('model/GlucoseBag');
 
 class GlucoseBagController {
 
-    public glucoseBagModel: GlucoseBagModel;
+    public glucoseBag: GlucoseBagModel;
 
-    constructor(glucoseBagModel: GlucoseBagModel) {
-        this.glucoseBagModel = glucoseBagModel;
+    constructor(glucoseBag: GlucoseBagModel) {
+        this.glucoseBag = glucoseBag;
 
         ko.rebind(this);
     }
 
     activate() {
-        this.glucoseBagModel.status(!this.glucoseBagModel.status());
+        this.glucoseBag.status(!this.glucoseBag.status());
     }
 }
 
