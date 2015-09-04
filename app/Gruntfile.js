@@ -31,6 +31,8 @@ module.exports = function (grunt) {
                     { expand: true, src: [ '<%= dist_root %>'+'/css/**/*.css' ]},
                     // vendor
                     { expand: true, src: [ '<%= dist_root %>'+'/bower_components/**' ]},
+
+                    { expand: true, src: [ '<%= dist_root %>'+'/test/**' ]},
                 ]
             }
         },
