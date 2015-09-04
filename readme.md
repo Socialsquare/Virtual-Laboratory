@@ -2,7 +2,12 @@
 
 Production, hosted by the client: http://www.biotechacademy.dk/Virtuelt-Laboratorium/velkommen
 
-Demo, hosted by Socialsquare: http://vlab.demo.socialsquare.dk/
+## Demo
+
+Demo is hosted by Socialsquare: http://vlab.demo.socialsquare.dk/
+
+    vlab    ssh://vlab.biotechacademy.dk/home/vlab/vlab.git
+
 
 ## Development
 
