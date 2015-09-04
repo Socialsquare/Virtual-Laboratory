@@ -23,6 +23,18 @@ class GlucoseBagController {
             hudController.hideTimePassing();
         }
     }
+
+    increaseRate() {
+        this.glucoseBag.glucoseInfusionRate(this.glucoseBag.glucoseInfusionRate()+ 1);
+        console.log(this.glucoseBag.glucoseInfusionRate());
+    }
+
+    decreaseRate() {
+        var newRate = this.glucoseBag.glucoseInfusionRate() - 1;
+        if (newRate < 0) newRate = 0;
+        this.glucoseBag.glucoseInfusionRate(newRate)
+        console.log(this.glucoseBag.glucoseInfusionRate());
+    }
 }
 
 export = GlucoseBagController;
