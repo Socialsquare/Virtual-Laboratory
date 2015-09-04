@@ -268,12 +268,9 @@ class Mouse extends SpecialItemModel {
 
         clone.stomachBloodSugar(this.stomachBloodSugar());
         clone.bloodSugar(this.bloodSugar());
-        clone.meanBloodSugar(this.meanBloodSugar());
         clone.maxBloodSugar(this.maxBloodSugar());
         clone.minBloodSugar(this.minBloodSugar());
         clone.insulinProduction(this.insulinProduction());
-        clone.insulinProductivity(this.insulinProductivity());
-        clone.insulinEfficiency(this.insulinEfficiency());
         clone.glucoseDose(this.glucoseDose());
         clone.insulinDose(this.insulinDose());
 
