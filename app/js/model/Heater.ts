@@ -49,7 +49,7 @@ class HeaterModel extends CompositeContainerModel {
     }
 
     liquidAdded() {
-        hudController.flashTimePassing();
+        hudController.flashTimePassing(2);
         this.checkTubes();
     }
 
