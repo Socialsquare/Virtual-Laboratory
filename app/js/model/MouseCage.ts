@@ -9,18 +9,18 @@ class MouseCage {
 
     public mouse: KnockoutObservable<MouseModel>;
     public hasMouse: KnockoutComputed<boolean>;
-    public glucoseBag: KnockoutComputed<GlucoseBagModel>;
+    public glucoseBag: GlucoseBagModel;
 
     constructor() {
         this.mouse = ko.observable(new MouseModel(MouseType.HEALTHY, MouseBloodType.NORMAL));
-        this.hasMouse = ko.pureComputed(() => !!this.mouse(), this);
+        this.hasMouse = ko.pureComputed(():boolean =>{return <boolean><any>this.mouse()});
         this.glucoseBag = new GlucoseBagModel();
 
         ko.rebind(this);
     }
 
     reset() {
-        this.mouse(MouseModel(MouseType.HEALTHY, MouseBloodType.NORMAL));
+        this.mouse(new MouseModel(MouseType.HEALTHY, MouseBloodType.NORMAL));
     }
 }
 

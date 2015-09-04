@@ -51,7 +51,10 @@ declare module 'json!datadir/experiments.json' {
 }
 
 declare module 'json!datadir/heartRate.json' {
-    var data: { xVals: number[] };
+    var data: {
+        xVals: number[],
+        pulse: number[]
+    };
     export = data;
 }
 

@@ -16,7 +16,7 @@
 
     <div class="glucose-bag" data-bind="with: glucoseBagController">
         <div class="btn hand" data-bind="click: activate">
-            <div style="background: red; width: 40px; height: 40px;" data-bind="visible: glucoseBagModel.status()"></div>
+            <div style="background: red; width: 40px; height: 40px;" data-bind="visible: glucoseBag.status()"></div>
         </div>
     </div>
 
@@ -24,5 +24,17 @@
 
     <div class="hand export-btn" data-bind="click: exportData">
         <img src="assets/images/icon_spreadsheet.png" alt="Export data">
+    </div>
+
+    <div class="hand hr-toggle-btn" data-bind="click: toggleHartRate">
+        <img src="assets/images/icon_spreadsheet.png" alt="HR toggle">
+    </div>
+
+    <div class="hand bloodsugar-toggle-btn" data-bind="click: toggleBloodSugar">
+        <img src="assets/images/icon_spreadsheet.png" alt="Blood suger toggle">
+    </div>
+
+    <div class="hand glucose-infusion-rate-toggle-btn" data-bind="click: toggleGlucoseInfusionRate">
+        <img src="assets/images/icon_spreadsheet.png" alt="GIR toggle">
     </div>
 </div>

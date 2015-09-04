@@ -74,12 +74,14 @@ ko.bindingHandlers.plotMouse = {
 
         var bloodGlucoseData = data.bloodData;
         var heartRateData = data.heartRateData;
+        var glucoseInfusionRateData = data.glucoseInfusionRateData;
 
         $.plot(
             $(element),
             [
                 { data: heartRateData, yaxis: 2, color: 'rgb(255,160,160)' },
-                { data: bloodGlucoseData, label: 'mmol/L', yaxis: 1, color: 'yellow' }
+                { data: bloodGlucoseData, label: 'mmol/L', yaxis: 1, color: 'yellow' },
+                { data: glucoseInfusionRateData, label: 'mmol/L', yaxis: 1, color: 'blue' }
             ],
             {
                 xaxes: [{ show: false }],

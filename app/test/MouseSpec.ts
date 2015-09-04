@@ -1,4 +1,4 @@
-import gameState = require('model/GameState');
+import MouseViewController = require('controller/view/Mouse');
 import popupController = require('controller/Popup');
 
 import ContainerFactory = require('factory/Container');
@@ -7,19 +7,19 @@ import LiquidFactory = require('factory/Liquid');
 import LiquidType = require('model/type/Liquid');
 import MouseBloodType = require('model/type/MouseBlood');
 
-import MouseViewController = require('controller/view/Mouse');
 import VideoController = require('controller/Video');
 import DropOnMouseHelper = require('utils/mouse/DropOnMouseHelper');
 
 describe('Mouse', () => {
     var mc: MouseViewController;
+    mc = new MouseViewController();
+    mc.gameState.reset();
 
     beforeEach(() => {
+        mc.gameState.reset();
         popupController.autoConfirm = true;
         VideoController.autoFinish = true;
 
-        gameState.reset();
-        mc = new MouseViewController();
     });
 
     afterEach(() => {
@@ -32,14 +32,14 @@ describe('Mouse', () => {
 
             var syringe = ContainerFactory.syringe();
 
-            expect(gameState.inventory.items().length).toBe(0);
+            expect(mc.gameState.inventory.items().length).toBe(0);
 
             // Drop the syringe on the mouse
             DropOnMouseHelper.handleDrop(mc, syringe);
 
-            expect(gameState.inventory.items().length).toBe(1);
+            expect(mc.gameState.inventory.items().length).toBe(1);
 
-            var tube = gameState.inventory.items()[0];
+            var tube = mc.gameState.inventory.items()[0];
 
             expect(tube.contains(LiquidType.MOUSE_BLOOD)).toBeTruthy();
         });
