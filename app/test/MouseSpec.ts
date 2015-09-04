@@ -3,6 +3,7 @@ import popupController = require('controller/Popup');
 
 import ContainerFactory = require('factory/Container');
 import LiquidFactory = require('factory/Liquid');
+import SpecialItem = require('factory/SpecialItem');
 
 import LiquidType = require('model/type/Liquid');
 import MouseBloodType = require('model/type/MouseBlood');
@@ -14,9 +15,11 @@ describe('Mouse', () => {
     var mc: MouseViewController;
     mc = new MouseViewController();
     mc.gameState.reset();
+    mc.gameState.mousecage.mouse(SpecialItem.healthyMouse());
 
     beforeEach(() => {
         mc.gameState.reset();
+        mc.gameState.mousecage.mouse(SpecialItem.healthyMouse());
         popupController.autoConfirm = true;
         VideoController.autoFinish = true;
 
