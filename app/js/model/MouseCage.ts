@@ -12,7 +12,7 @@ class MouseCage {
     public glucoseBag: GlucoseBagModel;
 
     constructor() {
-        this.mouse = ko.observable(new MouseModel(MouseType.HEALTHY, MouseBloodType.NORMAL));
+        this.mouse = ko.observable(null);
         this.hasMouse = ko.pureComputed(():boolean =>{return <boolean><any>this.mouse()});
         this.glucoseBag = new GlucoseBagModel();
 
@@ -20,7 +20,7 @@ class MouseCage {
     }
 
     reset() {
-        this.mouse(new MouseModel(MouseType.HEALTHY, MouseBloodType.NORMAL));
+        this.mouse(null);
     }
 }
 
