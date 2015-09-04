@@ -77,7 +77,8 @@ class App extends BaseViewController {
         });
 
         // bootstrap the app by going to loading view
-        this.router.navigate('loading');
+        //this.router.navigate('loading');
+        this.router.navigate('overview');
 
         ko.rebind(this);
     }
