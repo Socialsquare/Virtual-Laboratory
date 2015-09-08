@@ -5,10 +5,10 @@
     <img src="assets/images/icon_spreadsheet.png" alt="Export data">
 </div>
 
-<div class="hand hr-toggle-btn" data-bind="click: vetMonitor.isHrGraphEnabled.toggle">
-    <img src="assets/images/icon_spreadsheet.png" alt="HR toggle">
-</div>
-
 <div class="hand bloodsugar-toggle-btn" data-bind="click: vetMonitor.isBloodSugarGraphEnabled.toggle">
     <img src="assets/images/icon_spreadsheet.png" alt="Blood suger toggle">
+</div>
+
+<div class="hand glucose-infusion-rate-toggle-btn" data-bind="click: vetMonitor.isGirGraphEnabled.toggle">
+    <img src="assets/images/icon_spreadsheet.png" alt="GIR toggle">
 </div>

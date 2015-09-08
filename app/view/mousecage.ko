@@ -23,5 +23,11 @@
         </div>
     </div>
 
-    <div class="vetmonitor" data-bind="template: { name: 'vetmonitor', data: vetMonitorController }"></div>
+    <div data-bind="visible: apparatusEnabled('MOUSE_CAGE', 'VET_MONITOR')">
+        <div class="vetmonitor" data-bind="template: { name: 'vetmonitor', data: vetMonitorViewController }"></div>
+    </div>
+
+    <div data-bind="visible: apparatusEnabled('MOUSE_CAGE', 'VET_MONITOR_WITH_GIR')">
+        <div class="vetmonitor" data-bind="template: { name: 'vetmonitorwithgir', data: vetMonitorWithGirViewController }"></div>
+    </div>
 </div>

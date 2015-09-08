@@ -6,7 +6,7 @@ import DropOnMouseHelper = require('utils/mouse/DropOnMouseHelper');
 import BaseViewController = require('controller/view/Base');
 import VideoController = require('controller/Video');
 import GlucoseBagController = require('controller/GlucoseBag');
-import VetMonitorController = require('controller/VetMonitorController');
+import VetMonitorViewController = require('controller/view/VetMonitorViewController');
 
 import BottleModel = require('model/Bottle');
 import MouseCage = require('model/MouseCage');
@@ -21,7 +21,7 @@ import LiquidFactory = require('factory/Liquid');
 class MouseCageViewController extends BaseViewController {
 
     public videoController: VideoController;
-    public vetMonitorController: VetMonitorController;
+    public vetMonitorViewController: VetMonitorViewController;
 
     public mousecage: MouseCage;
     public mouseDrinking: KnockoutObservable<boolean>;
@@ -41,7 +41,7 @@ class MouseCageViewController extends BaseViewController {
         super('mousecage');
 
         this.videoController = new VideoController(true);
-        this.vetMonitorController = new VetMonitorController();
+        this.vetMonitorViewController = new VetMonitorViewController();
 
         this.mousecage = this.gameState.mousecage;
         this.mouseDrinking = ko.observable(false);
@@ -50,9 +50,7 @@ class MouseCageViewController extends BaseViewController {
         this.highBloodSugarWarningToggle = ko.observable(false);
         this.diabetesDevelopedToggle = ko.observable(false);
 
-        if (this.mousecage.hasMouse()) {
-            this.mousecage.mouse().bloodSugar.subscribe(this.bloodSugarSubscription);
-        }
+        this.mousecage.mouse().bloodSugar.subscribe(this.bloodSugarSubscription);
 
         this.simulationInterval = ko.observable(null);
 
@@ -89,8 +87,6 @@ class MouseCageViewController extends BaseViewController {
         this.mousecage.mouse().nextBloodStep();
         this.mousecage.mouse().nextHeartStep();
         
-        this.vetMonitorController.storeGlucoseStep(this.glucoseBagController.glucoseBag.glucoseInfusionRate())
-        
         if (this.mousecage.mouse().hasLethalBloodSugar()) {
             this.toggleSimulation(false);
 
@@ -101,8 +97,7 @@ class MouseCageViewController extends BaseViewController {
             });
         }
 
-        if (this.mousecage.hasMouse())
-            this.vetMonitorController.updatePlotData();
+        this.vetMonitorViewController.nextTimeStep();
     }
 
     injectionFromState() {
