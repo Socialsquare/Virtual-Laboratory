@@ -3,44 +3,58 @@ import _ = require('lodash');
 
 import heartRateJsonData = require('json!datadir/heartRate.json');
 import DataHelper = require('utils/DataHelper');
-import BaseViewController = require('controller/view/Base');
-import VetMonitor = require('model/type/VetMonitor');
+
+import VetMonitorBaseViewController = require('controller/view/VetMonitorBaseViewController');
+
+import PlotItemType = require('model/type/PlotItemType');
 import PlotDataPointType = require('model/type/PlotDataPointType');
+import VetMonitor = require('model/interface/VetMonitor');
+
 import VetMonitorModel = require('model/VetMonitorModel');
 import VetMonitorWithGirModel = require('model/VetMonitorWithGirModel');
 import MouseCage = require('model/MouseCage');
 
 
-class VetMonitorViewController extends BaseViewController {
-    public mousecage: MouseCage;
-    public vetMonitor: VetMonitor;
+class VetMonitorViewController extends VetMonitorBaseViewController {
+    
+    public isHrGraphEnabled: KnockoutObservable<boolean>;
+    public graphHrRange: KnockoutObservableArray<boolean>;
+    //public heartRateData: KnockoutObservableArray<number[]>;
     
     constructor() {
         super('vetmonitor');
         this.vetMonitor = new VetMonitorModel();
-        this.mousecage = this.gameState.mousecage;
-        this.plotData = ko.observable([]);
+        
+        this.isHrGraphEnabled = ko.observable(true);
+        this.graphHrRange =
+            ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
+        //this.updatePlotData();
+        
         ko.rebind(this);
     }
-    
-    /**
-     * Generates blood sugar leveldata for plot graph.
-     * If mouse is dead sugar level is 0.
-     * if blood sugar level graph is disabled sugar level is null.
-     */
-    getBloodGlucoseDataForPlot():PlotDataPointType[] {
-        var bloodData = _.map(this.graphRange, (i): PlotDataPointType => {
-            var sugar = null;
-            if (!this.mousecage.mouse().alive()) {
-                sugar = 0;
-            } else if (this.graphBloodRange()[i]) {
-                sugar = this.mousecage.mouse().bloodData()[i];
-            }
-            return [i, sugar];
-        });
-        return bloodData;
-    }
 
+    exportData() {
+        //this.plotData(); // TODO get it from collector or model?
+        var raw = {bloodData: [], heartRateData:[]};
+        var headers = ['time', 'blood sugar', 'heart rate'];
+        var parsed = _(raw.bloodData)
+            .zip(raw.heartRateData)
+            .map((row) => {
+                var bloodsugar = row[0][1];
+                var hr;
+                if (row[1][1]) {
+                    hr = _.sample(heartRateJsonData.pulse);
+                } else {
+                    hr = row[1][1]; // either null or 0
+                }
+                var line = [row[0][0], bloodsugar, hr];
+                return line;
+            })
+            .value();
+
+        this.popupController.dataExport(DataHelper.toCSV(parsed, headers));
+    }
+    
     /**
      * Generates pulse data for plot graph.
      * If mouse is dead it's HR is 0.
@@ -66,15 +80,15 @@ class VetMonitorViewController extends BaseViewController {
     updatePlotData() {
         this.updateGraphRanges();
         var toPlot =  [
-            new PlotItemType({
+            <PlotItemType>{
                 data: this.getHrDataForPlot(),
                 yaxis: 2,
-                color: 'rgb(255,160,160)'}),
-            new PlotItemType({
+                color: 'rgb(255,160,160)'},
+            <PlotItemType>{
                 data: this.getBloodGlucoseDataForPlot(),
                 label: 'mmol/L',
                 yaxis: 1,
-                color: 'yellow'})
+                color: 'yellow'},
         ];
         this.plotData(toPlot);
     }
@@ -84,18 +98,12 @@ class VetMonitorViewController extends BaseViewController {
     }
 
     updateGraphRanges() {
+        super.updateGraphRanges();
         this.graphHrRange.shift();
         if (this.isHrGraphEnabled()) {
             this.graphHrRange.push(true);
         } else {
             this.graphHrRange.push(false);
-        }
-
-        this.graphBloodRange.shift();
-        if (this.isBloodSugarGraphEnabled()) {
-            this.graphBloodRange.push(true);
-        } else {
-            this.graphBloodRange.push(false);
         }
     }
 }

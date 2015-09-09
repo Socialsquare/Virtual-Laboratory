@@ -40,25 +40,20 @@ class MouseCageViewController extends BaseViewController {
 
         super('mousecage');
 
-        this.videoController = new VideoController(true);
-        this.vetMonitorViewController = new VetMonitorViewController();
-
         this.mousecage = this.gameState.mousecage;
+
+        this.videoController = new VideoController(true);
+        this.glucoseBagController = new GlucoseBagController(this.mousecage.glucoseBag);
+
         this.mouseDrinking = ko.observable(false);
 
         this.lowBloodSugarWarningToggle = ko.observable(false);
         this.highBloodSugarWarningToggle = ko.observable(false);
         this.diabetesDevelopedToggle = ko.observable(false);
 
-        this.mousecage.mouse().bloodSugar.subscribe(this.bloodSugarSubscription);
-
         this.simulationInterval = ko.observable(null);
 
         this.bottle = ContainerFactory.bottle().add(LiquidFactory.juice(), true);
-
-        this.glucoseBagController = new GlucoseBagController(this.mousecage.glucoseBag);
-
-        if (this.mousecage.hasMouse()) this.vetMonitorController.updatePlotData();
 
         ko.rebind(this);
     }
@@ -96,8 +91,6 @@ class MouseCageViewController extends BaseViewController {
                 this.popupController.message('mouse.died_glucose.header', 'mouse.died_glucose.body');
             });
         }
-
-        this.vetMonitorViewController.nextTimeStep();
     }
 
     injectionFromState() {

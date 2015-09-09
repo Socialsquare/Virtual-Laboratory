@@ -1,7 +1,11 @@
 
+import PlotDataPointType = require('model/type/PlotDataPointType');
+
 type PlotItemType = {
-    data: any[],
+    data: PlotDataPointType[],
     label: string,
     yaxis: number,
     color: string
 }
+
+export = PlotItemType;
