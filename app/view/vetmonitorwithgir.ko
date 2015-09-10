@@ -1,14 +1,14 @@
 
 <div class="mousegraph" data-bind="plotVetMonitor: plotData"></div>
 
-<div class="hand export-btn" data-bind="click: vetMonitor.exportData">
+<div class="hand export-btn" data-bind="click: exportData">
     <img src="assets/images/icon_spreadsheet.png" alt="Export data">
 </div>
 
-<div class="hand bloodsugar-toggle-btn" data-bind="click: vetMonitor.isBloodSugarGraphEnabled.toggle">
+<div class="hand bloodsugar-toggle-btn" data-bind="click: isBloodSugarGraphEnabledToggle">
     <img src="assets/images/icon_spreadsheet.png" alt="Blood suger toggle">
 </div>
 
-<div class="hand glucose-infusion-rate-toggle-btn" data-bind="click: vetMonitor.isGirGraphEnabled.toggle">
+<div class="hand glucose-infusion-rate-toggle-btn" data-bind="click: isGirGraphEnabledToggle">
     <img src="assets/images/icon_spreadsheet.png" alt="GIR toggle">
 </div>

@@ -5,14 +5,12 @@ import heartRateJsonData = require('json!datadir/heartRate.json');
 import DataHelper = require('utils/DataHelper');
 
 import VetMonitorBaseViewController = require('controller/view/VetMonitorBaseViewController');
-
+import popupController = require('controller/Popup');
 import PlotItemType = require('model/type/PlotItemType');
 import PlotDataPointType = require('model/type/PlotDataPointType');
 import VetMonitor = require('model/interface/VetMonitor');
 
 import VetMonitorModel = require('model/VetMonitorModel');
-import VetMonitorWithGirModel = require('model/VetMonitorWithGirModel');
-import MouseCage = require('model/MouseCage');
 
 
 class VetMonitorViewController extends VetMonitorBaseViewController {
@@ -21,16 +19,20 @@ class VetMonitorViewController extends VetMonitorBaseViewController {
     public graphHrRange: KnockoutObservableArray<boolean>;
     //public heartRateData: KnockoutObservableArray<number[]>;
     
-    constructor() {
-        super('vetmonitor');
+    constructor(params) {
+        console.log("VetMonitorViewController() constructor");
+        super(params);
         this.vetMonitor = new VetMonitorModel();
         
         this.isHrGraphEnabled = ko.observable(true);
         this.graphHrRange =
             ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
-        //this.updatePlotData();
         
         ko.rebind(this);
+    }
+    
+    isHrGraphEnabledToggle() {
+        this.isHrGraphEnabled(!this.isHrGraphEnabled());
     }
 
     exportData() {
@@ -52,7 +54,7 @@ class VetMonitorViewController extends VetMonitorBaseViewController {
             })
             .value();
 
-        this.popupController.dataExport(DataHelper.toCSV(parsed, headers));
+        popupController.dataExport(DataHelper.toCSV(parsed, headers));
     }
     
     /**
@@ -65,16 +67,30 @@ class VetMonitorViewController extends VetMonitorBaseViewController {
         hrData = _.map(this.graphRange, (i): PlotDataPointType => {
             var hr = null;
 
-            var dataIndex = this.mousecage.mouse().heartRateIndex + i;
-            dataIndex = dataIndex % this.mousecage.mouse().heartRateData.length;
-            if (!this.mousecage.mouse().alive()) {
+            var dataIndex = this.mouse().heartRateIndex + i;
+            dataIndex = dataIndex % this.mouse().heartRateData.length;
+            if (!this.mouse().alive()) {
                 hr = 0;
             } else if (this.graphHrRange()[i]) {
-                hr = this.mousecage.mouse().heartRateData[dataIndex];
+                hr = this.mouse().heartRateData[dataIndex];
             }
             return [i, hr];
         });
         return hrData;
+    }
+    
+    getBloodGlucoseDataForPlot():PlotDataPointType[] {
+        return super.getBloodGlucoseDataForPlot();
+    }
+
+    updateGraphRanges() {
+        super.updateGraphRanges();
+        this.graphHrRange.shift();
+        if (this.isHrGraphEnabled()) {
+            this.graphHrRange.push(true);
+        } else {
+            this.graphHrRange.push(false);
+        }
     }
 
     updatePlotData() {
@@ -90,21 +106,18 @@ class VetMonitorViewController extends VetMonitorBaseViewController {
                 yaxis: 1,
                 color: 'yellow'},
         ];
+        //this.plotData.removeAll();
         this.plotData(toPlot);
     }
     
     nextTimeStep() {
-        this.updatePlotData();
+        //if (this.mouseCageHasMouse())
+            this.updatePlotData();
     }
 
-    updateGraphRanges() {
-        super.updateGraphRanges();
-        this.graphHrRange.shift();
-        if (this.isHrGraphEnabled()) {
-            this.graphHrRange.push(true);
-        } else {
-            this.graphHrRange.push(false);
-        }
+    dispose() {
+        console.log("VetMonitorViewController dispose");
+        super.dispose();
     }
 }
 

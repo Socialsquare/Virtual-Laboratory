@@ -22,8 +22,9 @@ class VetMonitorWithGirViewController extends VetMonitorBaseViewController {
     public graphGirRange: KnockoutObservableArray<boolean>;
     public girDataForPlot: KnockoutObservableArray<number[]>;
     
-    constructor() {
-        super('vetmonitorwithgir');
+    constructor(params) {
+        super(params);
+        this.glucoseBag = params.glucoseBag;
         this.vetMonitor = new VetMonitorWithGirModel();
         this.isGirGraphEnabled = ko.observable(true);
         this.graphGirRange =
@@ -36,6 +37,10 @@ class VetMonitorWithGirViewController extends VetMonitorBaseViewController {
         ko.rebind(this);
     }
     
+    isGirGraphEnabledToggle() {
+        this.isGirGraphEnabled(!this.isGirGraphEnabled());
+    }
+    
     /**
      * Generates Glucose Infusion Rate data for plot graph.
      * If mouse is dead it's GIR is 0.
@@ -46,7 +51,7 @@ class VetMonitorWithGirViewController extends VetMonitorBaseViewController {
         girDataToPlot = _.map(this.graphRange, (i): PlotDataPointType => {
             var gir = null;
 
-            if (!this.mousecage.mouse().alive()) {
+            if (!this.mouse().alive()) {
                 gir = 0;
             } else if (this.graphGirRange()[i]) {
                 gir = this.girDataForPlot()[i];
@@ -80,7 +85,7 @@ class VetMonitorWithGirViewController extends VetMonitorBaseViewController {
 
     nextTimeStep() {
         this.addGlucoseStepToPlotData(
-            this.mousecage.glucoseBag.glucoseInfusionRate());
+            this.glucoseBag.glucoseInfusionRate());
         this.updatePlotData();
     }
 

@@ -35,6 +35,7 @@ class MouseCageViewController extends BaseViewController {
 
     public glucoseBagController: GlucoseBagController;
     public bottle: BottleModel;
+    private _bloodSugarSubscription = null;
 
     constructor() {
 
@@ -58,7 +59,7 @@ class MouseCageViewController extends BaseViewController {
         ko.rebind(this);
     }
     
-    public bloodSugarSubscription = (bloodSugar) => {
+    public onBloodSugarChange = (bloodSugar) => {
         if (bloodSugar < 1.5 && !this.lowBloodSugarWarningToggle()) {
             this.lowBloodSugarWarningToggle(true);
             this.popupController.message('mouse.warning_insulin.header', 'mouse.warning_insulin.body');
@@ -113,6 +114,11 @@ class MouseCageViewController extends BaseViewController {
     runFromState() {
         if (!this.mousecage.hasMouse()) return;
 
+        // FIXME: will this work? is runFromState executed after mouse is added to cage?
+        this._bloodSugarSubscription =
+            this.mousecage.mouse().bloodSugar.subscribe(this.onBloodSugarChange);
+        
+
         if (this.mousecage.mouse().alive()) {
             switch (this.mousecage.mouse().mouseType()) {
             case MouseType.HEALTHY:
@@ -149,15 +155,19 @@ class MouseCageViewController extends BaseViewController {
     }
 
     exit() {
+        console.log("mousecage exit");
         this.videoController.stop();
         this.toggleSimulation(false);
+        if (this._bloodSugarSubscription)
+            this._bloodSugarSubscription.dispose();
     }
 
     toggleSimulation(enabled) {
-        if (enabled) {
+        if ((enabled) && (this.simulationInterval() === null)) {
             this.simulationInterval(setInterval(this.nextTimeStep, this.simulationIntervalTime));
         } else {
-            clearInterval(this.simulationInterval());
+            if (this.simulationInterval() !== null)
+                clearInterval(this.simulationInterval());
         }
     }
 

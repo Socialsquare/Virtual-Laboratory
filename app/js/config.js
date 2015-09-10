@@ -24,7 +24,8 @@ require.config({
 
         base: 'libs/Base',
 
-        datadir: '../data'
+        datadir: '../data',
+        tmpldir: '../view'
     },
     shim: {
         'html5Loader': ['jquery'],

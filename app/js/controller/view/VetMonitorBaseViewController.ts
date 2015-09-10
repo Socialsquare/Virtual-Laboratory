@@ -7,10 +7,12 @@ import PlotItemType = require('model/type/PlotItemType');
 import PlotDataPointType = require('model/type/PlotDataPointType');
 import VetMonitor = require('model/interface/VetMonitor');
 
-import MouseCage = require('model/MouseCage');
+import MouseCageModel = require('model/MouseCage');
+import MouseModel = require('model/Mouse');
 
-class VetMonitorBaseViewController extends BaseViewController {
-    public mousecage: MouseCage;
+class VetMonitorBaseViewController {
+    public mouse: KnockoutObservable<MouseModel>;
+    public mouseCageHasMouse: KnockoutObservable<boolean>;
     public vetMonitor: VetMonitor;
 
     public simulationInterval: KnockoutObservable<number>;
@@ -18,18 +20,20 @@ class VetMonitorBaseViewController extends BaseViewController {
 
     public graphRangeStart: number = 0;
     public graphRangeEnd: number = 250;
-    public graphRange: number[] = [];
+    public graphRange: number[];
 
     public isBloodSugarGraphEnabled: KnockoutObservable<boolean>;
     public graphBloodRange: KnockoutObservableArray<boolean>;
     //public bloodGlucoseData: KnockoutObservableArray<number[]>;
 
     public plotData: KnockoutObservableArray;
+    private _mouseSubscription = null;
     
-    constructor(templateName: string) {
-        super(templateName);
-
-        this.mousecage = this.gameState.mousecage;
+    constructor(params) {
+        console.log(params);
+        if (params === undefined) return;
+        this.mouse = params.mouse;  // KnockoutObservable
+        this.mouseCageHasMouse = params.hasMouse;  // KnockoutObservable
         this.isBloodSugarGraphEnabled = ko.observable(true);
         this.graphRange = _.range(this.graphRangeStart, this.graphRangeEnd);
         this.graphBloodRange =
@@ -38,9 +42,19 @@ class VetMonitorBaseViewController extends BaseViewController {
 
         this.simulationInterval = ko.observable(null);
 
+        this.toggleSimulation(this.mouseCageHasMouse());
+
         ko.rebind(this);
     }
-    
+
+    isBloodSugarGraphEnabledToggle() {
+        this.isBloodSugarGraphEnabled(!this.isBloodSugarGraphEnabled());
+    }
+
+    exportData() {
+        console.log("base exportData");
+    }
+
     /**
      * Generates blood sugar leveldata for plot graph.
      * If mouse is dead sugar level is 0.
@@ -49,10 +63,10 @@ class VetMonitorBaseViewController extends BaseViewController {
     getBloodGlucoseDataForPlot():PlotDataPointType[] {
         var bloodData = _.map(this.graphRange, (i): PlotDataPointType => {
             var sugar = null;
-            if (!this.mousecage.mouse().alive()) {
+            if (!this.mouse().alive()) {
                 sugar = 0;
             } else if (this.graphBloodRange()[i]) {
-                sugar = this.mousecage.mouse().bloodData()[i];
+                sugar = this.mouse().bloodData()[i];
             }
             return [i, sugar];
         });
@@ -69,11 +83,12 @@ class VetMonitorBaseViewController extends BaseViewController {
     }
 
     toggleSimulation(enabled: boolean) {
-        if (enabled) {
+        if ((enabled) && (this.simulationInterval() === null)) {
             this.simulationInterval(setInterval(this.nextTimeStep,
                                                 this.simulationIntervalTime));
-        } else {
+        } else if (this.simulationInterval()) {
             clearInterval(this.simulationInterval());
+            this.simulationInterval(null);
         }
     }
 
@@ -86,24 +101,28 @@ class VetMonitorBaseViewController extends BaseViewController {
                 yaxis: 1,
                 color: 'yellow'},
         ];
-        //this.plotData.removeAll();
+        this.plotData.removeAll();
         this.plotData(toPlot);
     }
 
     nextTimeStep() {
-        //if (this.mousecage.hasMouse())
-        this.updatePlotData();
+        if (this.mouseCageHasMouse())
+            this.updatePlotData();
     }
 
     enter() {
-        super.enter();
-
-        this.toggleSimulation(this.mousecage.hasMouse());
+        console.log("enter");
+        this._mouseSubscription = this.mouse.subscribe((newmouse) => {
+            this.toggleSimulation(<boolean>newmouse);
+        });
     }
 
-    exit() {
+    dispose() {
+        console.log("dispose");
         this.toggleSimulation(false);
-        this.plotData = ko.observableArray(null);
+        this.plotData.removeAll();
+        if (this._mouseSubscription)
+            this._mouseSubscription.dispose();
     }
 }
 

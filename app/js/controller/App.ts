@@ -1,5 +1,6 @@
 import ko = require('knockout');
 import homescreen = require('homescreen');
+import $ = require('jquery');
 
 import tutorialController = require('controller/Tutorial');
 import hudController = require('controller/HUD');
@@ -10,6 +11,8 @@ import MenuController = require('controller/Menu');
 import LoadingController = require('controller/view/Loading');
 import OverviewController = require('controller/view/Overview');
 import MouseCageViewController = require('controller/view/MouseCageViewController');
+import VetMonitorViewController = require('controller/view/VetMonitorViewController');
+import VetMonitorWithGirViewController = require('controller/view/VetMonitorWithGirViewController');
 import ChemicalController = require('controller/view/Chemical');
 import ComputerController = require('controller/view/Computer');
 import FumehoodController = require('controller/view/Fumehood');
@@ -70,7 +73,9 @@ class App extends BaseViewController {
             uvroom          : new UvRoomController(),
             washing         : new WashingController(),
         };
-
+        
+        this.registerComponents();
+        
         // setup routing
         this.router.currentRoute.subscribe((routeName) => {
             this.viewChange(routeName);
@@ -82,9 +87,32 @@ class App extends BaseViewController {
 
         ko.rebind(this);
     }
+    
+    public registerComponents = () => {
+        ko.components.register('vetmonitor-component', {
+            viewModel: { 
+                createViewModel: (params, componentInfo) => {
+                    var vetmon = new VetMonitorViewController(params);
+                    vetmon.enter();
+                    return vetmon;
+                }
+            },
+            //viewModel: VetMonitorViewController,
+            //viewModel: { require: 'controller/view/VetMonitorViewController'},
+            template: { require: 'text!tmpldir/vetmonitor.ko'},
+            //synchronous: true
+        });
+        ko.components.register('vetmonitorwithgir-component', {
+            viewModel: { require: 'controller/view/VetMonitorWithGirViewController'},
+            //viewModel: VetMonitorWithGirViewController,
+            template: { require: 'text!tmpldir/vetmonitorwithgir.ko'},
+            //synchronous: true
+        });
+    }
 
     viewChange(viewName: string) {
         if (window.BUILD != 'production') console.log(viewName);
+
         // exit current controller
         if (this.activeViewController()) {
             this.activeViewController().exit();
