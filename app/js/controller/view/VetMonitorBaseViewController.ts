@@ -86,7 +86,7 @@ class VetMonitorBaseViewController {
         if ((enabled) && (this.simulationInterval() === null)) {
             this.simulationInterval(setInterval(this.nextTimeStep,
                                                 this.simulationIntervalTime));
-        } else if (this.simulationInterval()) {
+        } else {
             clearInterval(this.simulationInterval());
             this.simulationInterval(null);
         }
@@ -121,6 +121,7 @@ class VetMonitorBaseViewController {
         console.log("dispose");
         this.toggleSimulation(false);
         this.plotData.removeAll();
+        this.plotData([]);
         if (this._mouseSubscription)
             this._mouseSubscription.dispose();
     }

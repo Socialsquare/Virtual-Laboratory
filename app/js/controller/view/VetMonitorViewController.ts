@@ -13,15 +13,43 @@ import VetMonitor = require('model/interface/VetMonitor');
 import VetMonitorModel = require('model/VetMonitorModel');
 
 
-class VetMonitorViewController extends VetMonitorBaseViewController {
-    
+class VetMonitorViewController {
+    public mouse: KnockoutObservable<MouseModel>;
+    public mouseCageHasMouse: KnockoutObservable<boolean>;
+    public vetMonitor: VetMonitor;
+
+    public simulationInterval: KnockoutObservable<number>;
+    public simulationIntervalTime: number = 100;  // millisecond
+
+    public graphRangeStart: number = 0;
+    public graphRangeEnd: number = 250;
+    public graphRange: number[];
+
+    public isBloodSugarGraphEnabled: KnockoutObservable<boolean>;
+    public graphBloodRange: KnockoutObservableArray<boolean>;
+    //public bloodGlucoseData: KnockoutObservableArray<number[]>;
+
+    public plotData: KnockoutObservableArray;
+    private _mouseSubscription = null;
     public isHrGraphEnabled: KnockoutObservable<boolean>;
     public graphHrRange: KnockoutObservableArray<boolean>;
     //public heartRateData: KnockoutObservableArray<number[]>;
     
     constructor(params) {
         console.log("VetMonitorViewController() constructor");
-        super(params);
+        console.log(params);
+        if (params === undefined) return;
+        this.mouse = params.mouse;  // KnockoutObservable
+        this.mouseCageHasMouse = params.hasMouse;  // KnockoutObservable
+        console.log(this.mouseCageHasMouse());
+        this.isBloodSugarGraphEnabled = ko.observable(true);
+        this.graphRange = _.range(this.graphRangeStart, this.graphRangeEnd);
+        this.graphBloodRange =
+            ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
+        this.plotData = ko.observableArray(null);
+
+        this.simulationInterval = ko.observable(null);
+
         this.vetMonitor = new VetMonitorModel();
         
         this.isHrGraphEnabled = ko.observable(true);
@@ -33,6 +61,23 @@ class VetMonitorViewController extends VetMonitorBaseViewController {
     
     isHrGraphEnabledToggle() {
         this.isHrGraphEnabled(!this.isHrGraphEnabled());
+    }
+    
+    isBloodSugarGraphEnabledToggle() {
+        this.isBloodSugarGraphEnabled(!this.isBloodSugarGraphEnabled());
+    }
+    
+    getBloodGlucoseDataForPlot():PlotDataPointType[] {
+        var bloodData = _.map(this.graphRange, (i): PlotDataPointType => {
+            var sugar = null;
+            if (!this.mouse().alive()) {
+                sugar = 0;
+            } else if (this.graphBloodRange()[i]) {
+                sugar = this.mouse().bloodData()[i];
+            }
+            return [i, sugar];
+        });
+        return bloodData;
     }
 
     exportData() {
@@ -79,12 +124,13 @@ class VetMonitorViewController extends VetMonitorBaseViewController {
         return hrData;
     }
     
-    getBloodGlucoseDataForPlot():PlotDataPointType[] {
-        return super.getBloodGlucoseDataForPlot();
-    }
-
     updateGraphRanges() {
-        super.updateGraphRanges();
+        this.graphBloodRange.shift();
+        if (this.isBloodSugarGraphEnabled()) {
+            this.graphBloodRange.push(true);
+        } else {
+            this.graphBloodRange.push(false);
+        }
         this.graphHrRange.shift();
         if (this.isHrGraphEnabled()) {
             this.graphHrRange.push(true);
@@ -106,18 +152,41 @@ class VetMonitorViewController extends VetMonitorBaseViewController {
                 yaxis: 1,
                 color: 'yellow'},
         ];
-        //this.plotData.removeAll();
+        this.plotData.removeAll();
         this.plotData(toPlot);
     }
     
     nextTimeStep() {
-        //if (this.mouseCageHasMouse())
+        if (this.mouseCageHasMouse())
             this.updatePlotData();
+    }
+    
+    toggleSimulation(enabled: boolean) {
+        if ((enabled) && (this.simulationInterval() === null)) {
+            this.simulationInterval(setInterval(this.nextTimeStep,
+                                                this.simulationIntervalTime));
+        } else if (this.simulationInterval()) {
+            clearInterval(this.simulationInterval());
+            this.simulationInterval(null);
+        }
+    }
+
+    enter(){
+        console.log('VetMonitorViewController enter');
+        if (this.mouseCageHasMouse())
+            this.toggleSimulation(this.mouseCageHasMouse());
+        this._mouseSubscription = this.mouse.subscribe((newmouse) => {
+            this.toggleSimulation(<boolean>newmouse);
+        });
     }
 
     dispose() {
         console.log("VetMonitorViewController dispose");
-        super.dispose();
+        this.toggleSimulation(false);
+        this.plotData.removeAll();
+        this.plotData([]);
+        if (this._mouseSubscription)
+            this._mouseSubscription.dispose();
     }
 }
 
