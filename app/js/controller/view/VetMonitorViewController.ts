@@ -3,22 +3,20 @@ import _ = require('lodash');
 
 import heartRateJsonData = require('json!datadir/heartRate.json');
 import DataHelper = require('utils/DataHelper');
-
-import VetMonitorBaseViewController = require('controller/view/VetMonitorBaseViewController');
 import popupController = require('controller/Popup');
 import PlotItemType = require('model/type/PlotItemType');
 import PlotDataPointType = require('model/type/PlotDataPointType');
 import VetMonitor = require('model/interface/VetMonitor');
-
 import VetMonitorModel = require('model/VetMonitorModel');
+import MouseModel = require('model/Mouse');
 
 
 class VetMonitorViewController {
     public mouse: KnockoutObservable<MouseModel>;
-    public mouseCageHasMouse: KnockoutObservable<boolean>;
+    public mouseCageHasMouse: KnockoutComputed<boolean>;
     public vetMonitor: VetMonitor;
 
-    public simulationInterval: KnockoutObservable<number>;
+    public simulationInterval: number;
     public simulationIntervalTime: number = 100;  // millisecond
 
     public graphRangeStart: number = 0;
@@ -41,20 +39,19 @@ class VetMonitorViewController {
         if (params === undefined) return;
         this.mouse = params.mouse;  // KnockoutObservable
         this.mouseCageHasMouse = params.hasMouse;  // KnockoutObservable
-        console.log(this.mouseCageHasMouse());
+        this.vetMonitor = new VetMonitorModel();
+        
+        this.simulationInterval = null;
+
         this.isBloodSugarGraphEnabled = ko.observable(true);
         this.graphRange = _.range(this.graphRangeStart, this.graphRangeEnd);
         this.graphBloodRange =
             ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
-        this.plotData = ko.observableArray(null);
-
-        this.simulationInterval = ko.observable(null);
-
-        this.vetMonitor = new VetMonitorModel();
         
         this.isHrGraphEnabled = ko.observable(true);
         this.graphHrRange =
             ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
+        this.plotData = ko.observableArray(null);
         
         ko.rebind(this);
     }
@@ -162,29 +159,36 @@ class VetMonitorViewController {
     }
     
     toggleSimulation(enabled: boolean) {
-        if ((enabled) && (this.simulationInterval() === null)) {
-            this.simulationInterval(setInterval(this.nextTimeStep,
-                                                this.simulationIntervalTime));
-        } else if (this.simulationInterval()) {
-            clearInterval(this.simulationInterval());
-            this.simulationInterval(null);
+        console.log("toggleSimulation: enabled "+ enabled);
+        console.log("toggleSimulation: this.simulationInterval "+ this.simulationInterval);
+        if ((enabled) && (!this.simulationInterval)) {
+            this.simulationInterval = setInterval(this.nextTimeStep,
+                                                  this.simulationIntervalTime);
+        } else {
+            clearInterval(this.simulationInterval);
+            this.simulationInterval = null;
         }
     }
 
     enter(){
         console.log('VetMonitorViewController enter');
+        console.log('this.mouseCageHasMouse(): ' + this.mouseCageHasMouse());
+        console.log('this._mouseSubscription: ' + this._mouseSubscription);
+        console.log('this.simulationInterval(): ' + this.simulationInterval);
         if (this.mouseCageHasMouse())
             this.toggleSimulation(this.mouseCageHasMouse());
         this._mouseSubscription = this.mouse.subscribe((newmouse) => {
-            this.toggleSimulation(<boolean>newmouse);
+            this.toggleSimulation(<boolean><any>newmouse);
         });
     }
 
     dispose() {
         console.log("VetMonitorViewController dispose");
+        console.log("this._mouseSubscription: " + this._mouseSubscription);
+        console.log("this.simulationInterval: " + this.simulationInterval);
         this.toggleSimulation(false);
         this.plotData.removeAll();
-        this.plotData([]);
+        //this.plotData([]);
         if (this._mouseSubscription)
             this._mouseSubscription.dispose();
     }

@@ -6,9 +6,7 @@
 </div>
 
 <div class="hand bloodsugar-toggle-btn" data-bind="click: isBloodSugarGraphEnabledToggle">
-    <img src="assets/images/icon_spreadsheet.png" alt="Blood suger toggle">
 </div>
 
 <div class="hand glucose-infusion-rate-toggle-btn" data-bind="click: isGirGraphEnabledToggle">
-    <img src="assets/images/icon_spreadsheet.png" alt="GIR toggle">
 </div>

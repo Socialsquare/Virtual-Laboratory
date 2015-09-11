@@ -6,9 +6,7 @@
 </div>
 
 <div class="hand hr-toggle-btn" data-bind="click: isHrGraphEnabledToggle">
-    <img src="assets/images/icon_spreadsheet.png" alt="HR toggle">
 </div>
 
 <div class="hand bloodsugar-toggle-btn" data-bind="click: isBloodSugarGraphEnabledToggle">
-    <img src="assets/images/icon_spreadsheet.png" alt="Blood suger toggle">
 </div>

@@ -97,21 +97,22 @@ class App extends BaseViewController {
                     return vetmon;
                 }
             },
-            //viewModel: VetMonitorViewController,
-            //viewModel: { require: 'controller/view/VetMonitorViewController'},
-            template: { require: 'text!tmpldir/vetmonitor.ko'},
-            //synchronous: true
+            template: { require: 'text!tmpldir/components/vetmonitor.ko'},
         });
         ko.components.register('vetmonitorwithgir-component', {
-            viewModel: { require: 'controller/view/VetMonitorWithGirViewController'},
-            //viewModel: VetMonitorWithGirViewController,
-            template: { require: 'text!tmpldir/vetmonitorwithgir.ko'},
-            //synchronous: true
+            viewModel: { 
+                createViewModel: (params, componentInfo) => {
+                    var vetmon = new VetMonitorWithGirViewController(params);
+                    vetmon.enter();
+                    return vetmon;
+                }
+            },
+            template: { require: 'text!tmpldir/components/vetmonitorwithgir.ko'},
         });
     }
 
     viewChange(viewName: string) {
-        if (window.BUILD != 'production') console.log(viewName);
+        if (window['BUILD'] !== 'production') console.log(viewName);
 
         // exit current controller
         if (this.activeViewController()) {

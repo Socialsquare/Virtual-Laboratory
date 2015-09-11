@@ -51,7 +51,7 @@ class GameState {
 
         this.pipette = new PipetteModel();
 
-        this.askTutorial = ko.observable(window.BUILD === 'production');
+        this.askTutorial = ko.observable(window['BUILD'] === 'production');
 
         this.worktable1 = new Worktable1Model();
         this.worktable2 = new Worktable2Model();
