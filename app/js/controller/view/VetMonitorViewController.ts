@@ -65,6 +65,8 @@ class VetMonitorViewController {
     }
     
     getBloodGlucoseDataForPlot():PlotDataPointType[] {
+        if (! this.mouseCageHasMouse())
+            return [];
         var bloodData = _.map(this.graphRange, (i): PlotDataPointType => {
             var sugar = null;
             if (!this.mouse().alive()) {
@@ -105,6 +107,8 @@ class VetMonitorViewController {
      * if HR graph is disabled HR is null.
      */
     getHrDataForPlot():PlotDataPointType[] {
+        if (! this.mouseCageHasMouse())
+            return [];
         var hrData = [];
         hrData = _.map(this.graphRange, (i): PlotDataPointType => {
             var hr = null;

@@ -23,11 +23,11 @@
         </div>
     </div>
 
-    <!-- ko ifnot: apparatusEnabled('MOUSE_CAGE', 'VET_MONITOR_WITH_GIR') -->
+    <!-- ko ifnot: apparatusEnabled('MOUSE_CAGE_VET_MONITOR', 'VET_MONITOR_WITH_GIR') -->
         <div class="koComponent vetmonitor" data-bind="component: { name: 'vetmonitor-component', params: { mouse: mousecage.mouse, hasMouse: mousecage.hasMouse } }"></div>
     <!-- /ko -->
 
-    <!-- ko if: apparatusEnabled('MOUSE_CAGE', 'VET_MONITOR_WITH_GIR') -->
-        <div class="koComponent vetmonitor" data-bind="component: { name: 'vetmonitorwithgir-component', params: { mouse: mousecage.mouse, hasMouse: mousecage.hasMouse, glucoseBag: mousecage.glucoseBag } }"></div>
+    <!-- ko if: apparatusEnabled('MOUSE_CAGE_VET_MONITOR', 'VET_MONITOR_WITH_GIR') -->
+            <div class="koComponent vetmonitor" data-bind="component: { name: 'vetmonitorwithgir-component', params: { mouse: mousecage.mouse, hasMouse: mousecage.hasMouse, glucoseBag: mousecage.glucoseBag.glucoseInfusionRate } }"></div>
     <!-- /ko -->
 </div>

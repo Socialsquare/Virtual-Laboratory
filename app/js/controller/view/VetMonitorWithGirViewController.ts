@@ -35,7 +35,7 @@ class VetMonitorWithGirViewController {
         if (params === undefined) return;
         this.mouse = params.mouse;  // KnockoutObservable
         this.mouseCageHasMouse = params.hasMouse;  // KnockoutObservable
-        this.glucoseBag = params.glucoseBag;
+        this.glucoseInfusionRate = ko.observable(params.glucoseInfusionRate);
         this.vetMonitor = new VetMonitorWithGirModel();
         
         this.graphRange = _.range(this.graphRangeStart, this.graphRangeEnd);
@@ -91,6 +91,8 @@ class VetMonitorWithGirViewController {
      * if blood sugar level graph is disabled sugar level is null.
      */
     getBloodGlucoseDataForPlot():PlotDataPointType[] {
+        if (! this.mouseCageHasMouse())
+            return [];
         var bloodData = _.map(this.graphRange, (i): PlotDataPointType => {
             var sugar = null;
             if (!this.mouse().alive()) {
@@ -109,10 +111,10 @@ class VetMonitorWithGirViewController {
      * if HR graph is disabled GIR is null.
      */
     getGirDataForPlot():PlotDataPointType[] {
-        var girDataToPlot = [];
-        girDataToPlot = _.map(this.graphRange, (i): PlotDataPointType => {
+        if (! this.mouseCageHasMouse())
+            return [];
+        var girDataToPlot = _.map(this.graphRange, (i): PlotDataPointType => {
             var gir = null;
-
             if (!this.mouse().alive()) {
                 gir = 0;
             } else if (this.graphGirRange()[i]) {
@@ -149,8 +151,7 @@ class VetMonitorWithGirViewController {
     nextTimeStep() {
         if (!this.mouseCageHasMouse())
             return;
-        this.addGlucoseStepToPlotData(
-            this.glucoseBag.glucoseInfusionRate());
+        this.addGlucoseStepToPlotData(this.glucoseInfusionRate());
         this.updatePlotData();
     }
 
@@ -181,7 +182,7 @@ class VetMonitorWithGirViewController {
     
     enter() {
         if (this.mouseCageHasMouse())
-            this.toggleSimulation(this.mouseCageHasMouse());
+            this.toggleSimulation(true);
         this._mouseSubscription = this.mouse.subscribe((newmouse) => {
             this.toggleSimulation(<boolean>newmouse);
         });
