@@ -1,5 +1,6 @@
 import ko = require('knockout');
 import homescreen = require('homescreen');
+import $ = require('jquery');
 
 import tutorialController = require('controller/Tutorial');
 import hudController = require('controller/HUD');
@@ -9,7 +10,9 @@ import BaseViewController = require('controller/view/Base');
 import MenuController = require('controller/Menu');
 import LoadingController = require('controller/view/Loading');
 import OverviewController = require('controller/view/Overview');
-import MouseController = require('controller/view/Mouse');
+import MouseCageViewController = require('controller/view/MouseCageViewController');
+import VetMonitorViewController = require('controller/view/VetMonitorViewController');
+import VetMonitorWithGirViewController = require('controller/view/VetMonitorWithGirViewController');
 import ChemicalController = require('controller/view/Chemical');
 import ComputerController = require('controller/view/Computer');
 import FumehoodController = require('controller/view/Fumehood');
@@ -62,7 +65,7 @@ class App extends BaseViewController {
             worktable3      : new Worktable3Controller(),
             fumehood        : new FumehoodController(),
             incubator       : new IncubatorController(),
-            mouse           : new MouseController(),
+            mousecage       : new MouseCageViewController(),
             spectropm       : spectropmController,
             spectropmscreen : new SpectroPMScreenController(spectropmController),
             fermentor       : new FermentorController(),
@@ -70,21 +73,47 @@ class App extends BaseViewController {
             uvroom          : new UvRoomController(),
             washing         : new WashingController(),
         };
-
+        
+        this.registerComponents();
+        
         // setup routing
         this.router.currentRoute.subscribe((routeName) => {
             this.viewChange(routeName);
         });
 
         // bootstrap the app by going to loading view
-        //this.router.navigate('loading');
-        this.router.navigate('overview');
+        this.router.navigate('loading');
+        //this.router.navigate('overview');
 
         ko.rebind(this);
     }
+    
+    public registerComponents = () => {
+        ko.components.register('vetmonitor-component', {
+            viewModel: { 
+                createViewModel: (params, componentInfo) => {
+                    var vetmon = new VetMonitorViewController(params);
+                    vetmon.enter();
+                    return vetmon;
+                }
+            },
+            template: { require: 'text!tmpldir/components/vetmonitor.ko'},
+        });
+        ko.components.register('vetmonitorwithgir-component', {
+            viewModel: { 
+                createViewModel: (params, componentInfo) => {
+                    var vetmon = new VetMonitorWithGirViewController(params);
+                    vetmon.enter();
+                    return vetmon;
+                }
+            },
+            template: { require: 'text!tmpldir/components/vetmonitorwithgir.ko'},
+        });
+    }
 
     viewChange(viewName: string) {
-        if (window.BUILD != 'production') console.log(viewName);
+        if (window['BUILD'] !== 'production') console.log(viewName);
+
         // exit current controller
         if (this.activeViewController()) {
             this.activeViewController().exit();

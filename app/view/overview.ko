@@ -17,7 +17,7 @@
     <div class="hand" data-bind="route: 'worktable2'">
         <img src="assets/images/overview_base-worktable2.png" class="worktable2" alt="Go to work table 2">
     </div>
-    <div class="hand" data-bind="route: 'mouse'">
+    <div class="hand" data-bind="route: 'mousecage'">
         <img src="assets/images/overview_base-mouse.png" class="mouse" alt="Go to mouse">
     </div>
     <div class="hand" data-bind="route: 'worktable1'">

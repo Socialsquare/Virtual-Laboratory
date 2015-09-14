@@ -1,0 +1,39 @@
+/* view/vetmonitor.scss */
+.vetmonitor {
+    .export-btn {
+        position: absolute;
+        top: 582px;
+        left: 167px;
+
+        img {
+            height: 24px;
+        }
+    }
+
+    .bloodsugar-toggle-btn {
+        position: absolute;
+        background-color: yellow;
+        top: 570px;
+        left: 220px;
+        width: 25px;
+        height: 25px;
+    }
+
+    .hr-toggle-btn {
+        position: absolute;
+        background-color: red;
+        top: 578px;
+        left: 260px;
+        width: 25px;
+        height: 25px;
+    }
+
+    .glucose-infusion-rate-toggle-btn {
+        position: absolute;
+        background-color: blue;
+        top: 570px;
+        left: 280px;
+        width: 24px;
+        height: 24px;
+    }
+}

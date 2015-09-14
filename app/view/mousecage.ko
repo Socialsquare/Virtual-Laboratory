@@ -23,21 +23,11 @@
         </div>
     </div>
 
-    <div class="mousegraph" data-bind="plotMouse: plotData"></div>
+    <!-- ko ifnot: apparatusEnabled('MOUSE_CAGE_VET_MONITOR', 'VET_MONITOR_WITH_GIR') -->
+        <div class="koComponent vetmonitor" data-bind="component: { name: 'vetmonitor-component', params: { mouse: mousecage.mouse, hasMouse: mousecage.hasMouse } }"></div>
+    <!-- /ko -->
 
-    <div class="hand export-btn" data-bind="click: exportData">
-        <img src="assets/images/icon_spreadsheet.png" alt="Export data">
-    </div>
-
-    <div class="hand hr-toggle-btn" data-bind="click: toggleHartRate">
-        <img src="assets/images/icon_spreadsheet.png" alt="HR toggle">
-    </div>
-
-    <div class="hand bloodsugar-toggle-btn" data-bind="click: toggleBloodSugar">
-        <img src="assets/images/icon_spreadsheet.png" alt="Blood suger toggle">
-    </div>
-
-    <div class="hand glucose-infusion-rate-toggle-btn" data-bind="click: toggleGlucoseInfusionRate">
-        <img src="assets/images/icon_spreadsheet.png" alt="GIR toggle">
-    </div>
+    <!-- ko if: apparatusEnabled('MOUSE_CAGE_VET_MONITOR', 'VET_MONITOR_WITH_GIR') -->
+            <div class="koComponent vetmonitor" data-bind="component: { name: 'vetmonitorwithgir-component', params: { mouse: mousecage.mouse, hasMouse: mousecage.hasMouse, glucoseInfusionRate: glucoseBagController.glucoseBag.glucoseInfusionRate } }"></div>
+    <!-- /ko -->
 </div>

@@ -201,15 +201,19 @@ class Mouse extends SpecialItemModel {
     }
 
     hasLethalBloodSugar() {
-        return this.bloodSugar() < this.minBloodSugar() || this.bloodSugar() >= this.killBloodSugar();
+        return ((this.bloodSugar() < this.minBloodSugar()) || (this.bloodSugar() >= this.killBloodSugar()));
     }
 
     giveJuice() {
         this.glucoseDose(this.glucoseDose() + 3);
     }
 
-    giveGlucose() {
-        this.glucoseDose(this.glucoseDose() + 3);
+    giveGlucose(glucose: number): void {
+        if (glucose) {
+            this.glucoseDose(this.glucoseDose() + glucose);
+        } else {
+            this.glucoseDose(this.glucoseDose() + 3);
+        }
     }
 
     giveInsulin() {

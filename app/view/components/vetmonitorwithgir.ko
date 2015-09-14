@@ -1,0 +1,12 @@
+
+<div class="mousegraph" data-bind="plotVetMonitor: plotData"></div>
+
+<div class="hand export-btn" data-bind="click: exportData">
+    <img src="assets/images/icon_spreadsheet.png" alt="Export data">
+</div>
+
+<div class="hand bloodsugar-toggle-btn" data-bind="click: isBloodSugarGraphEnabledToggle">
+</div>
+
+<div class="hand glucose-infusion-rate-toggle-btn" data-bind="click: isGirGraphEnabledToggle">
+</div>

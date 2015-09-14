@@ -13,7 +13,7 @@ interface KnockoutBindingHandlers {
     plotFermentor: KnockoutBindingHandler;
     plotDrugAffinitySmall: KnockoutBindingHandler;
     plotDrugAffinity: KnockoutBindingHandler;
-    plotMouse: KnockoutBindingHandler;
+    plotVetMonitor: KnockoutBindingHandler;
 
     // routing
     route: KnockoutBindingHandler;

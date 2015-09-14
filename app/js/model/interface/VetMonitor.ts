@@ -1,0 +1,5 @@
+
+interface VetMonitor {
+};
+
+export = VetMonitor;

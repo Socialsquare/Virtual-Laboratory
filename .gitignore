@@ -10,3 +10,4 @@ logs
 /app/assets/preload.json
 /app/typings/
 /app/.tscache/
+tscommand-*

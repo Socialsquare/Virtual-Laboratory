@@ -18,7 +18,8 @@ require.config({
         homescreen: '../bower_components/add-to-homescreen/src/addtohomescreen',
         signals: '../bower_components/js-signals/dist/signals',
 
-        datadir: '../data'
+        datadir: '../data',
+    	tmpldir: '../view'
     },
     shim: {
         'html5Loader': ['jquery'],
@@ -72,6 +73,7 @@ require([
     var app = new App(isWeb);
 
     var appElement = document.getElementById('#app');
-
+    
     ko.applyBindings(app, appElement);
+    
 });

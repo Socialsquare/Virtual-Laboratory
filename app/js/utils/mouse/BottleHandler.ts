@@ -1,10 +1,10 @@
 import MouseType = require('model/type/Mouse');
 
-import MouseViewController = require('controller/view/Mouse');
+import MouseCageViewController = require('controller/view/MouseCageViewController');
 
 class BottleHandler {
 
-    static handle(MC: MouseViewController, item) {
+    static handle(MC: MouseCageViewController, item) {
         if (!MC.mousecage.hasMouse()) {
             return false;
         }

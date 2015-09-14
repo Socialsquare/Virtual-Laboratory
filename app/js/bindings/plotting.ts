@@ -66,23 +66,15 @@ ko.bindingHandlers.plotDrugAffinity = {
     }
 };
 
-ko.bindingHandlers.plotMouse = {
+ko.bindingHandlers.plotVetMonitor = {
     // init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {},
 
     update: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
         var data = ko.unwrap(valueAccessor());
 
-        var bloodGlucoseData = data.bloodData;
-        var heartRateData = data.heartRateData;
-        var glucoseInfusionRateData = data.glucoseInfusionRateData;
-
         $.plot(
             $(element),
-            [
-                { data: heartRateData, yaxis: 2, color: 'rgb(255,160,160)' },
-                { data: bloodGlucoseData, label: 'mmol/L', yaxis: 1, color: 'yellow' },
-                { data: glucoseInfusionRateData, label: 'mmol/L', yaxis: 1, color: 'blue' }
-            ],
+            data,
             {
                 xaxes: [{ show: false }],
                 yaxes: [{ min: 0, max: 20 }, { min: -400, max: 1000, show: false}]

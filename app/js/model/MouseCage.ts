@@ -13,7 +13,9 @@ class MouseCage {
 
     constructor() {
         this.mouse = ko.observable(null);
-        this.hasMouse = ko.pureComputed(():boolean =>{return <boolean><any>this.mouse()});
+        this.hasMouse = ko.pureComputed(():boolean =>{
+            return <boolean><any>this.mouse();
+        }).extend({ notify: 'always' });
         this.glucoseBag = new GlucoseBagModel();
 
         ko.rebind(this);

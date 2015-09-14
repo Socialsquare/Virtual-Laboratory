@@ -10,11 +10,11 @@ import SyringeModel = require('model/Syringe');
 import LiquidFactory = require('factory/Liquid');
 import ContainerFactory = require('factory/Container');
 
-import MouseViewController = require('controller/view/Mouse');
+import MouseCageViewController = require('controller/view/MouseCageViewController');
 
 class SyringeHandler {
 
-    static handle(MC: MouseViewController, syringe: SyringeModel) {
+    static handle(MC: MouseCageViewController, syringe: SyringeModel) {
         if (!MC.mousecage.hasMouse()) {
             return false;
         }

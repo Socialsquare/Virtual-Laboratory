@@ -7,11 +7,11 @@ import MouseHandler = require('utils/mouse/MouseHandler');
 import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
 
-import MouseViewController = require('controller/view/Mouse');
+import MouseCageViewController = require('controller/view/MouseCageViewController');
 
 class DropOnMouseHelper {
 
-    static handleDrop(MC: MouseViewController, item) {
+    static handleDrop(MC: MouseCageViewController, item) {
         if (MC.mousecage.hasMouse() && MC.mousecage.mouse().isInteracting())
             return false;
 
