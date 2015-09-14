@@ -20,7 +20,7 @@ class Lane extends SimpleContainerModel {
 
     electrofy() {
         var ffd = <FreeFloatingDNAModel>super.findByType(LiquidType.FREE_FLOATING_DNA);
-        var blueStain = <LiquidType.BLUE_STAIN>super.findByType(LiquidType.BLUE_STAIN);
+        var blueStain = super.findByType(LiquidType.BLUE_STAIN);
         
         if (ffd && blueStain && ffd.bloodType() === MouseBloodType.DIABETIC) {
             this.value(100);
