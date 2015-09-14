@@ -8,9 +8,11 @@ import hudController = require('controller/HUD');
 class GlucoseBagController {
 
     public glucoseBag: GlucoseBagModel;
+    private STEP: number;
 
     constructor(glucoseBag: GlucoseBagModel) {
         this.glucoseBag = glucoseBag;
+        this.STEP = 5;
 
         ko.rebind(this);
     }
@@ -25,15 +27,17 @@ class GlucoseBagController {
     }
 
     increaseRate() {
-        this.glucoseBag.glucoseInfusionRate(this.glucoseBag.glucoseInfusionRate()+ 1);
-        console.log(this.glucoseBag.glucoseInfusionRate());
+        if (this.glucoseBag.status()) {
+            this.glucoseBag.glucoseInfusionRate(this.glucoseBag.glucoseInfusionRate()+ this.STEP);
+        }
     }
 
     decreaseRate() {
-        var newRate = this.glucoseBag.glucoseInfusionRate() - 1;
-        if (newRate < 0) newRate = 0;
-        this.glucoseBag.glucoseInfusionRate(newRate)
-        console.log(this.glucoseBag.glucoseInfusionRate());
+        if (this.glucoseBag.status()) {
+            var newRate = this.glucoseBag.glucoseInfusionRate() - this.STEP;
+            if (newRate < 0) newRate = 0;
+            this.glucoseBag.glucoseInfusionRate(newRate)
+        }
     }
 }
 
