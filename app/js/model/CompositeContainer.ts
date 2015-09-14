@@ -2,13 +2,13 @@ import ko = require('knockout');
 import _ = require('lodash');
 
 import SimpleContainerModel = require('model/SimpleContainer');
-import SpecialItemModel = require('model/SpecialItem');
+import InventoryItem = require('model/InventoryItem');
 
 import ContainerType = require('model/type/Container');
 import LocationType = require('model/type/Location');
 import LiquidType = require('model/type/Liquid');
 
-class CompositeContainer extends SpecialItemModel {
+class CompositeContainer extends InventoryItem {
 
     public type: KnockoutObservable<ContainerType>;
     public capacity: number;
