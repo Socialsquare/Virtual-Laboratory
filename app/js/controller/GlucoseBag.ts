@@ -18,7 +18,7 @@ class GlucoseBagController {
     }
 
     activate() {
-        this.glucoseBag.status(!this.glucoseBag.status());
+        this.glucoseBag.activate();
         if (this.glucoseBag.status()) {
             hudController.flashTimePassing(60);
         } else {

@@ -11,6 +11,13 @@ class GlucoseBag {
 
         ko.rebind(this);
     }
+
+    public activate() {
+        this.status(!this.status());
+        if (!this.status()) {
+            this.glucoseInfusionRate(0);
+        }
+    }
 }
 
 export = GlucoseBag;
