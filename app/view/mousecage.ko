@@ -28,6 +28,6 @@
     <!-- /ko -->
 
     <!-- ko if: apparatusEnabled('MOUSE_CAGE_VET_MONITOR', 'VET_MONITOR_WITH_GIR') -->
-            <div class="koComponent vetmonitor" data-bind="component: { name: 'vetmonitorwithgir-component', params: { mouse: mousecage.mouse, hasMouse: mousecage.hasMouse, glucoseBag: mousecage.glucoseBag.glucoseInfusionRate } }"></div>
+            <div class="koComponent vetmonitor" data-bind="component: { name: 'vetmonitorwithgir-component', params: { mouse: mousecage.mouse, hasMouse: mousecage.hasMouse, glucoseInfusionRate: glucoseBagController.glucoseBag.glucoseInfusionRate } }"></div>
     <!-- /ko -->
 </div>

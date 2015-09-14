@@ -40,7 +40,7 @@ class MouseCageViewController extends BaseViewController {
     constructor() {
 
         super('mousecage');
-
+        
         this.mousecage = this.gameState.mousecage;
 
         this.videoController = new VideoController(true);
@@ -77,6 +77,13 @@ class MouseCageViewController extends BaseViewController {
 
     nextTimeStep() {
         if (!this.mousecage.hasMouse()) return;
+        
+        _.map(_.range(1, this.mousecage.glucoseBag.glucoseInfusionRate()), (i) => {
+            // this is to increase blood sugar based on Glucose Infusion Rate
+            // this is some random number I thought would make sense -
+            // every 100ms we add this amount multiplied by the GIR number.
+            this.mousecage.mouse().giveGlucose(1 / 60.0);
+        });
 
         this.mousecage.mouse().nextBloodStep();
         this.mousecage.mouse().nextHeartStep();

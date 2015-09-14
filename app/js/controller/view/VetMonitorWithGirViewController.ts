@@ -36,7 +36,7 @@ class VetMonitorWithGirViewController {
         if (params === undefined) return;
         this.mouse = params.mouse;  // KnockoutObservable
         this.mouseCageHasMouse = params.hasMouse;  // KnockoutObservable
-        this.glucoseInfusionRate = ko.observable(params.glucoseInfusionRate);
+        this.glucoseInfusionRate = params.glucoseInfusionRate;  // KnockoutObservable
         this.vetMonitor = new VetMonitorWithGirModel();
         
         this.graphRange = _.range(this.graphRangeStart, this.graphRangeEnd);
