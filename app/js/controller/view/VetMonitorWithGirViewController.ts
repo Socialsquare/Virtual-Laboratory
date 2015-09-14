@@ -15,6 +15,7 @@ import MouseModel = require('model/Mouse');
 class VetMonitorWithGirViewController {
     public mouse: KnockoutObservable<MouseModel>;
     public mouseCageHasMouse: KnockoutObservable<boolean>;
+    public glucoseInfusionRate: KnockoutObservable<number>;
     public vetMonitor: VetMonitor;
 
     public simulationInterval: number;
@@ -143,15 +144,15 @@ class VetMonitorWithGirViewController {
         this.plotData(toPlot);
     }
     
-    addGlucoseStepToPlotData(gir) {
+    addGlucoseStepToPlotData() {
         this.girDataForPlot.shift();
-        this.girDataForPlot.push(gir);
+        this.girDataForPlot.push(this.glucoseInfusionRate());
     }
     
     nextTimeStep() {
         if (!this.mouseCageHasMouse())
             return;
-        this.addGlucoseStepToPlotData(this.glucoseInfusionRate());
+        this.addGlucoseStepToPlotData();
         this.updatePlotData();
     }
 

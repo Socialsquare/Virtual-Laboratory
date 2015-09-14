@@ -30,7 +30,7 @@ class MouseCageViewController extends BaseViewController {
     public highBloodSugarWarningToggle: KnockoutObservable<boolean>;
     public diabetesDevelopedToggle: KnockoutObservable<boolean>;
 
-    public simulationInterval: KnockoutObservable<number>;
+    public simulationInterval: number = null;
     public simulationIntervalTime: number = 100;  // millisecond
 
     public glucoseBagController: GlucoseBagController;
@@ -52,10 +52,8 @@ class MouseCageViewController extends BaseViewController {
         this.highBloodSugarWarningToggle = ko.observable(false);
         this.diabetesDevelopedToggle = ko.observable(false);
 
-        this.simulationInterval = ko.observable(null);
-
         this.bottle = ContainerFactory.bottle().add(LiquidFactory.juice(), true);
-
+        
         ko.rebind(this);
     }
     
@@ -114,10 +112,10 @@ class MouseCageViewController extends BaseViewController {
     runFromState() {
         if (!this.mousecage.hasMouse()) return;
 
-        // FIXME: will this work? is runFromState executed after mouse is added to cage?
-        this._bloodSugarSubscription =
-            this.mousecage.mouse().bloodSugar.subscribe(this.onBloodSugarChange);
-        
+        if (!this._bloodSugarSubscription) {
+            this._bloodSugarSubscription =
+                this.mousecage.mouse().bloodSugar.subscribe(this.onBloodSugarChange);
+        }
 
         if (this.mousecage.mouse().alive()) {
             switch (this.mousecage.mouse().mouseType()) {
@@ -158,16 +156,18 @@ class MouseCageViewController extends BaseViewController {
         console.log("mousecage exit");
         this.videoController.stop();
         this.toggleSimulation(false);
-        if (this._bloodSugarSubscription)
+        if (this._bloodSugarSubscription) {
             this._bloodSugarSubscription.dispose();
+            this._bloodSugarSubscription = null;
+        }
     }
 
     toggleSimulation(enabled) {
-        if ((enabled) && (this.simulationInterval() === null)) {
-            this.simulationInterval(setInterval(this.nextTimeStep, this.simulationIntervalTime));
-        } else {
-            if (this.simulationInterval() !== null)
-                clearInterval(this.simulationInterval());
+        if ((enabled) && (this.simulationInterval === null)) {
+            this.simulationInterval = setInterval(this.nextTimeStep,
+                                                  this.simulationIntervalTime);
+        } else if (this.simulationInterval !== null) {
+                clearInterval(this.simulationInterval);
         }
     }
 
