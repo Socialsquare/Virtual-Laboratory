@@ -21,11 +21,11 @@ class Gel extends CompositeContainerModel {
     }
 
     getVacantLane() {
-        return _.find(this.lanes(), (lane) => lane.isEmpty());
+        return _.find(this.lanes(), (lane) => !lane.hasFFD());
     }
 
     getUnstainedLane() {
-        return _.find(this.lanes(), (lane) => !lane.isEmpty() && !lane.isStained());
+        return _.find(this.lanes(), (lane) => !lane.isStained());
     }
 }
 
