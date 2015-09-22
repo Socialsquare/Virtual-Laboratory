@@ -10,7 +10,9 @@ class Experiment {
     public title: KnockoutObservable<string>;
     public story: KnockoutObservable<string>;
     public description: KnockoutObservable<string>;
-    public tasks: KnockoutObservableArray<TaskModel>;
+    public parts: KnockoutObservableArray<TaskModel[]>;
+    public hasParts: KnockoutComputed<boolean>;
+    public tasks: KnockoutComputedArray<TaskModel>;
     public apparatus: ApparatusModel;
 
     constructor(values) {
@@ -19,9 +21,17 @@ class Experiment {
         this.story = ko.observable(values.story);
         this.description = ko.observable(values.description);
         this.apparatus = ApparatusModel.parse(values.apparatus);
-        this.tasks = ko.observableArray(_.map(values.tasks, (task) => {
-            return new TaskModel(task);
+        this.parts = ko.observableArray(_.map(values.parts, (part) => {
+            part.tasks = _.map(part.tasks, (task) => {
+                return new TaskModel(task);
+            });
+            return part;
         }));
+        this.tasks = ko.pureComputed(() => {
+            return _.flatten(_.map(this.parts(), (part) => {
+                return part.tasks;
+            }));
+        });
     }
 }
 

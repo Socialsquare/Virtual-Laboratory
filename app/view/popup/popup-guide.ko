@@ -11,10 +11,17 @@
         <br />
         <br />
 
-        <ul data-bind="foreach: experiment.tasks">
-            <li data-bind="css: { finished: finished, active: $parent.isActiveTask($data) }">
-                <span data-bind="text: $index() + 1"></span>. <span data-bind="i18n: description()"></span>
-                <i data-bind="visible: finished" class="fa fa-check"></i>
+        <ol data-bind="foreach: experiment.parts()">
+            <li>
+                <!-- ko if: $parent.experiment.parts().length > 1 -->
+                Part <span data-bind="text: $index() + 1"></span>.
+                <!-- /ko -->
+                <ul data-bind="foreach: tasks">
+                    <li data-bind="css: { finished: finished, active: $parents[1].isActiveTask($data) }">
+                        <span><span data-bind="text: $index() + 1"></span>. <span data-bind="i18n: description()"></span></span>
+                        <i data-bind="visible: finished" class="fa fa-check"></i>
+                    </li>
+                </ul>
             </li>
         </ul>
 

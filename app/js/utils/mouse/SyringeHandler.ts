@@ -26,7 +26,7 @@ class SyringeHandler {
         }
 
         // Drawing blood
-        else if (syringe.isEmpty()) {
+        if (syringe.isEmpty()) {
             popupController.confirm('mouse.ask_draw_blood.header', 'mouse.ask_draw_blood.body')
                 .then(() => MC.videoController.play('fast-injection'))
                 .then(() => {
