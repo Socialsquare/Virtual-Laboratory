@@ -10,75 +10,14 @@
         "parts": [
             { 
                 "tasks": [
-                    {
-                        "description": { "dk": "Draw blood from the mouse" },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.MOUSE_BLOOD" }
-                            ]
-                        }
-                    }
                 ]
             },
             { 
                 "tasks": [
-                    {
-                        "description": { "dk": "Draw blood from the mouse" },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.MOUSE_BLOOD" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": { "dk": "Centrifuge tubes and extract buffy coat" },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.BUFFY_COAT" }
-                            ]
-                        }
-                    }
-                
                 ]
             },
             { 
                 "tasks": [
-                    {
-                        "description": { "dk": "Draw blood from the mouse" },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.MOUSE_BLOOD" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": { "dk": "Centrifuge tubes and extract buffy coat" },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.BUFFY_COAT" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": { "dk": "Centrifuge tubes and extract buffy coat" },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.BUFFY_COAT" }
-                            ]
-                        }
-                    }
                 ]
             }
         ]

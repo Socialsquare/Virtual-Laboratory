@@ -50,7 +50,8 @@ class Experiment {
             if (!this.hasExperiment())
                 return null;
 
-            return _.find(this.activeExperiment().tasks(), (task) => {
+            var tasks = <TaskModel[]>this.activeExperiment().tasks();
+            return _.find(tasks, (task) => {
                 return !task.finished();
             });
         });
