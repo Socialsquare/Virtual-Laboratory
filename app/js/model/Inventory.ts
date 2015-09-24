@@ -20,13 +20,20 @@ class Inventory {
         ko.rebind(this);
     }
 
-    add(item, alternativeLabel = '') {
+    add(item, alternativeLabel = '', additionalInfo={}) {
         // generate default label
         if (!item.acquired() && item.label) {
             if (alternativeLabel) {
                 item.label(alternativeLabel);
             } else {
                 item.label(TextHelper.label(item));
+            }
+            if (additionalInfo) {
+                var info = '\n\n';
+                _.map(additionalInfo, function(val, key) {
+                    info += key + ': ' + val + '\n';
+                });
+                item.label(item.label()+info);
             }
         }
 
