@@ -2,9 +2,9 @@
     "fast-drink-spawn": "fast_drink_spawn",
     "fast-injection-lethal": "fast_injection_lethal",
     "fast-dead-cut": "fast_dead_cut",
-
     "fast-loop": "fast_loop",
     "fast-injection": "fast_injection",
+    "fast-draw-blood": "fast_draw_blood",
     "fast-die-insulin": "fast_die_insulin",
 
     "smallpox-cure": "smallpox_cure",

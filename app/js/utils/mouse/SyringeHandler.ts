@@ -28,7 +28,7 @@ class SyringeHandler {
         // Drawing blood
         if (syringe.isEmpty()) {
             popupController.confirm('mouse.ask_draw_blood.header', 'mouse.ask_draw_blood.body')
-                .then(() => MC.videoController.play('fast-injection'))
+                .then(() => MC.videoController.play('fast-draw-blood'))
                 .then(() => {
                     // consume the syringe
                     gameState.inventory.remove(syringe);
