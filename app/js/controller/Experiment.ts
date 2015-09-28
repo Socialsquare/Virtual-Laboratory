@@ -272,6 +272,15 @@ class Experiment {
             // currently don't validate anything about the designed drug
         }
 
+
+        if (trigger.activation === ActivationType.MOUSE_MONITOR) {
+            // mouse monitor currently isn't validate 
+        }
+
+        if (trigger.activation === ActivationType.GLUCOSE_BAG) {
+            // glucose bag currently isn't validate 
+        }
+
         this.finishActiveTask();
     }
 

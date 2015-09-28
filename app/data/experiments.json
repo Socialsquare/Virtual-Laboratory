@@ -10,14 +10,152 @@
         "parts": [
             { 
                 "tasks": [
+                    {
+                        "description": { "dk": "Order a healthy mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose and insulin concentrations of the blood sample)." },
+                        "trigger": {
+                            "type": "TriggerType.ACQUIRE",
+                            "item": "ContainerType.TUBE",
+                            "liquids": [
+                                { "type": "LiquidType.MOUSE_BLOOD" }
+                            ]
+                        }
+                    },
+                    {
+                        "description": { "dk": "Order a diabetic mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose and insulin concentrations of the blood sample)." },
+                        "trigger": {
+                            "type": "TriggerType.ACQUIRE",
+                            "item": "ContainerType.TUBE",
+                            "liquids": [
+                                { "type": "LiquidType.MOUSE_BLOOD" }
+                            ]
+                        }
+                    }
                 ]
             },
             { 
                 "tasks": [
+                    {
+                        "description": { "dk": "Order a healthy mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose concentration of the blood sample)." },
+                        "trigger": {
+                            "type": "TriggerType.ACQUIRE",
+                            "item": "ContainerType.TUBE",
+                            "liquids": [
+                                { "type": "LiquidType.MOUSE_BLOOD" }
+                            ]
+                        }
+                    },
+                    {
+                        "description": { "dk": "Give juice to the mouse." },
+                        "trigger": {
+                            "type": "TriggerType.MOUSE",
+                            "alive": true,
+                            "mouseType": "MouseType.HEALTHY",
+                            "item": "ContainerType.BOTTLE",
+                            "liquids": [
+                                { "type": "LiquidType.JUICE" }
+                            ]
+                        }
+                    },
+                    {
+                        "description": { "dk": "Export data into excel, to make a graph of the data." },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.MOUSE_MONITOR"
+                        }
+                    },
+                    {
+                        "description": { "dk": "Order a diabetic mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose concentration of the blood sample)." },
+                        "trigger": {
+                            "type": "TriggerType.ACQUIRE",
+                            "item": "ContainerType.TUBE",
+                            "liquids": [
+                                { "type": "LiquidType.MOUSE_BLOOD" }
+                            ]
+                        }
+                    },
+                    {
+                        "description": { "dk": "Give juice to the mouse." },
+                        "trigger": {
+                            "type": "TriggerType.ACQUIRE",
+                            "item": "ContainerType.TUBE",
+                            "liquids": [
+                                { "type": "LiquidType.MOUSE_BLOOD" }
+                            ]
+                        }
+                    },
+                    {
+                        "description": { "dk": "Export data into excel, to make a graph of the data and compare the healthy mouse with the diabetic" },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.MOUSE_MONITOR"
+                        }
+                    }
                 ]
             },
             { 
                 "tasks": [
+                    {
+                        "description": { "dk": "Order a healthy mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose concentration of the blood sample)." },
+                        "trigger": {
+                            "type": "TriggerType.ACQUIRE",
+                            "item": "ContainerType.TUBE",
+                            "liquids": [
+                                { "type": "LiquidType.MOUSE_BLOOD" }
+                            ]
+                        }
+                    },
+                    {
+                        "description": { "dk": "Start the glucose bag." },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.GLUCOSE_BAG"
+                        }
+                    },
+                    {
+                        "description": { "dk": "Stop the glucose bag when time is up." },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.GLUCOSE_BAG"
+                        }
+                    },
+                    {
+                        "description": { "dk": "Export data into excel, to make a graph of the data and compare the healthy mouse with the diabetic" },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.MOUSE_MONITOR"
+                        }
+                    },
+                    {
+                        "description": { "dk": "Order a diabetic mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose concentration of the blood sample)." },
+                        "trigger": {
+                            "type": "TriggerType.ACQUIRE",
+                            "item": "ContainerType.TUBE",
+                            "liquids": [
+                                { "type": "LiquidType.MOUSE_BLOOD" }
+                            ]
+                        }
+                    },
+                    {
+                        "description": { "dk": "Start the glucose bag." },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.GLUCOSE_BAG"
+                        }
+                    },
+                    {
+                        "description": { "dk": "Stop the glucose bag when time is up." },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.GLUCOSE_BAG"
+                        }
+                    },
+                    {
+                        "description": { "dk": "Export data into excel, to make a graph of the data and compare the healthy mouse with the diabetic" },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.MOUSE_MONITOR"
+                        }
+                    }
                 ]
             }
         ]
@@ -30,7 +168,7 @@
             {
                 "tasks": [
                     {
-                        "description": { "dk": "Draw blood from the mouse" },
+                        "description": { "dk": "Order a healthy or a diabetic mouse. Draw blood from the mouse" },
                         "trigger": {
                             "type": "TriggerType.ACQUIRE",
                             "item": "ContainerType.TUBE",

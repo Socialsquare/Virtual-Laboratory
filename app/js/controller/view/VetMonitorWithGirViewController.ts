@@ -3,9 +3,14 @@ import _ = require('lodash');
 
 import heartRateJsonData = require('json!datadir/heartRate.json');
 import DataHelper = require('utils/DataHelper');
+
 import popupController = require('controller/Popup');
+import experimentController = require('controller/Experiment');
+
 import PlotItemType = require('model/type/PlotItemType');
 import PlotDataPointType = require('model/type/PlotDataPointType');
+import ActivationType = require('model/type/Activation');
+
 import VetMonitor = require('model/interface/VetMonitor');
 import VetMonitorWithGirModel = require('model/VetMonitorWithGirModel');
 import MouseCage = require('model/MouseCage');
@@ -76,6 +81,7 @@ class VetMonitorWithGirViewController {
             .value();
 
         popupController.dataExport(DataHelper.toCSV(parsed, headers));
+        experimentController.triggerActivation(ActivationType.MOUSE_MONITOR, this.mouse());
     }
 
     isBloodSugarGraphEnabledToggle() {

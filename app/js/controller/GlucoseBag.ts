@@ -2,6 +2,8 @@ import ko = require('knockout');
 import _ = require('lodash');
 
 import GlucoseBagModel = require('model/GlucoseBag');
+import ActivationType = require('model/type/Activation');
+import experimentController = require('controller/Experiment');
 
 import hudController = require('controller/HUD');
 
@@ -24,6 +26,7 @@ class GlucoseBagController {
         } else {
             hudController.hideTimePassing();
         }
+        experimentController.triggerActivation(ActivationType.GLUCOSE_BAG, this);
     }
 
     increaseRate() {

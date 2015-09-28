@@ -21,7 +21,7 @@ class Inventory {
     }
 
     add(item, alternativeLabel = '', additionalInfo={}) {
-        // generate default label
+        // generate label
         if (!item.acquired() && item.label) {
             if (alternativeLabel) {
                 item.label(alternativeLabel);
@@ -30,7 +30,7 @@ class Inventory {
             }
             if (additionalInfo) {
                 var info = '\n\n';
-                _.map(additionalInfo, function(val, key) {
+                _.each(additionalInfo, (val, key) => {
                     info += key + ': ' + val + '\n';
                 });
                 item.label(item.label()+info);
