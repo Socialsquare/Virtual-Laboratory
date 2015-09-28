@@ -10,7 +10,7 @@ import BaseViewController = require('controller/view/Base');
 import MenuController = require('controller/Menu');
 import LoadingController = require('controller/view/Loading');
 import OverviewController = require('controller/view/Overview');
-import MouseCageViewController = require('controller/view/MouseCageViewController');
+import MouseCageController = require('controller/view/MouseCageController');
 import VetMonitorViewController = require('controller/view/VetMonitorViewController');
 import VetMonitorWithGirViewController = require('controller/view/VetMonitorWithGirViewController');
 import ChemicalController = require('controller/view/Chemical');
@@ -65,7 +65,7 @@ class App extends BaseViewController {
             worktable3      : new Worktable3Controller(),
             fumehood        : new FumehoodController(),
             incubator       : new IncubatorController(),
-            mousecage       : new MouseCageViewController(),
+            mousecage       : new MouseCageController(),
             spectropm       : spectropmController,
             spectropmscreen : new SpectroPMScreenController(spectropmController),
             fermentor       : new FermentorController(),

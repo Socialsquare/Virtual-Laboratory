@@ -18,7 +18,7 @@ import ContainerFactory = require( 'factory/Container');
 import LiquidFactory = require('factory/Liquid');
 
 
-class MouseCageViewController extends BaseViewController {
+class MouseCageController extends BaseViewController {
 
     public videoController: VideoController;
     public vetMonitorViewController: VetMonitorViewController;
@@ -189,4 +189,4 @@ class MouseCageViewController extends BaseViewController {
     }
 }
 
-export = MouseCageViewController;
+export = MouseCageController;

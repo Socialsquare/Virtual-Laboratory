@@ -2,11 +2,11 @@ import MouseType = require('model/type/Mouse');
 
 import experimentController = require('controller/Experiment');
 
-import MouseCageViewController = require('controller/view/MouseCageViewController');
+import MouseCageController = require('controller/view/MouseCageController');
 
 class ScalpelHandler {
 
-    static handle(MC: MouseCageViewController, item) {
+    static handle(MC: MouseCageController, item) {
         if (!MC.mousecage.hasMouse()) {
             return false;
         }

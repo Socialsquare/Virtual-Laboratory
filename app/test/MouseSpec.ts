@@ -1,4 +1,4 @@
-import MouseCageViewController = require('controller/view/MouseCageViewController');
+import MouseCageController = require('controller/view/MouseCageController');
 import popupController = require('controller/Popup');
 
 import ContainerFactory = require('factory/Container');
@@ -12,8 +12,8 @@ import VideoController = require('controller/Video');
 import DropOnMouseHelper = require('utils/mouse/DropOnMouseHelper');
 
 describe('Mouse', () => {
-    var mc: MouseCageViewController;
-    mc = new MouseCageViewController();
+    var mc: MouseCageController;
+    mc = new MouseCageController();
     mc.gameState.reset();
     mc.gameState.mousecage.mouse(SpecialItem.healthyMouse());
 

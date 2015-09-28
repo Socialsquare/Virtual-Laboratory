@@ -1,11 +1,11 @@
-import MouseCageViewController = require('controller/view/MouseCageViewController');
+import MouseCageController = require('controller/view/MouseCageController');
 import gameState = require('model/GameState');
 
 import MouseModel = require('model/Mouse');
 
 class MouseHandler {
 
-    static handle(MC: MouseCageViewController, mouse: MouseModel) {
+    static handle(MC: MouseCageController, mouse: MouseModel) {
         if (MC.gameState.mousecage.hasMouse()) {
             var oldMouse = MC.gameState.mousecage.mouse();
             MC.gameState.inventory.add(oldMouse);
