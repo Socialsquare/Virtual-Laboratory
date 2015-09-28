@@ -3,18 +3,13 @@
 
 	<hr />
 
-    <br />
-
     <div class="inner">
         <span data-bind="i18n: experiment.story"></span>
-
-        <br />
-        <br />
 
         <ol data-bind="foreach: experiment.parts()">
             <li>
                 <!-- ko if: $parent.experiment.parts().length > 1 -->
-                Part <span data-bind="text: $index() + 1"></span>.
+                <h2><span data-bind="i18n: 'popup.guide.part'"></span> <span data-bind="text: $index() + 1"></span></h2>
                 <!-- /ko -->
                 <ul data-bind="foreach: tasks">
                     <li data-bind="css: { finished: finished, active: $parents[1].isActiveTask($data) }">
@@ -25,10 +20,10 @@
             </li>
         </ul>
 
-        <br />
     </div>
 
 	<div class="btn-row">
+        <button data-bind="click: print, i18n: 'common.print'"></button>
         <button data-bind="click: hide.bind(null, $element), i18n: 'common.close'"></button>
     </div>
 </div>

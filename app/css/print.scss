@@ -1,0 +1,42 @@
+@media screen {
+    #print-popup {
+        visibility: hidden;
+    }
+}
+
+@media print {
+    #app {
+        visibility: hidden;
+    }
+
+    #print-popup {
+        visibility: visible;
+
+        hr,
+        .btn-row {
+            display: none;
+        }
+
+        ol {
+            margin: 2em 0 1em 0; 
+
+            li {
+                margin: 1em 0;
+
+                li {
+                    margin: 0.5em 0;
+                }
+            }
+        }
+
+        h1 {
+            margin: 2em 0 1em 0;
+        }
+
+        h2 {
+            margin-top: 2em;
+            font-size: 100%;
+            font-weight: bold;
+        }
+    }
+}

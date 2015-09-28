@@ -30,6 +30,15 @@
         @include border(solid, 0 0 1px 0, #414141);
         height: 1px;
         background-color: #000000;
+        margin: 1em 0;
+    }
+
+    ol {
+        margin-top: 1em;
+
+        h2 {
+            font-size: 100%;
+        }
     }
 
     .btn-row {

@@ -37,6 +37,11 @@ class PopupModel {
     hide() {
         this.closePromise.resolve();
     }
+
+    print() {
+        $("#print-popup").html($(".popup").html());
+        window.print();        
+    }
 }
 
 export = PopupModel;
