@@ -1,5 +1,0 @@
-
-interface VetMonitor {
-};
-
-export = VetMonitor;

@@ -10,9 +10,8 @@ import BaseViewController = require('controller/view/Base');
 import MenuController = require('controller/Menu');
 import LoadingController = require('controller/view/Loading');
 import OverviewController = require('controller/view/Overview');
-import MouseCageViewController = require('controller/view/MouseCageViewController');
-import VetMonitorViewController = require('controller/view/VetMonitorViewController');
-import VetMonitorWithGirViewController = require('controller/view/VetMonitorWithGirViewController');
+import MouseCageController = require('controller/view/MouseCageController');
+import VetMonitorController = require('controller/view/VetMonitorController');
 import ChemicalController = require('controller/view/Chemical');
 import ComputerController = require('controller/view/Computer');
 import FumehoodController = require('controller/view/Fumehood');
@@ -65,7 +64,7 @@ class App extends BaseViewController {
             worktable3      : new Worktable3Controller(),
             fumehood        : new FumehoodController(),
             incubator       : new IncubatorController(),
-            mousecage       : new MouseCageViewController(),
+            mousecage       : new MouseCageController(),
             spectropm       : spectropmController,
             spectropmscreen : new SpectroPMScreenController(spectropmController),
             fermentor       : new FermentorController(),
@@ -92,22 +91,12 @@ class App extends BaseViewController {
         ko.components.register('vetmonitor-component', {
             viewModel: { 
                 createViewModel: (params, componentInfo) => {
-                    var vetmon = new VetMonitorViewController(params);
+                    var vetmon = new VetMonitorController(params);
                     vetmon.enter();
                     return vetmon;
                 }
             },
             template: { require: 'text!tmpldir/components/vetmonitor.ko'},
-        });
-        ko.components.register('vetmonitorwithgir-component', {
-            viewModel: { 
-                createViewModel: (params, componentInfo) => {
-                    var vetmon = new VetMonitorWithGirViewController(params);
-                    vetmon.enter();
-                    return vetmon;
-                }
-            },
-            template: { require: 'text!tmpldir/components/vetmonitorwithgir.ko'},
         });
     }
 

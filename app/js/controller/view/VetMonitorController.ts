@@ -9,18 +9,17 @@ import experimentController = require('controller/Experiment');
 
 import PlotItemType = require('model/type/PlotItemType');
 import PlotDataPointType = require('model/type/PlotDataPointType');
-
-import VetMonitor = require('model/interface/VetMonitor');
 import VetMonitorModel = require('model/VetMonitorModel');
 import MouseModel = require('model/Mouse');
 
 
-class VetMonitorViewController {
+class VetMonitorController {
     public mouse: KnockoutObservable<MouseModel>;
     public mouseCageHasMouse: KnockoutComputed<boolean>;
-    public vetMonitor: VetMonitor;
+    public glucoseInfusionRate: KnockoutObservable<number>;
+    public vetMonitor;
 
-    public simulationInterval: number;
+    public simulationInterval: number = null
     public simulationIntervalTime: number = 100;  // millisecond
 
     public graphRangeStart: number = 0;
@@ -29,37 +28,58 @@ class VetMonitorViewController {
 
     public isBloodSugarGraphEnabled: KnockoutObservable<boolean>;
     public graphBloodRange: KnockoutObservableArray<boolean>;
-    //public bloodGlucoseData: KnockoutObservableArray<number[]>;
+    //public bloodGlucoseData: KnockoutObservableArray<number>;
 
-    public plotData: KnockoutObservableArray;
-    private _mouseSubscription = null;
+    public isGirGraphEnabled: KnockoutObservable<boolean>;
+    public graphGirRange: KnockoutObservableArray<boolean>;
+    public girDataForPlot: KnockoutObservableArray<number>;
+    
     public isHrGraphEnabled: KnockoutObservable<boolean>;
     public graphHrRange: KnockoutObservableArray<boolean>;
-    //public heartRateData: KnockoutObservableArray<number[]>;
+    //public heartRateData: KnockoutObservableArray<number>;
+
+    public plotData: KnockoutObservableArray<any>;
+    private _mouseSubscription = null;
     
     constructor(params) {
-        console.log("VetMonitorViewController() constructor");
+        console.log("VetMonitorController() constructor");
         console.log(params);
         if (params === undefined) return;
         this.mouse = params.mouse;  // KnockoutObservable
         this.mouseCageHasMouse = params.hasMouse;  // KnockoutObservable
+        this.glucoseInfusionRate = params.glucoseInfusionRate;  // KnockoutObservable
         this.vetMonitor = new VetMonitorModel();
         
-        this.simulationInterval = null;
 
         this.isBloodSugarGraphEnabled = ko.observable(true);
         this.graphRange = _.range(this.graphRangeStart, this.graphRangeEnd);
         this.graphBloodRange =
             ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
         
-        this.isHrGraphEnabled = ko.observable(true);
+        if (this.glucoseInfusionRate()) {
+            this.isHrGraphEnabled = ko.observable(false);
+            this.isGirGraphEnabled = ko.observable(true);
+        } else {
+            this.isHrGraphEnabled = ko.observable(true);
+            this.isGirGraphEnabled = ko.observable(false);
+        }
+
+        this.graphGirRange =
+            ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
+        this.girDataForPlot =
+            ko.observableArray(_.map(this.graphRange, (v) => { return null; }));            
+            
         this.graphHrRange =
             ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
-        this.plotData = ko.observableArray(null);
         
+        this.plotData = ko.observableArray(null);
+
         ko.rebind(this);
     }
     
+    // FIXME: for some reason ko.toggle() doesn't work with this component
+    // FIXME: so I added public methods isHrGraphEnabledToggle,
+    // FIXME: isBloodSugarGraphEnabledToggle, isGirGraphEnabledToggle
     isHrGraphEnabledToggle() {
         this.isHrGraphEnabled(!this.isHrGraphEnabled());
     }
@@ -67,10 +87,43 @@ class VetMonitorViewController {
     isBloodSugarGraphEnabledToggle() {
         this.isBloodSugarGraphEnabled(!this.isBloodSugarGraphEnabled());
     }
+
+    isGirGraphEnabledToggle() {
+        this.isGirGraphEnabled(!this.isGirGraphEnabled());
+    }
     
+    exportData() {
+        //// TODO get it from collector or model?
+        var raw = {bloodData: [], heartRateData:[], girData:[]};
+        var headers = ['time', 'blood sugar', 'heart rate', 'GIR'];
+        var parsed = _(raw.bloodData)
+            .zip(raw.heartRateData)
+            .map((row) => {
+                var bloodsugar = row[0][1];
+                var hr;
+                var gir;
+                var currTime = row[0][0];
+                if (row[1][1]) {
+                    hr = _.sample(heartRateJsonData.pulse);
+                } else {
+                    hr = row[1][1]; // either null or 0
+                }
+                if (row[2][1]) {
+                    gir = row[2][1]; // either null or 0
+                } 
+                var line = [currTime, bloodsugar, hr, gir];
+                return line;
+            })
+            .value();
+
+        popupController.dataExport(DataHelper.toCSV(parsed, headers));
+        experimentController.triggerActivation(ActivationType.MOUSE_MONITOR, this);
+    }
+
     getBloodGlucoseDataForPlot():PlotDataPointType[] {
-        if (! this.mouseCageHasMouse())
-            return [];
+        if (!this.mouseCageHasMouse()) {
+            return _.map(this.graphRange, (i) => {return [i, null];});
+        }
         var bloodData = _.map(this.graphRange, (i): PlotDataPointType => {
             var sugar = null;
             if (!this.mouse().alive()) {
@@ -83,28 +136,27 @@ class VetMonitorViewController {
         return bloodData;
     }
 
-    exportData() {
-        //this.plotData(); // TODO get it from collector or model?
-        var raw = {bloodData: [], heartRateData:[]};
-        var headers = ['time', 'blood sugar', 'heart rate'];
-        var parsed = _(raw.bloodData)
-            .zip(raw.heartRateData)
-            .map((row) => {
-                var bloodsugar = row[0][1];
-                var hr;
-                if (row[1][1]) {
-                    hr = _.sample(heartRateJsonData.pulse);
-                } else {
-                    hr = row[1][1]; // either null or 0
-                }
-                var line = [row[0][0], bloodsugar, hr];
-                return line;
-            })
-            .value();
-
-        popupController.dataExport(DataHelper.toCSV(parsed, headers));
-        experimentController.triggerActivation(ActivationType.MOUSE_MONITOR, this);
+    /**
+     * Generates Glucose Infusion Rate data for plot graph.
+     * If mouse is dead it's GIR is 0.
+     * if HR graph is disabled GIR is null.
+     */
+    getGirDataForPlot():PlotDataPointType[] {
+        if (!this.mouseCageHasMouse()) {
+            return _.map(this.graphRange, (i) => {return [i, null];});
+        }
+        var girDataToPlot = _.map(this.graphRange, (i): PlotDataPointType => {
+            var gir = null;
+            if (!this.mouse().alive()) {
+                gir = 0;
+            } else if (this.graphGirRange()[i]) {
+                gir = this.girDataForPlot()[i];
+            }
+            return [i, gir];
+        });
+        return girDataToPlot;
     }
+
     
     /**
      * Generates pulse data for plot graph.
@@ -112,8 +164,9 @@ class VetMonitorViewController {
      * if HR graph is disabled HR is null.
      */
     getHrDataForPlot():PlotDataPointType[] {
-        if (! this.mouseCageHasMouse())
-            return [];
+        if (!this.mouseCageHasMouse()) {
+            return _.map(this.graphRange, (i) => {return [i, null];});
+        }
         var hrData = [];
         hrData = _.map(this.graphRange, (i): PlotDataPointType => {
             var hr = null;
@@ -143,6 +196,12 @@ class VetMonitorViewController {
         } else {
             this.graphHrRange.push(false);
         }
+        this.graphGirRange.shift();
+        if (this.isGirGraphEnabled()) {
+            this.graphGirRange.push(true);
+        } else {
+            this.graphGirRange.push(false);
+        }
     }
 
     updatePlotData() {
@@ -157,20 +216,32 @@ class VetMonitorViewController {
                 label: 'mmol/L',
                 yaxis: 1,
                 color: 'yellow'},
+            <PlotItemType>{
+                data: this.getGirDataForPlot(),
+                label: 'mmol/L',
+                yaxis: 1,
+                color: 'blue'},
         ];
         this.plotData.removeAll();
         this.plotData(toPlot);
     }
+
+    addGirStepToPlotData() {
+        this.girDataForPlot.shift();
+        if (this.mouseCageHasMouse()) {
+            this.girDataForPlot.push(this.glucoseInfusionRate());
+        } else {
+            this.girDataForPlot.push(null);
+        }
+    }
     
     nextTimeStep() {
-        if (this.mouseCageHasMouse())
-            this.updatePlotData();
+        this.addGirStepToPlotData();
+        this.updatePlotData();
     }
     
     toggleSimulation(enabled: boolean) {
-        console.log("toggleSimulation: enabled "+ enabled);
-        console.log("toggleSimulation: this.simulationInterval "+ this.simulationInterval);
-        if ((enabled) && (!this.simulationInterval)) {
+        if ((enabled) && (this.simulationInterval === null)) {
             this.simulationInterval = setInterval(this.nextTimeStep,
                                                   this.simulationIntervalTime);
         } else {
@@ -180,21 +251,14 @@ class VetMonitorViewController {
     }
 
     enter(){
-        console.log('VetMonitorViewController enter');
-        console.log('this.mouseCageHasMouse(): ' + this.mouseCageHasMouse());
-        console.log('this._mouseSubscription: ' + this._mouseSubscription);
-        console.log('this.simulationInterval(): ' + this.simulationInterval);
-        if (this.mouseCageHasMouse())
-            this.toggleSimulation(this.mouseCageHasMouse());
+        this.toggleSimulation(this.mouseCageHasMouse());
         this._mouseSubscription = this.mouse.subscribe((newmouse) => {
             this.toggleSimulation(<boolean><any>newmouse);
         });
     }
 
     dispose() {
-        console.log("VetMonitorViewController dispose");
-        console.log("this._mouseSubscription: " + this._mouseSubscription);
-        console.log("this.simulationInterval: " + this.simulationInterval);
+        this.updatePlotData();
         this.toggleSimulation(false);
         this.plotData.removeAll();
         //this.plotData([]);
@@ -203,4 +267,4 @@ class VetMonitorViewController {
     }
 }
 
-export = VetMonitorViewController;
+export = VetMonitorController;

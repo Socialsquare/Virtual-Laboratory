@@ -7,13 +7,13 @@ import LiquidType = require('model/type/Liquid');
 import MouseType = require('model/type/Mouse');
 import AdministrationType = require('model/type/Administration');
 
-import MouseCageViewController = require('controller/view/MouseCageViewController');
+import MouseCageController = require('controller/view/MouseCageController');
 
 import TubeModel = require('model/Tube');
 
 class TubeHandler {
 
-    static handle(MC: MouseCageViewController, tube: TubeModel) {
+    static handle(MC: MouseCageController, tube: TubeModel) {
         if (!MC.mousecage.hasMouse()) {
             return false;
         }
