@@ -10,3 +10,6 @@
 
 <div class="hand bloodsugar-toggle-btn" data-bind="click: isBloodSugarGraphEnabledToggle">
 </div>
+
+<div class="hand glucose-infusion-rate-toggle-btn" data-bind="click: isGirGraphEnabledToggle">
+</div>

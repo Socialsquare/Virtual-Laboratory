@@ -11,8 +11,7 @@ import MenuController = require('controller/Menu');
 import LoadingController = require('controller/view/Loading');
 import OverviewController = require('controller/view/Overview');
 import MouseCageController = require('controller/view/MouseCageController');
-import VetMonitorViewController = require('controller/view/VetMonitorViewController');
-import VetMonitorWithGirViewController = require('controller/view/VetMonitorWithGirViewController');
+import VetMonitorController = require('controller/view/VetMonitorController');
 import ChemicalController = require('controller/view/Chemical');
 import ComputerController = require('controller/view/Computer');
 import FumehoodController = require('controller/view/Fumehood');
@@ -92,22 +91,12 @@ class App extends BaseViewController {
         ko.components.register('vetmonitor-component', {
             viewModel: { 
                 createViewModel: (params, componentInfo) => {
-                    var vetmon = new VetMonitorViewController(params);
+                    var vetmon = new VetMonitorController(params);
                     vetmon.enter();
                     return vetmon;
                 }
             },
             template: { require: 'text!tmpldir/components/vetmonitor.ko'},
-        });
-        ko.components.register('vetmonitorwithgir-component', {
-            viewModel: { 
-                createViewModel: (params, componentInfo) => {
-                    var vetmon = new VetMonitorWithGirViewController(params);
-                    vetmon.enter();
-                    return vetmon;
-                }
-            },
-            template: { require: 'text!tmpldir/components/vetmonitorwithgir.ko'},
         });
     }
 

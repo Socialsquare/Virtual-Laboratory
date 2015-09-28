@@ -6,7 +6,6 @@ import DropOnMouseHelper = require('utils/mouse/DropOnMouseHelper');
 import BaseViewController = require('controller/view/Base');
 import VideoController = require('controller/Video');
 import GlucoseBagController = require('controller/GlucoseBag');
-import VetMonitorViewController = require('controller/view/VetMonitorViewController');
 
 import BottleModel = require('model/Bottle');
 import MouseCage = require('model/MouseCage');
@@ -21,7 +20,6 @@ import LiquidFactory = require('factory/Liquid');
 class MouseCageController extends BaseViewController {
 
     public videoController: VideoController;
-    public vetMonitorViewController: VetMonitorViewController;
 
     public mousecage: MouseCage;
     public mouseDrinking: KnockoutObservable<boolean>;
