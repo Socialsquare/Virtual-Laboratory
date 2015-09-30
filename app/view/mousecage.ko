@@ -14,7 +14,7 @@
                     drag: { item: mousecage.mouse , consume: removeMouse }"></div>
 
 
-    <div class="glucose-bag" data-bind="with: glucoseBagController, visible: apparatusEnabled('MOUSE_CAGE', 'GLUCOSE_BAG')">
+    <div class="glucose-bag" data-bind="with: glucoseBagController">
         <div class="increase-btn hand" data-bind="click: increaseRate"></div>
         <div class="decrease-btn hand" data-bind="click: decreaseRate"></div>
         <div class="infusion-rate" data-bind="text: glucoseBag.glucoseInfusionRate() + ' mg/kg/min'"></div>
