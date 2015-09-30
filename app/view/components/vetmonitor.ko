@@ -13,3 +13,4 @@
 
 <div class="hand glucose-infusion-rate-toggle-btn" data-bind="click: isGirGraphEnabledToggle">
 </div>
+<vetmonitor-export-popup-component params='shouldShowExportPopup: shouldShowExportPopup'/></vetmonitor-export-popup-component>

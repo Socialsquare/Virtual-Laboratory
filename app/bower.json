@@ -1,20 +1,23 @@
 {
   "name": "vlab",
   "dependencies": {
+    "add-to-homescreen": "~3.0.7",
+    "dexie": "~1.2.0",
+    "fastclick": "~1.0.2",
+    "font-awesome": "~4.4.0",
     "jquery": "~2.1.1",
-    "lodash": "~3.9.3",
-    "requirejs": "~2.1.14",
-    "knockout": "~3.3.0",
-    "knockout-mapping": "~2.4.1",
-    "jquery-ui": "~1.11.0",
     "jquery-flot": "~0.8.3",
+    "jquery-ui": "~1.11.0",
     "jquery.html5loader": "~1.7.0",
     "jqueryui-touch-punch": "*",
-    "fastclick": "~1.0.2",
-    "screenfull": "~1.2.1",
-    "requirejs-text": "~2.0.12",
+    "js-signals": "~1.0.0",
+    "knockout": "~3.3.0",
+    "knockout-mapping": "~2.4.1",
+    "knockout-postbox": "~0.5.2",
+    "lodash": "~3.9.3",
+    "requirejs": "~2.1.14",
     "requirejs-plugins": "~1.0.2",
-    "add-to-homescreen": "~3.0.7",
-    "js-signals": "~1.0.0"
+    "requirejs-text": "~2.0.12",
+    "screenfull": "~1.2.1"
   }
 }

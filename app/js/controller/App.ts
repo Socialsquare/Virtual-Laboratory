@@ -12,6 +12,7 @@ import LoadingController = require('controller/view/Loading');
 import OverviewController = require('controller/view/Overview');
 import MouseCageController = require('controller/view/MouseCageController');
 import VetMonitorController = require('controller/view/VetMonitorController');
+import VetMonitorExportPopup = require('controller/view/VetMonitorExportPopup');
 import ChemicalController = require('controller/view/Chemical');
 import ComputerController = require('controller/view/Computer');
 import FumehoodController = require('controller/view/Fumehood');
@@ -97,6 +98,11 @@ class App extends BaseViewController {
                 }
             },
             template: { require: 'text!tmpldir/components/vetmonitor.ko'},
+        });
+
+        ko.components.register('vetmonitor-export-popup-component', {
+            viewModel: VetMonitorExportPopup,
+            template: { require: 'text!tmpldir/components/vetmonitor-export-popup.ko'},
         });
     }
 

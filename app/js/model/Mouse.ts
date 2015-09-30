@@ -13,6 +13,9 @@ import SpecialItemModel = require('model/SpecialItem');
 import SpecialItemType = require('model/type/SpecialItem');
 
 class Mouse extends SpecialItemModel {
+    
+    public minHR: number = 650;
+    public maxHR: number = 700;
     public heartRateData: any;
     public heartRateIndex: number;
     public spleen: SpleenModel;
@@ -23,6 +26,7 @@ class Mouse extends SpecialItemModel {
     public bloodSugar: KnockoutObservable<number>;
     public stomachBloodSugar: KnockoutObservable<number>;
     public meanBloodSugar: KnockoutComputed<number>;
+    public heartRate: KnockoutObservable<number>;
     public maxBloodSugar: KnockoutObservable<number>;
     public minBloodSugar: KnockoutObservable<number>;
     public killBloodSugar: KnockoutObservable<number>;
@@ -52,8 +56,11 @@ class Mouse extends SpecialItemModel {
         this.spleen = new SpleenModel();
         this.mouseBloodType = ko.observable(mouseBloodType);
         this.mouseType = ko.observable(mouseType);
+
         this.heartRateData = heartRateData.xVals;
         this.heartRateIndex = 0;
+        this.heartRate = ko.observable(this.getMeanHeartRate());
+
         this.description = ko.pureComputed(this.computeDescription);
 
         this.bloodData = ko.observableArray([]);
@@ -226,9 +233,15 @@ class Mouse extends SpecialItemModel {
         this.insulinDose(this.insulinDose() + 35);
     }
     
+    public getMeanHeartRate = () => {
+        //var randomHR = Math.floor(Math.random() * 
+        //    (this.maxHR - this.minHR) + this.minHR);
+        var meanHR = (this.maxHR + this.minHR) / 2;
+        return meanHR;
+    }
+    
     nextHeartStep() {
         this.heartRateIndex += 1;
-
         if (this.heartRateIndex >= this.heartRateData.length) {
             this.heartRateIndex = 0;
         }

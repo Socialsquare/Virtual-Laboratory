@@ -1,0 +1,25 @@
+<div class="popup popup-export-data" data-bind="visible: shouldShowExportPopup">
+    <h1 data-bind="i18n: 'popup.data_export'"></h1>
+
+    <hr />
+
+    <div data-bind="i18n: 'popup.data_export_message'"></div>
+    
+    <div class="export-log-btns">
+        <button data-bind="visible: backButtonToggle, click: onBackButtonClick, i18n: 'common.back'"></button>
+        <ul data-bind="visible: logButtonsToggle, foreach: logIds">
+            <li>
+                <button class="export-log-btn"
+                 data-bind="text: $data, click: $parent.showDataByLogId, text: $data"></button>
+            </li>
+        </ul>
+    </div>
+    
+    <div>
+        <textarea rows="10" cols="40" data-bind="text: csvData, visible: dataToggle"></textarea>
+    </div>
+
+    <div class="btn-row float-clear">
+        <button type="button" data-bind="click: hide, i18n: 'common.close'"></button>
+    </div>
+</div>

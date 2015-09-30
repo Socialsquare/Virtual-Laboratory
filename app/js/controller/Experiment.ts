@@ -26,6 +26,9 @@ import ActivationType = require('model/type/Activation');
 import TriggerType = require('model/type/Trigger');
 import ConsequenceType = require('model/type/Consequence');
 
+import vetMonitorLog = require('service/VetMonitorLog');
+
+
 type TriggerExtraProperties = {
     concentration?: number
 };
@@ -40,7 +43,7 @@ class Experiment {
 
     public quizController = quizController;
     public popupController = popupController;
-
+    
     constructor() {
         this.activeExperiment = ko.observable(null);
 
@@ -72,6 +75,7 @@ class Experiment {
     }
 
     startExperiment(experiment) {
+        vetMonitorLog.clear();
         this.activeExperiment(experiment);
     }
 

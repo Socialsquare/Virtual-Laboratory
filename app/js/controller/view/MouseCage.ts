@@ -16,6 +16,8 @@ import MouseBloodType = require('model/type/MouseBlood');
 import ContainerFactory = require( 'factory/Container');
 import LiquidFactory = require('factory/Liquid');
 
+import SpecialItemFactory = require('factory/SpecialItem');
+
 
 class MouseCage extends BaseViewController {
 
@@ -40,6 +42,7 @@ class MouseCage extends BaseViewController {
 
         super('mousecage');
         
+        this.gameState.inventory.add(SpecialItemFactory.healthyMouse());
         this.mousecage = this.gameState.mousecage;
 
         this.videoController = new VideoController(true);
@@ -91,7 +94,11 @@ class MouseCage extends BaseViewController {
         });
 
         this.mousecage.mouse().nextBloodStep();
+        ko.postbox.publish("mouseCageMouseBloodSugarTopic",
+            this.mousecage.mouse().bloodSugar());
         this.mousecage.mouse().nextHeartStep();
+        ko.postbox.publish("mouseCageMouseHeartRateTopic",
+            this.mousecage.mouse().heartRate());
         
         if (this.mousecage.mouse().hasLethalBloodSugar()) {
             this.toggleSimulation(false);

@@ -30,13 +30,16 @@
       "commit": "8b7cc13f6dbabd0a49de7ccba75c342160e600ad"
     },
     "knockout/knockout.d.ts": {
-      "commit": "8b7cc13f6dbabd0a49de7ccba75c342160e600ad"
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
     },
     "flot/jquery.flot.d.ts": {
       "commit": "8b7cc13f6dbabd0a49de7ccba75c342160e600ad"
     },
     "js-signals/js-signals.d.ts": {
       "commit": "8b7cc13f6dbabd0a49de7ccba75c342160e600ad"
+    },
+    "knockout.postbox/knockout-postbox.d.ts": {
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
     }
   }
 }
