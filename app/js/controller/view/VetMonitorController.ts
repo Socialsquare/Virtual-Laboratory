@@ -47,21 +47,27 @@ class VetMonitorController {
         if (params === undefined) return;
         this.mouse = params.mouse;  // KnockoutObservable
         this.mouseCageHasMouse = params.hasMouse;  // KnockoutObservable
-        this.glucoseInfusionRate = params.glucoseInfusionRate;  // KnockoutObservable
+        if (params.glucoseInfusionRate === null){
+            this.glucoseInfusionRate = ko.observable(null);
+        } else {
+            this.glucoseInfusionRate = params.glucoseInfusionRate;  // KnockoutObservable
+        }
         this.vetMonitor = new VetMonitorModel();
         
-
         this.isBloodSugarGraphEnabled = ko.observable(true);
         this.graphRange = _.range(this.graphRangeStart, this.graphRangeEnd);
         this.graphBloodRange =
             ko.observableArray(_.map(this.graphRange, (v) => { return false; }));
         
-        if (this.glucoseInfusionRate()) {
-            this.isHrGraphEnabled = ko.observable(false);
-            this.isGirGraphEnabled = ko.observable(true);
+        this.isHrGraphEnabled = ko.observable(false);
+        this.isGirGraphEnabled = ko.observable(true);
+        
+        if (this.glucoseInfusionRate() !== null) {
+            this.isHrGraphEnabled(false);
+            this.isGirGraphEnabled(true);
         } else {
-            this.isHrGraphEnabled = ko.observable(true);
-            this.isGirGraphEnabled = ko.observable(false);
+            this.isHrGraphEnabled(true);
+            this.isGirGraphEnabled(false);
         }
 
         this.graphGirRange =
@@ -255,6 +261,13 @@ class VetMonitorController {
         this._mouseSubscription = this.mouse.subscribe((newmouse) => {
             this.toggleSimulation(<boolean><any>newmouse);
         });
+        if (this.glucoseInfusionRate() !== null) {
+            this.isHrGraphEnabled(false);
+            this.isGirGraphEnabled(true);
+        } else {
+            this.isHrGraphEnabled(true);
+            this.isGirGraphEnabled(false);
+        }
     }
 
     dispose() {

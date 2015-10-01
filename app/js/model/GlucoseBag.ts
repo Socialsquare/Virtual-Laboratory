@@ -18,6 +18,7 @@ class GlucoseBag {
             this.glucoseInfusionRate(0);
         }
     }
+    
 }
 
 export = GlucoseBag;
