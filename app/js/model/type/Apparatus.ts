@@ -6,7 +6,7 @@ enum Apparatus {
 
     UV_ROOM_GEL             = ev.next(),
     UV_ROOM_MICROTITER      = ev.next(),
-    GLUCOSE_BAG             = ev.next(),
+    GLUCOSE_BAG_CLAMP       = ev.next(),
     VET_MONITOR             = ev.next(),
 };
 

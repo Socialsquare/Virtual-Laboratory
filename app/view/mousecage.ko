@@ -18,9 +18,11 @@
         <div class="increase-btn hand" data-bind="click: increaseRate"></div>
         <div class="decrease-btn hand" data-bind="click: decreaseRate"></div>
         <div class="infusion-rate" data-bind="text: glucoseBag.glucoseInfusionRate() + ' mg/kg/min'"></div>
-        <div class="start-btn hand" data-bind="click: activate">
-            <div style="background: red; width: 40px; height: 40px;" data-bind="visible: glucoseBag.status()"></div>
-        </div>
+        <!-- ko if: $root.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP') -->
+            <div class="start-btn hand" data-bind="click: activate">
+                <div style="background: red; width: 40px; height: 40px;" data-bind="visible: glucoseBag.status()"></div>
+            </div>
+        <!-- /ko -->
     </div>
 
     <!-- ko if: apparatusEnabled('MOUSE_CAGE_VET_MONITOR', 'VET_MONITOR') -->

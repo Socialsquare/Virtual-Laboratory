@@ -56,7 +56,16 @@ class Base {
         if (!experiment)
             return false;
 
-        return experiment.apparatus.apparatusEnabled(
+        var enabled = experiment.apparatus.apparatusEnabled(
+            ApparatusLocationType[location],
+            ApparatusType[type]
+        );
+
+        if (enabled) 
+            return true;
+
+        var part = experimentController.activePart();
+        return part.apparatus.apparatusEnabled(
             ApparatusLocationType[location],
             ApparatusType[type]
         );

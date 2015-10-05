@@ -32,6 +32,7 @@ type TriggerExtraProperties = {
 class Experiment {
 
     public activeExperiment: KnockoutObservable<ExperimentModel>;
+    public activePart: KnockoutComputed<PartModel>;
     public activeTask: KnockoutComputed<TaskModel>;
 
     public hasExperiment: KnockoutComputed<boolean>;
@@ -44,6 +45,16 @@ class Experiment {
 
         this.hasExperiment = ko.pureComputed(() => {
             return !!this.activeExperiment();
+        });
+
+        this.activePart = ko.pureComputed(() => {
+            if (!this.hasExperiment())
+                return null;
+
+            var parts = <PartModel[]>this.activeExperiment().parts();
+            return _.find(parts, (part) => {
+                return !part.finished();
+            });
         });
 
         this.activeTask = ko.pureComputed(() => {
@@ -61,6 +72,10 @@ class Experiment {
 
     startExperiment(experiment) {
         this.activeExperiment(experiment);
+    }
+
+    startPart(part) {
+        this.activePart(part);
     }
 
     // return whether a property is defined and matches another
@@ -304,6 +319,12 @@ class Experiment {
 
     markTaskFinished() {
         this.activeTask().finished(true);
+        
+        // If last task in part, mark part finished
+        var partAllDone = _.all(_.invoke(this.activePart().tasks(), 'finished'));
+        if (partAllDone) {
+            this.activePart().finished(true);
+        }
 
         var allDone = _.all(_.invoke(this.activeExperiment().tasks(), 'finished'));
         if (allDone) {

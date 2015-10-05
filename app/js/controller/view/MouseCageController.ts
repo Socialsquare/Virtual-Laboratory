@@ -61,12 +61,14 @@ class MouseCageController extends BaseViewController {
             this.popupController.message('mouse.warning_insulin.header', 'mouse.warning_insulin.body');
         } else if (bloodSugar > this.mousecage.mouse().maxBloodSugar() * 0.8
                  && !this.highBloodSugarWarningToggle()
-                 && this.mousecage.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
+                 && this.mousecage.mouse().mouseBloodType() === MouseBloodType.NORMAL
+                 && !super.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP')) {
             this.highBloodSugarWarningToggle(true);
             this.popupController.message('mouse.warning_diabetes_risk.header', 'mouse.warning_diabetes_risk.body');
         } else if (bloodSugar >= this.mousecage.mouse().maxBloodSugar()
                  && !this.diabetesDevelopedToggle()
-                 && this.mousecage.mouse().mouseBloodType() === MouseBloodType.NORMAL) {
+                 && this.mousecage.mouse().mouseBloodType() === MouseBloodType.NORMAL
+                 && !super.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP')) {
             this.diabetesDevelopedToggle(true);
             this.popupController.message('mouse.warning_diabetes.header', 'mouse.warning_diabetes.body');
             this.mousecage.mouse().mouseBloodType(MouseBloodType.DIABETIC);
