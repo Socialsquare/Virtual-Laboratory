@@ -11,6 +11,7 @@ import PCRMachineModel = require('model/PCRMachine');
 import IncubatorModel = require('model/Incubator');
 import ScaffoldModel = require('model/Scaffold');
 import SpectroPMModel = require('model/SpectroPM');
+import PartModel = require('model/Part');
 import TaskModel = require('model/Task');
 import LiquidModel = require('model/Liquid');
 import MouseModel = require('model/Mouse');
@@ -293,7 +294,13 @@ class Experiment {
         }
 
         if (trigger.activation === ActivationType.GLUCOSE_BAG) {
-            // glucose bag currently isn't validate 
+            if (!item.mouseCage.hasMouse()) {
+                return;
+            }
+            if (!this.match(trigger.alive, item.mouseCage.mouse().alive())) {
+                debugger;
+                return;
+            }
         }
 
         this.finishActiveTask();

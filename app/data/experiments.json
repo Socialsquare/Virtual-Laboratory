@@ -18,13 +18,20 @@
                                 { "type": "LiquidType.MOUSE_BLOOD" }
                             ]
                         }
+                    },
+                    {
+                        "description": { "dk": "Order a diabetic mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose and insulin concentrations of the blood sample)." },
+                        "trigger": {
+                            "type": "TriggerType.ACQUIRE",
+                            "item": "ContainerType.TUBE",
+                            "liquids": [
+                                { "type": "LiquidType.MOUSE_BLOOD" }
+                            ]
+                        }
                     }
                 ]
             },
             { 
-                "apparatus": {
-                    "ApparatusLocationType.MOUSE_CAGE_GLUCOSE_BAG": "ApparatusType.GLUCOSE_BAG_CLAMP"
-                },
                 "tasks": [
                     {
                         "description": { "dk": "Place the healthy mouse in the cage. Give juice to the mouse." },
@@ -72,16 +79,6 @@
                 },
                 "tasks": [
                     {
-                        "description": { "dk": "Order a healthy mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose concentration of the blood sample)." },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.MOUSE_BLOOD" }
-                            ]
-                        }
-                    },
-                    {
                         "description": { "dk": "Start the insulin infusion." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
@@ -92,7 +89,8 @@
                         "description": { "dk": "Stop the insulin infusion when time is up." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.GLUCOSE_BAG"
+                            "activation": "ActivationType.GLUCOSE_BAG",
+                            "alive": true
                         }
                     },
                     {
@@ -134,7 +132,7 @@
                         }
                     }
                 ]
-            }
+            },
         ]
     },
     {

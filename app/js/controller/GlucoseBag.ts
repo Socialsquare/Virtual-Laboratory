@@ -1,19 +1,23 @@
 import ko = require('knockout');
 import _ = require('lodash');
 
+import MouseCageModel = require('model/MouseCage');
 import GlucoseBagModel = require('model/GlucoseBag');
 import ActivationType = require('model/type/Activation');
 import experimentController = require('controller/Experiment');
 
 import hudController = require('controller/HUD');
 
-class GlucoseBagController {
+class GlucoseBag {
 
+    public mouseCage: MouseCageModel;
     public glucoseBag: GlucoseBagModel;
     private STEP: number;
 
-    constructor(glucoseBag: GlucoseBagModel) {
-        this.glucoseBag = glucoseBag;
+    constructor(mouseCage: MouseCageModel) {
+        this.mouseCage = mouseCage;
+        var gb = mouseCage.glucoseBag;
+        this.glucoseBag = gb;
         this.STEP = 5;
 
         ko.rebind(this);
@@ -44,4 +48,4 @@ class GlucoseBagController {
     }
 }
 
-export = GlucoseBagController;
+export = GlucoseBag;
