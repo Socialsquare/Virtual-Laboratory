@@ -9,6 +9,8 @@ import experimentController = require('controller/Experiment');
 
 import PlotItemType = require('model/type/PlotItemType');
 import PlotDataPointType = require('model/type/PlotDataPointType');
+import ActivationType = require('model/type/Activation');
+
 import VetMonitorModel = require('model/VetMonitorModel');
 import MouseModel = require('model/Mouse');
 
