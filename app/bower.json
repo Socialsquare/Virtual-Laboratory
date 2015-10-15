@@ -2,7 +2,6 @@
   "name": "vlab",
   "dependencies": {
     "add-to-homescreen": "~3.0.7",
-    "dexie": "~1.2.0",
     "fastclick": "~1.0.2",
     "font-awesome": "~4.4.0",
     "jquery": "~2.1.1",
