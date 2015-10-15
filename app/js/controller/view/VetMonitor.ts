@@ -11,11 +11,11 @@ import PlotItemType = require('model/type/PlotItemType');
 import PlotDataPointType = require('model/type/PlotDataPointType');
 import ActivationType = require('model/type/Activation');
 
-import VetMonitorModel = require('model/VetMonitorModel');
+import VetMonitorModel = require('model/VetMonitor');
 import MouseModel = require('model/Mouse');
 
 
-class VetMonitorController {
+class VetMonitor {
     public mouse: KnockoutObservable<MouseModel>;
     public mouseCageHasMouse: KnockoutComputed<boolean>;
     public glucoseInfusionRate: KnockoutObservable<number>;
@@ -282,4 +282,4 @@ class VetMonitorController {
     }
 }
 
-export = VetMonitorController;
+export = VetMonitor;
