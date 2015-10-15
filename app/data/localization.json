@@ -365,6 +365,7 @@
 
         "common.next": "Næste",
         "common.previous": "Forrige",
+        "common.back": "Tilbage",
         "common.contains": "Oprindeligt indhold",
         "common.loading": "Henter",
         "common.ok": "Okay",
