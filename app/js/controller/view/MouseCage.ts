@@ -8,7 +8,7 @@ import VideoController = require('controller/Video');
 import GlucoseBagController = require('controller/GlucoseBag');
 
 import BottleModel = require('model/Bottle');
-import MouseCage = require('model/MouseCage');
+import MouseCageModel = require('model/MouseCage');
 
 import MouseType = require('model/type/Mouse');
 import MouseBloodType = require('model/type/MouseBlood');
@@ -17,12 +17,13 @@ import ContainerFactory = require( 'factory/Container');
 import LiquidFactory = require('factory/Liquid');
 
 
-class MouseCageController extends BaseViewController {
+class MouseCage extends BaseViewController {
 
     public videoController: VideoController;
 
-    public mousecage: MouseCage;
+    public mousecage: MouseCageModel;
     public mouseDrinking: KnockoutObservable<boolean>;
+    public hasMouse: KnockoutComputed<boolean>;    
 
     public lowBloodSugarWarningToggle: KnockoutObservable<boolean>;
     public highBloodSugarWarningToggle: KnockoutObservable<boolean>;
@@ -42,7 +43,7 @@ class MouseCageController extends BaseViewController {
         this.mousecage = this.gameState.mousecage;
 
         this.videoController = new VideoController(true);
-        this.glucoseBagController = new GlucoseBagController(this.mousecage.glucoseBag);
+        this.glucoseBagController = new GlucoseBagController(this.mousecage);
 
         this.mouseDrinking = ko.observable(false);
 
@@ -51,6 +52,10 @@ class MouseCageController extends BaseViewController {
         this.diabetesDevelopedToggle = ko.observable(false);
 
         this.bottle = ContainerFactory.bottle().add(LiquidFactory.juice(), true);
+
+        this.hasMouse = ko.pureComputed(():boolean =>{
+            return <boolean><any>this.mousecage.mouse();
+        })
         
         ko.rebind(this);
     }
@@ -189,4 +194,4 @@ class MouseCageController extends BaseViewController {
     }
 }
 
-export = MouseCageController;
+export = MouseCage;

@@ -10,7 +10,7 @@ import SyringeModel = require('model/Syringe');
 import LiquidFactory = require('factory/Liquid');
 import ContainerFactory = require('factory/Container');
 
-import MouseCageController = require('controller/view/MouseCageController');
+import MouseCageController = require('controller/view/MouseCage');
 
 class SyringeHandler {
 
@@ -38,7 +38,7 @@ class SyringeHandler {
                     var blood = LiquidFactory.mouseBlood(mouse.mouseBloodType());
                     var bloodLevels = { 
                         'Glucose' : mouse.meanBloodSugar(), 
-                        'Insulin': mouse.insulinDose() 
+                        'Insulin': mouse.insulinProduction() 
                     };
                     var tube = ContainerFactory.tube().add(blood);
                     gameState.inventory.add(tube, '', bloodLevels);

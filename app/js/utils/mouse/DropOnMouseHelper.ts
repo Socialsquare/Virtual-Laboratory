@@ -7,7 +7,7 @@ import MouseHandler = require('utils/mouse/MouseHandler');
 import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
 
-import MouseCageController = require('controller/view/MouseCageController');
+import MouseCageController = require('controller/view/MouseCage');
 
 class DropOnMouseHelper {
 

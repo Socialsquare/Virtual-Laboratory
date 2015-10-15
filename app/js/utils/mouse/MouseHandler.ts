@@ -1,4 +1,4 @@
-import MouseCageController = require('controller/view/MouseCageController');
+import MouseCageController = require('controller/view/MouseCage');
 import gameState = require('model/GameState');
 
 import MouseModel = require('model/Mouse');

@@ -1,6 +1,6 @@
 import MouseType = require('model/type/Mouse');
 
-import MouseCageController = require('controller/view/MouseCageController');
+import MouseCageController = require('controller/view/MouseCage');
 
 class BottleHandler {
 

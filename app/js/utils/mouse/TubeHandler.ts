@@ -7,7 +7,7 @@ import LiquidType = require('model/type/Liquid');
 import MouseType = require('model/type/Mouse');
 import AdministrationType = require('model/type/Administration');
 
-import MouseCageController = require('controller/view/MouseCageController');
+import MouseCageController = require('controller/view/MouseCage');
 
 import TubeModel = require('model/Tube');
 
