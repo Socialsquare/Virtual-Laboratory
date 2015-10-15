@@ -36,11 +36,11 @@ class SyringeHandler {
                     popupController.message('mouse.blood_drawn.header', 'mouse.blood_drawn.body');
 
                     var blood = LiquidFactory.mouseBlood(mouse.mouseBloodType());
+                    var tube = ContainerFactory.tube().add(blood);
                     var bloodLevels = { 
                         'Glucose' : mouse.meanBloodSugar(), 
-                        'Insulin': mouse.insulinProduction() 
+                        'Insulin': mouse.insulinProductivity() 
                     };
-                    var tube = ContainerFactory.tube().add(blood);
                     gameState.inventory.add(tube, '', bloodLevels);
 
                     MC.runFromState();
