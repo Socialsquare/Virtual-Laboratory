@@ -20,7 +20,7 @@
             data-bind="text: csvData, visible: dataToggle"></textarea>
     </div>
 
-    <div class="btn-row float-clear">
-        <button type="button" data-bind="click: hide, i18n: 'common.close'"></button>
-    </div>
+	<div class="btn-row float-clear" style="bottom: 10px;">
+	    <button type="button" data-bind="click: hide, i18n: 'common.close'"></button>
+	</div>
 </div>
