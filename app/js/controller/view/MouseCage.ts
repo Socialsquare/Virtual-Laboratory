@@ -172,7 +172,6 @@ class MouseCage extends BaseViewController {
     }
 
     exit() {
-        console.log("mousecage exit");
         this.videoController.stop();
         this.toggleSimulation(false);
         if (this._bloodSugarSubscription) {
@@ -182,11 +181,10 @@ class MouseCage extends BaseViewController {
     }
 
     toggleSimulation(enabled) {
-        if ((enabled) && (this.simulationInterval === null)) {
+        clearInterval(this.simulationInterval);
+        if (enabled) {
             this.simulationInterval = setInterval(this.nextTimeStep,
                                                   this.simulationIntervalTime);
-        } else if (this.simulationInterval !== null) {
-                clearInterval(this.simulationInterval);
         }
     }
 
