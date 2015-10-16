@@ -54,7 +54,6 @@ class VetMonitorExportPopup {
 
     hide() {
         console.log("VetMonitorExportPopup.hide()");
-        $('.popup-container .inner').scrollTop();
         this.showLogButtons();
         this.shouldShowExportPopup(false);
     }
@@ -82,6 +81,7 @@ class VetMonitorExportPopup {
             this.csvData(DataHelper.toCSV(parsed, headers));
             this.backButtonToggle(true);
             this.dataToggle(true);
+            $('#vetMonitorExportCsvData').scrollTop(0);
         });
     }
 

@@ -16,7 +16,8 @@
     </div>
     
     <div>
-        <textarea rows="10" cols="40" data-bind="text: csvData, visible: dataToggle"></textarea>
+        <textarea id="vetMonitorExportCsvData" rows="10" cols="40" 
+            data-bind="text: csvData, visible: dataToggle"></textarea>
     </div>
 
     <div class="btn-row float-clear">

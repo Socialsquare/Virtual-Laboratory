@@ -58,6 +58,10 @@ class VetMonitor {
         this.mouse = params.mouse;  // KnockoutObservable
         this.mouseCageHasMouse = params.hasMouse;  // KnockoutObservable
         
+        // FIXME: use subscribeTo to update isMouseAlive
+        // instead of this.mouse().alive()
+        //this.isMouseAlive = this.mouse().alive()
+        
         this.shouldShowExportPopup = ko.observable(false);
         this.mouseHeartRate = ko.observable(null);
         this.mouseBloodSugar = ko.observable(null);
@@ -96,30 +100,42 @@ class VetMonitor {
         ko.rebind(this);
     }
     
-    public resetGraphRanges = () => {
-        console.log("resetGraphRanges");
-        this.graphGirRange.removeAll();
-        _.map(this.graphRange, (v) => { this.graphGirRange.push(false); });
-
+    public resetGraphHrRange = () =>{
         this.graphHrRange.removeAll();
         _.map(this.graphRange, (v) => { this.graphHrRange.push(false); });
+    }
 
+    public resetGraphBloodRange = () =>{
         this.graphBloodRange.removeAll();
         _.map(this.graphRange, (v) => { this.graphBloodRange.push(false); });
     }
-    
+
+    public resetGraphGirRange = () =>{
+        this.graphGirRange.removeAll();
+        _.map(this.graphRange, (v) => { this.graphGirRange.push(false); });
+    }
+
+    public resetGraphRanges = () => {
+        this.resetGraphGirRange();
+        this.resetGraphHrRange();
+        this.resetGraphBloodRange();
+    }
+
     // FIXME: for some reason ko.toggle() doesn't work with this component
     // FIXME: so I added public methods isHrGraphEnabledToggle,
     // FIXME: isBloodSugarGraphEnabledToggle, isGirGraphEnabledToggle
     isHrGraphEnabledToggle() {
+        this.resetGraphHrRange();
         this.isHrGraphEnabled(!this.isHrGraphEnabled());
     }
 
     isBloodSugarGraphEnabledToggle() {
+        this.resetGraphBloodRange();
         this.isBloodSugarGraphEnabled(!this.isBloodSugarGraphEnabled());
     }
 
     isGirGraphEnabledToggle() {
+        this.resetGraphGirRange();
         this.isGirGraphEnabled(!this.isGirGraphEnabled());
     }
 
