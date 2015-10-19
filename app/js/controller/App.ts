@@ -84,6 +84,7 @@ class App extends BaseViewController {
         // bootstrap the app by going to loading view
         this.router.navigate('loading');
         //this.router.navigate('overview');
+        //var iadd = this.gameState.inventory.add;
 
         ko.rebind(this);
     }
