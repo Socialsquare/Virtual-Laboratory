@@ -22,6 +22,9 @@ class VetMonitor {
     public mouseBloodSugar: KnockoutObservable<number>;
     public mouseCageHasMouse: KnockoutComputed<boolean>;
     public glucoseInfusionRate: KnockoutObservable<number>;
+    public glucoseInfusionRateMangled: KnockoutObservable<number>;
+    public girFudgeFactorRate: number;
+    public girFudgeFactorSize: number;
 
     public simulationInterval: number = null
     public simulationIntervalTime: number = 100;  // millisecond
@@ -71,6 +74,9 @@ class VetMonitor {
         } else {
             this.glucoseInfusionRate = params.glucoseInfusionRate;  // KnockoutObservable
         }
+        this.glucoseInfusionRateMangled = ko.observable(0);
+        this.girFudgeFactorRate = 100.0;
+        this.girFudgeFactorSize = 5 / this.girFudgeFactorRate;
         
         this.isBloodSugarGraphEnabled = ko.observable(true);
         this.graphRange = _.range(this.graphRangeStart, this.graphRangeEnd);
@@ -81,7 +87,6 @@ class VetMonitor {
         if (this.glucoseInfusionRate() !== null) {
             this.isHrGraphEnabled(false);
             this.isGirGraphEnabled(true);
-
         } else {
             this.isHrGraphEnabled(true);
             this.isGirGraphEnabled(false);
@@ -261,8 +266,23 @@ class VetMonitor {
 
     addGirStepToPlotData() {
         this.girDataForPlot.shift();
+        if (this.glucoseInfusionRateMangled() < this.glucoseInfusionRate()){
+            
+            this.girFudgeFactorSize = this.glucoseInfusionRate() / this.girFudgeFactorRate;
+            
+            this.glucoseInfusionRateMangled(this.glucoseInfusionRateMangled() +
+                this.girFudgeFactorSize);
+            if (this.glucoseInfusionRateMangled() > this.glucoseInfusionRate()){
+                this.glucoseInfusionRateMangled(this.glucoseInfusionRate());
+            }
+        } else if (this.glucoseInfusionRateMangled() > this.glucoseInfusionRate()) {
+            this.girFudgeFactorSize = this.glucoseInfusionRateMangled() / this.girFudgeFactorRate;
+            this.glucoseInfusionRateMangled(this.glucoseInfusionRateMangled() -
+                this.girFudgeFactorSize);
+        }
+        
         if (this.mouseCageHasMouse()) {
-            this.girDataForPlot.push(this.glucoseInfusionRate());
+            this.girDataForPlot.push(this.glucoseInfusionRateMangled());
         } else {
             this.girDataForPlot.push(null);
         }
