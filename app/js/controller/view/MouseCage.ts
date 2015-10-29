@@ -16,8 +16,6 @@ import MouseBloodType = require('model/type/MouseBlood');
 import ContainerFactory = require( 'factory/Container');
 import LiquidFactory = require('factory/Liquid');
 
-import SpecialItemFactory = require('factory/SpecialItem');
-
 
 class MouseCage extends BaseViewController {
 
@@ -42,7 +40,6 @@ class MouseCage extends BaseViewController {
 
         super('mousecage');
         
-        this.gameState.inventory.add(SpecialItemFactory.healthyMouse());
         this.mousecage = this.gameState.mousecage;
 
         this.videoController = new VideoController(true);
