@@ -34,6 +34,11 @@ module.exports = function (grunt) {
 
                     { expand: true, src: [ '<%= dist_root %>'+'/test/**' ]},
                 ]
+            },
+            js: {
+                files: [
+                    { expand: true, src: [ '<%= dist_root %>'+'/js/**' ]},
+                ]
             }
         },
 
@@ -70,6 +75,12 @@ module.exports = function (grunt) {
                     { expand: true, src: [ 'bower_components/**' ], dest: '<%= dist_root %>' }
                 ]
             },
+            
+            js: {
+                files: [
+                    { expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
+                ]
+            },
 
             production: {
                 files: [
@@ -81,6 +92,7 @@ module.exports = function (grunt) {
             }
         },
 
+        /*
         sass: {
             dist: {
                 files: [{
@@ -91,12 +103,26 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        */
 
         sass: {
             dist : {
                 files: {
                     '<%= dist_root %>/static/main.css' : 'css/main.scss'
                 }
+            }
+        },
+        
+        imagemin: {
+            assets: {
+                options: { 
+                    optimizationLevel: 1
+                },
+                files: [{
+                  expand: true,
+                  src: ['assets/images/*.png'],
+                  dest: '<%= dist_root %>'
+                }]
             }
         },
 
@@ -112,9 +138,17 @@ module.exports = function (grunt) {
 
         watch: {
             dist: {
-                files: [ 'js/localization.json', 'js/**/*.js', 'js/**/*.ts', 'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**' ],
+                files: [ 'js/localization.json', 'view/**/*.ko', '!<%= dist_root %>/**' ],
                 //files: [ 'data/**', 'js/localization.json', 'js/**/*.js', 'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**' ],
                 tasks: [ 'build' ]
+            },
+            sass: {
+            	files: ['css/**/*.scss'],
+            	tasks: [ 'sass' ]
+            },
+            js: {
+            	files: ['js/**/*.js', 'js/**/*.ts'],
+            	tasks: ['clean:js', 'copy:js', 'ts:dist']
             }
         },
 
@@ -227,6 +261,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-preprocess');
@@ -234,11 +269,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-tslint');
 
     // TODO: enable jshint when smellz is cleaned
+    //grunt.registerTask('build', [ 'clean:dist', 'copy:dist', 'ts:dist', 'assets', 'imagemin:assets', 'sass:dist', 'preprocess:dist' ]);
     grunt.registerTask('build', [ 'clean:dist', 'copy:dist', 'ts:dist', 'assets', 'sass:dist', 'preprocess:dist' ]);
 
     grunt.registerTask('production', [ 'setProductionBuild', 'build', 'requirejs:production', 'templateIndex' ]);
 
-    grunt.registerTask('default', [ 'build', 'connect:dist', 'watch:dist' ]);
+    grunt.registerTask('default', [ 'build', 'connect:dist', 'watch' ]);
 
     grunt.registerTask('serve-production', [ 'production', 'connect:production:keepalive' ]);
 
