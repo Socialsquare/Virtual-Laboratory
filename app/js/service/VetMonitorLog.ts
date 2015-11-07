@@ -3,15 +3,12 @@ import _ = require('lodash');
 import VetMonitorLogItem = require('model/type/VetMonitorLogItem');
 import IndexedDbService = require('service/IndexedDb');
 
-// FIXME: fetchByLogId needs fixing to use index!
-// FIXME: perhaps we should not keep currLogId in sessionStorage
-// FIXME: but rather get unique/distinct logIds from db?
 
 class VetMonitorLogService extends IndexedDbService {
-    protected dbName: string = "vetMonitorLogDb";
-    protected dbVersion: number = 14;
-    protected storeName: string = "mousedata";
-    protected indexes = {
+    protected static dbName: string = "vetMonitorLogDb";
+    protected static dbVersion: number = 19;
+    protected static storeName: string = "mousedata";
+    protected static indexes: any = {
         "created": ["created", {unique: true}],
         "logId": ["logId", {unique: false}],
     };
@@ -21,7 +18,7 @@ class VetMonitorLogService extends IndexedDbService {
     }
 
     public saveChunks(chunks: any[]) {
-        this.getObjectStore().done((store)=>{
+        this.getObjectStore().done((store: any)=>{
             _.each(chunks, (item) => {
                 item.created = new Date();
                 item.logId = this.getCurrentLogId();
@@ -39,7 +36,6 @@ class VetMonitorLogService extends IndexedDbService {
         }
     }
 
-    
     public getCurrentLogId(): number {
         if (!<boolean><any>sessionStorage.getItem('vetMonitorLogId')) {
             this.updateLogId();
@@ -48,36 +44,14 @@ class VetMonitorLogService extends IndexedDbService {
     }
 
     public fetchByLogId(logId:number, cb) {
-        var ret = [];
-        return this.getObjectStore().done((store) => {
-            var counter = 0;
-            var req = store.openCursor().onsuccess = (event) => {
-                // this is called iteratively!
-                var cursor = event.target.result;
-                if (cursor) {
-                    if (cursor.value.logId === logId){
-                        ret.push(cursor.value);
-                        counter++;
-                    }
-                    cursor.continue();
-                } else {
-                    return cb(counter, ret);
-                }
-            }
-        });
-    }
-    
-    /*
-    FIXME: fix this method to work!
-    public fetchByLogId(logId:number, cb) {
         console.log("fetchByLogId");
         var ret = [];
-        return this.getObjectStore().done((store) => {
-            console.log("getObjectStore.done");
-            var index = store.index('logId');
+        return this.getObjectStore().done((store: any) => {
             var counter = 0;
-            var req = index.openCursor(IDBKeyRange.only(logId))
-            .onsuccess = (event) => {
+            var singleKeyRange = IDBKeyRange.only(logId);
+            var index = store.index('logId');
+            var req = index.openCursor(singleKeyRange);
+            req.onsuccess = (event: any) => {
                 // this is called iteratively!
                 var cursor = event.target.result;
                 if (cursor) {
@@ -87,11 +61,14 @@ class VetMonitorLogService extends IndexedDbService {
                 } else {
                     return cb(counter, ret);
                 }
+            };
+            req.onerror = (event: any)=> {
+                console.log("errro!!!!");
+                console.log(event);
             }
         });
     }
-    */
-    
+
     public clear() {
         this.clearObjectStore();
         sessionStorage.setItem('vetMonitorLogId', String(0));
