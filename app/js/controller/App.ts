@@ -82,9 +82,40 @@ class App extends BaseViewController {
         });
 
         // bootstrap the app by going to loading view
-        this.router.navigate('loading');
-        //this.router.navigate('overview');
-        //var iadd = this.gameState.inventory.add;
+        //this.router.navigate('loading');
+        this.router.navigate('overview');
+        var iadd = this.gameState.inventory.add;
+        var t = ContainerFactory.tube;
+
+        // 1. Should only be possible to turn glucose bag on during clamp (experiment 1c)
+        //iadd(SpecialItemFactory.healthyMouse());
+        
+        // 2. As a user I only want the clamp task to be completed if  the mouse survives the entire minute.
+        //iadd(SpecialItemFactory.healthyMouse());
+        //iadd(SpecialItemFactory.syringe().add(LiquidFactory.deadly()));
+
+        // 3. As a user I want the glucose and insulin levels to be randomly chosen from set a set of values
+        //iadd(SpecialItemFactory.healthyMouse());
+        //iadd(SpecialItemFactory.healthyMouse());
+        //iadd(SpecialItemFactory.syringe());
+        //iadd(SpecialItemFactory.syringe());
+
+        // 4. Pop-up message saying "Mouse in danger of developing diabetes if you give it too much juice" 
+        // should not appear during clamp and mouse should not develop diabetes
+        //iadd(SpecialItemFactory.healthyMouse());
+        //iadd(SpecialItemFactory.healthyMouse());
+        
+        // 5. As a user I wanter to see graphics on the PCR machine
+        //iadd(t());
+        //iadd(t());
+        //iadd(t());
+        //iadd(t());
+
+        // 6. As a user I wanter to see graphics on the gel electro 
+        iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.DIABETIC)));
+        iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.NORMAL)));
+        iadd(t().add(LiquidFactory.blueStain()));
+        iadd(SpecialItemFactory.gel());
 
         ko.rebind(this);
     }

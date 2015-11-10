@@ -14,7 +14,7 @@ class Gel extends CompositeContainerModel {
     constructor() {
         super(4, ContainerType.LANE, ContainerType.GEL);
 
-        this.lanes = ko.observableArray(_.range(4).map((i) => new LaneModel()));
+        this.lanes = ko.observableArray(_.range(4).map((i) => new LaneModel(i+1)));
         this.isElectrofied = ko.observable(false);
 
         ko.rebind(this);

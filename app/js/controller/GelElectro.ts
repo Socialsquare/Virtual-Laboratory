@@ -73,15 +73,15 @@ class GelElectroController {
     activate() {
         if (this.gelElectroModel.status())
             return;
-
-        if (!this.gelElectroModel.hasGel())
-            return;
-
+        
         this.gelElectroModel.status(true);
-        _.each(this.gelElectroModel.gelSlot().lanes(), (l) => l.electrofy());
-        this.gelElectroModel.gelSlot().isElectrofied(true);
 
-        _.delay(this.finishActivate, 2000);
+        if (this.gelElectroModel.hasGel()) {
+            _.each(this.gelElectroModel.gelSlot().lanes(), (l) => l.electrofy());
+            this.gelElectroModel.gelSlot().isElectrofied(true);
+        }
+
+        _.delay(this.finishActivate, 6000);
     }
 }
 

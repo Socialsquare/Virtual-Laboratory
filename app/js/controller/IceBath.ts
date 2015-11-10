@@ -3,6 +3,7 @@ import $ = require('jquery');
 
 import popupController = require('controller/Popup');
 import experimentController = require('controller/Experiment');
+import VideoController = require('controller/Video');
 
 import CompositeContainerController = require('controller/CompositeContainer');
 
@@ -15,9 +16,13 @@ import SimpleContainerModel = require('model/SimpleContainer');
 class IceBath extends CompositeContainerController {
 
     public compContainer: IceBathModel;
+    public videoController: VideoController;
 
     constructor(iceBathModel: IceBathModel) {
         super(iceBathModel);
+        
+        this.videoController = new VideoController(true);
+        this.videoController.play('icebath', true);
 
         ko.rebind(this);
     }

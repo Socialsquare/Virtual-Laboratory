@@ -5,6 +5,7 @@ import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
 import PCRMachineController = require('controller/PCRMachine');
 import IceBathController = require('controller/IceBath');
+import GelElectroController = require('controller/GelElectro');
 
 import Worktable3Model = require('model/Worktable3');
 
@@ -15,6 +16,7 @@ class Worktable3 extends BaseViewController {
     public tubeRackController: CompositeContainerController;
     public iceBathController: CompositeContainerController;
     public pcrMachineController: PCRMachineController;
+    public gelElectroController: GelElectroController;
 
     constructor() {
         super('worktable3');
@@ -24,6 +26,7 @@ class Worktable3 extends BaseViewController {
         this.tubeRackController = new CompositeContainerController(this.worktable3.tubeRack);
         this.iceBathController = new IceBathController(this.worktable3.iceBath);
         this.pcrMachineController = new PCRMachineController(this.worktable3.pcrMachine);
+        this.gelElectroController = new GelElectroController(this.worktable3.gelElectro);
 
         ko.rebind(this);
     }

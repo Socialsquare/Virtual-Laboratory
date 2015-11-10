@@ -8,6 +8,66 @@
         },
         "parts": [
             { 
+                "apparatus": {
+                    "ApparatusLocationType.MOUSE_CAGE_GLUCOSE_BAG": "ApparatusType.GLUCOSE_BAG_CLAMP"
+                },
+                "tasks": [
+                    {
+                        "description": { "dk": "Start the insulin infusion." },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.GLUCOSE_BAG"
+                        }
+                    },
+                    {
+                        "description": { "dk": "Stop the insulin infusion when time is up." },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.GLUCOSE_BAG",
+                            "alive": true
+                        }
+                    },
+                    {
+                        "description": { "dk": "Export data into excel, to make a graph of the data and compare the healthy mouse with the diabetic" },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.MOUSE_MONITOR"
+                        }
+                    },
+                    {
+                        "description": { "dk": "Order a diabetic mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose concentration of the blood sample)." },
+                        "trigger": {
+                            "type": "TriggerType.ACQUIRE",
+                            "item": "ContainerType.TUBE",
+                            "liquids": [
+                                { "type": "LiquidType.MOUSE_BLOOD" }
+                            ]
+                        }
+                    },
+                    {
+                        "description": { "dk": "Start the insulin infusion." },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.GLUCOSE_BAG"
+                        }
+                    },
+                    {
+                        "description": { "dk": "Stop the insulin infusion when time is up." },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.GLUCOSE_BAG"
+                        }
+                    },
+                    {
+                        "description": { "dk": "Export data into excel, to make a graph of the data and compare the healthy mouse with the diabetic" },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.MOUSE_MONITOR"
+                        }
+                    }
+                ]
+            },
+            { 
                 "tasks": [
                     {
                         "description": { "dk": "Order a healthy mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose and insulin concentrations of the blood sample)." },
@@ -62,66 +122,6 @@
                             "liquids": [
                                 { "type": "LiquidType.JUICE" }
                             ]
-                        }
-                    },
-                    {
-                        "description": { "dk": "Export data into excel, to make a graph of the data and compare the healthy mouse with the diabetic" },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.MOUSE_MONITOR"
-                        }
-                    }
-                ]
-            },
-            { 
-                "apparatus": {
-                    "ApparatusLocationType.MOUSE_CAGE_GLUCOSE_BAG": "ApparatusType.GLUCOSE_BAG_CLAMP"
-                },
-                "tasks": [
-                    {
-                        "description": { "dk": "Start the insulin infusion." },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.GLUCOSE_BAG"
-                        }
-                    },
-                    {
-                        "description": { "dk": "Stop the insulin infusion when time is up." },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.GLUCOSE_BAG",
-                            "alive": true
-                        }
-                    },
-                    {
-                        "description": { "dk": "Export data into excel, to make a graph of the data and compare the healthy mouse with the diabetic" },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.MOUSE_MONITOR"
-                        }
-                    },
-                    {
-                        "description": { "dk": "Order a diabetic mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose concentration of the blood sample)." },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.MOUSE_BLOOD" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": { "dk": "Start the insulin infusion." },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.GLUCOSE_BAG"
-                        }
-                    },
-                    {
-                        "description": { "dk": "Stop the insulin infusion when time is up." },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.GLUCOSE_BAG"
                         }
                     },
                     {

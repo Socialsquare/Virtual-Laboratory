@@ -17,6 +17,7 @@ enum Container {
     UV_PETRI_SPACE    = ev.next(),
     UV_MICRO_SPACE    = ev.next(),
     UV_TUBE_RACK      = ev.next(),
+    WORK3_TUBE_RACK   = ev.next(),
     ICE_BATH          = ev.next(),
     GEL               = ev.next(),
 

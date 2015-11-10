@@ -2,12 +2,42 @@
 
     <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
 
-    <div class="icebath" data-bind="template: { name: 'compContainer', data: iceBathController }"></div>
+    <div class="video-container" data-bind="template: { name: 'video', data: iceBathController.videoController }"></div>
+
+    <div class="icebath" data-bind="template: { name: 'compContainer', data: iceBathController }">
+    </div>
 
     <div class="pcr-machine" data-bind="template: { name: 'compContainer', data: pcrMachineController }"></div>
 
     <div class="pcr-machine-btn hand" data-bind="click: activatePCRMachine">
-        <img src="assets/images/work1_electroporator-on.png" alt="Centrifuge button">
-        <span data-bind="visible: pcrMachineController.compContainer.status">TURNED ON</span>
+        <img src="assets/images/work3_pcr-on.png" alt="PCR button" data-bind="visible: pcrMachineController.compContainer.status()" />
     </div>
+
+    <div class="gelelectro" data-bind="with: gelElectroController">
+        <div class="btn hand" data-bind="click: activate">
+            <img src="assets/images/work3_gel-on.png" data-bind="visible: gelElectroModel.status()">
+        </div>
+
+        <div class="tray">
+            
+            <!-- ko ifnot: gelElectroModel.hasGel() -->
+            <div class="gel-slot" data-bind="drop: { handler: trayDropHandler, accept: trayDropAccepter }"></div>
+            <!-- /ko -->
+
+           <!-- ko if: gelElectroModel.hasGel() -->
+            <div class="gel-slot filled hand" data-bind="drag: { item: gelElectroModel.gelSlot, dim: true, consume: removeGel},
+                                                         drop: { handler: gelDropHandler, accept: gelDropAccepter }">
+                <ul class="lanes" data-bind="foreach: gelElectroModel.gelSlot().lanes ">
+                    <li class="lane" data-bind="attr: { id: 'lane' + $index() }">
+                        <div class="video-container video-gelelectro" data-bind="template: { name: 'video', data: videoController }"></div>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /ko -->
+
+        </div>
+    
+    </div>
+
 </div>

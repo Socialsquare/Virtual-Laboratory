@@ -5,45 +5,129 @@
     background-image: url(#{$img-path}/work3_base.png);
 
     .tuberack {
-        @include tuberack(692px, 318px);
-        border: 2px solid black;
+        @include tuberack(402px, 425px);
+        width: 310px; 
 
-        .slot0, .slot1, .slot2, .slot3, .slot4 {
-            background-color: #FFF;
-            opacity: 0.5;
-            border: 1px solid red;
+        .slot0, .slot1, .slot2, .slot3, .slot4, .slot5 {
+            position: relative;
         }
+
+        .slot0 { width: 65px; }
+        .slot1 { width: 48px; }
+        .slot2 { width: 48px; }
+        .slot3 { width: 49px; }
+        .slot4 { width: 43px; }
+        .slot5 { width: 45px; }
+    }
+
+    .video-icebath {
+        position: relative;
+        top: 275px;
+        left: 56px;
     }
 
     .icebath {
-        @include tuberack(350px, 318px);
-        border: 2px solid blue;
+        @include tuberack(165px, 318px);
+        height: 190px;
+        width: 65px;
 
-        .slot0, .slot1, .slot2, .slot3, .slot4 {
-            background-color: #FFF;
-            opacity: 0.5;
-            border: 1px solid red;
+        .slot0, .slot1, .slot2, .slot3, .slot4, .slot5 {
+            position: relative;
+            float: left;
+            height: 30px;
         }
+
+        .slot0 { left: 20px; width: 45px; height: 30px; }
+        .slot1 { left: 18px; width: 45px; height: 28px; }
+        .slot2 { left: 15px; width: 45px; height: 28px; }
+        .slot3 { left: 10px; width: 45px; height: 32px; }
+        .slot4 { left: 5px; width: 45px; height: 37px; }
+        .slot5 { width: 45px; height: 40px; }
     }
 
-    /* TODO-PCR */
     .pcr-machine {
-        @include tuberack(30px, 318px);
-        border: 2px solid green;
+        @include tuberack(480px, 228px);
 
-        .slot0, .slot1 {
-            background-color: #FFF;
-            opacity: 0.5;
-            border: 1px solid red;
+        .slot0, .slot1, .slot2, .slot3 {
+            position: relative;
         }
+        
+        .slot0 { width: 35px; height: 52px; }
+        .slot1 { width: 31px; height: 52px; }
+        .slot2 { width: 31px; height: 52px; }
+        .slot3 { width: 31px; height: 52px; }
     }
 
-    /* TODO-PCR */
     .pcr-machine-btn {
         position: absolute;
-        top: 480px;
-        left: 50px;
+        top: 330px;
+        left: 545px;
         width: 74px;
         height: 69px;
+    }
+    
+    .pcr-machine-btn img {
+        position: absolute;
+        top: -330px;
+        right: -88px;
+    }
+
+    .gelelectro {
+        $gelW: 200px;
+        $gelH: 145px;
+        $gelX: 80px;
+        $gelY: 160px;
+        
+        position: absolute;
+        top: $gelY;
+        right: $gelX;
+        width: $gelW;
+        height: $gelH;
+
+        .btn {
+            position: relative;
+            top: 45px;
+            left: 26px;
+            width: 74px;
+            height: 69px;
+
+            img {
+                position: relative;
+                top: -9px;
+                left: -5px;
+            }
+        }
+
+        .tray {
+            $trayW: 180px;
+            $trayH: 205px;
+            $trayX: 70px;
+            $trayY: 180px;
+
+            position: absolute;
+            top: $trayY;
+            left: $trayX;
+            width: $trayW;
+            height: $trayH;
+
+            .gel-slot {
+                width: $trayW;
+                height: $trayH;
+
+                .lane {
+                    float: left; 
+                }
+
+                .video {
+                    position: absolute;
+                    top: 10px;
+                }
+        
+                #lane0 .video-gelelectro .video { top: 32px; left: 11px; }
+                #lane1 .video-gelelectro .video { top: 35px; left: 50px; }
+                #lane2 .video-gelelectro .video { top: 41px; left: 78px; }
+                #lane3 .video-gelelectro .video { top: 45px; left: 109px; }
+            }
+        }
     }
 }

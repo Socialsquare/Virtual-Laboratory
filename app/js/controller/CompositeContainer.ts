@@ -62,7 +62,7 @@ class CompositeContainerController {
             break;
 
         case ContainerType.ICE_BATH:
-            this.imageGetter = ImageHelper.iceBathImage;
+            this.imageGetter = ImageHelper.icebathImage;
             this.accepter = DragHelper.acceptTube;
             break;
 
@@ -80,6 +80,11 @@ class CompositeContainerController {
 
         case ContainerType.OD_MACHINE:
             this.imageGetter = ImageHelper.odMachineTubeImage;
+            this.accepter = DragHelper.acceptTube;
+            break;
+
+        case ContainerType.WORK3_TUBE_RACK:
+            this.imageGetter = ImageHelper.work3TubeImage;
             this.accepter = DragHelper.acceptTube;
             break;
 

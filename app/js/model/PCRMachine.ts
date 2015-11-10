@@ -8,7 +8,7 @@ class PCRMachine extends CompositeContainerModel {
     public status: KnockoutObservable<boolean>;
 
     constructor() {
-        super(2, ContainerType.TUBE, ContainerType.PCR_MACHINE);
+        super(4, ContainerType.TUBE, ContainerType.PCR_MACHINE);
 
         this.status = ko.observable(false);
     }

@@ -33,7 +33,7 @@ class ImageHelper {
     static incubatorTubeImage = ImageHelper.emptyFull('incubator_tube');
     static incubatorPetriImage = ImageHelper.emptyFull('incubator_dish');
     static tubeRackImage = ImageHelper.emptyFull('tube');
-    static iceBathImage = ImageHelper.emptyFull('tube');
+    static icebathImage = ImageHelper.emptyFull('work3_icebath_tube');
 
     static heaterTubeImage = ImageHelper.single('work1-heater_');
     static tableSpaceMicroImage = ImageHelper.single('micro');
@@ -41,8 +41,9 @@ class ImageHelper {
     static sidegroupEmptySlot = ImageHelper.single('scaffold_R');
 
     static odMachineTubeImage = _.constant(ImageHelper.img('work2_od-on.png'));
-    // TODO-PCR
-    static pcrMachineTubeImage = ImageHelper.emptyFull('tube');
+    
+    static work3TubeImage = ImageHelper.emptyFull('work3_tube');
+    static pcrMachineTubeImage = ImageHelper.single('work3_pcr_tube');
 
     static tableSpacePetriImage(position, petri) {
         var state = !petri || petri.isEmpty() ? 'empty' : 'full';

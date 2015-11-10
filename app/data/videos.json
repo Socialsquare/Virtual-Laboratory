@@ -53,5 +53,16 @@
     "electroporator4": "electroporator04",
     "electroporator5": "electroporator05",
     "electroporator6": "electroporator06",
-    "electroporator7": "electroporator07"
+    "electroporator7": "electroporator07",
+
+    "gel-electro-lane-1-full": "gel_electro_lane_1_full",
+    "gel-electro-lane-2-full": "gel_electro_lane_2_full",
+    "gel-electro-lane-3-full": "gel_electro_lane_3_full",
+    "gel-electro-lane-4-full": "gel_electro_lane_4_full",
+    "gel-electro-lane-1-half": "gel_electro_lane_1_half",
+    "gel-electro-lane-2-half": "gel_electro_lane_2_half",
+    "gel-electro-lane-3-half": "gel_electro_lane_3_half",
+    "gel-electro-lane-4-half": "gel_electro_lane_4_half",
+
+    "icebath": "icebath"
 }
