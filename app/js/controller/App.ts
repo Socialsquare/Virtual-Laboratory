@@ -82,8 +82,8 @@ class App extends BaseViewController {
         });
 
         // bootstrap the app by going to loading view
-        //this.router.navigate('loading');
-        this.router.navigate('overview');
+        this.router.navigate('loading');
+        //this.router.navigate('overview');
         var iadd = this.gameState.inventory.add;
         var t = ContainerFactory.tube;
 
@@ -112,10 +112,10 @@ class App extends BaseViewController {
         //iadd(t());
 
         // 6. As a user I wanter to see graphics on the gel electro 
-        iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.DIABETIC)));
-        iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.NORMAL)));
-        iadd(t().add(LiquidFactory.blueStain()));
-        iadd(SpecialItemFactory.gel());
+        //iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.DIABETIC)));
+        //iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.NORMAL)));
+        //iadd(t().add(LiquidFactory.blueStain()));
+        //iadd(SpecialItemFactory.gel());
 
         ko.rebind(this);
     }
