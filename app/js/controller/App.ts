@@ -87,18 +87,12 @@ class App extends BaseViewController {
         var iadd = this.gameState.inventory.add;
         var t = ContainerFactory.tube;
 
-        // 1. Should only be possible to turn glucose bag on during clamp (experiment 1c)
+        // 1. As a user I want to see the units for the blood sample
         //iadd(SpecialItemFactory.healthyMouse());
+        //iadd(SpecialItemFactory.syringe());
         
-        // 2. As a user I only want the clamp task to be completed if  the mouse survives the entire minute.
-        //iadd(SpecialItemFactory.healthyMouse());
-        //iadd(SpecialItemFactory.syringe().add(LiquidFactory.deadly()));
-
-        // 3. As a user I want the glucose and insulin levels to be randomly chosen from set a set of values
-        //iadd(SpecialItemFactory.healthyMouse());
-        //iadd(SpecialItemFactory.healthyMouse());
-        //iadd(SpecialItemFactory.syringe());
-        //iadd(SpecialItemFactory.syringe());
+        // 2. As a user I would like to see a pop-up describing the glucose we give the mouse using the bottle
+        // 3. As a user I want to be forced to change pipette tip when switching between DNA types.
 
         // 4. Pop-up message saying "Mouse in danger of developing diabetes if you give it too much juice" 
         // should not appear during clamp and mouse should not develop diabetes
@@ -116,7 +110,6 @@ class App extends BaseViewController {
         //iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.NORMAL)));
         //iadd(t().add(LiquidFactory.blueStain()));
         //iadd(SpecialItemFactory.gel());
-
         ko.rebind(this);
     }
     

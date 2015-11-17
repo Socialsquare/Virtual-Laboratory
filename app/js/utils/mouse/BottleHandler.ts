@@ -15,11 +15,20 @@ class BottleHandler {
             return false;
 
         if (mouse.mouseType() !== MouseType.HEALTHY) {
-            MC.popupController.notify('mouse.sick_no_bloodsugar.header', 'mouse.sick_no_bloodsugar.body', 3500);
+            MC.popupController.notify('mouse.sick_no_bloodsugar.header', 
+                    'mouse.sick_no_bloodsugar.body', 3500);
             return false;
         }
 
         MC.mouseDrinking(true);
+       
+        if (MC.apparatusEnabled("MOUSE_CAGE_GLUCOSE_BAG", "GLUCOSE_BAG_CLAMP") 
+                && !MC.juiceClampMessageToggle()) {
+            MC.juiceClampMessageToggle(true);
+            MC.popupController.message('popup.mouse.juice_during_clamp.title', 
+                    'popup.mouse.juice_during_clamp.message');
+        }
+
         mouse.giveJuice();
         mouse.isInteracting(true);
         MC.videoController.play('fast-drink-spawn', false)

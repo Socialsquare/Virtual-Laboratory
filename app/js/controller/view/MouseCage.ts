@@ -28,6 +28,7 @@ class MouseCage extends BaseViewController {
     public lowBloodSugarWarningToggle: KnockoutObservable<boolean>;
     public highBloodSugarWarningToggle: KnockoutObservable<boolean>;
     public diabetesDevelopedToggle: KnockoutObservable<boolean>;
+    public juiceClampMessageToggle: KnockoutObservable<boolean>;
 
     public simulationInterval: number = null;
     public simulationIntervalTime: number = 100;  // millisecond
@@ -50,6 +51,7 @@ class MouseCage extends BaseViewController {
         this.lowBloodSugarWarningToggle = ko.observable(false);
         this.highBloodSugarWarningToggle = ko.observable(false);
         this.diabetesDevelopedToggle = ko.observable(false);
+        this.juiceClampMessageToggle = ko.observable(false);
 
         this.bottle = ContainerFactory.bottle().add(LiquidFactory.juice(), true);
 

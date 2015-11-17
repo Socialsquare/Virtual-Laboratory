@@ -84,7 +84,6 @@
         "mouse.drug_cured.header": "Musen er kureret",
         "mouse.drug_cured.body": "Tillykke - du har kureret musen for sin sygdom!",
 
-
         "mouse.description.healthy": "Rask mus",
         "mouse.description.gout": "Mus med TNF-alfa",
         "mouse.description.psoriasis": "Mus med psoriasis",
@@ -180,6 +179,9 @@
         "popup.tube-extraction.body": "Vælg hvad du vil ekstrahere",
         "popup.warn_icebath_ffd.header": "Pas på",
         "popup.warn_icebath_ffd.body": "Frit-flydende DNA kan dø hvis det ikke holdes afkølet. Er du sikker på at du vil flytte det væk fra isbadet?",
+
+        "popup.mouse.juice_during_clamp.title": "Describe the glucose",
+        "popup.mouse.juice_during_clamp.message": "Describe the glucose we give the mouse during the clamp using the juice bottle.",
 
         "pipette.filled.header": "Information",
         "pipette.filled.body": "Du har suget indhold op med pipetten.",
