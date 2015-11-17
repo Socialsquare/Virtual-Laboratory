@@ -31,7 +31,7 @@ class Inventory {
             if (additionalInfo) {
                 var info = '\n\n';
                 _.each(additionalInfo, (val, key) => {
-                    info += key + ': ' + val + '\n';
+                    info += key + ': ' + val.value + ' ' + val.unit + '\n';
                 });
                 item.label(item.label()+info);
             }

@@ -38,8 +38,8 @@ class SyringeHandler {
                     var blood = LiquidFactory.mouseBlood(mouse.mouseBloodType());
                     var tube = ContainerFactory.tube().add(blood);
                     var bloodLevels = { 
-                        'Glucose' : mouse.meanBloodSugar(), 
-                        'Insulin': mouse.insulinProductivity() 
+                        'Glucose' : { 'value': mouse.meanBloodSugar(), 'unit': 'mmol/l' },
+                        'Insulin' : { 'value': mouse.insulinProductivity(), 'unit': 'ng/ml' }
                     };
                     gameState.inventory.add(tube, '', bloodLevels);
 
