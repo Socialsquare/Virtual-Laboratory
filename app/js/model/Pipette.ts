@@ -5,11 +5,13 @@ import utils = require('utils/utils');
 import popupController = require('controller/Popup');
 
 import ContainerType = require('model/type/Container');
+import LiquidType = require('model/type/Liquid');
 
 import CompositeContainerModel = require('model/CompositeContainer');
 import SimpleContainerModel = require('model/SimpleContainer');
 import MicrotiterplateModel = require('model/Microtiterplate');
 import TipModel = require('model/Tip');
+import FreeFloatingDNAModel = require('model/FreeFLoatingDNA');
 
 class Pipette extends CompositeContainerModel {
 
@@ -80,6 +82,14 @@ class Pipette extends CompositeContainerModel {
             // && contaminator !== container
             var contaminatorTypes = _.map(contaminator.liquids(), (l) => l.type());
             var isSameLiquids = container.containsAllStrict(contaminatorTypes);
+    
+            if (isSameLiquids && contaminator.contains(LiquidType.FREE_FLOATING_DNA)) {
+                // tip contaminated by free floating dna, make sure blood type is the same 
+                var ffd = <FreeFloatingDNAModel>contaminator.findByType(LiquidType.FREE_FLOATING_DNA);
+                var ffdContainer = <FreeFloatingDNAModel>container.findByType(LiquidType.FREE_FLOATING_DNA);
+                isSameLiquids = ffd.bloodType() === ffdContainer.bloodType();
+            }
+
             if (!isSameLiquids) {
                 popupController.message('pipette.dirty_tip.header',
                                         'pipette.dirty_tip.body');
