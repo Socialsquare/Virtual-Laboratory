@@ -22,9 +22,11 @@ class VetMonitor {
     public mouseBloodSugar: KnockoutObservable<number>;
     public mouseCageHasMouse: KnockoutComputed<boolean>;
     public glucoseInfusionRate: KnockoutObservable<number>;
+    public previousGlucoseInfusionRate: KnockoutObservable<number>;
     public glucoseInfusionRateMangled: KnockoutObservable<number>;
     public girFudgeFactorRate: number;
     public girFudgeFactorSize: number;
+    private _girSubscription = null
 
     public simulationInterval: number = null
     public simulationIntervalTime: number = 100;  // millisecond
@@ -70,13 +72,23 @@ class VetMonitor {
         this.mouseBloodSugar = ko.observable(null);
         
         if (params.glucoseInfusionRate === null){
+            this.previousGlucoseInfusionRate = ko.observable(null);
             this.glucoseInfusionRate = ko.observable(null);
         } else {
+            this.previousGlucoseInfusionRate = ko.observable(0);
             this.glucoseInfusionRate = params.glucoseInfusionRate;  // KnockoutObservable
         }
         this.glucoseInfusionRateMangled = ko.observable(0);
         this.girFudgeFactorRate = 50.0;
         this.girFudgeFactorSize = 5 / this.girFudgeFactorRate;
+        
+        this._girSubscription = this.glucoseInfusionRate.subscribe(
+            (previousValue:number) => {
+                this.previousGlucoseInfusionRate(previousValue);
+            },
+            null,
+            "beforeChange"
+        );
         
         this.isBloodSugarGraphEnabled = ko.observable(true);
         this.graphRange = _.range(this.graphRangeStart, this.graphRangeEnd);
@@ -268,7 +280,8 @@ class VetMonitor {
         this.girDataForPlot.shift();
         if (this.glucoseInfusionRateMangled() < this.glucoseInfusionRate()){
             
-            this.girFudgeFactorSize = this.glucoseInfusionRate() / this.girFudgeFactorRate;
+            this.girFudgeFactorSize =
+                this.glucoseInfusionRate() / this.girFudgeFactorRate;
             
             this.glucoseInfusionRateMangled(this.glucoseInfusionRateMangled() +
                 this.girFudgeFactorSize);
@@ -276,9 +289,15 @@ class VetMonitor {
                 this.glucoseInfusionRateMangled(this.glucoseInfusionRate());
             }
         } else if (this.glucoseInfusionRateMangled() > this.glucoseInfusionRate()) {
-            this.girFudgeFactorSize = this.glucoseInfusionRateMangled() / this.girFudgeFactorRate;
+
+            this.girFudgeFactorSize =
+                this.previousGlucoseInfusionRate() / this.girFudgeFactorRate;
+
             this.glucoseInfusionRateMangled(this.glucoseInfusionRateMangled() -
                 this.girFudgeFactorSize);
+            if (this.glucoseInfusionRateMangled() < this.glucoseInfusionRate()){
+                this.glucoseInfusionRateMangled(this.glucoseInfusionRate());
+            }
         }
         
         if (this.mouseCageHasMouse()) {
@@ -366,6 +385,7 @@ class VetMonitor {
         //this.plotData([]);
         if (this._mouseSubscription)
             this._mouseSubscription.dispose();
+        this._girSubscription.dispose();
     }
 }
 
