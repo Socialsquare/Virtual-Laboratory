@@ -44,7 +44,7 @@ class VetMonitorLogService extends IndexedDbService {
     }
 
     public fetchByLogId(logId:number, cb) {
-        console.log("fetchByLogId");
+        console.log("fetchByLogId(" + logId +")");
         var ret = [];
         return this.getObjectStore().done((store: any) => {
             var counter = 0;
@@ -63,7 +63,7 @@ class VetMonitorLogService extends IndexedDbService {
                 }
             };
             req.onerror = (event: any)=> {
-                console.log("errro!!!!");
+                console.log("fetchByLogId error");
                 console.log(event);
             }
         });

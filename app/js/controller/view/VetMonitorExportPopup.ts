@@ -6,7 +6,7 @@ import vetMonitorLog = require('service/VetMonitorLog');
 import VetMonitorLogItem = require('model/type/VetMonitorLogItem');
 
 
-// FIXME: logs should have a predefined limit and expire time,
+// FIXME: logs could have a predefined limit and expire time,
 // FIXME: hence logIds will have to be updated accordingly
 class VetMonitorExportPopup {
 
@@ -19,9 +19,11 @@ class VetMonitorExportPopup {
     public backButtonToggle: KnockoutObservable<boolean>;
     public monitorExportPopupToggle: KnockoutObservable<boolean>;
     public csvData: KnockoutObservable<string>;
+    private _toggleSubscription = null;
     
     constructor(params) {
         // template 'popup-vetmonitor-data-export'
+        console.log("VetMonitorExportPopup.constructor()");
 
         this.maxLogId = null;
         this.currLogId = null;
@@ -31,19 +33,18 @@ class VetMonitorExportPopup {
         this.dataToggle = ko.observable(false);
         this.backButtonToggle = ko.observable(false);
         this.maxLogId = vetMonitorLog.getCurrentLogId();
-        
         this.logIds = ko.observableArray(_.range(1, this.maxLogId + 1));
         this.csvData = ko.observable('');
+        
+        this._toggleSubscription = 
+            this.shouldShowExportPopup.subscribe((newval: boolean)=>{
+            this.updateLogIds();
+        });
 
         ko.rebind(this);
     }
 
     show() {
-        //popupController.dataExport(DataHelper.toCSV(parsed, headers));
-        //vetMonitorLog.fetch((cnt, ret)=> {
-        //    console.log(cnt);
-        //    console.log(ret);
-        //}, 10);
         console.log("VetMonitorExportPopup.show()"+ this.shouldShowExportPopup());
         if (this.shouldShowExportPopup()) {
             return;
@@ -60,6 +61,7 @@ class VetMonitorExportPopup {
     
     dispose(){
         console.log("VetMonitorExportPopup.dispose()");
+        this._toggleSubscription.dispose();
     }
     
     onBackButtonClick() {
@@ -84,8 +86,17 @@ class VetMonitorExportPopup {
             $('#vetMonitorExportCsvData').scrollTop(0);
         });
     }
+    
+    public updateLogIds = () => {
+        this.maxLogId = vetMonitorLog.getCurrentLogId();
+        this.logIds.removeAll();
+        _.map(_.range(1, this.maxLogId + 1),
+              (item:number)=>{ this.logIds.push(item); });
+    }
 
     showLogButtons() {
+        console.log("VetMonitorExportPopup.showLogButtons()");
+        this.updateLogIds();
         this.csvData('');
         this.logButtonsToggle(true);
         this.dataToggle(false);

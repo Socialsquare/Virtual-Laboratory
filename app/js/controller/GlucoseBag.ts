@@ -1,11 +1,11 @@
 import ko = require('knockout');
 import _ = require('lodash');
 
+import vetMonitorLog = require('service/VetMonitorLog');
 import MouseCageModel = require('model/MouseCage');
 import GlucoseBagModel = require('model/GlucoseBag');
 import ActivationType = require('model/type/Activation');
 import experimentController = require('controller/Experiment');
-
 import hudController = require('controller/HUD');
 
 class GlucoseBag {
@@ -29,6 +29,8 @@ class GlucoseBag {
             hudController.flashTimePassing(60);
         } else {
             hudController.hideTimePassing();
+            // update logId when bag is deactivated
+            vetMonitorLog.updateLogId();
         }
         experimentController.triggerActivation(ActivationType.GLUCOSE_BAG, this);
     }
