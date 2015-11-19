@@ -75,7 +75,7 @@ class VetMonitor {
             this.glucoseInfusionRate = params.glucoseInfusionRate;  // KnockoutObservable
         }
         this.glucoseInfusionRateMangled = ko.observable(0);
-        this.girFudgeFactorRate = 100.0;
+        this.girFudgeFactorRate = 50.0;
         this.girFudgeFactorSize = 5 / this.girFudgeFactorRate;
         
         this.isBloodSugarGraphEnabled = ko.observable(true);
