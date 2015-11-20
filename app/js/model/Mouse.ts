@@ -11,6 +11,8 @@ import heartRateData = require('json!datadir/heartRate.json');
 
 import SpecialItemModel = require('model/SpecialItem');
 import SpecialItemType = require('model/type/SpecialItem');
+import Utils = require('utils/utils');
+
 
 class Mouse extends SpecialItemModel {
     
@@ -121,29 +123,23 @@ class Mouse extends SpecialItemModel {
         }
     }
     
-    private pickRandomValue(values) {
-        var i = Math.floor(Math.random() * values.length);
-        return values[i];
-    
-    }
-
     public computeInsulinProductivity = ():number => {
+        // FIXME: the further away the blood sugar is from the median
+        // the higher insulin production should be.
+        
+        // FIXME: should the samples be closer to a "normal distribution"?
+        
+        // healthy mouse has ~0.25
+        var healthySamples = [0.23, 0.24, 0.25, 0.25, 0.25, 0.25, 0.26,
+            0.26, 0.27, 0.28];
+        // diabetic mouse has ~0.166
+        var diabeticSamples = [0.148, 0.149, 0.15, 0.15, 0.15, 0.151,
+            0.151, 0.152, 0.152, 0.153];
         switch (this.mouseBloodType()) {
             case MouseBloodType.NORMAL:
-                return this.pickRandomValue([0.73, 0.74, 0.75, 0.75, 0.75, 0.75, 0.76, 0.76, 0.77, 0.78]);
+                return Utils.math.pickRandomValue(healthySamples);
             case MouseBloodType.DIABETIC:
-                return this.pickRandomValue([1.48, 1.49, 1.5, 1.5, 1.5, 1.51, 1.51, 1.52, 1.52, 1.53]);
-            default:
-                return 0;
-        }
-    }
-
-    public computeMeanBloodSugar = ():number => {
-        switch (this.mouseBloodType()) {
-            case MouseBloodType.NORMAL:
-                return this.pickRandomValue([4.8, 4.9, 4.9, 4.9, 5.0, 5.0, 5.0, 5.0, 5.1, 5.1, 5.2]);
-            case MouseBloodType.DIABETIC:
-                return this.pickRandomValue([7.8, 7.9, 8.0, 8.0, 8.0, 8.0, 8.0, 8.1, 8.1, 8.2]);
+                return Utils.math.pickRandomValue(diabeticSamples);
             default:
                 return 0;
         }
@@ -159,7 +155,18 @@ class Mouse extends SpecialItemModel {
                 return 0;
         }
     }
-    
+
+    public computeMeanBloodSugar = ():number => {
+        switch (this.mouseBloodType()) {
+            case MouseBloodType.NORMAL:
+                return Utils.math.pickRandomValue([4.8, 4.9, 4.9, 4.9, 5.0, 5.0, 5.0, 5.0, 5.1, 5.1, 5.2]);
+            case MouseBloodType.DIABETIC:
+                return Utils.math.pickRandomValue([7.8, 7.9, 8.0, 8.0, 8.0, 8.0, 8.0, 8.1, 8.1, 8.2]);
+            default:
+                return 0;
+        }
+    }
+
     // Used for determining whether the contents in the syringe is
     // allowed to inject into the mouse GENERALLY. This does NOT take
     // MouseType into consideration.

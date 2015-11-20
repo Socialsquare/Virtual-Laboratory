@@ -9,7 +9,6 @@ import MicroorganismModel = require('model/Microorganism');
 
 import lh = require('utils/LiquidHelper');
 
-
 class Utils {
     // Clone a knockout object by making it a plain object and
     // mapping it back to observables
@@ -49,6 +48,11 @@ class Utils {
 
         getConcentrationFromBiomass: (biomass) => {
             return biomass * Math.pow(10, 12);
+        },
+        
+        pickRandomValue(values: any[]) {
+            var i = Math.floor(Math.random() * (values.length + 1));
+            return values[i];
         }
     };
 
