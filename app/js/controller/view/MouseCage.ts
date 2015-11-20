@@ -30,8 +30,8 @@ class MouseCage extends BaseViewController {
     public diabetesDevelopedToggle: KnockoutObservable<boolean>;
     public juiceClampMessageToggle: KnockoutObservable<boolean>;
 
-    public simulationInterval: number = null;
-    public simulationIntervalTime: number = 100;  // millisecond
+    public simulationIntervalId: number = null;
+    public simulationInterval: number = 100;  // millisecond
 
     public glucoseBagController: GlucoseBagController;
     public bottle: BottleModel;
@@ -62,35 +62,58 @@ class MouseCage extends BaseViewController {
         ko.rebind(this);
     }
     
+    public shouldShowDiabetesDeveloped = (bloodSugar) => {
+        return (bloodSugar >= this.mousecage.mouse().maxBloodSugar())
+            && !this.diabetesDevelopedToggle()
+            && (this.mousecage.mouse().mouseBloodType() === MouseBloodType.NORMAL)
+            && !super.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP');
+    }
+    
+    public shouldShowHighBloodSugarWarning = (bloodSugar) => {
+        return (bloodSugar > (this.mousecage.mouse().maxBloodSugar() * 0.8))
+            && !this.highBloodSugarWarningToggle()
+            && (this.mousecage.mouse().mouseBloodType() === MouseBloodType.NORMAL)
+            && !super.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP');
+    }
+    
+    public shouldShowLowBloodSugarWarning = (bloodSugar) => {
+        return ((bloodSugar < 1.5)
+            && !this.lowBloodSugarWarningToggle());
+    }
+    
     public onBloodSugarChange = (bloodSugar) => {
-        if (bloodSugar < 1.5 && !this.lowBloodSugarWarningToggle()) {
+        if (this.shouldShowLowBloodSugarWarning(bloodSugar)) {
             this.lowBloodSugarWarningToggle(true);
-            this.popupController.message('mouse.warning_insulin.header', 'mouse.warning_insulin.body');
-        } else if (bloodSugar > this.mousecage.mouse().maxBloodSugar() * 0.8
-                 && !this.highBloodSugarWarningToggle()
-                 && this.mousecage.mouse().mouseBloodType() === MouseBloodType.NORMAL
-                 && !super.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP')) {
+            this.popupController.message('mouse.warning_insulin.header',
+                                         'mouse.warning_insulin.body');
+        } else if (this.shouldShowHighBloodSugarWarning(bloodSugar)) {
             this.highBloodSugarWarningToggle(true);
-            this.popupController.message('mouse.warning_diabetes_risk.header', 'mouse.warning_diabetes_risk.body');
-        } else if (bloodSugar >= this.mousecage.mouse().maxBloodSugar()
-                 && !this.diabetesDevelopedToggle()
-                 && this.mousecage.mouse().mouseBloodType() === MouseBloodType.NORMAL
-                 && !super.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP')) {
+            this.popupController.message('mouse.warning_diabetes_risk.header',
+                                         'mouse.warning_diabetes_risk.body');
+        } else if (this.shouldShowDiabetesDeveloped(bloodSugar)) {
             this.diabetesDevelopedToggle(true);
-            this.popupController.message('mouse.warning_diabetes.header', 'mouse.warning_diabetes.body');
+            this.popupController.message('mouse.warning_diabetes.header',
+                                         'mouse.warning_diabetes.body');
             this.mousecage.mouse().mouseBloodType(MouseBloodType.DIABETIC);
         }
+    }
+
+    /**
+     * Give a fraction of infusion to the mouse.
+     *
+     */
+    nextInfusionDose() {
+        var infusionRate = this.mousecage.glucoseBag.glucoseInfusionRate();
+        var msInMinute = 1000 * 60;
+        var infusionDose = infusionRate * this.simulationInterval / msInMinute;
+        this.mousecage.mouse().giveInfusion(infusionDose);
     }
 
     nextTimeStep() {
         if (!this.mousecage.hasMouse()) return;
         
-        _.map(_.range(1, this.mousecage.glucoseBag.glucoseInfusionRate()), (i) => {
-            // this is to increase blood sugar based on Glucose Infusion Rate
-            // this is some random number I thought would make sense -
-            // every 100ms we add this amount multiplied by the GIR number.
-            this.mousecage.mouse().giveGlucose(1 / 60.0);
-        });
+        if (this.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP'))
+            this.nextInfusionDose();
 
         this.mousecage.mouse().nextBloodStep();
         ko.postbox.publish("mouseCageMouseBloodSugarTopic",
@@ -180,10 +203,10 @@ class MouseCage extends BaseViewController {
     }
 
     toggleSimulation(enabled) {
-        clearInterval(this.simulationInterval);
+        clearInterval(this.simulationIntervalId);
         if (enabled) {
-            this.simulationInterval = setInterval(this.nextTimeStep,
-                                                  this.simulationIntervalTime);
+            this.simulationIntervalId = setInterval(this.nextTimeStep,
+                                                  this.simulationInterval);
         }
     }
 

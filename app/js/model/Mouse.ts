@@ -26,7 +26,7 @@ class Mouse extends SpecialItemModel {
     public bloodData: KnockoutObservableArray<number>;
     public mouseBloodType: KnockoutObservable<MouseBloodType>;
     public bloodSugar: KnockoutObservable<number>;
-    public stomachBloodSugar: KnockoutObservable<number>;
+    public stomachSugar: KnockoutObservable<number>;
     public meanBloodSugar: KnockoutComputed<number>;
     public heartRate: KnockoutObservable<number>;
     public maxBloodSugar: KnockoutObservable<number>;
@@ -36,6 +36,7 @@ class Mouse extends SpecialItemModel {
     public insulinProductivity: KnockoutComputed<number>;
     public insulinEfficiency: KnockoutComputed<number>;
     public glucoseDose: KnockoutObservable<number>;
+    private infusionDose: KnockoutObservable<number>;
     public insulinDose: KnockoutObservable<number>;
     public description: KnockoutComputed<string>;
     public isCut: KnockoutObservable<boolean>;
@@ -67,7 +68,7 @@ class Mouse extends SpecialItemModel {
 
         this.bloodData = ko.observableArray([]);
 
-        this.stomachBloodSugar = ko.observable(0);
+        this.stomachSugar = ko.observable(0);
         this.bloodSugar = ko.observable(0);
         this.meanBloodSugar = ko.pureComputed(this.computeMeanBloodSugar);
         
@@ -86,6 +87,7 @@ class Mouse extends SpecialItemModel {
         this.insulinEfficiency =
             ko.pureComputed(this.computeInsulinEfficiency);
         this.glucoseDose = ko.observable(0);
+        this.infusionDose = ko.observable(0);
         this.insulinDose = ko.observable(0);
 
         this.bloodSugar(this.meanBloodSugar());
@@ -228,12 +230,8 @@ class Mouse extends SpecialItemModel {
         this.glucoseDose(this.glucoseDose() + 3);
     }
 
-    giveGlucose(glucose: number): void {
-        if (glucose) {
-            this.glucoseDose(this.glucoseDose() + glucose);
-        } else {
-            this.glucoseDose(this.glucoseDose() + 3);
-        }
+    giveInfusion(infusionDose: number): void {
+        this.infusionDose(infusionDose);
     }
 
     giveInsulin() {
@@ -261,11 +259,18 @@ class Mouse extends SpecialItemModel {
             return;
 
         //2. calculate sugar intake from stomach to blood 
-        if (this.stomachBloodSugar() > 0.0001) {
-            var sukkerRatio = this.stomachBloodSugar() / this.bloodSugar() * 0.2;
-            this.stomachBloodSugar(this.stomachBloodSugar() - sukkerRatio);
+        if (this.stomachSugar() > 0.0001) {
+            var sukkerRatio = this.stomachSugar() / this.bloodSugar() * 0.2;
+            this.stomachSugar(this.stomachSugar() - sukkerRatio);
             this.bloodSugar(this.bloodSugar() + sukkerRatio);
         }
+
+        // increase bloodSugar by infused dose
+        // InfusionToBloodMagic for converting from infusion concentration
+        // to concentration in blood
+        var infusionToBloodMagic = 12;
+        this.bloodSugar(this.bloodSugar() +
+                        (this.infusionDose() * infusionToBloodMagic));
 
         //3. f BloodSugar != MeanBloodSugar, increase/decrease insulin levels depending on productivity 
         this.insulinProduction((this.bloodSugar() - this.meanBloodSugar()) * this.insulinProductivity());
@@ -279,7 +284,7 @@ class Mouse extends SpecialItemModel {
 
         if (this.glucoseDose() > 0) {
             var glucoseMagic = Math.min(this.glucoseDose() / 3, 0.3);
-            this.stomachBloodSugar(this.stomachBloodSugar() + glucoseMagic * 2);
+            this.stomachSugar(this.stomachSugar() + glucoseMagic * 2);
             this.glucoseDose(this.glucoseDose() - glucoseMagic);
         }
 
@@ -296,7 +301,7 @@ class Mouse extends SpecialItemModel {
         clone.isCut(this.isCut());
         clone.spleen = this.spleen.clone();
 
-        clone.stomachBloodSugar(this.stomachBloodSugar());
+        clone.stomachSugar(this.stomachSugar());
         clone.bloodSugar(this.bloodSugar());
         clone.maxBloodSugar(this.maxBloodSugar());
         clone.minBloodSugar(this.minBloodSugar());
