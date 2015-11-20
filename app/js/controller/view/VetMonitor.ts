@@ -28,8 +28,8 @@ class VetMonitor {
     public girFudgeFactorSize: number;
     private _girSubscription = null
 
-    public simulationInterval: number = null
-    public simulationIntervalTime: number = 100;  // millisecond
+    public simulationIntervalId: number = null
+    public simulationInterval: number = 100;  // millisecond
     private _saveCurrentDataCounter = 0;
     private _saveCurrentDataRate = 5;
 
@@ -41,7 +41,6 @@ class VetMonitor {
 
     public isBloodSugarGraphEnabled: KnockoutObservable<boolean>;
     public graphBloodRange: KnockoutObservableArray<boolean>;
-    //public bloodGlucoseData: KnockoutObservableArray<number>;
 
     public isGirGraphEnabled: KnockoutObservable<boolean>;
     public graphGirRange: KnockoutObservableArray<boolean>;
@@ -51,7 +50,6 @@ class VetMonitor {
     
     public isHrGraphEnabled: KnockoutObservable<boolean>;
     public graphHrRange: KnockoutObservableArray<boolean>;
-    //public heartRateData: KnockoutObservableArray<number>;
 
     public plotData: KnockoutObservableArray<any>;
     private _mouseSubscription = null;
@@ -341,12 +339,12 @@ class VetMonitor {
     }
 
     toggleSimulation(enabled: boolean) {
-        if ((enabled) && (this.simulationInterval === null)) {
-            this.simulationInterval = setInterval(this.nextTimeStep,
-                this.simulationIntervalTime);
+        if ((enabled) && (this.simulationIntervalId === null)) {
+            this.simulationIntervalId = setInterval(this.nextTimeStep,
+                this.simulationInterval);
         } else {
-            clearInterval(this.simulationInterval);
-            this.simulationInterval = null;
+            clearInterval(this.simulationIntervalId);
+            this.simulationIntervalId = null;
         }
     }
 
