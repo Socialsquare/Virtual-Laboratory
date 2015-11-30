@@ -32,6 +32,9 @@
                 ]
             },
             { 
+                "apparatus": {
+                    "ApparatusLocationType.MOUSE_CAGE_CLAMP_BOTTLE": "ApparatusType.CLAMP"
+                },
                 "tasks": [
                     {
                         "description": { "dk": "Place the healthy mouse in the cage. Give juice to the mouse." },

@@ -84,32 +84,11 @@ class App extends BaseViewController {
         // bootstrap the app by going to loading view
         this.router.navigate('loading');
         //this.router.navigate('overview');
+
+        // function shortcuts for testing
         var iadd = this.gameState.inventory.add;
         var t = ContainerFactory.tube;
 
-        // 1. As a user I want to see the units for the blood sample
-        //iadd(SpecialItemFactory.healthyMouse());
-        //iadd(SpecialItemFactory.syringe());
-        
-        // 2. As a user I would like to see a pop-up describing the glucose we give the mouse using the bottle
-        // 3. As a user I want to be forced to change pipette tip when switching between DNA types.
-
-        // 4. Pop-up message saying "Mouse in danger of developing diabetes if you give it too much juice" 
-        // should not appear during clamp and mouse should not develop diabetes
-        //iadd(SpecialItemFactory.healthyMouse());
-        //iadd(SpecialItemFactory.healthyMouse());
-        
-        // 5. As a user I wanter to see graphics on the PCR machine
-        //iadd(t());
-        //iadd(t());
-        //iadd(t());
-        //iadd(t());
-
-        // 6. As a user I wanter to see graphics on the gel electro 
-        //iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.DIABETIC)));
-        //iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.NORMAL)));
-        //iadd(t().add(LiquidFactory.blueStain()));
-        //iadd(SpecialItemFactory.gel());
         ko.rebind(this);
     }
     

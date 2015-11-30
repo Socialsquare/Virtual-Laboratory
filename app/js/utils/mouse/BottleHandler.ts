@@ -21,8 +21,8 @@ class BottleHandler {
         }
 
         MC.mouseDrinking(true);
-       
-        if (MC.apparatusEnabled("MOUSE_CAGE_GLUCOSE_BAG", "GLUCOSE_BAG_CLAMP") 
+      
+        if (MC.apparatusEnabled('MOUSE_CAGE_CLAMP_BOTTLE', 'CLAMP_JUICE_BOTTLE')
                 && !MC.juiceClampMessageToggle()) {
             MC.juiceClampMessageToggle(true);
             MC.popupController.message('popup.mouse.juice_during_clamp.title', 
