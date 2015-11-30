@@ -13,6 +13,7 @@ enum Liquid {
     MICROTITER_WELLS         = ev.next(),
     DEADLY                   = ev.next(),
     HOMO_SPLEEN              = ev.next(),
+    FUSION_MEDIUM            = ev.next(),
     HYBRIDOMA_MEDIUM         = ev.next(),
     INSULIN                  = ev.next(),
     ANTIBODY_GOUT            = ev.next(),

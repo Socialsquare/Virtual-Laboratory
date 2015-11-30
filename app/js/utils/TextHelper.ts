@@ -122,6 +122,8 @@ class TextHelper {
             return 'liquid.name.growth_medium';
         case LiquidType.HYBRIDOMA_MEDIUM:
             return 'liquid.name.hybridoma_medium';
+        case LiquidType.FUSION_MEDIUM:
+            return 'liquid.name.fusion_medium';
         case LiquidType.DNA:
             return 'liquid.name.dna';
         case LiquidType.GENE:

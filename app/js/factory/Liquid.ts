@@ -59,6 +59,10 @@ class LiquidFactory {
         return homogenizedSpleen;
     }
 
+    static fusionMedium() {
+        return new Liquid(LiquidType.FUSION_MEDIUM);
+    }
+
     static hybridomaMedium() {
         return new Liquid(LiquidType.HYBRIDOMA_MEDIUM);
     }

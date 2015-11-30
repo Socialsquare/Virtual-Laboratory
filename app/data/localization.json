@@ -233,6 +233,7 @@
         "item.name.myeloma": "Myeloma",
         "item.name.antibiotic_a": "Antibiotikum A",
         "item.name.antibiotic_b": "Antibiotikum B",
+        "item.name.fusion_medium": "Fusionsmedium",
         "item.name.hybridoma_medium": "Hybridoma medium",
         "item.name.growth_medium": "Vækstmedium",
         "item.name.deadly": "Dødelig reagens",
@@ -264,6 +265,7 @@
 
         "liquid.name.microorganism": "Mikroorganisme",
         "liquid.name.antibiotic": "Antibiotikum",
+        "liquid.name.fusion_medium": "Fusionsmedium",
         "liquid.name.hybridoma_medium": "Hybridoma medium",
         "liquid.name.growth_medium": "Vækstmedium",
         "liquid.name.dna": "DNA",
