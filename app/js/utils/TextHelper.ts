@@ -63,11 +63,11 @@ class TextHelper {
         return i18n.text(TextHelper.prettyNameFromType(type));
     }
 
-    static label(container: SimpleContainerModel) {
+    static label(container: SimpleContainerModel, displaySubtype = true) {
         var subtyped = [ LiquidType.MOUSE_BLOOD, LiquidType.ANTIBIOTIC ];
 
         var contents = _.map(container.liquids(), (l) => {
-            if (_.contains(subtyped, l.type())) {
+            if (displaySubtype && _.contains(subtyped, l.type())) {
                 var type = TextHelper.i18nFromType(l.type());
                 var subtype = TextHelper.i18nFromType(l.subtype());
                 return type + ' (' + subtype + ')';

@@ -10,6 +10,8 @@ import SyringeModel = require('model/Syringe');
 import LiquidFactory = require('factory/Liquid');
 import ContainerFactory = require('factory/Container');
 
+import TextHelper = require('utils/TextHelper');
+
 import MouseCageController = require('controller/view/MouseCage');
 
 class SyringeHandler {
@@ -41,7 +43,13 @@ class SyringeHandler {
                         'Glucose' : { 'value': mouse.meanBloodSugar(), 'unit': 'mmol/l' },
                         'Insulin' : { 'value': mouse.insulinProductivity(), 'unit': 'ng/ml' }
                     };
-                    gameState.inventory.add(tube, '', bloodLevels);
+                    
+                    var alternativeLabel = '';
+                    if (MC.apparatusEnabled('MOUSE_CAGE_CLAMP_BOTTLE', 'CLAMP_JUICE_BOTTLE')) {
+                        alternativeLabel = TextHelper.label(tube, false);
+                    }
+
+                    gameState.inventory.add(tube, alternativeLabel, bloodLevels);
 
                     MC.runFromState();
                 });
