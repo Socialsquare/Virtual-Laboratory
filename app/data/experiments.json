@@ -33,7 +33,7 @@
             },
             { 
                 "apparatus": {
-                    "ApparatusLocationType.MOUSE_CAGE_CLAMP_BOTTLE": "ApparatusType.CLAMP"
+                    "ApparatusLocationType.MOUSE_CAGE_CLAMP_BOTTLE": "ApparatusType.CLAMP_JUICE_BOTTLE"
                 },
                 "tasks": [
                     {
