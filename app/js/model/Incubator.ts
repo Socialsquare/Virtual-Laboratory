@@ -88,7 +88,7 @@ class Incubator {
         this.tableSpacePetri.removeAll();
         this.tubeRack.removeAll();
 
-        this.temperature(35.0);
+        this.temperature(37.0);
         this.timer(48);
         this.turnedOn(false);
         clearTimeout(this.timerID());
