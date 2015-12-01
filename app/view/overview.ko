@@ -1,10 +1,4 @@
 <div class="overview-view">
-    <div class="hand" data-bind="if: apparatusEnabled('CORNER', 'CORNER_SPECTRO'), route: 'spectropm'">
-        <img src="assets/images/special_spektro.png" class="spectrophotometer" alt="Go to spectrophotometer">
-    </div>
-    <div class="hand" data-bind="if: apparatusEnabled('CORNER', 'CORNER_FOOBAR'), route: 'fumehood'">
-        <img src="assets/images/overview_base-door.png" class="spectrophotometer" alt="Go to spectrophotometer">
-    </div>
     <div class="hand" data-bind="click: handleDoorClick">
         <img src="assets/images/overview_base-door.png" class="door" alt="Go to door">
     </div>
@@ -30,6 +24,9 @@
         <img src="assets/images/overview_base-incubator.png" class="incubator" alt="Go to incubator">
     </div>
     <div class="hand" data-bind="route: 'worktable3'">
-        <img src="assets/images/icon_cup_tube.png" class="worktable3" alt="Go to work table 3">
+        <img src="assets/images/overview_base-worktable3.png" class="worktable3" alt="Go to work table 3">
+    </div>
+    <div class="hand" data-bind="if: apparatusEnabled('CORNER', 'CORNER_SPECTRO'), route: 'spectropm'">
+        <img src="assets/images/overview_base-spectro.png" class="spectrophotometer" alt="Go to spectrophotometer">
     </div>
 </div>

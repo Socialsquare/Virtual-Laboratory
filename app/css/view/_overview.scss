@@ -7,10 +7,18 @@
 
     .spectrophotometer {
         position: absolute;
+        left: 370px;
+        top: 100px;
+        width: 99px;
+        height: 75px;
+    }
+
+    .spectro {
+        position: absolute;
         left: 365px;
         top: 87px;
-        width: 138px;
-        height: 85px;
+        width: 99px;
+        height: 75px;
     }
 
     .door {
@@ -23,9 +31,9 @@
 
     .chemicalcloset {
         position: absolute;
-        left: 619px;
+        left: 618px;
         top: 0;
-        width: 307px;
+        width: 309px;
         height: 207px;
     }
 
@@ -63,10 +71,10 @@
 
     .worktable3 {
         position: absolute;
-        left: 316px;
-        top: 161px;
-        width: 94px;
-        height: 60px;
+        left: 282px;
+        top: 152px;
+        width: 124px;
+        height: 89px;
     }
 
     .fermentorchroma {
