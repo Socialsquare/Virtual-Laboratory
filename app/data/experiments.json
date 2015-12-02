@@ -274,7 +274,7 @@
         "description": { "dk": "I denne øvelse skal du genmodificere gær, sådan at det producerer lipase der kan anvendes til tøjvask." },
         "story": { "dk": "Et nyt enzym er netop blevet identificeret i en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven." },
         "apparatus": {
-            "ApparatusLocationType.CORNER": "ApparatusType.CORNER_FOOBAR",
+            "ApparatusLocationType.CORNER": "ApparatusType.CORNER_SPECTRO",
             "ApparatusLocationType.UV_ROOM": "ApparatusType.UV_ROOM_GEL",
             "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR"
         },
@@ -825,12 +825,56 @@
                         "description": { "dk": "Inkubér mikrotiterpladen. Dette gøres ved at stille mikrotiterpladen i spektrofotometeret, eftersom det både har omrystning og varmelegeme." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.SPECTROPM",
+                            "activation": "ActivationType.INCUBATOR",
                             "liquids": [
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
                                 { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
                             ]
+                        }
+                    },
+                    {
+                        "description": { "dk": "Take an ELISA plate (Ebola) and coat it with the Ebola anti-gene from step 1 and 2 in the fumehood" },
+                        "trigger": {
+                            "type": "TriggerType.MIX",
+                            "container": "ContainerType.MICROTITER",
+                            "containerSubtype": "AntigenCoatingType.NONE",
+                            "liquids": [
+                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
+                                { "type": "LiquidType.ADJUVANS" }
+                            ]
+
+                        }
+                    },
+                    {
+                        "description": { "dk": "Incubate it in the oven at 37 degrees" },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.INCUBATOR",
+                            "containers": [
+                                {
+                                    "type": "ContainerType.MICROTITER",
+                                    "liquids": [
+                                        { "type": "LiquidType.ANTIGEN_SMALLPOX" },
+                                        { "type": "LiquidType.ADJUVANS" }
+                                    ]
+                                }
+                            ]
+
+                        }
+                    },
+                    {
+                        "description": { "dk": "Add buffer to ELISA plate in the fumehood" },
+                        "trigger": {
+                            "type": "TriggerType.MIX",
+                            "container": "ContainerType.MICROTITER",
+                            "containerSubtype": "AntigenCoatingType.NONE",
+                            "liquids": [
+                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
+                                { "type": "LiquidType.ADJUVANS" },
+                                { "type": "LiquidType.BUFFER"}
+                            ]
+
                         }
                     },
                     {
