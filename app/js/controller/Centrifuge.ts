@@ -29,19 +29,14 @@ class CentrifugeController extends CompositeContainerController {
     validateBalance() {
         var slot0 = this.compContainer.get(0);
         var slot1 = this.compContainer.get(1);
-        var slot2 = this.compContainer.get(2);
-        var slot3 = this.compContainer.get(3);
 
-        // Are tubes in valid positions
-        if (!slot0 !== !slot2 || !slot1 !== !slot3)
+
+        // Are both slots either full or empty
+        if ((slot0 && !slot1) || (!slot0 && slot1))
             return false;
 
-        // Is slot0 and slot2 both full or empty
-        if (slot0 && slot2 && (!slot0.isEmpty() !== !slot2.isEmpty()))
-            return false;
-
-        // Is slot1 and slot3 both full or empty
-        if (slot1 && slot3 && (!slot1.isEmpty() !== !slot3.isEmpty()))
+        // Are both tubes either full or empty
+        if (slot0 && slot1 && (slot0.isEmpty() !== slot1.isEmpty()))
             return false;
 
         return true;

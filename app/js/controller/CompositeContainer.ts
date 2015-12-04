@@ -82,6 +82,11 @@ class CompositeContainerController {
             this.imageGetter = ImageHelper.odMachineTubeImage;
             this.accepter = DragHelper.acceptTube;
             break;
+        
+        case ContainerType.CENTRIFUGE:
+            this.imageGetter = ImageHelper.centrifugeTubeImage;
+            this.accepter = DragHelper.acceptTube;
+            break;
 
         case ContainerType.WORK3_TUBE_RACK:
             this.imageGetter = ImageHelper.work3TubeImage;

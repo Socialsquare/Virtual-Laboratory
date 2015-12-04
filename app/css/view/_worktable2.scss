@@ -94,14 +94,19 @@
     }
 
     .centrifuge-testtubeholder {
-        @include tuberack(110px, 250px);
-        border: 1px solid black;
+        @include tuberack(115px, 240px);
 
-        .slot0, .slot1, .slot2, .slot3 {
-            background-color: #FFF;
-            opacity: 0.5;
-            border: 1px solid red;
+        .slot0, .slot1 {
+            width: 55px;
+            height: 65px;
+
+            img {
+                position: relative;
+            }
         }
+
+        .slot0 img { bottom: 14px; left: 16px; }
+        .slot1 img { bottom: 15px; right: 1px; }
     }
 
     .centrifuge-btn {

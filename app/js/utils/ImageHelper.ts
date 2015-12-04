@@ -41,6 +41,7 @@ class ImageHelper {
     static sidegroupEmptySlot = ImageHelper.single('scaffold_R');
 
     static odMachineTubeImage = _.constant(ImageHelper.img('work2_od-on.png'));
+    static centrifugeTubeImage = ImageHelper.single('work2_centrifuge-slot');
     
     static work3TubeImage = ImageHelper.emptyFull('work3_tube');
     static pcrMachineTubeImage = ImageHelper.single('work3_pcr_tube');
