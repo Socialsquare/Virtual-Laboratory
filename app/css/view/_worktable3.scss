@@ -35,14 +35,55 @@
             position: relative;
             float: left;
             height: 30px;
+
+            img { position: relative; }
         }
 
-        .slot0 { left: 20px; width: 45px; height: 30px; }
-        .slot1 { left: 18px; width: 45px; height: 28px; }
-        .slot2 { left: 15px; width: 45px; height: 28px; }
-        .slot3 { left: 10px; width: 45px; height: 32px; }
-        .slot4 { left: 5px; width: 45px; height: 37px; }
-        .slot5 { width: 45px; height: 40px; }
+        .slot0 { 
+            left: 20px; 
+            width: 45px; 
+            height: 30px; 
+
+            img { bottom: 12px; left: 11px; }
+        }
+        .slot1 { 
+            left: 18px; 
+            width: 45px; 
+            height: 28px; 
+            
+            img { bottom: 16px; left: 7px; }
+        }
+
+        .slot2 { 
+            left: 15px; 
+            width: 45px; 
+            height: 28px; 
+            
+            img { bottom: 17px; left: 4px; }
+        }
+
+        .slot3 { 
+            left: 10px; 
+            width: 45px; 
+            height: 32px; 
+
+            img { bottom: 15px; left: 3px; }
+        }
+
+        .slot4 { 
+            left: 5px; 
+            width: 45px; 
+            height: 37px; 
+
+            img { bottom: 12px; }
+        }
+
+        .slot5 { 
+            width: 45px; 
+            height: 40px; 
+
+            img { bottom: 16px; left: 4px; }
+        }
     }
 
     .pcr-machine {
