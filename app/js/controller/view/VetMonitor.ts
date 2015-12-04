@@ -136,9 +136,6 @@ class VetMonitor {
         this.resetGraphBloodRange();
     }
 
-    // FIXME: for some reason ko.toggle() doesn't work with this component
-    // FIXME: so I added public methods isHrGraphEnabledToggle,
-    // FIXME: isBloodSugarGraphEnabledToggle, isGirGraphEnabledToggle
     isHrGraphEnabledToggle() {
         this.resetGraphHrRange();
         this.isHrGraphEnabled(!this.isHrGraphEnabled());
@@ -371,6 +368,8 @@ class VetMonitor {
 
     dispose() {
         console.log("VetMonitorController dispose()");
+        
+        vetMonitorLog.updateLogId();
         
         this.mouseHeartRate.unsubscribeFrom("mouseCageMouseHeartRateTopic");
         this.mouseBloodSugar.unsubscribeFrom("mouseCageMouseBloodSugarTopic");

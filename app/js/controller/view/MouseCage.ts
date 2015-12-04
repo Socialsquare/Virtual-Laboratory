@@ -194,6 +194,8 @@ class MouseCage extends BaseViewController {
     }
 
     exit() {
+        console.log("mousecage ctrl exit");
+        this.glucoseBagController.deactivate();
         this.videoController.stop();
         this.toggleSimulation(false);
         if (this._bloodSugarSubscription) {
