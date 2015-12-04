@@ -12,11 +12,21 @@ class GlucoseBag {
         ko.rebind(this);
     }
 
-    public activate() {
-        this.status(!this.status());
-        if (!this.status()) {
-            this.glucoseInfusionRate(0);
+    public statusToggle() {
+        if (this.status()){
+            this.deactivate();
+        } else {
+            this.activate();
         }
+    }
+    
+    public activate() {
+        this.status(true);
+    }
+    
+    public deactivate(){
+        this.status(false);
+        this.glucoseInfusionRate(0);
     }
     
 }
