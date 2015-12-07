@@ -9,6 +9,7 @@
         "supply.closet_header": "Kemikalieskabet",
         "supply.drawer_header": "Redskabsskuffen",
         "supply.fridge_header": "Køleskabet",
+        "supply.freezer_header": "Fryseren",
 
         "microtiter.extract_well.header": "Bekræft",
         "microtiter.extract_well.body": "Vil du tage indholdet af denne brønd og overføre det til et nyt reagensglas?",

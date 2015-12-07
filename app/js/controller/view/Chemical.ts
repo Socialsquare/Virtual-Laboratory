@@ -15,10 +15,12 @@ class Chemical extends BaseViewController {
     public closetItems: KnockoutObservableArray<ChemicalItemModel> = ko.observableArray([]);
     public drawerItems: KnockoutObservableArray<ChemicalItemModel> = ko.observableArray([]);
     public fridgeItems: KnockoutObservableArray<ChemicalItemModel> = ko.observableArray([]);
+    public freezerItems: KnockoutObservableArray<ChemicalItemModel> = ko.observableArray([]);
 
     private groups: {
         closet: { name: string, items: KnockoutObservableArray<ChemicalItemModel> },
         fridge: { name: string, items: KnockoutObservableArray<ChemicalItemModel> },
+        freezer: { name: string, items: KnockoutObservableArray<ChemicalItemModel> },
         drawer: { name: string, items: KnockoutObservableArray<ChemicalItemModel> }
     };
 
@@ -31,6 +33,7 @@ class Chemical extends BaseViewController {
         this.groups = {
             closet: { name: 'supply.closet_header', items: this.closetItems },
             fridge: { name: 'supply.fridge_header', items: this.fridgeItems },
+            freezer: { name: 'supply.freezer_header', items: this.freezerItems },
             drawer: { name: 'supply.drawer_header', items: this.drawerItems }
         };
 
@@ -76,6 +79,9 @@ class Chemical extends BaseViewController {
             new ChemicalItemModel('item.name.lysis', () => this.inTube(LiquidFactory.lysis())),
             new ChemicalItemModel('item.name.salt_water', () => this.inTube(LiquidFactory.saltWater())),
         ]);
+
+
+        this.freezerItems.pushAll([]);
 
         ko.rebind(this);
     }
