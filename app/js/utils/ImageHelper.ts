@@ -2,6 +2,8 @@ import _ = require('lodash');
 
 import ContainerType = require('model/type/Container');
 import LiquidType = require('model/type/Liquid');
+import MouseType = require('model/type/Mouse');
+import MouseBloodType = require('model/type/MouseBlood');
 import SpecialItemType = require('model/type/SpecialItem');
 import LocationType = require('model/type/Location');
 
@@ -119,8 +121,24 @@ class ImageHelper {
             return ImageHelper.img('icon_wash_bottle.png');
 
         case SpecialItemType.MOUSE:
-            return ImageHelper.img('icon_mouse.png');
-
+            switch (item.mouseType()) {
+            case MouseType.HEALTHY:
+                switch (item.mouseBloodType()) {
+                case MouseBloodType.NORMAL:
+                    return ImageHelper.img('icon_mouse_fresh.png');
+                case MouseBloodType.DIABETIC:
+                    return ImageHelper.img('icon_mouse_diabetes.png');
+                }
+            case MouseType.GOUT:
+                return ImageHelper.img('icon_mouse_fresh.png');
+            case MouseType.SMALLPOX:
+                return ImageHelper.img('icon_mouse_pox.png');
+            case MouseType.INSOMNIA:
+                return ImageHelper.img('icon_mouse_ins.png');
+            case MouseType.PSORIASIS:
+                return ImageHelper.img('icon_mouse_pso.png');
+            }
+        
         default:
             throw 'Unknown inventory item: ' + item.type();
         }
