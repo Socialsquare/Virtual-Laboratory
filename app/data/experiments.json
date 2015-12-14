@@ -878,7 +878,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Udtag væske fra hver brønd og overfør dem til ELISA-mikrotiterpladen. I det Virtuelle Laboratorium behøver du dog kun at overføre én gang, og i virkeligheden skal mirkotiterpladen her først centrifugeres, sådan at man er sikker på kun at få væske uden cellen, men dette undlader vi her, da vi antager at cellen allerede ligger på bunden af brøndene."},
+                        "description": { "dk": "Udtag væske fra hver brønd og overfør til den tilsvarende brønd på en ny ELISA-mikrotitterplade. I Det Virtuelle Laboratorium behøver du dog kun at gøre det en gang, og i virkeligheden tages der kun den øverste halvdel af væsken, da cellerne ligger sig på bunden."},
                         "trigger": {
                             "type": "TriggerType.MIX",
                             "container": "ContainerType.MICROTITER",
