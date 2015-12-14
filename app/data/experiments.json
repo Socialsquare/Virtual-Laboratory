@@ -822,7 +822,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Inkubér mikrotiterpladen. Dette gøres ved at stille mikrotiterpladen i spektrofotometeret, eftersom det både har omrystning og varmelegeme." },
+                        "description": { "dk": "Inkubér mikrotiterpladen. Dette gøres i ovnen ved 37 C." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.INCUBATOR",
