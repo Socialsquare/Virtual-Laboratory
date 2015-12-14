@@ -23,7 +23,7 @@ class Incubator {
     public timerText: KnockoutComputed<string>;
 
     constructor() {
-        this.temperature = ko.observable(35.0);
+        this.temperature = ko.observable(37.0);
         this.timer = ko.observable(48); // Time in hours
         this.turnedOn = ko.observable(false);
         this.timerID = ko.observable(null);
