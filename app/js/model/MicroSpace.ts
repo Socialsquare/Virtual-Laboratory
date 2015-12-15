@@ -5,8 +5,8 @@ import CompositeContainerModel = require('model/CompositeContainer');
 
 class MicroSpace extends CompositeContainerModel {
 
-    constructor(type = ContainerType.MICRO_SPACE) {
-        super(3, ContainerType.MICROTITER, type);
+    constructor(capacity = 3, type = ContainerType.MICRO_SPACE) {
+        super(capacity, ContainerType.MICROTITER, type);
 
         ko.rebind(this);
     }

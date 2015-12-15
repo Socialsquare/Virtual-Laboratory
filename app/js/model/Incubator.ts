@@ -4,6 +4,7 @@ import experimentController = require('controller/Experiment');
 
 import TubeRackModel = require('model/TubeRack');
 import PetriSpaceModel = require('model/PetriSpace');
+import MicroSpaceModel = require('model/MicroSpace');
 import GrowerType = require('model/type/Grower');
 import LocationType = require('model/type/Location');
 import ActivationType = require('model/type/Activation');
@@ -17,6 +18,7 @@ class Incubator {
     public hourResolution: KnockoutObservable<number>;
     public growerType: KnockoutObservable<GrowerType>;
     public tableSpacePetri: PetriSpaceModel;
+    public tableSpaceMicro: MicroSpaceModel;
     public tubeRack: TubeRackModel;
 
     public temperatureText: KnockoutComputed<string>;
@@ -30,10 +32,12 @@ class Incubator {
         this.hourResolution = ko.observable(10); // This is used in the growth.
         this.growerType = ko.observable(GrowerType.INCUBATOR);
 
-        this.tableSpacePetri = new PetriSpaceModel(6);
+        this.tableSpacePetri = new PetriSpaceModel(4);
         this.tableSpacePetri.location(LocationType.INCUBATOR);
         this.tubeRack = new TubeRackModel();
         this.tubeRack.location(LocationType.INCUBATOR);
+        this.tableSpaceMicro = new MicroSpaceModel(1);
+        this.tableSpaceMicro.location(LocationType.INCUBATOR);
 
         this.temperatureText = ko.pureComputed(() => {
             return '' + this.temperature().toFixed(1) + ' °C';
@@ -78,6 +82,7 @@ class Incubator {
 
         for (var i = 0; i < this.hourResolution(); i++) {
             this.tableSpacePetri.growContentsOnce(deltaTime, this.growerType(), 0, this.temperature());
+            this.tableSpaceMicro.growContentsOnce(deltaTime, this.growerType(), 0, this.temperature());
             this.tubeRack.growContentsOnce(deltaTime, this.growerType(), 0, this.temperature());
         }
 
@@ -86,6 +91,7 @@ class Incubator {
 
     reset() {
         this.tableSpacePetri.removeAll();
+        this.tableSpaceMicro.removeAll();
         this.tubeRack.removeAll();
 
         this.temperature(37.0);

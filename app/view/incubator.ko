@@ -9,6 +9,7 @@
 
     <div class="testtube-holder" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
     <div class="petridish-level" data-bind="template: { name: 'compContainer', data: petriSpaceController }"></div>
+    <div class="micro" data-bind="template: { name: 'compContainer', data: tableSpaceMicroController }"></div>
 
     <div class="cover" data-bind="visible: incubator.turnedOn()"></div>
 

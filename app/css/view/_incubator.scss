@@ -132,7 +132,7 @@
         position: absolute;
         top: 386px;
         left: 300px;
-        width: 400px;
+        width: 250px;
         height: 120px;
 
         ul {
@@ -149,29 +149,33 @@
                 left: 138px;
             }
             .slot2 {
-                width: 152px;
-                height: 44px;
-                top: 0;
-                left: 252px;
-            }
-            .slot3 {
                 width: 136px;
                 height: 94px;
                 top: 44px;
                 left: 2px;
             }
-            .slot4 {
+            .slot3 {
                 width: 114px;
                 height: 94px;
                 top: 44px;
                 left: 138px;
             }
-            .slot5 {
-                width: 152px;
-                height: 94px;
-                top: 44px;
-                left: 252px;
-            }
+        }
+    }
+
+    .micro {
+        position: absolute;
+        margin-top: 30px;
+        left: 555px;
+        top: 386px;
+        width: 158px;
+        height: 100px;
+
+        .slot0 {
+            position: absolute;
+            height: 69px;
+            width: 158px;
+
         }
     }
 }

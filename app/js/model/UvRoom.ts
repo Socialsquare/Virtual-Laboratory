@@ -21,7 +21,7 @@ class UvRoom {
         this.tableSpacePetri = new PetriSpaceModel(3, ContainerType.UV_PETRI_SPACE);
         this.tableSpacePetri.location(LocationType.UVROOM);
 
-        this.tableSpaceMicro = new MicroSpaceModel(ContainerType.UV_MICRO_SPACE);
+        this.tableSpaceMicro = new MicroSpaceModel(3, ContainerType.UV_MICRO_SPACE);
         this.tableSpaceMicro.location(LocationType.UVROOM);
 
         this.tubeRack = new TubeRackModel(ContainerType.UV_TUBE_RACK);
