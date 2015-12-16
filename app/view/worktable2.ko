@@ -1,16 +1,11 @@
 <div class="worktable2-view">
-
-    <div class="petri" data-bind="template: { name: 'compContainer', data: tableSpacePetriController }"></div>
-    <div class="micro" data-bind="template: { name: 'compContainer', data: tableSpaceMicroController }"></div>
-    <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
-    
-    <div class="centrifuge-testtubeholder" data-bind="template: { name: 'compContainer', data: centrifugeController }">
+ 
+    <div class="centrifuge-testtubeholder" data-bind="template: { name: 'compContainer', data: centrifugeController }"></div>
+    <div class="centrifuge-btn hand" data-bind="click: activateCentrifuge">
+        <img src="assets/images/work2_centrifuge-on.png" alt="Centrifuge button" data-bind="visible: worktable2.centrifuge.status()">
     </div>
     <div class="video-container video-centrifuge" data-bind="template: { name: 'video', data: centrifugeController.videoController },
         visible: worktable2.centrifuge.status()"></div>
-    <div class="centrifuge-btn hand" data-bind="click: activateCentrifuge">
-        <img src="assets/images/work1_electroporator-on.png" alt="Centrifuge button" data-bind="visible: worktable2.centrifuge.status()">
-    </div>
 
     <div class="blender" data-bind="css: { on: worktable2.blender.status() }">
         <div class="video-container video-blender" data-bind="template: { name: 'video', data: videoController }, 
@@ -21,5 +16,9 @@
     <div class="od" data-bind="template: { name: 'compContainer', data: odController }"></div>
 
     <div class="od-display" data-bind="visible: worktable2.odMachine.hasTube(), text: worktable2.odMachine.display()"></div>
+
+    <div class="petri" data-bind="template: { name: 'compContainer', data: tableSpacePetriController }"></div>
+    <div class="micro" data-bind="template: { name: 'compContainer', data: tableSpaceMicroController }"></div>
+    <div class="tuberack" data-bind="template: { name: 'compContainer', data: tubeRackController }"></div>
 
 </div>
