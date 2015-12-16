@@ -4,6 +4,7 @@ import _ = require('lodash');
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
 import CentrifugeController = require('controller/Centrifuge');
+import VideoController = require('controller/Video');
 
 import ActivationType = require('model/type/Activation');
 import SpecialItemType = require('model/type/SpecialItem');
@@ -18,6 +19,7 @@ class Worktable2 extends BaseViewController {
     public tubeRackController: CompositeContainerController;
     public odController: CompositeContainerController;
     public centrifugeController: CentrifugeController;
+    public videoController: VideoController;
 
     constructor() {
         super('worktable2');
@@ -29,6 +31,7 @@ class Worktable2 extends BaseViewController {
         this.tubeRackController = new CompositeContainerController(this.worktable2.tubeRack);
         this.odController = new CompositeContainerController(this.worktable2.odMachine);
         this.centrifugeController = new CentrifugeController(this.worktable2.centrifuge);
+        this.videoController = new VideoController(true);
 
         this.tableSpacePetriController.addDropGuard(this.smallPoxGuard);
         this.tableSpaceMicroController.addDropGuard(this.smallPoxGuard);
@@ -55,8 +58,9 @@ class Worktable2 extends BaseViewController {
 
     handleBlenderDrop(item) {
         this.worktable2.blender.status(true);
+        this.videoController.play('blender-shake', false);
 
-        _.delay(this.performBlending, 1500, item);
+        _.delay(this.performBlending, 3000, item);
     }
 
     activateCentrifuge() {

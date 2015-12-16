@@ -3,6 +3,7 @@ import _ = require('lodash');
 
 import popupController = require('controller/Popup');
 import CompositeContainerController = require('controller/CompositeContainer');
+import VideoController = require('controller/Video');
 
 import gameState = require('model/GameState');
 import CentrifugeModel = require('model/Centrifuge');
@@ -19,9 +20,12 @@ import LiquidFactory = require('factory/Liquid');
 class CentrifugeController extends CompositeContainerController {
 
     public compContainer: CentrifugeModel;
+    public videoController: VideoController;
 
     constructor(centrifugeModel: CentrifugeModel) {
         super(centrifugeModel);
+
+        this.videoController = new VideoController(true);
 
         ko.rebind(this);
     }
@@ -112,6 +116,7 @@ class CentrifugeController extends CompositeContainerController {
         }
 
         this.compContainer.status(true);
+        this.videoController.play('centrifuge-shake', false);
 
         _.delay(this.finishActivate, 2000);
     }

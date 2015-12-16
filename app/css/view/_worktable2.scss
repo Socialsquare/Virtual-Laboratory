@@ -47,11 +47,6 @@
                 height: $gelH - 20px;
 
                 background-color: #CCC;
-
-                &.filled {
-                    background-color: #18F; 
-                }
-
             }
         }
 
@@ -135,6 +130,18 @@
         height: 300px;
         top: 40px;
         left: 320px;
+    }
+
+    .video-blender {
+        position: relative;
+        bottom: 223px;
+        right: 65px;
+    }
+
+    .video-centrifuge {
+        position: relative;
+        top: 163px;
+        left: 34px;
     }
 
     .od {
