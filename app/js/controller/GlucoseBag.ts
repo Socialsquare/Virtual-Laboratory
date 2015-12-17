@@ -17,7 +17,7 @@ class GlucoseBag {
         this.mouseCage = mouseCage;
         var gb = mouseCage.glucoseBag;
         this.glucoseBag = gb;
-        this.STEP = 5;
+        this.STEP = 0.05;
 
         ko.rebind(this);
     }

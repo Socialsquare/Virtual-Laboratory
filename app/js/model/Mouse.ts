@@ -87,7 +87,7 @@ class Mouse extends SpecialItemModel {
         this.insulinEfficiency =
             ko.pureComputed(this.computeInsulinEfficiency);
         this.glucoseDose = ko.observable(0);
-        this.infusionDose = ko.observable(0);
+        this.infusionDose = ko.observable(null);
         this.insulinDose = ko.observable(0);
 
         this.bloodSugar(this.meanBloodSugar());
@@ -265,12 +265,20 @@ class Mouse extends SpecialItemModel {
             this.bloodSugar(this.bloodSugar() + sukkerRatio);
         }
 
-        // increase bloodSugar by infused dose
-        // InfusionToBloodMagic for converting from infusion concentration
-        // to concentration in blood
-        var infusionToBloodMagic = 12;
-        this.bloodSugar(this.bloodSugar() +
-                        (this.infusionDose() * infusionToBloodMagic));
+        // increase bloodSugar by infused dose of glucose
+        // converting from infusion concentration to concentration in blood
+        // CLAMP (1c) experiment only
+        if (this.infusionDose() !== null) {
+            var infusionStadyBase = 0.43;
+            if (this.mouseBloodType() == MouseBloodType.DIABETIC) {
+                infusionStadyBase = 0.18;
+            }
+            var infusionStadyState = (infusionStadyBase / (60 * 1000)) * 100;  // per 100ms
+            var glucoseDelta = (- (1.2 * (infusionStadyState - this.infusionDose()) ) / this.bloodSugar());
+            var magicToSpeedThingsUp = 250; // time in game is faster than the real live time
+            glucoseDelta = glucoseDelta * magicToSpeedThingsUp;
+            this.bloodSugar(this.bloodSugar() + glucoseDelta);
+        }
 
         //3. f BloodSugar != MeanBloodSugar, increase/decrease insulin levels depending on productivity 
         this.insulinProduction((this.bloodSugar() - this.meanBloodSugar()) * this.insulinProductivity());

@@ -100,12 +100,12 @@ class MouseCage extends BaseViewController {
 
     /**
      * Give a fraction of infusion to the mouse.
-     *
      */
     nextInfusionDose() {
         var infusionRate = this.mousecage.glucoseBag.glucoseInfusionRate();
         var msInMinute = 1000 * 60;
-        var infusionDose = infusionRate * this.simulationInterval / msInMinute;
+        // infusionDose per interval in ms
+        var infusionDose = (infusionRate / msInMinute) * this.simulationInterval;
         this.mousecage.mouse().giveInfusion(infusionDose);
     }
 

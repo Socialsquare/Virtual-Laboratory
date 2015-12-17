@@ -262,7 +262,7 @@ class VetMonitor {
             },
             <PlotItemType>{
                 data: this.getGirDataForPlot(),
-                label: 'mmol/L',
+                label: 'mg/kg/min',
                 yaxis: 1,
                 color: 'blue'
             },
