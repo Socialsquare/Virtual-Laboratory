@@ -22,7 +22,7 @@ class VetMonitorExportPopup {
     private _toggleSubscription = null;
     
     constructor(params) {
-        // template 'popup-vetmonitor-data-export'
+        // template 'components/vetmonitor-export-popup.ko'
         console.log("VetMonitorExportPopup.constructor()");
 
         this.maxLogId = null;
@@ -92,6 +92,7 @@ class VetMonitorExportPopup {
         this.logIds.removeAll();
         _.map(_.range(1, this.maxLogId + 1),
               (item:number)=>{ this.logIds.push(item); });
+        this.logIds.reverse();
     }
 
     showLogButtons() {

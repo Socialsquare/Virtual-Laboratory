@@ -45,6 +45,11 @@ button {
     width: 100%;
 }
 
+.export-log-btns-list {
+    overflow-y: scroll;
+    height: 320px;
+}
+
 .export-log-btn {
     width: 100%;
     display:inline-block;

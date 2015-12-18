@@ -6,8 +6,8 @@
     <div data-bind="i18n: 'popup.data_export_message'"></div>
     
     <div class="export-log-btns">
-        <button data-bind="visible: backButtonToggle, click: onBackButtonClick, i18n: 'common.back'"></button>
-        <ul data-bind="visible: logButtonsToggle, foreach: logIds">
+	    <button data-bind="visible: backButtonToggle, click: onBackButtonClick, i18n: 'common.back'"></button>
+        <ul class="export-log-btns-list" data-bind="visible: logButtonsToggle, foreach: logIds">
             <li>
                 <button class="export-log-btn"
                  data-bind="text: $data, click: $parent.showDataByLogId, text: $data"></button>
