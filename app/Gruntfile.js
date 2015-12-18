@@ -270,7 +270,7 @@ module.exports = function (grunt) {
 
     // TODO: enable jshint when smellz is cleaned
     //grunt.registerTask('build', [ 'clean:dist', 'copy:dist', 'ts:dist', 'assets', 'imagemin:assets', 'sass:dist', 'preprocess:dist' ]);
-    grunt.registerTask('build', [ 'clean:dist', 'copy:dist', 'ts:dist', 'assets', 'sass:dist', 'preprocess:dist' ]);
+    grunt.registerTask('build', [ 'clean:dist', 'assets', 'copy:dist', 'ts:dist', 'sass:dist', 'preprocess:dist' ]);
 
     grunt.registerTask('production', [ 'setProductionBuild', 'build', 'requirejs:production', 'templateIndex' ]);
 
@@ -279,6 +279,6 @@ module.exports = function (grunt) {
     grunt.registerTask('serve-production', [ 'production', 'connect:production:keepalive' ]);
 
     grunt.registerTask('test', ['setUnitTestBuildEnv', 'clean:dist',
-                                'copy:test', 'ts:test', 'assets', 'sass:dist',
+                                'assets', 'copy:test', 'ts:test', 'sass:dist',
                                 'preprocess:dist', 'karma' ]);
 };
