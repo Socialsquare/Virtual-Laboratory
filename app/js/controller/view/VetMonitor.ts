@@ -369,8 +369,6 @@ class VetMonitor {
     dispose() {
         console.log("VetMonitorController dispose()");
         
-        vetMonitorLog.updateLogId();
-        
         this.mouseHeartRate.unsubscribeFrom("mouseCageMouseHeartRateTopic");
         this.mouseBloodSugar.unsubscribeFrom("mouseCageMouseBloodSugarTopic");
         
