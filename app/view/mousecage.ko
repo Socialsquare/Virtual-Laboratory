@@ -43,7 +43,7 @@
             params: { 
                 mouse: mousecage.mouse, 
                 hasMouse: mousecage.hasMouse,
-                glucoseInfusionRate: null
+                glucoseInfusionRate: ''
             } }"></div>
         <!-- /ko -->
     <!-- /ko -->
