@@ -181,6 +181,9 @@
         "popup.warn_icebath_ffd.header": "Pas på",
         "popup.warn_icebath_ffd.body": "Frit-flydende DNA kan dø hvis det ikke holdes afkølet. Er du sikker på at du vil flytte det væk fra isbadet?",
 
+        "popup.monitor.gir_only_in_clamp.title": "GIR only in clamp",
+        "popup.monitor.gir_only_in_clamp.message": "The Glucose Infusion Rate is only enabled during the clamp experiment.",
+
         "popup.mouse.juice_during_clamp.title": "Describe the glucose",
         "popup.mouse.juice_during_clamp.message": "Describe the glucose we give the mouse during the clamp using the juice bottle.",
 
