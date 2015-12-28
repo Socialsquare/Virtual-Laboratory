@@ -598,188 +598,7 @@
             {
                 "tasks": [
                     {
-                        "description": { "dk": "Lav en reagens til aktiv immunisering af musen ved at blande antigen med adjuvant. Den virker ligesom en vaccine i mod antigenet. Adjuvanten tilføjes for at forstærke den immunologiske reaktion." },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
-                                { "type": "LiquidType.ADJUVANS" }
-                            ]
-                        },
-                        "consequence": {
-                            "type": "ConsequenceType.QUIZ",
-                            "quiz": {
-                                "id": 1,
-                                "name": { "dk": "Adjuvant" },
-                                "question": { "dk": "Hvad er formålet med at tilsætte en adjuvant til vaccinen?" },
-                                "correct": 1,
-                                "answers": [
-                                    {
-                                        "id": 0,
-                                        "answer": { "dk": "En adjuvant er et medium, som opretholder de optimale forhold for antigenet." },
-                                        "message": { "dk": "Det et ikke helt korrekt, antigenet er allerede i den optimale opløsning." }
-                                    },
-                                    {
-                                        "id": 1,
-                                        "answer": { "dk": "Adjuvanten er et hjælpestof i vaccinen." },
-                                        "message": { "dk": "Korrekt! En adjuvant er en substans/et molekyle som øger immunogeniciteten (styrken af immun-respons) når den blandes med antigenet. Adjuvanten har også en effekt på vaccinens sikkerhed, hvor vaccinen skal virke i kroppen, og hvor hurtigt vaccinen skal frigives i blodet eller vævet." }
-                                    },
-                                    {
-                                        "id": 2,
-                                        "answer": { "dk": "Adjuvanten er en celletype som producerer antigen." },
-                                        "message": { "dk": "Nej, en adjuvant er ikke en celle og den virker kun som supplement til antigenet" }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "description": { "dk": "Sug blandingen op med en kanyle." },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.SYRINGE",
-                            "liquids": [
-                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
-                                { "type": "LiquidType.ADJUVANS" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": { "dk": "Immunisér en rask forsøgsmus. Musen bliver på den måde immun over for antigenet." },
-                        "trigger": {
-                            "type": "TriggerType.MOUSE",
-                            "alive": true,
-                            "mouseType": "MouseType.HEALTHY",
-                            "mouseBloodType": "MouseBloodType.NORMAL",
-                            "item": "ContainerType.SYRINGE",
-                            "liquids": [
-                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
-                                { "type": "LiquidType.ADJUVANS" }
-                            ]
-                        },
-                        "consequence": {
-                            "type": "ConsequenceType.QUIZ",
-                            "quiz": {
-                                "id": 1,
-                                "name": { "dk": "Immunisering" },
-                                "question": { "dk": "Hvad betyder det, at musen er immuniseret?" },
-                                "correct": 2,
-                                "answers": [
-                                    {
-                                        "id": 0,
-                                        "answer": { "dk": "At musen har fået indsprøjtet antigenet, og er blevet rask." },
-                                        "message": { "dk": "Det er ikke helt korrekt, antigenet udløser forsvarsmekanismer i musens immunforsvar, bl.a. produktion af antistof. Antistoffet cirkulerer i musens blod og binder til antigenet hvorved musen beskyttes i mod dette. Men da det er en rask mus bliver ikke mere rask af at blive immuniseret" }
-                                    },
-                                    {
-                                        "id": 1,
-                                        "answer": { "dk": "At antigenet ikke har fremkaldt en immunreaktion" },
-                                        "message": { "dk": "Nej, tværtimod. I så fald ville man ikke kunne vaccinere." }
-                                    },
-                                    {
-                                        "id": 2,
-                                        "answer": { "dk": "At antigenet har fremkaldt en immunreaktion" },
-                                        "message": { "dk": "Korrekt. Når et antigen kommer ind i vores krop, bliver det genkendt som fremmed af kroppens immunforsvar. Det fremkalder immunforsvarets mekanismer, bl.a. en stigning i kropstemperaturen – det vi kender som feber - og produktion af antistoffer. Når musen får sprøjtet en lille smule antigen ind i kroppen, sker samme forsvarsreaktion, hvilket ender med en produktion af antistof mod antigenet, der binder og uskadeliggør antigenet. Hvis musen udsættes for antigenet vil den allerede have antistoffer og dermed ikke blive syg." }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "description": { "dk": "Herefter dræbes musen ved at give den en dødelig indsprøjtning." },
-                        "trigger": {
-                            "type": "TriggerType.MOUSE",
-                            "item": "ContainerType.SYRINGE",
-                            "liquids": [
-                                { "type": "LiquidType.DEADLY" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": { "dk": "Vha. en skalpel skæres musens milt ud" },
-                        "trigger": {
-                            "type": "TriggerType.MOUSE",
-                            "alive": false,
-                            "item": "SpecialItemType.SCALPEL"
-                        },
-                        "consequence": {
-                            "type": "ConsequenceType.QUIZ",
-                            "quiz": {
-                                "id": 1,
-                                "name": { "dk": "Milten" },
-                                "question": { "dk": "Hvorfor tages milten ud af musen?" },
-                                "correct": 2,
-                                "answers": [
-                                    {
-                                        "id": 0,
-                                        "answer": { "dk": "Milten er et lager for frit antistof." },
-                                        "message": { "dk": "Det er næsten korrekt. I milten er der mange B-celler. Når kroppen gentagnede gange udsættes for et antigen, lagres de B-celler, som producerer de specifikke antistoffer mod antigenet i milten. Når B-cellerne producerer antistoffer, forvandles de til plasmaceller." }
-                                    },
-                                    {
-                                        "id": 1,
-                                        "answer": { "dk": "Milten lagrer antigener." },
-                                        "message": { "dk": "Nej, milten lagrer ikke antigener, men B-celler som producerer antistof mod antigen. Antigener er det fremmede som kroppen udsættes for - fx virus eller bakterier." }
-                                    },
-                                    {
-                                        "id": 2,
-                                        "answer": { "dk": "I milten findes mange B-celler som producerer antistof." },
-                                        "message": { "dk": "Korrekt! Når kroppen gentagnede gange udsættes for et antigen, lagres mange B-celler, som producerer antistoffer mod antigenet i milten. Når B-cellerne producerer antistoffer, forvandles de til plasmaceller." }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "description": { "dk": "Homogenisér musens milt i blenderen på det bagerste arbejdsbord." },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.HOMO_SPLEEN"}
-                            ]
-                        }
-                    },
-                    {
-                        "description": { "dk": "Bland følgende i et reagensglas: Homogeniseret milt, myeloma-celler og hybridoma medium."},
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.HOMO_SPLEEN"},
-                                { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                { "type": "LiquidType.FUSION_MEDIUM"}
-                            ]
-                        },
-                        "consequence": {
-                            "type": "ConsequenceType.QUIZ",
-                            "quiz": {
-                                "id": 1,
-                                "name": { "dk": "Myeloma-celler" },
-                                "question": { "dk": "Hvad er formålet med at benytte Myeloma-celler?" },
-                                "correct": 1,
-                                "answers": [
-                                    {
-                                        "id": 0,
-                                        "answer": { "dk": "Myeloma-celler, er celler fra musen, som producerer antistof" },
-                                        "message": { "dk": "Nej, musens plasmaceller producerer antistoffer. Myeloma celler er cancerceller" }
-                                    },
-                                    {
-                                        "id": 1,
-                                        "answer": { "dk": "Myeloma-celler er udødelige celler i modsætning til celler fra milten" },
-                                        "message": { "dk": "Korrekt! Myeloma er cancerceller oprindeligt fra plasmaceller, og de udgør en udødelig hurtigvoksende cellelinie. Ved at bruge denne type celler kan man forene deres udødelige egenskaber med evnen til at producere antistof, som cellerne fra musens milt kan. Man skaber derved skabe en ny cellelinie - hybridomacellerne." }
-                                    },
-                                    {
-                                        "id": 2,
-                                        "answer": { "dk": "Myeloma-celler producerer antigener" },
-                                        "message": { "dk": "Nej, antigener er ofte rester fra bakterier og vira (f.eks. dele af deres cellemembran), som fremkalder et immun-respons, når kroppen kommer i kontakt med dem." }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "description": { "dk": "Inkubér herefter reagensglasset under forreste arbejdsbord."},
+                        "description": { "dk": "Inkubér herefter reagensglasset i ovnen under forreste arbejdsbord."},
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.INCUBATOR",
@@ -789,7 +608,8 @@
                                     "liquids": [
                                         { "type": "LiquidType.HOMO_SPLEEN"},
                                         { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
+                                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
+                                        { "type": "LiquidType.FUSION_MEDIUM"}
                                     ]
                                 }
                             ]
@@ -804,6 +624,7 @@
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
                                 { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
+                                { "type": "LiquidType.FUSION_MEDIUM"},
                                 { "type": "LiquidType.SALT_WATER"}
                             ]
                         }
@@ -817,7 +638,8 @@
                             "liquids": [
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
+                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
+                                { "type": "LiquidType.FUSION_MEDIUM"}
                             ]
                         }
                     },
@@ -829,7 +651,8 @@
                             "liquids": [
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
+                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
+                                { "type": "LiquidType.FUSION_MEDIUM"}
                             ]
                         }
                     },
@@ -886,7 +709,8 @@
                             "liquids": [
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
+                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
+                                { "type": "LiquidType.FUSION_MEDIUM"}
                             ]
                         }
                     },
@@ -900,6 +724,7 @@
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
                                 { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
+                                { "type": "LiquidType.FUSION_MEDIUM"},
                                 { "type": "LiquidType.BUFFER"}
                             ]
                         },
@@ -963,7 +788,8 @@
                             "liquids": [
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
+                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
+                                { "type": "LiquidType.FUSION_MEDIUM"}
                             ]
                         }
                     },

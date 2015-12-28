@@ -265,9 +265,10 @@ class Experiment {
                 return _.any(containers, (incubatorContainer) => {
                     return this.match(triggerContainer.type, incubatorContainer.type())
                         && this.match(triggerContainer.containerSubtype, incubatorContainer.subtype())
-                        && this.matchLiquids(new TriggerModel({ strict: trigger.strict, liquids: triggerContainer.liquids }), incubatorContainer);
+                        && this.matchLiquids(trigger, incubatorContainer);
                 });
             });
+            debugger;
 
             if (!validIncubator) return;
         }
