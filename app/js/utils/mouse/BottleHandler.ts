@@ -26,7 +26,7 @@ class BottleHandler {
                 && !MC.juiceClampMessageToggle()) {
             MC.juiceClampMessageToggle(true);
             MC.popupController.message('popup.mouse.juice_during_clamp.title', 
-                    'popup.mouse.juice_during_clamp.message');
+                    'popup.mouse.juice_during_clamp.message', 2500);
         }
 
         mouse.giveJuice();
