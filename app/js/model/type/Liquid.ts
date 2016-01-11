@@ -44,6 +44,8 @@ enum Liquid {
     LYSIS                    = ev.next(),
     FREE_FLOATING_DNA        = ev.next(),
     CLUMPED_CELLS            = ev.next(),
+    BUFFER                   = ev.next(),
+
 };
 
 export = Liquid;

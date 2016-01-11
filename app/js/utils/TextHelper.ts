@@ -197,6 +197,8 @@ class TextHelper {
             return 'liquid.name.free_floating_dna';
         case LiquidType.CLUMPED_CELLS:
             return 'liquid.name.clumped_cells';
+        case LiquidType.BUFFER:
+            return 'liquid.name.buffer';
 
         default:
             throw 'TextHelper.prettyNameFromType: Unknown type: ' + type;

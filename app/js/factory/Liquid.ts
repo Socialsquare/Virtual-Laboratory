@@ -174,6 +174,10 @@ class LiquidFactory {
     static clumpedCells(mouseBloodType: MouseBloodType) {
         return new ClumpedCells(mouseBloodType);
     }
+
+    static buffer() {
+        return new Liquid(LiquidType.BUFFER);
+    }
 }
 
 export = LiquidFactory;

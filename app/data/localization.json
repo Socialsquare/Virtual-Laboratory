@@ -302,6 +302,7 @@
         "liquid.name.dna_polymerase": "DNA Polymerase",
         "liquid.name.blue_stain": "Blå farve",
         "liquid.name.lysis": "Lysis",
+        "liquid.name.buffer": "Buffer",
         "liquid.name.free_floating_dna": "Frit flydende DNA",
         "liquid.name.clumped_cells": "Sammenklumpede celler",
 
