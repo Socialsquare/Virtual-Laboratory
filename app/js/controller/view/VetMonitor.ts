@@ -14,6 +14,7 @@ import MouseModel = require('model/Mouse');
 import vetMonitorLog = require('service/VetMonitorLog');
 import VetMonitorLogItem = require('model/type/VetMonitorLogItem');
 import VetMonitorExportPopup = require('controller/view/VetMonitorExportPopup');
+import popupController = require('controller/Popup');
 
 
 class VetMonitor {
@@ -69,7 +70,7 @@ class VetMonitor {
         this.mouseHeartRate = ko.observable(null);
         this.mouseBloodSugar = ko.observable(null);
         
-        if (params.glucoseInfusionRate === null){
+        if (params.glucoseInfusionRate === ''){
             this.previousGlucoseInfusionRate = ko.observable(null);
             this.glucoseInfusionRate = ko.observable(null);
         } else {
@@ -147,6 +148,12 @@ class VetMonitor {
     }
 
     isGirGraphEnabledToggle() {
+        if (this.glucoseInfusionRate() === null &&
+                this.previousGlucoseInfusionRate() === null){
+            popupController.message('popup.monitor.gir_only_in_clamp.title',
+                                    'popup.monitor.gir_only_in_clamp.message');
+            return;
+        }
         this.resetGraphGirRange();
         this.isGirGraphEnabled(!this.isGirGraphEnabled());
     }
