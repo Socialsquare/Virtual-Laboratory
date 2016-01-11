@@ -134,6 +134,9 @@ class Experiment {
         if (trigger.type !== TriggerType.MIX) return;
         if (!this.match(trigger.location, container.location())) return;
         if (!this.match(trigger.container, container.type())) return;
+        var st1 = container.subtype();
+        var st2 = trigger.containerSubtype;
+        debugger;
         if (!this.match(trigger.containerSubtype, container.subtype())) return;
 
         if (!this.matchLiquids(trigger, container)) return;
@@ -258,16 +261,18 @@ class Experiment {
 
         if (trigger.activation === ActivationType.INCUBATOR) {
             var incubator = <IncubatorModel>item;
-            var unioned = _.union(incubator.tableSpacePetri.containers(), incubator.tubeRack.containers());
+            var unioned = _.union(incubator.tableSpacePetri.containers(), incubator.tubeRack.containers(), 
+                incubator.tableSpaceMicro.containers());
             var containers = _.compact(unioned);
 
             var validIncubator = _.all(trigger.containers, (triggerContainer) => {
                 return _.any(containers, (incubatorContainer) => {
                     return this.match(triggerContainer.type, incubatorContainer.type())
                         && this.match(triggerContainer.containerSubtype, incubatorContainer.subtype())
-                        && this.matchLiquids(new TriggerModel({ strict: trigger.strict, liquids: triggerContainer.liquids }), incubatorContainer);
+                        && this.matchLiquids(trigger, incubatorContainer);
                 });
             });
+            debugger;
 
             if (!validIncubator) return;
         }
