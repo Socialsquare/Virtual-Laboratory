@@ -8,6 +8,30 @@
         },
         "parts": [
             { 
+                "tasks": [
+                    {
+                        "description": { "dk": "Order a healthy mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose and insulin concentrations of the blood sample)." },
+                        "trigger": {
+                            "type": "TriggerType.ACQUIRE",
+                            "item": "ContainerType.TUBE",
+                            "liquids": [
+                                { "type": "LiquidType.MOUSE_BLOOD" }
+                            ]
+                        }
+                    },
+                    {
+                        "description": { "dk": "Order a diabetic mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose and insulin concentrations of the blood sample)." },
+                        "trigger": {
+                            "type": "TriggerType.ACQUIRE",
+                            "item": "ContainerType.TUBE",
+                            "liquids": [
+                                { "type": "LiquidType.MOUSE_BLOOD" }
+                            ]
+                        }
+                    }
+                ]
+            },
+            { 
                 "apparatus": {
                     "ApparatusLocationType.MOUSE_CAGE_CLAMP_BOTTLE": "ApparatusType.CLAMP_JUICE_BOTTLE"
                 },
