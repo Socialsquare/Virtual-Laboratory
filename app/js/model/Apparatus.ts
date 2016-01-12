@@ -12,8 +12,8 @@ class Apparatus {
         this.config[ApparatusLocationType.UV_ROOM] = ApparatusType.UV_ROOM_MICROTITER;
     }
 
-    apparatusEnabled(location: ApparatusLocationType, type: ApparatusType) {
-        return this.config[location] === type;
+    isEnabled(location: ApparatusLocationType, aType: ApparatusType) {
+        return this.config[location] === aType;
     }
 
     static parse(values: any) {
@@ -21,10 +21,10 @@ class Apparatus {
         var ap = new Apparatus();
 
         for (var rawLocation in values) {
-            var type = S2T.apparatus(values[rawLocation]);
+            var aType = S2T.apparatus(values[rawLocation]);
             var location = S2T.apparatusLocation(rawLocation);
 
-            ap.config[location] = type;
+            ap.config[location] = aType;
         }
 
         return ap;

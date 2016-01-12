@@ -3,10 +3,11 @@ import $ = require('jquery');
 
 import BaseViewController = require('controller/view/Base');
 import ExperimentSelectorController = require('controller/ExperimentSelector');
-
 import localizationService = require('service/Localization');
 
 import FeatureHelper = require('utils/FeatureHelper');
+import gameState = require('model/GameState');
+
 
 class Loading extends BaseViewController {
 

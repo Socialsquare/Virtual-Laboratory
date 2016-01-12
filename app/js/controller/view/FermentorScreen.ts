@@ -4,7 +4,7 @@ import _ = require('lodash');
 import BaseViewController = require('controller/view/Base');
 import utils = require('utils/utils');
 import DataHelper = require('utils/DataHelper');
-
+import gameState = require('model/GameState');
 import LocalizationService = require('service/Localization');
 
 import LiquidFactory = require('factory/Liquid');
@@ -43,7 +43,7 @@ class FermentorScreen extends BaseViewController {
             return this.turnedOn() ? 'red-btn' : 'green-btn';
         });
 
-        this.fermentor = this.gameState.fermentor;
+        this.fermentor = gameState.fermentor;
 
         this.updatePlotData();
 
@@ -149,7 +149,7 @@ class FermentorScreen extends BaseViewController {
                     if (!!newLiquid) {
                         var tube = new TubeModel();
                         tube.add(newLiquid, true);
-                        this.gameState.inventory.add(tube);
+                        gameState.inventory.add(tube);
                     }
 
                 });

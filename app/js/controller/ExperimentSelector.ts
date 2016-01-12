@@ -4,7 +4,7 @@ import popupController = require('controller/Popup');
 import experimentService = require('service/Experiment');
 
 import BaseViewController = require('controller/view/Base');
-
+import gameState = require('model/GameState');
 import ExperimentModel = require('model/Experiment');
 
 class ExperimentSelector extends BaseViewController {
@@ -37,7 +37,7 @@ class ExperimentSelector extends BaseViewController {
         if (this.experimentController.hasExperiment()) {
             popupController.confirm('experiment.change.header', 'experiment.change.body')
                 .then(() => {
-                    this.gameState.reset();
+                    gameState.reset();
                     this.experimentController.startExperiment(this.selected());
                     this.router.navigate('overview');
                 });

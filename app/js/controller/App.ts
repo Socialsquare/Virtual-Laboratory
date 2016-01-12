@@ -32,6 +32,8 @@ import ContainerFactory = require('factory/Container');
 import LiquidFactory = require('factory/Liquid');
 import SpecialItemFactory = require('factory/SpecialItem');
 import MouseBloodType = require('model/type/MouseBlood');
+import gameState = require('model/GameState');
+
 
 class App extends BaseViewController {
 
@@ -86,7 +88,7 @@ class App extends BaseViewController {
         //this.router.navigate('overview');
 
         // function shortcuts for testing
-        var iadd = this.gameState.inventory.add;
+        var iadd = gameState.inventory.add;
         var t = ContainerFactory.tube;
 
         ko.rebind(this);

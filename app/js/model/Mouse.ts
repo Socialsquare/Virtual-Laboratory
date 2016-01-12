@@ -242,6 +242,9 @@ class Mouse extends SpecialItemModel {
         //var randomHR = Math.floor(Math.random() * 
         //    (this.maxHR - this.minHR) + this.minHR);
         var meanHR = (this.maxHR + this.minHR) / 2;
+        if (this.mouseBloodType() === MouseBloodType.DIABETIC) {
+            meanHR += 10;
+        }
         return meanHR;
     }
     
@@ -250,6 +253,7 @@ class Mouse extends SpecialItemModel {
         if (this.heartRateIndex >= this.heartRateData.length) {
             this.heartRateIndex = 0;
         }
+        //ko.postbox.publish("mouseHeartRateTopic", this.heartRate());
     }
 
     nextBloodStep() {
@@ -265,21 +269,41 @@ class Mouse extends SpecialItemModel {
             this.bloodSugar(this.bloodSugar() + sukkerRatio);
         }
 
-        // increase bloodSugar by infused dose of glucose
-        // converting from infusion concentration to concentration in blood
-        // CLAMP (1c) experiment only
         if (this.infusionDose() !== null) {
+            // increase bloodSugar by infused dose of glucose
+            // converting from infusion concentration to concentration in blood
+            // CLAMP (1c) experiment only
             var infusionStadyBase = 0.43;
             if (this.mouseBloodType() == MouseBloodType.DIABETIC) {
                 infusionStadyBase = 0.18;
             }
             var infusionStadyState = (infusionStadyBase / (60 * 1000)) * 100;  // per 100ms
             var glucoseDelta = (- (1.2 * (infusionStadyState - this.infusionDose()) ) / this.bloodSugar());
-            var magicToSpeedThingsUp = 250; // time in game is faster than the real live time
+            var magicToSpeedThingsUp = 100; // time in game is faster than the real live time
             glucoseDelta = glucoseDelta * magicToSpeedThingsUp;
             this.bloodSugar(this.bloodSugar() + glucoseDelta);
-        }
 
+            // 3 & 4
+            this.insulinNextStep()
+        } else {
+            // This is glucose handling in every experiment except CLAMP.
+
+            // 3 & 4
+            this.insulinNextStep()
+
+            if (this.glucoseDose() > 0) {
+                var glucoseMagic = Math.min(this.glucoseDose() / 3, 0.3);
+                this.stomachSugar(this.stomachSugar() + glucoseMagic * 2);
+                this.glucoseDose(this.glucoseDose() - glucoseMagic);
+            }
+    
+            //5. remove blood sugar by increasing insulin 
+            this.bloodSugar(this.bloodSugar() - this.insulinProduction() * this.insulinEfficiency());
+        }
+        this.storeBloodStep();
+    }
+    
+    insulinNextStep() {
         //3. f BloodSugar != MeanBloodSugar, increase/decrease insulin levels depending on productivity 
         this.insulinProduction((this.bloodSugar() - this.meanBloodSugar()) * this.insulinProductivity());
 
@@ -289,17 +313,6 @@ class Mouse extends SpecialItemModel {
             this.insulinProduction(this.insulinProduction() + insulinMagic * 2);
             this.insulinDose(this.insulinDose() - insulinMagic);
         }
-
-        if (this.glucoseDose() > 0) {
-            var glucoseMagic = Math.min(this.glucoseDose() / 3, 0.3);
-            this.stomachSugar(this.stomachSugar() + glucoseMagic * 2);
-            this.glucoseDose(this.glucoseDose() - glucoseMagic);
-        }
-
-        //5. remove blood sugar by increasing insulin 
-        this.bloodSugar(this.bloodSugar() - this.insulinProduction() * this.insulinEfficiency());
-
-        this.storeBloodStep();
     }
 
     clone() {
@@ -320,6 +333,11 @@ class Mouse extends SpecialItemModel {
         clone.bloodData(this.bloodData());
 
         return clone;
+    }
+    
+    dispose() {
+        //this.bloodSugar.stopPublishingOn("mouseBloodSugarTopic");
+        //this.heartRate.stopPublishingOn("mouseHeartRateTopic");
     }
 }
 

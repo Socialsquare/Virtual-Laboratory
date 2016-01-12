@@ -4,6 +4,7 @@ import BaseViewController = require('controller/view/Base');
 
 import tutorialController = require('controller/Tutorial');
 import popupController = require('controller/Popup');
+import gameState = require('model/GameState');
 
 class Overview extends BaseViewController {
     constructor() {
@@ -17,8 +18,8 @@ class Overview extends BaseViewController {
     }
 
     enter() {
-        if (this.gameState.askTutorial()) {
-            this.gameState.askTutorial(false);
+        if (gameState.askTutorial()) {
+            gameState.askTutorial(false);
 
             popupController.confirm('popup.ask_tutorial.header', 'popup.ask_tutorial.body')
                 .done(() => {

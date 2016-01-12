@@ -11,7 +11,7 @@ import CompositeContainerController = require('controller/CompositeContainer');
 
 import Worktable1Model = require('model/Worktable1');
 import SimpleContainerModel = require('model/SimpleContainer');
-
+import gameState = require('model/GameState');
 import QuizHelper = require('utils/QuizHelper');
 
 class Worktable1 extends BaseViewController {
@@ -26,7 +26,7 @@ class Worktable1 extends BaseViewController {
     constructor() {
         super('worktable1');
 
-        this.worktable1 = this.gameState.worktable1;
+        this.worktable1 = gameState.worktable1;
 
         this.tableSpacePetriController = new CompositeContainerController(this.worktable1.tableSpacePetri);
         this.tableSpaceMicroController = new CompositeContainerController(this.worktable1.tableSpaceMicro);

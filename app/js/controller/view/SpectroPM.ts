@@ -9,6 +9,7 @@ import ScaffoldModel = require('model/Scaffold');
 
 import LiquidType = require('model/type/Liquid');
 import ActivationType = require('model/type/Activation');
+import gameState = require('model/GameState');
 
 class SpectroPM extends BaseViewController {
 
@@ -21,7 +22,7 @@ class SpectroPM extends BaseViewController {
     constructor() {
         super('spectropm');
 
-        this.spectroPM = this.gameState.spectroPM;
+        this.spectroPM = gameState.spectroPM;
         this.microSlotController = new CompositeContainerController(this.spectroPM.microSlot);
         this.microSlotController.addDropGuard(this.smallPoxGuard);
 

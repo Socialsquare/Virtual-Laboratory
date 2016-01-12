@@ -9,7 +9,7 @@ import DesignDrugScreen = require('controller/view/computer/DesignDrug');
 import OrderMouseScreen = require('controller/view/computer/OrderMouse');
 import SequencingScreen = require('controller/view/computer/Sequencing');
 import ProteinScreen = require('controller/view/computer/Protein');
-
+import gameState = require('model/GameState');
 import ComputerScreenType = require('model/type/ComputerScreen');
 
 class Computer extends BaseViewController {
@@ -33,18 +33,18 @@ class Computer extends BaseViewController {
 
         // TODO: subscription seemed to fail
         this.activeScreenController = ko.pureComputed(() => {
-            return screenControllers[this.gameState.activeComputerScreen()];
+            return screenControllers[gameState.activeComputerScreen()];
         });
 
         this.hasHeader = ko.pureComputed(() => {
-            return this.gameState.activeComputerScreen() !== ComputerScreenType.MENU;
+            return gameState.activeComputerScreen() !== ComputerScreenType.MENU;
         });
 
         ko.rebind(this);
     }
 
     goToMenu() {
-        this.gameState.activeComputerScreen(ComputerScreenType.MENU);
+        gameState.activeComputerScreen(ComputerScreenType.MENU);
     }
 }
 

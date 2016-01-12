@@ -8,7 +8,7 @@ import VideoController = require('controller/Video');
 
 import ActivationType = require('model/type/Activation');
 import SpecialItemType = require('model/type/SpecialItem');
-
+import gameState = require('model/GameState');
 import Worktable2Model = require('model/Worktable2');
 
 class Worktable2 extends BaseViewController {
@@ -24,7 +24,7 @@ class Worktable2 extends BaseViewController {
     constructor() {
         super('worktable2');
 
-        this.worktable2 = this.gameState.worktable2;
+        this.worktable2 = gameState.worktable2;
 
         this.tableSpacePetriController = new CompositeContainerController(this.worktable2.tableSpacePetri);
         this.tableSpaceMicroController = new CompositeContainerController(this.worktable2.tableSpaceMicro);
@@ -47,7 +47,7 @@ class Worktable2 extends BaseViewController {
             var antibodies = item.antibodiesFor();
             var homogenizedSpleen = this.liquidFactory.homoSpleen(antibodies);
 
-            this.gameState.inventory.add(this.containerFactory.tube().add(homogenizedSpleen));
+            gameState.inventory.add(this.containerFactory.tube().add(homogenizedSpleen));
             this.popupController.message('worktable2.spleen_blended.header', 'worktable2.spleen_blended.body');
         }
 

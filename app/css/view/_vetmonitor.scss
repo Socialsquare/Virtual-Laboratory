@@ -2,38 +2,80 @@
 .vetmonitor {
     .export-btn {
         position: absolute;
-        top: 582px;
-        left: 167px;
-
-        img {
-            height: 24px;
-        }
+        top: 574px;
+        left: 98px;
+        width: 24px;
+        height: 24px;
     }
 
     .bloodsugar-toggle-btn {
         position: absolute;
-        background-color: yellow;
-        top: 570px;
-        left: 220px;
-        width: 25px;
-        height: 25px;
+        background-color: transparent;
+        top: 583px;
+        left: 206px;
+        width: 48px;
+        height: 38px;
     }
 
     .hr-toggle-btn {
         position: absolute;
-        background-color: red;
-        top: 578px;
-        left: 260px;
-        width: 25px;
-        height: 25px;
+        background-color: transparent;
+        top: 588px;
+        left: 140px;
+        width: 48px;
+        height: 35px;
     }
 
     .glucose-infusion-rate-toggle-btn {
         position: absolute;
-        background-color: blue;
-        top: 570px;
+        background-color: transparent;
+        top: 580px;
         left: 280px;
-        width: 24px;
-        height: 24px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .power-toggle-light {
+        background-color: blue;
+        background-image: url(#{$img-path}/mouse-view-monitor-powerON.jpg);
+        background-repeat: no-repea;
+        position: absolute;
+        top: 577px;
+        left: 49px;
+        width: 46px;
+        height: 47px;
+    }
+
+    .hr-toggle-light {
+        background-color: blue;
+        background-image: url(#{$img-path}/mouse-view-monitor-toggleON2.jpg);
+        background-repeat: no-repea;
+        position: absolute;
+        top: 569px;
+        left: 153px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .bloodsugar-toggle-light {
+        background-color: blue;
+        background-image: url(#{$img-path}/mouse-view-monitor-toggleON1.jpg);
+        background-repeat: no-repea;
+        position: absolute;
+        top: 566px;
+        left: 217px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .glucose-infusion-rate-toggle-light {
+        background-color: blue;
+        background-image: url(#{$img-path}/mouse-view-monitor-toggleON3.jpg);
+        background-repeat: no-repea;
+        position: absolute;
+        top: 561px;
+        left: 280px;
+        width: 15px;
+        height: 15px;
     }
 }

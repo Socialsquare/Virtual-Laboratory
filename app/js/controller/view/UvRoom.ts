@@ -6,8 +6,8 @@ import ActivationType = require('model/type/Activation');
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
 import experimentController = require('controller/Experiment');
-
 import UvRoomModel = require('model/UvRoom');
+
 
 class UvRoom extends BaseViewController {
 

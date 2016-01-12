@@ -1,8 +1,8 @@
 import MouseType = require('model/type/Mouse');
 
 import experimentController = require('controller/Experiment');
-
 import MouseCageController = require('controller/view/MouseCage');
+import gameState = require('model/GameState');
 
 class ScalpelHandler {
 
@@ -31,7 +31,7 @@ class ScalpelHandler {
                 mouse.isCut(true);
                 mouse.isInteracting(false);
 
-                MC.gameState.inventory.add(mouse.spleen.clone());
+                gameState.inventory.add(mouse.spleen.clone());
 
                 experimentController.triggerMouse(mouse, item);
             });

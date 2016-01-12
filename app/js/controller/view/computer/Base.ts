@@ -1,6 +1,8 @@
 import ko = require('knockout');
 
 import BaseViewController = require('controller/view/Base');
+import gameState = require('model/GameState');
+
 
 class BaseComputer extends BaseViewController {
 
@@ -15,7 +17,7 @@ class BaseComputer extends BaseViewController {
     }
 
     changeScreen(name) {
-        this.gameState.activeComputerScreen(name);
+        gameState.activeComputerScreen(name);
     }
 }
 
