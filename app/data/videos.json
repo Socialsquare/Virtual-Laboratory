@@ -63,5 +63,7 @@
     "icebath": "icebath",
 
     "blender-shake": "blender_shake",
-    "centrifuge-shake": "centrifuge_shake"
+    "centrifuge-shake": "centrifuge_shake",
+
+    "extract-buffy-coat": "extract_buffy_coat"
 }

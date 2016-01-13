@@ -23,22 +23,24 @@
         &.from-mouse-blood {
             background-image: url(#{$img-path}/tube_extraction_blood.png);
 
+            margin-top: 10px;
+            width: 509px;
+            height: 320px;
+
             .buffy-coat {
-                background-color: red;
-                opacity: 0.5;
-                width: 80px;
-                height: 20px;
+                width: 55px;
+                height: 15px;
                 position: absolute;
-                top: 114px;
+                top: 173px;
+                left: 100px;
             }
 
             .red-blood-cells {
-                background-color: blue;
-                opacity: 0.5;
-                width: 80px;
-                height: 40px;
+                width: 55px;
+                height: 95px;
                 position: absolute;
-                top: 134px;
+                top: 190px;
+                left: 100px
             }
         }
 
