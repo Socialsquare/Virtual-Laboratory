@@ -1,6 +1,12 @@
 # Virtuelt Laboratorium
 
-Production, hosted by the client: http://www.biotechacademy.dk/Virtuelt-Laboratorium/velkommen
+## Development
+
+    npm install
+    bower install
+    tsd reinstall -s
+    grunt test
+    grunt
 
 ## Demo
 
@@ -12,16 +18,8 @@ which installs npm, bower and runs `grunt production` task.
 	demo          ssh://vlab@vlab.demo.socialsquare.dk:vlab.git
 
 ## Production
-Production is hosted by the client but it used to be here:
 
+Production, hosted by the client: http://www.biotechacademy.dk/Virtuelt-Laboratorium/velkommen
+	
 	production    ssh://vlab.biotechacademy.dk/home/vlab/vlab.git
-
-
-## Development
-
-    npm install
-    bower install
-    tsd reinstall -s
-    grunt test
-    grunt
 
