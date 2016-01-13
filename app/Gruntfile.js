@@ -140,7 +140,7 @@ module.exports = function (grunt) {
             dist: {
                 files: [ 'js/localization.json', 'view/**/*.ko', '!<%= dist_root %>/**' ],
                 //files: [ 'data/**', 'js/localization.json', 'js/**/*.js', 'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**' ],
-                tasks: [ 'build' ]
+                tasks: [ 'build', 'templateIndex', 'preprocess:dev' ]
             },
             sass: {
             	files: ['css/**/*.scss'],
@@ -216,7 +216,7 @@ module.exports = function (grunt) {
                     host: '0.0.0.0',
                     middleware: function (connect, options) {
                         return [
-                            tplProcess.middleware(grunt, 'dist/'),
+                            //tplProcess.middleware(grunt, 'dist/'),
                             mountFolder(connect, options.base)
                         ];
                     }
@@ -297,11 +297,12 @@ module.exports = function (grunt) {
     grunt.registerTask('production', [ 'setProductionBuildEnv', 'build', 'requirejs:production', 
                                        'templateIndex', 'preprocess:production',]);
 
-    grunt.registerTask('default', [ 'build', 'preprocess:dev', 'connect:dist', 'watch' ]);
+    grunt.registerTask('default', [ 'build', 'templateIndex', 'preprocess:dev', 'connect:dist',
+                                    'watch:dist' ]);
 
     grunt.registerTask('serve-production', [ 'production', 'connect:production:keepalive' ]);
 
     grunt.registerTask('test', ['setUnitTestBuildEnv', 'clean:dist',
                                 'assets', 'copy:test', 'ts:test', 'sass:dist',
-                                'preprocess:test', 'karma' ]);
+                                'templateIndex', 'preprocess:test', 'karma' ]);
 };
