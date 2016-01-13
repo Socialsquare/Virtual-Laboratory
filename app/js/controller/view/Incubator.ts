@@ -48,9 +48,7 @@ class IncubatorController extends BaseViewController {
 
     enter() {
         super.enter();
-        debugger;
         if (super.apparatusEnabled('INCUBATOR_ANTI_MATTER', 'INCUBATOR_ANTI_MATTER')) {
-            debugger;
             this.incubator.timer(240);
         }
     }
