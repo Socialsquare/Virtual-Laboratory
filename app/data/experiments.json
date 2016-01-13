@@ -582,7 +582,8 @@
         "description": { "dk": "Her skal du producere dine egne antistoffer og bagefter bruge dem til at behandle sygdomme." },
         "story": { "dk": "I denne øvelse skal du en vha. en mus producere antistoffer mod Ebola. Når man udsætter en rask mus for et fremmed stof, så vil musens immunforsvar reagere ved at producere antistoffer i mod det fremmede – ligesom når man bliver vaccineret. Det foregår ved, at nogle af musens B-lymfocytter bliver til plasmaceller, som er de celler der producerer antistoffer. Vi skal vha. ELISA finde frem de kopper-antistof-producerende plasmaceller og sekventere deres DNA. Med deres DNA til hjælp kan vi nemlig kopiere og producere antistofferne i laboratoriet." },
         "apparatus": {
-            "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR"
+            "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR",
+            "ApparatusLocationType.INCUBATOR_ANTI_MATTER": "ApparatusType.INCUBATOR_ANTI_MATTER"
         },
         "parts": [
             {

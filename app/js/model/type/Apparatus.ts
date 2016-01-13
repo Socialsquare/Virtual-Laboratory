@@ -9,6 +9,7 @@ enum Apparatus {
     GLUCOSE_BAG_CLAMP       = ev.next(),
     CLAMP_JUICE_BOTTLE      = ev.next(),
     VET_MONITOR             = ev.next(),
+    INCUBATOR_ANTI_MATTER   = ev.next(),
 };
 
 export = Apparatus;

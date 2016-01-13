@@ -6,6 +6,7 @@ enum Apparatus {
     MOUSE_CAGE_GLUCOSE_BAG  = ev.next(),
     MOUSE_CAGE_CLAMP_BOTTLE = ev.next(),
     MOUSE_CAGE_VET_MONITOR  = ev.next(),
+    INCUBATOR_ANTI_MATTER   = ev.next(),
 };
 
 export = Apparatus;
