@@ -152,16 +152,18 @@ module.exports = function (grunt) {
             }
         },
 
+        // https://github.com/jrburke/r.js/blob/master/build/example.build.js
         requirejs: {
             production: {
                 options: {
+				    almond: true,
                     baseUrl: "dist/js",
                     mainConfigFile: "dist/js/config.js",
                     name: '../../node_modules/almond/almond',
-                    mainConfigFile: 'dist/js/config.js',
                     findNestedDependencies: true,
                     preserveLicenseComments: false,
                     optimize: "uglify2",
+                    //optimize: "none",
                     out: "dist/static/script.js"
                 }
             }
@@ -177,6 +179,7 @@ module.exports = function (grunt) {
                 }
             },
             test: {
+            	env: 'test',
             	src: [ "typings/tsd.d.ts", "dist/js/**/*.{d.ts,ts}", "dist/test/*.{d.ts,ts}" ],
             	options: {
             		module: 'amd',
@@ -222,14 +225,35 @@ module.exports = function (grunt) {
         },
 
         preprocess : {
-            options: {
-                context : {
-                    BUILD: '<%= env %>'
-                }
+            production: {
+            	src : 'dist/index.html',
+            	dest : 'dist/index.html',
+            	options: {
+            		inline: true,
+            		context : {
+            			BUILD: 'production'
+            		}
+            	},
             },
-            dist: {
-                src : 'dist/index.html',
-                dest : 'dist/index.html'
+            test: {
+            	src : 'dist/index.html',
+            	dest : 'dist/index.html',
+            	options: {
+            		inline: true,
+            		context : {
+            			BUILD: 'test'
+            		}
+            	}
+            },
+            dev: {
+            	src : 'dist/index.html',
+            	dest : 'dist/index.html',
+            	options: {
+            		inline: true,
+            		context : {
+            			BUILD: 'dev'
+            		}
+            	},
             }
         }
     });
@@ -246,7 +270,7 @@ module.exports = function (grunt) {
         fs.writeFileSync(assetsDir + '/preload.json', JSON.stringify(data));
     });
 
-    grunt.registerTask('setProductionBuild', function () {
+    grunt.registerTask('setProductionBuildEnv', function () {
         grunt.config('env', 'production');
     });
 
@@ -268,17 +292,16 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-ts");
     grunt.loadNpmTasks('grunt-tslint');
 
-    // TODO: enable jshint when smellz is cleaned
-    //grunt.registerTask('build', [ 'clean:dist', 'copy:dist', 'ts:dist', 'assets', 'imagemin:assets', 'sass:dist', 'preprocess:dist' ]);
-    grunt.registerTask('build', [ 'clean:dist', 'assets', 'copy:dist', 'ts:dist', 'sass:dist', 'preprocess:dist' ]);
+    grunt.registerTask('build', [ 'clean:dist', 'assets', 'copy:dist', 'ts:dist', 'sass:dist' ]);
 
-    grunt.registerTask('production', [ 'setProductionBuild', 'build', 'requirejs:production', 'templateIndex' ]);
+    grunt.registerTask('production', [ 'setProductionBuildEnv', 'build', 'requirejs:production', 
+                                       'templateIndex', 'preprocess:production',]);
 
-    grunt.registerTask('default', [ 'build', 'connect:dist', 'watch' ]);
+    grunt.registerTask('default', [ 'build', 'preprocess:dev', 'connect:dist', 'watch' ]);
 
     grunt.registerTask('serve-production', [ 'production', 'connect:production:keepalive' ]);
 
     grunt.registerTask('test', ['setUnitTestBuildEnv', 'clean:dist',
                                 'assets', 'copy:test', 'ts:test', 'sass:dist',
-                                'preprocess:dist', 'karma' ]);
+                                'preprocess:test', 'karma' ]);
 };
