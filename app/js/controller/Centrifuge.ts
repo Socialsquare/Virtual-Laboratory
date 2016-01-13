@@ -65,9 +65,8 @@ class CentrifugeController extends CompositeContainerController {
                         throw 'Invalid selected extraction';
                     }
 
-                    // TODO!: show the correct video
                     popupController
-                        .video('electroporator1', false)
+                        .video('extract-dna', false)
                         .then(() => {
                             gameState.inventory.add(extraction);
                             this.compContainer.removeContainer(tube);

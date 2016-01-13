@@ -65,5 +65,6 @@
     "blender-shake": "blender_shake",
     "centrifuge-shake": "centrifuge_shake",
 
-    "extract-buffy-coat": "extract_buffy_coat"
+    "extract-buffy-coat": "extract_buffy_coat",
+    "extract-dna": "extract_dna"
 }

@@ -14,18 +14,15 @@
 
     .extraction {
         position:relative;
-
-        width: 80px;
-        height: 200px;
+            
+        margin-top: 10px;
+        width: 509px;
+        height: 320px;
 
         background-repeat: no-repeat;
 
         &.from-mouse-blood {
             background-image: url(#{$img-path}/tube_extraction_blood.png);
-
-            margin-top: 10px;
-            width: 509px;
-            height: 320px;
 
             .buffy-coat {
                 width: 55px;
@@ -48,12 +45,11 @@
             background-image: url(#{$img-path}/tube_extraction_clumped_cells.png);
 
             .ffd {
-                background-color: white;
-                opacity: 0.5;
-                width: 80px;
-                height: 80px;
+                width: 55px;
+                height: 25px;
                 position: absolute;
-                top: 114px;
+                top: 74px;
+                left: 100px;
             }
         }
     }
