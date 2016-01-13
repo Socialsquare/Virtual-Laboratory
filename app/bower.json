@@ -10,13 +10,13 @@
     "jquery.html5loader": "~1.7.0",
     "jqueryui-touch-punch": "*",
     "js-signals": "~1.0.0",
-    "knockout": "~3.3.0",
+    "knockout": "~3.4.0",
     "knockout-mapping": "~2.4.1",
     "knockout-postbox": "~0.5.2",
     "lodash": "~3.9.3",
-    "requirejs": "~2.1.14",
-    "requirejs-plugins": "~1.0.2",
-    "requirejs-text": "~2.0.12",
+    "requirejs": "~2.1.22",
+    "requirejs-plugins": "~1.0.3",
+    "requirejs-text": "~2.0.13",
     "screenfull": "~1.2.1"
   }
 }

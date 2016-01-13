@@ -101,12 +101,14 @@ class App extends BaseViewController {
                     return vetmon;
                 }
             },
-            template: { require: 'text!tmpldir/components/vetmonitor.ko'},
+            //template: { require: 'text!tmpldir/components/vetmonitor.ko'},
+            template: { element: 'vetmonitor' },
         });
 
         ko.components.register('vetmonitor-export-popup-component', {
             viewModel: VetMonitorExportPopup,
-            template: { require: 'text!tmpldir/components/vetmonitor-export-popup.ko'},
+            //template: { require: 'text!tmpldir/components/vetmonitor-export-popup.ko'},
+            template: { element: 'vetmonitor-export-popup' },
         });
     }
 
