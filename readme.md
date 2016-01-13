@@ -6,7 +6,12 @@ Production, hosted by the client: http://www.biotechacademy.dk/Virtuelt-Laborato
 
 Demo is hosted by Socialsquare: http://vlab.demo.socialsquare.dk/
 
-    vlab    ssh://vlab.biotechacademy.dk/home/vlab/vlab.git
+	demo          ssh://vlab@vlab.demo.socialsquare.dk:vlab.git
+
+## Production
+Production is hosted by the client but it used to be here:
+
+	production    ssh://vlab.biotechacademy.dk/home/vlab/vlab.git
 
 
 ## Development
