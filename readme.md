@@ -5,6 +5,9 @@ Production, hosted by the client: http://www.biotechacademy.dk/Virtuelt-Laborato
 ## Demo
 
 Demo is hosted by Socialsquare: http://vlab.demo.socialsquare.dk/
+Jenikins CI auto deploy current master from github to vlab.demo.socialsquare.dk
+and on vlab.demo.socialsquare.dk there is a repository with post-received hook
+which installs npm, bower and runs `grunt production` task.
 
 	demo          ssh://vlab@vlab.demo.socialsquare.dk:vlab.git
 
