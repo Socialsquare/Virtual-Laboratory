@@ -7,6 +7,7 @@ import PCRMachineController = require('controller/PCRMachine');
 import IceBathController = require('controller/IceBath');
 import GelElectroController = require('controller/GelElectro');
 
+import gameState = require('model/GameState');
 import Worktable3Model = require('model/Worktable3');
 
 class Worktable3 extends BaseViewController {
@@ -21,7 +22,7 @@ class Worktable3 extends BaseViewController {
     constructor() {
         super('worktable3');
 
-        this.worktable3 = this.gameState.worktable3;
+        this.worktable3 = gameState.worktable3;
 
         this.tubeRackController = new CompositeContainerController(this.worktable3.tubeRack);
         this.iceBathController = new IceBathController(this.worktable3.iceBath);

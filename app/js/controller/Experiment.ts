@@ -3,7 +3,8 @@ import _ = require('lodash');
 
 import popupController = require('controller/Popup');
 import quizController = require('controller/Quiz');
-
+import hudController = require('controller/HUD');
+import gameState = require('model/GameState');
 import HeaterModel = require('model/Heater');
 import IceBathModel = require('model/IceBath');
 import TubeModel = require('model/Tube');
@@ -25,6 +26,9 @@ import LiquidType = require('model/type/Liquid');
 import ActivationType = require('model/type/Activation');
 import TriggerType = require('model/type/Trigger');
 import ConsequenceType = require('model/type/Consequence');
+
+import ApparatusType = require('model/type/Apparatus');
+import ApparatusLocationType = require('model/type/ApparatusLocation');
 
 import vetMonitorLog = require('service/VetMonitorLog');
 
@@ -306,8 +310,10 @@ class Experiment {
             if (!item.mouseCage.hasMouse()) {
                 return;
             }
-            if (!this.match(trigger.alive, item.mouseCage.mouse().alive())) {
-                debugger;
+            if (!item.mouseCage.mouse().alive()) {
+                return;
+            }
+            if (item.wasActivated && hudController.showTimePassing()) {
                 return;
             }
         }
@@ -348,6 +354,27 @@ class Experiment {
         } else {
             popupController.notify('experiment.task_finished.header', 'experiment.task_finished.body');
         }
+    }
+    
+    apparatusEnabled(location: string, aType: string) {
+        var experiment = this.activeExperiment();
+
+        if (!experiment)
+            return false;
+
+        var enabled = experiment.apparatus.isEnabled(
+            ApparatusLocationType[location],
+            ApparatusType[aType]
+        );
+
+        if (enabled) 
+            return true;
+
+        var part = this.activePart();
+        return part.apparatus.isEnabled(
+            ApparatusLocationType[location],
+            ApparatusType[aType]
+        );
     }
 }
 

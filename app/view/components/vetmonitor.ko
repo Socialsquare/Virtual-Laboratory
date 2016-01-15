@@ -1,16 +1,17 @@
 
 <div class="mousegraph" data-bind="plotVetMonitor: plotData"></div>
 
-<div class="hand export-btn" data-bind="click: exportData">
-    <img src="assets/images/icon_spreadsheet.png" alt="Export data">
-</div>
+<div class="hand power-toggle-light" data-bind="visible: isPowerOn"></div>
+<div class="hand export-btn" data-bind="click: exportData"></div>
 
-<div class="hand hr-toggle-btn" data-bind="click: isHrGraphEnabledToggle">
-</div>
+<div class="hand hr-toggle-light" data-bind="visible: isHrGraphEnabled"></div>
+<div class="hand hr-toggle-btn" data-bind="click: isHrGraphEnabledToggle"></div>
 
+<div class="hand bloodsugar-toggle-light" data-bind="visible: isBloodSugarGraphEnabled"></div>
 <div class="hand bloodsugar-toggle-btn" data-bind="click: isBloodSugarGraphEnabledToggle">
 </div>
 
+<div class="hand glucose-infusion-rate-toggle-light" data-bind="visible: isGirGraphEnabled"></div>
 <div class="hand glucose-infusion-rate-toggle-btn" data-bind="click: isGirGraphEnabledToggle">
 </div>
 <vetmonitor-export-popup-component params='shouldShowExportPopup: shouldShowExportPopup'/></vetmonitor-export-popup-component>

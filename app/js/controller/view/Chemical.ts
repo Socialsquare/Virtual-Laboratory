@@ -9,6 +9,8 @@ import ActivationType = require('model/type/Activation');
 import LiquidFactory = require('factory/Liquid');
 import ContainerFactory = require('factory/Container');
 import SpecialItemFactory = require('factory/SpecialItem');
+import gameState = require('model/GameState');
+
 
 class Chemical extends BaseViewController {
 

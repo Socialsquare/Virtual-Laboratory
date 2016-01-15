@@ -10,6 +10,7 @@ import DNAElementModel = require('model/DNAElement');
 
 import ComputerScreenType = require('model/type/ComputerScreen');
 import ActivationType = require('model/type/Activation');
+import gameState = require('model/GameState');
 
 import DNAService = require('service/DNA');
 
@@ -26,7 +27,7 @@ class DesignDNA extends BaseComputer {
         this.dnaSequence = ko.observableArray([]);
 
         this.availableDNA = ko.pureComputed(() => {
-            return _.union(this.defaultAvailableDNA(), this.gameState.sequencedDNA());
+            return _.union(this.defaultAvailableDNA(), gameState.sequencedDNA());
         });
 
         this.defaultAvailableDNA(DNAService.getDNAElements());
@@ -89,7 +90,7 @@ class DesignDNA extends BaseComputer {
         var gene = new GeneModel(sequenceClone);
         var tube = new TubeModel();
         tube.add(gene, true);
-        this.gameState.inventory.add(tube);
+        gameState.inventory.add(tube);
 
         // reset the sequence and go to computer menu
         this.dnaSequence.removeAll();

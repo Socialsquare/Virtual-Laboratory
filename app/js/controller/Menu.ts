@@ -36,7 +36,7 @@ class Menu extends BaseViewController {
     constructor() {
         super('menu');
 
-        this.gameState.inventory.items.subscribe(() => this.boundScroll());
+        gameState.inventory.items.subscribe(() => this.boundScroll());
 
         this.canScroll = ko.pureComputed(() => {
             return this.inventoryItemsWidth() > this.inventoryWidth;
@@ -82,7 +82,7 @@ class Menu extends BaseViewController {
     }
 
     inventoryItemsWidth() {
-        return this.gameState.inventory.items().length * 91;
+        return gameState.inventory.items().length * 91;
     }
 
     stopScroll() {
@@ -108,10 +108,10 @@ class Menu extends BaseViewController {
     }
 
     inventoryDropHandler(item) {
-        if (this.gameState.inventory.hasItem(item))
+        if (gameState.inventory.hasItem(item))
             return false;
 
-        this.gameState.inventory.add(item);
+        gameState.inventory.add(item);
     }
 
     showGuide() {
@@ -119,11 +119,12 @@ class Menu extends BaseViewController {
     }
 
     togglePipette() {
-        this.gameState.pipette.active.toggle();
+        //gameState.pipette.active.toggle();
+        gameState.pipette.active(!gameState.pipette.active());
     }
 
     tipDropHandler(pipette) {
-        if (!this.gameState.pipette.newTip()) {
+        if (!gameState.pipette.newTip()) {
             this.popupController.notify('pipette.existing_tip.header', 'pipette.existing_tip.body');
         }
         return false;
@@ -131,7 +132,7 @@ class Menu extends BaseViewController {
 
     trashDropHandler(item, consume) {
         if (item.type() === ContainerType.PIPETTE) {
-            this.gameState.pipette.removeTip();
+            gameState.pipette.removeTip();
         } else {
             this.popupController.confirm('popup.confirm_delete.header', 'popup.confirm_delete.body').then(consume);
         }

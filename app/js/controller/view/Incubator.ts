@@ -2,7 +2,7 @@ import ko = require('knockout');
 
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
-
+import gameState = require('model/GameState');
 import IncubatorModel = require('model/Incubator');
 
 class IncubatorController extends BaseViewController {
@@ -16,7 +16,7 @@ class IncubatorController extends BaseViewController {
     constructor() {
         super('incubator');
 
-        this.incubator = this.gameState.incubator;
+        this.incubator = gameState.incubator;
 
         this.tubeRackController = new CompositeContainerController(this.incubator.tubeRack);
         this.tubeRackController.imageGetter = this.ImageHelper.incubatorTubeImage;

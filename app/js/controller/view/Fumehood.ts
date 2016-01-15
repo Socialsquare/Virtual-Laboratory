@@ -1,6 +1,7 @@
 import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
 import FumehoodModel = require('model/Fumehood');
+import gameState = require('model/GameState');
 
 class Fumehood extends BaseViewController {
 
@@ -14,7 +15,7 @@ class Fumehood extends BaseViewController {
 
         super('fumehood');
 
-        this.fumehood = this.gameState.fumehood;
+        this.fumehood = gameState.fumehood;
 
         this.tableSpacePetriController = new CompositeContainerController(this.fumehood.tableSpacePetri);
         this.tableSpaceMicroController = new CompositeContainerController(this.fumehood.tableSpaceMicro);

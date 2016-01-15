@@ -51,17 +51,17 @@
             </div>
 
             <div class="pipette" style="display: none"
-                 data-bind="visible: gameState.pipette.active,
+                 data-bind="visible: shouldHidePipette(),
                             drag: {
-                              item: gameState.pipette,
+                              item: gameStatePipette,
                               helper: 'original',
                               revert: false,
                               offset: {
-                                top: 185 + gameState.pipette.hasTip() * 45,
-                                left: 15 + gameState.pipette.hasTip() * (-10) } },
+                                top: 185 + gameStatePipette.hasTip() * 45,
+                                left: 15 + gameStatePipette.hasTip() * (-10) } },
                             css: {
-                              tip: gameState.pipette.hasTip(),
-                              empty: gameState.pipette.isEmpty() }">
+                              tip: gameStatePipette.hasTip(),
+                              empty: gameStatePipette.isEmpty() }">
             </div>
 
             <div class="popup-cover" style="display: none"

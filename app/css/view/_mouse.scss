@@ -3,11 +3,11 @@
 .mouse-view {
     @include view;
 
-    background-image: url(#{$img-path}/mouse-view-background-sprite_sRGB.png);
-    background-size: 1024px 1288px;
-    background-position: 0 644px;
+    background-image: url(#{$img-path}/mouse-view-background-sprite_sRGB.jpg);
+    background-size: 1024px 644px;
+    //background-position: 0 644px;
 
-    & .osxsafari { background-image: url(#{$img-path}/mouse-view-background-sprite_rec709.png); }
+    & .osxsafari { background-image: url(#{$img-path}/mouse-view-background-sprite_sRGB.jpg); }
 
     .video {
         position: absolute;
@@ -26,11 +26,12 @@
 
     .water-bottle {
         position: absolute;
-        left: 840px;
-        top: 260px;
+        left: 830px;
+        top: 273px;
         width: 168px;
         height: 365px;
         background-image: none;
+        transform: rotate(-5deg);
         .visible { background-image: url(#{$img-path}/grab_drink.png); }
     }
 
@@ -53,7 +54,7 @@
 
         width: $glucoseW;
         height: $glucoseH;
-        background-color: gray;
+        background-color: transparent;
 
         .start-btn {
             position: absolute;
@@ -61,31 +62,32 @@
             left: 70px;
             width: 40px;
             height: 40px;
-            background: blue;
+            background: red;
+            display: block;
         }
 
         .increase-btn {
             position: absolute;
-            top: 30px;
-            left: 140px;
-            width: 20px;
-            height: 20px;
-            background: blue;
+            top: 530px;
+            left: 258px;
+            width: 15px;
+            height: 14px;
+            background: transparent;
         }
 
         .decrease-btn {
             position: absolute;
-            top: 85px;
-            left: 140px;
-            width: 20px;
-            height: 20px;
-            background: blue;
+            top: 545px;
+            left: 259px;
+            width: 15px;
+            height: 14px;
+            background: transparent;
         }
 
         .infusion-rate {
             position: absolute;
             top: 55px;
-            left: 45px;
+            left: 20px;
         }
     }
 

@@ -17,20 +17,23 @@ class DropOnMouseHelper {
 
         //TODO: decision tree based on 1st item, 2nd mouseType
         switch (item.type()) {
-        case ContainerType.BOTTLE:
-            return BottleHandler.handle(MC, item);
-
-        case SpecialItemType.SCALPEL:
-            return ScalpelHandler.handle(MC, item);
-
-        case SpecialItemType.MOUSE:
-            return MouseHandler.handle(MC, item);
-
-        case ContainerType.SYRINGE:
-            return SyringeHandler.handle(MC, item);
-
-        case ContainerType.TUBE:
-            return TubeHandler.handle(MC, item);
+            case ContainerType.BOTTLE:
+                return BottleHandler.handle(MC, item);
+    
+            case SpecialItemType.SCALPEL:
+                return ScalpelHandler.handle(MC, item);
+    
+            case SpecialItemType.MOUSE:
+                if (MC.mousecage.hasMouse()) {
+                    return false;
+                }
+                return MouseHandler.handle(MC, item);
+    
+            case ContainerType.SYRINGE:
+                return SyringeHandler.handle(MC, item);
+    
+            case ContainerType.TUBE:
+                return TubeHandler.handle(MC, item);
 
         }
     }

@@ -4,6 +4,7 @@ import $ = require('jquery');
 import DataHelper = require('utils/DataHelper');
 import vetMonitorLog = require('service/VetMonitorLog');
 import VetMonitorLogItem = require('model/type/VetMonitorLogItem');
+import gameState = require('model/GameState');
 
 
 // FIXME: logs could have a predefined limit and expire time,

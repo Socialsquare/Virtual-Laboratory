@@ -7,7 +7,7 @@ import experimentController = require('controller/Experiment');
 
 import TubeModel = require('model/Tube');
 import DNAElementModel = require('model/DNAElement');
-
+import gameState = require('model/GameState');
 import LiquidType = require('model/type/Liquid');
 import MicroorganismType = require('model/type/Microorganism');
 import ActivationType = require('model/type/Activation');
@@ -104,12 +104,12 @@ class Sequencing extends BaseComputer {
                                     'computer.screen.sequencing.created_smallpox.body');
         }
 
-        var alreadySequenced = _.any(this.gameState.sequencedDNA(), (sequencedDNA) => {
+        var alreadySequenced = _.any(gameState.sequencedDNA(), (sequencedDNA) => {
             return sequencedDNA.name() === dna.name();
         });
 
         if (!alreadySequenced) {
-            this.gameState.sequencedDNA.push(dna);
+            gameState.sequencedDNA.push(dna);
         }
 
         experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_SEQUENCE, dna);

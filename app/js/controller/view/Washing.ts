@@ -4,7 +4,7 @@ import BaseViewController = require('controller/view/Base');
 import CompositeContainerController = require('controller/CompositeContainer');
 
 import ActivationType = require('model/type/Activation');
-
+import gameState = require('model/GameState');
 import WashingModel = require('model/Washing');
 
 class Washing extends BaseViewController {
@@ -17,7 +17,7 @@ class Washing extends BaseViewController {
     constructor() {
         super('washing');
 
-        this.washing = this.gameState.washing;
+        this.washing = gameState.washing;
         this.status = ko.observable(false);
         this.result = ko.observable(0);
 

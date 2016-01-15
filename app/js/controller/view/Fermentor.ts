@@ -1,6 +1,7 @@
 import FermentorTankController = require('controller/FermentorTank');
 import BaseViewController = require('controller/view/Base');
 import FermentorModel = require('model/Fermentor');
+import gameState = require('model/GameState');
 
 class Fermentor extends BaseViewController {
 
@@ -10,7 +11,7 @@ class Fermentor extends BaseViewController {
     constructor() {
         super('fermentor');
 
-        this.fermentor = this.gameState.fermentor;
+        this.fermentor = gameState.fermentor;
         this.fermentorTankController = new FermentorTankController(this.fermentor.fermentorTank);
     }
 }

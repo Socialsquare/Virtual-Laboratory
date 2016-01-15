@@ -4,6 +4,7 @@ import BaseComputer = require('controller/view/computer/Base');
 import experimentController = require('controller/Experiment');
 
 import MouseModel = require('model/Mouse');
+import gameState = require('model/GameState');
 
 import MouseType = require('model/type/Mouse');
 import MouseBloodType = require('model/type/MouseBlood');
@@ -38,7 +39,7 @@ class OrderMouse extends BaseComputer {
 
     orderMouse() {
         var mouse = this.selectedMouse();
-        this.gameState.inventory.add(mouse.clone());
+        gameState.inventory.add(mouse.clone());
 
         this.changeScreen(ComputerScreenType.MENU);
 

@@ -19,12 +19,11 @@ import DragHelper = require('utils/DragHelper');
 import LiquidType = require('model/type/Liquid');
 import ApparatusType = require('model/type/Apparatus');
 import ApparatusLocationType = require('model/type/ApparatusLocation');
-
+import PipetteModel = require('model/Pipette');
 import SimpleContainerModel = require('model/SimpleContainer');
 
 class Base {
 
-    public gameState = gameState;
     public router = router;
     public ImageHelper = ImageHelper;
     public DragHelper = DragHelper;
@@ -38,6 +37,7 @@ class Base {
     public templateName: string;
     public hasMenu: KnockoutObservable<boolean>;
     public shouldHidePipette: KnockoutObservable<boolean>;
+    public gameStatePipette: PipetteModel;
 
     constructor(templateName: string) {
         this.templateName = templateName;
@@ -45,36 +45,21 @@ class Base {
         this.hasMenu = ko.observable(true);
         // false = CAN show pipette.
         this.shouldHidePipette = ko.observable(false);
+        
+        this.gameStatePipette = gameState.pipette;
 
         ko.rebind(this);
     }
 
     // Relayed for use in templates (could also be implemented as a custom binding)
-    apparatusEnabled(location: string, type: string) {
-        var experiment = experimentController.activeExperiment();
-
-        if (!experiment)
-            return false;
-
-        var enabled = experiment.apparatus.apparatusEnabled(
-            ApparatusLocationType[location],
-            ApparatusType[type]
-        );
-
-        if (enabled) 
-            return true;
-
-        var part = experimentController.activePart();
-        return part.apparatus.apparatusEnabled(
-            ApparatusLocationType[location],
-            ApparatusType[type]
-        );
+    apparatusEnabled(location: string, aType: string) {
+        return experimentController.apparatusEnabled(location, aType);
     }
 
     maybeHidePippete() {
-        if (this.gameState.pipette.active()
-            && this.shouldHidePipette()) {
-            this.gameState.pipette.active.toggle();
+        if (gameState.pipette.active() &&
+                this.shouldHidePipette()) {
+            gameState.pipette.active(!gameState.pipette.active());
         }
     }
 

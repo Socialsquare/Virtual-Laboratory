@@ -3,8 +3,8 @@ import ko = require('knockout');
 import BaseComputer = require('controller/view/computer/Base');
 
 import LiquidType = require('model/type/Liquid');
-
 import LiquidModel = require('model/Liquid');
+import gameState = require('model/GameState');
 
 import LiquidFactory = require('factory/Liquid');
 import ContainerFactory = require('factory/Container');
@@ -57,7 +57,7 @@ class Protein extends BaseComputer {
         }
 
         var item = ContainerFactory.tube().add(liquid, true);
-        this.gameState.inventory.add(item);
+        gameState.inventory.add(item);
     }
 }
 

@@ -5,6 +5,8 @@ import BaseViewController = require('controller/view/Base');
 import SpectroPMController = require('controller/view/SpectroPM');
 
 import DataHelper = require('utils/DataHelper');
+import gameState = require('model/GameState');
+
 
 class SpectroPMScreen extends BaseViewController {
 

@@ -16,6 +16,8 @@ import MouseBloodType = require('model/type/MouseBlood');
 import ContainerFactory = require( 'factory/Container');
 import LiquidFactory = require('factory/Liquid');
 
+import gameState = require('model/GameState');
+
 
 class MouseCage extends BaseViewController {
 
@@ -41,7 +43,7 @@ class MouseCage extends BaseViewController {
 
         super('mousecage');
         
-        this.mousecage = this.gameState.mousecage;
+        this.mousecage = gameState.mousecage;
 
         this.videoController = new VideoController(true);
         this.glucoseBagController = new GlucoseBagController(this.mousecage);
@@ -81,7 +83,9 @@ class MouseCage extends BaseViewController {
             && !this.lowBloodSugarWarningToggle());
     }
     
-    public onBloodSugarChange = (bloodSugar) => {
+    public onBloodSugarChange = (bloodSugar: number) => {
+        ko.postbox.publish("mouseBloodSugarTopic", bloodSugar);
+
         if (this.shouldShowLowBloodSugarWarning(bloodSugar)) {
             this.lowBloodSugarWarningToggle(true);
             this.popupController.message('mouse.warning_insulin.header',
@@ -102,7 +106,7 @@ class MouseCage extends BaseViewController {
      * Give a fraction of infusion to the mouse.
      */
     nextInfusionDose() {
-        var infusionRate = this.mousecage.glucoseBag.glucoseInfusionRate();
+        var infusionRate = this.glucoseBagController.glucoseBag.glucoseInfusionRate();
         var msInMinute = 1000 * 60;
         // infusionDose per interval in ms
         var infusionDose = (infusionRate / msInMinute) * this.simulationInterval;
@@ -112,15 +116,13 @@ class MouseCage extends BaseViewController {
     nextTimeStep() {
         if (!this.mousecage.hasMouse()) return;
         
-        if (this.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP'))
+        if (this.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP') &&
+                this.glucoseBagController.glucoseBag.status()) {
             this.nextInfusionDose();
+        }
 
         this.mousecage.mouse().nextBloodStep();
-        ko.postbox.publish("mouseCageMouseBloodSugarTopic",
-            this.mousecage.mouse().bloodSugar());
         this.mousecage.mouse().nextHeartStep();
-        ko.postbox.publish("mouseCageMouseHeartRateTopic",
-            this.mousecage.mouse().heartRate());
         
         if (this.mousecage.mouse().hasLethalBloodSugar()) {
             this.toggleSimulation(false);
@@ -151,37 +153,44 @@ class MouseCage extends BaseViewController {
     }
 
     runFromState() {
+        this.mousecage = gameState.mousecage;
+
         if (!this.mousecage.hasMouse()) return;
 
-        if (!this._bloodSugarSubscription) {
-            this._bloodSugarSubscription =
-                this.mousecage.mouse().bloodSugar.subscribe(this.onBloodSugarChange);
+        if (this._bloodSugarSubscription) {
+            this._bloodSugarSubscription.dispose();
         }
 
         if (this.mousecage.mouse().alive()) {
+
+            ko.postbox.publish("mouseBloodSugarTopic", this.mousecage.mouse().bloodSugar());
+            ko.postbox.publish("mouseHeartRateTopic", this.mousecage.mouse().heartRate());
+            this._bloodSugarSubscription =
+                this.mousecage.mouse().bloodSugar.subscribe(this.onBloodSugarChange);
+
             switch (this.mousecage.mouse().mouseType()) {
-            case MouseType.HEALTHY:
-                this.videoController.play('fast-loop', true);
-                break;
-
-            case MouseType.SMALLPOX:
-                this.videoController.play('smallpox-loop', true);
-                break;
-
-            case MouseType.GOUT:
-                this.videoController.play('slow-loop-gout', true);
-                break;
-
-            case MouseType.INSOMNIA:
-                this.videoController.play('slow-loop', true);
-                break;
-
-            case MouseType.PSORIASIS:
-                this.videoController.play('psoriasis-loop', true);
-                break;
-            default:
-                console.log('Mouse video error');
-                break;
+                case MouseType.HEALTHY:
+                    this.videoController.play('fast-loop', true);
+                    break;
+    
+                case MouseType.SMALLPOX:
+                    this.videoController.play('smallpox-loop', true);
+                    break;
+    
+                case MouseType.GOUT:
+                    this.videoController.play('slow-loop-gout', true);
+                    break;
+    
+                case MouseType.INSOMNIA:
+                    this.videoController.play('slow-loop', true);
+                    break;
+    
+                case MouseType.PSORIASIS:
+                    this.videoController.play('psoriasis-loop', true);
+                    break;
+                default:
+                    console.log('Mouse video error');
+                    break;
             }
         }
     }
@@ -195,7 +204,10 @@ class MouseCage extends BaseViewController {
 
     exit() {
         console.log("mousecage ctrl exit");
-        this.glucoseBagController.deactivate();
+
+        ko.postbox.publish("glucoseBagStatusToggleTopic", false);
+        this.glucoseBagController.dispose();
+
         this.videoController.stop();
         this.toggleSimulation(false);
         if (this._bloodSugarSubscription) {
