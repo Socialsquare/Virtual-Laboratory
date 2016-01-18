@@ -138,8 +138,10 @@ module.exports = function (grunt) {
 
         watch: {
             dist: {
-                files: [ 'js/localization.json', 'view/**/*.ko', '!<%= dist_root %>/**' ],
-                //files: [ 'data/**', 'js/localization.json', 'js/**/*.js', 'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**' ],
+                files: [ 'js/localization.json', 'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**',
+                         'js/**/*.js', 'js/**/*.ts'],
+                //files: [ 'data/**', 'js/localization.json', 'js/**/*.js',
+                //         'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**' ],
                 tasks: [ 'build', 'templateIndex', 'preprocess:dev' ]
             },
             sass: {
