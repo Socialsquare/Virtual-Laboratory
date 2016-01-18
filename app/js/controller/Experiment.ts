@@ -60,9 +60,14 @@ class Experiment {
                 return null;
 
             var parts = <PartModel[]>this.activeExperiment().parts();
-            return _.find(parts, (part) => {
+            var ret = _.find(parts, (part) => {
                 return !part.finished();
             });
+            if (ret === undefined) {
+                return null;
+            } else {
+                return ret;
+            }
         });
 
         this.activeTask = ko.pureComputed(() => {
@@ -70,9 +75,14 @@ class Experiment {
                 return null;
 
             var tasks = <TaskModel[]>this.activeExperiment().tasks();
-            return _.find(tasks, (task) => {
+            var ret = _.find(tasks, (task) => {
                 return !task.finished();
             });
+            if (ret === undefined) {
+                return null;
+            } else {
+                return ret
+            }
         });
 
         ko.rebind(this);
@@ -369,8 +379,7 @@ class Experiment {
             return true;
 
         var part = this.activePart();
-        if (part === null || part === undefined) return false;
-        if (part.apparatus === null || part.apparatus === undefined) return false;
+        if (part === null) return false;
 
         return part.apparatus.isEnabled(
             ApparatusLocationType[location],
