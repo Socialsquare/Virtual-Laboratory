@@ -1,4 +1,6 @@
-import MouseCageController = require('controller/view/MouseCageController');
+
+import gameState = require('model/GameState');
+import MouseCageController = require('controller/view/MouseCage');
 import popupController = require('controller/Popup');
 
 import ContainerFactory = require('factory/Container');
@@ -11,15 +13,16 @@ import MouseBloodType = require('model/type/MouseBlood');
 import VideoController = require('controller/Video');
 import DropOnMouseHelper = require('utils/mouse/DropOnMouseHelper');
 
+
 describe('Mouse', () => {
     var mc: MouseCageController;
     mc = new MouseCageController();
-    mc.gameState.reset();
-    mc.gameState.mousecage.mouse(SpecialItem.healthyMouse());
+    gameState.reset();
+    gameState.mousecage.mouse(SpecialItem.healthyMouse());
 
     beforeEach(() => {
-        mc.gameState.reset();
-        mc.gameState.mousecage.mouse(SpecialItem.healthyMouse());
+        gameState.reset();
+        gameState.mousecage.mouse(SpecialItem.healthyMouse());
         popupController.autoConfirm = true;
         VideoController.autoFinish = true;
 
@@ -35,14 +38,14 @@ describe('Mouse', () => {
 
             var syringe = ContainerFactory.syringe();
 
-            expect(mc.gameState.inventory.items().length).toBe(0);
+            expect(gameState.inventory.items().length).toBe(0);
 
             // Drop the syringe on the mouse
             DropOnMouseHelper.handleDrop(mc, syringe);
 
-            expect(mc.gameState.inventory.items().length).toBe(1);
+            expect(gameState.inventory.items().length).toBe(1);
 
-            var tube = mc.gameState.inventory.items()[0];
+            var tube = gameState.inventory.items()[0];
 
             expect(tube.contains(LiquidType.MOUSE_BLOOD)).toBeTruthy();
         });

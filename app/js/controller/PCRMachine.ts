@@ -33,19 +33,22 @@ class PCRMachine extends CompositeContainerController {
     }
 
     tryCopyDNA(tube: TubeModel) {
-        if (!tube)
+        if (!tube) {
             return;
+        }
 
         // copy diabetes dna if diabetes primers is present
         var ffd = <FreeFloatingDNAModel>tube.findByType(LiquidType.FREE_FLOATING_DNA);
 
-        if (!ffd)
+        if (!ffd) {
             return;
+        }
 
-        var required = [LiquidType.DIABETES_PRIMER, LiquidType.FREE_FLOATING_DNA, LiquidType.DNA_POLYMERASE, LiquidType.NUCLEOTIDES];
+        var required = [LiquidType.DIABETES_PRIMER, LiquidType.FREE_FLOATING_DNA,
+            LiquidType.DNA_POLYMERASE, LiquidType.NUCLEOTIDES];
         var tubeIsCopyable = tube.containsAllStrict(required);
 
-        if (ffd.bloodType() === MouseBloodType.DIABETIC && tubeIsCopyable)
+        if ((ffd.bloodType() === MouseBloodType.DIABETIC) && tubeIsCopyable)
             ffd.isCopied(true);
 
         // When the PCR machine successfully runs on mouse blood,

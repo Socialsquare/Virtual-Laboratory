@@ -11,7 +11,7 @@ import CompositeContainerModel = require('model/CompositeContainer');
 import SimpleContainerModel = require('model/SimpleContainer');
 import MicrotiterplateModel = require('model/Microtiterplate');
 import TipModel = require('model/Tip');
-import FreeFloatingDNAModel = require('model/FreeFLoatingDNA');
+import FreeFloatingDNAModel = require('model/FreeFloatingDNA');
 
 class Pipette extends CompositeContainerModel {
 

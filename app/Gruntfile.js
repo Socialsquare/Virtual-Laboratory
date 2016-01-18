@@ -45,6 +45,7 @@ module.exports = function (grunt) {
         copy: {
         	test: {
         		files: [
+    		        { expand: true, src: [ 'test-main.js' ], dest: '<%= dist_root %>/js/' },
     		        { expand: true, src: [ 'data/*.json' ], dest: '<%= dist_root %>' },
     		        { expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
     		        { expand: true, src: [ 'test/**' ], dest: '<%= dist_root %>' },

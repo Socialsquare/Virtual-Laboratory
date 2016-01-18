@@ -27,7 +27,9 @@ describe('PCR Machine', () => {
     describe('DNA copying', () => {
         it('should copy DNA when diabetes primer and diabetic DNA is present', () => {
             var diabetesDNA = LF.freeFloatingDNA(MouseBloodType.DIABETIC);
-            var tube = CF.tube().addAll([LF.diabetesPrimer(), diabetesDNA]);
+            var allStuff = [LF.diabetesPrimer(), LF.dnaPolymerase(),
+                LF.nucleotides(), diabetesDNA]
+            var tube = CF.tube().addAll(allStuff);
 
             expect(diabetesDNA.isCopied()).toBeFalsy();
 
