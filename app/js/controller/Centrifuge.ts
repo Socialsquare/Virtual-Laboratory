@@ -70,6 +70,8 @@ class CentrifugeController extends CompositeContainerController {
                         .then(() => {
                             gameState.inventory.add(extraction);
                             this.compContainer.removeContainer(tube);
+                            popupController
+                                .message('centrifuge.dna-extracted.header', 'centrifuge.dna-extracted.body');
                         });
                 });
         }
@@ -92,6 +94,8 @@ class CentrifugeController extends CompositeContainerController {
                         .then(() => {
                             gameState.inventory.add(extraction);
                             this.compContainer.removeContainer(tube);
+                            popupController
+                                .message('centrifuge.buffycoat-extracted.header', 'centrifuge.buffycoat-extracted.body');
                         });
                 });
         }

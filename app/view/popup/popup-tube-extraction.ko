@@ -8,22 +8,15 @@
     <!-- ko if: isType('FROM_MOUSE_BLOOD') -->
         <div class="extraction from-mouse-blood">
             <div class="buffy-coat hand"
-                 data-bind="click: selectExtraction.bind(null, 'LiquidType.BUFFY_COAT')"></div>
-            <div class="red-blood-cells hand"
-                 data-bind="click: selectExtraction.bind(null, 'LiquidType.RED_BLOOD_CELLS')"></div>
+                 data-bind="click: extract.bind(null, 'LiquidType.BUFFY_COAT')"></div>
         </div>
     <!-- /ko -->
 
     <!-- ko if: isType('FROM_CLUMPED_CELLS') -->
         <div class="extraction from-clumped-cells">
             <div class="ffd hand"
-                 data-bind="click: selectExtraction.bind(null, 'LiquidType.FREE_FLOATING_DNA')"></div>
+                 data-bind="click: extract.bind(null, 'LiquidType.FREE_FLOATING_DNA')"></div>
         </div>
     <!-- /ko -->
 
-    <span data-bind="text: selected"></span>
-
-    <div class="btn-row float-clear">
-        <button type="button" data-bind="click: extract">Ekstrahér</button>
-    </div>
 </div>

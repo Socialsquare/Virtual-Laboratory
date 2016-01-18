@@ -361,6 +361,10 @@
 
         "centrifuge.unbalanced.header": "Ugyldigt",
         "centrifuge.unbalanced.body": "Centrifugen skal være balanceret for at du kan anvende den. Hint: du kan anvende et reagensglas med vand for at balancere centrifugen.",
+        "centrifuge.dna-extracted.header": "DNA ekstraheret",
+        "centrifuge.dna-extracted.body": "DNA ligger nu i din beholding",
+        "centrifuge.buffycoat-extracted.header": "Buffy coat ekstraheret",
+        "centrifuge.buffycoat-extracted.body": "Buffy coat ligger nu i din beholding",
 
         "pcr.dna-copied.header": "DNA er blevet kopieret",
         "pcr.dna-copied.body": "En milliard gange",
