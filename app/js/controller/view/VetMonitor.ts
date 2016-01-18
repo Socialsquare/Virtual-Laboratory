@@ -110,6 +110,7 @@ class VetMonitor {
         this.isGirGraphEnabled = ko.observable(false);
         
         if (experimentController.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP')) {
+            this.resetGraphHrRange();
             this.isHrGraphEnabled(false);
             // we start infusion when user presses GIR graph
             // this is to make sure that the GIR is OFF
