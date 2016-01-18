@@ -10,7 +10,7 @@ class HUD {
         ko.rebind(this);
     }
 
-    flashTimePassing(secs) {
+    flashTimePassing(secs: number) {
         this.showTimePassing(true);
         _.delay(() => this.showTimePassing(false), secs*1000);
     }

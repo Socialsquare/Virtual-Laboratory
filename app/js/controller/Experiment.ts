@@ -313,7 +313,7 @@ class Experiment {
             if (!item.mouseCage.mouse().alive()) {
                 return;
             }
-            if (item.wasActivated && hudController.showTimePassing()) {
+            if (hudController.showTimePassing()) {
                 return;
             }
         }

@@ -12,7 +12,6 @@ class GlucoseBag {
 
     public mouseCage: MouseCageModel;
     public glucoseBag: GlucoseBagModel;
-    public wasActivated: boolean = false;
     private STEP: number;
 
     constructor(mouseCage: MouseCageModel) {
@@ -43,11 +42,8 @@ class GlucoseBag {
 
     activate() {
         this.glucoseBag.activate();
-        hudController.flashTimePassing(60);
         experimentController.triggerActivation(ActivationType.GLUCOSE_BAG, this);
-        if (! this.wasActivated){
-            this.wasActivated = true;
-        }
+        hudController.flashTimePassing(60);
     }
     
     deactivate() {
