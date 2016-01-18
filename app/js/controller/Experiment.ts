@@ -140,7 +140,6 @@ class Experiment {
         if (!this.match(trigger.container, container.type())) return;
         var st1 = container.subtype();
         var st2 = trigger.containerSubtype;
-        debugger;
         if (!this.match(trigger.containerSubtype, container.subtype())) return;
 
         if (!this.matchLiquids(trigger, container)) return;
@@ -276,7 +275,6 @@ class Experiment {
                         && this.matchLiquids(trigger, incubatorContainer);
                 });
             });
-            debugger;
 
             if (!validIncubator) return;
         }
@@ -371,6 +369,9 @@ class Experiment {
             return true;
 
         var part = this.activePart();
+        if (part === null || part === undefined) return false;
+        if (part.apparatus === null || part.apparatus === undefined) return false;
+
         return part.apparatus.isEnabled(
             ApparatusLocationType[location],
             ApparatusType[aType]

@@ -92,7 +92,6 @@ class Popup {
     }
 
     message(title: string, message: string, delayTime = 0) {
-        debugger;
         _.delay(() => this.show('popup-message', { title: title, message: message }), 
                 delayTime);
     }
