@@ -173,6 +173,9 @@ class VetMonitor {
         
         this.isGirGraphEnabled(!this.isGirGraphEnabled());
         
+        this.resetGraphHrRange();
+        this.isHrGraphEnabled(false);
+        
         // start/stop infusion depending on GIR button
         ko.postbox.publish("glucoseBagStatusToggleTopic", this.isGirGraphEnabled());
     }
@@ -393,6 +396,7 @@ class VetMonitor {
         });
         if (experimentController.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP')) {
             // in experiment 1c we don't need HR
+            this.resetGraphHrRange();
             this.isHrGraphEnabled(false);
         } else {
             this.isHrGraphEnabled(true);
