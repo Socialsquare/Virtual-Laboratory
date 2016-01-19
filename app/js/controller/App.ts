@@ -33,7 +33,7 @@ import LiquidFactory = require('factory/Liquid');
 import SpecialItemFactory = require('factory/SpecialItem');
 import MouseBloodType = require('model/type/MouseBlood');
 import gameState = require('model/GameState');
-
+import LiquidType = require('model/type/Liquid');
 
 class App extends BaseViewController {
 
@@ -84,13 +84,33 @@ class App extends BaseViewController {
         });
 
         // bootstrap the app by going to loading view
-        this.router.navigate('loading');
-        //this.router.navigate('overview');
+        //this.router.navigate('loading');
+        this.router.navigate('overview');
 
         // function shortcuts for testing
         var iadd = gameState.inventory.add;
         var t = ContainerFactory.tube;
+        var t1 = t();
 
+        //iadd(SpecialItemFactory.healthyMouse());
+        //iadd(SpecialItemFactory.diabeticMouse());
+
+        //t1.add(LiquidFactory.homoSpleen(LiquidType.ANTIBODY_SMALLPOX));
+        //t1.add(LiquidFactory.hybridomaMedium());
+        //t1.add(LiquidFactory.microorganism.myeloma());
+        //iadd(t1);
+        //iadd(t().add(LiquidFactory.fusionMedium()));
+        //t1.add(LiquidFactory.antigenSmallpox());
+        //t1.add(LiquidFactory.adjuvans());
+        //t1.add(LiquidFactory.buffer());
+        //iadd(t1);
+        
+        //iadd(SpecialItemFactory.gel());
+        //iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.NORMAL)).add(LiquidFactory.blueStain()));
+        //iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.DIABETIC)).add(LiquidFactory.blueStain()));
+        //iadd(t().add(LiquidFactory.mouseBlood(MouseBloodType.DIABETIC)));
+        //iadd(t().add(LiquidFactory.clumpedCells()));
+        //iadd(t().add(LiquidFactory.water()));
         ko.rebind(this);
     }
     
@@ -103,14 +123,12 @@ class App extends BaseViewController {
                     return vetmon;
                 }
             },
-            //template: { require: 'text!tmpldir/components/vetmonitor.ko'},
-            template: { element: 'vetmonitor' },
+            template: { require: 'text!tmpldir/components/vetmonitor.ko'},
         });
 
         ko.components.register('vetmonitor-export-popup-component', {
             viewModel: VetMonitorExportPopup,
-            //template: { require: 'text!tmpldir/components/vetmonitor-export-popup.ko'},
-            template: { element: 'vetmonitor-export-popup' },
+            template: { require: 'text!tmpldir/components/vetmonitor-export-popup.ko'},
         });
     }
 
