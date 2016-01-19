@@ -119,7 +119,6 @@ class Menu extends BaseViewController {
     }
 
     togglePipette() {
-        //gameState.pipette.active.toggle();
         gameState.pipette.active(!gameState.pipette.active());
     }
 

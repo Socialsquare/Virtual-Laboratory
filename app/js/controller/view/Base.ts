@@ -36,17 +36,27 @@ class Base {
 
     public templateName: string;
     public hasMenu: KnockoutObservable<boolean>;
-    public shouldHidePipette: KnockoutObservable<boolean>;
-    public gameStatePipette: PipetteModel;
+    public isPipetteVisible: KnockoutObservable<boolean>;
+    private _isPipetteVisibleSubscription = null;
+    public pipette: PipetteModel;
 
     constructor(templateName: string) {
         this.templateName = templateName;
 
         this.hasMenu = ko.observable(true);
-        // false = CAN show pipette.
-        this.shouldHidePipette = ko.observable(false);
         
-        this.gameStatePipette = gameState.pipette;
+        this.isPipetteVisible = ko.observable(false);
+        this.pipette = gameState.pipette;
+        this._isPipetteVisibleSubscription = gameState.pipette.active.subscribe(
+                (newVal: boolean)=>{
+            this.isPipetteVisible(newVal);
+        });
+        // FIXME: I have no idea where to call _isPipetteVisibleSubscription.dispose()
+        // FIXME: I don't call this in exit() because I don't create it in enter()
+        // FIXME: and I don't create it in enter() because pipette is in gameState
+        // FIXME: which means its "active" value can change before a user enters a view controller
+        // FIXME: so every view controller instance has subscription to pipette :-)
+        //this._isPipetteVisibleSubscription.dispose();
 
         ko.rebind(this);
     }
@@ -56,18 +66,11 @@ class Base {
         return experimentController.apparatusEnabled(location, aType);
     }
 
-    maybeHidePippete() {
-        if (gameState.pipette.active() &&
-                this.shouldHidePipette()) {
-            gameState.pipette.active(!gameState.pipette.active());
-        }
-    }
-
     enter() {
-        this.maybeHidePippete();
     }
 
-    exit() {}
+    exit() {
+    }
 
     // TODO: move to utility class?
     smallPoxGuard(position: number, container: SimpleContainerModel) {
