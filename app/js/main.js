@@ -9,6 +9,7 @@ require.config({
         knockout: '../bower_components/knockout/dist/knockout.debug',
         mapping: '../bower_components/knockout-mapping/knockout.mapping',
         'knockout.mapping': '../bower_components/knockout-mapping/knockout.mapping',
+        postbox: '../bower_components/knockout-postbox/build/knockout-postbox',
         'knockout.postbox': '../bower_components/knockout-postbox/build/knockout-postbox',
         jqueryuitouchpunch: '../bower_components/jqueryui-touch-punch/jquery.ui.touch-punch',
         fastclick: '../bower_components/fastclick/lib/fastclick',

@@ -5,44 +5,49 @@
         "story": { "dk": "Bar" },
         "apparatus": {
             "ApparatusLocationType.CORNER": "ApparatusType.CORNER_FOOBAR",
-            "ApparatusLocationType.UV_ROOM": "ApparatusType.UV_ROOM_GEL"
+            "ApparatusLocationType.UV_ROOM": "ApparatusType.UV_ROOM_GEL",
+            "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR"
         },
-        "tasks": [
-            {
-                "description": { "dk": "Task 1" },
-                "trigger": {
-                    "type": "TriggerType.MIX",
-                    "item": "ContainerType.TUBE",
-                    "liquids": [
-                        { "type": "LiquidType.DEADLY" },
-                        { "type": "LiquidType.INSULIN" }
-                    ]
-                }
-            },
-            {
-                "description": { "dk": "Task 2" },
-                "trigger": {
-                    "type": "TriggerType.MIX",
-                    "item": "ContainerType.TUBE",
-                    "strict": true,
-                    "liquids": [
-                        { "type": "LiquidType.DEADLY" },
-                        { "type": "LiquidType.INSULIN" }
-                    ]
-                }
-            },
-            {
-                "description": { "dk": "Task 3" },
-                "trigger": {
-                    "type": "TriggerType.MIX",
-                    "item": "ContainerType.TUBE",
-                    "liquids": [
-                        { "type": "LiquidType.DEADLY" },
-                        { "type": "LiquidType.INSULIN" }
-                    ],
-                    "strictlyOrdered": true
-                }
-            }
+        "parts": [
+        	{
+	        "tasks": [
+	            {
+	                "description": { "dk": "Task 1" },
+	                "trigger": {
+	                    "type": "TriggerType.MIX",
+	                    "item": "ContainerType.TUBE",
+	                    "liquids": [
+	                        { "type": "LiquidType.DEADLY" },
+	                        { "type": "LiquidType.INSULIN" }
+	                    ]
+	                }
+	            },
+	            {
+	                "description": { "dk": "Task 2" },
+	                "trigger": {
+	                    "type": "TriggerType.MIX",
+	                    "item": "ContainerType.TUBE",
+	                    "strict": true,
+	                    "liquids": [
+	                        { "type": "LiquidType.DEADLY" },
+	                        { "type": "LiquidType.INSULIN" }
+	                    ]
+	                }
+	            },
+	            {
+	                "description": { "dk": "Task 3" },
+	                "trigger": {
+	                    "type": "TriggerType.MIX",
+	                    "item": "ContainerType.TUBE",
+	                    "liquids": [
+	                        { "type": "LiquidType.DEADLY" },
+	                        { "type": "LiquidType.INSULIN" }
+	                    ],
+	                    "strictlyOrdered": true
+	                }
+	            }
+	        ]
+        }
         ]
     }
 ]
