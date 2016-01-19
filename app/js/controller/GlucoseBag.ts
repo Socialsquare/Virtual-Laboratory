@@ -1,4 +1,5 @@
 import ko = require('knockout');
+import postbox = require('knockout.postbox');
 import _ = require('lodash');
 
 import MouseCageModel = require('model/MouseCage');
@@ -20,7 +21,7 @@ class GlucoseBag {
         this.glucoseBag = gb;
         this.STEP = 0.05;
         
-        ko.postbox.subscribe("glucoseBagStatusToggleTopic", (newValue:boolean) => {
+        postbox.subscribe("glucoseBagStatusToggleTopic", (newValue:boolean) => {
             console.log("glucoseBagStatusToggleTopic: " + newValue);
             if (newValue === true) {
                 this.activate();
@@ -67,7 +68,7 @@ class GlucoseBag {
     }
     
     dispose(){
-        // ko.postbox unsubscribe from "glucoseBagStatusToggleTopic"
+        // postbox unsubscribe from "glucoseBagStatusToggleTopic"
     }
 }
 

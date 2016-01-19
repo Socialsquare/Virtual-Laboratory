@@ -15,6 +15,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
+            'test/mock/indexeddb.js',
             'test-main.js',
             { pattern: 'dist/test/*.{js,js.map}', included: false },
             { pattern: 'dist/js/**/*.{js,js.map}', included: false },

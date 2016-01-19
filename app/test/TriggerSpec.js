@@ -26,10 +26,11 @@ define([
             var tube = CF.tube();
 
             tube.add(LF.deadly());
-
+            
             expect(finishedTasks().length).toBe(0);
 
             tube.add(LF.insulin());
+            //experimentController.triggerMix([LF.insulin(), LF.deadly()], tube)
 
             expect(finishedTasks().length).toBe(1);
         });
