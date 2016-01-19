@@ -19,7 +19,7 @@ class Loading extends BaseViewController {
     constructor() {
         super('loading');
 
-        this.shouldHidePipette(true);
+        gameState.pipette.active(false);
         this.hasMenu(false);
 
         this.percent = ko.observable(0);
@@ -42,7 +42,7 @@ class Loading extends BaseViewController {
     }
 
     enter() {
-        this.maybeHidePippete();
+        gameState.pipette.active(false);
         this.experimentSelectorController.selected(null);
 
         if (FeatureHelper.homeScreen && !window.navigator.standalone) {

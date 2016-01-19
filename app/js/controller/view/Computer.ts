@@ -21,7 +21,7 @@ class Computer extends BaseViewController {
         super('computer');
 
         this.activeScreenController = ko.observable(null);
-        this.shouldHidePipette(true);
+        gameState.pipette.active(false);
 
         var screenControllers = {};
         screenControllers[ComputerScreenType.MENU] = new MenuScreen();

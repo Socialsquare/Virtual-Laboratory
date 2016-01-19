@@ -51,17 +51,17 @@
             </div>
 
             <div class="pipette" style="display: none"
-                 data-bind="visible: shouldHidePipette(),
+                 data-bind="visible: activeViewController().isPipetteVisible,
                             drag: {
-                              item: gameStatePipette,
+                              item: activeViewController().pipette,
                               helper: 'original',
                               revert: false,
                               offset: {
-                                top: 185 + gameStatePipette.hasTip() * 45,
-                                left: 15 + gameStatePipette.hasTip() * (-10) } },
+                                top: 185 + activeViewController().pipette.hasTip() * 45,
+                                left: 15 + activeViewController().pipette.hasTip() * (-10) } },
                             css: {
-                              tip: gameStatePipette.hasTip(),
-                              empty: gameStatePipette.isEmpty() }">
+                                tip: activeViewController().pipette.hasTip(),
+                                empty: activeViewController().pipette.isEmpty() }">
             </div>
 
             <div class="popup-cover" style="display: none"

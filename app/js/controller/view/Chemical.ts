@@ -30,7 +30,7 @@ class Chemical extends BaseViewController {
     constructor() {
         super('chemical');
 
-        this.shouldHidePipette(true);
+        gameState.pipette.active(false);
 
         this.groups = {
             closet: { name: 'supply.closet_header', items: this.closetItems },
