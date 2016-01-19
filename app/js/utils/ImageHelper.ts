@@ -100,6 +100,8 @@ class ImageHelper {
             return ImageHelper.img('icon_cup_mkrt.png');
 
         case ContainerType.TUBE:
+            if (item.contains(LiquidType.MOUSE_BLOOD))
+                return ImageHelper.img('icon_cup_tube_mouseblood.png');
             return ImageHelper.img('icon_cup_tube.png');
 
         case ContainerType.SYRINGE:
