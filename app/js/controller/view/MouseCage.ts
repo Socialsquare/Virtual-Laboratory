@@ -168,6 +168,12 @@ class MouseCage extends BaseViewController {
             this._bloodSugarSubscription =
                 this.mousecage.mouse().bloodSugar.subscribe(this.onBloodSugarChange);
 
+
+            if (super.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP')) {
+                this.videoController.play('fast-cables', true);
+                return;
+            }
+
             switch (this.mousecage.mouse().mouseType()) {
                 case MouseType.HEALTHY:
                     this.videoController.play('fast-loop', true);
