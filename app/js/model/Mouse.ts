@@ -222,8 +222,16 @@ class Mouse extends SpecialItemModel {
         this.bloodData(bloodData);
     }
 
+    hasLethalLowBloodSugar() {
+        return (this.bloodSugar() < this.minBloodSugar());
+    }
+
+    hasLethalHighBloodSugar() {
+        return (this.bloodSugar() >= this.killBloodSugar());
+    }
+
     hasLethalBloodSugar() {
-        return ((this.bloodSugar() < this.minBloodSugar()) || (this.bloodSugar() >= this.killBloodSugar()));
+        return this.hasLethalLowBloodSugar() || this.hasLethalHighBloodSugar();
     }
 
     giveJuice() {

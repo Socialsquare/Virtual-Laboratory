@@ -88,8 +88,8 @@ class MouseCage extends BaseViewController {
 
         if (this.shouldShowLowBloodSugarWarning(bloodSugar)) {
             this.lowBloodSugarWarningToggle(true);
-            this.popupController.message('mouse.warning_insulin.header',
-                                         'mouse.warning_insulin.body');
+            this.popupController.message('mouse.warning_glucose_min.header',
+                                         'mouse.warning_glucose_min.body');
         } else if (this.shouldShowHighBloodSugarWarning(bloodSugar)) {
             this.highBloodSugarWarningToggle(true);
             this.popupController.message('mouse.warning_diabetes_risk.header',
@@ -126,12 +126,26 @@ class MouseCage extends BaseViewController {
         
         if (this.mousecage.mouse().hasLethalBloodSugar()) {
             this.toggleSimulation(false);
-
-            this.videoController.play('fast-die-insulin', false).then(() => {
-                this.mousecage.mouse().alive(false);
-                this.mouseDrinking(false);
-                this.popupController.message('mouse.died_glucose.header', 'mouse.died_glucose.body');
-            });
+            
+            if (this.mousecage.mouse().hasLethalLowBloodSugar()) {
+                this.videoController.play('fast-die', false).then(()=>{
+                    this.mousecage.mouse().alive(false);
+                    this.mouseDrinking(false);
+                    this.popupController.message(
+                        'mouse.died_glucose_min.header',
+                        'mouse.died_glucose_min.body'
+                    );
+                });
+            } else if (this.mousecage.mouse().hasLethalHighBloodSugar()) {
+                this.videoController.play('fast-die', false).then(()=>{
+                    this.mousecage.mouse().alive(false);
+                    this.mouseDrinking(false);
+                    this.popupController.message(
+                        'mouse.died_glucose_max.header',
+                        'mouse.died_glucose_max.body'
+                    );
+                });
+            }
         }
     }
 
