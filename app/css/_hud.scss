@@ -2,13 +2,26 @@
 
 .hud-container {
     .time-passing {
-        position: absolute;
-
-        top: 400px;
-        left: 100px;
-
+        position: relative;
         color: red;
-
         font-size: 20px;
+    }
+    .time-passing-clocks {
+		position: absolute;
+		width: 320px;
+		height: 320px;
+		left: 598px;
+		top: -30px;
+		text-align: center;
+    }
+    .time-passing-clock {
+    }
+    .time-passing-digital-clock {
+        color: #767777;
+        font-size: 28px;
+        top: 200px;
+        left: 0px;
+        right: 0px;
+        position: absolute;
     }
 }

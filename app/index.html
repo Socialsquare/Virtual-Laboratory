@@ -76,8 +76,14 @@
             </div>
 
             <div class="hud-container">
-                <div class="time-passing" style="display: none;" data-bind="visible: hudController.showTimePassing">
-                    TIME IS TICKING
+                <div class="time-passing" style="display: none;"
+                    data-bind="visible: hudController.showTimePassing">
+                    <div class="time-passing-clocks">
+                        <span class="time-passing-digital-clock"
+                        data-bind="text: hudController.digitalClockText"></span>
+                        <img class="time-passing-clock" src=""
+                        data-bind="attr: { src: hudController.clockImageSrc}"/>
+                    </div>
                 </div>
             </div>
 
