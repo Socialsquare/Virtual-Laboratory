@@ -88,9 +88,9 @@ class App extends BaseViewController {
         //this.router.navigate('overview');
 
         // function shortcuts for testing
-        var iadd = gameState.inventory.add;
-        var t = ContainerFactory.tube;
-        var t1 = t();
+        //var iadd = gameState.inventory.add;
+        //var t = ContainerFactory.tube;
+        //var t1 = t();
 
         //iadd(SpecialItemFactory.healthyMouse());
         //iadd(SpecialItemFactory.diabeticMouse());
@@ -123,12 +123,12 @@ class App extends BaseViewController {
                     return vetmon;
                 }
             },
-            template: { require: 'text!tmpldir/components/vetmonitor.ko'},
+            template: { element: 'vetmonitor' },
         });
 
         ko.components.register('vetmonitor-export-popup-component', {
             viewModel: VetMonitorExportPopup,
-            template: { require: 'text!tmpldir/components/vetmonitor-export-popup.ko'},
+            template: { element: 'vetmonitor-export-popup' },
         });
     }
 
