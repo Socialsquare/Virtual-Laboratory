@@ -22,8 +22,12 @@
         background-image: url(#{$img-path}/grab_pipette_tip.png);
     }
 
-    &.tip.empty {
-        background-image: url(#{$img-path}/grab_pipette_tip_click.png);
+    &.tip.press-side-button {
+        background-image: url(#{$img-path}/grab_pipette_side_button.png);
+    }
+
+    &.tip.press-top-button {
+        background-image: url(#{$img-path}/grab_pipette_top_button.png);
     }
 }
 

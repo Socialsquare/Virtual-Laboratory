@@ -16,19 +16,15 @@ import FreeFloatingDNAModel = require('model/FreeFloatingDNA');
 class Pipette extends CompositeContainerModel {
 
     public active: KnockoutObservable<boolean>;
-    public isEmpty: KnockoutComputed<boolean>;
+    public pressTopButton: KnockoutObservable<boolean>;
+    public pressSideButton: KnockoutObservable<boolean>;
 
     constructor() {
         super(1, ContainerType.PIPETTE_TIP, ContainerType.PIPETTE);
 
         this.active = ko.observable(false);
-
-        this.isEmpty = ko.pureComputed(() => {
-            if (!this.hasTip())
-                return true;
-
-            return this.get(0).isEmpty();
-        });
+        this.pressTopButton = ko.observable(false);
+        this.pressSideButton = ko.observable(false);
 
         ko.rebind(this);
     }
@@ -42,7 +38,11 @@ class Pipette extends CompositeContainerModel {
     }
 
     removeTip() {
-        this.remove(0);
+        this.pressSideButton(true);
+        _.delay(() => { 
+            this.pressSideButton(false);
+            this.remove(0);
+        }, 500);
     }
 
     newTip() {
@@ -50,6 +50,8 @@ class Pipette extends CompositeContainerModel {
             return false;
 
         this.addAt(0, new TipModel());
+        this.pressSideButton(true);
+        _.delay(() => this.pressSideButton(false), 500);
         return true;
     }
 
@@ -58,6 +60,8 @@ class Pipette extends CompositeContainerModel {
 
         container.addAll(clonedLiqs);
         this.getTip().clearContents();
+        this.pressTopButton(true);
+        _.delay(() => this.pressTopButton(false), 500);
 
         // Special case for transfering 24 microtiter-wells at once:
         if (container.type() === ContainerType.MICROTITER && !!this.getTip().microtiterWells()) {
@@ -127,8 +131,9 @@ class Pipette extends CompositeContainerModel {
             this.getTip().microtiterWells(mt.microtiterWells().clone());
         }
 
-        // TODO: this might not be needed when graphics for the pipette are implemented
-        popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
+        // Push top button down to fill up pipette
+        this.pressTopButton(true);
+        _.delay(() => this.pressTopButton(false), 500);
 
         return true;
     }

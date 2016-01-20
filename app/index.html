@@ -61,8 +61,8 @@
                                 left: 15 + activeViewController().pipette.hasTip() * (-10) } },
                             css: {
                               tip: activeViewController().pipette.hasTip(),
-                              clickTip: activeViewController().pipette.clickTip(),
-                              emptyTip: activeViewController().pipette.emptyTip()}">
+                              'press-side-button': activeViewController().pipette.pressSideButton(),
+                              'press-top-button': activeViewController().pipette.pressTopButton()}">
             </div>
 
             <div class="popup-cover" style="display: none"
