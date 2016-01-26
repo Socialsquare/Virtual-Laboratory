@@ -34,7 +34,7 @@ class HeaterModel extends CompositeContainerModel {
         var didAdd = super._addAt(position, container);
 
         if (didAdd) {
-            container.liquidsAdded.add(this.liquidAdded);
+            container.liquidsAdded.add(this.checkTubes);
         }
 
         return didAdd;
@@ -43,14 +43,9 @@ class HeaterModel extends CompositeContainerModel {
     remove(position: number) {
         var container = this.get(position);
         if (container)
-            container.liquidsAdded.remove(this.liquidAdded);
+            container.liquidsAdded.remove(this.checkTubes);
 
         super.remove(position);
-    }
-
-    liquidAdded() {
-        hudController.flashTimePassing(2);
-        this.checkTubes();
     }
 
     checkTubes() {
