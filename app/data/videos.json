@@ -1,5 +1,6 @@
 {
     "fast-drink-spawn": "fast_drink_spawn",
+    "fast-force-feed": "fast_force_feed",
     "fast-injection-lethal": "fast_injection_lethal",
     "fast-dead-cut": "fast_dead_cut",
     "fast-loop": "fast_loop",
