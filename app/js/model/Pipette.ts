@@ -50,8 +50,6 @@ class Pipette extends CompositeContainerModel {
             return false;
 
         this.addAt(0, new TipModel());
-        this.pressSideButton(true);
-        _.delay(() => this.pressSideButton(false), 500);
         return true;
     }
 
