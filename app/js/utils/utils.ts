@@ -50,9 +50,19 @@ class Utils {
             return biomass * Math.pow(10, 12);
         },
         
-        pickRandomValue(values: any[]) {
-            var i = Math.floor(Math.random() * (values.length + 1));
-            return values[i];
+        pickRandomValue(valuesArr: any[]) {
+            if (valuesArr.constructor !== Array) {
+                throw new Error("TypeError: Utils.math.pickRandomValue takes Array as a first and only argument");
+            }
+            var arrLen: number = valuesArr.length;
+            if (arrLen === 1) {
+                return valuesArr[0];
+            }
+            if (arrLen === 0) {
+                return undefined;
+            }
+            var i = Math.floor(Math.random() * arrLen);
+            return valuesArr[i];
         }
     };
 
