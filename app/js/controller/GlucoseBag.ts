@@ -43,7 +43,6 @@ class GlucoseBag {
 
     activate() {
         this.glucoseBag.activate();
-        experimentController.triggerActivation(ActivationType.GLUCOSE_BAG, this);
         hudController.flashTimePassing(60);
     }
     

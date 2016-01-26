@@ -60,7 +60,7 @@
                         "trigger": {
                             "type": "TriggerType.MOUSE",
                             "alive": true,
-                            "mouseType": "MouseType.HEALTHY",
+                            "mouseType": "MouseType.DIABETIC",
                             "item": "ContainerType.BOTTLE",
                             "liquids": [
                                 { "type": "LiquidType.JUICE" }
@@ -82,14 +82,7 @@
                 },
                 "tasks": [
                     {
-                        "description": { "dk": "Start the insulin infusion." },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.GLUCOSE_BAG"
-                        }
-                    },
-                    {
-                        "description": { "dk": "Stop the insulin infusion when time is up." },
+                        "description": { "dk": "Start the insulin infusion. Stop the insulin infusion when time is up." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.GLUCOSE_BAG",
@@ -104,14 +97,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Place the healthy mouse in the cage and start the insulin infusion." },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.GLUCOSE_BAG"
-                        }
-                    },
-                    {
-                        "description": { "dk": "Stop the insulin infusion when time is up." },
+                        "description": { "dk": "Place the healthy mouse in the cage and start the insulin infusion. Stop the insulin infusion when time is up." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.GLUCOSE_BAG"
