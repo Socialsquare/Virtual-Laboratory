@@ -13,6 +13,7 @@ import VetMonitorLogItem = require('model/type/VetMonitorLogItem');
 
 import VetMonitorExportPopup = require('controller/view/VetMonitorExportPopup');
 import popupController = require('controller/Popup');
+import hudController = require('controller/HUD');
 import experimentController = require('controller/Experiment');
 
 import vetMonitorLog = require('service/VetMonitorLog');

@@ -7,6 +7,8 @@ import MouseBloodType = require('model/type/MouseBlood');
 import SpecialItemType = require('model/type/SpecialItem');
 import LocationType = require('model/type/Location');
 
+import utils = require('utils/utils');
+
 import MicrotiterplateModel = require('model/Microtiterplate');
 
 import SimpleContainerModel = require('model/SimpleContainer');
@@ -30,6 +32,14 @@ class ImageHelper {
         return (position: number, container: SimpleContainerModel = null) => {
             return ImageHelper.img(prefix + (position + 1) + '.png');
         };
+    }
+    
+    static timeIndicatorImageByNo = (imgNo: number) => {
+        var ret = ImageHelper.imageRoot + '/'  + 
+            '/time-indicator_cropd_png-seq/time-indicator_cropd_' + 
+            utils.formatter.leadingZeros(imgNo, 5) + 
+            '.png';
+        return ret;
     }
 
     static incubatorTubeImage = ImageHelper.emptyFull('incubator_tube');
