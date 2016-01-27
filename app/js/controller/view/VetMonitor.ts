@@ -21,8 +21,6 @@ import vetMonitorLog = require('service/VetMonitorLog');
 
 class VetMonitor {
     public mouse: KnockoutObservable<MouseModel>;
-    public mouseHeartRate: KnockoutObservable<number>;
-    public mouseBloodSugar: KnockoutObservable<number>;
     public mouseCageHasMouse: KnockoutObservable<boolean>;
     public isMouseCageMouseAlive: KnockoutObservable<boolean>;
     
@@ -68,17 +66,6 @@ class VetMonitor {
         if (params === undefined) return;
         
         this.shouldShowExportPopup = ko.observable(false);
-
-        this.mouseHeartRate = ko.observable(null);
-        ko.postbox.subscribe("mouseHeartRateTopic", (newVal: number) => {
-            this.mouseHeartRate(newVal);
-        }, this);
-
-        this.mouseBloodSugar = ko.observable(null);
-        // FIXME: this.mouseBloodSugar = ko.observable().subscribeTo("mouseBloodSugarTopic");
-        ko.postbox.subscribe("mouseBloodSugarTopic", (newVal:number) => {
-            this.mouseBloodSugar(newVal);
-        }, this);
 
         this.isGlucoseBagAvailable = ko.observable(false)
         if (params.glucoseInfusionRate === null){
@@ -341,11 +328,11 @@ class VetMonitor {
 
     addBloodGlucoseStepToPlotData() {
         this.bloodGlucoseDataForPlot.shift();
+        var newVal = null;
         if (gameState.mousecage.hasMouse()) {
-            this.bloodGlucoseDataForPlot.push(this.mouseBloodSugar());
-        } else {
-            this.bloodGlucoseDataForPlot.push(null);
+            newVal = gameState.mousecage.mouse().bloodSugar();
         }
+        this.bloodGlucoseDataForPlot.push(newVal);
     }
 
     saveCurrentData() {
@@ -358,8 +345,8 @@ class VetMonitor {
         var chunk = <VetMonitorLogItem>{
             logId: null,
             time: (new Date()).toISOString(),
-            hr: this.mouseHeartRate(),
-            gl: this.mouseBloodSugar(),
+            hr: gameState.mousecage.mouse().heartRate(),
+            gl: gameState.mousecage.mouse().bloodSugar(),
             gir: this.glucoseInfusionRate()
         };
         vetMonitorLog.saveChunks([chunk, ]);
@@ -386,9 +373,6 @@ class VetMonitor {
     enter() {
         console.log("VetMonitorController enter()");
         this.resetGraphRanges();
-        
-        //this.mouseHeartRate.subscribeTo("mouseHeartRateTopic");
-        //this.mouseBloodSugar.subscribeTo("mouseBloodSugarTopic");
         
         this.toggleSimulation(gameState.mousecage.hasMouse());
         this._mouseSubscription = gameState.mousecage.mouse.subscribe((newmouse) => {
