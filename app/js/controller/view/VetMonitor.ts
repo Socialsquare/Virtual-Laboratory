@@ -30,7 +30,7 @@ class VetMonitor {
     public girFudgeFactorRate: number;
     public girFudgeFactorSize: number;
     private _girSubscription = null
-    public isGlucoseBagAvailable: KnockoutObservable<boolean>;
+    public isGlucoseBagAvailable: KnockoutObservable<boolean>; // TODO bit of a hack, fix later
 
     public simulationIntervalId: number = null
     public simulationInterval: number = 100;  // millisecond
@@ -96,6 +96,12 @@ class VetMonitor {
         
         this.isHrGraphEnabled = ko.observable(false);
         this.isGirGraphEnabled = ko.observable(false);
+
+
+        this.plotData = ko.observableArray(null);
+        this.graphGirRange = ko.observableArray([]);
+        this.graphHrRange = ko.observableArray([]);
+        this.graphBloodRange = ko.observableArray([]);
         
         if (experimentController.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP')) {
             this.resetGraphHrRange();
@@ -111,12 +117,7 @@ class VetMonitor {
             ko.observableArray(_.map(this.graphRange, (v) => { return null; }));
         this.bloodGlucoseDataForPlot =
             ko.observableArray(_.map(this.graphRange, (v) => { return null; }));
-
-        this.plotData = ko.observableArray(null);
-        this.graphGirRange = ko.observableArray([]);
-        this.graphHrRange = ko.observableArray([]);
-        this.graphBloodRange = ko.observableArray([]);
-        
+ 
         ko.rebind(this);
     }
     
