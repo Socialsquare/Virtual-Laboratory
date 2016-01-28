@@ -159,6 +159,12 @@ class VetMonitor {
         }
         this.resetGraphGirRange();
         
+        if (this.isGirGraphEnabled()){
+            if (gameState.mousecage.hasMouse()) {
+                gameState.mousecage.mouse().resetInfusion();
+            }
+        }
+        
         this.isGirGraphEnabled(!this.isGirGraphEnabled());
         
         this.resetGraphHrRange();

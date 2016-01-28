@@ -247,6 +247,10 @@ class Mouse extends SpecialItemModel {
     giveInfusion(infusionDose: number): void {
         this.infusionDose(infusionDose);
     }
+    
+    resetInfusion(): void {
+        this.infusionDose(null);
+    }
 
     giveInsulin() {
         this.insulinDose(this.insulinDose() + 35);
@@ -275,7 +279,7 @@ class Mouse extends SpecialItemModel {
         if (!this.alive())
             return;
 
-        //2. calculate sugar intake from stomach to blood 
+        //2. calculate sugar intake from stomach to blood
         if (this.stomachSugar() > 0.0001) {
             var sukkerRatio = this.stomachSugar() / this.bloodSugar() * 0.2;
             this.stomachSugar(this.stomachSugar() - sukkerRatio);
@@ -287,12 +291,20 @@ class Mouse extends SpecialItemModel {
             // converting from infusion concentration to concentration in blood
             // CLAMP (1c) experiment only
             var infusionStadyBase = 0.43;
+            var magicToSpeedThingsUp = 200; // time in game is faster than the real live time
             if (this.mouseBloodType() === MouseBloodType.DIABETIC) {
                 infusionStadyBase = 0.18;
+                magicToSpeedThingsUp = 400;
             }
             var infusionStadyState = (infusionStadyBase / (60 * 1000)) * 100;  // per 100ms
+            if (this.bloodSugar() <= 0){
+                // this should not have happened right? ;-)
+                if (this.alive()) {
+                    this.alive(false);
+                }
+                return;
+            }
             var glucoseDelta = (- (1.2 * (infusionStadyState - this.infusionDose()) ) / this.bloodSugar());
-            var magicToSpeedThingsUp = 100; // time in game is faster than the real live time
             glucoseDelta = glucoseDelta * magicToSpeedThingsUp;
             this.bloodSugar(this.bloodSugar() + glucoseDelta);
 
