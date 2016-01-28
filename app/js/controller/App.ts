@@ -87,12 +87,18 @@ class App extends BaseViewController {
         this.router.navigate('loading');
 
         // function shortcuts for testing
-        //var iadd = gameState.inventory.add;
-        //var t = ContainerFactory.tube;
-        //var t1 = t();
+        var iadd = gameState.inventory.add;
+        var t = ContainerFactory.tube;
+        var t1 = t();
 
-        //iadd(SpecialItemFactory.healthyMouse());
-        //iadd(SpecialItemFactory.diabeticMouse());
+        //iadd(t().add(LiquidFactory.buffyCoat(MouseBloodType.NORMAL)));
+        //iadd(t().add(LiquidFactory.lysis()));
+        //iadd(t().add(LiquidFactory.saltWater()));
+
+        iadd(SpecialItemFactory.healthyMouse());
+        iadd(SpecialItemFactory.diabeticMouse());
+        iadd(SpecialItemFactory.syringe());
+        iadd(SpecialItemFactory.syringe());
 
         //t1.add(LiquidFactory.homoSpleen(LiquidType.ANTIBODY_SMALLPOX));
         //t1.add(LiquidFactory.hybridomaMedium());

@@ -88,6 +88,9 @@ class Trigger {
         return _.map(raw, (l: any) => {
             var triggerLiquid: TriggerLiquid = { type: S2T.liquid(l.type) };
 
+            if (l.subtype && triggerLiquid.type === LiquidType.MOUSE_BLOOD)
+                triggerLiquid.subtype = S2T.mouseBlood(l.subtype);
+
             if (l.subtype && triggerLiquid.type === LiquidType.MICROORGANISM)
                 triggerLiquid.subtype = S2T.microorganism(l.subtype);
 

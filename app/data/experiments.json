@@ -15,7 +15,7 @@
                             "type": "TriggerType.ACQUIRE",
                             "item": "ContainerType.TUBE",
                             "liquids": [
-                                { "type": "LiquidType.MOUSE_BLOOD" }
+                                { "type": "LiquidType.MOUSE_BLOOD", "subtype": "MouseBloodType.NORMAL" }
                             ]
                         }
                     },
@@ -25,7 +25,7 @@
                             "type": "TriggerType.ACQUIRE",
                             "item": "ContainerType.TUBE",
                             "liquids": [
-                                { "type": "LiquidType.MOUSE_BLOOD" }
+                                { "type": "LiquidType.MOUSE_BLOOD", "subtype": "MouseBloodType.DIABETIC" }
                             ]
                         }
                     }
@@ -41,7 +41,7 @@
                         "trigger": {
                             "type": "TriggerType.MOUSE",
                             "alive": true,
-                            "mouseType": "MouseType.HEALTHY",
+                            "mouseBloodType": "MouseBloodType.NORMAL",
                             "item": "ContainerType.BOTTLE",
                             "liquids": [
                                 { "type": "LiquidType.JUICE" }
@@ -60,7 +60,7 @@
                         "trigger": {
                             "type": "TriggerType.MOUSE",
                             "alive": true,
-                            "mouseType": "MouseType.DIABETIC",
+                            "mouseBloodType": "MouseBloodType.DIABETIC",
                             "item": "ContainerType.BOTTLE",
                             "liquids": [
                                 { "type": "LiquidType.JUICE" }
@@ -86,7 +86,8 @@
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.GLUCOSE_BAG",
-                            "alive": true
+                            "alive": true,
+                            "mouseBloodType": "MouseBloodType.DIABETIC"
                         }
                     },
                     {
@@ -100,7 +101,9 @@
                         "description": { "dk": "Place the healthy mouse in the cage and start the insulin infusion. Stop the insulin infusion when time is up." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.GLUCOSE_BAG"
+                            "activation": "ActivationType.GLUCOSE_BAG",
+                            "alive": true,
+                            "mouseBloodType": "MouseBloodType.NORMAL"
                         }
                     },
                     {

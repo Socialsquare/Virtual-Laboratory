@@ -117,7 +117,6 @@ class Experiment {
 
             if (!containerValid) return false;
         }
-
         return _.all(trigger.liquids, (liquid) => {
             if (!container.contains(liquid.type)) return false;
             if (!liquid.subtype) return true;
@@ -315,15 +314,10 @@ class Experiment {
         }
 
         if (trigger.activation === ActivationType.GLUCOSE_BAG) {
-            if (!item.mouseCage.hasMouse()) {
-                return;
-            }
-            if (!item.mouseCage.mouse().alive()) {
-                return;
-            }
-            if (hudController.showTimePassing()) {
-                return;
-            }
+            if (!item.mouseCage.hasMouse()) return;
+            if (!item.mouseCage.mouse().alive()) return;
+            if (!this.match(trigger.mouseBloodType, item.mouseCage.mouse().mouseBloodType())) return;
+            if (hudController.showTimePassing()) return;
         }
 
         this.finishActiveTask();
