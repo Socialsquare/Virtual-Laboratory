@@ -84,7 +84,6 @@ class MouseCage extends BaseViewController {
     }
     
     public onBloodSugarChange = (bloodSugar: number) => {
-        ko.postbox.publish("mouseBloodSugarTopic", bloodSugar);
 
         if (this.shouldShowLowBloodSugarWarning(bloodSugar)) {
             this.lowBloodSugarWarningToggle(true);
@@ -115,6 +114,8 @@ class MouseCage extends BaseViewController {
 
     nextTimeStep() {
         if (!this.mousecage.hasMouse()) return;
+        
+        if (!this.mousecage.mouse().alive()) return;
         
         if (this.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP') &&
                 this.glucoseBagController.glucoseBag.status()) {
@@ -177,8 +178,6 @@ class MouseCage extends BaseViewController {
 
         if (this.mousecage.mouse().alive()) {
 
-            ko.postbox.publish("mouseBloodSugarTopic", this.mousecage.mouse().bloodSugar());
-            ko.postbox.publish("mouseHeartRateTopic", this.mousecage.mouse().heartRate());
             this._bloodSugarSubscription =
                 this.mousecage.mouse().bloodSugar.subscribe(this.onBloodSugarChange);
 
@@ -240,7 +239,7 @@ class MouseCage extends BaseViewController {
         clearInterval(this.simulationIntervalId);
         if (enabled) {
             this.simulationIntervalId = setInterval(this.nextTimeStep,
-                                                  this.simulationInterval);
+                                                    this.simulationInterval);
         }
     }
 

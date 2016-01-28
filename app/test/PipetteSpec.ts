@@ -13,13 +13,10 @@ describe('Pipette', () => {
 
     it('should be initialized without tip', () => {
         expect(pipette.hasTip()).toBeFalsy();
-        expect(pipette.isEmpty()).toBeTruthy();
 
         // add a tip
         pipette.newTip();
 
-        expect(pipette.hasTip()).toBeTruthy();
-        expect(pipette.isEmpty()).toBeTruthy();
     });
 
     it('should be filled from one tube and emptied into another', () => {
@@ -35,7 +32,6 @@ describe('Pipette', () => {
         var emptyTube = CF.tube();
         pipette.emptyPipetteInto(emptyTube);
 
-        expect(pipette.isEmpty()).toBeTruthy();
         expect(emptyTube.contains(LiquidType.DEADLY)).toBeTruthy();
     });
 
