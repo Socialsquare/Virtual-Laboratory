@@ -115,6 +115,8 @@ class MouseCage extends BaseViewController {
     nextTimeStep() {
         if (!this.mousecage.hasMouse()) return;
         
+        if (!this.mousecage.mouse().alive()) return;
+        
         if (this.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP') &&
                 this.glucoseBagController.glucoseBag.status()) {
             this.nextInfusionDose();
@@ -237,7 +239,7 @@ class MouseCage extends BaseViewController {
         clearInterval(this.simulationIntervalId);
         if (enabled) {
             this.simulationIntervalId = setInterval(this.nextTimeStep,
-                                                  this.simulationInterval);
+                                                    this.simulationInterval);
         }
     }
 
