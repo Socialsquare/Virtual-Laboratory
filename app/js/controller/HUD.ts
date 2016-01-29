@@ -37,18 +37,17 @@ class HUD {
         return txt;
     }
 
-    flashTimePassing(secs: number) {
+    startTimePassing(secs: number) {
         this.digitalClockCountdown(secs);
         this.showTimePassing(true);
         this.toggleClockSimulation(true);
     }
 
-    hideTimePassing() {
+    stopTimePassing() {
         this.showTimePassing(false);
         this.toggleClockSimulation(false);
-        this.digitalClockCountdown(null);
     }
-    
+
     toggleClockSimulation(isEnabled: boolean) {
         clearInterval(this.simulationIntervalId);
         if (isEnabled) {
@@ -59,7 +58,7 @@ class HUD {
     
     private nextTimeStep() {
         if (this.digitalClockCountdown() <= 0) {
-            this.hideTimePassing();
+            this.stopTimePassing();
         }
         if (this.clockImgNo() >= this.lastImgNo) {
             this.clockImgNo(0)

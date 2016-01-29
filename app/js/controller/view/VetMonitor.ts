@@ -1,4 +1,5 @@
 import ko = require('knockout');
+import postbox = require('knockout.postbox');
 import _ = require('lodash');
 
 import heartRateJsonData = require('json!datadir/heartRate.json');
@@ -75,7 +76,7 @@ class VetMonitor {
             // this is experiment 1 and GIR will be used
             // provided we are in the 1c task (this.isGlucoseBagAvailable)
             this.previousGlucoseInfusionRate = ko.observable(0);
-            this.glucoseInfusionRate = params.glucoseInfusionRate;  // KnockoutObservable
+            this.glucoseInfusionRate = ko.observable(0);  // KnockoutObservable
         }
         this.glucoseInfusionRateMangled = ko.observable(0);
         this.girFudgeFactorRate = 50.0;
@@ -103,12 +104,26 @@ class VetMonitor {
         this.graphHrRange = ko.observableArray([]);
         this.graphBloodRange = ko.observableArray([]);
         
+        postbox.subscribe("mouseCageMouseRemovedTopic", (newValue:boolean) => {
+            if (newValue === true){
+                if (this.isGlucoseBagAvailable() && this.isGirGraphEnabled()) {
+                    this.isGirGraphEnabledToggle();
+                } 
+            }
+        }, this);
+        
+        this.plotData = ko.observableArray(null);
+        this.graphGirRange = ko.observableArray([]);
+        this.graphHrRange = ko.observableArray([]);
+        this.graphBloodRange = ko.observableArray([]);
+
         if (experimentController.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP')) {
+            this.isGlucoseBagAvailable(true);
             this.resetGraphHrRange();
             this.isHrGraphEnabled(false);
             // we start infusion when user presses GIR graph
             // this is to make sure that the GIR is OFF
-            ko.postbox.publish("glucoseBagStatusToggleTopic", this.isGirGraphEnabled());
+            postbox.publish("glucoseBagStatusToggleTopic", this.isGirGraphEnabled());
         } else {
             this.isHrGraphEnabled(true);
         }
@@ -117,7 +132,7 @@ class VetMonitor {
             ko.observableArray(_.map(this.graphRange, (v) => { return null; }));
         this.bloodGlucoseDataForPlot =
             ko.observableArray(_.map(this.graphRange, (v) => { return null; }));
- 
+
         ko.rebind(this);
     }
     
@@ -164,15 +179,16 @@ class VetMonitor {
             if (gameState.mousecage.hasMouse()) {
                 gameState.mousecage.mouse().resetInfusion();
             }
+        } else {
+            this.isHrGraphEnabled(false);
         }
         
         this.isGirGraphEnabled(!this.isGirGraphEnabled());
         
         this.resetGraphHrRange();
-        this.isHrGraphEnabled(false);
         
         // start/stop infusion depending on GIR button
-        ko.postbox.publish("glucoseBagStatusToggleTopic", this.isGirGraphEnabled());
+        postbox.publish("glucoseBagStatusToggleTopic", this.isGirGraphEnabled());
     }
 
     exportData() {
@@ -388,6 +404,7 @@ class VetMonitor {
         });
         if (experimentController.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP')) {
             // in experiment 1c we don't need HR
+            this.isGlucoseBagAvailable(true);
             this.resetGraphHrRange();
             this.isHrGraphEnabled(false);
         } else {

@@ -318,6 +318,8 @@ class Experiment {
             if (!item.mouseCage.mouse().alive()) return;
             if (!this.match(trigger.mouseBloodType, item.mouseCage.mouse().mouseBloodType())) return;
             if (hudController.showTimePassing()) return;
+            if (hudController.digitalClockCountdown() === null) return;
+            if (hudController.digitalClockCountdown() > 0) return;
         }
 
         this.finishActiveTask();
