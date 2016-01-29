@@ -38,6 +38,8 @@ class Router {
 
         this.currentRoute(view);
     }
+
+    update() {}
 }
 
 export = new Router();

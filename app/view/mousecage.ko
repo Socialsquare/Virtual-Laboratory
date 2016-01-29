@@ -6,9 +6,16 @@
 
     <div class="video-container" data-bind="template: { name: 'video', data: videoController }"></div>
 
-    <img class="hand water-bottle" src="assets/images/grab_drink.png" alt="Juiceflaske"
-         data-bind="visible: !mouseDrinking(),
-                    drag: { hide: true, item: bottle, offset: { left: 84, top: 182 } }">
+    <!-- ko if: apparatusEnabled('MOUSE_CAGE_CLAMP_BOTTLE', 'CLAMP_JUICE_BOTTLE') -->
+        <img class="hand water-bottle" src="assets/images/grab_ff.png" alt=""
+            data-bind="visible: !mouseDrinking(),
+            drag: { hide: true, item: bottle, offset: { left: 84, top: 182 } }">
+    <!-- /ko -->
+    <!-- ko ifnot: apparatusEnabled('MOUSE_CAGE_CLAMP_BOTTLE', 'CLAMP_JUICE_BOTTLE') -->
+        <img class="hand water-bottle" src="assets/images/grab_drink.png" alt=""
+            data-bind="visible: !mouseDrinking(),
+            drag: { hide: true, item: bottle, offset: { left: 84, top: 182 } }">
+    <!-- /ko -->
 
     <div class="mouse" data-bind="drop: { handler: handleDropOnMouse, accept: DragHelper.acceptedByMouse },
                     drag: { item: mousecage.mouse , consume: removeMouse }"></div>
