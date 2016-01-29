@@ -251,6 +251,10 @@ class Mouse extends SpecialItemModel {
     resetInfusion(): void {
         this.infusionDose(null);
     }
+    
+    resetBloodSugar(){
+        this.bloodSugar(this.meanBloodSugar());
+    }
 
     giveInsulin() {
         this.insulinDose(this.insulinDose() + 35);
@@ -271,7 +275,6 @@ class Mouse extends SpecialItemModel {
         if (this.heartRateIndex >= this.heartRateData.length) {
             this.heartRateIndex = 0;
         }
-        //ko.postbox.publish("mouseHeartRateTopic", this.heartRate());
     }
 
     nextBloodStep() {

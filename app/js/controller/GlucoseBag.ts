@@ -43,13 +43,13 @@ class GlucoseBag {
 
     activate() {
         this.glucoseBag.activate();
-        hudController.flashTimePassing(60);
+        hudController.startTimePassing(60);
     }
     
     deactivate() {
         this.glucoseBag.deactivate();
         experimentController.triggerActivation(ActivationType.GLUCOSE_BAG, this);
-        hudController.hideTimePassing();
+        hudController.stopTimePassing();
     }
 
     increaseRate() {

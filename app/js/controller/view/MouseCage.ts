@@ -1,4 +1,5 @@
 import ko = require('knockout');
+import postbox = require('knockout.postbox');
 import _ = require('lodash');
 
 import DropOnMouseHelper = require('utils/mouse/DropOnMouseHelper');
@@ -6,6 +7,7 @@ import DropOnMouseHelper = require('utils/mouse/DropOnMouseHelper');
 import BaseViewController = require('controller/view/Base');
 import VideoController = require('controller/Video');
 import GlucoseBagController = require('controller/GlucoseBag');
+import hudController = require('controller/HUD');
 
 import BottleModel = require('model/Bottle');
 import MouseCageModel = require('model/MouseCage');
@@ -59,7 +61,7 @@ class MouseCage extends BaseViewController {
 
         this.hasMouse = ko.pureComputed(():boolean =>{
             return <boolean><any>this.mousecage.mouse();
-        })
+        });
         
         ko.rebind(this);
     }
@@ -224,8 +226,12 @@ class MouseCage extends BaseViewController {
     exit() {
         console.log("mousecage ctrl exit");
 
-        ko.postbox.publish("glucoseBagStatusToggleTopic", false);
+        postbox.publish("glucoseBagStatusToggleTopic", false);
         this.glucoseBagController.dispose();
+        if (gameState.mousecage.hasMouse()) {
+            gameState.mousecage.mouse().resetInfusion();
+            gameState.mousecage.mouse().resetBloodSugar();
+        }
 
         this.videoController.stop();
         this.toggleSimulation(false);
@@ -248,9 +254,16 @@ class MouseCage extends BaseViewController {
     }
 
     removeMouse() {
+        console.log("MouseCage.removeMouse()");
         this.videoController.stop();
         this.toggleSimulation(false);
-        this.mousecage.mouse(null);
+        if (this.mousecage.hasMouse()){
+            console.log("removeMouse() - has mouse!");
+            this.mousecage.mouse().resetInfusion();
+            this.mousecage.mouse().resetBloodSugar();
+            this.mousecage.mouse(null);
+        }
+        postbox.publish("mouseCageMouseRemovedTopic", true);
     }
 }
 
