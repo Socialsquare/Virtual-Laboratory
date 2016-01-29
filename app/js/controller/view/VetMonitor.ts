@@ -410,7 +410,6 @@ class VetMonitor {
         } else {
             this.isHrGraphEnabled(true);
         }
-        vetMonitorLog.updateLogId();
     }
 
     dispose() {

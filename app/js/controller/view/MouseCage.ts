@@ -18,6 +18,7 @@ import MouseBloodType = require('model/type/MouseBlood');
 import ContainerFactory = require( 'factory/Container');
 import LiquidFactory = require('factory/Liquid');
 
+import vetMonitorLog = require('service/VetMonitorLog');
 import gameState = require('model/GameState');
 
 
@@ -231,6 +232,7 @@ class MouseCage extends BaseViewController {
         if (gameState.mousecage.hasMouse()) {
             gameState.mousecage.mouse().resetInfusion();
             gameState.mousecage.mouse().resetBloodSugar();
+            vetMonitorLog.updateLogId();
         }
 
         this.videoController.stop();
