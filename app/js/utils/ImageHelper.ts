@@ -16,6 +16,7 @@ import SimpleContainerModel = require('model/SimpleContainer');
 class ImageHelper {
 
     static imageRoot = 'assets/images';
+    static timeIndicatorImgBaseName = '/time-indicator12fr_cropd_png-seq/time-indicator12fr_cropd_'
 
     static img(path) {
         return ImageHelper.imageRoot + '/' + path;
@@ -35,10 +36,9 @@ class ImageHelper {
     }
     
     static timeIndicatorImageByNo = (imgNo: number) => {
-        var ret = ImageHelper.imageRoot + '/'  + 
-            '/time-indicator_cropd_png-seq/time-indicator_cropd_' + 
-            utils.formatter.leadingZeros(imgNo, 5) + 
-            '.png';
+        var ret = ImageHelper.imageRoot + '/'  +
+            ImageHelper.timeIndicatorImgBaseName + 
+            utils.formatter.leadingZeros(imgNo, 5) + '.png';
         return ret;
     }
 
