@@ -63,6 +63,11 @@ class MouseCage extends BaseViewController {
         this.hasMouse = ko.pureComputed(():boolean =>{
             return <boolean><any>this.mousecage.mouse();
         });
+
+        postbox.subscribe("partFinished", (partId) => {
+            if (partId === '1b')
+                this.update();
+        }, this); 
         
         ko.rebind(this);
     }
@@ -186,7 +191,6 @@ class MouseCage extends BaseViewController {
             this._bloodSugarSubscription =
                 this.mousecage.mouse().bloodSugar.subscribe(this.onBloodSugarChange);
 
-
             if (super.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP')) {
                 this.videoController.play('fast-cables', true);
                 return;
@@ -224,6 +228,10 @@ class MouseCage extends BaseViewController {
 
         this.runFromState();
         this.toggleSimulation(this.mousecage.hasMouse());
+    }
+
+    update() {
+        this.runFromState();
     }
 
     exit() {

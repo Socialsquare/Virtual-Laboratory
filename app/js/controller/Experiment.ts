@@ -1,4 +1,5 @@
 import ko = require('knockout');
+import postbox = require('knockout.postbox');
 import _ = require('lodash');
 
 import popupController = require('controller/Popup');
@@ -349,7 +350,9 @@ class Experiment {
         // If last task in part, mark part finished
         var partAllDone = _.all(_.invoke(this.activePart().tasks(), 'finished'));
         if (partAllDone) {
+            var partId = this.activePart().id();
             this.activePart().finished(true);
+            ko.postbox.publish('partFinished', partId);
         }
 
         var allDone = _.all(_.invoke(this.activeExperiment().tasks(), 'finished'));
