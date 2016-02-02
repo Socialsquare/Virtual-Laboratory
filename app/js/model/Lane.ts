@@ -30,9 +30,7 @@ class Lane extends SimpleContainerModel {
         var blueStain = super.findByType(LiquidType.BLUE_STAIN);
         
         if ((ffd && blueStain)) { 
-            var filename = 'gel-electro-lane-'+this.laneNum+'-'; 
-            filename += ffd.bloodType() === MouseBloodType.DIABETIC ? 'full' : 'half';
-            this.videoController.play(filename, false);
+            this.videoController.play('gel-electro-lane-'+this.laneNum, false);
             this.done(true);
         }
     }

@@ -125,7 +125,7 @@
         width: $gelW;
         height: $gelH;
 
-        .btn {
+        .gelelectro-btn {
             position: relative;
             top: 45px;
             left: 26px;
@@ -134,8 +134,8 @@
 
             img {
                 position: relative;
-                top: -9px;
-                left: -5px;
+                top: 4px;
+                left: 2px;
             }
         }
 
@@ -151,12 +151,28 @@
             width: $trayW;
             height: $trayH;
 
+            .gel-in {
+                position: relative;
+                top: 7px;
+                right: 49px;
+            }
+
+            .gel-on {
+                position: absolute;
+                top: 7px;
+                right: 4px;
+            }
+
             .gel-slot {
                 width: $trayW;
                 height: $trayH;
 
                 .lane {
                     float: left; 
+
+                    img {
+                        position: absolute;
+                    }
                 }
 
                 .video {
@@ -164,10 +180,22 @@
                     top: 10px;
                 }
         
-                #lane0 .video-gelelectro .video { top: 32px; left: 11px; }
-                #lane1 .video-gelelectro .video { top: 35px; left: 50px; }
-                #lane2 .video-gelelectro .video { top: 41px; left: 78px; }
-                #lane3 .video-gelelectro .video { top: 45px; left: 109px; }
+                #lane0 {
+                    img { top: 36px; left: 19px; }
+                    .video-gelelectro .video { top: 48px; left: 11px; }
+                }
+                #lane1 {
+                    img { top: 41px; left: 48px; }
+                    .video-gelelectro .video { top: 53px; left: 50px; }
+                }
+                #lane2 {
+                    img { top: 46px; left: 77px; }
+                    .video-gelelectro .video { top: 59px; left: 78px; }
+                }
+                #lane3 {
+                    img { top: 51px; left: 105px; }
+                    .video-gelelectro .video { top: 65px; left: 109px; } 
+                }
             }
         }
     }
