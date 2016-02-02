@@ -6,6 +6,7 @@ enum Container {
     MICROTITER        = ev.next(),
     TUBE              = ev.next(),
     BOTTLE            = ev.next(),
+    FF_BOTTLE         = ev.next(),
     SYRINGE           = ev.next(),
     PIPETTE_TIP       = ev.next(),
     LANE              = ev.next(),

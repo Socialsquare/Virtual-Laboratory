@@ -25,15 +25,22 @@
         height: 644px;
     }
 
-    .water-bottle {
+    .bottle {
         position: absolute;
         left: 830px;
         top: 273px;
-        width: 168px;
-        height: 365px;
         background-image: none;
         transform: rotate(-5deg);
-        .visible { background-image: url(#{$img-path}/grab_drink.png); }
+    }
+
+    .juice-bottle {
+        width: 168px;
+        height: 365px;
+    }
+
+    .ff-bottle {
+        width: 168px;
+        height: 393px;
     }
 
     .mouse {

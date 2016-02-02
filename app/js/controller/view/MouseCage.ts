@@ -39,7 +39,7 @@ class MouseCage extends BaseViewController {
     public simulationInterval: number = 100;  // millisecond
 
     public glucoseBagController: GlucoseBagController;
-    public bottle: BottleModel;
+    public bottle: KnockoutObservable<BottleModel>;
     private _bloodSugarSubscription = null;
 
     constructor() {
@@ -58,7 +58,7 @@ class MouseCage extends BaseViewController {
         this.diabetesDevelopedToggle = ko.observable(false);
         this.juiceClampMessageToggle = ko.observable(false);
 
-        this.bottle = ContainerFactory.bottle().add(LiquidFactory.juice(), true);
+        this.bottle = ko.observable();
 
         this.hasMouse = ko.pureComputed(():boolean =>{
             return <boolean><any>this.mousecage.mouse();
@@ -67,6 +67,8 @@ class MouseCage extends BaseViewController {
         postbox.subscribe("partFinished", (partId) => {
             if (partId === '1b')
                 this.update();
+            else if (partId === '1a')
+                this.changeBottle();
         }, this); 
         
         ko.rebind(this);
@@ -224,6 +226,7 @@ class MouseCage extends BaseViewController {
     enter() {
         super.enter();
 
+        this.changeBottle();
         this.runFromState();
         this.toggleSimulation(this.mousecage.hasMouse());
     }
@@ -274,6 +277,15 @@ class MouseCage extends BaseViewController {
             this.mousecage.mouse(null);
         }
         postbox.publish("mouseCageMouseRemovedTopic", true);
+    }
+
+    changeBottle () {
+        if (super.apparatusEnabled('MOUSE_CAGE_BOTTLE', 'FF_BOTTLE')) {
+            this.bottle(ContainerFactory.ffBottle());
+        } else {
+            this.bottle(ContainerFactory.bottle());
+        }
+        this.bottle().add(LiquidFactory.juice(), true);
     }
 }
 

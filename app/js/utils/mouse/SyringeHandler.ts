@@ -45,7 +45,7 @@ class SyringeHandler {
                     };
                     
                     var alternativeLabel = '';
-                    if (MC.apparatusEnabled('MOUSE_CAGE_CLAMP_BOTTLE', 'CLAMP_JUICE_BOTTLE')) {
+                    if (MC.apparatusEnabled('MOUSE_CAGE_BOTTLE', 'FF_BOTTLE')) {
                         alternativeLabel = TextHelper.label(tube, false);
                     }
 

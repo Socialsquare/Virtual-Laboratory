@@ -170,6 +170,9 @@ class ImageHelper {
         case ContainerType.BOTTLE:
             return ImageHelper.img('grab_drink.png');
 
+        case ContainerType.FF_BOTTLE:
+            return ImageHelper.img('grab_ff.png');
+
         case LiquidType.DNA:
             return ImageHelper.img('icon_cup_tube.png');
 
