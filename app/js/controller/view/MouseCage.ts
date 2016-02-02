@@ -138,6 +138,8 @@ class MouseCage extends BaseViewController {
         if (this.mousecage.mouse().hasLethalBloodSugar()) {
             this.toggleSimulation(false);
             
+            hudController.stopTimePassing();
+            
             if (this.mousecage.mouse().hasLethalLowBloodSugar()) {
                 this.videoController.play('fast-die', false).then(()=>{
                     this.mousecage.mouse().alive(false);

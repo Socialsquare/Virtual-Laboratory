@@ -7,7 +7,7 @@ class HUD {
     private simulationIntervalId: number = null;
     private simulationInterval: number = 1000;  // millisecond
     private firstImgNo = 0;
-    private lastImgNo = 71;
+    private lastImgNo = 13;
     
     public clockImgNo: KnockoutObservable<number>;
     public clockImageSrc: KnockoutComputed<string>;
