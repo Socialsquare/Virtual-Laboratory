@@ -29,7 +29,11 @@ class Container {
     }
 
     static bottle() {
-        return new Bottle();
+        return new Bottle(false);
+    }
+
+    static ffBottle() {
+        return new Bottle(true);
     }
 }
 

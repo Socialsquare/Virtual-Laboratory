@@ -74,14 +74,15 @@ class GelElectroController {
         if (this.gelElectroModel.status())
             return;
         
-        this.gelElectroModel.status(true);
+        this.gelElectroModel.status(true); // turns button on
+        this.gelElectroModel.gelSlot().status(true); // lids up tray
 
         if (this.gelElectroModel.hasGel()) {
             _.each(this.gelElectroModel.gelSlot().lanes(), (l) => l.electrofy());
             this.gelElectroModel.gelSlot().isElectrofied(true);
         }
 
-        _.delay(this.finishActivate, 6000);
+        _.delay(this.finishActivate, 8000);
     }
 }
 

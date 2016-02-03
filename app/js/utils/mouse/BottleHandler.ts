@@ -22,7 +22,7 @@ class BottleHandler {
 
         MC.mouseDrinking(true);
       
-        if (MC.apparatusEnabled('MOUSE_CAGE_CLAMP_BOTTLE', 'CLAMP_JUICE_BOTTLE')
+        if (MC.apparatusEnabled('MOUSE_CAGE_BOTTLE', 'FF_BOTTLE')
                 && !MC.juiceClampMessageToggle()) {
             MC.juiceClampMessageToggle(true);
             MC.popupController.message('popup.mouse.juice_during_clamp.title', 
@@ -31,7 +31,7 @@ class BottleHandler {
 
         mouse.giveJuice();
         mouse.isInteracting(true);
-        var videoName = MC.apparatusEnabled('MOUSE_CAGE_CLAMP_BOTTLE', 'CLAMP_JUICE_BOTTLE') ? 'fast-force-feed' : 'fast-drink-spawn';
+        var videoName = MC.apparatusEnabled('MOUSE_CAGE_BOTTLE', 'FF_BOTTLE') ? 'fast-force-feed' : 'fast-drink-spawn';
         MC.videoController.play(videoName, false)
             .done(() => {
                 MC.mouseDrinking(false);

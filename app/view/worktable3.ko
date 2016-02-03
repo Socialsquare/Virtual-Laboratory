@@ -14,12 +14,13 @@
     </div>
 
     <div class="gelelectro" data-bind="with: gelElectroController">
-        <div class="btn hand" data-bind="click: activate">
-            <img src="assets/images/work3_gel-on.png" data-bind="visible: gelElectroModel.status()">
+
+        <div class="gelelectro-btn hand" data-bind="click: activate">
+            <img src="assets/images/work3_gel-btn.png" data-bind="visible: gelElectroModel.status()">
         </div>
 
         <div class="tray">
-            
+             
             <!-- ko ifnot: gelElectroModel.hasGel() -->
             <div class="gel-slot" data-bind="drop: { handler: trayDropHandler, accept: trayDropAccepter }"></div>
             <!-- /ko -->
@@ -27,8 +28,11 @@
            <!-- ko if: gelElectroModel.hasGel() -->
             <div class="gel-slot filled hand" data-bind="drag: { item: gelElectroModel.gelSlot, dim: true, consume: removeGel},
                                                          drop: { handler: gelDropHandler, accept: gelDropAccepter }">
+                <img class="gel-in" src="assets/images/work3_gel-in.png" alt="" />
+                <img class="gel-on" src="assets/images/work3_gel-on.png" alt="" data-bind="visible: gelElectroModel.gelSlot().status()">
                 <ul class="lanes" data-bind="foreach: gelElectroModel.gelSlot().lanes ">
-                    <li class="lane" data-bind="attr: { id: 'lane' + $index() }">
+                    <li class="lane" data-bind="attr: { id: 'lane' + $index() }, css: { filled: !isEmpty() }">
+                        <img src="assets/images/work3_gel_slot-full.png" alt="" data-bind="visible: !isEmpty()">
                         <div class="video-container video-gelelectro" data-bind="template: { name: 'video', data: videoController }"></div>
                     </li>
 
@@ -37,7 +41,7 @@
             <!-- /ko -->
 
         </div>
-    
+ 
     </div>
 
 </div>

@@ -42,6 +42,7 @@ class DragHelper {
 
     static acceptedByInventory = DragHelper.nonAccepter([
         ContainerType.BOTTLE,
+        ContainerType.FF_BOTTLE,
         LiquidType.DNA,
         ContainerType.PIPETTE,
         SpecialItemType.SIDEGROUP
@@ -61,6 +62,7 @@ class DragHelper {
     static acceptedByMouse = DragHelper.accepter([
         ContainerType.SYRINGE,
         ContainerType.BOTTLE,
+        ContainerType.FF_BOTTLE,
         ContainerType.TUBE,
         SpecialItemType.SCALPEL,
         SpecialItemType.MOUSE

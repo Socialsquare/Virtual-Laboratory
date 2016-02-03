@@ -4,10 +4,12 @@
         "description": { "dk": "In this experiment you will measure whole body insulin sensitivity based on the direct relationship between the rate of glucose infusion necessary to maintain euglycemia and insulin action." },
         "story": { "dk": "The hyperinsulinemic euglycemic clamp is considered the gold standard for measuring whole body and tissue specific insulin action. This method allows the scientist to perform the experiment on conscious, unstressed mice in vivo (whole living organism). During the clamp, the fasting mouse is infused with insulin to achieve a state of hyperinsulinemia. Blood glucose is measured from the carotid artery and euglycemia is maintained by adjusting the glucose infusion rate (GIR)." },
         "apparatus": {
-            "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR"
+            "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR",
+            "ApparatusLocationType.MOUSE_CAGE_BOTTLE": "ApparatusType.FF_BOTTLE"
         },
         "parts": [
             { 
+                "id": "1a",
                 "tasks": [
                     {
                         "description": { "dk": "Order a healthy mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose and insulin concentrations of the blood sample)." },
@@ -33,9 +35,6 @@
             },
             { 
                 "id": "1b",
-                "apparatus": {
-                    "ApparatusLocationType.MOUSE_CAGE_CLAMP_BOTTLE": "ApparatusType.CLAMP_JUICE_BOTTLE"
-                },
                 "tasks": [
                     {
                         "description": { "dk": "Place the healthy mouse in the cage. Give juice to the mouse." },

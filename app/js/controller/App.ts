@@ -84,7 +84,8 @@ class App extends BaseViewController {
         });
 
         // bootstrap the app by going to loading view
-        this.router.navigate('loading');
+        //this.router.navigate('loading');
+        this.router.navigate('overview');
 
         // function shortcuts for testing
         //var iadd = gameState.inventory.add;
@@ -116,6 +117,11 @@ class App extends BaseViewController {
         //iadd(t().add(LiquidFactory.mouseBlood(MouseBloodType.DIABETIC)));
         //iadd(t().add(LiquidFactory.clumpedCells()));
         //iadd(t().add(LiquidFactory.water()));
+
+        //iadd(SpecialItemFactory.gel());
+        //iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.NORMAL)).add(LiquidFactory.blueStain()));
+        //iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.DIABETIC)).add(LiquidFactory.blueStain()));
+
         ko.rebind(this);
     }
     

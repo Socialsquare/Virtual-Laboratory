@@ -6,13 +6,13 @@
 
     <div class="video-container" data-bind="template: { name: 'video', data: videoController }"></div>
 
-    <!-- ko if: apparatusEnabled('MOUSE_CAGE_CLAMP_BOTTLE', 'CLAMP_JUICE_BOTTLE') -->
-        <img class="hand water-bottle" src="assets/images/grab_ff.png" alt=""
+    <!-- ko if: apparatusEnabled('MOUSE_CAGE_BOTTLE', 'FF_BOTTLE') -->
+        <img class="hand bottle ff-bottle" src="assets/images/grab_ff.png" alt=""
             data-bind="visible: !mouseDrinking(),
             drag: { hide: true, item: bottle, offset: { left: 84, top: 182 } }">
     <!-- /ko -->
-    <!-- ko ifnot: apparatusEnabled('MOUSE_CAGE_CLAMP_BOTTLE', 'CLAMP_JUICE_BOTTLE') -->
-        <img class="hand water-bottle" src="assets/images/grab_drink.png" alt=""
+    <!-- ko ifnot: apparatusEnabled('MOUSE_CAGE_BOTTLE', 'FF_BOTTLE') -->
+        <img class="hand bottle juice-bottle" src="assets/images/grab_drink.png" alt=""
             data-bind="visible: !mouseDrinking(),
             drag: { hide: true, item: bottle, offset: { left: 84, top: 182 } }">
     <!-- /ko -->
