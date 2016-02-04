@@ -42,7 +42,7 @@
                             "type": "TriggerType.MOUSE",
                             "alive": true,
                             "mouseBloodType": "MouseBloodType.NORMAL",
-                            "item": "ContainerType.BOTTLE",
+                            "item": "ContainerType.FF_BOTTLE",
                             "liquids": [
                                 { "type": "LiquidType.JUICE" }
                             ]
@@ -61,7 +61,7 @@
                             "type": "TriggerType.MOUSE",
                             "alive": true,
                             "mouseBloodType": "MouseBloodType.DIABETIC",
-                            "item": "ContainerType.BOTTLE",
+                            "item": "ContainerType.FF_BOTTLE",
                             "liquids": [
                                 { "type": "LiquidType.JUICE" }
                             ]
@@ -214,20 +214,9 @@
                                 { "type": "LiquidType.DNA_POLYMERASE" }
                             ]
                         }
-                    },
+                    }, 
                     {
-                        "description": { "dk": "Add blue stain, so you can visualize the result in the UV room" },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.FREE_FLOATING_DNA" },
-                                { "type": "LiquidType.BLUE_STAIN" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": { "dk": "Place a piece of gel in the gel electro. Load the gel with PCR product from each mouse and switch on the gel electro to apply an electric field to the gel" },
+                        "description": { "dk": "Place a piece of gel in the gel electrophoresis. Load the gel with blue stain and PCR product from each mouse and switch on the gel electrophoresis to apply an electric field to the gel." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.GELELECTRO",
