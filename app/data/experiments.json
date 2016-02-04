@@ -42,7 +42,7 @@
                             "type": "TriggerType.MOUSE",
                             "alive": true,
                             "mouseBloodType": "MouseBloodType.NORMAL",
-                            "item": "ContainerType.BOTTLE",
+                            "item": "ContainerType.FF_BOTTLE",
                             "liquids": [
                                 { "type": "LiquidType.JUICE" }
                             ]
@@ -61,7 +61,7 @@
                             "type": "TriggerType.MOUSE",
                             "alive": true,
                             "mouseBloodType": "MouseBloodType.DIABETIC",
-                            "item": "ContainerType.BOTTLE",
+                            "item": "ContainerType.FF_BOTTLE",
                             "liquids": [
                                 { "type": "LiquidType.JUICE" }
                             ]
