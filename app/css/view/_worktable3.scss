@@ -181,19 +181,23 @@
                 }
         
                 #lane0 {
-                    img { top: 36px; left: 19px; }
-                    .video-gelelectro .video { top: 48px; left: 11px; }
+                    .slot-full { top: 36px; left: 19px; }
+                    .slot-done { top: 49px; left: 11px; }
+                    .video-gelelectro .video { top: 49px; left: 11px; }
                 }
                 #lane1 {
-                    img { top: 41px; left: 48px; }
-                    .video-gelelectro .video { top: 53px; left: 50px; }
+                    .slot-full { top: 41px; left: 48px; }
+                    .slot-done { top: 54px; left: 48px; }
+                    .video-gelelectro .video { top: 54px; left: 48px; }
                 }
                 #lane2 {
-                    img { top: 46px; left: 77px; }
-                    .video-gelelectro .video { top: 59px; left: 78px; }
+                    .slot-full { top: 46px; left: 77px; }
+                    .slot-done { top: 58px; left: 77px; }
+                    .video-gelelectro .video { top: 58px; left: 77px; }
                 }
                 #lane3 {
-                    img { top: 51px; left: 105px; }
+                    .slot-full { top: 51px; left: 105px; }
+                    .slot-done { top: 65px; left: 109px; }
                     .video-gelelectro .video { top: 65px; left: 109px; } 
                 }
             }

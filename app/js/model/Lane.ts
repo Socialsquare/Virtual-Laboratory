@@ -31,7 +31,7 @@ class Lane extends SimpleContainerModel {
         
         if ((ffd && blueStain)) { 
             this.videoController.play('gel-electro-lane-'+this.laneNum, false);
-            this.done(true);
+            _.delay(() => this.done(true), 8000);
         }
     }
 
