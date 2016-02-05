@@ -108,7 +108,13 @@ class VetMonitor {
             if (newValue === true){
                 if (this.isGlucoseBagAvailable() && this.isGirGraphEnabled()) {
                     this.isGirGraphEnabledToggle();
-                } 
+                }
+                this.plotData.removeAll();
+                this.bloodGlucoseDataForPlot.removeAll();
+                this.bloodGlucoseDataForPlot(_.map(this.graphRange, (v) => { return null; }));
+                this.girDataForPlot.removeAll();
+                this.girDataForPlot(_.map(this.graphRange, (v) => { return null; }));
+                this.updatePlotData();
             }
         }, this);
         
