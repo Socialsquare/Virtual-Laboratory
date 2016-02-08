@@ -80,7 +80,7 @@ class PCRMachine extends CompositeContainerController {
 
         popupController
             .confirm('pcr.ask-video.header', 'pcr.ask-video.body')
-            .then(() => popupController.video('electroporator1', false))
+            .then(() => popupController.video('pcrmachine', false))
             .always(doActivation);
     }
 }

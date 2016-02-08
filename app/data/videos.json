@@ -68,5 +68,7 @@
     "centrifuge-shake": "centrifuge_shake",
 
     "extract-buffy-coat": "extract_buffy_coat",
-    "extract-dna": "extract_dna"
+    "extract-dna": "extract_dna",
+
+    "pcrmachine": "pcrmachine"
 }
