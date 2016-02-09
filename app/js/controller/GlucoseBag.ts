@@ -54,13 +54,14 @@ class GlucoseBag {
 
     increaseRate() {
         if (this.glucoseBag.status()) {
-            this.glucoseBag.glucoseInfusionRate(this.glucoseBag.glucoseInfusionRate()+ this.STEP);
+            var newRate: number = this.glucoseBag.glucoseInfusionRate() + this.STEP;
+            this.glucoseBag.glucoseInfusionRate(newRate);
         }
     }
 
     decreaseRate() {
         if (this.glucoseBag.status()) {
-            var newRate = this.glucoseBag.glucoseInfusionRate() - this.STEP;
+            var newRate: number = this.glucoseBag.glucoseInfusionRate() - this.STEP;
             if (newRate < 0) newRate = 0;
             this.glucoseBag.glucoseInfusionRate(newRate)
         }

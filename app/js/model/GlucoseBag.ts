@@ -1,4 +1,5 @@
 import ko = require('knockout');
+import postbox = require('knockout.postbox');
 
 class GlucoseBag {
 
@@ -7,7 +8,7 @@ class GlucoseBag {
 
     constructor() {
         this.status = ko.observable(false);
-        this.glucoseInfusionRate = ko.observable(0);
+        this.glucoseInfusionRate = ko.observable(0).publishOn("glucoseBagGirValueTopic");  
 
         ko.rebind(this);
     }

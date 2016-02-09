@@ -22,6 +22,8 @@
 
 
     <div class="glucose-bag" data-bind="with: glucoseBagController">
+        <!-- ideally VetMonitor would have increaseRate & decreaseRate  methods -->
+        <!-- but it was easier to use glucoseBagController which was already in place -->
         <div class="increase-btn hand" data-bind="click: increaseRate"></div>
         <div class="decrease-btn hand" data-bind="click: decreaseRate"></div>
         <div class="infusion-rate" data-bind="text: glucoseBag.glucoseInfusionRate().toFixed(2) + ' mg/kg/min'"></div>
@@ -30,9 +32,6 @@
     <!-- ko if: apparatusEnabled('MOUSE_CAGE_VET_MONITOR', 'VET_MONITOR') -->
             <div class="koComponent vetmonitor" 
             data-bind="component: { 
-            name: 'vetmonitor-component', 
-            params: { 
-                glucoseInfusionRate: glucoseBagController.glucoseBag.glucoseInfusionRate
-            } }"></div>
+            name: 'vetmonitor-component' }"></div>
     <!-- /ko -->
 </div>

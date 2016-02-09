@@ -276,6 +276,7 @@ class MouseCage extends BaseViewController {
             this.mousecage.mouse().resetBloodSugar();
             this.mousecage.mouse(null);
         }
+        this.glucoseBagController.deactivate();
         postbox.publish("mouseCageMouseRemovedTopic", true);
     }
 
