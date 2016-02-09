@@ -13,11 +13,18 @@
         <!-- /ko -->
         <!-- ko if: uvroom.hasGel() -->
         <div class="gel filled hand" data-bind="drag: { item: uvroom.gel, dim: true, consume: removeGel},
-                                                drop: { handler: handleGelDrop, accept: DragHelper.acceptedByGel},
                                                 click: viewGel">
             <ul class="lanes" data-bind="foreach: uvroom.gel().lanes ">
-                <li class="lane" data-bind="attr: { id: 'lane' + $index(), class: 'result-' + value() }, 
-                                            css: { filled: !isEmpty(), stained: isStained() }"></li>
+                <li class="lane" data-bind="attr: { id: 'lane' + $index() }">
+                    <!-- ko if: $parent.uvroom.gel().isElectrofied() -->
+                        <!-- ko if: hasDiabeticFFD() && isStained() -->
+                        <img data-bind="attr: { 'src': 'assets/images/uv_gel_slot' + $index() + '_dna.png' }" alt="" />
+                        <!-- /ko -->
+                        <!-- ko ifnot: hasDiabeticFFD() && isStained() -->
+                        <img data-bind="attr: { 'src': 'assets/images/uv_gel_slot' + $index() + '.png' }" alt="" />
+                        <!-- /ko -->
+                    <!-- /ko -->
+                </li>
             </ul>
         </div>
         <!-- /ko -->

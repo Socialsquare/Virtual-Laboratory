@@ -40,6 +40,11 @@ class Lane extends SimpleContainerModel {
         return !!ffd;
     }
 
+    hasDiabeticFFD() {
+        var ffd:FreeFloatingDNAModel = <FreeFloatingDNAModel>super.findByType(LiquidType.FREE_FLOATING_DNA);
+        return (ffd && ffd.bloodType() === MouseBloodType.DIABETIC);
+    }
+
     isStained() {
         var blueStain = super.findByType(LiquidType.BLUE_STAIN);
         return !!blueStain;
