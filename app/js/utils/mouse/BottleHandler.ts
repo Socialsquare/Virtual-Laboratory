@@ -22,13 +22,6 @@ class BottleHandler {
 
         MC.mouseDrinking(true);
       
-        if (MC.apparatusEnabled('MOUSE_CAGE_BOTTLE', 'FF_BOTTLE')
-                && !MC.juiceClampMessageToggle()) {
-            MC.juiceClampMessageToggle(true);
-            MC.popupController.message('popup.mouse.juice_during_clamp.title', 
-                    'popup.mouse.juice_during_clamp.message', 6000);
-        }
-
         mouse.giveJuice();
         mouse.isInteracting(true);
         var videoName = MC.apparatusEnabled('MOUSE_CAGE_BOTTLE', 'FF_BOTTLE') ? 'fast-force-feed' : 'fast-drink-spawn';

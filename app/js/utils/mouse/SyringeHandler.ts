@@ -35,8 +35,6 @@ class SyringeHandler {
                     // consume the syringe
                     gameState.inventory.remove(syringe);
 
-                    popupController.message('mouse.blood_drawn.header', 'mouse.blood_drawn.body');
-
                     var blood = LiquidFactory.mouseBlood(mouse.mouseBloodType());
                     var tube = ContainerFactory.tube().add(blood);
                     var bloodLevels = { 

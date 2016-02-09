@@ -114,9 +114,6 @@
         "mouse.ask_draw_blood.header": "Kanylen er tom",
         "mouse.ask_draw_blood.body": "Vil du tage en blodprøve fra musen?",
 
-        "mouse.blood_drawn.header": "Blodprøve taget",
-        "mouse.blood_drawn.body": "Der er lagt et reagensglas i din beholdning med blodprøven.",
-
         "washing.empty_tube.header": "Forbudt handling",
         "washing.empty_tube.body": "Dit reagensglas er tomt",
         "washing.detergent_required.header": "Forbudt handling",
@@ -185,9 +182,6 @@
 
         "popup.monitor.gir_only_in_clamp.title": "GIR only in clamp",
         "popup.monitor.gir_only_in_clamp.message": "The Glucose Infusion Rate is only enabled during the clamp experiment.",
-
-        "popup.mouse.juice_during_clamp.title": "Describe the glucose",
-        "popup.mouse.juice_during_clamp.message": "Describe the glucose we give the mouse during the clamp using the juice bottle.",
 
         "pipette.filled.header": "Information",
         "pipette.filled.body": "Du har suget indhold op med pipetten.",
