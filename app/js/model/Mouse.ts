@@ -297,7 +297,7 @@ class Mouse extends SpecialItemModel {
             var magicToSpeedThingsUp = 200; // time in game is faster than the real live time
             if (this.mouseBloodType() === MouseBloodType.DIABETIC) {
                 infusionStadyBase = 0.18;
-                magicToSpeedThingsUp = 400;
+                magicToSpeedThingsUp = 600;
             }
             var infusionStadyState = (infusionStadyBase / (60 * 1000)) * 100;  // per 100ms
             if (this.bloodSugar() <= 0){

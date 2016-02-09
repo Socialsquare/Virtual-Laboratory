@@ -77,7 +77,14 @@ ko.bindingHandlers.plotVetMonitor = {
             data,
             {
                 xaxes: [{ show: false }],
-                yaxes: [{ min: 0, max: 20 }, { min: -400, max: 1000, show: false}]
+                yaxes: [
+                    { min: 0, max: 20, },
+                    { min: 0, max: 1,
+                      alignTicksWithAxis: 1,
+                      position: "right"
+                    },
+                    { min: -400, max: 1000, show: false, position: "right"}
+                ]
             });
     }
 };
