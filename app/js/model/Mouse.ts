@@ -167,7 +167,7 @@ class Mouse extends SpecialItemModel {
         if (mouseBloodType === MouseBloodType.NORMAL) {
             ret = Utils.math.pickRandomValue([4.8, 4.9, 4.9, 4.9, 5.0, 5.0, 5.0, 5.0, 5.1, 5.1, 5.2]);
         } else if (mouseBloodType === MouseBloodType.DIABETIC) {
-            ret = Utils.math.pickRandomValue([7.8, 7.9, 8.0, 8.0, 8.0, 8.0, 8.0, 8.1, 8.1, 8.2]);
+            ret = Utils.math.pickRandomValue([10.8, 10.9, 11.0, 11.0, 11.0, 11.0, 11.0, 11.1, 11.1, 11.2]);
         } else {
             ret = 0;
         }
