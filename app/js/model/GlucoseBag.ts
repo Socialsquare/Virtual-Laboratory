@@ -8,7 +8,7 @@ class GlucoseBag {
 
     constructor() {
         this.status = ko.observable(false);
-        this.glucoseInfusionRate = ko.observable(0).publishOn("glucoseBagGirValueTopic");  
+        this.glucoseInfusionRate = ko.observable(null).publishOn("glucoseBagGirValueTopic");  
 
         ko.rebind(this);
     }
@@ -23,13 +23,13 @@ class GlucoseBag {
     
     public activate() {
         this.status(true);
+        this.glucoseInfusionRate(0);
     }
     
     public deactivate(){
         this.status(false);
-        this.glucoseInfusionRate(0);
+        this.glucoseInfusionRate(null);
     }
-    
 }
 
 export = GlucoseBag;

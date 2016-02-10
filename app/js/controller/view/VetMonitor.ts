@@ -69,7 +69,7 @@ class VetMonitor {
         // this is experiment 1 and GIR will be used
         // provided we are in the 1c task (this.isGlucoseBagAvailable)
         this.previousGlucoseInfusionRate = ko.observable(0);
-        this.glucoseInfusionRate = ko.observable(0);
+        this.glucoseInfusionRate = ko.observable(null);
         postbox.subscribe("glucoseBagGirValueTopic", (newValue:number) => {
             console.log("glucoseBagGirValueTopic: " + newValue);
             var previousValue = this.glucoseInfusionRate();
@@ -204,7 +204,6 @@ class VetMonitor {
     exportData() {
         this.shouldShowExportPopup(true);
         experimentController.triggerActivation(ActivationType.MOUSE_MONITOR, this);
-        //if (this.glucoseInfusionRate() !== null) {
         if (experimentController.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP')) {
             // enable glucose infusion only when GLUCOSE_BAG_CLAMP is available 
             this.isGlucoseBagAvailable(true);
@@ -252,7 +251,6 @@ class VetMonitor {
         return girDataToPlot;
     }
 
-    
     /**
      * Generates pulse data for plot graph.
      * If mouse is dead it's HR is 0.
@@ -327,7 +325,6 @@ class VetMonitor {
     }
 
     addGirStepToPlotData() {
-        this.girDataForPlot.shift();
         if (this.glucoseInfusionRate() !== null){
             if (this.glucoseInfusionRateMangled() < this.glucoseInfusionRate()){
                 
@@ -352,11 +349,12 @@ class VetMonitor {
             }
         }
         
+        this.girDataForPlot.shift();
+        var newVal = null;
         if (gameState.mousecage.hasMouse()) {
-            this.girDataForPlot.push(this.glucoseInfusionRateMangled());
-        } else {
-            this.girDataForPlot.push(null);
+            newVal = this.glucoseInfusionRateMangled();
         }
+        this.girDataForPlot.push(newVal);
     }
 
     addBloodGlucoseStepToPlotData() {
@@ -377,7 +375,7 @@ class VetMonitor {
         this._saveCurrentDataCounter = 0;
         var chunk = <VetMonitorLogItem>{
             logId: null,
-            time: (new Date()).toISOString(),
+            time: new Date(),
             hr: gameState.mousecage.mouse().heartRate(),
             gl: gameState.mousecage.mouse().bloodSugar(),
             gir: this.glucoseInfusionRate()
