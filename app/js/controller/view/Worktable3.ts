@@ -1,4 +1,6 @@
 import ko = require('knockout');
+import $ = require('jquery');
+
 
 import BaseViewController = require('controller/view/Base');
 
@@ -28,6 +30,12 @@ class Worktable3 extends BaseViewController {
         this.iceBathController = new IceBathController(this.worktable3.iceBath);
         this.pcrMachineController = new PCRMachineController(this.worktable3.pcrMachine);
         this.gelElectroController = new GelElectroController(this.worktable3.gelElectro);
+
+        this.gelElectroController.gelElectroModel.status.subscribe((newValue) => {
+            if (newValue) {
+                $('.slot-full').fadeOut(500);
+            }
+        });
 
         ko.rebind(this);
     }
