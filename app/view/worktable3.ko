@@ -32,7 +32,7 @@
                 <img class="gel-on" src="assets/images/work3_gel-on.png" alt="" data-bind="visible: gelElectroModel.gelSlot().status()">
                 <ul class="lanes" data-bind="foreach: gelElectroModel.gelSlot().lanes ">
                     <li class="lane" data-bind="attr: { id: 'lane' + $index() }">
-                        <img class="slot-full" src="assets/images/work3_gel_slot-full.png" alt="" data-bind="visible: isStained()">
+                        <img class="slot-full" src="assets/images/work3_gel_slot-full.png" alt="" data-bind="visible: isStained() && !done()">
                         <img class="slot-done" data-bind="attr: { 'src': 'assets/images/work3_gel_slot-' + $index() + '-done.png' }, visible: done()" alt="" />
                         <div class="video-container video-gelelectro" data-bind="template: { name: 'video', data: videoController }, visible: !done()"></div>
                     </li>
