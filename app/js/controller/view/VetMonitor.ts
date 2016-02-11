@@ -30,7 +30,6 @@ class VetMonitor {
     public glucoseInfusionRateMangled: KnockoutObservable<number>;
     public girFudgeFactorRate: number;
     public girFudgeFactorSize: number;
-    private _girSubscription = null
     public isGlucoseBagAvailable: KnockoutObservable<boolean>; // TODO bit of a hack, fix later
 
     public simulationIntervalId: number = null
@@ -63,32 +62,25 @@ class VetMonitor {
 
     constructor(params) {
         console.log('VetMonitorController()');
-        console.log(params);
-        if (params === undefined) return;
-        
+
         this.shouldShowExportPopup = ko.observable(false);
 
-        this.isGlucoseBagAvailable = ko.observable(false)
-        if (params.glucoseInfusionRate === null){
-            this.previousGlucoseInfusionRate = ko.observable(null);
-            this.glucoseInfusionRate = ko.observable(null);
-        } else {
-            // this is experiment 1 and GIR will be used
-            // provided we are in the 1c task (this.isGlucoseBagAvailable)
-            this.previousGlucoseInfusionRate = ko.observable(0);
-            this.glucoseInfusionRate = ko.observable(0);  // KnockoutObservable
-        }
+        this.isGlucoseBagAvailable = ko.observable(false);
+        // this is experiment 1 and GIR will be used
+        // provided we are in the 1c task (this.isGlucoseBagAvailable)
+        this.previousGlucoseInfusionRate = ko.observable(0);
+        this.glucoseInfusionRate = ko.observable(null);
+        postbox.subscribe("glucoseBagGirValueTopic", (newValue:number) => {
+            console.log("glucoseBagGirValueTopic: " + newValue);
+            var previousValue = this.glucoseInfusionRate();
+            if (previousValue !== null)
+                this.previousGlucoseInfusionRate(previousValue);
+            this.glucoseInfusionRate(newValue);
+        }, this); 
+        
         this.glucoseInfusionRateMangled = ko.observable(0);
         this.girFudgeFactorRate = 50.0;
         this.girFudgeFactorSize = 5 / this.girFudgeFactorRate;
-        
-        this._girSubscription = this.glucoseInfusionRate.subscribe(
-            (previousValue:number) => {
-                this.previousGlucoseInfusionRate(previousValue);
-            },
-            null,
-            "beforeChange"
-        );
         
         this.isPowerOn = ko.observable(true);
 
@@ -105,17 +97,20 @@ class VetMonitor {
         this.graphBloodRange = ko.observableArray([]);
         
         postbox.subscribe("mouseCageMouseRemovedTopic", (newValue:boolean) => {
-            if (newValue === true){
-                if (this.isGlucoseBagAvailable() && this.isGirGraphEnabled()) {
-                    this.isGirGraphEnabledToggle();
-                }
-                this.plotData.removeAll();
-                this.bloodGlucoseDataForPlot.removeAll();
-                this.bloodGlucoseDataForPlot(_.map(this.graphRange, (v) => { return null; }));
-                this.girDataForPlot.removeAll();
-                this.girDataForPlot(_.map(this.graphRange, (v) => { return null; }));
-                this.updatePlotData();
+            if (newValue !== true) return;
+            
+            this.resetGirValues();
+
+            if (this.isGlucoseBagAvailable() && this.isGirGraphEnabled()) {
+                this.isGirGraphEnabledToggle();
             }
+            
+            this.plotData.removeAll();
+            this.bloodGlucoseDataForPlot.removeAll();
+            this.bloodGlucoseDataForPlot(_.map(this.graphRange, (v) => { return null; }));
+            this.girDataForPlot.removeAll();
+            this.girDataForPlot(_.map(this.graphRange, (v) => { return null; }));
+            this.updatePlotData();
         }, this);
         
         this.plotData = ko.observableArray(null);
@@ -141,7 +136,13 @@ class VetMonitor {
 
         ko.rebind(this);
     }
-    
+
+    public resetGirValues = () => {
+        this.glucoseInfusionRate(null);
+        this.previousGlucoseInfusionRate(0);
+        this.glucoseInfusionRateMangled(0);
+    }
+
     public resetGraphHrRange = () =>{
         this.graphHrRange.removeAll();
         _.map(this.graphRange, (v) => { this.graphHrRange.push(false); });
@@ -174,11 +175,14 @@ class VetMonitor {
     }
 
     isGirGraphEnabledToggle() {
+        console.log("isGirGraphEnabledToggle()");
         if (!this.isGlucoseBagAvailable()){
             popupController.message('popup.monitor.gir_only_in_clamp.title',
                                     'popup.monitor.gir_only_in_clamp.message');
             return;
         }
+        
+        this.resetGirValues();
         this.resetGraphGirRange();
         
         if (this.isGirGraphEnabled()){
@@ -200,7 +204,6 @@ class VetMonitor {
     exportData() {
         this.shouldShowExportPopup(true);
         experimentController.triggerActivation(ActivationType.MOUSE_MONITOR, this);
-        //if (this.glucoseInfusionRate() !== null) {
         if (experimentController.apparatusEnabled('MOUSE_CAGE_GLUCOSE_BAG', 'GLUCOSE_BAG_CLAMP')) {
             // enable glucose infusion only when GLUCOSE_BAG_CLAMP is available 
             this.isGlucoseBagAvailable(true);
@@ -248,7 +251,6 @@ class VetMonitor {
         return girDataToPlot;
     }
 
-    
     /**
      * Generates pulse data for plot graph.
      * If mouse is dead it's HR is 0.
@@ -302,7 +304,7 @@ class VetMonitor {
         var toPlot = [
             <PlotItemType>{
                 data: this.getHrDataForPlot(),
-                yaxis: 2,
+                yaxis: 3,
                 color: 'rgb(255,160,160)'
             },
             <PlotItemType>{
@@ -314,7 +316,7 @@ class VetMonitor {
             <PlotItemType>{
                 data: this.getGirDataForPlot(),
                 label: 'mg/kg/min',
-                yaxis: 1,
+                yaxis: 2,
                 color: 'blue'
             },
         ];
@@ -323,7 +325,6 @@ class VetMonitor {
     }
 
     addGirStepToPlotData() {
-        this.girDataForPlot.shift();
         if (this.glucoseInfusionRate() !== null){
             if (this.glucoseInfusionRateMangled() < this.glucoseInfusionRate()){
                 
@@ -348,11 +349,12 @@ class VetMonitor {
             }
         }
         
+        this.girDataForPlot.shift();
+        var newVal = null;
         if (gameState.mousecage.hasMouse()) {
-            this.girDataForPlot.push(this.glucoseInfusionRateMangled());
-        } else {
-            this.girDataForPlot.push(null);
+            newVal = this.glucoseInfusionRateMangled();
         }
+        this.girDataForPlot.push(newVal);
     }
 
     addBloodGlucoseStepToPlotData() {
@@ -373,7 +375,7 @@ class VetMonitor {
         this._saveCurrentDataCounter = 0;
         var chunk = <VetMonitorLogItem>{
             logId: null,
-            time: (new Date()).toISOString(),
+            time: new Date(),
             hr: gameState.mousecage.mouse().heartRate(),
             gl: gameState.mousecage.mouse().bloodSugar(),
             gir: this.glucoseInfusionRate()
@@ -421,9 +423,6 @@ class VetMonitor {
     dispose() {
         console.log("VetMonitorController dispose()");
         
-        //this.mouseHeartRate.unsubscribeFrom("mouseHeartRateTopic");
-        //this.mouseBloodSugar.unsubscribeFrom("mouseBloodSugarTopic");
-        
         this.updatePlotData();
         this.toggleSimulation(false);
         this.plotData.removeAll();
@@ -432,7 +431,6 @@ class VetMonitor {
         //this.plotData([]);
         if (this._mouseSubscription)
             this._mouseSubscription.dispose();
-        this._girSubscription.dispose();
     }
 }
 

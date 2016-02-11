@@ -297,7 +297,7 @@ class Mouse extends SpecialItemModel {
             var magicToSpeedThingsUp = 200; // time in game is faster than the real live time
             if (this.mouseBloodType() === MouseBloodType.DIABETIC) {
                 infusionStadyBase = 0.18;
-                magicToSpeedThingsUp = 400;
+                magicToSpeedThingsUp = 600;
             }
             var infusionStadyState = (infusionStadyBase / (60 * 1000)) * 100;  // per 100ms
             if (this.bloodSugar() <= 0){
@@ -335,7 +335,7 @@ class Mouse extends SpecialItemModel {
         //3. f BloodSugar != MeanBloodSugar, increase/decrease insulin levels depending on productivity 
         var prod: number = (this.bloodSugar() - this.meanBloodSugar()) * this.insulinProductivity();
         this.insulinProduction(prod);
-        //4. if the user has given the mouse insulin, increase insulin prodction 
+        //4. if the user has given the mouse insulin, increase insulin prodction
         if (this.insulinDose() > 0) {
             var insulinMagic = Math.min(this.insulinDose() / 3 , 0.6);
             this.insulinProduction(this.insulinProduction() + insulinMagic * 2);
@@ -345,20 +345,6 @@ class Mouse extends SpecialItemModel {
 
     clone() {
         var clone = new Mouse(this.mouseType(), this.mouseBloodType());
-
-        clone.alive(this.alive());
-        clone.isCut(this.isCut());
-        clone.spleen = this.spleen.clone();
-
-        clone.stomachSugar(this.stomachSugar());
-        clone.bloodSugar(this.bloodSugar());
-        clone.maxBloodSugar(this.maxBloodSugar());
-        clone.minBloodSugar(this.minBloodSugar());
-        clone.insulinProduction(this.insulinProduction());
-        clone.glucoseDose(this.glucoseDose());
-        clone.insulinDose(this.insulinDose());
-
-        clone.bloodData(this.bloodData());
         return clone;
     }
     

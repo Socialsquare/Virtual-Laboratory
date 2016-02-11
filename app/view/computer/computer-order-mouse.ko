@@ -13,13 +13,13 @@
     <div class="content">
         <ul>
             <li>
-                <span data-bind="i18n: 'computer.screen.mouse.bloodsugar'"></span>: <span data-bind="text: selectedMouse().meanBlodSukker"></span>
+                <span data-bind="i18n: 'computer.screen.mouse.bloodsugar'"></span>: &#126; <span data-bind="text: selectedMouse().meanBloodSugar"></span>
             </li>
             <li>
-                <span data-bind="i18n: 'computer.screen.mouse.insulin.prod'"></span>: <span data-bind="text: selectedMouse().insulinProduktivitet"></span>
+                <span data-bind="i18n: 'computer.screen.mouse.insulin.prod'"></span>: &#126; <span data-bind="text: selectedMouse().insulinProductivity"></span>
             </li>
             <li>
-                <span data-bind="i18n: 'computer.screen.mouse.insulin.effect'"></span>: <span data-bind="text: selectedMouse().insulinEffektivitet"></span>
+                <span data-bind="i18n: 'computer.screen.mouse.insulin.effect'"></span>: &#126; <span data-bind="text: selectedMouse().insulinEfficiency().toFixed(3)"></span>
             </li>
         </ul>
 

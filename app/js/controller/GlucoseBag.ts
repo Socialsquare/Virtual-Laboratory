@@ -13,6 +13,7 @@ class GlucoseBag {
 
     public mouseCage: MouseCageModel;
     public glucoseBag: GlucoseBagModel;
+    public infusionText: KnockoutComputed<string>;
     private STEP: number;
 
     constructor(mouseCage: MouseCageModel) {
@@ -20,6 +21,16 @@ class GlucoseBag {
         var gb = mouseCage.glucoseBag;
         this.glucoseBag = gb;
         this.STEP = 0.05;
+        
+        this.infusionText = ko.pureComputed((): string => {
+            if (!this.glucoseBag.status()) return '';
+            
+            if (this.glucoseBag.glucoseInfusionRate() === null) return '';
+            
+            var iTxt = this.glucoseBag.glucoseInfusionRate().toFixed(2);
+            iTxt = iTxt + ' mg/kg/min';
+            return iTxt;
+        });
         
         postbox.subscribe("glucoseBagStatusToggleTopic", (newValue:boolean) => {
             console.log("glucoseBagStatusToggleTopic: " + newValue);
@@ -54,13 +65,14 @@ class GlucoseBag {
 
     increaseRate() {
         if (this.glucoseBag.status()) {
-            this.glucoseBag.glucoseInfusionRate(this.glucoseBag.glucoseInfusionRate()+ this.STEP);
+            var newRate: number = this.glucoseBag.glucoseInfusionRate() + this.STEP;
+            this.glucoseBag.glucoseInfusionRate(newRate);
         }
     }
 
     decreaseRate() {
         if (this.glucoseBag.status()) {
-            var newRate = this.glucoseBag.glucoseInfusionRate() - this.STEP;
+            var newRate: number = this.glucoseBag.glucoseInfusionRate() - this.STEP;
             if (newRate < 0) newRate = 0;
             this.glucoseBag.glucoseInfusionRate(newRate)
         }
