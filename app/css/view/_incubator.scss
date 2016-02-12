@@ -131,34 +131,22 @@
     .petridish-level {
         position: absolute;
         top: 386px;
-        left: 300px;
+        left: 480px;
         width: 250px;
         height: 120px;
 
         ul {
             .slot0 {
-                width: 136px;
+                width: 114px;
                 height: 44px;
                 top: 0;
-                left: 2px;
+                left: 72px;
             }
             .slot1 {
                 width: 114px;
-                height: 44px;
-                top: 0;
-                left: 138px;
-            }
-            .slot2 {
-                width: 136px;
                 height: 94px;
                 top: 44px;
-                left: 2px;
-            }
-            .slot3 {
-                width: 114px;
-                height: 94px;
-                top: 44px;
-                left: 138px;
+                left: 72px;
             }
         }
     }
@@ -166,8 +154,8 @@
     .micro {
         position: absolute;
         margin-top: 30px;
-        left: 555px;
-        top: 386px;
+        left: 306px;
+        top: 375px;
         width: 158px;
         height: 100px;
 

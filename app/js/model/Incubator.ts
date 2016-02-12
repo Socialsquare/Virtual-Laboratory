@@ -32,7 +32,7 @@ class Incubator {
         this.hourResolution = ko.observable(10); // This is used in the growth.
         this.growerType = ko.observable(GrowerType.INCUBATOR);
 
-        this.tableSpacePetri = new PetriSpaceModel(4);
+        this.tableSpacePetri = new PetriSpaceModel(2);
         this.tableSpacePetri.location(LocationType.INCUBATOR);
         this.tubeRack = new TubeRackModel();
         this.tubeRack.location(LocationType.INCUBATOR);

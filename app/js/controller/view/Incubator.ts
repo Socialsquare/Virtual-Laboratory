@@ -27,6 +27,7 @@ class IncubatorController extends BaseViewController {
         this.petriSpaceController.addDropGuard(this.smallPoxGuard);
 
         this.tableSpaceMicroController = new CompositeContainerController(this.incubator.tableSpaceMicro);
+        this.tableSpaceMicroController.imageGetter = this.ImageHelper.incubatorMicroImage;
         //this.tableSpaceMicroController.addDropGuard(this.smallPoxGuard);
 
         ko.rebind(this);
