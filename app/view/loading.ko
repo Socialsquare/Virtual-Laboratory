@@ -1,6 +1,9 @@
 <div class="loading-view">
 
-    <h1 data-bind="i18n: 'loading.header'"></h1>
+    <header>
+        <h1 data-bind="i18n: 'loading.header'"></h1>
+        <h2 data-bind="i18n: 'loading.subheader'"></h2>
+    </header>
 
     <div class="progress-bar">
         <div class="inner" data-bind="style: { width: percent() + '%' }"></div>
@@ -8,7 +11,7 @@
 
     <!-- ko ifnot: isLoaded -->
     <div class="loader-text">
-        <span data-bind="i18n: 'common.loading'"></span>: <span data-bind="text: percent() + '%'"></span>
+        <span data-bind="text: percent() + '%'"></span>
     </div>
     <!-- /ko -->
 
@@ -55,5 +58,5 @@
         <img data-bind="click: selectLang.bind(null, 'en'), css: { active: localizationService.selectedLanguage() === 'en'}" src="assets/images/flag_en.png">
     </div>-->
 
-    <img class="logo" src="assets/images/logo-white.png" alt="Biotech Academy">
+    <img class="logo" src="assets/images/logo.png" alt="Biotech Academy">
 </div>
