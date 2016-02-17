@@ -19,12 +19,15 @@
         color: #645d4d;
         font-size: 1.2em; 
         margin: 0;
+        position: relative;
     }
 
     h2 {
         color: #a69d8c; 
         font-size: 0.6em; 
-        margin: 0 0 0 20em;
+        position: absolute;
+        top: 45px;
+        left: 225px;
     }
 
     .logo {
@@ -37,6 +40,7 @@
     hr {
         border: 1px solid #bbbdbc;
         background-color: #bbbdbc;
+        margin: 2em 0 1em 0;
     }
 
     ul {
@@ -62,7 +66,6 @@
       padding: 0 10px;
 
       header {
-        font-weight: bold;
         padding: 0 120px 0 145px;
         position: relative;
         min-height: 124px;
@@ -100,6 +103,7 @@
         font-size: 1.2em;
         color: #3f4c41;
         margin: 1em 0 0.5em 0;
+        position: static;
       }
 
       table {

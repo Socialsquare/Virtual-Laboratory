@@ -33,7 +33,8 @@ class ExperimentSelector extends BaseViewController {
         this.router.back();
     }
 
-    start() {
+    start(experiment) {
+        this.selected(experiment);
         if (this.experimentController.hasExperiment()) {
             popupController.confirm('experiment.change.header', 'experiment.change.body')
                 .then(() => {
