@@ -1,6 +1,8 @@
 {
     "dk": {
-        "loading.header": "Det Virtuelle Laboratorium 2.0",
+        "loading.header": "Det Virtuelle Laboratorium",
+        "loading.subheader": "Version 2.0",
+        "loading.thanks": "Tak for din tålmodighed!",
         "loading.choose_exercise": "Start med at vælge en øvelse",
         "loading.choose_new_exercise": "Vælg en ny øvelse",
         "loading.start_exercise": "Start øvelse",
@@ -167,7 +169,9 @@
         "popup.quiz.replay_video": "Afspil video igen",
         "popup.data_export": "Eksportér data",
         "popup.data_export_message": "Kopier teksten i feltet nedenfor og gem det som en CSV-fil.",
-        "popup.guide.title": "Forsøgsvejlederen",
+        "popup.guide.header": "Det Virtuelle Laboratorum",
+        "popup.guide.subheader": "Version 2.0",
+        "popup.guide.title": "Forsøgsvejledning",
         "popup.guide.part": "Del",
         "popup.home_screen.header": "Vigtigt!",
         "popup.home_screen.body": "Det Virtuelle Laboratorium 2.0 spilles bedst, hvis du tilføjer det til din hjemmeskærm og åbner spillet derfra.",

@@ -5,14 +5,42 @@
 
     padding: 30px;
 
-    color: white;
+    font-family: georgia, serif;
+
+    color: #3f4c41;
+    background: #f0f2f1;
 
     left: 130px;
     top: 50px;
     width: $width;
-    height: 480px;
+    height: 500px;
+
+    h1 {
+        color: #645d4d;
+        font-size: 1.2em; 
+        margin: 0;
+    }
+
+    h2 {
+        color: #a69d8c; 
+        font-size: 0.6em; 
+        margin: 0 0 0 20em;
+    }
+
+    .logo {
+        width: 170px;
+        position: absolute;
+        top: 20px;
+        right: 25px;
+    }
+
+    hr {
+        border: 1px solid #bbbdbc;
+        background-color: #bbbdbc;
+    }
 
     ul {
+
         li {
             margin-bottom: 15px;
 
@@ -20,19 +48,6 @@
                 margin-left: 5px;
             }
 
-            &.finished {
-                span {
-                    @include opacity(0.3);
-                }
-
-                i {
-                    color: green;
-                }
-            }
-
-            &.active {
-                font-weight: bold;
-            }
         }
     }
 
@@ -41,8 +56,97 @@
     }
 
     .inner {
-      width: $width;
+      width: $width - 10;
       height: 310px;
       overflow-y: scroll;
+      padding: 0 10px;
+
+      header {
+        font-weight: bold;
+        padding: 0 120px 0 145px;
+        position: relative;
+        min-height: 124px;
+
+        &#clamp { background: url(#{$img-path}/guide_experiment_clamp.png) no-repeat; }
+        &#diabetes { background: url(#{$img-path}/guide_experiment_diabetes.png) no-repeat; }
+        &#enzymes { background: url(#{$img-path}/guide_experiment_enzymes.png) no-repeat; }
+        &#insulin { background: url(#{$img-path}/guide_experiment_insulin.png) no-repeat; }
+        &#antibody { background: url(#{$img-path}/guide_experiment_antibody.png) no-repeat; }
+        &#drug { background: url(#{$img-path}/guide_experiment_drug.png) no-repeat; }
+
+        h1 {
+          color: #3f4c41;
+          font-size: 1.6em;
+          font-weight: bold;
+          margin: 1em 0 0.5em 0;
+        }
+
+        .story {
+            font-size: 0.9em;
+            width: 355px;
+        }
+
+        .discard-experiment{
+            position: absolute;
+            top: 0;
+            right: 12px; 
+            background: url(#{$img-path}/guide_discard_experiment.png) no-repeat;
+            width: 72px; 
+            height: 73px;
+        }
+      }
+
+      h2 {
+        font-size: 1.2em;
+        color: #3f4c41;
+        margin: 1em 0 0.5em 0;
+      }
+
+      table {
+        width: $width - 10;
+        thead {
+          h3 {
+            font-size: 1em;
+          }
+        }
+
+        tbody {
+
+          td {
+            vertical-align: top;
+            position: relative;
+            padding: 0 0 1.5em 0;
+          }
+
+          .task-checkmark {
+            width: 50px;
+          }
+          
+          .task-description {
+            width: 430px;
+          }
+
+          input[type=checkbox] {
+            display:none;
+          }
+        
+          input[type=checkbox] + label {
+            background: url(#{$img-path}/guide_checkmark_off.png) 0 0 no-repeat;
+            height: 57px;
+            width: 44px;
+            position: absolute;
+            top: -16px;
+            left: 25px;
+          }
+        
+          input[type=checkbox]:checked + label {
+            background: url(#{$img-path}/guide_checkmark_on.png) 0 0 no-repeat;
+            height: 57px;
+            width: 44px;
+            display:inline-block;
+            padding: 0;
+          }
+        }
+      }
     }
 }

@@ -1,6 +1,7 @@
 [
     {
-        "title": { "dk": "Hyperinsulinemic euglycemic clamp (experiment #1)" },
+        "id": "clamp",
+        "title": { "dk": "Hyperinsulinemic euglycemic clamp" },
         "description": { "dk": "In this experiment you will measure whole body insulin sensitivity based on the direct relationship between the rate of glucose infusion necessary to maintain euglycemia and insulin action." },
         "story": { "dk": "The hyperinsulinemic euglycemic clamp is considered the gold standard for measuring whole body and tissue specific insulin action. This method allows the scientist to perform the experiment on conscious, unstressed mice in vivo (whole living organism). During the clamp, the fasting mouse is infused with insulin to achieve a state of hyperinsulinemia. Blood glucose is measured from the carotid artery and euglycemia is maintained by adjusting the glucose infusion rate (GIR)." },
         "apparatus": {
@@ -118,7 +119,8 @@
         ]
     },
     {
-        "title": { "dk": "Genetic test for diabetes risk (experiment #2)" },
+        "id": "diabetes",
+        "title": { "dk": "Genetic test for diabetes risk" },
         "description": { "dk": "In this exercise you will test whether a mouse has a high risk of developing type 2 diabetes" },
         "story": { "dk": "Genetic tests are used as a tool with many laboratory methods to look at changes in genes, which are DNA instructions inherited by ones mother and father. Probably you know that the police uses genetic testing to identify criminals in a crime scene, but the tests are also used by health practitioners and researchers to identify increased risks of health problems for better prevention possibilities, for example diabetes. In this exercise you will use a genetic test to determine whether a mouse carries copies of a genetic variation that can greatly increase the risk of developing diabetes." },
         "apparatus": {
@@ -238,6 +240,7 @@
         ]
     },
     {
+        "id": "enzymes",
         "title": { "dk": "Enzymer til vaskemiddel" },
         "description": { "dk": "I denne øvelse skal du genmodificere gær, sådan at det producerer lipase der kan anvendes til tøjvask." },
         "story": { "dk": "Et nyt enzym er netop blevet identificeret i en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven." },
@@ -411,6 +414,7 @@
         ]
     },
     {
+        "id": "insulin",
         "title": { "dk": "Produktion af insulin" },
         "description": { "dk": "I denne øvelse skal du genmodificere gærceller, således at de producerer insulin til behandling type-1 diabetes." },
         "story": { "dk": "Et modificeret insulingener, der forventes at kunne anvendes til behandling af type-1 diabetes, er blevet udviklet. Det er din opgave at producere den nye insulintype og teste dens effekt på en laboratoriemus." },
@@ -556,6 +560,7 @@
         ]
     },
     {
+        "id": "antibody",
         "title": { "dk": "Produktion af antistoffer" },
         "description": { "dk": "Her skal du producere dine egne antistoffer og bagefter bruge dem til at behandle sygdomme." },
         "story": { "dk": "I denne øvelse skal du en vha. en mus producere antistoffer mod Ebola. Når man udsætter en rask mus for et fremmed stof, så vil musens immunforsvar reagere ved at producere antistoffer i mod det fremmede – ligesom når man bliver vaccineret. Det foregår ved, at nogle af musens B-lymfocytter bliver til plasmaceller, som er de celler der producerer antistoffer. Vi skal vha. ELISA finde frem de kopper-antistof-producerende plasmaceller og sekventere deres DNA. Med deres DNA til hjælp kan vi nemlig kopiere og producere antistofferne i laboratoriet." },
@@ -1057,6 +1062,7 @@
         ]
     },
     {
+        "id": "drug",
         "title": { "dk": "Lægemiddeludvikling" },
         "description": { "dk": "I denne øvelse skal du designe et lægemiddel, teste det in vitro og hvis det egner sig, også in vivo" },
         "story": { "dk": "Et enzym som spiller en afgørende rolle i psoriasis er blevet fundet og dets aktive site lokaliseret. Din opgave er at designe et lægemiddel som kan inhibere dette enzym og på den måde bekæmpe sygdommen." },

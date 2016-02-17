@@ -3,6 +3,7 @@ import $ = require('jquery');
 
 import ImageHelper = require('utils/ImageHelper');
 import TextHelper = require('utils/TextHelper');
+import router = require('controller/Router');
 
 class PopupModel {
 
@@ -41,6 +42,15 @@ class PopupModel {
     print() {
         $("#print-popup").html($(".popup").html());
         window.print();        
+    }
+
+    selectedExperiment() {
+        return { 'id': 'clamp' }
+    }
+
+    discardExperiment () {
+        this.hide();
+        router.navigate('loading');
     }
 }
 

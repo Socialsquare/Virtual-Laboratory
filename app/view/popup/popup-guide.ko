@@ -1,29 +1,54 @@
 <div class="popup popup-guide">
-    <h1 data-bind="i18n: 'popup.guide.title'"></h1>
+   
+    <h1 data-bind="i18n: 'popup.guide.header'"></h1>
+    <h2 data-bind="i18n: 'popup.guide.subheader'"></h2>
+    
+    <img class="logo" src="assets/images/logo.png" alt="Biotech Academy">
 
 	<hr />
 
-    <div class="inner">
-        <span data-bind="i18n: experiment.story"></span>
+    <section class="inner">
+        
+        <header data-bind="attr: { 'id': experiment.id }">
+            <h1 data-bind="i18n: experiment.title"></h1>
+            <span class="story" data-bind="i18n: experiment.story"></span>
+            <button " class="discard-experiment" data-bind="click: discardExperiment"></button> 
+        </header>
 
-        <ol data-bind="foreach: experiment.parts()">
-            <li>
+        <h2 data-bind="i18n: 'popup.guide.title'"></h2>
+                    
+        <table data-bind="foreach: experiment.parts()">
                 <!-- ko if: $parent.experiment.parts().length > 1 -->
-                <h2><span data-bind="i18n: 'popup.guide.part'"></span> <span data-bind="text: $index() + 1"></span></h2>
+                <thead>
+                    <tr>
+                        <td colspan="2">
+                            <h3>
+                                <span data-bind="i18n: 'popup.guide.part'"></span> 
+                                <span data-bind="text: $index() + 1"></span>
+                            </h3>
+                        </td>
+                    </tr>
+                </thead>
                 <!-- /ko -->
-                <ul data-bind="foreach: tasks">
-                    <li data-bind="css: { finished: finished, active: $parents[1].isActiveTask($data) }">
-                        <span><span data-bind="text: $index() + 1"></span>. <span data-bind="i18n: description()"></span></span>
-                        <i data-bind="visible: finished" class="fa fa-check"></i>
-                    </li>
-                </ul>
-            </li>
+                <tbody data-bind="foreach: tasks">
+                    <tr data-bind="css: { finished: finished, active: $parents[1].isActiveTask($data) }">
+                        <td class="task-description">
+                            <span data-bind="text: $index() + 1"></span>. 
+                            <span data-bind="i18n: description()"></span>
+                        </td>
+                        <td class="task-checkmark">
+                            <input data-bind="attr: { 'id': 'cb' + $parentContext.$index() + $index(), 'checked' : finished }" type="checkbox" disabled />
+                            <label data-bind="attr: { 'for': 'cb' + $parentContext.$index() + $index() }"><label>
+                        </td>
+                    </tr>
+                </tobdy>
         </ul>
 
-    </div>
+    </section>
 
 	<div class="btn-row">
         <button data-bind="click: print, i18n: 'common.print'"></button>
         <button data-bind="click: hide.bind(null, $element), i18n: 'common.close'"></button>
     </div>
+
 </div>
