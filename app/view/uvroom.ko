@@ -20,8 +20,10 @@
                         <!-- ko if: hasDiabeticFFD() && isStained() -->
                         <img data-bind="attr: { 'src': 'assets/images/uv_gel_slot' + $index() + '_dna.png' }" alt="" />
                         <!-- /ko -->
-                        <!-- ko ifnot: hasDiabeticFFD() && isStained() -->
-                        <img data-bind="attr: { 'src': 'assets/images/uv_gel_slot' + $index() + '.png' }" alt="" />
+                        <!-- ko ifnot: hasDiabeticFFD() -->
+                            <!-- ko if: isStained() -->
+                            <img data-bind="attr: { 'src': 'assets/images/uv_gel_slot' + $index() + '.png' }" alt="" />
+                            <!-- /ko -->
                         <!-- /ko -->
                     <!-- /ko -->
                 </li>

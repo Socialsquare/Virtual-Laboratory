@@ -26,10 +26,9 @@ class Lane extends SimpleContainerModel {
     }
 
     electrofy() {
-        var ffd:FreeFloatingDNAModel = <FreeFloatingDNAModel>super.findByType(LiquidType.FREE_FLOATING_DNA);
         var blueStain = super.findByType(LiquidType.BLUE_STAIN);
         
-        if ((ffd && blueStain)) { 
+        if ((blueStain)) { 
             this.videoController.play('gel-electro-lane-'+this.laneNum, false);
             _.delay(() => this.done(true), 8000);
         }
@@ -42,7 +41,7 @@ class Lane extends SimpleContainerModel {
 
     hasDiabeticFFD() {
         var ffd:FreeFloatingDNAModel = <FreeFloatingDNAModel>super.findByType(LiquidType.FREE_FLOATING_DNA);
-        return (ffd && ffd.bloodType() === MouseBloodType.DIABETIC);
+        return (!!ffd && ffd.bloodType() === MouseBloodType.DIABETIC);
     }
 
     isStained() {
