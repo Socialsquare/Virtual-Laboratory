@@ -1,7 +1,7 @@
 {
     "dk": {
         "loading.header": "Det Virtuelle Laboratorium",
-        "loading.subheader": "Version 2.0",
+        "loading.subheader": "Version 2.1",
         "loading.thanks": "Tak for din tålmodighed!",
         "loading.choose_exercise": "Start med at vælge en øvelse",
         "loading.choose_new_exercise": "Vælg en ny øvelse",
@@ -170,7 +170,7 @@
         "popup.data_export": "Eksportér data",
         "popup.data_export_message": "Kopier teksten i feltet nedenfor og gem det som en CSV-fil.",
         "popup.guide.header": "Det Virtuelle Laboratorum",
-        "popup.guide.subheader": "Version 2.0",
+        "popup.guide.subheader": "Version 2.1",
         "popup.guide.title": "Forsøgsvejledning",
         "popup.guide.part": "Del",
         "popup.home_screen.header": "Vigtigt!",
