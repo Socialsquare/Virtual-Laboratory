@@ -7,7 +7,7 @@
                                   }">
     </div>
 
-    <div class="tray">
+    <div class="tray" data-bind="css: { placeholder: !uvroom.hasGel() }">
         <!-- ko ifnot: uvroom.hasGel() -->
         <div class="gel" data-bind="drop: { handler: handleGelDrop, accept: DragHelper.acceptGel }"></div>
         <!-- /ko -->
