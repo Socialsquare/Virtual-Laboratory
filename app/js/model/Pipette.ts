@@ -33,6 +33,31 @@ class Pipette extends CompositeContainerModel {
         return this.hasContainerAt(0);
     }
 
+    hasEmptyTip() {
+        if (!this.hasTip())
+            return false;
+        
+        return !this.getTip().liquids()[0];
+    }
+
+    hasFilledTip() {
+        if (!this.hasTip())
+            return false;
+
+        return !this.hasEmptyTip();
+    }
+    
+    hasBloodFilledTip() {
+        if (!this.hasTip() || this.hasEmptyTip())
+            return false;
+
+        var liquidType = this.getTip().liquids()[0].type();
+        var out = liquidType === LiquidType.MOUSE_BLOOD;
+        var t1 = LiquidType.MOUSE_BLOOD;
+        debugger;
+        return liquidType === LiquidType.MOUSE_BLOOD;
+    }
+
     getTip() {
         return <TipModel>this.get(0);
     }

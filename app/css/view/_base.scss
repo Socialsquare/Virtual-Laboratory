@@ -22,11 +22,19 @@
         background-image: url(#{$img-path}/grab_pipette_tip.png);
     }
 
-    &.tip.press-side-button {
+    &.tip-filled {
+        background-image: url(#{$img-path}/grab_pipette_filled.png);
+    }
+
+    &.tip-filled-blood {
+        background-image: url(#{$img-path}/grab_pipette_blood.png);
+    }
+
+    &.press-side-button {
         background-image: url(#{$img-path}/grab_pipette_side_button.png);
     }
 
-    &.tip.press-top-button {
+    &.press-top-button {
         background-image: url(#{$img-path}/grab_pipette_top_button.png);
     }
 }

@@ -60,7 +60,9 @@
                                 top: 185 + activeViewController().pipette.hasTip() * 45,
                                 left: 15 + activeViewController().pipette.hasTip() * (-10) } },
                             css: {
-                              tip: activeViewController().pipette.hasTip(),
+                              'tip': activeViewController().pipette.hasEmptyTip(),
+                              'tip-filled': activeViewController().pipette.hasFilledTip(),
+                              'tip-filled-blood': activeViewController().pipette.hasBloodFilledTip(),
                               'press-side-button': activeViewController().pipette.pressSideButton(),
                               'press-top-button': activeViewController().pipette.pressTopButton()}">
             </div>
