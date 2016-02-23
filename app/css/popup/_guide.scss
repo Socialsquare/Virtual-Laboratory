@@ -1,7 +1,7 @@
 /* popup/guide.scss */
 
 .popup-guide {
-    $width: 700px;
+    $width: 820px;
 
     padding: 30px;
 
@@ -10,10 +10,10 @@
     color: #3f4c41;
     background: #f0f2f1;
 
-    left: 130px;
-    top: 50px;
+    left: 50px;
+    top: 30px;
     width: $width;
-    height: 500px;
+    height: 530px;
 
     h1 {
         color: #645d4d;
@@ -67,12 +67,12 @@
     }
 
     .inner {
-      width: $width - 10;
       height: 310px;
       overflow-y: scroll;
       padding: 0 10px;
 
       header {
+        margin-bottom: 2em;
         padding: 0 120px 0 145px;
         position: relative;
         min-height: 124px;
@@ -92,7 +92,6 @@
         }
 
         .story {
-            font-size: 0.9em;
             width: 355px;
         }
 
@@ -146,7 +145,7 @@
             height: 57px;
             width: 44px;
             position: absolute;
-            top: -16px;
+            top: -24px;
             left: 25px;
           }
         
