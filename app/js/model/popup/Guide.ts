@@ -46,6 +46,10 @@ class GuideModel extends PopupModel {
 
         super.hide();
     }
+
+    displayDDALogo() {
+        return (this.experiment.id() === 'clamp' || this.experiment.id() === 'diabetes');
+    }
 }
 
 export = GuideModel;

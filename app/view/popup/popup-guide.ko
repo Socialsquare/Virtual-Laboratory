@@ -3,7 +3,8 @@
     <h1 data-bind="i18n: 'popup.guide.header'"></h1>
     <h2 data-bind="i18n: 'popup.guide.subheader'"></h2>
     
-    <img class="logo" src="assets/images/logo.png" alt="Biotech Academy">
+    <img class="ba-logo" src="assets/images/logo.png" alt="Biotech Academy">
+    <img class="dda-logo" data-bind="visible: displayDDALogo()" src="assets/images/dda-logo.png" alt="Danish Diabetes Academy">
 
 	<hr />
 
