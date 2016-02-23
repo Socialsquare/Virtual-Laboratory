@@ -1,9 +1,9 @@
 [
     {
         "id": "clamp",
-        "title": { "dk": "Hyperinsulinemic euglycemic clamp" },
-        "description": { "dk": "In this experiment you will measure whole body insulin sensitivity based on the direct relationship between the rate of glucose infusion necessary to maintain euglycemia and insulin action." },
-        "story": { "dk": "The hyperinsulinemic euglycemic clamp is considered the gold standard for measuring whole body and tissue specific insulin action. This method allows the scientist to perform the experiment on conscious, unstressed mice in vivo (whole living organism). During the clamp, the fasting mouse is infused with insulin to achieve a state of hyperinsulinemia. Blood glucose is measured from the carotid artery and euglycemia is maintained by adjusting the glucose infusion rate (GIR)." },
+        "title": { "dk": "Insulin følsomhed" },
+        "description": { "dk": "I denne øvelse tester du insulinfølsomheden hos en rask og diabetisk mus." },
+        "story": { "dk": "Laboratoriet har modtaget to mus hvoraf den ene skulle være diabetisk. Det er nu din opgave at påvise at den ene af de to mus har diabetes, gennem en række forskellige forsøg. Du skal tage blodprøver og undersøge musenes insulinfølsomhed ved en glukose tolerance test og en insulinfølsomhedstest." },
         "apparatus": {
             "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR",
             "ApparatusLocationType.MOUSE_CAGE_BOTTLE": "ApparatusType.FF_BOTTLE"
@@ -13,7 +13,7 @@
                 "id": "1a",
                 "tasks": [
                     {
-                        "description": { "dk": "Order a healthy mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose and insulin concentrations of the blood sample)." },
+                        "description": { "dk": "Bestil en rask mus, og placer den i buret. Tag derefter en blodprøve, og noter glukose- og insulinniveau ud fra data fra blodprøven." },
                         "trigger": {
                             "type": "TriggerType.ACQUIRE",
                             "item": "ContainerType.TUBE",
@@ -23,7 +23,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Order a diabetic mouse, place it in the cage and draw a blood sample (remember to make a note of the glucose and insulin concentrations of the blood sample)." },
+                        "description": { "dk": "Bestil en rask mus, og placer den i buret. Tag derefter en blodprøve, og noter glukose- og insulinniveau ud fra data fra blodprøven." },
                         "trigger": {
                             "type": "TriggerType.ACQUIRE",
                             "item": "ContainerType.TUBE",
@@ -38,7 +38,7 @@
                 "id": "1b",
                 "tasks": [
                     {
-                        "description": { "dk": "Place the healthy mouse in the cage. Give juice to the mouse." },
+                        "description": { "dk": "Bestil en rask mus, og placer den i buret. Tag derefter en blodprøve, og noter glukose- og insulinniveau ud fra data fra blodprøven." },
                         "trigger": {
                             "type": "TriggerType.MOUSE",
                             "alive": true,
@@ -50,14 +50,14 @@
                         }
                     },
                     {
-                        "description": { "dk": "Export data into excel, to make a graph of the data." },
+                        "description": { "dk": "Eksporter data til Excel, fra knappen med de tre streger." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.MOUSE_MONITOR"
                         }
                     },
                     {
-                        "description": { "dk": "Place the diabetic mouse in the cage. Give juice to the mouse." },
+                        "description": { "dk": "Sæt den diabetiske mus i buret, og giv igen koncentreret sukkeropløsning." },
                         "trigger": {
                             "type": "TriggerType.MOUSE",
                             "alive": true,
@@ -69,7 +69,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Export data into excel, to make a graph of the data and compare the healthy mouse with the diabetic" },
+                        "description": { "dk": "Eksporter data til Excel." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.MOUSE_MONITOR"
@@ -83,7 +83,7 @@
                 },
                 "tasks": [
                     {
-                        "description": { "dk": "Start the insulin infusion. Stop the insulin infusion when time is up." },
+                        "description": { "dk": "Start testen ved at trykke på \"Glukose Infusion Rate\"-knappen, længst til højre på instrumentet. Musen gives derved en stor mængde insulin gennem slangen, og du kan derefter skrue op og ned for den mængde glukose musen får på \"+\" og \"-\" knapperne. Hold glukoseniveauet i blodet så tæt på fysiologiske 5 mmol/L som muligt." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.GLUCOSE_BAG",
@@ -92,14 +92,14 @@
                         }
                     },
                     {
-                        "description": { "dk": "Export data into excel, to make a graph of the data and compare the healthy mouse with the diabetic" },
+                        "description": { "dk": "Eksporter data til Excel" },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.MOUSE_MONITOR"
                         }
                     },
                     {
-                        "description": { "dk": "Place the healthy mouse in the cage and start the insulin infusion. Stop the insulin infusion when time is up." },
+                        "description": { "dk": "Gentag forsøget for den raske mus, og hold igen glukoseniveauet i blodet så tæt på fysiologisk 5 mmol/L som muligt." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.GLUCOSE_BAG",
@@ -108,7 +108,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Export data into excel, to make a graph of the data and compare the healthy mouse with the diabetic" },
+                        "description": { "dk": "Eksporter data til Excel." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.MOUSE_MONITOR"
@@ -120,9 +120,9 @@
     },
     {
         "id": "diabetes",
-        "title": { "dk": "Genetic test for diabetes risk" },
-        "description": { "dk": "In this exercise you will test whether a mouse has a high risk of developing type 2 diabetes" },
-        "story": { "dk": "Genetic tests are used as a tool with many laboratory methods to look at changes in genes, which are DNA instructions inherited by ones mother and father. Probably you know that the police uses genetic testing to identify criminals in a crime scene, but the tests are also used by health practitioners and researchers to identify increased risks of health problems for better prevention possibilities, for example diabetes. In this exercise you will use a genetic test to determine whether a mouse carries copies of a genetic variation that can greatly increase the risk of developing diabetes." },
+        "title": { "dk": "Genetisk test for diabetes risiko" },
+        "description": { "dk": "I denne øvelse skal du teste om en mus er genetisk anlagt for udvikling af type 2 diabetes." },
+        "story": { "dk": "Genetiske undersøgelser er brugt som værktøj til at undersøge gener der er DNA arvet fra ens forældre. Du har sikkert hørt at politiet bruger genetiske undersøgelser til at opklare forbrydelser, men de bruges også til identificere sygdomme og præ-disponeringer for sygdomme, såsom diabetes. Her skal du teste en mus for tilstedeværelsen af et gen forbundet med øget risiko for type 2 diabetes, gennem bl.a. blodprøver og polymerase chain reaction (PCR)." },
         "apparatus": {
             "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR"
         },
@@ -130,7 +130,14 @@
             {
                 "tasks": [
                     {
-                        "description": { "dk": "Order a healthy or a diabetic mouse. Draw blood from the mouse" },
+                        "description": { "dk": "Bestil en rask eller en diabetisk mus fra computeren, og placer den i buret." },
+                        "trigger": {
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.MOUSE_CAGE"
+                        }
+                    },
+                    {
+                        "description": { "dk": "Tag en blodprøve med en kanyle." },
                         "trigger": {
                             "type": "TriggerType.ACQUIRE",
                             "item": "ContainerType.TUBE",
@@ -140,7 +147,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Centrifuge tubes and extract buffy coat" },
+                        "description": { "dk": "Centrifuger røret indeholdende blodet og udtag \"buffy coat\" - det er i dette lag de hvide blodlegemer befinder sig." },
                         "trigger": {
                             "type": "TriggerType.ACQUIRE",
                             "item": "ContainerType.TUBE",
@@ -150,14 +157,14 @@
                         }
                     },
                     {
-                        "description": { "dk": "Turn on the heater" },
+                        "description": { "dk": "Gå til det forreste laboratoriebænk og tænd for varmeblokken." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.HEATER"
                         }
                     },
                     {
-                        "description": { "dk": "Heat buffy coat and add lysis then salt water" },
+                        "description": { "dk": "Opvarm de hvide blodlegemer i varmeblokken, og tilsæt først lysis og derefter saltvand fra køleskabet." },
                         "trigger": {
                             "type": "TriggerType.MIX",
                             "item": "ContainerType.TUBE",
@@ -172,7 +179,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Centrifuge clumped cells and extract free floating DNA" },
+                        "description": { "dk": "Centrifuger prøven for at at skille DNA’et fra celleresterne, og udtag det fritflydende DNA." },
                         "trigger": {
                             "type": "TriggerType.ACQUIRE",
                             "item": "ContainerType.TUBE",
@@ -182,7 +189,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Place tube in ice bath" },
+                        "description": { "dk": "Sæt det frit flydende DNA på is, for at undgå at prøven ødelægges." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.ICE_BATH",
@@ -192,7 +199,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Add the specific Primers of the diabetes risk variant to the tube, then add nucleotides and polymerase" },
+                        "description": { "dk": "Tilsæt diabetes primerne, nukleotider og Taq-polymerase." },
                         "trigger": {
                             "type": "TriggerType.MIX",
                             "container": "ContainerType.TUBE",
@@ -205,7 +212,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Place the tube in the PCR machine and turn it on" },
+                        "description": { "dk": "Placer prøven i PCR maskinen og tænd den." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.PCR",
@@ -218,7 +225,7 @@
                         }
                     }, 
                     {
-                        "description": { "dk": "Place a piece of gel in the gel electrophoresis. Load the gel with blue stain and PCR product from each mouse and switch on the gel electrophoresis to apply an electric field to the gel." },
+                        "description": { "dk": "Sæt en gel i gelelektroforesen. Tilsæt derefter blå farve til begge DNA-prøver (din egen og den du har modtaget), og tilsæt dem til to forskellige brønde i gelen. Tænd til sidst gelelektroforesen, der åbner for elektriciteten og trækker DNA og farve ned langs med gelen." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.GELELECTRO",
@@ -229,7 +236,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Take the stained gel into the UV room and look at it under UV light" },
+                        "description": { "dk": "Tag gelen med ind i UV-rummet og se på den under UV-lys for at kunne identificere DNA-stykkerne." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.GEL"

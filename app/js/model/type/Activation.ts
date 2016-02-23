@@ -20,6 +20,7 @@ enum Activation {
     GELELECTRO              = ev.next(),
     BLUE_STAIN              = ev.next(),
     GEL                     = ev.next(),
+    MOUSE_CAGE              = ev.next(),
     MOUSE_MONITOR           = ev.next(),
     GLUCOSE_BAG             = ev.next(),
 };

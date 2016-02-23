@@ -310,8 +310,12 @@ class Experiment {
         }
 
 
+        if (trigger.activation === ActivationType.MOUSE_CAGE) {
+            // mouse cage currently isn't validated
+        }
+
         if (trigger.activation === ActivationType.MOUSE_MONITOR) {
-            // mouse monitor currently isn't validate 
+            // mouse monitor currently isn't validated
         }
 
         if (trigger.activation === ActivationType.GLUCOSE_BAG) {

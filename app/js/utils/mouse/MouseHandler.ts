@@ -1,8 +1,15 @@
 import postbox = require('knockout.postbox');
+
 import MouseCageController = require('controller/view/MouseCage');
+
+import experimentController = require('controller/Experiment');
+
 import gameState = require('model/GameState');
-import vetMonitorLog = require('service/VetMonitorLog');
 import MouseModel = require('model/Mouse');
+
+import ActivationType = require('model/type/Activation');
+
+import vetMonitorLog = require('service/VetMonitorLog');
 
 class MouseHandler {
 
@@ -19,6 +26,7 @@ class MouseHandler {
         gameState.mousecage.mouse(mouse);
         MC.runFromState();
         MC.toggleSimulation(true);
+        experimentController.triggerActivation(ActivationType.MOUSE_CAGE, mouse);
         return true;
     }
 }
