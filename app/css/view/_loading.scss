@@ -34,11 +34,20 @@
         font-size: 1.5em;
     }
     
-    .logo {
-        width: 170px;
+    .ba-logo {
+        position: absolute;
+        bottom: 10px;
+        left: 25px;
+        height: 60px;
+        width: 203px;
+    }
+
+    .dda-logo {
+        height: 45px;
+        width: 254px;
         position: absolute;
         bottom: 20px;
-        left: 25px;
+        right: 20px;
     }
 
     .flags {
@@ -53,13 +62,6 @@
                 @include opacity(1);
             }
         }
-    }
-
-    .logo {
-        position: absolute;
-        bottom: 10px;
-        left: 25px;
-        width: 200px;
     }
 
     .loader-text {
