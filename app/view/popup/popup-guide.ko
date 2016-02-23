@@ -26,6 +26,7 @@
                             <h3>
                                 <span data-bind="i18n: 'popup.guide.part'"></span> 
                                 <span data-bind="text: $index() + 1"></span>
+                                -  <span data-bind="text: title"></span>
                             </h3>
                         </td>
                     </tr>

@@ -11,6 +11,7 @@
         "parts": [
             { 
                 "id": "1a",
+                "title": "Blodprøve",
                 "tasks": [
                     {
                         "description": { "dk": "Bestil en rask mus, og placer den i buret. Tag derefter en blodprøve, og noter glukose- og insulinniveau ud fra data fra blodprøven." },
@@ -36,6 +37,7 @@
             },
             { 
                 "id": "1b",
+                "title": "Glukose tolerance test",
                 "tasks": [
                     {
                         "description": { "dk": "Bestil en rask mus, og placer den i buret. Tag derefter en blodprøve, og noter glukose- og insulinniveau ud fra data fra blodprøven." },
@@ -81,6 +83,7 @@
                 "apparatus": {
                     "ApparatusLocationType.MOUSE_CAGE_GLUCOSE_BAG": "ApparatusType.GLUCOSE_BAG_CLAMP"
                 },
+                "title": "Insulinfølsomhedstest",
                 "tasks": [
                     {
                         "description": { "dk": "Start testen ved at trykke på \"Glukose Infusion Rate\"-knappen, længst til højre på instrumentet. Musen gives derved en stor mængde insulin gennem slangen, og du kan derefter skrue op og ned for den mængde glukose musen får på \"+\" og \"-\" knapperne. Hold glukoseniveauet i blodet så tæt på fysiologiske 5 mmol/L som muligt." },
