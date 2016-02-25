@@ -83,44 +83,13 @@ class App extends BaseViewController {
             this.viewChange(routeName);
         });
 
-        // bootstrap the app by going to loading view
-        this.router.navigate('loading');
-        //this.router.navigate('overview');
+        // go to the overview view
+        this.router.navigate('overview');
 
         // function shortcuts for testing
-        //var iadd = gameState.inventory.add;
-        //var t = ContainerFactory.tube;
-        //var t1 = t();
-
-        //iadd(t().add(LiquidFactory.buffyCoat(MouseBloodType.NORMAL)));
-        //iadd(t().add(LiquidFactory.lysis()));
-        //iadd(t().add(LiquidFactory.saltWater()));
-
-        //iadd(SpecialItemFactory.healthyMouse());
-        //iadd(SpecialItemFactory.diabeticMouse());
-        //iadd(SpecialItemFactory.syringe());
-        //iadd(SpecialItemFactory.syringe());
-
-        //t1.add(LiquidFactory.homoSpleen(LiquidType.ANTIBODY_SMALLPOX));
-        //t1.add(LiquidFactory.hybridomaMedium());
-        //t1.add(LiquidFactory.microorganism.myeloma());
-        //iadd(t1);
-        //iadd(t().add(LiquidFactory.fusionMedium()));
-        //t1.add(LiquidFactory.antigenSmallpox());
-        //t1.add(LiquidFactory.adjuvans());
-        //t1.add(LiquidFactory.buffer());
-        //iadd(t1);
-        
-        //iadd(SpecialItemFactory.gel());
-        //iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.NORMAL)).add(LiquidFactory.blueStain()));
-        //iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.DIABETIC)).add(LiquidFactory.blueStain()));
-        //iadd(t().add(LiquidFactory.mouseBlood(MouseBloodType.DIABETIC)));
-        //iadd(t().add(LiquidFactory.clumpedCells()));
-        //iadd(t().add(LiquidFactory.water()));
-
-        //iadd(SpecialItemFactory.gel());
-        //iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.NORMAL)).add(LiquidFactory.blueStain()));
-        //iadd(t().add(LiquidFactory.freeFloatingDNA(MouseBloodType.DIABETIC)).add(LiquidFactory.blueStain()));
+        var iadd = gameState.inventory.add;
+        var t = ContainerFactory.tube;
+        var t1 = t();
 
         ko.rebind(this);
     }

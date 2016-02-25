@@ -17,7 +17,7 @@
     </ul>
 
     <div class="menu-bar">
-        <div class="hand guide" data-bind="click: showGuide">
+        <div class="hand guide" data-bind="click: showGuide, visible: experimentController.hasExperiment()">
             <img src="assets/images/icon_main_instructions.png" alt="Øvelsesvejledninger">
         </div>
 
