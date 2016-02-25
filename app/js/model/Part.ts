@@ -11,6 +11,7 @@ class Part {
     public apparatus: ApparatusModel;
     public finished: KnockoutObservable<boolean>;
     public tasks: KnockoutObservable<TaskModel[]>;
+    public question: KnockoutObservable<string>;
 
     constructor(value: any) {
         this.id = ko.observable(value.id);
@@ -20,6 +21,7 @@ class Part {
             return new TaskModel(task);
         }));
         this.apparatus = ApparatusModel.parse(value.apparatus);
+        this.question = ko.observable(value.question);
 
         ko.rebind(this);
     }

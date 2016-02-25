@@ -43,7 +43,17 @@
                             <label data-bind="attr: { 'for': 'cb' + $parentContext.$index() + $index() }"><label>
                         </td>
                     </tr>
-                </tobdy>
+                </tbody>
+                <!-- ko if: question -->
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="part-question" data-bind="i18n: 'popup.guide.question'"></span>:
+                            <span data-bind="text: question"></span>
+                        </td>
+                    </tr>
+                </tbody>
+                <!-- /ko -->
         </ul>
 
     </section>
