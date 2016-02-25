@@ -29,9 +29,8 @@
         <div class="infusion-rate" data-bind="text: infusionText"></div>
     </div>
 
-    <!-- ko if: apparatusEnabled('MOUSE_CAGE_VET_MONITOR', 'VET_MONITOR') -->
-            <div class="koComponent vetmonitor" 
-            data-bind="component: { 
-            name: 'vetmonitor-component' }"></div>
-    <!-- /ko -->
+    <div class="koComponent vetmonitor" 
+        data-bind="component: { 
+        name: 'vetmonitor-component' }"></div>
+
 </div>

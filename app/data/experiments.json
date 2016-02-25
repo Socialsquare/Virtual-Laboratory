@@ -5,7 +5,6 @@
         "description": { "dk": "I denne øvelse tester du insulinfølsomheden hos en rask og diabetisk mus." },
         "story": { "dk": "Laboratoriet har modtaget to mus hvoraf den ene skulle være diabetisk. Det er nu din opgave at påvise at den ene af de to mus har diabetes, gennem en række forskellige forsøg. Du skal tage blodprøver og undersøge musenes insulinfølsomhed ved en glukose tolerance test og en insulinfølsomhedstest." },
         "apparatus": {
-            "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR",
             "ApparatusLocationType.MOUSE_CAGE_BOTTLE": "ApparatusType.FF_BOTTLE"
         },
         "parts": [
@@ -129,9 +128,6 @@
         "title": { "dk": "Genetisk test for diabetes risiko" },
         "description": { "dk": "I denne øvelse skal du teste om en mus er genetisk anlagt for udvikling af type 2 diabetes." },
         "story": { "dk": "Genetiske undersøgelser er brugt som værktøj til at undersøge gener der er DNA arvet fra ens forældre. Du har sikkert hørt at politiet bruger genetiske undersøgelser til at opklare forbrydelser, men de bruges også til identificere sygdomme og præ-disponeringer for sygdomme, såsom diabetes. Her skal du teste en mus for tilstedeværelsen af et gen forbundet med øget risiko for type 2 diabetes, gennem bl.a. blodprøver og polymerase chain reaction (PCR)." },
-        "apparatus": {
-            "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR"
-        },
         "parts": [
             {
                 "tasks": [
@@ -259,8 +255,7 @@
         "story": { "dk": "Et nyt enzym er netop blevet identificeret i en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven." },
         "apparatus": {
             "ApparatusLocationType.CORNER": "ApparatusType.CORNER_SPECTRO",
-            "ApparatusLocationType.UV_ROOM": "ApparatusType.UV_ROOM_GEL",
-            "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR"
+            "ApparatusLocationType.UV_ROOM": "ApparatusType.UV_ROOM_GEL"
         },
         "parts": [
             { 
@@ -431,9 +426,6 @@
         "title": { "dk": "Produktion af insulin" },
         "description": { "dk": "I denne øvelse skal du genmodificere gærceller, således at de producerer insulin til behandling type-1 diabetes." },
         "story": { "dk": "Et modificeret insulingener, der forventes at kunne anvendes til behandling af type-1 diabetes, er blevet udviklet. Det er din opgave at producere den nye insulintype og teste dens effekt på en laboratoriemus." },
-        "apparatus": {
-            "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR"
-        },
         "parts": [
             {
                 "tasks": [
@@ -578,7 +570,6 @@
         "description": { "dk": "Her skal du producere dine egne antistoffer og bagefter bruge dem til at behandle sygdomme." },
         "story": { "dk": "I denne øvelse skal du en vha. en mus producere antistoffer mod Ebola. Når man udsætter en rask mus for et fremmed stof, så vil musens immunforsvar reagere ved at producere antistoffer i mod det fremmede – ligesom når man bliver vaccineret. Det foregår ved, at nogle af musens B-lymfocytter bliver til plasmaceller, som er de celler der producerer antistoffer. Vi skal vha. ELISA finde frem de kopper-antistof-producerende plasmaceller og sekventere deres DNA. Med deres DNA til hjælp kan vi nemlig kopiere og producere antistofferne i laboratoriet." },
         "apparatus": {
-            "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR",
             "ApparatusLocationType.INCUBATOR_ANTI_MATTER": "ApparatusType.INCUBATOR_ANTI_MATTER"
         },
         "parts": [
@@ -1079,9 +1070,6 @@
         "title": { "dk": "Lægemiddeludvikling" },
         "description": { "dk": "I denne øvelse skal du designe et lægemiddel, teste det in vitro og hvis det egner sig, også in vivo" },
         "story": { "dk": "Et enzym som spiller en afgørende rolle i psoriasis er blevet fundet og dets aktive site lokaliseret. Din opgave er at designe et lægemiddel som kan inhibere dette enzym og på den måde bekæmpe sygdommen." },
-        "apparatus": {
-            "ApparatusLocationType.MOUSE_CAGE_VET_MONITOR": "ApparatusType.VET_MONITOR"
-        },
         "parts": [
             {
                 "tasks": [
