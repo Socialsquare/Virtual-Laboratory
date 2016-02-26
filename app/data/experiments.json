@@ -40,7 +40,7 @@
                 "title": "Glukose tolerance test",
                 "tasks": [
                     {
-                        "description": { "dk": "Bestil en rask mus, og placer den i buret. Tag derefter en blodprøve, og noter glukose- og insulinniveau ud fra data fra blodprøven." },
+                        "description": { "dk": "Sæt den raske mus tilbage i buret, og giv den koncentreret sukkeropløsning fra den blå flaske." },
                         "trigger": {
                             "type": "TriggerType.MOUSE",
                             "alive": true,
