@@ -1,5 +1,4 @@
 import ko = require('knockout');
-import postbox = require('knockout.postbox');
 import _ = require('lodash');
 
 import MouseCageModel = require('model/MouseCage');
@@ -32,7 +31,7 @@ class GlucoseBag {
             return iTxt;
         });
         
-        postbox.subscribe("glucoseBagStatusToggleTopic", (newValue:boolean) => {
+        ko.postbox.subscribe("glucoseBagStatusToggleTopic", (newValue:boolean) => {
             console.log("glucoseBagStatusToggleTopic: " + newValue);
             if (newValue === true) {
                 this.activate();

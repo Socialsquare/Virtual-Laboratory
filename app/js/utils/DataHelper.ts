@@ -10,10 +10,10 @@ class DataHelper {
 
     static toCSV(data: number[][], headers: string[]) {
         var dataRows = _.map(data, (points) => {
-            return _.map(points, (p) => {
+            return _.map(points, (p: any) => {
                 if (_.isNumber(p)) {
                     return p.toFixed(2).toString();
-                } else if (DataHelper.isObject(p) && (typeof p.getMonth === 'function')) {
+                } else if (p instanceof Date) {
                     var dOptions = {year: '2-digit', month: '2-digit', day:'2-digit'};
                     var dateStr = p.toLocaleDateString('dk', dOptions);
                     var timeStr = p.toLocaleTimeString('dk');

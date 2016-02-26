@@ -1,5 +1,4 @@
 import ko = require('knockout');
-import postbox = require('knockout.postbox');
 
 class GlucoseBag {
 

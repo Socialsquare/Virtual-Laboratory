@@ -1,5 +1,3 @@
-import postbox = require('knockout.postbox');
-
 import MouseCageController = require('controller/view/MouseCage');
 
 import experimentController = require('controller/Experiment');
@@ -14,7 +12,6 @@ import vetMonitorLog = require('service/VetMonitorLog');
 class MouseHandler {
 
     static handle(MC: MouseCageController, mouse: MouseModel) {
-        console.log("MouseHandler.handle");
         vetMonitorLog.updateLogId();
         if (gameState.mousecage.hasMouse()) {
             var oldMouse = gameState.mousecage.mouse();

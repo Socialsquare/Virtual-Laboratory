@@ -1,5 +1,4 @@
 import ko = require('knockout');
-import postbox = require('knockout.postbox');
 import _ = require('lodash');
 
 import DropOnMouseHelper = require('utils/mouse/DropOnMouseHelper');
@@ -56,13 +55,13 @@ class MouseCage extends BaseViewController {
         this.highBloodSugarWarningToggle = ko.observable(false);
         this.diabetesDevelopedToggle = ko.observable(false);
 
-        this.bottle = ko.observable();
+        this.bottle = ko.observable(null);
 
         this.hasMouse = ko.pureComputed(():boolean =>{
             return <boolean><any>this.mousecage.mouse();
         });
 
-        postbox.subscribe("partFinished", (partId) => {
+        ko.postbox.subscribe("partFinished", (partId) => {
             if (partId === '1b')
                 this.update();
             else if (partId === '1a')
@@ -239,7 +238,7 @@ class MouseCage extends BaseViewController {
     exit() {
         console.log("mousecage ctrl exit");
 
-        postbox.publish("glucoseBagStatusToggleTopic", false);
+        ko.postbox.publish("glucoseBagStatusToggleTopic", false);
         this.glucoseBagController.dispose();
         if (gameState.mousecage.hasMouse()) {
             gameState.mousecage.mouse().resetInfusion();
@@ -278,7 +277,7 @@ class MouseCage extends BaseViewController {
             this.mousecage.mouse(null);
         }
         this.glucoseBagController.deactivate();
-        postbox.publish("mouseCageMouseRemovedTopic", true);
+        ko.postbox.publish("mouseCageMouseRemovedTopic", true);
     }
 
     changeBottle () {

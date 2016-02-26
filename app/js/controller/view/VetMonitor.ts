@@ -1,5 +1,4 @@
 import ko = require('knockout');
-import postbox = require('knockout.postbox');
 import _ = require('lodash');
 
 import heartRateJsonData = require('json!datadir/heartRate.json');
@@ -70,7 +69,7 @@ class VetMonitor {
         // provided we are in the 1c task (this.isGlucoseBagAvailable)
         this.previousGlucoseInfusionRate = ko.observable(0);
         this.glucoseInfusionRate = ko.observable(null);
-        postbox.subscribe("glucoseBagGirValueTopic", (newValue:number) => {
+        ko.postbox.subscribe("glucoseBagGirValueTopic", (newValue:number) => {
             console.log("glucoseBagGirValueTopic: " + newValue);
             var previousValue = this.glucoseInfusionRate();
             if (previousValue !== null)
@@ -96,7 +95,7 @@ class VetMonitor {
         this.graphHrRange = ko.observableArray([]);
         this.graphBloodRange = ko.observableArray([]);
         
-        postbox.subscribe("mouseCageMouseRemovedTopic", (newValue:boolean) => {
+        ko.postbox.subscribe("mouseCageMouseRemovedTopic", (newValue:boolean) => {
             if (newValue !== true) return;
             
             this.resetGirValues();
@@ -124,7 +123,7 @@ class VetMonitor {
             this.isHrGraphEnabled(false);
             // we start infusion when user presses GIR graph
             // this is to make sure that the GIR is OFF
-            postbox.publish("glucoseBagStatusToggleTopic", this.isGirGraphEnabled());
+            ko.postbox.publish("glucoseBagStatusToggleTopic", this.isGirGraphEnabled());
         } else {
             this.isHrGraphEnabled(true);
         }
@@ -198,7 +197,7 @@ class VetMonitor {
         this.resetGraphHrRange();
         
         // start/stop infusion depending on GIR button
-        postbox.publish("glucoseBagStatusToggleTopic", this.isGirGraphEnabled());
+        ko.postbox.publish("glucoseBagStatusToggleTopic", this.isGirGraphEnabled());
     }
 
     exportData() {
