@@ -1,3 +1,7 @@
 <div class="popup popup-video">
     <div class="video" data-bind="template: { name: 'video', data: data.videoController }"></div>
+    
+    <div class="btn-row float-clear">
+        <button data-bind="click: hide, i18n: 'common.close'"></button>
+    </div>
 </div>
