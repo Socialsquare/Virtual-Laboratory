@@ -1,4 +1,5 @@
 import LiquidType = require('model/type/Liquid');
+import LiquidDataType = require('model/type/LiquidData');
 import MouseType = require('model/type/Mouse');
 
 import experimentController = require('controller/Experiment');
@@ -37,10 +38,10 @@ class SyringeHandler {
 
                     var blood = LiquidFactory.mouseBlood(mouse.mouseBloodType());
                     var tube = ContainerFactory.tube().add(blood);
-                    var bloodLevels = { 
-                        'Glucose' : { 'value': mouse.meanBloodSugar(), 'unit': 'mmol/l' },
-                        'Insulin' : { 'value': mouse.insulinProductivity(), 'unit': 'ng/ml' }
-                    };
+                    var bloodLevels:LiquidDataType[] = [
+                        { 'text': 'Glucose', 'value': mouse.meanBloodSugar(), 'unit': 'mmol/l' },
+                        { 'text': 'Insulin', 'value': mouse.insulinProductivity(), 'unit': 'ng/ml' }
+                    ];
                     
                     var alternativeLabel = '';
                     if (MC.apparatusEnabled('MOUSE_CAGE_BOTTLE', 'FF_BOTTLE')) {

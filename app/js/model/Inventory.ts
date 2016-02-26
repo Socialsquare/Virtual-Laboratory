@@ -8,6 +8,7 @@ import TextHelper = require('utils/TextHelper');
 import InventoryItem = require('model/InventoryItem');
 
 import LocationType = require('model/type/Location');
+import LiquidDataType = require('model/type/LiquidData');
 
 class Inventory {
 
@@ -20,7 +21,7 @@ class Inventory {
         ko.rebind(this);
     }
 
-    add(item, alternativeLabel = '', additionalInfo={}) {
+    add(item, alternativeLabel = '', liquidData:LiquidDataType[] = []) {
         // generate label
         if (!item.acquired() && item.label) {
             if (alternativeLabel) {
@@ -28,10 +29,10 @@ class Inventory {
             } else {
                 item.label(TextHelper.label(item));
             }
-            if (additionalInfo) {
+            if (liquidData) {
                 var info = '\n\n';
-                _.each(additionalInfo, (val, key) => {
-                    info += key + ': ' + val.value + ' ' + val.unit + '\n';
+                _.each(liquidData, (d) => {
+                    info += d.text + ': ' + d.value + ' ' + d.unit + '\n';
                 });
                 item.label(item.label()+info);
             }
