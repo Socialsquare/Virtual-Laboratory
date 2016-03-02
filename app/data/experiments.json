@@ -23,7 +23,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Bestil en rask mus, og placer den i buret. Tag derefter en blodprøve, og noter glukose- og insulinniveau ud fra data fra blodprøven." },
+                        "description": { "dk": "Bestil en diabetisk mus, og placer den i buret i stedet for den raske. Tag igen en blodprøve, og skriv tilsvarende værdier ned." },
                         "trigger": {
                             "type": "TriggerType.ACQUIRE",
                             "item": "ContainerType.TUBE",
