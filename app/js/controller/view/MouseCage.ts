@@ -236,8 +236,6 @@ class MouseCage extends BaseViewController {
     }
 
     exit() {
-        console.log("mousecage ctrl exit");
-
         ko.postbox.publish("glucoseBagStatusToggleTopic", false);
         this.glucoseBagController.dispose();
         if (gameState.mousecage.hasMouse()) {
@@ -247,6 +245,10 @@ class MouseCage extends BaseViewController {
         }
 
         this.videoController.stop();
+        if (this.mouseDrinking()) {
+            this.mouseDrinking(false);
+            this.mousecage.mouse().isInteracting(false);
+        }
         this.toggleSimulation(false);
         if (this._bloodSugarSubscription) {
             this._bloodSugarSubscription.dispose();
@@ -267,11 +269,9 @@ class MouseCage extends BaseViewController {
     }
 
     removeMouse() {
-        console.log("MouseCage.removeMouse()");
         this.videoController.stop();
         this.toggleSimulation(false);
         if (this.mousecage.hasMouse()){
-            console.log("removeMouse() - has mouse!");
             this.mousecage.mouse().resetInfusion();
             this.mousecage.mouse().resetBloodSugar();
             this.mousecage.mouse(null);
