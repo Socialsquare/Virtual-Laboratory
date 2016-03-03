@@ -26,7 +26,7 @@
     <div class="hand" data-bind="route: 'worktable3'">
         <img src="assets/images/overview_base-worktable3.png" class="worktable3" alt="Go to work table 3">
     </div>
-    <div class="hand" data-bind="if: apparatusEnabled('CORNER', 'CORNER_SPECTRO'), route: 'spectropm'">
+    <div class="hand" data-bind="route: 'spectropm'">
         <img src="assets/images/overview_base-spectro.png" class="spectrophotometer" alt="Go to spectrophotometer">
     </div>
 </div>
