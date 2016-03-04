@@ -78,6 +78,8 @@ class VideoController {
     }
 
     stop() {
+        if (this.promise)
+            this.promise.resolve();
         this.activeVideo(null);
     }
 

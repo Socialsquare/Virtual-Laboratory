@@ -130,12 +130,13 @@ class Popup {
         return promise.always(() => this.hide(vm));
     }
 
-    video(sequence: string | string[], controlsRequired: boolean) {
+    video(sequence: string | string[], controlsRequired: boolean, showClose = false) {
         var videoController = new VideoController();
-        var vm = this.show('popup-video', { videoController: videoController });
-        return videoController.play(sequence, false, controlsRequired).done(() => {
-            this.hide(vm);
-        });
+        var vm = this.show('popup-video', { videoController: videoController, showClose: showClose });
+        return videoController.play(sequence, false, controlsRequired)
+            .done(() => {
+                this.hide(vm);
+            });
     }
 
     select<T>(title, message, options: SelectOption<T>[]) {
