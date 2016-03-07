@@ -244,7 +244,8 @@
                             "activation": "ActivationType.GEL"
                         }
                     }
-                ]
+                ],
+                "question": "I en af banerne var der et bånd der lyste tydeligt op. Hvad indikere denne bane, og hvilken mus tilhørte den?"
             }
         ]
     },
