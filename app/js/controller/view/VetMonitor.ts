@@ -42,6 +42,8 @@ class VetMonitor {
     
     public shouldShowExportPopup: KnockoutObservable<boolean>;
 
+    public areYlabelsVisible: KnockoutObservable<boolean>;
+
     public isBloodSugarGraphEnabled: KnockoutObservable<boolean>;
     public graphBloodRange: KnockoutObservableArray<boolean>;
 
@@ -88,7 +90,8 @@ class VetMonitor {
         
         this.isHrGraphEnabled = ko.observable(false);
         this.isGirGraphEnabled = ko.observable(false);
-
+        
+        this.areYlabelsVisible = ko.observable(false);
 
         this.plotData = ko.observableArray(null);
         this.graphGirRange = ko.observableArray([]);
@@ -97,7 +100,7 @@ class VetMonitor {
         
         ko.postbox.subscribe("mouseCageMouseRemovedTopic", (newValue:boolean) => {
             if (newValue !== true) return;
-            
+
             this.resetGirValues();
 
             if (this.isGlucoseBagAvailable() && this.isGirGraphEnabled()) {
@@ -391,7 +394,9 @@ class VetMonitor {
     }
 
     toggleSimulation(enabled: boolean) {
+        console.log("VetMonitorController toggleSimulation(" + enabled + ")");
         if ((enabled) && (this.simulationIntervalId === null)) {
+            this.areYlabelsVisible(true);
             this.simulationIntervalId = setInterval(this.nextTimeStep,
                 this.simulationInterval);
         } else {
@@ -399,7 +404,7 @@ class VetMonitor {
             this.simulationIntervalId = null;
         }
     }
-
+    
     enter() {
         console.log("VetMonitorController enter()");
         this.resetGraphRanges();

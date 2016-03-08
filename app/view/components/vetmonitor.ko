@@ -1,4 +1,7 @@
 
+<div class="axis-label yaxis-label yaxis-label-0" data-bind="visible: areYlabelsVisible">Blodsukker</div>
+<div class="axis-label yaxis-label yaxis-label-1" data-bind="visible: areYlabelsVisible">GIR</div>
+
 <div class="mousegraph" data-bind="plotVetMonitor: plotData"></div>
 
 <div class="hand power-toggle-light" data-bind="visible: isPowerOn"></div>

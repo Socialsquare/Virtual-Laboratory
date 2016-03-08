@@ -78,4 +78,36 @@
         width: 15px;
         height: 15px;
     }
+    
+    .axis-label {
+        position: absolute;
+        text-align: center;
+        font-size: 13px;
+        text-decoration: underline;
+    }
+    
+    .yaxis-label {
+        transform: rotate(-95deg);
+        -o-transform: rotate(-95deg);
+        -ms-transform: rotate(-95deg);
+        -moz-transform: rotate(-95deg);
+        -webkit-transform:  rotate(-95deg);
+        transform-origin: 0 0;
+        -o-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+        -webkit-transform-origin: 0 0;
+    }
+
+    .yaxis-label-0 {
+        top: 75%;
+        left: 67px;
+        color: yellow;
+    }
+
+    .yaxis-label-1 {
+        top: 70%;
+        left: 265px;
+        color: blue;
+    }
 }
