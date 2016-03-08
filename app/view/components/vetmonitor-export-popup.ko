@@ -10,7 +10,10 @@
         <ul class="export-log-btns-list" data-bind="visible: logButtonsToggle, foreach: logIds">
             <li>
                 <button class="export-log-btn"
-                 data-bind="text: $data, click: $parent.showDataByLogId, text: $data"></button>
+                 data-bind="click: $parent.showDataByLogId, text: $parent.getLogBtnLabel($data)"></button>
+                 <span class="export-log-btn-edit"
+                    data-bind="click: $parent.showLogBtnLabelForm">
+                    <i class="fa fa-edit"></i></span>
             </li>
         </ul>
     </div>
@@ -23,4 +26,9 @@
 	<div class="btn-row float-clear" style="bottom: 10px;">
 	    <button type="button" data-bind="click: hide, i18n: 'common.close'"></button>
 	</div>
+
+    <div id="export-log-btn-label-form" data-bind="visible: isBtnLabelFormVisible">
+        <input id="btn-label-input" data-bind="value: btnLabelInputVal" />
+        <button type="button" data-bind="click: setBtnLabel">OK</button>
+    </div>
 </div>

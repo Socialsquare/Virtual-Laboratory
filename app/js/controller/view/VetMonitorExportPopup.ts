@@ -13,8 +13,11 @@ class VetMonitorExportPopup {
 
     public maxLogId: number = null;
     public currLogId: number = null;
+    public currLabelLogId: KnockoutObservable<number>;
+    public btnLabelInputVal: KnockoutObservable<string>;
     public logIds: KnockoutObservableArray<number>;
     public logButtonsToggle: KnockoutObservable<boolean>;
+    public isBtnLabelFormVisible: KnockoutObservable<boolean>;
     public shouldShowExportPopup: KnockoutObservable<boolean>;
     public dataToggle: KnockoutObservable<boolean>;
     public backButtonToggle: KnockoutObservable<boolean>;
@@ -36,6 +39,9 @@ class VetMonitorExportPopup {
         this.maxLogId = vetMonitorLog.getCurrentLogId();
         this.logIds = ko.observableArray(_.range(1, this.maxLogId + 1));
         this.csvData = ko.observable('');
+        this.currLabelLogId = ko.observable(null);
+        this.isBtnLabelFormVisible = ko.observable(false);
+        this.btnLabelInputVal = ko.observable('');
         
         this._toggleSubscription = 
             this.shouldShowExportPopup.subscribe((newval: boolean)=>{
@@ -88,6 +94,35 @@ class VetMonitorExportPopup {
         });
     }
     
+    showLogBtnLabelForm(logId: number) {
+        this.currLabelLogId(logId);
+        this.isBtnLabelFormVisible(true);
+        this.logButtonsToggle(false);
+        this.dataToggle(false);
+        this.backButtonToggle(false);
+    }
+    
+    getLogBtnLabel(logId: number) {
+        var label = vetMonitorLog.getLabelForLogId(logId);
+        if (label) {
+            return label;
+        }
+        return String(logId);
+    }
+    
+    setBtnLabel() {
+        var valStr: string = _.escape(this.btnLabelInputVal().substring(0, 20).trim());
+        vetMonitorLog.setLabelForLogId(this.currLabelLogId(), valStr);
+        this.btnLabelInputVal('');
+        this.isBtnLabelFormVisible(false);
+        this.currLabelLogId(null);
+        this.updateLogIds();
+        this.dataToggle(false);
+        this.backButtonToggle(false);
+        this.logButtonsToggle(true);
+        this.logIds.valueHasMutated();
+    }
+
     public updateLogIds = () => {
         this.maxLogId = vetMonitorLog.getCurrentLogId();
         this.logIds.removeAll();
@@ -97,7 +132,6 @@ class VetMonitorExportPopup {
     }
 
     showLogButtons() {
-        console.log("VetMonitorExportPopup.showLogButtons()");
         this.updateLogIds();
         this.csvData('');
         this.logButtonsToggle(true);

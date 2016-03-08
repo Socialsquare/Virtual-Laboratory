@@ -23,4 +23,11 @@
     .btn-row {
         width: $width;
     }
+
+    .export-log-btn-edit {
+        position: relative;
+        top: 5px;
+        font-size: 30px;
+        cursor: pointer;
+    }
 }

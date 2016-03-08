@@ -1,5 +1,6 @@
 import ko = require('knockout');
 import _ = require('lodash');
+import $ = require('jquery');
 import VetMonitorLogItem = require('model/type/VetMonitorLogItem');
 import IndexedDbService = require('service/IndexedDb');
 
@@ -72,6 +73,27 @@ class VetMonitorLogService extends IndexedDbService {
     public clear() {
         this.clearObjectStore();
         sessionStorage.setItem('vetMonitorLogId', String(0));
+        sessionStorage.setItem('vetMonitorLogLabels', JSON.stringify({}));
+    }
+    
+    public getLabelForLogId(logId: number) {
+        var logLabelsStr: string = sessionStorage.getItem('vetMonitorLogLabels');
+        var logLabels: any = JSON.parse(logLabelsStr);
+        if (!$.isEmptyObject(logLabels)) {
+            return logLabels[logId] || null;
+        }
+        return null;
+    }
+    
+    public setLabelForLogId(logId: number, logLabel: string) {
+        var logLabelsStr: string = sessionStorage.getItem('vetMonitorLogLabels');
+        var logLabels: any = JSON.parse(logLabelsStr);
+        console.log("setLabelForLogId("+ logId + ", " + logLabel +")");
+        if ($.isEmptyObject(logLabels)) {
+            logLabels = {};
+        }
+        logLabels[String(logId)] = logLabel;
+        sessionStorage.setItem('vetMonitorLogLabels', JSON.stringify(logLabels));
     }
 }
 

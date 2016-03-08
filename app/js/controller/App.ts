@@ -90,6 +90,8 @@ class App extends BaseViewController {
         var iadd = gameState.inventory.add;
         var t = ContainerFactory.tube;
         var t1 = t();
+        
+        //iadd(SpecialItemFactory.healthyMouse())
 
         ko.rebind(this);
     }
