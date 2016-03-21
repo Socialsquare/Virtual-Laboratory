@@ -17,6 +17,8 @@ which installs npm, bower and runs `grunt production` task.
 
 	demo          ssh://vlab@vlab.demo.socialsquare.dk:vlab.git
 
+	(git push --force demo origin/master)
+
 ## Production
 
 Production, hosted by the client: http://www.biotechacademy.dk/Virtuelt-Laboratorium/velkommen
