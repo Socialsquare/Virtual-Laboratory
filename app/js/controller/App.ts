@@ -83,8 +83,7 @@ class App extends BaseViewController {
             this.viewChange(routeName);
         });
 
-        // go to the overview view
-        this.router.navigate('overview');
+        this.router.navigate('loading');
 
         // function shortcuts for testing
         var iadd = gameState.inventory.add;
