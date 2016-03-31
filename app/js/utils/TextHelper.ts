@@ -2,6 +2,7 @@ import _ = require('lodash');
 
 import i18n = require('service/Localization');
 
+import AntibioticType = require('model/type/Antibiotic');
 import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
 import MouseType = require('model/type/Mouse');
@@ -83,7 +84,7 @@ class TextHelper {
         return TextHelper.prettyNameFromType(item.type());
     }
 
-    static prettyNameFromType(type: ContainerType | SpecialItemType | LiquidType | MouseBloodType) {
+    static prettyNameFromType(type: ContainerType | SpecialItemType | LiquidType | MouseBloodType | AntibioticType) {
         switch (type) {
         case ContainerType.PETRI_DISH:
             return 'item.name.petri_dish';
@@ -199,6 +200,10 @@ class TextHelper {
             return 'liquid.name.clumped_cells';
         case LiquidType.BUFFER:
             return 'liquid.name.buffer';
+
+        //XXX: hey, let's add another one to the pile :-D
+        case AntibioticType.B:
+            return 'item.name.antibiotic_b';
 
         default:
             throw 'TextHelper.prettyNameFromType: Unknown type: ' + type;
