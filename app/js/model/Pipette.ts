@@ -54,7 +54,6 @@ class Pipette extends CompositeContainerModel {
         var liquidType = this.getTip().liquids()[0].type();
         var out = liquidType === LiquidType.MOUSE_BLOOD;
         var t1 = LiquidType.MOUSE_BLOOD;
-        debugger;
         return liquidType === LiquidType.MOUSE_BLOOD;
     }
 
