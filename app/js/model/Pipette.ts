@@ -79,7 +79,6 @@ class Pipette extends CompositeContainerModel {
 
     emptyPipetteInto(container: SimpleContainerModel) {
         var clonedLiqs = _.invoke(this.getTip().liquids(), 'clone');
-
         container.addAll(clonedLiqs);
         this.getTip().clearContents();
         this.pressTopButton(true);
@@ -91,7 +90,9 @@ class Pipette extends CompositeContainerModel {
             var clone = this.getTip().microtiterWells().clone();
             //TODO: merge instead of overwriting? Can't decide...
             microtiter.microtiterWells(clone);
+            return microtiter;
         }
+        return container;
     }
 
     // Fill the pipette from a container. The pipette cannot be filled

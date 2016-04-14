@@ -22,6 +22,7 @@ class Utils {
 
             _.each(lh.mos(clones), (mo) => {
                 mo.concentration(mo.concentration() / factor);
+                //XXX: shouldn't we remove salt water from the tube too?
             });
 
             // Remove organisms whose concentration is below 1.

@@ -726,8 +726,7 @@
                             "liquids": [
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                { "type": "LiquidType.FUSION_MEDIUM"}
+                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
                             ]
                         },
                         "consequence": {
@@ -768,8 +767,7 @@
                                     "liquids": [
                                         { "type": "LiquidType.HOMO_SPLEEN"},
                                         { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                        { "type": "LiquidType.FUSION_MEDIUM"}
+                                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
                                     ]
                                 }
                             ]
@@ -784,7 +782,6 @@
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
                                 { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                { "type": "LiquidType.FUSION_MEDIUM"},
                                 { "type": "LiquidType.SALT_WATER"}
                             ]
                         }
@@ -799,7 +796,7 @@
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
                                 { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                { "type": "LiquidType.FUSION_MEDIUM"}
+                                { "type": "LiquidType.SALT_WATER"}
                             ]
                         }
                     },
@@ -812,7 +809,7 @@
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
                                 { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                { "type": "LiquidType.FUSION_MEDIUM"}
+                                { "type": "LiquidType.SALT_WATER"}
                             ]
                         }
                     },
@@ -830,7 +827,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Incubate it in the oven at 37 degrees" },
+                        "description": { "dk": "Incubate it in the oven at 37 degrees." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.INCUBATOR",
@@ -847,7 +844,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Add buffer to ELISA plate in the fumehood" },
+                        "description": { "dk": "Tilsæt buffer til ELISA-pladen i stinkskabet." },
                         "trigger": {
                             "type": "TriggerType.MIX",
                             "container": "ContainerType.MICROTITER",

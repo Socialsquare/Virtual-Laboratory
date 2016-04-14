@@ -78,6 +78,7 @@ class CompositeContainer extends InventoryItem {
     }
 
     removeAll() {
+        this.containers.removeAll();
         this.containers(new Array(this.capacity));
     }
 

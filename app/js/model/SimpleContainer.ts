@@ -12,6 +12,7 @@ import MicroorganismType = require('model/type/Microorganism');
 import GrowerType = require('model/type/Grower');
 import PCSType = require('model/type/ProteinCodingSequence');
 import LocationType = require('model/type/Location');
+import TextHelper = require('utils/TextHelper');
 
 import lh = require('utils/LiquidHelper');
 
@@ -25,7 +26,7 @@ class SimpleContainer extends InventoryItem {
     public subtype: KnockoutObservable<any>;
     public maxConcentration: KnockoutObservable<number>;
     public liquids: KnockoutObservableArray<LiquidModel>;
-    public label: KnockoutObservable<string>;
+    public label: KnockoutComputed<string>;
     public acquired: KnockoutObservable<boolean>;
     public location: KnockoutObservable<LocationType>;
 
@@ -38,7 +39,13 @@ class SimpleContainer extends InventoryItem {
         this.subtype = ko.observable(); // defaults to no subtype
         this.maxConcentration = ko.observable(maxConcentration);
         this.liquids = ko.observableArray([]);
-        this.label = ko.observable('');
+        this.label = ko.computed({
+            read: ():string=>{
+                return TextHelper.label(this);
+            },
+            write: (v):string=>{},
+            owner: this
+            });
         this.acquired = ko.observable(false);
         this.liquidsAdded = new signals.Signal();
 
@@ -53,8 +60,10 @@ class SimpleContainer extends InventoryItem {
     }
 
     protected _addAll(liquids: LiquidModel[], preventTrigger = false) {
-        if (!this.canAddLiquids(liquids))
+        if (!this.canAddLiquids(liquids)) {
+            console.log("can not add liquids: ", liquids);
             return;
+        }
 
         // merge in new liquids
         _.each(liquids, (liquid) => {
@@ -77,7 +86,6 @@ class SimpleContainer extends InventoryItem {
                 this.liquids.push(liquid);
         });
 
-        // react
         _.each(_.union(this.liquids(), liquids), (liquid) => {
             liquid.react(this);
         });
