@@ -675,7 +675,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Vha. en skalpel skæres musens milt ud" },
+                        "description": { "dk": "Vha. en skalpel skæres musens milt ud." },
                         "trigger": {
                             "type": "TriggerType.MOUSE",
                             "alive": false,
@@ -790,7 +790,7 @@
                         }
                     },
                     {
-                        "description": { "dk": "Fordel blandingen på en tom mikrotiterplade. Pga. den kraftige fortynding vil der i gennemsnit kun komme én celle i hver brønd"},
+                        "description": { "dk": "Fordel blandingen på en tom mikrotiterplade. Pga. den kraftige fortynding vil der i gennemsnit kun komme én celle i hver brønd."},
                         "trigger": {
                             "type": "TriggerType.MIX",
                             "container": "ContainerType.MICROTITER",
