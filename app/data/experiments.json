@@ -848,7 +848,7 @@
                         "trigger": {
                             "type": "TriggerType.MIX",
                             "container": "ContainerType.MICROTITER",
-                            "containerSubtype": "AntigenCoatingType.NONE",
+                            "containerSubtype": "AntigenCoatingType.ANY",
                             "liquids": [
                                 { "type": "LiquidType.ANTIGEN_SMALLPOX" },
                                 { "type": "LiquidType.ADJUVANS" },
