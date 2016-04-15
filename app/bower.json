@@ -8,7 +8,6 @@
     "jquery-flot": "~0.8.3",
     "jquery-ui": "~1.11.0",
     "jquery.html5loader": "~1.7.0",
-    "jqueryui-touch-punch": "*",
     "js-signals": "~1.0.0",
     "knockout": "~3.4.0",
     "knockout-mapping": "~2.4.1",
@@ -17,6 +16,7 @@
     "requirejs": "~2.1.22",
     "requirejs-plugins": "~1.0.3",
     "requirejs-text": "~2.0.13",
-    "screenfull": "~1.2.1"
+    "screenfull": "~1.2.1",
+    "jquery.ui.touch-punch.dk": "^0.3.3"
   }
 }

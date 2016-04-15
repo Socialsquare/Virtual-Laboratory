@@ -15,7 +15,7 @@ require.config({
         'knockout.mapping': '../bower_components/knockout-mapping/knockout.mapping',
         postbox: '../bower_components/knockout-postbox/build/knockout-postbox.min',
         'knockout.postbox': '../bower_components/knockout-postbox/build/knockout-postbox.min',
-        jqueryuitouchpunch: '../bower_components/jqueryui-touch-punch/jquery.ui.touch-punch',
+        jqueryuitouchpunch: '../bower_components/jquery.ui.touch-punch.dk/jquery.ui.touch-punch.dk',
         fastclick: '../bower_components/fastclick/lib/fastclick',
         screenfull: '../bower_components/screenfull/dist/screenfull',
         text: '../bower_components/requirejs-text/text',
@@ -31,8 +31,6 @@ require.config({
     },
     shim: {
         'html5Loader': ['jquery'],
-        'jqueryui': ['jquery'],
-        'jqueryuitouchpunch': ['jqueryui'],
         'flot': ['jquery'],
         'knockout.postbox': ['knockout'],
         'screenfull': { exports: 'screenfull' },
