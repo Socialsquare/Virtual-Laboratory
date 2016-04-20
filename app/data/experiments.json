@@ -813,8 +813,9 @@
                             ]
                         }
                     },
+
                     {
-                        "description": { "dk": "Take an ELISA plate (Ebola) and coat it with the Ebola anti-gene from step 1 and 2 in the fumehood" },
+                        "description": { "dk": "Take an ELISA plate (Ebola) and coat it with the Ebola anti-gene from step 1 and 2 in the fumehood." },
                         "trigger": {
                             "type": "TriggerType.MIX",
                             "container": "ContainerType.MICROTITER",
@@ -844,6 +845,7 @@
                         }
                     },
                     {
+                        "number": 14,
                         "description": { "dk": "Tilsæt buffer til ELISA-pladen i stinkskabet." },
                         "trigger": {
                             "type": "TriggerType.MIX",
@@ -857,7 +859,9 @@
 
                         }
                     },
+
                     {
+                        "number": 15,
                         "description": { "dk": "Udtag væske fra hver brønd og overfør til den tilsvarende brønd på en ny ELISA-mikrotitterplade. I Det Virtuelle Laboratorium behøver du dog kun at gøre det en gang, og i virkeligheden tages der kun den øverste halvdel af væsken, da cellerne ligger sig på bunden."},
                         "trigger": {
                             "type": "TriggerType.MIX",
@@ -867,21 +871,26 @@
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
                                 { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                { "type": "LiquidType.FUSION_MEDIUM"}
+                                { "type": "LiquidType.SALT_WATER"},
+                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
+                                { "type": "LiquidType.ADJUVANS" },
+                                { "type": "LiquidType.BUFFER"}
                             ]
                         }
                     },
                     {
+                        "number": 16,
                         "description": { "dk": "Alle brøndende på ELISA-pladen vaskes med buffer."},
                         "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.MICROTITER",
-                            "containerSubtype": "AntigenCoatingType.ANY",
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.MICROTITER_WASHED_WITH_BUFFER",
                             "liquids": [
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
                                 { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                { "type": "LiquidType.FUSION_MEDIUM"},
+                                { "type": "LiquidType.SALT_WATER"},
+                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
+                                { "type": "LiquidType.ADJUVANS" },
                                 { "type": "LiquidType.BUFFER"}
                             ]
                         },
@@ -913,6 +922,7 @@
                         }
                     },
                     {
+                        "number": 17,
                         "description": { "dk": "Tilsæt fluorescerende sekundært  antistof til alle brøndene på ELISA-pladen."},
                         "trigger": {
                             "type": "TriggerType.MIX",
@@ -925,19 +935,18 @@
                         }
                     },
                     {
+                        "number": 18,
                         "description": { "dk": "Vask ELISA-pladen med buffer igen."},
                         "trigger": {
-                            "type": "TriggerType.MIX",
-                            "strict": true,
-                            "container": "ContainerType.MICROTITER",
-                            "containerSubtype": "AntigenCoatingType.ANY",
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.MICROTITER_WASHED_WITH_BUFFER",
                             "liquids": [
-                                { "type": "LiquidType.FLUORESCENT_2ND_ANTIBODY"},
-                                { "type": "LiquidType.BUFFER"}
+                                { "type": "LiquidType.FLUORESCENT_2ND_ANTIBODY"}
                             ]
                         }
                     },
                     {
+                        "number": 19,
                         "description": { "dk": "Tag ELISA-pladen med ind i UV-rummet og se nærmere på den. Notér hvilke brønde der fluorescerer. Dem der lyser op har haft en væske med et antistof der kan binde til antigenet i brønden. Det er de antistof-producerende celler fra de brønde vi er interesserede i. Herefter skal du se nærmere på den oprindelige mikrotiterplade og opsamle indholdet fra en brønd, der svarer til en fluorescerende brønd på ELISA-pladen (dette gøres ved at trykke på den pågældende brønd)."},
                         "trigger": {
                             "type": "TriggerType.ACQUIRE",
@@ -945,12 +954,13 @@
                             "liquids": [
                                 { "type": "LiquidType.HOMO_SPLEEN"},
                                 { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                { "type": "LiquidType.FUSION_MEDIUM"}
+                                { "type": "LiquidType.SALT_WATER"},
+                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
                             ]
                         }
                     },
                     {
+                        "number": 20,
                         "description": { "dk": "Send indholdet fra brønden til sekventering ved at åbne computeren og vælge \"Send til sekventering\". Hermed burde du få et nyt DNA-element i DNA-designeren på computeren."},
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
@@ -958,6 +968,7 @@
                         }
                     },
                     {
+                        "number": 21,
                         "description": { "dk": "Design et stykke DNA på computeren, som koder for musens antistof, og som desuden koder for resistens af Antibiotikum B. Husk det centrale dogme, når du designer genet, dvs. husk: ribosome binding site, promotor, start- og slutkodon, og terminator."},
                         "trigger": {
                             "type": "TriggerType.ACQUIRE",
@@ -969,6 +980,7 @@
                     },
 
                     {
+                        "number": 22,
                         "description": { "dk": "Bland det bestilte DNA med mammale celler i et reagensglas. Tilsæt blanding til elektroporatoren. På den måde hjælper du det genmodificerede DNA med at trænge ind i de mammale celler, der så kan begynder at producere antistof. Processen kaldes transfektion." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
@@ -981,6 +993,7 @@
                     },
 
                     {
+                        "number": 23,
                         "description": { "dk": "Tilsæt de gen-modificerede celler til et reagensglas med vækstmedium og tilføj antibiotikum B." },
                         "trigger": {
                             "type": "TriggerType.MIX",
@@ -993,6 +1006,7 @@
                     },
 
                     {
+                        "number": 24,
                         "description": { "dk": "Inkubér blandingen." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
@@ -1011,6 +1025,7 @@
                     },
 
                     {
+                        "number": 25,
                         "description": { "dk": "Bland indholdet af reagensglasset og Antibiotikum B i et reagensglas og anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren." },
                         "trigger": {
                             "type": "TriggerType.MIX",

@@ -23,6 +23,7 @@ enum Activation {
     MOUSE_CAGE              = ev.next(),
     MOUSE_MONITOR           = ev.next(),
     GLUCOSE_BAG             = ev.next(),
+    MICROTITER_WASHED_WITH_BUFFER     = ev.next(),
 };
 
 export = Activation;

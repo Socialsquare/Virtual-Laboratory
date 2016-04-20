@@ -271,6 +271,16 @@ class Experiment {
             if (!this.matchLiquids(trigger, item.washingTank)) return;
         }
 
+        if (trigger.activation === ActivationType.MICROTITER_WASHED_WITH_BUFFER) {
+            console.log("trigger check MICROTITER_WASHED_WITH_BUFFER");
+            if (!this.matchLiquids(trigger, item)) {
+                console.log("liquids don't match");
+                console.log(trigger.liquids);
+                console.log(item.liquids());
+                return;
+            }
+        }
+
         if (trigger.activation === ActivationType.INCUBATOR) {
             var incubator = <IncubatorModel>item;
             var unioned = _.union(incubator.tableSpacePetri.containers(), incubator.tubeRack.containers(), 

@@ -3,10 +3,12 @@ import $ = require('jquery');
 import _ = require('lodash');
 
 import popupController = require('controller/Popup');
+import experimentController = require('controller/Experiment');
 
 import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
 import AntigenCoatingType = require('model/type/AntigenCoating');
+import ActivationType = require('model/type/Activation');
 
 import CompositeContainerModel = require('model/CompositeContainer');
 import SimpleContainerModel = require('model/SimpleContainer');
@@ -192,6 +194,10 @@ class CompositeContainerController {
             case ContainerType.MICROTITER:
                 var microtiter = <MicrotiterplateModel>this.compContainer.get(position);
 
+                experimentController.triggerActivation(
+                    ActivationType.MICROTITER_WASHED_WITH_BUFFER,
+                    microtiter
+                );
                 microtiter.clearContents();
 
                 if (microtiter.antigenCoating === AntigenCoatingType.NONE) {
@@ -199,7 +205,8 @@ class CompositeContainerController {
                     microtiter.microtiterWells().clearWellsSecondaryAntibodies(false);
 
                 } else {
-                    //Let the wells of the microtiter plate keep their antibodies, and 2ndary, but ONLY if it has antibodies!
+                    //Let the wells of the microtiter plate keep their antibodies, 
+                    //and 2ndary, but ONLY if it has antibodies!
                     microtiter.microtiterWells().clearWellsSecondaryAntibodies(true);
                 }
 
