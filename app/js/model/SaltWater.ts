@@ -1,4 +1,5 @@
 import ko = require('knockout');
+import _ = require('lodash');
 
 import LiquidModel = require('model/Liquid');
 import LiquidType = require('model/type/Liquid');
