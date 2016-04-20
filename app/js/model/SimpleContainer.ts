@@ -41,7 +41,12 @@ class SimpleContainer extends InventoryItem {
         this.liquids = ko.observableArray([]);
         this.label = ko.computed({
             read: ():string=>{
-                return TextHelper.label(this);
+                var lbl = TextHelper.label(this);
+                var tconc = this.getTotalConcentration();
+                if (tconc){
+                    lbl += " \r\n[total concentration: " + tconc.toFixed(2) + "]";
+                }
+                return lbl;
             },
             write: (v):string=>{},
             owner: this
@@ -121,7 +126,7 @@ class SimpleContainer extends InventoryItem {
             concentrationToBeAdded += mo.concentration();
         });
 
-        return this.getTotalConcentration() + concentrationToBeAdded < this.maxConcentration();
+        return (this.getTotalConcentration() + concentrationToBeAdded) < this.maxConcentration();
     }
 
     clearContents() {
