@@ -85,7 +85,7 @@ class Pipette extends CompositeContainerModel {
         _.delay(() => this.pressTopButton(false), 500);
 
         // Special case for transfering 24 microtiter-wells at once:
-        if (container.type() === ContainerType.MICROTITER && !!this.getTip().microtiterWells()) {
+        if ((container.type() === ContainerType.MICROTITER) && !!this.getTip().microtiterWells()) {
             var microtiter = <MicrotiterplateModel>container;
             var clone = this.getTip().microtiterWells().clone();
             //TODO: merge instead of overwriting? Can't decide...
