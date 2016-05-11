@@ -1,5 +1,5 @@
 import ko = require('knockout');
-
+import _ = require('lodash');
 import utils = require('utils/utils');
 import LiquidHelper = require('utils/LiquidHelper');
 

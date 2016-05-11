@@ -43,6 +43,8 @@ class Trigger {
     public strict: boolean;
     public strictlyOrdered: boolean;
     public concentration: number;
+    public minVal: number;
+    public maxVal: number;
 
     // Mouse trigger
     public alive: boolean;
@@ -59,6 +61,8 @@ class Trigger {
         this.strict            = values.strict;
         this.strictlyOrdered   = values.strictlyOrdered;
         this.concentration     = values.concentration;
+        this.minVal            = values.minVal;
+        this.maxVal            = values.maxVal;
 
         this.alive             = values.alive;
         this.mouseType         = S2T.mouse(values.mouseType);

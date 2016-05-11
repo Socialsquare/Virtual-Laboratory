@@ -18,6 +18,8 @@ class Utils {
 
     static biology = {
         dilute: (factor: number, liquids: LiquidModel[]) => {
+            console.log("biology.dilute: ", factor);
+            console.log("biology.dilute: ", liquids);
             var clones: LiquidModel[] = _.invoke(liquids, 'clone');
 
             _.each(lh.mos(clones), (mo) => {

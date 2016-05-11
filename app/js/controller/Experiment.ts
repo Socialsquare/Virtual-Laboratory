@@ -202,7 +202,12 @@ class Experiment {
         }
 
         if (trigger.activation === ActivationType.OD) {
-            if (!this.matchLiquids(trigger, item)) return;
+            var currentDisplayValue = parseFloat(item);
+            if (!((currentDisplayValue >= trigger.minVal) &&
+                (currentDisplayValue <= trigger.maxVal))) {
+                console.log("ActivationType.OD FAILED: " + currentDisplayValue);
+                return;
+            }
         }
 
         if (trigger.activation === ActivationType.SPECTROPM) {
@@ -272,13 +277,7 @@ class Experiment {
         }
 
         if (trigger.activation === ActivationType.MICROTITER_WASHED_WITH_BUFFER) {
-            console.log("trigger check MICROTITER_WASHED_WITH_BUFFER");
-            if (!this.matchLiquids(trigger, item)) {
-                console.log("liquids don't match");
-                console.log(trigger.liquids);
-                console.log(item.liquids());
-                return;
-            }
+            console.log("trigger check MICROTITER_WASHED_WITH_BUFFER OK");
         }
 
         if (trigger.activation === ActivationType.INCUBATOR) {

@@ -85,13 +85,6 @@ class App extends BaseViewController {
 
         this.router.navigate('loading');
 
-        // function shortcuts for testing
-        var iadd = gameState.inventory.add;
-        var t = ContainerFactory.tube;
-        var t1 = t();
-        
-        //iadd(SpecialItemFactory.healthyMouse())
-
         ko.rebind(this);
     }
     

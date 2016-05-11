@@ -50,11 +50,12 @@ class Sequencing extends BaseComputer {
         if (!tube) return;
         // reset message and create new dna element
         var dna = null;
-        //TODO: uncomment! //TODO: figure how to get the optimal concentration from dilution
 
-        console.log('TODO: tube.getTotalConc: ' + tube.getTotalConcentration());
+        console.log('sendToSequencing with total concentration: ' + tube.getTotalConcentration());
+        console.log('sendToSequencing with real concentration: ' + tube.getRealConcentration());
 
-        if (tube.getTotalConcentration() > 48) {
+        //FIXME: why 1.68 (total 48)?
+        if (tube.getRealConcentration() > 1.68) {
             this.isValid(false);
             popupController.message('computer.screen.sequencing.fail_header', 'computer.screen.sequencing.invalid_concentration');
             return;
@@ -67,7 +68,6 @@ class Sequencing extends BaseComputer {
         }
 
         if (!tube.well || !tube.well.hasAntibody()) {
-            console.log('TODO: remove #1');
             this.isValid(false);
             popupController.message('computer.screen.sequencing.fail_header', 'computer.screen.sequencing.missing_antibody');
             return;

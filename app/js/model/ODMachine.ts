@@ -21,22 +21,20 @@ class ODMachine extends CompositeContainerModel {
             return this.hasContainerAt(0);
         });
 
-        this.hasTube.subscribe((hasTube) => {
-            if (hasTube)
-                experimentController.triggerActivation(ActivationType.OD, this.get(0));
-        });
 
         this.display = ko.pureComputed(() => {
             if (!this.hasTube())
                 return '';
 
-            var conc = this.get(0).getTotalConcentration();
-
-            if (conc === 0)
+            var logConc = this.get(0).getRealConcentration();
+            if (logConc === 0)
                 return '0.0';
 
-            var logConc = Utils.math.getBaseLog(10, conc);
             return '' + logConc.toFixed(1);
+        });
+
+        this.display.subscribe((currVal) => {
+            experimentController.triggerActivation(ActivationType.OD, currVal);
         });
     }
 

@@ -2,6 +2,7 @@
 import ko = require('knockout');
 import _ = require('lodash');
 
+import Utils = require('utils/utils');
 import InventoryItem = require('model/InventoryItem');
 import ProducedEnzymeModel = require('model/ProducedEnzyme');
 import LiquidModel = require('model/Liquid');
@@ -42,13 +43,9 @@ class SimpleContainer extends InventoryItem {
         this.label = ko.computed({
             read: ():string=>{
                 var lbl = TextHelper.label(this);
-                var tconc = this.getTotalConcentration();
-                if (tconc){
-                    lbl += " \r\n[total concentration: " + tconc.toFixed(2) + "]";
-                }
                 return lbl;
             },
-            write: (v):string=>{},
+            write: (v:string):void=>{},
             owner: this
             });
         this.acquired = ko.observable(false);
@@ -166,6 +163,14 @@ class SimpleContainer extends InventoryItem {
 
     getTotalConcentration() {
         return _.sum(this.getMicroorganisms(), mo => mo.concentration());
+    }
+
+    getRealConcentration() {
+        var totalConc = this.getTotalConcentration();
+        if (!totalConc){
+            return 0;
+        }
+        return Utils.math.getBaseLog(10, totalConc);
     }
 
     isEmpty() {

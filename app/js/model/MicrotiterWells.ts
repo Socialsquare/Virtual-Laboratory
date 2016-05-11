@@ -53,6 +53,7 @@ class MicrotiterWells extends LiquidModel {
         _.each(this.wells(), (well) => {
             if (checkForAntibodies) {
                 if (!well.hasAntibody()) {
+                    console.log("wel has no antibodies!!!");
                     well.hasFluorescentSecondaryAntibody(false);
                 }
             } else {

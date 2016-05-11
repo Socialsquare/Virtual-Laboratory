@@ -576,6 +576,7 @@
         "parts": [
             {
                 "tasks": [
+                    
                     {
                         "description": { "dk": "Lav en reagens til aktiv immunisering af musen ved at blande antigen med adjuvant. Den virker ligesom en vaccine i mod antigenet. Adjuvanten tilføjes for at forstærke den immunologiske reaktion." },
                         "trigger": {
@@ -757,6 +758,8 @@
                         }
                     },
                     {
+                        
+                        "number": 8,
                         "description": { "dk": "Inkubér herefter reagensglasset i ovnen under forreste arbejdsbord."},
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
@@ -774,19 +777,17 @@
                         }
                     },
                     {
+                        "number": 9,
                         "description": { "dk": "Fortynd blandingen med saltvand. Du kan følge fortynding på OD-måleren, hvor du skal bruge en lav fortynding på mellem 3,4-4,0."},
                         "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.HOMO_SPLEEN"},
-                                { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                { "type": "LiquidType.SALT_WATER"}
-                            ]
+                            "type": "TriggerType.ACTIVATION",
+                            "activation": "ActivationType.OD",
+                            "minVal": 3.4,
+                            "maxVal": 4.0
                         }
                     },
                     {
+                        "number": 10,
                         "description": { "dk": "Fordel blandingen på en tom mikrotiterplade. Pga. den kraftige fortynding vil der i gennemsnit kun komme én celle i hver brønd."},
                         "trigger": {
                             "type": "TriggerType.MIX",
@@ -801,6 +802,7 @@
                         }
                     },
                     {
+                        "number": 11,
                         "description": { "dk": "Inkubér mikrotiterpladen. Dette gøres i ovnen ved 37 C." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
@@ -815,7 +817,8 @@
                     },
 
                     {
-                        "description": { "dk": "Take an ELISA plate (Ebola) and coat it with the Ebola anti-gene from step 1 and 2 in the fumehood." },
+                        "number": 12,
+                        "description": { "dk": "Take an ELISA plate (Ebola) and coat it with the Adjuvant and Ebola anti-gene mixture from step 1 and 2 in the fumehood." },
                         "trigger": {
                             "type": "TriggerType.MIX",
                             "container": "ContainerType.MICROTITER",
@@ -828,6 +831,7 @@
                         }
                     },
                     {
+                        "number": 13,
                         "description": { "dk": "Incubate it in the oven at 37 degrees." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
@@ -883,16 +887,7 @@
                         "description": { "dk": "Alle brøndende på ELISA-pladen vaskes med buffer."},
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.MICROTITER_WASHED_WITH_BUFFER",
-                            "liquids": [
-                                { "type": "LiquidType.HOMO_SPLEEN"},
-                                { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                { "type": "LiquidType.SALT_WATER"},
-                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
-                                { "type": "LiquidType.ADJUVANS" },
-                                { "type": "LiquidType.BUFFER"}
-                            ]
+                            "activation": "ActivationType.MICROTITER_WASHED_WITH_BUFFER"
                         },
                         "consequence": {
                             "type": "ConsequenceType.QUIZ",
@@ -961,7 +956,7 @@
                     },
                     {
                         "number": 20,
-                        "description": { "dk": "Send indholdet fra brønden til sekventering ved at åbne computeren og vælge \"Send til sekventering\". Hermed burde du få et nyt DNA-element i DNA-designeren på computeren."},
+                        "description": { "dk": "Dilute the content of the tube to less than 1.6 and send it to sequencing, open the computer and select \"Send to sequencing \". This should add a new DNA element in DNA designer on the computer."},
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.COMPUTER_ORDER_SEQUENCE"
@@ -1040,6 +1035,7 @@
                     },
 
                     {
+                        "number": 26,
                         "description": { "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt. Tænk på at det er mammale celler" },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
@@ -1052,6 +1048,7 @@
                     },
 
                     {
+                        "number": 27,
                         "description": { "dk": "Oprens antistoffet fra fermenteringen." },
                         "trigger": {
                             "type": "TriggerType.ACQUIRE",
@@ -1061,8 +1058,8 @@
                             ]
                         }
                     },
-
                     {
+                        "number": 28,
                         "description": { "dk": "Bestil en syg mus med Ebola på computeren og test dit antistof ved at indsprøjte det i musen."},
                         "trigger": {
                             "type": "TriggerType.MOUSE",

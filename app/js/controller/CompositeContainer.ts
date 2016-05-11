@@ -176,7 +176,6 @@ class CompositeContainerController {
                 popupController.notify('syringe.emptied.header', 'syringe.emptied.body', 2000);
                 return true;
             }
-            break;
 
         case SpecialItemType.WASH_BOTTLE:
             this.compContainer.get(position).add(LiquidFactory.saltWater());

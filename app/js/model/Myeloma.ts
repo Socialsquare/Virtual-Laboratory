@@ -41,8 +41,8 @@ class Myeloma extends MicroorganismModel {
         var containsHybridomaMedium;
         var containsHomoSpleen = false;
 
-        if (container.location() !== LocationType.SPECTROPM)
-            return;
+        //if (container.location() !== LocationType.SPECTROPM)
+        //    return;
 
         // Figure out whether it contains homospleen (and other stuff)
         var homospleens = lh.homospleens(container.liquids());
@@ -70,7 +70,7 @@ class Myeloma extends MicroorganismModel {
         }
 
         //if container.type() === microtiter && myeloma.isHybridoma() --> modify random Well.
-        if (container.type() === ContainerType.MICROTITER && this.isHybridoma()) {
+        if ((container.type() === ContainerType.MICROTITER) && this.isHybridoma()) {
             var microtiter = <MicrotiterplateModel>container;
 
             var hasAlreadySetAntibodies = _.any(this.hasSetAntibodiesInThese(), (_microtiter) => {
@@ -92,6 +92,7 @@ class Myeloma extends MicroorganismModel {
                 //Set well--> contains
                 _.each(indices, (index) => {
                     microtiter.microtiterWells().wells()[index].hasAntibody(true);
+                    microtiter.microtiterWells.valueHasMutated();
                     console.log('TODO: GREAT SUCCES! the well now contains antibodies!');
                 });
 
