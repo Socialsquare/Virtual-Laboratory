@@ -51,16 +51,6 @@ class Sequencing extends BaseComputer {
         // reset message and create new dna element
         var dna = null;
 
-        console.log('sendToSequencing with total concentration: ' + tube.getTotalConcentration());
-        console.log('sendToSequencing with real concentration: ' + tube.getRealConcentration());
-
-        //FIXME: why 1.68 (total 48)?
-        if (tube.getRealConcentration() > 1.68) {
-            this.isValid(false);
-            popupController.message('computer.screen.sequencing.fail_header', 'computer.screen.sequencing.invalid_concentration');
-            return;
-        }
-
         if (!tube.containsMicroorganism(MicroorganismType.MYELOMA)) {
             this.isValid(false);
             popupController.message('computer.screen.sequencing.fail_header', 'computer.screen.sequencing.missing_myeloma');
