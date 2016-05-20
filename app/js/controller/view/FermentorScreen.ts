@@ -82,7 +82,7 @@ class FermentorScreen extends BaseViewController {
         this.turnedOn(true);
         this.fermentor.fermentorTank.hasRun(true);
 
-        this.experimentController.triggerActivation(ActivationType.FERMENTOR, this.fermentor);
+        this.experimentController.triggerActivation(ActivationType.FERMENTOR_START, this.fermentor);
     }
 
     endFermentation() {
@@ -95,7 +95,8 @@ class FermentorScreen extends BaseViewController {
 
         // Populate the list of possible products
         _.each(this.fermentor.products(), (producedEnzyme) => {
-            if (utils.math.getBiomassFromConcentration(producedEnzyme.amount) > 0.2){
+            var enzymeBiomass = utils.math.getBiomassFromConcentration(producedEnzyme.amount);
+            if (enzymeBiomass > 0.2){
                 var enzymeLiquidType = producedEnzyme.enzymeLiquidType;
 
                 switch (enzymeLiquidType) {

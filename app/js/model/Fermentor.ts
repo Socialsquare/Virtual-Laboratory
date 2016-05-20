@@ -96,7 +96,7 @@ class Fermentor {
         this.fermentorTank.clearContents();
         this.fermentorTank.addAll(clonedLiqs, true);
 
-        this.products([]);
+        this.products.removeAll();
 
         this.substrate(19.0);
 

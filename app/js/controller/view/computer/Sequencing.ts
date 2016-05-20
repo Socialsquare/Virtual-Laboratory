@@ -14,6 +14,8 @@ import ActivationType = require('model/type/Activation');
 
 import LocalizationService = require('service/Localization');
 import LiquidHelper = require('utils/LiquidHelper');
+import DNAService = require('service/DNA');
+
 
 class Sequencing extends BaseComputer {
 
@@ -105,46 +107,8 @@ class Sequencing extends BaseComputer {
         experimentController.triggerActivation(ActivationType.COMPUTER_ORDER_SEQUENCE, dna);
     }
 
-    createDNAElement(type) {
-        var icon = 'assets/images/icon_dna_dummy.png';
-        var name = '';
-        var pscType = '';
-        var id = '';
-        var link = '';
-        var sequence = 'GATACA';
-        switch (type) {
-        case LiquidType.ANTIBODY_GOUT:
-            name = LocalizationService.text('liquid.name.antibody_gout');
-            pscType = 'ProteinCodingSequenceType.ANTIBODY_GOUT';
-            id = 'DNA_ANTIBODY_GOUT';
-            break;
-
-        case LiquidType.ANTIBODY_SMALLPOX:
-            name = LocalizationService.text('liquid.name.antibody_smallpox');
-            pscType = 'ProteinCodingSequenceType.ANTIBODY_SMALLPOX';
-            id = 'DNA_ANTIBODY_SMALLPOX';
-            link = 'http://www.google.com/patents/EP2061511A2?cl=en';
-            sequence = 'aactatcatgtgcatctgatgtggcgcgatggcgataccagctataacccgaccctgaaaagcggcagcgaatattatggcctgctgggctatgtgatgggcgcgaaagcgagcaaaagcattagcaaaagcctggcgagcggcagcaccctgcagagccagcagcataacgaatatccggtgacc';
-            break;
-
-        default:
-            throw 'Invalid dna element type: ' + type;
-        }
-
-        // TODO: correct values
-        var dnaData = {
-            icon: icon,
-            type: 3,
-            comment: '',
-            link: link,
-            description: '',
-            sequence: 'GATTACA',
-            color: '#80c0f7',
-            name: name,
-            proteinCodingSequence: pscType
-        };
-
-        return new DNAElementModel(dnaData);
+    createDNAElement(liquidType) {
+        return DNAService.createDNAElementForLiquid(liquidType);
     }
 }
 

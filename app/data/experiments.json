@@ -363,7 +363,7 @@
                         "description": { "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.FERMENTOR",
+                            "activation": "ActivationType.FERMENTOR_START",
                             "liquids": [
                                 { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
                                 { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B"}
@@ -533,7 +533,7 @@
                         "description": { "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt." },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.FERMENTOR",
+                            "activation": "ActivationType.FERMENTOR_START",
                             "liquids": [
                                 { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
                                 { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B"}
@@ -956,12 +956,12 @@
                     },
                     {
                         "number": 20,
-                        "description": { "dk": "Dilute the content of the tube to less than 1.6 and send it to sequencing, open the computer and select \"Send to sequencing \". This should add a new DNA element in DNA designer on the computer."},
+                        "description": { "dk": "Send indholdet fra brønden til sekventering ved at åbne computeren og vælge \"Send til sekventering\". Hermed burde du få et nyt DNA-element i DNA-designeren på computeren."},
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.COMPUTER_ORDER_SEQUENCE"
                         }
-                    },
+                    },                    
                     {
                         "number": 21,
                         "description": { "dk": "Design et stykke DNA på computeren, som koder for musens antistof, og som desuden koder for resistens af Antibiotikum B. Husk det centrale dogme, når du designer genet, dvs. husk: ribosome binding site, promotor, start- og slutkodon, og terminator."},
@@ -981,8 +981,8 @@
                             "type": "TriggerType.ACTIVATION",
                             "activation": "ActivationType.ELECTROPORATOR",
                             "liquids": [
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.GENE"}
+                                { "type": "LiquidType.GENE"},
+                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST"}
                             ]
                         }
                     },
@@ -994,7 +994,9 @@
                             "type": "TriggerType.MIX",
                             "container": "ContainerType.TUBE",
                             "liquids": [
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
+                                { "type": "LiquidType.GENE"},
+                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST"},
+                                { "type": "LiquidType.GROWTH_MEDIUM"},
                                 { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
                             ]
                         }
@@ -1010,6 +1012,8 @@
                                 {
                                     "type": "ContainerType.TUBE",
                                     "liquids": [
+		                                { "type": "LiquidType.GENE"},
+		                                { "type": "LiquidType.GROWTH_MEDIUM"},
                                         { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
                                         { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
                                     ]
@@ -1026,9 +1030,10 @@
                             "type": "TriggerType.MIX",
                             "container": "ContainerType.FERMENTOR_TANK",
                             "liquids": [
+	                            { "type": "LiquidType.GENE"},
+                                { "type": "LiquidType.GROWTH_MEDIUM"},
                                 { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" },
-                                { "type": "LiquidType.GROWTH_MEDIUM"}
+                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
                             ]
 
                         }
@@ -1039,8 +1044,10 @@
                         "description": { "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt. Tænk på at det er mammale celler" },
                         "trigger": {
                             "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.FERMENTOR",
+                            "activation": "ActivationType.FERMENTOR_START",
                             "liquids": [
+	                            { "type": "LiquidType.GENE"},
+                                { "type": "LiquidType.GROWTH_MEDIUM"},
                                 { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
                                 { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B"}
                             ]

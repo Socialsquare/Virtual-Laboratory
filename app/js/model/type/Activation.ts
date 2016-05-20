@@ -13,7 +13,7 @@ enum Activation {
     ICE_BATH                = ev.next(),
     OD                      = ev.next(),
     BLENDER                 = ev.next(),
-    FERMENTOR               = ev.next(),
+    FERMENTOR_START         = ev.next(),
     SPECTROPM               = ev.next(),
     SUPPLY                  = ev.next(),
     PCR                     = ev.next(),

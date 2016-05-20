@@ -246,7 +246,7 @@ class Experiment {
             if (!this.matchLiquids(trigger, item)) return;
         }
 
-        if (trigger.activation === ActivationType.FERMENTOR) {
+        if (trigger.activation === ActivationType.FERMENTOR_START) {
             if (!this.matchLiquids(trigger, item.fermentorTank)) return;
         }
 

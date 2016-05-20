@@ -199,8 +199,10 @@ class SimpleContainer extends InventoryItem {
         var producedEnzymes = [];
         var totalConc = this.getTotalConcentration();
 
-        if (this.getTotalConcentration() >= this.maxConcentration())
+        if (this.getTotalConcentration() >= this.maxConcentration()) {
+            console.log("growContentsOnce: totalConcentration >= maxConcentration");
             return producedEnzymes;
+        }
 
         _.forEach(this.getMicroorganisms(), (organism) => {
 
@@ -209,7 +211,6 @@ class SimpleContainer extends InventoryItem {
             if (growerType === GrowerType.FERMENTOR) {
                 //TODO: produce enzymes
                 growthAmount = organism.getGrowthStep(deltaTime, this.maxConcentration(), totalConc, ph, temperature);
-
                 if (organism.producedEnzymes().length === 0) {
 
                     var extraLen = organism.extraProperties().length;

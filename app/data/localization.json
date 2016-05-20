@@ -33,7 +33,6 @@
         "computer.screen.mouse_confirm.body": "Din nuværende mus vil forsvinde. Vil du alligevel bestille en ny?",
 
         "computer.screen.sequencing.fail_header": "Noget gik galt.",
-        "computer.screen.sequencing.invalid_concentration": "Koncentrationen af celler i den indsendte prøve var for høj, så det var ikke muligt at finde noget brugbart ved sekventeringen.",
         "computer.screen.sequencing.missing_antibody": "Det var ikke muligt at finde noget brugbart ved sekventeringen. Det tyder på, at de sekventerede celler ikke dannede antistof.",
         "computer.screen.sequencing.missing_myeloma": "Det var ikke muligt at finde noget brugbart ved sekventeringen. Der var tilsyneladende ingen myeloma-celler i den indsendte prøve.",
         "computer.screen.sequencing.created_gout.header": "DNA sekventeret",
