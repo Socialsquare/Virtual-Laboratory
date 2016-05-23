@@ -40,8 +40,17 @@ class PopupModel {
     }
 
     print() {
+        var isFs = screenfull.enabled && screenfull.isFullscreen;
+        if (isFs) {
+            var body = document.getElementsByTagName('body')[0];
+            screenfull.exit(body);
+        }
         $("#print-popup").html($(".popup").html());
-        window.print();        
+        window.print();
+        if (isFs && !screenfull.isFullscreen){
+            var body = document.getElementsByTagName('body')[0];
+            screenfull.toggle(body);
+        }
     }
 
     selectedExperiment() {
