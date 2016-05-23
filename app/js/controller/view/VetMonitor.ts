@@ -307,19 +307,28 @@ class VetMonitor {
             <PlotItemType>{
                 data: this.getHrDataForPlot(),
                 yaxis: 3,
-                color: 'rgb(255,160,160)'
+                color: '#a14d40',
+                lines: {
+                    lineWidth: 2
+                }
             },
             <PlotItemType>{
                 data: this.getBloodGlucoseDataForPlot(),
-                label: 'mmol/L',
+                //label: 'mmol/L',
                 yaxis: 1,
-                color: 'yellow'
+                color: ' #c47c72',
+                lines: {
+                    lineWidth: 7
+                }
             },
             <PlotItemType>{
                 data: this.getGirDataForPlot(),
-                label: 'mg/kg/min',
+                //label: 'mg/kg/min',
                 yaxis: 2,
-                color: 'blue'
+                color: '#fbc755',
+                lines: {
+                    lineWidth: 7
+                }
             },
         ];
         this.plotData.removeAll();

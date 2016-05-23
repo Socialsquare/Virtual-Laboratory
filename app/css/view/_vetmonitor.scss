@@ -1,4 +1,11 @@
 /* view/vetmonitor.scss */
+.tickLabel { 
+    font-family: MoolBoran, sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    color: #477b7b;
+ }
+
 .vetmonitor {
     .export-btn {
         position: absolute;
@@ -82,33 +89,56 @@
     .axis-label {
         position: absolute;
         text-align: center;
-        font-size: 18px;
+        font-size: 15px;
         font-weight: 900;
-        text-decoration: underline;
+        text-decoration: none;
     }
     
     .yaxis-label {
-        transform: rotate(-5deg);
-        -o-transform: rotate(-5deg);
-        -ms-transform: rotate(-5deg);
-        -moz-transform: rotate(-5deg);
-        -webkit-transform:  rotate(-5deg);
+        transform: rotate(-4deg);
+        -o-transform: rotate(-4deg);
+        -ms-transform: rotate(-4deg);
+        -moz-transform: rotate(-4deg);
+        -webkit-transform:  rotate(-4deg);
         transform-origin: 0 0;
         -o-transform-origin: 0 0;
         -ms-transform-origin: 0 0;
         -moz-transform-origin: 0 0;
         -webkit-transform-origin: 0 0;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        line-height: 20px;
     }
 
     .yaxis-label-0 {
-        top: 53.9%;
-        left: 56px;
-        color: yellow;
+        top: 55.6%;
+        left: 58px;
+        background-color: #c47c72;
+        &__text {
+            color: #255757;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
     }
 
     .yaxis-label-1 {
-        top: 51.7%;
-        left: 245px;
-        color: blue;
+        top: 54.0%;
+        left: 222px;
+        background-color: #f5cf67;
+        &__text {
+            color: #518a8a;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
     }
 }

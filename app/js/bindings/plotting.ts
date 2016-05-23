@@ -71,6 +71,13 @@ ko.bindingHandlers.plotVetMonitor = {
 
     update: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
         var data = ko.unwrap(valueAccessor());
+        var girTickFmtrFn = (val, axis)=>{
+            var floatVal = parseFloat(val);
+            if (floatVal === 0){
+                return '0';
+            }
+            return floatVal.toPrecision(2).replace(".", ",");
+        }
 
         $.plot(
             $(element),
@@ -78,13 +85,19 @@ ko.bindingHandlers.plotVetMonitor = {
             {
                 xaxes: [{ show: false }],
                 yaxes: [
-                    { min: 0, max: 20, },
+                    { min: 0, max: 20, tickSize: 10 },
                     { min: 0, max: 1,
                       alignTicksWithAxis: 1,
+                      tickSize: 0.5,
+                      tickFormatter: girTickFmtrFn,
                       position: "right"
                     },
                     { min: -400, max: 1000, show: false, position: "right"}
-                ]
+                ],
+                series: {
+                    lines: { show: true },
+                    shadowSize: 3
+                }
             });
     }
 };
