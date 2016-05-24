@@ -307,7 +307,7 @@ class VetMonitor {
             <PlotItemType>{
                 data: this.getHrDataForPlot(),
                 yaxis: 3,
-                color: '#a14d40',
+                color: '#611307',
                 lines: {
                     lineWidth: 2
                 }
