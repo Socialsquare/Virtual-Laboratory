@@ -99,6 +99,11 @@ ko.bindingHandlers.plotVetMonitor = {
                 series: {
                     lines: { show: true },
                     shadowSize: 3
+                },
+                grid: {
+                    markings: [
+                        {xaxis: {}, color: "white"},
+                    ]
                 }
             });
     }
