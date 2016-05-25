@@ -74,7 +74,7 @@ ko.bindingHandlers.plotVetMonitor = {
         var girTickFmtrFn = (val, axis)=>{
             var floatVal = parseFloat(val);
             if (floatVal === 0){
-                return '0';
+                return '0,0';
             } else if ((floatVal % 1) !== 0) {
                 return floatVal.toPrecision(2).replace(".", ",").replace(/0$/,"");
             }
