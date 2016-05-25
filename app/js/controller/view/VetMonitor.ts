@@ -1,5 +1,6 @@
 import ko = require('knockout');
 import _ = require('lodash');
+import $ = require('jquery');
 
 import heartRateJsonData = require('json!datadir/heartRate.json');
 import DataHelper = require('utils/DataHelper');
@@ -403,14 +404,17 @@ class VetMonitor {
     }
 
     toggleSimulation(enabled: boolean) {
+        enabled = !!enabled;
         console.log("VetMonitorController toggleSimulation(" + enabled + ")");
-        if ((enabled) && (this.simulationIntervalId === null)) {
+        if (enabled && (this.simulationIntervalId === null)) {
             this.areYlabelsVisible(true);
             this.simulationIntervalId = setInterval(this.nextTimeStep,
                 this.simulationInterval);
+            setTimeout( () =>{ $('.mousegraph .flot-base').show();}, 10);
         } else {
             clearInterval(this.simulationIntervalId);
             this.simulationIntervalId = null;
+            setTimeout( () =>{ $('.mousegraph .flot-base').hide();}, 10);
         }
     }
     
