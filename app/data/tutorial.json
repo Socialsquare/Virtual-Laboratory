@@ -1,135 +1,237 @@
 [
     {
-        "title": "Hjælp",
-        "message": "Hjælpevinduet giver dig information om alle laboratoriets apparater og egenskaber. Brug det hvis du er i tvivl om hvor et apparat befinder sig eller hvordan det virker.",
+        "title": {
+            "dk": "Hjælp",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "Hjælpevinduet giver dig information om alle laboratoriets apparater og egenskaber. Brug det hvis du er i tvivl om hvor et apparat befinder sig eller hvordan det virker.",
+            "en": "TODO"
+        },
         "x": 578,
         "y": 85,
         "arrowTop": true,
         "arrowLeft": false
     },
     {
-        "title": "Eksperiment valg",
-        "message": "Du kan altid vælge et nyt eksperiment, men vær opmærksom på at dine ting og fremskridt mistes.",
+        "title": {
+            "dk": "Eksperiment valg",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "Du kan altid vælge et nyt eksperiment, men vær opmærksom på at dine ting og fremskridt mistes.",
+            "en": "TODO"
+        },
         "x": 628,
         "y": 85,
         "arrowTop": true,
         "arrowLeft": false
     },
     {
-        "title": "Fuldskærm",
-        "message": "Åbn spillet i fuldskærm.",
+        "title": {
+            "dk": "Fuldskærm",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "Åbn spillet i fuldskærm.",
+            "en": "TODO"
+        },
         "x": 682,
         "y": 85,
         "arrowTop": true,
         "arrowLeft": false
     },
     {
-        "title": "Guiden",
-        "message": "Guiden viser dig hvad det næste skridt i dit eksperiment er, og krydser opgaverne af når du har gennemført dem.",
+        "title": {
+            "dk": "Guiden",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "Guiden viser dig hvad det næste skridt i dit eksperiment er, og krydser opgaverne af når du har gennemført dem.",
+            "en": "TODO"
+        },
         "x": 25,
         "y": 380,
         "arrowTop": false,
         "arrowLeft": true
     },
     {
-        "title": "Beholdningen",
-        "message": "Her kan du opbevare og transportere ting som du finder og producerer gennem spillet. Du kan klikke på en ting for at læse om det og skrive noter.",
+        "title": {
+            "dk": "Beholdningen",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "Her kan du opbevare og transportere ting som du finder og producerer gennem spillet. Du kan klikke på en ting for at læse om det og skrive noter.",
+            "en": "TODO"
+        },
         "x": 370,
         "y": 380,
         "arrowTop": false,
         "arrowLeft": true
     },
     {
-        "title": "Pipetten",
-        "message": "Pipetten bruges til at transportere og flytte væsker mellem reagensglas og andre beholdere. Klik på ikonet for at bruge pipetten frem.",
+        "title": {
+            "dk": "Pipetten",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "Pipetten bruges til at transportere og flytte væsker mellem reagensglas og andre beholdere. Klik på ikonet for at bruge pipetten frem.",
+            "en": "TODO"
+        },
         "x": 666,
         "y": 380,
         "arrowTop": false,
         "arrowLeft": false
     },
     {
-        "title": "Ny pipette spids",
-        "message": "Når pipetten bruges bliver spidsen beskidt. Her kan du påsætte en ny og ren spids.",
+        "title": {
+            "dk": "Ny pipette spids",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "Når pipetten bruges bliver spidsen beskidt. Her kan du påsætte en ny og ren spids.",
+            "en": "TODO"
+        },
         "x": 550,
         "y": 380,
         "arrowTop": false,
         "arrowLeft": false
     },
     {
-        "title": "Skraldespanden",
-        "message": "Her kan du smide ting ud som du ikke længere har brug for. Du kan også fjerne pipette spidsen ved at trække den over skraldespanden.",
+        "title": {
+            "dk": "Skraldespanden",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "Her kan du smide ting ud som du ikke længere har brug for. Du kan også fjerne pipette spidsen ved at trække den over skraldespanden.",
+            "en": "TODO"
+        },
         "x": 440,
         "y": 380,
         "arrowTop": false,
         "arrowLeft": false
     },
     {
-        "title": "Forsyninger",
-        "message": "I forsyningsskabet kan du hente mange forskellige væsker og redskaber til brug i dine eksperimenter.",
+        "title": {
+            "dk": "Forsyninger",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "I forsyningsskabet kan du hente mange forskellige væsker og redskaber til brug i dine eksperimenter.",
+            "en": "TODO"
+        },
         "x": 400,
         "y": 220,
         "arrowTop": true,
         "arrowLeft": false
     },
     {
-        "title": "Døren",
-        "message": "Gennem døren har du adgang til computeren, vaskemaskinen og UV rummet.",
+        "title": {
+            "dk": "Døren",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "Gennem døren har du adgang til computeren, vaskemaskinen og UV rummet.",
+            "en": "TODO"
+        },
         "x": 510,
         "y": 190,
         "arrowTop": true,
         "arrowLeft": true
     },
     {
-        "title": "Stinkskab",
-        "message": "I stinkskabet kan du arbejde med udstyr og kemikalier, som danner giftige dampe.",
+        "title": {
+            "dk": "Stinkskab",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "I stinkskabet kan du arbejde med udstyr og kemikalier, som danner giftige dampe.",
+            "en": "TODO"
+        },
         "x": 140,
         "y": 370,
         "arrowTop": true,
         "arrowLeft": true
     },
     {
-        "title": "Arbejdsborde",
-        "message": "På arbejdsbordene finder du forskellige apparater som du skal bruge i dine eksperimenter. Du kan finde information om alle apparater i hjælpevinduet.",
+        "title": {
+            "dk": "Arbejdsborde",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "På arbejdsbordene finder du forskellige apparater som du skal bruge i dine eksperimenter. Du kan finde information om alle apparater i hjælpevinduet.",
+            "en": "TODO"
+        },
         "x": 450,
         "y": 150,
         "arrowTop": false,
         "arrowLeft": true
     },
     {
-        "title": "Musen",
-        "message": "Musen finder du i sit bur på bordet. Du kan tage blodprøver og udføre forskellige forsøg med musen.",
+        "title": {
+            "dk": "Musen",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "Musen finder du i sit bur på bordet. Du kan tage blodprøver og udføre forskellige forsøg med musen.",
+            "en": "TODO"
+        },
         "x": 590,
         "y": 310,
         "arrowTop": true,
         "arrowLeft": false
     },
     {
-        "title": "Fermentoren",
-        "message": "Fermentoren er en gæringsbeholder, der bruges til at gro produktionsceller under kontrollerede forhold. Mere information kan findes i hjælpevinduet.",
+        "title": {
+            "dk": "Fermentoren",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "Fermentoren er en gæringsbeholder, der bruges til at gro produktionsceller under kontrollerede forhold. Mere information kan findes i hjælpevinduet.",
+            "en": "TODO"
+        },
         "x": 600,
         "y": 50,
         "arrowTop": false,
         "arrowLeft": false
     },
     {
-        "title": "Spektrofotometer",
-        "message": "Spektrofotometer bruges til at bestemme koncentrationen af et stof eller protein i en opløsning.",
+        "title": {
+            "dk": "Spektrofotometer",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "Spektrofotometer bruges til at bestemme koncentrationen af et stof eller protein i en opløsning.",
+            "en": "TODO"
+        },
         "x": 380,
         "y": 190,
         "arrowTop": true,
         "arrowLeft": true
     },
     {
-        "title": "Inkubatoren",
-        "message": "En inkubator er et varmeskab, der bruges til at gro celler under kontrollerede forhold.",
+        "title": {
+            "dk": "Inkubatoren",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "En inkubator er et varmeskab, der bruges til at gro celler under kontrollerede forhold.",
+            "en": "TODO"
+        },
         "x": 410,
         "y": 220,
         "arrowTop": false,
         "arrowLeft": true
     },
     {
-        "title": "God fornøjelse!",
-        "message": "Husk at du kan få hjælp til dine eksperimenter gennem hjælpevinduet og guiden.",
+        "title": {
+            "dk": "God fornøjelse!",
+            "en": "TODO"
+        },
+        "message": {
+            "dk": "Husk at du kan få hjælp til dine eksperimenter gennem hjælpevinduet og guiden.",
+            "en": "TODO"
+        },
         "x": 330,
         "y": 180,
         "hideArrow": true
