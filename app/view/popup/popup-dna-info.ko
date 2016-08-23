@@ -1,11 +1,11 @@
 <div class="popup popup-dna-info">
     <!-- ko with: data.dna -->
 
-    <h1 data-bind="text: name"></h1>
+    <h1 data-bind="i18n: name()"></h1>
 
     <hr />
 
-    <div class="description" data-bind="text: description"></div>
+    <div class="description" data-bind="i18n: description()"></div>
 
     <h4 data-bind="i18n: 'common.sequence'"></h4>
     <div class="sequence" data-bind="text: sequence"></div>

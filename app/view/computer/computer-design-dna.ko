@@ -7,7 +7,7 @@
             <div class="hand"
                  data-bind="drag: { item: $data, helper: 'clone', offset: { left: 10, top: 10} },
                             click: $parent.showInfo">
-                <img data-bind="attr: { src: icon }"> <span data-bind="text: name"></span>
+                <img data-bind="attr: { src: icon }"> <span data-bind="i18n: name()"></span>
             </div>
         </li>
     </ul>
@@ -33,7 +33,7 @@
             </div>
 
             <div class="dna-element-img" data-bind="style: { 'background-color': color }, click: $parent.showInfo"></div>
-            <div class="dna-element-name" data-bind="text: name, click: $parent.showInfo"></div>
+            <div class="dna-element-name" data-bind="i18n: name(), click: $parent.showInfo"></div>
         </div>
         <!-- /ko -->
     </div>

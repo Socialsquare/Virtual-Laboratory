@@ -1,9 +1,9 @@
 <div class="tutorial-box" data-bind="visible: active, style: { left: currentMessage().x + 'px', top: currentMessage().y + 'px' }">
-    <h3 class="title" data-bind="text: currentMessage().title"></h3>
+    <h3 class="title" data-bind="i18n: currentMessage().title()"></h3>
 
     <hr>
 
-    <div class="message" data-bind="text: currentMessage().message"></div>
+    <div class="message" data-bind="i18n: currentMessage().message()"></div>
 
     <button class="next" data-bind="click: next, i18n: 'common.next'"></button>
 

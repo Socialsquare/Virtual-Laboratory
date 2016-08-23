@@ -1,32 +1,32 @@
 <div class="popup popup-guide">
-   
+
     <h1 data-bind="i18n: 'popup.guide.header'"></h1>
     <h2 data-bind="i18n: 'popup.guide.subheader'"></h2>
-    
+
     <img class="ba-logo" src="assets/images/logo.png" alt="Biotech Academy">
     <img class="dda-logo" data-bind="visible: displayDDALogo()" src="assets/images/dda-logo.png" alt="Danish Diabetes Academy">
 
 	<hr />
 
     <section class="inner">
-        
+
         <header data-bind="attr: { 'id': experiment.id }">
             <h1 data-bind="i18n: experiment.title"></h1>
             <span class="story" data-bind="i18n: experiment.story"></span>
-            <button " class="discard-experiment" data-bind="click: discardExperiment"></button> 
+            <button " class="discard-experiment" data-bind="click: discardExperiment"></button>
         </header>
 
         <h2 data-bind="i18n: 'popup.guide.title'"></h2>
-                    
+
         <table data-bind="foreach: experiment.parts()">
                 <!-- ko if: $parent.experiment.parts().length > 1 -->
                 <thead>
                     <tr>
                         <td colspan="2">
                             <h3>
-                                <span data-bind="i18n: 'popup.guide.part'"></span> 
+                                <span data-bind="i18n: 'popup.guide.part'"></span>
                                 <span data-bind="text: $index() + 1"></span>
-                                -  <span data-bind="text: title"></span>
+                                -  <span data-bind="i18n: title()"></span>
                             </h3>
                         </td>
                     </tr>
@@ -35,7 +35,7 @@
                 <tbody data-bind="foreach: tasks">
                     <tr data-bind="css: { finished: finished, active: $parents[1].isActiveTask($data) }">
                         <td class="task-description">
-                            <span data-bind="text: $index() + 1"></span>. 
+                            <span data-bind="text: $index() + 1"></span>.
                             <span data-bind="i18n: description()"></span>
                         </td>
                         <td class="task-checkmark">
@@ -49,7 +49,7 @@
                     <tr>
                         <td>
                             <span class="part-question" data-bind="i18n: 'popup.guide.question'"></span>:
-                            <span data-bind="text: question"></span>
+                            <span data-bind="i18n: question()"></span>
                         </td>
                     </tr>
                 </tbody>
