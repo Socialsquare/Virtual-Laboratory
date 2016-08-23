@@ -41,6 +41,10 @@ class Loading extends BaseViewController {
         localizationService.setLanguage(langCode);
     }
 
+    selectedLanguage() {
+        return localizationService.selectedLanguage();
+    }
+
     enter() {
         gameState.pipette.active(false);
         this.experimentSelectorController.selected(null);

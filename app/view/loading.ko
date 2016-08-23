@@ -42,12 +42,13 @@
         <!-- /ko -->
     </div>
     <!-- /ko -->
+
     <!-- /ko -->
 
-    <!--<div class="flags">
-        <img data-bind="click: selectLang.bind(null, 'dk'), css: { active: localizationService.selectedLanguage() === 'dk'}" src="assets/images/flag_dk.png">
-        <img data-bind="click: selectLang.bind(null, 'en'), css: { active: localizationService.selectedLanguage() === 'en'}" src="assets/images/flag_en.png">
-    </div>-->
+    <div class="flags">
+        <img data-bind="click: selectLang.bind(null, 'dk'), css: { active: selectedLanguage() === 'dk'}" src="assets/images/flag_dk.png">
+        <img data-bind="click: selectLang.bind(null, 'en'), css: { active: selectedLanguage() === 'en'}" src="assets/images/flag_en.png">
+    </div>
 
     <img class="ba-logo" src="assets/images/logo.png" alt="Biotech Academy">
 </div>
