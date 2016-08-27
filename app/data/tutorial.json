@@ -2,11 +2,11 @@
     {
         "title": {
             "dk": "Hjælp",
-            "en": "TODO"
+            "en": "Help"
         },
         "message": {
             "dk": "Hjælpevinduet giver dig information om alle laboratoriets apparater og egenskaber. Brug det hvis du er i tvivl om hvor et apparat befinder sig eller hvordan det virker.",
-            "en": "TODO"
+            "en": "The \"Help\" window gives you information about all of the laboratory's equipment and features. Use it if you are in doubt of where to find a piece of equipment or how it works."
         },
         "x": 578,
         "y": 85,
@@ -16,11 +16,11 @@
     {
         "title": {
             "dk": "Eksperiment valg",
-            "en": "TODO"
+            "en": "Select experiment"
         },
         "message": {
             "dk": "Du kan altid vælge et nyt eksperiment, men vær opmærksom på at dine ting og fremskridt mistes.",
-            "en": "TODO"
+            "en": "You can always select a new experiment - but be aware that your progress in the current one will be lost."
         },
         "x": 628,
         "y": 85,
@@ -30,11 +30,11 @@
     {
         "title": {
             "dk": "Fuldskærm",
-            "en": "TODO"
+            "en": "Fullscreen"
         },
         "message": {
             "dk": "Åbn spillet i fuldskærm.",
-            "en": "TODO"
+            "en": "Opens the game in fullscreen."
         },
         "x": 682,
         "y": 85,
@@ -44,11 +44,11 @@
     {
         "title": {
             "dk": "Guiden",
-            "en": "TODO"
+            "en": "Guide"
         },
         "message": {
             "dk": "Guiden viser dig hvad det næste skridt i dit eksperiment er, og krydser opgaverne af når du har gennemført dem.",
-            "en": "TODO"
+            "en": "The guide shows you what the next step in your experiment is and crosses the tasks off when you have completed them."
         },
         "x": 25,
         "y": 380,
@@ -58,11 +58,11 @@
     {
         "title": {
             "dk": "Beholdningen",
-            "en": "TODO"
+            "en": "Inventory"
         },
         "message": {
             "dk": "Her kan du opbevare og transportere ting som du finder og producerer gennem spillet. Du kan klikke på en ting for at læse om det og skrive noter.",
-            "en": "TODO"
+            "en": "Here you can store and transport the items you find and produre during the game. You can click on an item to read and write notes about it."
         },
         "x": 370,
         "y": 380,
@@ -72,11 +72,11 @@
     {
         "title": {
             "dk": "Pipetten",
-            "en": "TODO"
+            "en": "Pippet"
         },
         "message": {
             "dk": "Pipetten bruges til at transportere og flytte væsker mellem reagensglas og andre beholdere. Klik på ikonet for at bruge pipetten frem.",
-            "en": "TODO"
+            "en": "The pippet is used to transport and move liquids between test tubes and other containers. Click on the icon to bring forth the pippet."
         },
         "x": 666,
         "y": 380,
@@ -86,11 +86,11 @@
     {
         "title": {
             "dk": "Ny pipette spids",
-            "en": "TODO"
+            "en": "New pippet tip"
         },
         "message": {
             "dk": "Når pipetten bruges bliver spidsen beskidt. Her kan du påsætte en ny og ren spids.",
-            "en": "TODO"
+            "en": "When the pippet is used the tip gets contaiminated. Here you can add a new and sterile tip."
         },
         "x": 550,
         "y": 380,
@@ -100,11 +100,11 @@
     {
         "title": {
             "dk": "Skraldespanden",
-            "en": "TODO"
+            "en": "Trash bin"
         },
         "message": {
             "dk": "Her kan du smide ting ud som du ikke længere har brug for. Du kan også fjerne pipette spidsen ved at trække den over skraldespanden.",
-            "en": "TODO"
+            "en": "Here you can throw out things you no longer need. You can also remove your current pippet tip by dragging it to the trash bin."
         },
         "x": 440,
         "y": 380,
@@ -114,11 +114,11 @@
     {
         "title": {
             "dk": "Forsyninger",
-            "en": "TODO"
+            "en": "Stock"
         },
         "message": {
             "dk": "I forsyningsskabet kan du hente mange forskellige væsker og redskaber til brug i dine eksperimenter.",
-            "en": "TODO"
+            "en": "In the stock cabinet you can retrieve many of the things you need through you experiments."
         },
         "x": 400,
         "y": 220,
@@ -128,11 +128,11 @@
     {
         "title": {
             "dk": "Døren",
-            "en": "TODO"
+            "en": "Door"
         },
         "message": {
             "dk": "Gennem døren har du adgang til computeren, vaskemaskinen og UV rummet.",
-            "en": "TODO"
+            "en": "Through the door you have access to the computer, washing machine and UV room."
         },
         "x": 510,
         "y": 190,
@@ -142,11 +142,11 @@
     {
         "title": {
             "dk": "Stinkskab",
-            "en": "TODO"
+            "en": "Fume closet"
         },
         "message": {
             "dk": "I stinkskabet kan du arbejde med udstyr og kemikalier, som danner giftige dampe.",
-            "en": "TODO"
+            "en": "In the fume closet you can wok with equipment and chemicals that produce poisonous fumes."
         },
         "x": 140,
         "y": 370,
@@ -156,11 +156,11 @@
     {
         "title": {
             "dk": "Arbejdsborde",
-            "en": "TODO"
+            "en": "Work bench"
         },
         "message": {
             "dk": "På arbejdsbordene finder du forskellige apparater som du skal bruge i dine eksperimenter. Du kan finde information om alle apparater i hjælpevinduet.",
-            "en": "TODO"
+            "en": "On the work bench you find different pieces of equipment for you to used in your experiments. You can find information about them in the \"Help\" window."
         },
         "x": 450,
         "y": 150,
@@ -170,11 +170,11 @@
     {
         "title": {
             "dk": "Musen",
-            "en": "TODO"
+            "en": "The mouse"
         },
         "message": {
             "dk": "Musen finder du i sit bur på bordet. Du kan tage blodprøver og udføre forskellige forsøg med musen.",
-            "en": "TODO"
+            "en": "The mouse you find in its cage. You can take blood samples and perform various experiments with the mouse."
         },
         "x": 590,
         "y": 310,
@@ -184,11 +184,11 @@
     {
         "title": {
             "dk": "Fermentoren",
-            "en": "TODO"
+            "en": "The fermentor"
         },
         "message": {
             "dk": "Fermentoren er en gæringsbeholder, der bruges til at gro produktionsceller under kontrollerede forhold. Mere information kan findes i hjælpevinduet.",
-            "en": "TODO"
+            "en": "The fermentor is a container used to grow cells that produce specific substances under controlled settings. More information can be found in the \"Help\" window."
         },
         "x": 600,
         "y": 50,
@@ -198,11 +198,11 @@
     {
         "title": {
             "dk": "Spektrofotometer",
-            "en": "TODO"
+            "en": "Spectrophotometer"
         },
         "message": {
             "dk": "Spektrofotometer bruges til at bestemme koncentrationen af et stof eller protein i en opløsning.",
-            "en": "TODO"
+            "en": "The spectrophotometer is used to determine the concentration of a substance or protein in a mixture."
         },
         "x": 380,
         "y": 190,
@@ -212,11 +212,11 @@
     {
         "title": {
             "dk": "Inkubatoren",
-            "en": "TODO"
+            "en": "Incubator"
         },
         "message": {
             "dk": "En inkubator er et varmeskab, der bruges til at gro celler under kontrollerede forhold.",
-            "en": "TODO"
+            "en": "An incubator is a small heated room used to grow cells under controlled settings."
         },
         "x": 410,
         "y": 220,
@@ -226,11 +226,11 @@
     {
         "title": {
             "dk": "God fornøjelse!",
-            "en": "TODO"
+            "en": "Have fun!"
         },
         "message": {
             "dk": "Husk at du kan få hjælp til dine eksperimenter gennem hjælpevinduet og guiden.",
-            "en": "TODO"
+            "en": "Remember that you can find help with your expriments in the \"Help\" window and the guide."
         },
         "x": 330,
         "y": 180,

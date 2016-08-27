@@ -6,13 +6,13 @@
         "link": "http://partsregistry.org/Part:BBa_J63002",
         "description": {
             "dk": "En terminator bruges til at afslutte sekventeringsprocessen. Hvis en sekvensen ikke afsluttes med en terminator vil genet være ubrugeligt.",
-            "en": "TODO"
+            "en": "A terminator is used to stop the sequencing process. If a sequnce is not concluded with a terminator the gene will be useless."
         },
         "sequence": "TAATAAGCGAATTTCTTATGATTTATGATTTTTATTATTAAATAAGTTATAAAAAAAATAAGTGTATACAAATTTTAAAGTGACTCTTAGGTTTTAAAACGAAAATTCTTATTCTTGAGTAACTCTTTCCTGTAGGTCAGGTTGCTTTCTCAGGTATAGCATGAGGTCGCTCTTATTGACCACACCTCTACCGGCATGCCGAGCAAATGCCTGCAAATCGCTCCC",
         "color": "#b54137",
         "name": {
             "dk": "Terminator",
-            "en": "TODO"
+            "en": "Terminator"
         },
         "id": "DNA_ADH1TERMINATOR",
         "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
@@ -24,13 +24,13 @@
         "link": "",
         "description": {
             "dk": "Er nødvendige for at starte translationen af mRNA til protein.",
-            "en": "TODO"
+            "en": "Is necessary to start the translation of mRNA to protein."
         },
         "sequence": "ATG",
         "color": "#7cd462",
         "name": {
             "dk": "Start Codon",
-            "en": "TODO"
+            "en": "Start Codon"
         },
         "id": "DNA_STARTCODON",
         "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
@@ -42,13 +42,13 @@
         "link": "",
         "description": {
             "dk": "Er nødvendige for at stoppe translationen af mRNA til protein.",
-            "en": "TODO"
+            "en": "Is necessary to stop the translation of mRNA to protein."
         },
         "sequence": "TAG",
         "color": "#ff6868",
         "name": {
             "dk": "Stop Codon",
-            "en": "TODO"
+            "en": "Stop Codon"
         },
         "id": "DNA_STOPCODON",
         "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
@@ -60,13 +60,13 @@
         "link": "http://partsregistry.org/wiki/index.php?title=Part:BBa_J63003",
         "description": {
             "dk": "Et RBS gør det nemmere for ribosomet at binde til mRNA’et.",
-            "en": "TODO"
+            "en": "An RBS makes it easier for the ribosome to bind to the mRNA."
         },
         "sequence": "CCCGCCGCCACC",
         "color": "#70ab5f",
         "name": {
             "dk": "Ribosome Binding Site",
-            "en": "TODO"
+            "en": "Ribosomal Binding Site."
         },
         "id": "DNA_RIBOSOMEBINDINGSITE",
         "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
@@ -84,7 +84,7 @@
         "color": "#80c0f7",
         "name": {
             "dk": "Grønt flourescerende protein (GFP)",
-            "en": "TODO"
+            "en": "Green Fluorescent Protein (GFP)"
         },
         "id": "DNA_GROENTFLOURESCERENDEPROTEIN",
         "proteinCodingSequence": "ProteinCodingSequenceType.GFP"
@@ -96,13 +96,13 @@
         "link": "http://www.ebi.ac.uk/ena/data/view/V00565 AND http://www.uniprot.org/uniprot/P01308",
         "description": {
             "dk": "Sekvensen koder for en modificeret version af det humane insulin protein, der er vigtig for at regulere blodsukkeret i mennesker.",
-            "en": "TODO"
+            "en": "The sequence codes for a modified version of the human insulin protein necessary to regulate blood sugar in humans."
         },
         "sequence": "CTCGAGGGGCCTAGACATTGCCCTCCAGAGAGAGCACCCAACACCCTCCAGGCTTGACCGGCCAGGGTGTCCCCTTCCTACCTTGGAGAGAGCAGCCCCAGGGCATCCTGCAGGGGGTGCTGGGACACCAGCTGGCCTTCAAGGTCTCTGCCTCCCTCCAGCCACCCCACTACACGCTGCTGGGATCCTGGATCTCAGCTCCCTGGCCGACAACACTGGCAAACTCCTACTCATCCACGAAGGCCCTCCTGGGCATGGTGGTCCTTCCCAGCCTGGCAGTCTGTTCCTCACACACCTTGTTAGTGCCCAGCCCCTGAGGTTGCAGCTGGGGGTGTCTCTGAAGGGCTGTGAGCCCCCAGGAAGCCCTGGGGAAGTGCCTGCCTTGCCTCCCCCCGGCCCTGCCAGCGCCTGGCTCTGCCCTCCTACCTGGGCTCCCCCCATCCAGCCTCCCTCCCTACACACTCCTCTCAAGGAGGCACCCATGTCCTCTCCAGCTGCCGGGCCTCAGAGCACTGTGGCGTCCTGGGGCAGCCACCGCATGTCCTGCTGTGGCATGGCTCAGGGTGGAAAGGGCGGAAGGGAGGGGTCCTGCAGATAGCTGGTGCCCACTACCAAACCCGCTCGGGGCAGGAGAGCCAAAGGCTGGGTGTGTGCAGAGCGGCCCCGAGAGGTTCCGAGGCTGAGGCCAGGGTGGGACATAGGGATGCGAGGGGCCGGGGCACAGGATACTCCAACCTGCCTGCCCCCATGGTCTCATCCTCCTGCTTCTGGGACCTCCTGATCCTGCCCCTGGTGCTAAGAGGCAGGTAAGGGGCTGCAGGCAGCAGGGCTCGGAGCCCATGCCCCCTCACCATGGGTCAGGCTGGACCTCCAGGTGCCTGTTCTGGGGAGCTGGGAGGGCCGGAGGGGTGTACCCCAGGGGCTCAGCCCAGATGACACTATGGGGGTGATGGTGTCATGGGACCTGGCCAGGAGAGGGGAGATGGGCTCCCAGAAGAGG",
         "color": "#80c0f7",
         "name": {
             "dk": "Insulin analog",
-            "en": "TODO"
+            "en": "Insulin analog"
         },
         "id": "DNA_INSULINANALOG1",
         "proteinCodingSequence": "ProteinCodingSequenceType.INSULIN_1"
@@ -114,13 +114,13 @@
         "link": "http://www.ncbi.nlm.nih.gov/protein/AAA41250.1",
         "description": {
             "dk": "Sekvensen koder for et lipase enzym, der katalyserer nedbrydningen af fedt til mindre molekyler.",
-            "en": "TODO"
+            "en": "The sequence codes for a lipase enzyme that catalyses the degradation of fatty acids to smaller molecules."
         },
         "sequence": "CCGCGCGGCGTGAGCGGCAACCTGTTTCCGAGCGTGCAGATGCTGCTGTGCTGGATTGTGAGCCTGCTGCTGGCGACCGTGGGCGGCAAAGAAGTGTGCTATGGCCATCTGGGCTGCTTTAGCAACGATAAACCGTGGGCGGGCATGCTGCAGCGCCCGCTGAAAATTTTTCCGTGGAGCCCGGAAGATATTGATACCCGCTTTCTGCTGTATACCAACGAAAACCCGAACAACTATCAGAAAATTAGCGCGACCGAACCGGATACCATTAAATTTAGCAACTTTCAGCTGGATCGCAAAACCCGCTTTATTGTGCATGGCTTTATTGATAAAGGCGAAGATGGCTGGCTGCTGGATATGTGCAAAAAAATGTTTCAGGTGGAAAAAGTGAACTGCATTTGCGTGGATTGGCGCCGCGGCAGCCGCACCGAATATACCCAGGCGAGCTATAACACCCGCGTGGTGGGCGCGGAAATTGCGTTTCTGGTGCAGGTGCTGAGCACCGAAATGGGCTATAGCCCGGAAAACGTGCATCTGATTGGCCATAGCCTGGGCGCGCATGTGGTGGGCGAAGCGGGCCGCCGCCTGGAAGGCCATGTGGGCCGCATTACCGGCCTGGATCCGGCGGAACCGTGCTTTCAGGGCCTGCCGGAAGAAGTGCGCCTGGATCCGAGCGATGCGATGTTTGTGGATGTGATTCATACCGATAGCGCGCCGATTATTCCGTATCTGGGCTTTGGCATGAGCCAGAAAGTGGGCCATCTGGATTTTTTTCCGAACGGCGGCAAAGAAATGCCGGGCTGCCAGAAAAACATTCTGAGCACCATTGTGGATATTAACGGCATTTGGGAAGGCACCCAGAACTTTGTGGCGTGCAACCATCTGCGCAGCTATAAATATTATGCGAGCAGCATTCTGAACCCGGATGGCTTTCTGGGCTATCCGTGCAGCAGCTATGAAAAATTTCAGCAGAACGATTGCTTTCCGTGCCCGGAAGAAGGCTGCCCGAAAATGGGCCATTATGCGGATCAGTTTGAAGGCAAAACCGCGACCGTGGAACAGACCGTGTATCTGAACACCGGCGATAGCGGCAACTTTACCCGCTGGCGCTATAAAGTGAGCGTGACCCTGAGCGGCGCGAAAAAACTGAGCGGCTATATTCTGGTGGCGCTGTATGGCAACAACGGCAACAGCAAACAGTATGAAATTTTTAAAGGCAGCCTGAAACCGGAAGCGCGCCATGTGCGCGATATTGATGTGGATATTAACGTGGGCGAAATTCAGAAAGTGAAATTTCTGTGGAACAACAAAGTGATTAACCTGTTTCGCCCGACCCTGGGCGCGAGCCAGATTACCGTGCAGAGCGGCGTGGATGGCAAAGAATATAACTTTTGCAGCAGCGATACCGTGCGCGAAGATGTGCTGCAGAGCCTGTATCCGTGC",
         "color": "#80c0f7",
         "name": {
             "dk": "Lipase vaskeenzym",
-            "en": "TODO"
+            "en": "Lipase washing enzyme"
         },
         "id": "DNA_LIPASEVASKEENZYM",
         "proteinCodingSequence": "ProteinCodingSequenceType.LIPASE_ENZYME"
@@ -131,14 +131,14 @@
         "comment": "",
         "link": "",
         "description": {
-            "dk": "ADH1 promoter from S. cerevisiae",
-            "en": "TODO"
+            "dk": "ADH1 promoter fra S. cerevisiae",
+            "en": "ADH1 promoter from S. cerevisiae (baker's yeast)."
         },
         "sequence": "AAGAAATGATGGTAAATGAAATAGGAAATCAAGGAGCATGAAGGCAAAAGACAAATATAAGGGTCGAACGAAAAATAAAGTGAAAAGTGTTGATATGATGTATTTGGCTTTGCGGCGCCGAAAAAACGAGTTTACGCAATTGCACAATCATGCTGACTCTGTGGCGGACCCGCGCTCTTGCCGGCCCGGCGATAACGCTGGGCGTGAGGCTGTGCCCGGCGGAGTTTTTTGCGCCTGCATTTTCCAAGGTTTACCCTGCGCTAAGGGGCGAGATTGGAGAAGCAATAAGAATGCCGGTTGGGGTTGCGATGATGACGACCACGACAACTGGTGTCATTATTTAAGTTGCCGAAAGAACCTGAGTGCATTTGCAACATGAGTATACTAGAAGAATGAGCCAAGACTTGCGAGACGCGAGTTTGCCGGTGGTGCGAACAATAGAGCGACCATGACCTTGAAGGTGAGACGCGCATAACCGCTAGAGTACTTTGAAGAGGAAACAGCAATAGGGTTGCTACCAGTATAAATAGACAGGTACATACAACACTGGAAATGGTTGTCTGTTTGAGTACGCTTTCAATTCATTTGGGTGTGCACTTTATTATGTTACAATATGGAAGGGAACTTTACACTTCTCCTATGCACATATATTAATTAAAGTCCAATGCTAGTAGAGAAGGGGGGTAACACCCCTCCGCGCTCTTTTCCGATTTTTTTCTAAACCGTGGAATATTTCGGATATCCTTTTGTTGTTTCCGGGTGTACAATATGGACTTCCTCTTTTCTGGCAACCAAACCCATACATCGGGATTCCTATAATACCTTCGTTGGTCTCCCTAACATGTAGGTGGCGGAGGGGAGATATACAATAGAACAGATACCAGACAAGACATAATGGGCTAAACAAGACTACACCAATTACACTGCCTCATTGATGGTGGTACATAACGAACTAATACTGTAGCCCTAGACTTGATAGCCATCATCATATCGAAGTTTCACTACCCTTTTTCCATTTGCCATCTATTGAAGTAATAATAGGCGCATGCAACTTCTTTTCTTTTTTTTTCTTTTCTCTCTCCCCCGTTGTTGTCTCACCATATCCGCAATGACAAAAAAAATGATGGAAGACACTAAAGGAAAAAATTAACGACAAAGACAGCACCAACAGATGTCGTTGTTCCAGAGCTGATGAGGGGTATCTTCGAACACACGAAACTTTTTCCTTCCTTCATTCACGCACACTACTCTCTAATGAGCAACGGTATACGGCCTTCCTTCCAGTTACTTGAATTTGAAATAAAAAAAGTTTGCCGCTTTGCTATCAAGTATAAATAGACCTGCAATTATTAATCTTTTGTTTCCTCGTCATTGTTCTCGTTCCCTTTCTTCCTTGTTTCTTTTTCTGCACAATATTTCAAGCTATACCAAGCATACAATCAACT",
         "color": "#548047",
         "name": {
             "dk": "Promoter",
-            "en": "TODO"
+            "en": "Promoter"
         },
         "id": "DNA_ADH1PROMOTER",
         "proteinCodingSequence": "ProteinCodingSequenceType.NONE"
@@ -150,13 +150,13 @@
         "link": "http://www.brenda-enzymes.org/Mol/reaction-popup.php4?id=47732&type=I&displayType=marvin",
         "description": {
             "dk": "Sekvensen koder for resistens mod Hygromycin, som kan dræbe bakterier, svampe og eukaryote celler",
-            "en": "TODO"
+            "en": "The sequence codes for restance towards Hygromycine which kills bacteria, fungi and eukaryotes."
         },
         "sequence": "AAAAAGCCTGAACTCACCGCGACGTCTGTCGAGAAGTTTCTGATCGAAAAGTTCGACAGCGTCTCCGACCTGATGCAGCTCTCGGAGGGCGAAGAATCTCGTGCTTTCAGCTTCGATGTAGGAGGGCGTGGATATGTCCTGCGGGTAAATAGCTGCGCCGATGGTTTCTACAAAGATCGTTATGTTTATCGGCACTTTGCATCGGCCGCGCTCCCGATTCCGGAAGTGCTTGACATTGGGGAATTCAGCGAGAGCCTGACCTATTGCATCTCCCGCCGTGCACAGGGTGTCACGTTGCAAGACCTGCCTGAAACCGAACTGCCCGCTGTTCTGCAGCCGGTCGCGGAGGCCATGGATGCGATCGCTGCGGCCGATCTTAGCCAGACGAGCGGGTTCGGCCCATTCGGACCGCAAGGAATCGGTCAATACACTACATGGCGTGATTTCATATGCGCGATTGCTGATCCCCATGTGTATCACTGGCAAACTGTGATGGACGACACCGTCAGTGCGTCCGTCGCGCAGGCTCTCGATGAGCTGATGCTTTGGGCCGAGGACTGCCCCGAAGTCCGGCACCTCGTGCACGCGGATTTCGGCTCCAACAATGTCCTGACGGACAATGGCCGCATAACAGCGGTCATTGACTGGAGCGAGGCGATGTTCGGGGATTCCCAATACGAGGTCGCCAACATCTTCTTCTGGAGGCCGTGGTTGGCTTGTATGGAGCAGCAGACGCGCTACTTCGAGCGGAGGCATCCGGAGCTTGCAGGATCGCCGCGGCTCCGGGCGTATATGCTCCGCATTGGTCTTGACCAACTCTATCAGAGCTTGGTTGACGGCAATTTCGATGATGCAGCTTGGGCGCAGGGTCGATGCGACGCAATCGTCCGATCCGGAGCCGGGACTGTCGGGCGTACACAAATCGCCCGCAGAAGCGCGGCCGTCTGGACCGATGGCTGTGTAGAAGTACTCGCCGATAGTGGAAACCGACGCCCCAGCACTCGTCCGAGGGCAAAGGAA",
         "color": "#80c0f7",
         "name": {
             "dk": "Antibiotika Resistens B",
-            "en": "TODO"
+            "en": "Antibiotic Resistance B"
         },
         "id": "DNA_ANTIBIOTIKA_B",
         "proteinCodingSequence": "ProteinCodingSequenceType.ANTIBIOTIC_RES_B"
@@ -167,14 +167,14 @@
         "comment": "",
         "link": "http://www.metalife.com/Genbank/300195",
         "description": {
-            "dk": "Sekvensen koder for resistens mod Nourseothricin, som kan dræbe bakterier, svampe og eukaryote celler",
-            "en": "TODO"
+            "dk": "Sekvensen koder for resistens mod Nourseothricin, som kan dræbe bakterier, svampe og eukaryote celler.",
+            "en": "The sequence codes for resistance towards Nourseothricin which kills bacteria, fungi and eukaryotes."
         },
         "sequence": "agatccttgaggcacgttggtccgccagatcgacgaacagtcgtcgaaatgggccccatgtcgttcgtcgacgaggtgtaccggaaggtccggccggacacactgaccggtgcccatagcctcggcggctccggggggcgggacaggagtgcggtcggccgaaacatgccgtcaggcggtcagggtggccgtagcgtcgcgccatgaccactcttgacgacacggcttaccggtaccgcaccagtgtcccgggggacgccgaggccatcgaggcactggatgggtccttcaccaccgacaccgtcttccgcgtcaccgccaccggggacggcttcaccctgcgggaggtgccggtggacccgcccctgaccaaggtgttccccgacgacgaatcggacgacgaatcggacgacggggaggacggcgacccggactcccggacgttcgtcgcgtacggggacgacggcgacctggcgggcttcgtggtcatctcgtactcggcgtggaaccgccggctgaccgtcgaggacatcgaggtcgccccggagcaccgggggcacggggtcgggcgcgcgttgatggggctcgcgacggagttcgccggcgagcggggcgccgggcacctctggctggaggtcaccaacgtcaacgcaccggcgatccacgcgtaccggcggatggggttcaccctctgcggcctggacaccgccctgtacgacggcaccgcctcggacggcgagcggcaggcgctctacatgagcatgccctgcccc",
         "color": "#80c0f7",
         "name": {
             "dk": "Antibiotika Resistens A",
-            "en": "TODO"
+            "en": "Antibiotic Resistance A"
         },
         "id": "DNA_ANTIBIOTIKA_A",
         "proteinCodingSequence": "ProteinCodingSequenceType.ANTIBIOTIC_RES_A"

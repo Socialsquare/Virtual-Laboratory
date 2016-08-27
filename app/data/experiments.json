@@ -53,14 +53,14 @@
                 ],
                 "question": {
                     "dk": "Hvad er forskellen på insulin og glukose mellem den raske og diabetiske mus, og hvorfor?",
-                    "en": "TODO"
+                    "en": "Whats the difference in insulin and glucose levels between the healthy and diabetic mouse? Why?"
                 }
             },
             {
                 "id": "1b",
                 "title": {
                     "dk": "Glukose tolerance test",
-                    "en": "TODO"
+                    "en": "Glucose Tolerance Test"
                 },
                 "tasks": [
                     {
@@ -116,7 +116,7 @@
                 ],
                 "question": {
                     "dk": "Plot data fra både den raske og diabetiske mus i Excel. Redegør kurvens forløb og forklar hvorfor der er forskel.",
-                    "en": "TODO"
+                    "en": "Plot data from both the healthy and diabetic mouse in Excel. Explain the line of the curve and where the differences are."
                 }
             },
             {
@@ -125,7 +125,7 @@
                 },
                 "title": {
                     "dk": "Insulinfølsomhedstest",
-                    "en": "TODO"
+                    "en": "Insulin Sensitivity Test"
                 },
                 "tasks": [
                     {
@@ -175,7 +175,7 @@
                 ],
                 "question": {
                     "dk": "Lav to grafer i Excel for både den raske og den diabetiske mus med hhv. blodglukoseniveau og glukose infusionsrate. Kan du se forskel på de to glukose infusionsrate grafer, og hvis ja, hvordan?",
-                    "en": "TODO"
+                    "en": "Plot a graph in Excel for both the healthy and the diabetic mouse containing both blood glucose level and glucose infusion rate. Can you tell the difference between the two glucose infusion rates? If so, how?"
                 }
             }
         ]
@@ -346,7 +346,7 @@
                 ],
                 "question": {
                     "dk": "I en af banerne var der et bånd der lyste tydeligt op. Hvad indikere dette bånd og hvilken mus tilhørte den?",
-                    "en": "TODO"
+                    "en": "In one of the wells a band is glowing clearly. What does this band indicate and which mouse does it belong to?"
                 }
             }
         ]
@@ -1329,7 +1329,7 @@
                         "number": 19,
                         "description": {
                             "dk": "Tag ELISA-pladen med ind i UV-rummet og se nærmere på den. Notér hvilke brønde der fluorescerer. Dem der lyser op har haft en væske med et antistof der kan binde til antigenet i brønden. Det er de antistof-producerende celler fra de brønde vi er interesserede i. Herefter skal du se nærmere på den oprindelige mikrotiterplade og opsamle indholdet fra en brønd, der svarer til en fluorescerende brønd på ELISA-pladen (dette gøres ved at trykke på den pågældende brønd).",
-                            "en": "TODO"
+                            "en": "Bring the ELISA plate in the UV room and take a closer look at it. Note which wells fluoresces. Those glowing has had a mixture with an antibody that binds to the antigene in the well. It is these antibody-producing cells from the wells we are interested in. Afterwards you should take a closer look at the original mikrotiter plate and gather the content from a well matching the fluorescent wells in the ELISA plate (This is done by pressing on the well in question)."
                             },
                         "trigger": {
                             "type": "TriggerType.ACQUIRE",
