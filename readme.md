@@ -2,11 +2,20 @@
 
 ## Development
 
-    npm install
-    bower install
-    tsd reinstall -s
-    grunt test
-    grunt
+You need to have npm, bower, typings and grunt installed globally
+
+```
+cd app
+npm install
+bower install
+tsd reinstall -s
+grunt test
+grunt
+```
+
+##### Dev tips
+
+* In Atom add `customFileTypes:"text.html.basic": ["ko"]` to core in config.cson
 
 ## Demo
 
@@ -22,6 +31,5 @@ which installs npm, bower and runs `grunt production` task.
 ## Production
 
 Production, hosted by the client: http://www.biotechacademy.dk/Virtuelt-Laboratorium/velkommen
-	
-	production    ssh://vlab.biotechacademy.dk/home/vlab/vlab.git
 
+	production    ssh://vlab.biotechacademy.dk/home/vlab/vlab.git
