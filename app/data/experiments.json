@@ -1,1681 +1,1687 @@
-[
-    {
-        "id": "clamp",
+[{
+    "id": "clamp",
+    "title": {
+        "dk": "Insulin følsomhed",
+        "en": "Insulin sensitivity"
+    },
+    "description": {
+        "dk": "I denne øvelse tester du insulinfølsomheden hos en rask og diabetisk mus.",
+        "en": "In this exercise you test the insulin sensitivity in a healthy and a diabetic mouse."
+    },
+    "story": {
+        "dk": "Laboratoriet har modtaget to mus, hvoraf den ene skulle være diabetisk. Det er nu din opgave at påvise at den ene af de to mus har diabetes, gennem en række forskellige forsøg. Du skal tage blodprøver, undersøge musenes insulinfølsomhed ved en glukose tolerance test og en insulinfølsomhedstest.",
+        "en": "The laboratory has received two mice with one of them being diabetic. It is your task to prove that one of the mice has diabetes through a series of experiments. You have to take blood samples, test the mice for glucose tolerance through an oral glucose tolerance test and perform an insulin sensitivity test."
+    },
+    "apparatus": {
+        "ApparatusLocationType.MOUSE_CAGE_BOTTLE": "ApparatusType.FF_BOTTLE"
+    },
+    "parts": [{
+        "id": "1a",
         "title": {
-            "dk": "Insulin følsomhed",
-            "en": "Insulin sensitivity"
+            "dk": "Blodprøve",
+            "en": "Blood sample"
         },
-        "description": {
-            "dk": "I denne øvelse tester du insulinfølsomheden hos en rask og diabetisk mus.",
-            "en": "In this exercise you test the insulin sensitivity in a healthy and a diabetic mouse."
+        "tasks": [{
+            "description": {
+                "dk": "Bestil en rask mus, og placer den i buret. Tag derefter en blodprøve, og noter glukose- og insulinniveau ud fra data fra blodprøven.",
+                "en": "Order a healthy mouse and place it in the cage. Take a blood sample from the mouse and note down the glucose and insulin levels from the data received from the sample."
+            },
+            "trigger": {
+                "type": "TriggerType.ACQUIRE",
+                "item": "ContainerType.TUBE",
+                "liquids": [{
+                    "type": "LiquidType.MOUSE_BLOOD",
+                    "subtype": "MouseBloodType.NORMAL"
+                }]
+            }
+        }, {
+            "description": {
+                "dk": "Bestil en diabetisk mus, og placer den i buret i stedet for den raske. Tag igen en blodprøve, og skriv tilsvarende værdier ned.",
+                "en": "Order a diabetic mouse and place it in the cage instead of the healthy one. Take another bloodsample and note down the glucose and insulin levels again."
+            },
+            "trigger": {
+                "type": "TriggerType.ACQUIRE",
+                "item": "ContainerType.TUBE",
+                "liquids": [{
+                    "type": "LiquidType.MOUSE_BLOOD",
+                    "subtype": "MouseBloodType.DIABETIC"
+                }]
+            }
+        }],
+        "question": {
+            "dk": "Hvad er forskellen på insulin og glukose mellem den raske og diabetiske mus, og hvorfor?",
+            "en": "Whats the difference in insulin and glucose levels between the healthy and diabetic mouse? Why?"
+        }
+    }, {
+        "id": "1b",
+        "title": {
+            "dk": "Glukose tolerance test",
+            "en": "Glucose Tolerance Test"
         },
-        "story": {
-            "dk": "Laboratoriet har modtaget to mus, hvoraf den ene skulle være diabetisk. Det er nu din opgave at påvise at den ene af de to mus har diabetes, gennem en række forskellige forsøg. Du skal tage blodprøver, undersøge musenes insulinfølsomhed ved en glukose tolerance test og en insulinfølsomhedstest.",
-            "en": "The laboratory has received two mice with one of them being diabetic. It is your task to prove that one of the mice has diabetes through a series of experiments. You have to take blood samples, test the mice for glucose tolerance through an oral glucose tolerance test and perform an insulin sensitivity test."
-        },
+        "tasks": [{
+            "description": {
+                "dk": "Sæt den raske mus tilbage i buret, og giv den koncentreret sukkeropløsning fra den blå flaske.",
+                "en": "Put the healthy mouse back in the cage and give it some concentrated sugar solution from the blue bottle."
+            },
+            "trigger": {
+                "type": "TriggerType.MOUSE",
+                "alive": true,
+                "mouseBloodType": "MouseBloodType.NORMAL",
+                "item": "ContainerType.FF_BOTTLE",
+                "liquids": [{
+                    "type": "LiquidType.JUICE"
+                }]
+            }
+        }, {
+            "description": {
+                "dk": "Eksporter data til Excel, fra knappen med de tre streger.",
+                "en": "Export the data to Excel from button with three lines located in the lower left hand corner of the monitor."
+            },
+            "trigger": {
+                "type": "TriggerType.ACTIVATION",
+                "activation": "ActivationType.MOUSE_MONITOR"
+            }
+        }, {
+            "description": {
+                "dk": "Sæt den diabetiske mus i buret, og giv igen koncentreret sukkeropløsning.",
+                "en": "Put the diabetic mouse in the cage and give it some of the concetrated sugar solution."
+            },
+            "trigger": {
+                "type": "TriggerType.MOUSE",
+                "alive": true,
+                "mouseBloodType": "MouseBloodType.DIABETIC",
+                "item": "ContainerType.FF_BOTTLE",
+                "liquids": [{
+                    "type": "LiquidType.JUICE"
+                }]
+            }
+        }, {
+            "description": {
+                "dk": "Eksporter data til Excel.",
+                "en": "Export the data to Excel."
+            },
+            "trigger": {
+                "type": "TriggerType.ACTIVATION",
+                "activation": "ActivationType.MOUSE_MONITOR"
+            }
+        }],
+        "question": {
+            "dk": "Plot data fra både den raske og diabetiske mus i Excel. Redegør kurvens forløb og forklar hvorfor der er forskel.",
+            "en": "Plot data from both the healthy and diabetic mouse in Excel. Explain the line of the curve and where the differences are."
+        }
+    }, {
         "apparatus": {
-            "ApparatusLocationType.MOUSE_CAGE_BOTTLE": "ApparatusType.FF_BOTTLE"
+            "ApparatusLocationType.MOUSE_CAGE_GLUCOSE_BAG": "ApparatusType.GLUCOSE_BAG_CLAMP"
         },
-        "parts": [
-            {
-                "id": "1a",
-                "title": {
-                    "dk": "Blodprøve",
-                    "en": "Blood sample"
+        "title": {
+            "dk": "Insulinfølsomhedstest",
+            "en": "Insulin Sensitivity Test"
+        },
+        "tasks": [{
+            "description": {
+                "dk": "Start testen ved at trykke på \"Glukose Infusion Rate\"-knappen, længst til højre på instrumentet. Musen gives derved en stor mængde insulin gennem slangen, og du kan derefter skrue op og ned for den mængde glukose musen får på \"+\" og \"-\" knapperne. Hold glukoseniveauet i blodet så tæt på fysiologiske 5 mmol/l som muligt.",
+                "en": "Start the test by pressing the \"Glucose Infusion Rate\"-button farthest to the right on the monitor. This gives the mouse a large one time injection of insulin through the tube and afterwards you can adjust the amount of glucose the mouse gets by pressing the \"+\" or \"-\". Keep the blood glucose level of the mouse as close to 5 mmol/l as possible."
+            },
+            "trigger": {
+                "type": "TriggerType.ACTIVATION",
+                "activation": "ActivationType.GLUCOSE_BAG",
+                "alive": true,
+                "mouseBloodType": "MouseBloodType.DIABETIC"
+            }
+        }, {
+            "description": {
+                "dk": "Eksporter data til Excel.",
+                "en": "Eksport the data to Excel."
+            },
+            "trigger": {
+                "type": "TriggerType.ACTIVATION",
+                "activation": "ActivationType.MOUSE_MONITOR"
+            }
+        }, {
+            "description": {
+                "dk": "Gentag forsøget for den raske mus, og hold igen glukoseniveauet i blodet så tæt på fysiologisk 5 mmol/L som muligt.",
+                "en": "Repeat the exeriment for the healthy mouse and rememhber to keep the glucose level in the blood as close to the physiological 5 mmol/l as possible"
+            },
+            "trigger": {
+                "type": "TriggerType.ACTIVATION",
+                "activation": "ActivationType.GLUCOSE_BAG",
+                "alive": true,
+                "mouseBloodType": "MouseBloodType.NORMAL"
+            }
+        }, {
+            "description": {
+                "dk": "Eksporter data til Excel.",
+                "en": "Export the data to Excel."
+            },
+            "trigger": {
+                "type": "TriggerType.ACTIVATION",
+                "activation": "ActivationType.MOUSE_MONITOR"
+            }
+        }],
+        "question": {
+            "dk": "Lav to grafer i Excel for både den raske og den diabetiske mus med hhv. blodglukoseniveau og glukose infusionsrate. Kan du se forskel på de to glukose infusionsrate grafer, og hvis ja, hvordan?",
+            "en": "Plot a graph in Excel for both the healthy and the diabetic mouse containing both blood glucose level and glucose infusion rate. Can you tell the difference between the two glucose infusion rates? If so, how?"
+        }
+    }]
+}, {
+    "id": "diabetes",
+    "title": {
+        "dk": "Genetisk test for forøget diabetes risiko",
+        "en": "Genetic test for increased diabetes risk"
+    },
+    "description": {
+        "dk": "I denne øvelse skal du teste om en mus er genetisk anlagt for udvikling af type 2 diabetes.",
+        "en": "In this exercise you have to test whether or not a mouse is genetically susceptible to developing type 2 diabetes."
+    },
+    "story": {
+        "dk": "Genetiske undersøgelser er brugt som værktøj til at undersøge gener der er DNA arvet fra ens forældre. Du har sikkert hørt at politiet bruger genetiske undersøgelser til at opklare forbrydelser, men de bruges også til identificere sygdomme og præ-disponeringer for sygdomme, såsom diabetes. Her skal du teste en mus for tilstedeværelsen af et gen forbundet med øget risiko for type 2 diabetes, gennem bl.a. blodprøver og polymerase chain reaction (PCR).",
+        "en": "Genetical tests are used as a tool to examine genes that are made up of DNA inhereted from ones parents. You have probably heard of the police using genetical tests to solve a crime, but they're also used to identify diseases and predisposition for certain diseases - such as diabetes. Here you have to test a mouse for the presence of a gen associated with increased risk of type 2 diabetes through blood samples and polymerase chain reaction (PCR)."
+    },
+    "parts": [{
+        "tasks": [{
+            "description": {
+                "dk": "Bestil en rask eller en diabetisk mus fra computeren, og placer den i buret.",
+                "en": "Order a healthy or a diabetic mouse from the computer and place it in the cage."
+            },
+            "trigger": {
+                "type": "TriggerType.ACTIVATION",
+                "activation": "ActivationType.MOUSE_CAGE"
+            }
+        }, {
+            "description": {
+                "dk": "Tag en blodprøve med en kanyle.",
+                "en": "Take a blood sample with a syringe."
+            },
+            "trigger": {
+                "type": "TriggerType.ACQUIRE",
+                "item": "ContainerType.TUBE",
+                "liquids": [{
+                    "type": "LiquidType.MOUSE_BLOOD"
+                }]
+            }
+        }, {
+            "description": {
+                "dk": "Centrifuger røret indeholdende blodet og udtag \"buffy coat\" - det er i dette lag de hvide blodlegemer befinder sig.",
+                "en": "Centrifuge the tube containing the blood sample and extract the \"buffy coat\". It's in this layer the white blood cells are present."
+            },
+            "trigger": {
+                "type": "TriggerType.ACQUIRE",
+                "item": "ContainerType.TUBE",
+                "liquids": [{
+                    "type": "LiquidType.BUFFY_COAT"
+                }]
+            }
+        }, {
+            "description": {
+                "dk": "Gå til det forreste laboratoriebænk og tænd for varmeblokken.",
+                "en": "Go to the foremost laboratory bench and turn on the heating block."
+            },
+            "trigger": {
+                "type": "TriggerType.ACTIVATION",
+                "activation": "ActivationType.HEATER"
+            }
+        }, {
+            "description": {
+                "dk": "Opvarm de hvide blodlegemer i varmeblokken, og tilsæt først lysis og derefter saltvand fra køleskabet.",
+                "en": "Heat the white blood cells in the heating block. Then add lysis to lyse the cells followed by salt water from the fridge."
+            },
+            "trigger": {
+                "type": "TriggerType.MIX",
+                "item": "ContainerType.TUBE",
+                "location": "LocationType.HEATER",
+                "liquids": [{
+                    "type": "LiquidType.BUFFY_COAT"
+                }, {
+                    "type": "LiquidType.LYSIS"
+                }, {
+                    "type": "LiquidType.SALT_WATER"
+                }],
+                "strictlyOrdered": true,
+                "strict": true
+            }
+        }, {
+            "description": {
+                "dk": "Centrifuger prøven for at at skille DNA’et fra celleresterne og udtag det fritflydende DNA.",
+                "en": "Centrifuge the sample to seperate the DNA from the cell debris and extract the free floating DNA."
+            },
+            "trigger": {
+                "type": "TriggerType.ACQUIRE",
+                "item": "ContainerType.TUBE",
+                "liquids": [{
+                    "type": "LiquidType.FREE_FLOATING_DNA"
+                }]
+            }
+        }, {
+            "description": {
+                "dk": "Sæt det frit flydende DNA på is, for at undgå at prøven ødelægges.",
+                "en": "Put the free floating DNA on ice to prevent the sample from being destroyed."
+            },
+            "trigger": {
+                "type": "TriggerType.ACTIVATION",
+                "activation": "ActivationType.ICE_BATH",
+                "liquids": [{
+                    "type": "LiquidType.FREE_FLOATING_DNA"
+                }]
+            }
+        }, {
+            "description": {
+                "dk": "Tilsæt diabetes primerne, nukleotider og Taq-polymerase til DNA'et.",
+                "en": "Add diabetes primers, nukleotider and Taq-polymerase to the DNA."
+            },
+            "trigger": {
+                "type": "TriggerType.MIX",
+                "container": "ContainerType.TUBE",
+                "liquids": [{
+                    "type": "LiquidType.FREE_FLOATING_DNA"
+                }, {
+                    "type": "LiquidType.DIABETES_PRIMER"
+                }, {
+                    "type": "LiquidType.NUCLEOTIDES"
+                }, {
+                    "type": "LiquidType.DNA_POLYMERASE"
+                }]
+            }
+        }, {
+            "description": {
+                "dk": "Placer prøven i PCR maskinen og tænd den.",
+                "en": "Place the sample in the PCR machine and turn it on."
+            },
+            "trigger": {
+                "type": "TriggerType.ACTIVATION",
+                "activation": "ActivationType.PCR",
+                "liquids": [{
+                    "type": "LiquidType.FREE_FLOATING_DNA"
+                }, {
+                    "type": "LiquidType.DIABETES_PRIMER"
+                }, {
+                    "type": "LiquidType.NUCLEOTIDES"
+                }, {
+                    "type": "LiquidType.DNA_POLYMERASE"
+                }]
+            }
+        }, {
+            "description": {
+                "dk": "Sæt en gel i gelelektroforesen. Tilsæt derefter blå farve til begge DNA-prøver (din egen og den du har modtaget), og tilsæt dem til to forskellige brønde i gelen. Tænd til sidst gelelektroforesen, der åbner for elektriciteten og trækker DNA og farve ned langs med gelen.",
+                "en": "Pul a gel in the gel electrophoresis. Then add blue stain to both DNA samples (your own and the one you just received) and add them to two different lanes in the gel. Lastly, turn on the gel electrophoresis which will apply an electrical field pulling down the DNA and the colour through the gel based on size."
+            },
+            "trigger": {
+                "type": "TriggerType.ACTIVATION",
+                "activation": "ActivationType.GELELECTRO",
+                "liquids": [{
+                    "type": "LiquidType.FREE_FLOATING_DNA"
+                }, {
+                    "type": "LiquidType.BLUE_STAIN"
+                }]
+            }
+        }, {
+            "description": {
+                "dk": "Tag gelen med ind i UV-rummet og se på den under UV-lys for at kunne identificere DNA-stykkerne.",
+                "en": "Take the gel into the UV-room and look at in under UV light to identify the DNA bands."
+            },
+            "trigger": {
+                "type": "TriggerType.ACTIVATION",
+                "activation": "ActivationType.GEL"
+            }
+        }],
+        "question": {
+            "dk": "I en af banerne var der et bånd der lyste tydeligt op. Hvad indikere dette bånd og hvilken mus tilhørte den?",
+            "en": "In one of the wells a band is glowing clearly. What does this band indicate and which mouse does it belong to?"
+        }
+    }]
+}, {
+    "id": "enzymes",
+    "title": {
+        "dk": "Enzymer til vaskemiddel",
+        "en": "Enzymes for detergent"
+    },
+    "description": {
+        "dk": "I denne øvelse skal du genmodificere gær, sådan at det producerer lipase der kan anvendes til tøjvask.",
+        "en": "In this exercise you have to genetically modify yeast allowing it to produce lipase for use to wash clothes."
+    },
+    "story": {
+        "dk": "Et nyt enzym er netop blevet identificeret i en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven.",
+        "en": "A new enzyme has just been discovered in a misquito's digestive system and the hope is that this will be effective at removing tough stains of dried up blood. The genetical sequence coding for the enzymes has been uncovered and it's your job to produce the enzyme by genetically engeneering yeast and testing whether or not it has any effect in the washing machine. Below is a laboratory guide you can use to tackle the chanllenge."
+    },
+    "apparatus": {
+        "ApparatusLocationType.CORNER": "ApparatusType.CORNER_SPECTRO",
+        "ApparatusLocationType.UV_ROOM": "ApparatusType.UV_ROOM_GEL"
+    },
+    "parts": [{
+        "tasks": [{
+                "description": {
+                    "dk": "Design et stykke DNA på computeren som koder for enzymet lipase og som desuden koder for resistens for Antibiotikum B. Husk det centrale dogme, når du designer genet.",
+                    "en": "Use the computer to design a piece of DNA that codes for the enzyme liapse and resistance towards Antibiotic B. Remember the central dogma when designing the gene."
                 },
-                "tasks": [
-                    {
-                        "description": {
-                            "dk": "Bestil en rask mus, og placer den i buret. Tag derefter en blodprøve, og noter glukose- og insulinniveau ud fra data fra blodprøven.",
-                            "en": "Order a healthy mouse and place it in the cage. Take a blood sample from the mouse and note down the glucose and insulin levels from the data received from the sample."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.MOUSE_BLOOD", "subtype": "MouseBloodType.NORMAL" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Bestil en diabetisk mus, og placer den i buret i stedet for den raske. Tag igen en blodprøve, og skriv tilsvarende værdier ned.",
-                            "en": "Order a diabetic mouse and place it in the cage instead of the healthy one. Take another bloodsample and note down the glucose and insulin levels again."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.MOUSE_BLOOD", "subtype": "MouseBloodType.DIABETIC" }
-                            ]
-                        }
-                    }
-                ],
-                "question": {
-                    "dk": "Hvad er forskellen på insulin og glukose mellem den raske og diabetiske mus, og hvorfor?",
-                    "en": "Whats the difference in insulin and glucose levels between the healthy and diabetic mouse? Why?"
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.GENE"
+                    }]
                 }
             },
+
             {
-                "id": "1b",
-                "title": {
-                    "dk": "Glukose tolerance test",
-                    "en": "Glucose Tolerance Test"
+                "description": {
+                    "dk": "Bland gærceller og dit designede DNA i et reagensglas. Overfør en del af blandingen til elektroporatoren med pipetten. På denne måde genmodificeres gærcellerne til at udtrykke det designede DNA.",
+                    "en": "Mix yeastcells and the designed DNA in a test tube and transfer some of the mixture to the electroporator with the pipet. The electro shock makes the cells absorb the DNA and enable them produce the lipase and resist antibiotic B."
                 },
-                "tasks": [
-                    {
-                        "description": {
-                            "dk": "Sæt den raske mus tilbage i buret, og giv den koncentreret sukkeropløsning fra den blå flaske.",
-                            "en": "Put the healthy mouse back in the cage and give it some concentrated sugar solution from the blue bottle."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MOUSE",
-                            "alive": true,
-                            "mouseBloodType": "MouseBloodType.NORMAL",
-                            "item": "ContainerType.FF_BOTTLE",
-                            "liquids": [
-                                { "type": "LiquidType.JUICE" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Eksporter data til Excel, fra knappen med de tre streger.",
-                            "en": "Export the data to Excel from button with three lines located in the lower left hand corner of the monitor."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.MOUSE_MONITOR"
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Sæt den diabetiske mus i buret, og giv igen koncentreret sukkeropløsning.",
-                            "en": "Put the diabetic mouse in the cage and give it some of the concetrated sugar solution."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MOUSE",
-                            "alive": true,
-                            "mouseBloodType": "MouseBloodType.DIABETIC",
-                            "item": "ContainerType.FF_BOTTLE",
-                            "liquids": [
-                                { "type": "LiquidType.JUICE" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Eksporter data til Excel.",
-                            "en": "Export the data to Excel."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.MOUSE_MONITOR"
-                        }
-                    }
-                ],
-                "question": {
-                    "dk": "Plot data fra både den raske og diabetiske mus i Excel. Redegør kurvens forløb og forklar hvorfor der er forskel.",
-                    "en": "Plot data from both the healthy and diabetic mouse in Excel. Explain the line of the curve and where the differences are."
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.ELECTROPORATOR",
+                    "liquids": [{
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }, {
+                        "type": "LiquidType.GENE"
+                    }]
                 }
             },
+
             {
-                "apparatus": {
-                    "ApparatusLocationType.MOUSE_CAGE_GLUCOSE_BAG": "ApparatusType.GLUCOSE_BAG_CLAMP"
+                "description": {
+                    "dk": "Fordel de gensplejsede gærceller i en petriskål og tilsæt Antibiotikum B. NB: I praksis støbes antibiotika ind i pladen, og man kan ikke blot tilsætte stoffet efterfølgende.",
+                    "en": "Distribute the genetically modified yeast cells in a petri dish and add antibiotic B."
                 },
-                "title": {
-                    "dk": "Insulinfølsomhedstest",
-                    "en": "Insulin Sensitivity Test"
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.PETRI_DISH",
+                    "liquids": [{
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }, {
+                        "type": "LiquidType.ANTIBIOTIC",
+                        "subtype": "AntibioticType.B"
+                    }]
+                }
+            },
+
+            {
+                "description": {
+                    "dk": "Inkubér petriskålen.",
+                    "en": "Incubate the petri dish in the oven."
                 },
-                "tasks": [
-                    {
-                        "description": {
-                            "dk": "Start testen ved at trykke på \"Glukose Infusion Rate\"-knappen, længst til højre på instrumentet. Musen gives derved en stor mængde insulin gennem slangen, og du kan derefter skrue op og ned for den mængde glukose musen får på \"+\" og \"-\" knapperne. Hold glukoseniveauet i blodet så tæt på fysiologiske 5 mmol/l som muligt.",
-                            "en": "Start the test by pressing the \"Glucose Infusion Rate\"-button farthest to the right on the monitor. This gives the mouse a large one time injection of insulin through the tube and afterwards you can adjust the amount of glucose the mouse gets by pressing the \"+\" or \"-\". Keep the blood glucose level of the mouse as close to 5 mmol/l as possible."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.GLUCOSE_BAG",
-                            "alive": true,
-                            "mouseBloodType": "MouseBloodType.DIABETIC"
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Eksporter data til Excel.",
-                            "en": "Eksport the data to Excel."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.MOUSE_MONITOR"
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Gentag forsøget for den raske mus, og hold igen glukoseniveauet i blodet så tæt på fysiologisk 5 mmol/L som muligt.",
-                            "en": "Repeat the exeriment for the healthy mouse and rememhber to keep the glucose level in the blood as close to the physiological 5 mmol/l as possible"
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.GLUCOSE_BAG",
-                            "alive": true,
-                            "mouseBloodType": "MouseBloodType.NORMAL"
-                        }
-                    },
-                    {
-                        "description": {
-                        "dk": "Eksporter data til Excel.",
-                            "en": "Export the data to Excel."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.MOUSE_MONITOR"
-                        }
-                    }
-                ],
-                "question": {
-                    "dk": "Lav to grafer i Excel for både den raske og den diabetiske mus med hhv. blodglukoseniveau og glukose infusionsrate. Kan du se forskel på de to glukose infusionsrate grafer, og hvis ja, hvordan?",
-                    "en": "Plot a graph in Excel for both the healthy and the diabetic mouse containing both blood glucose level and glucose infusion rate. Can you tell the difference between the two glucose infusion rates? If so, how?"
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.INCUBATOR",
+                    "containers": [{
+                        "type": "ContainerType.PETRI_DISH",
+                        "liquids": [{
+                            "type": "LiquidType.MICROORGANISM",
+                            "subtype": "MicroorganismType.YEAST"
+                        }, {
+                            "type": "LiquidType.ANTIBIOTIC",
+                            "subtype": "AntibioticType.B"
+                        }]
+                    }]
+
                 }
-            }
-        ]
-    },
-    {
-        "id": "diabetes",
-        "title": {
-            "dk": "Genetisk test for forøget diabetes risiko",
-            "en": "Genetic test for increased diabetes risk"
-        },
-        "description": {
-            "dk": "I denne øvelse skal du teste om en mus er genetisk anlagt for udvikling af type 2 diabetes.",
-            "en": "In this exercise you have to test whether or not a mouse is genetically susceptible to developing type 2 diabetes."
-        },
-        "story": {
-            "dk": "Genetiske undersøgelser er brugt som værktøj til at undersøge gener der er DNA arvet fra ens forældre. Du har sikkert hørt at politiet bruger genetiske undersøgelser til at opklare forbrydelser, men de bruges også til identificere sygdomme og præ-disponeringer for sygdomme, såsom diabetes. Her skal du teste en mus for tilstedeværelsen af et gen forbundet med øget risiko for type 2 diabetes, gennem bl.a. blodprøver og polymerase chain reaction (PCR).",
-            "en": "Genetical tests are used as a tool to examine genes that are made up of DNA inhereted from ones parents. You have probably heard of the police using genetical tests to solve a crime, but they're also used to identify diseases and predisposition for certain diseases - such as diabetes. Here you have to test a mouse for the presence of a gen associated with increased risk of type 2 diabetes through blood samples and polymerase chain reaction (PCR)."
-        },
-        "parts": [
+            },
+
             {
-                "tasks": [
-                    {
-                        "description": {
-                            "dk": "Bestil en rask eller en diabetisk mus fra computeren, og placer den i buret.",
-                            "en": "Order a healthy or a diabetic mouse from the computer and place it in the cage."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.MOUSE_CAGE"
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Tag en blodprøve med en kanyle.",
-                            "en": "Take a blood sample with a syringe."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.MOUSE_BLOOD" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Centrifuger røret indeholdende blodet og udtag \"buffy coat\" - det er i dette lag de hvide blodlegemer befinder sig.",
-                            "en": "Centrifuge the tube containing the blood sample and extract the \"buffy coat\". It's in this layer the white blood cells are present."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.BUFFY_COAT" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Gå til det forreste laboratoriebænk og tænd for varmeblokken.",
-                            "en": "Go to the foremost laboratory bench and turn on the heating block."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.HEATER"
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Opvarm de hvide blodlegemer i varmeblokken, og tilsæt først lysis og derefter saltvand fra køleskabet.",
-                            "en": "Heat the white blood cells in the heating block. Then add lysis to lyse the cells followed by salt water from the fridge."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "item": "ContainerType.TUBE",
-                            "location": "LocationType.HEATER",
-                            "liquids": [
-                                { "type": "LiquidType.BUFFY_COAT" },
-                                { "type": "LiquidType.LYSIS" },
-                                { "type": "LiquidType.SALT_WATER" }
-                            ],
-                            "strictlyOrdered": true,
-                            "strict": true
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Centrifuger prøven for at at skille DNA’et fra celleresterne og udtag det fritflydende DNA.",
-                            "en": "Centrifuge the sample to seperate the DNA from the cell debris and extract the free floating DNA."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.FREE_FLOATING_DNA" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Sæt det frit flydende DNA på is, for at undgå at prøven ødelægges.",
-                            "en": "Put the free floating DNA on ice to prevent the sample from being destroyed."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.ICE_BATH",
-                            "liquids": [
-                                { "type": "LiquidType.FREE_FLOATING_DNA" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Tilsæt diabetes primerne, nukleotider og Taq-polymerase til DNA'et.",
-                            "en": "Add diabetes primers, nukleotider and Taq-polymerase to the DNA."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.FREE_FLOATING_DNA" },
-                                { "type": "LiquidType.DIABETES_PRIMER" },
-                                { "type": "LiquidType.NUCLEOTIDES" },
-                                { "type": "LiquidType.DNA_POLYMERASE" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Placer prøven i PCR maskinen og tænd den.",
-                            "en": "Place the sample in the PCR machine and turn it on."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.PCR",
-                            "liquids": [
-                                { "type": "LiquidType.FREE_FLOATING_DNA" },
-                                { "type": "LiquidType.DIABETES_PRIMER" },
-                                { "type": "LiquidType.NUCLEOTIDES" },
-                                { "type": "LiquidType.DNA_POLYMERASE" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Sæt en gel i gelelektroforesen. Tilsæt derefter blå farve til begge DNA-prøver (din egen og den du har modtaget), og tilsæt dem til to forskellige brønde i gelen. Tænd til sidst gelelektroforesen, der åbner for elektriciteten og trækker DNA og farve ned langs med gelen.",
-                            "en": "Pul a gel in the gel electrophoresis. Then add blue stain to both DNA samples (your own and the one you just received) and add them to two different lanes in the gel. Lastly, turn on the gel electrophoresis which will apply an electrical field pulling down the DNA and the colour through the gel based on size."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.GELELECTRO",
-                            "liquids": [
-                                { "type": "LiquidType.FREE_FLOATING_DNA" },
-                                { "type": "LiquidType.BLUE_STAIN" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Tag gelen med ind i UV-rummet og se på den under UV-lys for at kunne identificere DNA-stykkerne.",
-                            "en": "Take the gel into the UV-room and look at in under UV light to identify the DNA bands."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.GEL"
-                        }
-                    }
-                ],
-                "question": {
-                    "dk": "I en af banerne var der et bånd der lyste tydeligt op. Hvad indikere dette bånd og hvilken mus tilhørte den?",
-                    "en": "In one of the wells a band is glowing clearly. What does this band indicate and which mouse does it belong to?"
+                "description": {
+                    "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas indeholdende vækstmedie og Antibiotikum B.",
+                    "en": "Transfer a cell colony from the petri dish to a test tube containing growth media and antibiotic B."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }, {
+                        "type": "LiquidType.ANTIBIOTIC",
+                        "subtype": "AntibioticType.B"
+                    }, {
+                        "type": "LiquidType.GROWTH_MEDIUM"
+                    }]
                 }
-            }
-        ]
-    },
-    {
-        "id": "enzymes",
-        "title": {
-            "dk": "Enzymer til vaskemiddel",
-            "en": "Enzymes for detergent"
-        },
-        "description": {
-            "dk": "I denne øvelse skal du genmodificere gær, sådan at det producerer lipase der kan anvendes til tøjvask.",
-            "en": "In this exercise you have to genetically modify yeast allowing it to produce lipase for use to wash clothes."
-        },
-        "story": {
-            "dk": "Et nyt enzym er netop blevet identificeret i en mygs fordøjelsessytem, og det er håbet at det vil være effektivt til at fjerne hårdnakkede pletter af indtørret blod. Gensekvensen der koder for enzymet er fundet, og det er din opgave at producere enzymet vha. gensplejsede gærceller, og teste om det har en effekt i vaskemaskinen. Nedenfor findes en forsøgsvejledning som du kan bruge til at løse opgaven.",
-            "en": "A new enzyme has just been discovered in a misquito's digestive system and the hope is that this will be effective at removing tough stains of dried up blood. The genetical sequence coding for the enzymes has been uncovered and it's your job to produce the enzyme by genetically engeneering yeast and testing whether or not it has any effect in the washing machine. Below is a laboratory guide you can use to tackle the chanllenge."
-        },
-        "apparatus": {
-            "ApparatusLocationType.CORNER": "ApparatusType.CORNER_SPECTRO",
-            "ApparatusLocationType.UV_ROOM": "ApparatusType.UV_ROOM_GEL"
-        },
-        "parts": [
+            },
+
             {
-                "tasks": [
-                    {
-                        "description": {
-                            "dk": "Design et stykke DNA på computeren som koder for enzymet lipase og som desuden koder for resistens for Antibiotikum B. Husk det centrale dogme, når du designer genet.",
-                            "en": "Use the computer to design a piece of DNA that codes for the enzyme liapse and resistance towards Antibiotic B. Remember the central dogma when designing the gene."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.GENE" }
-                            ]
-                        }
-                    },
+                "description": {
+                    "dk": "Inkubér reagensglasset.",
+                    "en": "Incubate the test tube."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.INCUBATOR",
+                    "containers": [{
+                        "type": "ContainerType.TUBE",
+                        "liquids": [{
+                            "type": "LiquidType.MICROORGANISM",
+                            "subtype": "MicroorganismType.YEAST"
+                        }, {
+                            "type": "LiquidType.ANTIBIOTIC",
+                            "subtype": "AntibioticType.B"
+                        }, {
+                            "type": "LiquidType.GROWTH_MEDIUM"
+                        }]
+                    }]
+                }
+            },
 
-                    {
-                        "description": {
-                            "dk": "Bland gærceller og dit designede DNA i et reagensglas. Overfør en del af blandingen til elektroporatoren med pipetten. På denne måde genmodificeres gærcellerne til at udtrykke det designede DNA.",
-                            "en": "Mix yeastcells and the designed DNA in a test tube and transfer some of the mixture to the electroporator with the pipet. The electro shock makes the cells absorb the DNA and enable them produce the lipase and resist antibiotic B."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.ELECTROPORATOR",
-                            "liquids": [
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.GENE"}
-                            ]
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Fordel de gensplejsede gærceller i en petriskål og tilsæt Antibiotikum B. NB: I praksis støbes antibiotika ind i pladen, og man kan ikke blot tilsætte stoffet efterfølgende.",
-                            "en": "Distribute the genetically modified yeast cells in a petri dish and add antibiotic B."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.PETRI_DISH",
-                            "liquids": [
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
-                            ]
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Inkubér petriskålen.",
-                            "en": "Incubate the petri dish in the oven."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.INCUBATOR",
-                            "containers": [
-                                {
-                                    "type": "ContainerType.PETRI_DISH",
-                                    "liquids": [
-                                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
-                                    ]
-                                }
-                            ]
-
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas indeholdende vækstmedie og Antibiotikum B.",
-                            "en": "Transfer a cell colony from the petri dish to a test tube containing growth media and antibiotic B."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" },
-                                { "type": "LiquidType.GROWTH_MEDIUM"}
-                            ]
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Inkubér reagensglasset.",
-                            "en": "Incubate the test tube."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.INCUBATOR",
-                            "containers": [
-                                {
-                                    "type": "ContainerType.TUBE",
-                                    "liquids": [
-                                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" },
-                                        { "type": "LiquidType.GROWTH_MEDIUM"}
-                                    ]
-                                }
-                            ]
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Bland gærceller og Antibiotikum B i et reagensglas og anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren.",
-                            "en": "Mix the yeast cells and antibiotic B in a test tube and use a syringe to transfer the content from the test tube to the fermentor."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.FERMENTOR_TANK",
-                            "liquids": [
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" },
-                                { "type": "LiquidType.GROWTH_MEDIUM"}
-                            ]
-
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt.",
-                            "en": "Start a fermentation. Remember to adjust the pH and temperatur so the growth conditions are optimal - try at different settings and explore what is optimal."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.FERMENTOR_START",
-                            "liquids": [
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B"}
-                            ]
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Oprens lipase fra din fermentering.",
-                            "en": "Purify lipase from your fermentation."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.LIPASE_ENZYME"}
-                            ]
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Fordel det oprensede lipase i fem reagensglas. Test effektiviteten af lipase-enzymet ved at tilsætte det til vaskemaskinen - prøv med forskellige koncentrationer for at finde den optimale dosis.",
-                            "en": "Aliquot (distribute) the purified lipase into five test tubes. Test the effeciency of the lipase enzyme by adding it to the washing machine - try at different concentrations to find the optimal dose."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.WASHING",
-                            "liquids": [
-                                { "type": "LiquidType.LIPASE_ENZYME" }
-                            ]
-                        },
-                        "consequence": {
-                            "type": "ConsequenceType.QUIZ",
-                            "quiz": {
-                                "id": 1,
-                                "name": {
-                                    "dk": "Enzym-kocentration",
-                                    "en": "Enzyme concentration"
-                                },
-                                "question": {
-                                    "dk": "Hvad er den optimale koncentration af enzym i forhold at vaske skjorten ren?",
-                                    "en": "What is the optimal concentration for washing the shirt clean?"
-                                },
-                                "correct": 1,
-                                "answers": [
-                                    {
-                                        "id": 0,
-                                        "answer": {
-                                            "dk": "Så meget enzym som muligt, så skjorten er 110% ren!",
-                                            "en": "As much as possible so the shirt is completely clean."
-                                        },
-                                        "message": {
-                                            "dk": "Det er ikke helt korrekt. Enzymer er dyre at producere",
-                                            "en": "That's not completely true. Enzymes are expensive to produce, so you want to limit the amount you use as much as possible."
-                                        }
-                                    },
-                                    {
-                                        "id": 1,
-                                        "answer": {
-                                            "dk": "Lige akkurat nok enzym til at tøjet bliver rent, men så heller ikke mere.",
-                                            "en": "Just enough enzyme to get the clothes clean - but no more than that."
-                                        },
-                                        "message": {
-                                            "dk": "Ja, enzymer er dyre at producere, men selvfølgelig skal folks tøj også blive rent. Derfor er dette den optimale løsning.",
-                                            "en": "That's correct. Enzymes are expensive to produce, but of course the clothes has get clean as well. That's why this is the optimal solution."
-                                        }
-                                    },
-                                    {
-                                        "id": 2,
-                                        "answer": {
-                                            "dk": "Eftersom enzymer er dyre at producere, så bare nok til at tøjet bliver lidt renere, men ikke nødvendigvis helt.",
-                                            "en": "Because enzymes are expensive to produce just enough for the clothes to get a bit clean, but not necessarily completely clean."
-                                        },
-                                        "message": {
-                                            "dk": "Nej, det bliver folk næppe voldsomt glade for.",
-                                            "en": "No. That would consumers probably not be satisfied with."
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": "insulin",
-        "title": {
-            "dk": "Produktion af insulin",
-            "en": "Production of insulin"
-        },
-        "description": {
-            "dk": "I denne øvelse skal du genmodificere gærceller, således at de producerer insulin til behandling type-1 diabetes.",
-            "en": "In this exercise you have to genetically modify yeast to produce insulin for treatment of type 1 diabetes."
-        },
-        "story": {
-            "dk": "Et modificeret insulingener, der forventes at kunne anvendes til behandling af type-1 diabetes, er blevet udviklet. Det er din opgave at producere den nye insulintype og teste dens effekt på en laboratoriemus.",
-            "en": "A modified insulin gene expected to be able to treat type 1 diabetes has been developed. It is your job to produce the new type of insulin and test it on a mouse."
-        },
-        "parts": [
             {
-                "tasks": [
-                    {
-                        "description": {
-                            "dk": "Design et stykke DNA på computeren som koder for insulin og som desuden koder for resistens for Antibiotikum B. Husk det centrale dogme, når du designer genet.",
-                            "en": "Design a piece of DNA on the computer coding for both insulin and resistance towards antibiotic B. Remember the central dogma when designing the gene."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.GENE" }
-                            ]
-                        }
-                    },
+                "description": {
+                    "dk": "Bland gærceller og Antibiotikum B i et reagensglas og anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren.",
+                    "en": "Mix the yeast cells and antibiotic B in a test tube and use a syringe to transfer the content from the test tube to the fermentor."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.FERMENTOR_TANK",
+                    "liquids": [{
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }, {
+                        "type": "LiquidType.ANTIBIOTIC",
+                        "subtype": "AntibioticType.B"
+                    }, {
+                        "type": "LiquidType.GROWTH_MEDIUM"
+                    }]
 
-                    {
-                        "description": {
-                            "dk": "Bland gærceller og dit designede DNA i et reagensglas. Overfør en del af blandingen til elektroporatoren med pipetten. På denne måde genmodificeres gærcellerne til at udtrykke det designede DNA.",
-                            "en": "Mix yeast and the designed DNA in a test tube and transfer part of the mixture to the electroporator with the pipet. The electro shock makes the cells absorb the DNA and enables them produce the lipase and resistant towards antibiotic B."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.ELECTROPORATOR",
-                            "liquids": [
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.GENE"}
-                            ]
-                        }
-                    },
+                }
+            },
 
-                    {
-                        "description": {
-                            "dk": "Fordel de gensplejsede gærceller i en petriskål og tilsæt Antibiotikum B. NB: I praksis støbes antibiotika ind i pladen, og man kan ikke blot tilsætte stoffet efterfølgende.",
-                            "en": "Distribute the genetically modified yeast cells in a petri dish and add antibiotic B."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.PETRI_DISH",
-                            "liquids": [
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
-                            ]
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Inkubér petriskålen.",
-                            "en": "Incbate the petri dish in the oven."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.INCUBATOR",
-                            "containers": [
-                                {
-                                    "type": "ContainerType.PETRI_DISH",
-                                    "liquids": [
-                                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
-                                    ]
-                                }
-                            ]
-
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas indeholdende vækstmedie og Antibiotikum B.",
-                            "en": "Transfer a cell colony from the petri dish to a test tube containing growth media and antibiotic B."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" },
-                                { "type": "LiquidType.GROWTH_MEDIUM"}
-                            ]
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Inkubér reagensglasset.",
-                            "en": "Incubate the test tube in the oven."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.INCUBATOR",
-                            "containers": [
-                                {
-                                    "type": "ContainerType.TUBE",
-                                    "liquids": [
-                                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" },
-                                        { "type": "LiquidType.GROWTH_MEDIUM"}
-                                    ]
-                                }
-                            ]
-
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Bland indholdet af reagensglasset og Antibiotikum B i et reagensglas og anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren.",
-                            "en": "Mix the yeast cells and antibiotic B in a test tube and use a syringe to transfer the content from the test tube to the fermentor."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.FERMENTOR_TANK",
-                            "liquids": [
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" },
-                                { "type": "LiquidType.GROWTH_MEDIUM"}
-                            ]
-
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt.",
-                            "en": "Start a fermentation. Remember to adjust the pH and temperatur so the growth conditions are optimal - try at different settings and explore what is optimal."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.FERMENTOR_START",
-                            "liquids": [
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B"}
-                            ]
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Oprens insulin fra din fermentering.",
-                            "en": "Purify the insulin from your fermentation."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.INSULIN"}
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Test effektiviteten af dit producerede insulin ved at give det til en rask mus eller en mus med type-1 diabetes.",
-                            "en": "Test the effeciency of your produced insulin by giving it to a healthy mouse or a mouse with tpye 1 diabetes."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MOUSE",
-                            "item": "ContainerType.SYRINGE",
-                            "liquids": [
-                                { "type": "LiquidType.INSULIN" }
-                            ]
-                        }
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": "antibody",
-        "title": {
-            "dk": "Produktion af antistoffer",
-            "en": "Production of antibodies"
-        },
-        "description": {
-            "dk": "Her skal du producere dine egne antistoffer og bagefter bruge dem til at behandle sygdomme.",
-            "en": "Here you have to produce your own antibodies and afterwards use them to treat diseases."
-        },
-        "story": {
-            "dk": "I denne øvelse skal du en vha. en mus producere antistoffer mod Ebola. Når man udsætter en rask mus for et fremmed stof, så vil musens immunforsvar reagere ved at producere antistoffer i mod det fremmede – ligesom når man bliver vaccineret. Det foregår ved, at nogle af musens B-lymfocytter bliver til plasmaceller, som er de celler der producerer antistoffer. Vi skal vha. ELISA finde frem de kopper-antistof-producerende plasmaceller og sekventere deres DNA. Med deres DNA til hjælp kan vi nemlig kopiere og producere antistofferne i laboratoriet.",
-            "en": "In this exercise you have to produce antibodies against Ebola through a mouse. When exposing a healthy mouse to an alien substance it's immuno response react by producing antibodies against the substance - exactly like what happens when you get vaccinated. It works by transforming some of the mouses B-lymphocytes into plasma cells who then in to turn produces the antibodies. Through ELISA you have find the plasma cells producing small pox antibodies and sequence their DNA. With their DNA we can copy and produce the antibodies in the laboratory."
-        },
-        "apparatus": {
-            "ApparatusLocationType.INCUBATOR_ANTI_MATTER": "ApparatusType.INCUBATOR_ANTI_MATTER"
-        },
-        "parts": [
             {
-                "tasks": [
+                "description": {
+                    "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt.",
+                    "en": "Start a fermentation. Remember to adjust the pH and temperatur so the growth conditions are optimal - try at different settings and explore what is optimal."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.FERMENTOR_START",
+                    "liquids": [{
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }, {
+                        "type": "LiquidType.ANTIBIOTIC",
+                        "subtype": "AntibioticType.B"
+                    }]
+                }
+            },
 
-                    {
-                        "description": {
-                            "dk": "Lav en reagens til aktiv immunisering af musen ved at blande antigen med adjuvant. Den virker ligesom en vaccine imod antigenet. Adjuvanten tilføjes for at forstærke den immunologiske reaktion.",
-                            "en": "Make your own mixture for activation of the immune response by mixing antigenes with adjuvant. It works like a vaccine against the antigene itself. Adjuvant is added to improve the immunological response."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
-                                { "type": "LiquidType.ADJUVANS" }
-                            ]
-                        },
-                        "consequence": {
-                            "type": "ConsequenceType.QUIZ",
-                            "quiz": {
-                                "id": 1,
-                                "name": {
-                                    "dk": "Adjuvant",
-                                    "en": "Adjuvant"
-                                },
-                                "question": {
-                                    "dk": "Hvad er formålet med at tilsætte en adjuvant til vaccinen?",
-                                    "en": "What is the purpose of adding adjuvant to the vaccine?"
-                                },
-                                "correct": 1,
-                                "answers": [
-                                    {
-                                        "id": 0,
-                                        "answer": {
-                                            "dk": "En adjuvant er et medium, som opretholder de optimale forhold for antigenet.",
-                                            "en": "An adjuvant is a type of media that ensures the optimal conditions for the antigene."
-                                        },
-                                        "message": {
-                                            "dk": "Det et ikke helt korrekt, antigenet er allerede i den optimale opløsning.",
-                                            "en": "That's not completely true. The antigene is already in the optimal media."
-                                        }
-                                    },
-                                    {
-                                        "id": 1,
-                                        "answer": {
-                                            "dk": "Adjuvanten er et hjælpestof i vaccinen.",
-                                            "en": "Adjuvant is a substance helping the vaccine to be more efficient."},
-                                        "message": {
-                                            "dk": "Korrekt! En adjuvant er en substans/et molekyle som øger immunogeniciteten (styrken af immun-respons) når den blandes med antigenet. Adjuvanten har også en effekt på vaccinens sikkerhed, hvor vaccinen skal virke i kroppen, og hvor hurtigt vaccinen skal frigives i blodet eller vævet.",
-                                            "en": "Correct! An adjuvant is a substance increasing the effect of the immunization when mixed with the antigene. Adjuvant also has an effect on the safety of the vaccine, where the vaccine has work in the body, and how fast the vaccine should be administered to in the blood."
-                                        }
-                                    },
-                                    {
-                                        "id": 2,
-                                        "answer": {
-                                            "dk": "Adjuvanten er en celletype som producerer antigen.",
-                                            "en": "Adjuvant is a type of cell that produces antigene."},
-                                        "message": {
-                                            "dk": "Nej, en adjuvant er ikke en celle og den virker kun som supplement til antigenet",
-                                            "en": "No, an adjuvant is not a cell and it's effect is only as a supplement to the antigene"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Sug blandingen op med en kanyle.",
-                            "en": "Transfer the mixture to a syringe."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.SYRINGE",
-                            "liquids": [
-                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
-                                { "type": "LiquidType.ADJUVANS" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Immunisér en rask forsøgsmus. Musen bliver på den måde immun over for antigenet.",
-                            "en": "Immunise a healthy mouse. The mouse the becomes immune towards antigene."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MOUSE",
-                            "alive": true,
-                            "mouseType": "MouseType.HEALTHY",
-                            "mouseBloodType": "MouseBloodType.NORMAL",
-                            "item": "ContainerType.SYRINGE",
-                            "liquids": [
-                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
-                                { "type": "LiquidType.ADJUVANS" }
-                            ]
-                        },
-                        "consequence": {
-                            "type": "ConsequenceType.QUIZ",
-                            "quiz": {
-                                "id": 1,
-                                "name": {
-                                    "dk": "Immunisering",
-                                    "en": "Immunisation"
-                                },
-                                "question": {
-                                    "dk": "Hvad betyder det, at musen er immuniseret?",
-                                    "en": "What does it mean that the mouse is immunised?"
-                                },
-                                "correct": 2,
-                                "answers": [
-                                    {
-                                        "id": 0,
-                                        "answer": {
-                                            "dk": "At musen har fået indsprøjtet antigenet, og er blevet rask.",
-                                            "en": "That the mouse has been administered the antigene and is now healthy."
-                                        },
-                                        "message": {
-                                            "dk": "Det er ikke helt korrekt, antigenet udløser forsvarsmekanismer i musens immunforsvar, bl.a. produktion af antistof. Antistoffet cirkulerer i musens blod og binder til antigenet hvorved musen beskyttes i mod dette. Men da det er en rask mus bliver ikke mere rask af at blive immuniseret",
-                                            "en": "That's not completely true. The antigene triggers defensive mechanisms in the mouse's immune system. One of these mechanisms is the production of antibodies that remains in the mouse's blood and binds to the antigenes. This is already a healthy mouse and does not become more healthy by being immunised."
-                                        }
-                                    },
-                                    {
-                                        "id": 1,
-                                        "answer": {
-                                            "dk": "At antigenet ikke har fremkaldt en immunreaktion.",
-                                            "en": "That the antigenes has not caused an immunoreaction."
-                                        },
-                                        "message": {
-                                            "dk": "Nej, tværtimod. I så fald ville man ikke kunne vaccinere.",
-                                            "en": "No, quite the opposite. If this was the case you would not be able to vaccinate."
-                                        }
-                                    },
-                                    {
-                                        "id": 2,
-                                        "answer": {
-                                            "dk": "At antigenet har fremkaldt en immunreaktion.",
-                                            "en": "That the antigene has caused an immunoreaction."
-                                        },
-                                        "message": {
-                                            "dk": "Korrekt. Når et antigen kommer ind i vores krop, bliver det genkendt som fremmed af kroppens immunforsvar. Det fremkalder immunforsvarets mekanismer, bl.a. en stigning i kropstemperaturen – det vi kender som feber - og produktion af antistoffer. Når musen får sprøjtet en lille smule antigen ind i kroppen, sker samme forsvarsreaktion, hvilket ender med en produktion af antistof mod antigenet, der binder og uskadeliggør antigenet. Hvis musen udsættes for antigenet vil den allerede have antistoffer og dermed ikke blive syg.",
-                                            "en": "Correct! When the antigene enters our body it is recognized as a foreign substance by the bodies immune system. It triggers an immunoreaction which results in an increased body temperature - what we know as fever - and the production of antibodies. When the mouse get administered a small amount of antigene into the blood the immunoreaction happens which results in the production of antibodies for the antigene. Then the next time the mouse is exposed to the antigenes it will already have antibodies and therefore not become sick."
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Herefter dræbes musen ved at give den en dødelig indsprøjtning.",
-                            "en": "Put down the mouse by giving it a leathal injection."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MOUSE",
-                            "item": "ContainerType.SYRINGE",
-                            "liquids": [
-                                { "type": "LiquidType.DEADLY" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Vha. en skalpel skæres musens milt ud.",
-                            "en": "Cut out the spleen with a scalpel."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MOUSE",
-                            "alive": false,
-                            "item": "SpecialItemType.SCALPEL"
-                        },
-                        "consequence": {
-                            "type": "ConsequenceType.QUIZ",
-                            "quiz": {
-                                "id": 1,
-                                "name": {
-                                    "dk": "Milten",
-                                    "en": "The spleen"
-                                },
-                                "question": {
-                                    "dk": "Hvorfor tages milten ud af musen?",
-                                    "en": "Why is the spleen taken out of the mouse?"
-                                },
-                                "correct": 2,
-                                "answers": [
-                                    {
-                                        "id": 0,
-                                        "answer": {
-                                            "dk": "Milten er et lager for frit antistof.",
-                                            "en": "The spleen is a storage for freely available antibodies."
-                                        },
-                                        "message": {
-                                            "dk": "Det er næsten korrekt. I milten er der mange B-celler. Når kroppen gentagnede gange udsættes for et antigen, lagres de B-celler, som producerer de specifikke antistoffer mod antigenet i milten. Når B-cellerne producerer antistoffer, forvandles de til plasmaceller.",
-                                            "en": "That is almost correct. In the spleen there is a lot of B cells. When the body is repeatedly exposed to an antigene B cells that produce the specific antibodies for that antigene is stored in the spleen. When the B cells produce antibodies they turn into plasma cells."
-                                        }
-                                    },
-                                    {
-                                        "id": 1,
-                                        "answer": {
-                                            "dk": "Milten lagrer antigener.",
-                                            "en": "The spleen stores antigenes."
-                                        },
-                                        "message": {
-                                            "dk": "Nej, milten lagrer ikke antigener, men B-celler som producerer antistof mod antigen. Antigener er det fremmede som kroppen udsættes for - fx virus eller bakterier.",
-                                            "en": "No, the spleen does not store antigene. Instead it stores B cells that have the ability to produce antibodies against antigenes. Antigenes are the foreign substances that the body gets exposed to through e.g. virus or bacteria."
-                                        }
-                                    },
-                                    {
-                                        "id": 2,
-                                        "answer": {
-                                            "dk": "I milten findes mange B-celler som producerer antistof.",
-                                            "en": "The spleen is home to B cells that can produce antibodies."
-                                        },
-                                        "message": {
-                                            "dk": "Korrekt! Når kroppen gentagnede gange udsættes for et antigen, lagres mange B-celler, som producerer antistoffer mod antigenet i milten. Når B-cellerne producerer antistoffer, forvandles de til plasmaceller.",
-                                            "en": "Correct! When the body is repeatedly exposed to an antigene B cells that can produce antibodies for the specific antigene is stored in the spleen. When the B cells produce antibodies they turn into plasma cells."
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Homogenisér musens milt i blenderen på det bagerste arbejdsbord.",
-                            "en": "Homogenisate the mouse's spleen in the blender."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.HOMO_SPLEEN"}
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Bland følgende i et reagensglas: Homogeniseret milt, myeloma-celler og hybridoma medium.",
-                            "en": "Mix the following in a test tube: Homogenisated spleen, myeloma cells and bybridoma medium."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.HOMO_SPLEEN"},
-                                { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
-                            ]
-                        },
-                        "consequence": {
-                            "type": "ConsequenceType.QUIZ",
-                            "quiz": {
-                                "id": 1,
-                                "name": {
-                                    "dk": "Myeloma-celler",
-                                    "en": "Myeloma cells"
-                                },
-                                "question": {
-                                    "dk": "Hvad er formålet med at benytte Myeloma-celler?",
-                                    "en": "What is the purpose of using myeloma cells?"
-                                },
-                                "correct": 1,
-                                "answers": [
-                                    {
-                                        "id": 0,
-                                        "answer": {
-                                            "dk": "Myeloma-celler, er celler fra musen, som producerer antistof.",
-                                            "en": "Myleoma cells are cells from the mouse producing antibodies."
-                                        },
-                                        "message": {
-                                            "dk": "Nej, musens plasmaceller producerer antistoffer. Myeloma celler er cancerceller.",
-                                            "en": "No. The mouse's plasmacells produce antibodies. Myeloma cells are cancer cells."
-                                        }
-                                    },
-                                    {
-                                        "id": 1,
-                                        "answer": {
-                                            "dk": "Myeloma-celler er udødelige celler i modsætning til celler fra milten.",
-                                            "en": "Myeloma cells are immortal cells in contratst to cells from the spleen."
-                                        },
-                                        "message": {
-                                            "dk": "Korrekt! Myeloma er cancerceller oprindeligt fra plasmaceller, og de udgør en udødelig hurtigvoksende cellelinie. Ved at bruge denne type celler kan man forene deres udødelige egenskaber med evnen til at producere antistof, som cellerne fra musens milt kan. Man skaber derved skabe en ny cellelinie - hybridomacellerne.",
-                                            "en": "Correct. Myeloma cells are cancer cells that used to be plasma cells and they make up an immortal and fast growing cell line. By using this type of cell you can combine their immoratlity with the ability to produce antibodies that the cells from the spleen of the mouse can produce. You thereby create a new cell line - hybridoma cells."
-                                        }
-                                    },
-                                    {
-                                        "id": 2,
-                                        "answer": {
-                                            "dk": "Myeloma-celler producerer antigener.",
-                                            "en": "Myeloma cells produce antigenes"
-                                        },
-                                        "message": {
-                                            "dk": "Nej, antigener er ofte rester fra bakterier og vira (f.eks. dele af deres cellemembran), som fremkalder et immun-respons, når kroppen kommer i kontakt med dem.",
-                                            "en": "No. Antigenes er often cellular debris from bacteria or virus (e.g. parts of their cellular membrane) that produce an immune response when the body comes into contact with them."
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
+            {
+                "description": {
+                    "dk": "Oprens lipase fra din fermentering.",
+                    "en": "Purify lipase from your fermentation."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.LIPASE_ENZYME"
+                    }]
+                }
+            },
 
-                        "number": 8,
-                        "description": {
-                            "dk": "Inkubér herefter reagensglasset i ovnen under forreste arbejdsbord.",
-                            "en": "Incubate the test tube in the oven."
+            {
+                "description": {
+                    "dk": "Fordel det oprensede lipase i fem reagensglas. Test effektiviteten af lipase-enzymet ved at tilsætte det til vaskemaskinen - prøv med forskellige koncentrationer for at finde den optimale dosis.",
+                    "en": "Aliquot (distribute) the purified lipase into five test tubes. Test the effeciency of the lipase enzyme by adding it to the washing machine - try at different concentrations to find the optimal dose."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.WASHING",
+                    "liquids": [{
+                        "type": "LiquidType.LIPASE_ENZYME"
+                    }]
+                },
+                "consequence": {
+                    "type": "ConsequenceType.QUIZ",
+                    "quiz": {
+                        "id": 1,
+                        "name": {
+                            "dk": "Enzym-kocentration",
+                            "en": "Enzyme concentration"
                         },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.INCUBATOR",
-                            "containers": [
-                                {
-                                    "type": "ContainerType.TUBE",
-                                    "liquids": [
-                                        { "type": "LiquidType.HOMO_SPLEEN"},
-                                        { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
-                                    ]
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "number": 9,
-                        "description": {
-                            "dk": "Fortynd blandingen med saltvand. Du kan følge fortynding på OD-måleren, hvor du skal bruge en lav fortynding på mellem 3,4-4,0.",
-                            "en": "Dilute the mixture with salt water. You can follow the dilution with the OD spectrophotometer and you have to reach a dilution between 3.4 and 4.0."
+                        "question": {
+                            "dk": "Hvad er den optimale koncentration af enzym i forhold at vaske skjorten ren?",
+                            "en": "What is the optimal concentration for washing the shirt clean?"
                         },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.OD",
-                            "minVal": 3.4,
-                            "maxVal": 4.0
-                        }
-                    },
-                    {
-                        "number": 10,
-                        "description": {
-                            "dk": "Fordel blandingen på en tom mikrotiterplade. Pga. den kraftige fortynding vil der i gennemsnit kun komme én celle i hver brønd.",
-                            "en": "Transfer the mixture onto an empty microtitter plate. Because of the high dilution on average only one cell will remain in each well."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.MICROTITER",
-                            "containerSubtype": "AntigenCoatingType.NONE",
-                            "liquids": [
-                                { "type": "LiquidType.HOMO_SPLEEN"},
-                                { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                { "type": "LiquidType.SALT_WATER"}
-                            ]
-                        }
-                    },
-                    {
-                        "number": 11,
-                        "description": {
-                            "dk": "Inkubér mikrotiterpladen. Dette gøres i ovnen ved 37 C.",
-                            "en": "Incubate the microtiter plate at 37 C in the oven."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.INCUBATOR",
-                            "liquids": [
-                                { "type": "LiquidType.HOMO_SPLEEN"},
-                                { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                { "type": "LiquidType.SALT_WATER"}
-                            ]
-                        }
-                    },
-
-                    {
-                        "number": 12,
-                        "description": {
-                            "dk": "Tag en ny mikrotitterplade og belæg den med den adjuvant og Ebola antigen blanding du også brugte i begyndelsen.",
-                            "en": "Take a new microtitter plate and coat it with the adjuvant and Ebola antigene mixture you used at the beginning."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.MICROTITER",
-                            "containerSubtype": "AntigenCoatingType.NONE",
-                            "liquids": [
-                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
-                                { "type": "LiquidType.ADJUVANS" }
-                            ]
-
-                        }
-                    },
-                    {
-                        "number": 13,
-                        "description": {
-                            "dk": "Inkubér pladen i ovenen ved 37 C.",
-                            "en": "Incubate it in the oven at 37 C."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.INCUBATOR",
-                            "containers": [
-                                {
-                                    "type": "ContainerType.MICROTITER",
-                                    "liquids": [
-                                        { "type": "LiquidType.ANTIGEN_SMALLPOX" },
-                                        { "type": "LiquidType.ADJUVANS" }
-                                    ]
-                                }
-                            ]
-
-                        }
-                    },
-                    {
-                        "number": 14,
-                        "description": {
-                            "dk": "Tilsæt buffer til ELISA-pladen i stinkskabet.",
-                            "en": "Add buffer to the ELISA plate under the fume hood."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.MICROTITER",
-                            "containerSubtype": "AntigenCoatingType.NONE",
-                            "liquids": [
-                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
-                                { "type": "LiquidType.ADJUVANS" },
-                                { "type": "LiquidType.BUFFER"}
-                            ]
-
-                        }
-                    },
-
-                    {
-                        "number": 15,
-                        "description": {
-                            "dk": "Udtag nu væske fra den oprindelige mikrotitterbakke og tilsæt det til den nye ELISA plade du lige har forberedt. Normalt skal dette gøres for alle brøndene, men her behøver du kun at gøre det en gang direkte fra pladen - din assistent klarer resten for dig.",
-                            "en": "Transfer some of the liquid from the original microtitter plate to the new ELISA plate your just prepared. Normally this has to be done for every well on the plate, but here you only have to do it once directly from the plate - your assistant will do the rest for you."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.MICROTITER",
-                            "containerSubtype": "AntigenCoatingType.NONE",
-                            "liquids": [
-                                { "type": "LiquidType.HOMO_SPLEEN"},
-                                { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" },
-                                { "type": "LiquidType.SALT_WATER"},
-                                { "type": "LiquidType.ANTIGEN_SMALLPOX" },
-                                { "type": "LiquidType.ADJUVANS" },
-                                { "type": "LiquidType.BUFFER"}
-                            ]
-                        }
-                    },
-                    {
-                        "number": 16,
-                        "description": {
-                            "dk": "Alle brøndende på ELISA-pladen vaskes med buffer.",
-                            "en": "The ELISA plate is now washed with buffer."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.MICROTITER_WASHED_WITH_BUFFER"
-                        },
-                        "consequence": {
-                            "type": "ConsequenceType.QUIZ",
-                            "quiz": {
-                                "id": 1,
-                                "name": {
-                                    "dk": "ELISA",
-                                    "en": "ELISA"
-                                },
-                                "question": {
-                                    "dk": "ELISA er en meget brugt metode i laboratoriet, men hvad er metodens formål?",
-                                    "en": "ELISA is an often used method in the laboratory, but what is its purpose?"
-                                },
-                                "correct": 0,
-                                "answers": [
-                                    {
-                                        "id": 0,
-                                        "answer": {
-                                            "dk": "ELISA er en metode til at identificere, om et ønsket antistof findes i en opløsning",
-                                            "en": "ELISA is a method to identify whether or not a desired antibody is present in the mixture."
-                                        },
-                                        "message": {
-                                            "dk": "Korrekt! ELISA er en forkortelse for Enzyme-Linked Immunosorbent Assay. ELISA udføres på en mikrotiterplade (en plastikplade med mange brønde/huller). I hver brønd er forskellige antigener bundet. Når opløsningen med antistof-producerende celler tilsættes til alle brøndene, vil antistof binde til antigen, hvis de matcher – ligesom med puslespilsbrikker. De antistoffer, som ikke er bundet til antigener fjernes herefter ved vask med buffer. Til alle brøndene tilsættes et sekundært antistof. Et sekundært antistof, som er bundet til en fluorofor, binder til de bundne antistoffer i brøndene. I et UV-rum kan man nu bestemme, om det ønskede antistof findes i den undersøgte opløsning.",
-                                            "en": "Correct! ELISA is short for Enzyme-Linked Immunosorbent Assay. A different antigene is bound to each well and the mixture is added to each well. The antibody then binds to the antigene in the well if they fit together - kind of like puzzle pieces. Afterwards the entire plate is washed with buffer, and everything unbound is washed away. Finally a second antibody with a fluorophore is added and binds to the wells still containing the antibody of interest. The plate can now be examined under UV-lighting to determine whether or not the desired antibody actually was present in the mixture."
-                                        }
-                                    },
-                                    {
-                                        "id": 1,
-                                        "answer": {
-                                            "dk": "ELISA er en metode, der bruges til at genmodificere gærceller",
-                                            "en": "ELISA is a method used to genetically modify yeast."
-                                        },
-                                        "message": {
-                                            "dk": "Nej, prøv igen!",
-                                            "en": "No - try again!"
-                                        }
-                                    },
-                                    {
-                                        "id": 2,
-                                        "answer": {
-                                            "dk": "ELISA er en metode, der kan bruges til at producere store mængder at antistof",
-                                            "en": "ELISA is a method used to produce large amounts of antibody"
-                                        },
-                                        "message": {
-                                            "dk": "Nej. Antistof produceres af plasmaceller (B-celler) isoleret fra musens milt.",
-                                            "en": "No. Antibody is produced by plasma cells (B-cells) isolated from the spleen of the mouse."
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "number": 17,
-                        "description": {
-                            "dk": "Tilsæt fluorescerende sekundært  antistof til alle brøndene på ELISA-pladen.",
-                            "en": "Add a fluorescent secondary antibody to all the wells."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "strict": true,
-                            "container": "ContainerType.MICROTITER",
-                            "containerSubtype": "AntigenCoatingType.NONE",
-                            "liquids": [
-                                { "type": "LiquidType.FLUORESCENT_2ND_ANTIBODY"}
-                            ]
-                        }
-                    },
-                    {
-                        "number": 18,
-                        "description": {
-                            "dk": "Vask ELISA-pladen med buffer igen.",
-                            "en": "Wash the ELISA plate with buffer."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.MICROTITER_WASHED_WITH_BUFFER",
-                            "liquids": [
-                                { "type": "LiquidType.FLUORESCENT_2ND_ANTIBODY"}
-                            ]
-                        }
-                    },
-                    {
-                        "number": 19,
-                        "description": {
-                            "dk": "Tag ELISA-pladen med ind i UV-rummet og se nærmere på den. Notér hvilke brønde der fluorescerer. Dem der lyser op har haft en væske med et antistof der kan binde til antigenet i brønden. Det er de antistof-producerende celler fra de brønde vi er interesserede i. Herefter skal du se nærmere på den oprindelige mikrotiterplade og opsamle indholdet fra en brønd, der svarer til en fluorescerende brønd på ELISA-pladen (dette gøres ved at trykke på den pågældende brønd).",
-                            "en": "Bring the ELISA plate in the UV room and take a closer look at it. Note which wells fluoresces. Those glowing has had a mixture with an antibody that binds to the antigene in the well. It is these antibody-producing cells from the wells we are interested in. Afterwards you should take a closer look at the original mikrotiter plate and gather the content from a well matching the fluorescent wells in the ELISA plate (This is done by pressing on the well in question)."
+                        "correct": 1,
+                        "answers": [{
+                            "id": 0,
+                            "answer": {
+                                "dk": "Så meget enzym som muligt, så skjorten er 110% ren!",
+                                "en": "As much as possible so the shirt is completely clean."
                             },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.HOMO_SPLEEN"},
-                                { "type": "LiquidType.HYBRIDOMA_MEDIUM"},
-                                { "type": "LiquidType.SALT_WATER"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.MYELOMA" }
-                            ]
-                        }
-                    },
-                    {
-                        "number": 20,
-                        "description": {
-                            "dk": "Send indholdet fra brønden til sekventering ved at åbne computeren og vælge \"Send til sekventering\". Hermed burde du få et nyt DNA-element i DNA-designeren på computeren.",
-                            "en": "Send the content from the well to be sequenced by opening the computer and picking \"Send to sequenceing\". This way you should get a new DNA-element in the DNA-designer on the computer."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.COMPUTER_ORDER_SEQUENCE"
-                        }
-                    },
-                    {
-                        "number": 21,
-                        "description": {
-                            "dk": "Design et stykke DNA på computeren, som koder for musens antistof, og som desuden koder for resistens af Antibiotikum B. Husk det centrale dogme, når du designer genet, dvs. husk: ribosome binding site, promotor, start- og slutkodon, og terminator.",
-                            "en": "Design a piece of DNA on the computer that codes for the antibody of the mouse as well as Antibioticum B. Remember the central dogma when designing the gene."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.GENE"}
-                            ]
-                        }
-                    },
-
-                    {
-                        "number": 22,
-                        "description": {
-                            "dk": "Bland det bestilte DNA med mammale celler i et reagensglas. Tilsæt blanding til elektroporatoren. På den måde hjælper du det genmodificerede DNA med at trænge ind i de mammale celler, der så kan begynder at producere antistof. Processen kaldes transfektion.",
-                            "en": "Mix the ordered DNA with mammalian cells in a test tube. Add the mixture to the electroporator. This way you genetically modify the mammalian cells to produce the antibody by letting the designed DNA into the cells. This process is called transfection."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.ELECTROPORATOR",
-                            "liquids": [
-                                { "type": "LiquidType.GENE"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST"}
-                            ]
-                        }
-                    },
-
-                    {
-                        "number": 23,
-                        "description": {
-                            "dk": "Tilsæt de gen-modificerede celler til et reagensglas med vækstmedium og tilføj antibiotikum B.",
-                            "en": "Add the genetically modified cells to a test tube with growth media and add antibioticum B."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.GENE"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST"},
-                                { "type": "LiquidType.GROWTH_MEDIUM"},
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
-                            ]
-                        }
-                    },
-
-                    {
-                        "number": 24,
-                        "description": {
-                            "dk": "Inkubér blandingen.",
-                            "en": "Incubate the mixture."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.INCUBATOR",
-                            "containers": [
-                                {
-                                    "type": "ContainerType.TUBE",
-                                    "liquids": [
-                                        { "type": "LiquidType.GENE"},
-                                        { "type": "LiquidType.GROWTH_MEDIUM"},
-                                        { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                        { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
-                                    ]
-                                }
-                            ]
-
-                        }
-                    },
-
-                    {
-                        "number": 25,
-                        "description": {
-                            "dk": "Bland indholdet af reagensglasset og Antibiotikum B i et reagensglas og anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren.",
-                            "en": "Mix the content of the test tube and antibioticum B in a new test tube and use a syringe to transfer the content from the test tube to the fermentor."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "container": "ContainerType.FERMENTOR_TANK",
-                            "liquids": [
-                                { "type": "LiquidType.GENE"},
-                                { "type": "LiquidType.GROWTH_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B" }
-                            ]
-
-                        }
-                    },
-
-                    {
-                        "number": 26,
-                        "description": {
-                            "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt. Tænk på at det er mammale celler",
-                            "en": "Start a fermentation. Remember to adjust pH and temperature so the growth becomes optimal - try at different settings and figure out what's optimal. Remember that you're working with mammalian cells."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "activation": "ActivationType.FERMENTOR_START",
-                            "liquids": [
-                                { "type": "LiquidType.GENE"},
-                                { "type": "LiquidType.GROWTH_MEDIUM"},
-                                { "type": "LiquidType.MICROORGANISM", "subtype": "MicroorganismType.YEAST" },
-                                { "type": "LiquidType.ANTIBIOTIC", "subtype": "AntibioticType.B"}
-                            ]
-                        }
-                    },
-
-                    {
-                        "number": 27,
-                        "description": {
-                            "dk": "Oprens antistoffet fra fermenteringen.",
-                            "en": "Purify the antibodies from the fermentation."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.ANTIBODY_SMALLPOX"}
-                            ]
-                        }
-                    },
-                    {
-                        "number": 28,
-                        "description": {
-                            "dk": "Bestil en syg mus med Ebola på computeren og test dit antistof ved at indsprøjte det i musen.",
-                            "en": "Order a new mouse with Ebola and test your antibody by injecting it into the mouse."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MOUSE",
-                            "alive": true,
-                            "mouseType": "MouseType.SMALLPOX",
-                            "item": "ContainerType.SYRINGE",
-                            "liquids": [
-                                { "type": "LiquidType.ANTIBODY_SMALLPOX" }
-                            ]
-                        }
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": "drug",
-        "title": {
-            "dk": "Lægemiddeludvikling",
-            "en": "Drug discovery"
-        },
-        "description": {
-            "dk": "I denne øvelse skal du designe et lægemiddel, teste det in vitro og hvis det egner sig, også in vivo.",
-            "en": "In this exercise you have to design a drug and test it in vitro, and if suitable, also test it in vivo."
-        },
-        "story": {
-            "dk": "Et enzym som spiller en afgørende rolle i psoriasis er blevet fundet og dets aktive site lokaliseret. Din opgave er at designe et lægemiddel som kan inhibere dette enzym og på den måde bekæmpe sygdommen.",
-            "en": "An enzyme playing a key role in psoriasis has been uncovered and it's active site located. Your job is to design a drug that can inhibit this enzym and thereby fight the disease."
-        },
-        "parts": [
-            {
-                "tasks": [
-                    {
-                        "description": {
-                            "dk": "Bland lysis, vand og saltvand i rækkefølge.",
-                            "en": "Mix lysis, water and salt water in that order."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "strict": true,
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.LYSIS" },
-                                { "type": "LiquidType.WATER" },
-                                { "type": "LiquidType.SALT_WATER" }
-                            ],
-                            "strictlyOrdered": true
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Design og bestil et lægemiddel ved at gå hen til computeren og ind i programmet \"Design Lægemiddel\". Husk at tænke over sidegruppernes længde og ladning!",
-                            "en": "Design and order a drug by going to the computer and entering the program \"Design Drug\". Remember to take the length and charge of the side-chains into account."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACQUIRE",
-                            "strict": true,
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.DESIGNED_DRUG" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Tag noget af dit designede kemikalie, og bland det i et nyt reagensglas sammen med CYP-enzym",
-                            "en": "Take your designed molecule and mix it in a test tube with CYP enzyme."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "strict": true,
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.DESIGNED_DRUG" },
-                                { "type": "LiquidType.CYP_ENZYME" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Tag nu og flyt dit reagensglas med kemikalie og CYP-enzym hen til varmeblokken og tænd. Dette er for at teste om enzymet nedbryder dit lægemiddel",
-                            "en": "Place your mixture of the CYP enzyme and your molecule and move it the heating block. This is to test if the enzyme degrades your drug."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "strict": true,
-                            "activation": "ActivationType.HEATER",
-                            "liquids": [
-                                { "type": "LiquidType.DESIGNED_DRUG" },
-                                { "type": "LiquidType.CYP_ENZYME" }
-                            ]
-                        },
-                        "consequence": {
-                            "type": "ConsequenceType.QUIZ",
-                            "quiz": {
-                                "id": 1,
-                                "video": "drug-liver-unchanged",
-                                "name": {
-                                    "dk": "CYP-enzymer og leveren",
-                                    "en": "CYP enzymes and the liver"
-                                },
-                                "question": {
-                                    "dk": "CYP-enzymer kan give en indikation af om lægemidlet vil blive udsat for hel eller delvis nedbrydning i leveren. Er det godt eller skidt hvis dit lægemiddel bliver ændret i leveren?",
-                                    "en": "CYP enzymes can act as an idicator as to whether or not the drug will get partially or completely degraded in the liver. Is it a good or bad thing if the drug gets altered in the liver?"
-                                },
-                                "correct": 1,
-                                "answers": [
-                                    {
-                                        "id": 0,
-                                        "answer": {
-                                            "dk": "Det er altid godt.",
-                                            "en": "It's always a good thing."
-                                        },
-                                        "message": {
-                                            "dk": "Nej, dit svar er ikke helt korrekt.",
-                                            "en": "No, your answer is not completely true."
-                                        }
-                                    },
-                                    {
-                                        "id": 1,
-                                        "answer": {
-                                            "dk": "Det afhænger af ens lægemiddel.",
-                                            "en": "That depends on the drug."
-                                        },
-                                        "message": {
-                                            "dk": "Ja, det er korrekt. Nogle lægemidler bliver først aktive efter at blive delvist nedbrudt, mens andre bliver deaktiveret ved nedbrydning i leveren.",
-                                            "en": "Yes, that is correct. Some drugs will only become active after partial degredation, while other drugs become deactivated by degredation."
-                                        }
-                                    },
-                                    {
-                                        "id": 2,
-                                        "answer": {
-                                            "dk": "Det er altid skidt.",
-                                            "en": "It's always a bad thing."
-                                        },
-                                        "message": {
-                                            "dk": "Nej, dit svar er ikke helt korrekt.",
-                                            "en": "No, your answer is not completely true."
-                                        }
-                                    }
-                                ]
+                            "message": {
+                                "dk": "Det er ikke helt korrekt. Enzymer er dyre at producere",
+                                "en": "That's not completely true. Enzymes are expensive to produce, so you want to limit the amount you use as much as possible."
                             }
-                        }
-                    },
-
-                    {
-                        "description": {
-                            "dk": "Tilføj nu target receptor og dit lægemiddel, uden CYP-enzym til en tom mikrotiterplade.",
-                            "en": "Add the target receptor and your drug to an empty microtitter plate withouth any CYP enzyme."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MIX",
-                            "strict": true,
-                            "container": "ContainerType.MICROTITER",
-                            "containerSubtype": "AntigenCoatingType.NONE",
-                            "liquids": [
-                                { "type": "LiquidType.DESIGNED_DRUG" },
-                                { "type": "LiquidType.TARGET_RECEPTOR" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Undersøg dit lægemiddel ved at tage mikrotiterpladen og sæt den i spektrofotometeret. For at være sikker på at dit lægemiddel kan binde til sit target, skal det højst have en IC50-værdi på log10([x]) = -6. IC50-værdien kan aflæses på spektrofotometeret som x-værdien dér hvor grafen har en y-værdi på 50.",
-                            "en": "Examine your drug by putting the microtitter plate in the spectrophotometer. To ensure that your drug kan bind to it's target it may not have an IC50-value higher than log10([x]) = -6. The IC50 value can be read on the spectrophotometer as the x-value for where the y-value of the graph is 50."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.ACTIVATION",
-                            "strict": true,
-                            "activation": "ActivationType.SPECTROPM",
-                            "activationSubtype": {"liquidType": "LiquidType.DESIGNED_DRUG","maxIc50": -6},
-                            "liquids": [
-                                { "type": "LiquidType.DESIGNED_DRUG"},
-                                { "type": "LiquidType.TARGET_RECEPTOR" }
-                            ]
-                        }
-                    },
-                    {
-                        "description": {
-                            "dk": "Når dit lægemiddel har en høj affinitet, er det muligvis på tide at teste det på dyr. Prøv at teste det på en psoriasis-syg mus med forskellige administrationsformer. Hvis det ikke virker selvom det har høj affinitet, så prøv at eksperimentér med dets opløselighed (logD-værdien som kan ses i \"Lægemiddel designeren\" på computeren).",
-                            "en": "When your drug has a high affinity towards the target it may be time to test it on animals. Try testing it on a mouse with psoriasis through different forms of administration. If it doesn't work despite high affinity, try experimenting with it's solubility (the logD value seen in the \"Drug designer\" on the computer)."
-                        },
-                        "trigger": {
-                            "type": "TriggerType.MOUSE",
-                            "alive": true,
-                            "mouseType": "MouseType.PSORIASIS",
-                            "item": "ContainerType.TUBE",
-                            "liquids": [
-                                { "type": "LiquidType.DESIGNED_DRUG" }
-                            ]
-                        }
+                        }, {
+                            "id": 1,
+                            "answer": {
+                                "dk": "Lige akkurat nok enzym til at tøjet bliver rent, men så heller ikke mere.",
+                                "en": "Just enough enzyme to get the clothes clean - but no more than that."
+                            },
+                            "message": {
+                                "dk": "Ja, enzymer er dyre at producere, men selvfølgelig skal folks tøj også blive rent. Derfor er dette den optimale løsning.",
+                                "en": "That's correct. Enzymes are expensive to produce, but of course the clothes has get clean as well. That's why this is the optimal solution."
+                            }
+                        }, {
+                            "id": 2,
+                            "answer": {
+                                "dk": "Eftersom enzymer er dyre at producere, så bare nok til at tøjet bliver lidt renere, men ikke nødvendigvis helt.",
+                                "en": "Because enzymes are expensive to produce just enough for the clothes to get a bit clean, but not necessarily completely clean."
+                            },
+                            "message": {
+                                "dk": "Nej, det bliver folk næppe voldsomt glade for.",
+                                "en": "No. That would consumers probably not be satisfied with."
+                            }
+                        }]
                     }
-                ]
+                }
             }
         ]
-    }
-]
+    }]
+}, {
+    "id": "insulin",
+    "title": {
+        "dk": "Produktion af insulin",
+        "en": "Production of insulin"
+    },
+    "description": {
+        "dk": "I denne øvelse skal du genmodificere gærceller, således at de producerer insulin til behandling type-1 diabetes.",
+        "en": "In this exercise you have to genetically modify yeast to produce insulin for treatment of type 1 diabetes."
+    },
+    "story": {
+        "dk": "Et modificeret insulingener, der forventes at kunne anvendes til behandling af type-1 diabetes, er blevet udviklet. Det er din opgave at producere den nye insulintype og teste dens effekt på en laboratoriemus.",
+        "en": "A modified insulin gene expected to be able to treat type 1 diabetes has been developed. It is your job to produce the new type of insulin and test it on a mouse."
+    },
+    "parts": [{
+        "tasks": [{
+                "description": {
+                    "dk": "Design et stykke DNA på computeren som koder for insulin og som desuden koder for resistens for Antibiotikum B. Husk det centrale dogme, når du designer genet.",
+                    "en": "Design a piece of DNA on the computer coding for both insulin and resistance towards antibiotic B. Remember the central dogma when designing the gene."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.GENE"
+                    }]
+                }
+            },
+
+            {
+                "description": {
+                    "dk": "Bland gærceller og dit designede DNA i et reagensglas. Overfør en del af blandingen til elektroporatoren med pipetten. På denne måde genmodificeres gærcellerne til at udtrykke det designede DNA.",
+                    "en": "Mix yeast and the designed DNA in a test tube and transfer part of the mixture to the electroporator with the pipet. The electro shock makes the cells absorb the DNA and enables them produce the lipase and resistant towards antibiotic B."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.ELECTROPORATOR",
+                    "liquids": [{
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }, {
+                        "type": "LiquidType.GENE"
+                    }]
+                }
+            },
+
+            {
+                "description": {
+                    "dk": "Fordel de gensplejsede gærceller i en petriskål og tilsæt Antibiotikum B. NB: I praksis støbes antibiotika ind i pladen, og man kan ikke blot tilsætte stoffet efterfølgende.",
+                    "en": "Distribute the genetically modified yeast cells in a petri dish and add antibiotic B."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.PETRI_DISH",
+                    "liquids": [{
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }, {
+                        "type": "LiquidType.ANTIBIOTIC",
+                        "subtype": "AntibioticType.B"
+                    }]
+                }
+            },
+
+            {
+                "description": {
+                    "dk": "Inkubér petriskålen.",
+                    "en": "Incbate the petri dish in the oven."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.INCUBATOR",
+                    "containers": [{
+                        "type": "ContainerType.PETRI_DISH",
+                        "liquids": [{
+                            "type": "LiquidType.MICROORGANISM",
+                            "subtype": "MicroorganismType.YEAST"
+                        }, {
+                            "type": "LiquidType.ANTIBIOTIC",
+                            "subtype": "AntibioticType.B"
+                        }]
+                    }]
+
+                }
+            },
+
+            {
+                "description": {
+                    "dk": "Overfør en cellekoloni fra petriskålen til et reagensglas indeholdende vækstmedie og Antibiotikum B.",
+                    "en": "Transfer a cell colony from the petri dish to a test tube containing growth media and antibiotic B."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }, {
+                        "type": "LiquidType.ANTIBIOTIC",
+                        "subtype": "AntibioticType.B"
+                    }, {
+                        "type": "LiquidType.GROWTH_MEDIUM"
+                    }]
+                }
+            },
+
+            {
+                "description": {
+                    "dk": "Inkubér reagensglasset.",
+                    "en": "Incubate the test tube in the oven."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.INCUBATOR",
+                    "containers": [{
+                        "type": "ContainerType.TUBE",
+                        "liquids": [{
+                            "type": "LiquidType.MICROORGANISM",
+                            "subtype": "MicroorganismType.YEAST"
+                        }, {
+                            "type": "LiquidType.ANTIBIOTIC",
+                            "subtype": "AntibioticType.B"
+                        }, {
+                            "type": "LiquidType.GROWTH_MEDIUM"
+                        }]
+                    }]
+
+                }
+            },
+
+            {
+                "description": {
+                    "dk": "Bland indholdet af reagensglasset og Antibiotikum B i et reagensglas og anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren.",
+                    "en": "Mix the yeast cells and antibiotic B in a test tube and use a syringe to transfer the content from the test tube to the fermentor."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.FERMENTOR_TANK",
+                    "liquids": [{
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }, {
+                        "type": "LiquidType.ANTIBIOTIC",
+                        "subtype": "AntibioticType.B"
+                    }, {
+                        "type": "LiquidType.GROWTH_MEDIUM"
+                    }]
+
+                }
+            },
+
+            {
+                "description": {
+                    "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt.",
+                    "en": "Start a fermentation. Remember to adjust the pH and temperatur so the growth conditions are optimal - try at different settings and explore what is optimal."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.FERMENTOR_START",
+                    "liquids": [{
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }, {
+                        "type": "LiquidType.ANTIBIOTIC",
+                        "subtype": "AntibioticType.B"
+                    }]
+                }
+            },
+
+            {
+                "description": {
+                    "dk": "Oprens insulin fra din fermentering.",
+                    "en": "Purify the insulin from your fermentation."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.INSULIN"
+                    }]
+                }
+            }, {
+                "description": {
+                    "dk": "Test effektiviteten af dit producerede insulin ved at give det til en rask mus eller en mus med type-1 diabetes.",
+                    "en": "Test the effeciency of your produced insulin by giving it to a healthy mouse or a mouse with tpye 1 diabetes."
+                },
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "item": "ContainerType.SYRINGE",
+                    "liquids": [{
+                        "type": "LiquidType.INSULIN"
+                    }]
+                }
+            }
+        ]
+    }]
+}, {
+    "id": "antibody",
+    "title": {
+        "dk": "Produktion af antistoffer",
+        "en": "Production of antibodies"
+    },
+    "description": {
+        "dk": "Her skal du producere dine egne antistoffer og bagefter bruge dem til at behandle sygdomme.",
+        "en": "Here you have to produce your own antibodies and afterwards use them to treat diseases."
+    },
+    "story": {
+        "dk": "I denne øvelse skal du en vha. en mus producere antistoffer mod Ebola. Når man udsætter en rask mus for et fremmed stof, så vil musens immunforsvar reagere ved at producere antistoffer i mod det fremmede – ligesom når man bliver vaccineret. Det foregår ved, at nogle af musens B-lymfocytter bliver til plasmaceller, som er de celler der producerer antistoffer. Vi skal vha. ELISA finde frem de kopper-antistof-producerende plasmaceller og sekventere deres DNA. Med deres DNA til hjælp kan vi nemlig kopiere og producere antistofferne i laboratoriet.",
+        "en": "In this exercise you have to produce antibodies against Ebola through a mouse. When exposing a healthy mouse to an alien substance it's immuno response react by producing antibodies against the substance - exactly like what happens when you get vaccinated. It works by transforming some of the mouses B-lymphocytes into plasma cells who then in to turn produces the antibodies. Through ELISA you have find the plasma cells producing small pox antibodies and sequence their DNA. With their DNA we can copy and produce the antibodies in the laboratory."
+    },
+    "apparatus": {
+        "ApparatusLocationType.INCUBATOR_ANTI_MATTER": "ApparatusType.INCUBATOR_ANTI_MATTER"
+    },
+    "parts": [{
+        "tasks": [
+
+            {
+                "description": {
+                    "dk": "Lav en reagens til aktiv immunisering af musen ved at blande antigen med adjuvant. Den virker ligesom en vaccine imod antigenet. Adjuvanten tilføjes for at forstærke den immunologiske reaktion.",
+                    "en": "Make your own mixture for activation of the immune response by mixing antigenes with adjuvant. It works like a vaccine against the antigene itself. Adjuvant is added to improve the immunological response."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.ANTIGEN_SMALLPOX"
+                    }, {
+                        "type": "LiquidType.ADJUVANS"
+                    }]
+                },
+                "consequence": {
+                    "type": "ConsequenceType.QUIZ",
+                    "quiz": {
+                        "id": 1,
+                        "name": {
+                            "dk": "Adjuvant",
+                            "en": "Adjuvant"
+                        },
+                        "question": {
+                            "dk": "Hvad er formålet med at tilsætte en adjuvant til vaccinen?",
+                            "en": "What is the purpose of adding adjuvant to the vaccine?"
+                        },
+                        "correct": 1,
+                        "answers": [{
+                            "id": 0,
+                            "answer": {
+                                "dk": "En adjuvant er et medium, som opretholder de optimale forhold for antigenet.",
+                                "en": "An adjuvant is a type of media that ensures the optimal conditions for the antigene."
+                            },
+                            "message": {
+                                "dk": "Det et ikke helt korrekt, antigenet er allerede i den optimale opløsning.",
+                                "en": "That's not completely true. The antigene is already in the optimal media."
+                            }
+                        }, {
+                            "id": 1,
+                            "answer": {
+                                "dk": "Adjuvanten er et hjælpestof i vaccinen.",
+                                "en": "Adjuvant is a substance helping the vaccine to be more efficient."
+                            },
+                            "message": {
+                                "dk": "Korrekt! En adjuvant er en substans/et molekyle som øger immunogeniciteten (styrken af immun-respons) når den blandes med antigenet. Adjuvanten har også en effekt på vaccinens sikkerhed, hvor vaccinen skal virke i kroppen, og hvor hurtigt vaccinen skal frigives i blodet eller vævet.",
+                                "en": "Correct! An adjuvant is a substance increasing the effect of the immunization when mixed with the antigene. Adjuvant also has an effect on the safety of the vaccine, where the vaccine has work in the body, and how fast the vaccine should be administered to in the blood."
+                            }
+                        }, {
+                            "id": 2,
+                            "answer": {
+                                "dk": "Adjuvanten er en celletype som producerer antigen.",
+                                "en": "Adjuvant is a type of cell that produces antigene."
+                            },
+                            "message": {
+                                "dk": "Nej, en adjuvant er ikke en celle og den virker kun som supplement til antigenet",
+                                "en": "No, an adjuvant is not a cell and it's effect is only as a supplement to the antigene"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "description": {
+                    "dk": "Sug blandingen op med en kanyle.",
+                    "en": "Transfer the mixture to a syringe."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.SYRINGE",
+                    "liquids": [{
+                        "type": "LiquidType.ANTIGEN_SMALLPOX"
+                    }, {
+                        "type": "LiquidType.ADJUVANS"
+                    }]
+                }
+            }, {
+                "description": {
+                    "dk": "Immunisér en rask forsøgsmus. Musen bliver på den måde immun over for antigenet.",
+                    "en": "Immunise a healthy mouse. The mouse the becomes immune towards antigene."
+                },
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "alive": true,
+                    "mouseType": "MouseType.HEALTHY",
+                    "mouseBloodType": "MouseBloodType.NORMAL",
+                    "item": "ContainerType.SYRINGE",
+                    "liquids": [{
+                        "type": "LiquidType.ANTIGEN_SMALLPOX"
+                    }, {
+                        "type": "LiquidType.ADJUVANS"
+                    }]
+                },
+                "consequence": {
+                    "type": "ConsequenceType.QUIZ",
+                    "quiz": {
+                        "id": 1,
+                        "name": {
+                            "dk": "Immunisering",
+                            "en": "Immunisation"
+                        },
+                        "question": {
+                            "dk": "Hvad betyder det, at musen er immuniseret?",
+                            "en": "What does it mean that the mouse is immunised?"
+                        },
+                        "correct": 2,
+                        "answers": [{
+                            "id": 0,
+                            "answer": {
+                                "dk": "At musen har fået indsprøjtet antigenet, og er blevet rask.",
+                                "en": "That the mouse has been administered the antigene and is now healthy."
+                            },
+                            "message": {
+                                "dk": "Det er ikke helt korrekt, antigenet udløser forsvarsmekanismer i musens immunforsvar, bl.a. produktion af antistof. Antistoffet cirkulerer i musens blod og binder til antigenet hvorved musen beskyttes i mod dette. Men da det er en rask mus bliver ikke mere rask af at blive immuniseret",
+                                "en": "That's not completely true. The antigene triggers defensive mechanisms in the mouse's immune system. One of these mechanisms is the production of antibodies that remains in the mouse's blood and binds to the antigenes. This is already a healthy mouse and does not become more healthy by being immunised."
+                            }
+                        }, {
+                            "id": 1,
+                            "answer": {
+                                "dk": "At antigenet ikke har fremkaldt en immunreaktion.",
+                                "en": "That the antigenes has not caused an immunoreaction."
+                            },
+                            "message": {
+                                "dk": "Nej, tværtimod. I så fald ville man ikke kunne vaccinere.",
+                                "en": "No, quite the opposite. If this was the case you would not be able to vaccinate."
+                            }
+                        }, {
+                            "id": 2,
+                            "answer": {
+                                "dk": "At antigenet har fremkaldt en immunreaktion.",
+                                "en": "That the antigene has caused an immunoreaction."
+                            },
+                            "message": {
+                                "dk": "Korrekt. Når et antigen kommer ind i vores krop, bliver det genkendt som fremmed af kroppens immunforsvar. Det fremkalder immunforsvarets mekanismer, bl.a. en stigning i kropstemperaturen – det vi kender som feber - og produktion af antistoffer. Når musen får sprøjtet en lille smule antigen ind i kroppen, sker samme forsvarsreaktion, hvilket ender med en produktion af antistof mod antigenet, der binder og uskadeliggør antigenet. Hvis musen udsættes for antigenet vil den allerede have antistoffer og dermed ikke blive syg.",
+                                "en": "Correct! When the antigene enters our body it is recognized as a foreign substance by the bodies immune system. It triggers an immunoreaction which results in an increased body temperature - what we know as fever - and the production of antibodies. When the mouse get administered a small amount of antigene into the blood the immunoreaction happens which results in the production of antibodies for the antigene. Then the next time the mouse is exposed to the antigenes it will already have antibodies and therefore not become sick."
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "description": {
+                    "dk": "Herefter dræbes musen ved at give den en dødelig indsprøjtning.",
+                    "en": "Put down the mouse by giving it a leathal injection."
+                },
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "item": "ContainerType.SYRINGE",
+                    "liquids": [{
+                        "type": "LiquidType.DEADLY"
+                    }]
+                }
+            }, {
+                "description": {
+                    "dk": "Vha. en skalpel skæres musens milt ud.",
+                    "en": "Cut out the spleen with a scalpel."
+                },
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "alive": false,
+                    "item": "SpecialItemType.SCALPEL"
+                },
+                "consequence": {
+                    "type": "ConsequenceType.QUIZ",
+                    "quiz": {
+                        "id": 1,
+                        "name": {
+                            "dk": "Milten",
+                            "en": "The spleen"
+                        },
+                        "question": {
+                            "dk": "Hvorfor tages milten ud af musen?",
+                            "en": "Why is the spleen taken out of the mouse?"
+                        },
+                        "correct": 2,
+                        "answers": [{
+                            "id": 0,
+                            "answer": {
+                                "dk": "Milten er et lager for frit antistof.",
+                                "en": "The spleen is a storage for freely available antibodies."
+                            },
+                            "message": {
+                                "dk": "Det er næsten korrekt. I milten er der mange B-celler. Når kroppen gentagnede gange udsættes for et antigen, lagres de B-celler, som producerer de specifikke antistoffer mod antigenet i milten. Når B-cellerne producerer antistoffer, forvandles de til plasmaceller.",
+                                "en": "That is almost correct. In the spleen there is a lot of B cells. When the body is repeatedly exposed to an antigene B cells that produce the specific antibodies for that antigene is stored in the spleen. When the B cells produce antibodies they turn into plasma cells."
+                            }
+                        }, {
+                            "id": 1,
+                            "answer": {
+                                "dk": "Milten lagrer antigener.",
+                                "en": "The spleen stores antigenes."
+                            },
+                            "message": {
+                                "dk": "Nej, milten lagrer ikke antigener, men B-celler som producerer antistof mod antigen. Antigener er det fremmede som kroppen udsættes for - fx virus eller bakterier.",
+                                "en": "No, the spleen does not store antigene. Instead it stores B cells that have the ability to produce antibodies against antigenes. Antigenes are the foreign substances that the body gets exposed to through e.g. virus or bacteria."
+                            }
+                        }, {
+                            "id": 2,
+                            "answer": {
+                                "dk": "I milten findes mange B-celler som producerer antistof.",
+                                "en": "The spleen is home to B cells that can produce antibodies."
+                            },
+                            "message": {
+                                "dk": "Korrekt! Når kroppen gentagnede gange udsættes for et antigen, lagres mange B-celler, som producerer antistoffer mod antigenet i milten. Når B-cellerne producerer antistoffer, forvandles de til plasmaceller.",
+                                "en": "Correct! When the body is repeatedly exposed to an antigene B cells that can produce antibodies for the specific antigene is stored in the spleen. When the B cells produce antibodies they turn into plasma cells."
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "description": {
+                    "dk": "Homogenisér musens milt i blenderen på det bagerste arbejdsbord.",
+                    "en": "Homogenisate the mouse's spleen in the blender."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.HOMO_SPLEEN"
+                    }]
+                }
+            }, {
+                "description": {
+                    "dk": "Bland følgende i et reagensglas: Homogeniseret milt, myeloma-celler og hybridoma medium.",
+                    "en": "Mix the following in a test tube: Homogenisated spleen, myeloma cells and bybridoma medium."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.HOMO_SPLEEN"
+                    }, {
+                        "type": "LiquidType.HYBRIDOMA_MEDIUM"
+                    }, {
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.MYELOMA"
+                    }]
+                },
+                "consequence": {
+                    "type": "ConsequenceType.QUIZ",
+                    "quiz": {
+                        "id": 1,
+                        "name": {
+                            "dk": "Myeloma-celler",
+                            "en": "Myeloma cells"
+                        },
+                        "question": {
+                            "dk": "Hvad er formålet med at benytte Myeloma-celler?",
+                            "en": "What is the purpose of using myeloma cells?"
+                        },
+                        "correct": 1,
+                        "answers": [{
+                            "id": 0,
+                            "answer": {
+                                "dk": "Myeloma-celler, er celler fra musen, som producerer antistof.",
+                                "en": "Myleoma cells are cells from the mouse producing antibodies."
+                            },
+                            "message": {
+                                "dk": "Nej, musens plasmaceller producerer antistoffer. Myeloma celler er cancerceller.",
+                                "en": "No. The mouse's plasmacells produce antibodies. Myeloma cells are cancer cells."
+                            }
+                        }, {
+                            "id": 1,
+                            "answer": {
+                                "dk": "Myeloma-celler er udødelige celler i modsætning til celler fra milten.",
+                                "en": "Myeloma cells are immortal cells in contratst to cells from the spleen."
+                            },
+                            "message": {
+                                "dk": "Korrekt! Myeloma er cancerceller oprindeligt fra plasmaceller, og de udgør en udødelig hurtigvoksende cellelinie. Ved at bruge denne type celler kan man forene deres udødelige egenskaber med evnen til at producere antistof, som cellerne fra musens milt kan. Man skaber derved skabe en ny cellelinie - hybridomacellerne.",
+                                "en": "Correct. Myeloma cells are cancer cells that used to be plasma cells and they make up an immortal and fast growing cell line. By using this type of cell you can combine their immoratlity with the ability to produce antibodies that the cells from the spleen of the mouse can produce. You thereby create a new cell line - hybridoma cells."
+                            }
+                        }, {
+                            "id": 2,
+                            "answer": {
+                                "dk": "Myeloma-celler producerer antigener.",
+                                "en": "Myeloma cells produce antigenes"
+                            },
+                            "message": {
+                                "dk": "Nej, antigener er ofte rester fra bakterier og vira (f.eks. dele af deres cellemembran), som fremkalder et immun-respons, når kroppen kommer i kontakt med dem.",
+                                "en": "No. Antigenes er often cellular debris from bacteria or virus (e.g. parts of their cellular membrane) that produce an immune response when the body comes into contact with them."
+                            }
+                        }]
+                    }
+                }
+            }, {
+
+                "number": 8,
+                "description": {
+                    "dk": "Inkubér herefter reagensglasset i ovnen under forreste arbejdsbord.",
+                    "en": "Incubate the test tube in the oven."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.INCUBATOR",
+                    "containers": [{
+                        "type": "ContainerType.TUBE",
+                        "liquids": [{
+                            "type": "LiquidType.HOMO_SPLEEN"
+                        }, {
+                            "type": "LiquidType.HYBRIDOMA_MEDIUM"
+                        }, {
+                            "type": "LiquidType.MICROORGANISM",
+                            "subtype": "MicroorganismType.MYELOMA"
+                        }]
+                    }]
+                }
+            }, {
+                "number": 9,
+                "description": {
+                    "dk": "Fortynd blandingen med saltvand. Du kan følge fortynding på OD-måleren, hvor du skal bruge en lav fortynding på mellem 3,4-4,0.",
+                    "en": "Dilute the mixture with salt water. You can follow the dilution with the OD spectrophotometer and you have to reach a dilution between 3.4 and 4.0."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.OD",
+                    "minVal": 3.4,
+                    "maxVal": 4.0
+                }
+            }, {
+                "number": 10,
+                "description": {
+                    "dk": "Fordel blandingen på en tom mikrotiterplade. Pga. den kraftige fortynding vil der i gennemsnit kun komme én celle i hver brønd.",
+                    "en": "Transfer the mixture onto an empty microtitter plate. Because of the high dilution on average only one cell will remain in each well."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.MICROTITER",
+                    "containerSubtype": "AntigenCoatingType.NONE",
+                    "liquids": [{
+                        "type": "LiquidType.HOMO_SPLEEN"
+                    }, {
+                        "type": "LiquidType.HYBRIDOMA_MEDIUM"
+                    }, {
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.MYELOMA"
+                    }, {
+                        "type": "LiquidType.SALT_WATER"
+                    }]
+                }
+            }, {
+                "number": 11,
+                "description": {
+                    "dk": "Inkubér mikrotiterpladen. Dette gøres i ovnen ved 37 C.",
+                    "en": "Incubate the microtiter plate at 37 C in the oven."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.INCUBATOR",
+                    "liquids": [{
+                        "type": "LiquidType.HOMO_SPLEEN"
+                    }, {
+                        "type": "LiquidType.HYBRIDOMA_MEDIUM"
+                    }, {
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.MYELOMA"
+                    }, {
+                        "type": "LiquidType.SALT_WATER"
+                    }]
+                }
+            },
+
+            {
+                "number": 12,
+                "description": {
+                    "dk": "Tag en ny mikrotitterplade og belæg den med den adjuvant og Ebola antigen blanding du også brugte i begyndelsen.",
+                    "en": "Take a new microtitter plate and coat it with the adjuvant and Ebola antigene mixture you used at the beginning."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.MICROTITER",
+                    "containerSubtype": "AntigenCoatingType.NONE",
+                    "liquids": [{
+                        "type": "LiquidType.ANTIGEN_SMALLPOX"
+                    }, {
+                        "type": "LiquidType.ADJUVANS"
+                    }]
+
+                }
+            }, {
+                "number": 13,
+                "description": {
+                    "dk": "Inkubér pladen i ovenen ved 37 C.",
+                    "en": "Incubate it in the oven at 37 C."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.INCUBATOR",
+                    "containers": [{
+                        "type": "ContainerType.MICROTITER",
+                        "liquids": [{
+                            "type": "LiquidType.ANTIGEN_SMALLPOX"
+                        }, {
+                            "type": "LiquidType.ADJUVANS"
+                        }]
+                    }]
+
+                }
+            }, {
+                "number": 14,
+                "description": {
+                    "dk": "Tilsæt buffer til ELISA-pladen i stinkskabet.",
+                    "en": "Add buffer to the ELISA plate under the fume hood."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.MICROTITER",
+                    "containerSubtype": "AntigenCoatingType.NONE",
+                    "liquids": [{
+                        "type": "LiquidType.ANTIGEN_SMALLPOX"
+                    }, {
+                        "type": "LiquidType.ADJUVANS"
+                    }, {
+                        "type": "LiquidType.BUFFER"
+                    }]
+
+                }
+            },
+
+            {
+                "number": 15,
+                "description": {
+                    "dk": "Udtag nu væske fra den oprindelige mikrotitterbakke og tilsæt det til den nye ELISA plade du lige har forberedt. Normalt skal dette gøres for alle brøndene, men her behøver du kun at gøre det en gang direkte fra pladen - din assistent klarer resten for dig.",
+                    "en": "Transfer some of the liquid from the original microtitter plate to the new ELISA plate your just prepared. Normally this has to be done for every well on the plate, but here you only have to do it once directly from the plate - your assistant will do the rest for you."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.MICROTITER",
+                    "containerSubtype": "AntigenCoatingType.NONE",
+                    "liquids": [{
+                        "type": "LiquidType.HOMO_SPLEEN"
+                    }, {
+                        "type": "LiquidType.HYBRIDOMA_MEDIUM"
+                    }, {
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.MYELOMA"
+                    }, {
+                        "type": "LiquidType.SALT_WATER"
+                    }, {
+                        "type": "LiquidType.ANTIGEN_SMALLPOX"
+                    }, {
+                        "type": "LiquidType.ADJUVANS"
+                    }, {
+                        "type": "LiquidType.BUFFER"
+                    }]
+                }
+            }, {
+                "number": 16,
+                "description": {
+                    "dk": "Alle brøndende på ELISA-pladen vaskes med buffer.",
+                    "en": "The ELISA plate is now washed with buffer."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.MICROTITER_WASHED_WITH_BUFFER"
+                },
+                "consequence": {
+                    "type": "ConsequenceType.QUIZ",
+                    "quiz": {
+                        "id": 1,
+                        "name": {
+                            "dk": "ELISA",
+                            "en": "ELISA"
+                        },
+                        "question": {
+                            "dk": "ELISA er en meget brugt metode i laboratoriet, men hvad er metodens formål?",
+                            "en": "ELISA is an often used method in the laboratory, but what is its purpose?"
+                        },
+                        "correct": 0,
+                        "answers": [{
+                            "id": 0,
+                            "answer": {
+                                "dk": "ELISA er en metode til at identificere, om et ønsket antistof findes i en opløsning",
+                                "en": "ELISA is a method to identify whether or not a desired antibody is present in the mixture."
+                            },
+                            "message": {
+                                "dk": "Korrekt! ELISA er en forkortelse for Enzyme-Linked Immunosorbent Assay. ELISA udføres på en mikrotiterplade (en plastikplade med mange brønde/huller). I hver brønd er forskellige antigener bundet. Når opløsningen med antistof-producerende celler tilsættes til alle brøndene, vil antistof binde til antigen, hvis de matcher – ligesom med puslespilsbrikker. De antistoffer, som ikke er bundet til antigener fjernes herefter ved vask med buffer. Til alle brøndene tilsættes et sekundært antistof. Et sekundært antistof, som er bundet til en fluorofor, binder til de bundne antistoffer i brøndene. I et UV-rum kan man nu bestemme, om det ønskede antistof findes i den undersøgte opløsning.",
+                                "en": "Correct! ELISA is short for Enzyme-Linked Immunosorbent Assay. A different antigene is bound to each well and the mixture is added to each well. The antibody then binds to the antigene in the well if they fit together - kind of like puzzle pieces. Afterwards the entire plate is washed with buffer, and everything unbound is washed away. Finally a second antibody with a fluorophore is added and binds to the wells still containing the antibody of interest. The plate can now be examined under UV-lighting to determine whether or not the desired antibody actually was present in the mixture."
+                            }
+                        }, {
+                            "id": 1,
+                            "answer": {
+                                "dk": "ELISA er en metode, der bruges til at genmodificere gærceller",
+                                "en": "ELISA is a method used to genetically modify yeast."
+                            },
+                            "message": {
+                                "dk": "Nej, prøv igen!",
+                                "en": "No - try again!"
+                            }
+                        }, {
+                            "id": 2,
+                            "answer": {
+                                "dk": "ELISA er en metode, der kan bruges til at producere store mængder at antistof",
+                                "en": "ELISA is a method used to produce large amounts of antibody"
+                            },
+                            "message": {
+                                "dk": "Nej. Antistof produceres af plasmaceller (B-celler) isoleret fra musens milt.",
+                                "en": "No. Antibody is produced by plasma cells (B-cells) isolated from the spleen of the mouse."
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "number": 17,
+                "description": {
+                    "dk": "Tilsæt fluorescerende sekundært  antistof til alle brøndene på ELISA-pladen.",
+                    "en": "Add a fluorescent secondary antibody to all the wells."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "strict": true,
+                    "container": "ContainerType.MICROTITER",
+                    "containerSubtype": "AntigenCoatingType.NONE",
+                    "liquids": [{
+                        "type": "LiquidType.FLUORESCENT_2ND_ANTIBODY"
+                    }]
+                }
+            }, {
+                "number": 18,
+                "description": {
+                    "dk": "Vask ELISA-pladen med buffer igen.",
+                    "en": "Wash the ELISA plate with buffer."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.MICROTITER_WASHED_WITH_BUFFER",
+                    "liquids": [{
+                        "type": "LiquidType.FLUORESCENT_2ND_ANTIBODY"
+                    }]
+                }
+            }, {
+                "number": 19,
+                "description": {
+                    "dk": "Tag ELISA-pladen med ind i UV-rummet og se nærmere på den. Notér hvilke brønde der fluorescerer. Dem der lyser op har haft en væske med et antistof der kan binde til antigenet i brønden. Det er de antistof-producerende celler fra de brønde vi er interesserede i. Herefter skal du se nærmere på den oprindelige mikrotiterplade og opsamle indholdet fra en brønd, der svarer til en fluorescerende brønd på ELISA-pladen (dette gøres ved at trykke på den pågældende brønd).",
+                    "en": "Bring the ELISA plate in the UV room and take a closer look at it. Note which wells fluoresces. Those glowing has had a mixture with an antibody that binds to the antigene in the well. It is these antibody-producing cells from the wells we are interested in. Afterwards you should take a closer look at the original mikrotiter plate and gather the content from a well matching the fluorescent wells in the ELISA plate (This is done by pressing on the well in question)."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.HOMO_SPLEEN"
+                    }, {
+                        "type": "LiquidType.HYBRIDOMA_MEDIUM"
+                    }, {
+                        "type": "LiquidType.SALT_WATER"
+                    }, {
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.MYELOMA"
+                    }]
+                }
+            }, {
+                "number": 20,
+                "description": {
+                    "dk": "Send indholdet fra brønden til sekventering ved at åbne computeren og vælge \"Send til sekventering\". Hermed burde du få et nyt DNA-element i DNA-designeren på computeren.",
+                    "en": "Send the content from the well to be sequenced by opening the computer and picking \"Send to sequenceing\". This way you should get a new DNA-element in the DNA-designer on the computer."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.COMPUTER_ORDER_SEQUENCE"
+                }
+            }, {
+                "number": 21,
+                "description": {
+                    "dk": "Design et stykke DNA på computeren, som koder for musens antistof, og som desuden koder for resistens af Antibiotikum B. Husk det centrale dogme, når du designer genet, dvs. husk: ribosome binding site, promotor, start- og slutkodon, og terminator.",
+                    "en": "Design a piece of DNA on the computer that codes for the antibody of the mouse as well as Antibioticum B. Remember the central dogma when designing the gene."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.GENE"
+                    }]
+                }
+            },
+
+            {
+                "number": 22,
+                "description": {
+                    "dk": "Bland det bestilte DNA med mammale celler i et reagensglas. Tilsæt blanding til elektroporatoren. På den måde hjælper du det genmodificerede DNA med at trænge ind i de mammale celler, der så kan begynder at producere antistof. Processen kaldes transfektion.",
+                    "en": "Mix the ordered DNA with mammalian cells in a test tube. Add the mixture to the electroporator. This way you genetically modify the mammalian cells to produce the antibody by letting the designed DNA into the cells. This process is called transfection."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.ELECTROPORATOR",
+                    "liquids": [{
+                        "type": "LiquidType.GENE"
+                    }, {
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }]
+                }
+            },
+
+            {
+                "number": 23,
+                "description": {
+                    "dk": "Tilsæt de gen-modificerede celler til et reagensglas med vækstmedium og tilføj antibiotikum B.",
+                    "en": "Add the genetically modified cells to a test tube with growth media and add antibioticum B."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.GENE"
+                    }, {
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }, {
+                        "type": "LiquidType.GROWTH_MEDIUM"
+                    }, {
+                        "type": "LiquidType.ANTIBIOTIC",
+                        "subtype": "AntibioticType.B"
+                    }]
+                }
+            },
+
+            {
+                "number": 24,
+                "description": {
+                    "dk": "Inkubér blandingen.",
+                    "en": "Incubate the mixture."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.INCUBATOR",
+                    "containers": [{
+                        "type": "ContainerType.TUBE",
+                        "liquids": [{
+                            "type": "LiquidType.GENE"
+                        }, {
+                            "type": "LiquidType.GROWTH_MEDIUM"
+                        }, {
+                            "type": "LiquidType.MICROORGANISM",
+                            "subtype": "MicroorganismType.YEAST"
+                        }, {
+                            "type": "LiquidType.ANTIBIOTIC",
+                            "subtype": "AntibioticType.B"
+                        }]
+                    }]
+
+                }
+            },
+
+            {
+                "number": 25,
+                "description": {
+                    "dk": "Bland indholdet af reagensglasset og Antibiotikum B i et reagensglas og anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren.",
+                    "en": "Mix the content of the test tube and antibioticum B in a new test tube and use a syringe to transfer the content from the test tube to the fermentor."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "container": "ContainerType.FERMENTOR_TANK",
+                    "liquids": [{
+                        "type": "LiquidType.GENE"
+                    }, {
+                        "type": "LiquidType.GROWTH_MEDIUM"
+                    }, {
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }, {
+                        "type": "LiquidType.ANTIBIOTIC",
+                        "subtype": "AntibioticType.B"
+                    }]
+
+                }
+            },
+
+            {
+                "number": 26,
+                "description": {
+                    "dk": "Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt. Tænk på at det er mammale celler",
+                    "en": "Start a fermentation. Remember to adjust pH and temperature so the growth becomes optimal - try at different settings and figure out what's optimal. Remember that you're working with mammalian cells."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "activation": "ActivationType.FERMENTOR_START",
+                    "liquids": [{
+                        "type": "LiquidType.GENE"
+                    }, {
+                        "type": "LiquidType.GROWTH_MEDIUM"
+                    }, {
+                        "type": "LiquidType.MICROORGANISM",
+                        "subtype": "MicroorganismType.YEAST"
+                    }, {
+                        "type": "LiquidType.ANTIBIOTIC",
+                        "subtype": "AntibioticType.B"
+                    }]
+                }
+            },
+
+            {
+                "number": 27,
+                "description": {
+                    "dk": "Oprens antistoffet fra fermenteringen.",
+                    "en": "Purify the antibodies from the fermentation."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.ANTIBODY_SMALLPOX"
+                    }]
+                }
+            }, {
+                "number": 28,
+                "description": {
+                    "dk": "Bestil en syg mus med Ebola på computeren og test dit antistof ved at indsprøjte det i musen.",
+                    "en": "Order a new mouse with Ebola and test your antibody by injecting it into the mouse."
+                },
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "alive": true,
+                    "mouseType": "MouseType.SMALLPOX",
+                    "item": "ContainerType.SYRINGE",
+                    "liquids": [{
+                        "type": "LiquidType.ANTIBODY_SMALLPOX"
+                    }]
+                }
+            }
+        ]
+    }]
+}, {
+    "id": "drug",
+    "title": {
+        "dk": "Lægemiddeludvikling",
+        "en": "Drug discovery"
+    },
+    "description": {
+        "dk": "I denne øvelse skal du designe et lægemiddel, teste det in vitro og hvis det egner sig, også in vivo.",
+        "en": "In this exercise you have to design a drug and test it in vitro, and if suitable, also test it in vivo."
+    },
+    "story": {
+        "dk": "Et enzym som spiller en afgørende rolle i psoriasis er blevet fundet og dets aktive site lokaliseret. Din opgave er at designe et lægemiddel som kan inhibere dette enzym og på den måde bekæmpe sygdommen.",
+        "en": "An enzyme playing a key role in psoriasis has been uncovered and it's active site located. Your job is to design a drug that can inhibit this enzym and thereby fight the disease."
+    },
+    "parts": [{
+        "tasks": [{
+                "description": {
+                    "dk": "Bland lysis, vand og saltvand i rækkefølge.",
+                    "en": "Mix lysis, water and salt water in that order."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "strict": true,
+                    "item": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.LYSIS"
+                    }, {
+                        "type": "LiquidType.WATER"
+                    }, {
+                        "type": "LiquidType.SALT_WATER"
+                    }],
+                    "strictlyOrdered": true
+                }
+            }, {
+                "description": {
+                    "dk": "Design og bestil et lægemiddel ved at gå hen til computeren og ind i programmet \"Design Lægemiddel\". Husk at tænke over sidegruppernes længde og ladning!",
+                    "en": "Design and order a drug by going to the computer and entering the program \"Design Drug\". Remember to take the length and charge of the side-chains into account."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACQUIRE",
+                    "strict": true,
+                    "item": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.DESIGNED_DRUG"
+                    }]
+                }
+            }, {
+                "description": {
+                    "dk": "Tag noget af dit designede kemikalie, og bland det i et nyt reagensglas sammen med CYP-enzym",
+                    "en": "Take your designed molecule and mix it in a test tube with CYP enzyme."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "strict": true,
+                    "item": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.DESIGNED_DRUG"
+                    }, {
+                        "type": "LiquidType.CYP_ENZYME"
+                    }]
+                }
+            }, {
+                "description": {
+                    "dk": "Tag nu og flyt dit reagensglas med kemikalie og CYP-enzym hen til varmeblokken og tænd. Dette er for at teste om enzymet nedbryder dit lægemiddel",
+                    "en": "Place your mixture of the CYP enzyme and your molecule and move it the heating block. This is to test if the enzyme degrades your drug."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "strict": true,
+                    "activation": "ActivationType.HEATER",
+                    "liquids": [{
+                        "type": "LiquidType.DESIGNED_DRUG"
+                    }, {
+                        "type": "LiquidType.CYP_ENZYME"
+                    }]
+                },
+                "consequence": {
+                    "type": "ConsequenceType.QUIZ",
+                    "quiz": {
+                        "id": 1,
+                        "video": "drug-liver-unchanged",
+                        "name": {
+                            "dk": "CYP-enzymer og leveren",
+                            "en": "CYP enzymes and the liver"
+                        },
+                        "question": {
+                            "dk": "CYP-enzymer kan give en indikation af om lægemidlet vil blive udsat for hel eller delvis nedbrydning i leveren. Er det godt eller skidt hvis dit lægemiddel bliver ændret i leveren?",
+                            "en": "CYP enzymes can act as an idicator as to whether or not the drug will get partially or completely degraded in the liver. Is it a good or bad thing if the drug gets altered in the liver?"
+                        },
+                        "correct": 1,
+                        "answers": [{
+                            "id": 0,
+                            "answer": {
+                                "dk": "Det er altid godt.",
+                                "en": "It's always a good thing."
+                            },
+                            "message": {
+                                "dk": "Nej, dit svar er ikke helt korrekt.",
+                                "en": "No, your answer is not completely true."
+                            }
+                        }, {
+                            "id": 1,
+                            "answer": {
+                                "dk": "Det afhænger af ens lægemiddel.",
+                                "en": "That depends on the drug."
+                            },
+                            "message": {
+                                "dk": "Ja, det er korrekt. Nogle lægemidler bliver først aktive efter at blive delvist nedbrudt, mens andre bliver deaktiveret ved nedbrydning i leveren.",
+                                "en": "Yes, that is correct. Some drugs will only become active after partial degredation, while other drugs become deactivated by degredation."
+                            }
+                        }, {
+                            "id": 2,
+                            "answer": {
+                                "dk": "Det er altid skidt.",
+                                "en": "It's always a bad thing."
+                            },
+                            "message": {
+                                "dk": "Nej, dit svar er ikke helt korrekt.",
+                                "en": "No, your answer is not completely true."
+                            }
+                        }]
+                    }
+                }
+            },
+
+            {
+                "description": {
+                    "dk": "Tilføj nu target receptor og dit lægemiddel, uden CYP-enzym til en tom mikrotiterplade.",
+                    "en": "Add the target receptor and your drug to an empty microtitter plate withouth any CYP enzyme."
+                },
+                "trigger": {
+                    "type": "TriggerType.MIX",
+                    "strict": true,
+                    "container": "ContainerType.MICROTITER",
+                    "containerSubtype": "AntigenCoatingType.NONE",
+                    "liquids": [{
+                        "type": "LiquidType.DESIGNED_DRUG"
+                    }, {
+                        "type": "LiquidType.TARGET_RECEPTOR"
+                    }]
+                }
+            }, {
+                "description": {
+                    "dk": "Undersøg dit lægemiddel ved at tage mikrotiterpladen og sæt den i spektrofotometeret. For at være sikker på at dit lægemiddel kan binde til sit target, skal det højst have en IC50-værdi på log10([x]) = -6. IC50-værdien kan aflæses på spektrofotometeret som x-værdien dér hvor grafen har en y-værdi på 50.",
+                    "en": "Examine your drug by putting the microtitter plate in the spectrophotometer. To ensure that your drug kan bind to it's target it may not have an IC50-value higher than log10([x]) = -6. The IC50 value can be read on the spectrophotometer as the x-value for where the y-value of the graph is 50."
+                },
+                "trigger": {
+                    "type": "TriggerType.ACTIVATION",
+                    "strict": true,
+                    "activation": "ActivationType.SPECTROPM",
+                    "activationSubtype": {
+                        "liquidType": "LiquidType.DESIGNED_DRUG",
+                        "maxIc50": -6
+                    },
+                    "liquids": [{
+                        "type": "LiquidType.DESIGNED_DRUG"
+                    }, {
+                        "type": "LiquidType.TARGET_RECEPTOR"
+                    }]
+                }
+            }, {
+                "description": {
+                    "dk": "Når dit lægemiddel har en høj affinitet, er det muligvis på tide at teste det på dyr. Prøv at teste det på en psoriasis-syg mus med forskellige administrationsformer. Hvis det ikke virker selvom det har høj affinitet, så prøv at eksperimentér med dets opløselighed (logD-værdien som kan ses i \"Lægemiddel designeren\" på computeren).",
+                    "en": "When your drug has a high affinity towards the target it may be time to test it on animals. Try testing it on a mouse with psoriasis through different forms of administration. If it doesn't work despite high affinity, try experimenting with it's solubility (the logD value seen in the \"Drug designer\" on the computer)."
+                },
+                "trigger": {
+                    "type": "TriggerType.MOUSE",
+                    "alive": true,
+                    "mouseType": "MouseType.PSORIASIS",
+                    "item": "ContainerType.TUBE",
+                    "liquids": [{
+                        "type": "LiquidType.DESIGNED_DRUG"
+                    }]
+                }
+            }
+        ]
+    }]
+}]
