@@ -17,21 +17,25 @@ grunt
 ##### Dev tips
 
 * In Atom add `customFileTypes:"text.html.basic": ["ko"]` to core in config.cson
-* Sprogfiler ligger i: https://github.com/Socialsquare/Virtual-Laboratory/tree/master/app/data og kan redigeres direkte i interface på github.com (husk at "preview changes" inden commit)
+* Language files are in: [...tree/master/app/data](https://github.com/Socialsquare/Virtual-Laboratory/tree/master/app/data) and can be edited directly in on github.com (remember to "preview changes" prior to commit)
 
-## Demo
+## Test
 
-Demo is hosted by Socialsquare: http://vlab.demo.socialsquare.dk/
-Jenikins CI auto deploy current master from github to vlab.demo.socialsquare.dk
+[vlab.demo.socialsquare.dk](http://vlab.demo.socialsquare.dk/)  
+
+Jenikins CI auto deploys current master from github to vlab.demo.socialsquare.dk
 and on vlab.demo.socialsquare.dk there is a repository with post-received hook
 which installs npm, bower and runs `grunt production` task.
 
-	demo          ssh://vlab@vlab.demo.socialsquare.dk:vlab.git
-
-	(git push --force demo origin/master)
+```
+demo          ssh://vlab@vlab.demo.socialsquare.dk:vlab.git
+(git push --force demo origin/master)
+```
 
 ## Production
 
-Production, hosted by the client: http://www.biotechacademy.dk/Virtuelt-Laboratorium/velkommen
+Production, hosted by biotechacademy: [biotechacademy.dk/Virtuelt-Laboratorium/velkommen](http://www.biotechacademy.dk/Virtuelt-Laboratorium/velkommen)
 
-	production    ssh://vlab.biotechacademy.dk/home/vlab/vlab.git
+```
+production    ssh://vlab.biotechacademy.dk/home/vlab/vlab.git
+```
