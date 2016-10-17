@@ -17,6 +17,7 @@ grunt
 ##### Dev tips
 
 * In Atom add `customFileTypes:"text.html.basic": ["ko"]` to core in config.cson
+* Sprogfiler ligger i: https://github.com/Socialsquare/Virtual-Laboratory/tree/master/app/data og kan redigeres direkte i interface på github.com (husk at "preview changes" inden commit)
 
 ## Demo
 
