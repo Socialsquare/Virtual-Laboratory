@@ -4,8 +4,8 @@
         <h1 data-bind="i18n: 'popup.guide.header'"></h1>
         <h2 data-bind="i18n: 'popup.guide.subheader'"></h2>
         <div class="logo-wrap">
-            <img class="ba-logo" src="assets/images/logo.png" alt="Biotech Academy">
             <img class="dda-logo" data-bind="visible: displayDDALogo()" src="assets/images/dda-logo.png" alt="Danish Diabetes Academy">
+            <img class="ba-logo" src="assets/images/logo.png" alt="Biotech Academy">
         </div>
 
       	<hr />
@@ -25,7 +25,7 @@
             <!-- ko if: $parent.experiment.parts().length > 1 -->
             <thead>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="3">
                         <h3>
                             <span data-bind="i18n: 'popup.guide.part'"></span>
                             <span data-bind="text: $index() + 1"></span>
@@ -48,7 +48,7 @@
             <!-- ko if: question -->
             <tbody>
                 <tr>
-                    <td>
+                    <td colspan="3">
                         <span class="part-question" data-bind="i18n: 'popup.guide.question'"></span>:
                         <span data-bind="i18n: question()"></span>
                     </td>

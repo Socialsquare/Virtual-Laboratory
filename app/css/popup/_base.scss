@@ -7,19 +7,17 @@
 }
 
 .popup {
-    @include gradient-bg(#2f2f2f, #0f0f0f);
-
+    background: #f0f2f1;
+    color: #3f4c41;
     position: absolute;
-
-    left: 82px;
-    top: 50px;
-    padding: 30px;
-    width: 800px;
-    height: 480px;
-    color: white;
+    left: $popup-margin;
+    top: $popup-margin;
+    right: $popup-margin;
+    bottom: $popup-margin;
+    padding: $popup-padding;
 
     border-radius: 5px;
-    box-shadow: 0 0 4px #000000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 
     h1 {
         margin: 0 0 20px 0;

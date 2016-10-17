@@ -1,17 +1,10 @@
 /* popup/guide.scss */
-$popup-margin: 50px;
+$img-guide_: "#{$img-path}/guide_";
 
 .popup-guide {
-    background: #f0f2f1;
-    bottom: $popup-margin;
-    color: #3f4c41;
     font-family: $serif;
-    height: auto;
-    left: $popup-margin + 100px;
-    padding: 30px;
     right: $popup-margin + 100px;
-    top: $popup-margin;
-    width: auto;
+    left: $popup-margin + 100px;
 
     h1 {
         color: #645d4d;
@@ -26,13 +19,14 @@ $popup-margin: 50px;
     }
 
     .logo-wrap {
-      position: absolute;
-      right: 30px;
-      top: 25px;
+        position: absolute;
+        right: $popup-padding;
+        top: 25px;
     }
 
     .ba-logo {
         width: 130px;
+        margin-bottom: -5px;
     }
 
     .dda-logo {
@@ -46,15 +40,10 @@ $popup-margin: 50px;
         margin: 1em 0 0;
     }
 
-    ul {
-
-        li {
-            margin-bottom: 15px;
-
-            i {
-                margin-left: 5px;
-            }
-
+    ul li {
+        margin-bottom: 15px;
+        i {
+            margin-left: 5px;
         }
     }
 
@@ -67,117 +56,120 @@ $popup-margin: 50px;
     }
 
     .inner {
-      position: relative;
-      height: 520px;
-      overflow-y: scroll;
-      overflow-x: hidden;
-      padding: 0 10px;
-
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        height: 10px;
-        background-color: red;
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        height: 10px;
-        background-color: red;
-      }
-
-      header {
-        margin-bottom: 2em;
-        padding-left: 145px;
         position: relative;
-        min-height: 124px;
+        height: 520px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding: 0 10px;
 
-        &#clamp { background: url(#{$img-path}/guide_experiment_clamp.png) no-repeat; }
-        &#diabetes { background: url(#{$img-path}/guide_experiment_diabetes.png) no-repeat; }
-        &#enzymes { background: url(#{$img-path}/guide_experiment_enzymes.png) no-repeat; }
-        &#insulin { background: url(#{$img-path}/guide_experiment_insulin.png) no-repeat; }
-        &#antibody { background: url(#{$img-path}/guide_experiment_antibody.png) no-repeat; }
-        &#drug { background: url(#{$img-path}/guide_experiment_drug.png) no-repeat; }
-
-        h1 {
-          color: #3f4c41;
-          font-size: 1.6em;
-          font-weight: bold;
-          margin: 1em 0 0.5em 0;
-        }
-
-        .discard-experiment{
-            position: absolute;
-            top: 0;
-            right: 12px;
-            background: url(#{$img-path}/guide_discard_experiment.png) no-repeat;
-            width: 72px;
-            height: 73px;
-        }
-      }
-
-      h2 {
-        font-size: 1.2em;
-        color: #3f4c41;
-        margin: 1em 0 0.5em 0;
-        position: static;
-      }
-
-      table {
-        width: 100%;
-        thead {
-          h3 {
-            font-size: 1em;
-          }
-        }
-
-        tbody {
-
-          td {
+        header {
+            margin-bottom: 2em;
+            padding-left: 145px;
             position: relative;
-            padding: 0.5em 0;
-          }
+            min-height: 124px;
+            background-repeat: no-repeat;
 
-          .task-checkmark {
-            width: 50px;
-            padding-bottom: 3em;
-          }
+            &#clamp {
+                background-image: url(#{$img-guide_}experiment_clamp.png);
+            }
 
-          .task-index {
-            font-family: $sans-serif;
-            font-weight: bold;
-            padding-right: 10px;
-            text-align: center;
-          }
+            &#diabetes {
+                background-image: url(#{$img-guide_}experiment_diabetes.png);
+            }
 
-          .part-question {
-            font-weight: bold;
-          }
+            &#enzymes {
+                background-image: url(#{$img-guide_}experiment_enzymes.png);
+            }
 
-          input[type=checkbox] {
-            display:none;
-          }
+            &#insulin {
+                background-image: url(#{$img-guide_}experiment_insulin.png);
+            }
 
-          input[type=checkbox] + label {
-            background: url(#{$img-path}/guide_checkmark_off.png) 0 0 no-repeat;
-            height: 57px;
-            width: 44px;
-            position: absolute;
-            top: -8px;
-            left: 0px;
-          }
+            &#antibody {
+                background-image: url(#{$img-guide_}experiment_antibody.png);
+            }
 
-          input[type=checkbox]:checked + label {
-            background: url(#{$img-path}/guide_checkmark_on.png) 0 0 no-repeat;
-            height: 57px;
-            width: 44px;
-            display:inline-block;
-            padding: 0;
-          }
+            &#drug {
+                background-image: url(#{$img-guide_}experiment_drug.png);
+            }
+
+            h1 {
+                color: #3f4c41;
+                font-size: 1.6em;
+                font-weight: bold;
+                margin: 1em 0 0.5em 0;
+            }
+
+            // .discard-experiment {
+            //     position: absolute;
+            //     top: 0;
+            //     right: 12px;
+            //     background: url(#{$img-guide_}discard_experiment.png);
+            //     width: 72px;
+            //     height: 73px;
+            // }
         }
-      }
+
+        h2 {
+            font-size: 1.2em;
+            color: #3f4c41;
+            margin: 1em 0 0.5em 0;
+            position: static;
+        }
+
+        table {
+            width: 100%;
+
+            thead {
+                padding-top: 0.5em;
+
+                h3 {
+                    font-size: 1em;
+                    padding-top: 0.5em;
+                }
+            }
+
+            td {
+                position: relative;
+                padding: 0.5em 0;
+            }
+
+            .task-checkmark {
+                width: 50px;
+                padding-bottom: 3em;
+            }
+
+            .task-index {
+                font-family: $sans-serif;
+                font-weight: bold;
+                padding-right: 10px;
+                text-align: center;
+            }
+            .part-question {
+                font-weight: bold;
+            }
+
+            input[type=checkbox] {
+                display: none;
+            }
+
+            input[type=checkbox] + label {
+                background: url(#{$img-guide_}checkmark_off.png) 0 0 no-repeat;
+                height: 57px;
+                width: 44px;
+                position: absolute;
+                top: -8px;
+                left: 0px;
+            }
+
+            input[type=checkbox]:checked + label {
+                background: url(#{$img-guide_}checkmark_on.png) 0 0 no-repeat;
+                height: 57px;
+                width: 44px;
+                display: inline-block;
+                padding: 0;
+
+            }
+        }
     }
 }
