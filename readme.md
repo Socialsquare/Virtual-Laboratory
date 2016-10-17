@@ -2,13 +2,14 @@
 
 ## Development
 
-You need to have npm, bower, typings and grunt installed globally
+You need to have npm, bower, typings and grunt installed globally.  
+Restart terminal after npm install if you get can't find module q error (maybe also npm install bower -g).
 
 ```
 cd app
 npm install
 bower install
-tsd reinstall -s
+typings install
 grunt test
 grunt
 ```
