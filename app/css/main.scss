@@ -38,10 +38,8 @@ body {
 }
 
 #app {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    margin-left: (-1024px / 2);
+    position: relative;
+    margin: 0 auto;
     width: 1024px;
     height: 768px;
 }
