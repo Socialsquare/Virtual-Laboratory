@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" type="text/css" href="static/main.css" />
         <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        
+
 
         <!-- @if BUILD='production' -->
         <script>window.BUILD = 'production';</script>
@@ -69,7 +69,7 @@
 
             <div class="popup-cover" style="display: none"
                  data-bind="visible: popupController.activePopup() || tutorialController.active(),
-                            css: { transparent: tutorialController.active, dimmed: popupController.activePopup() }">
+                            css: { transparent: tutorialController.active, darkened: popupController.activePopup() }">
             </div>
 
             <div class="popup-container" data-bind="visible: popupController.activePopup">

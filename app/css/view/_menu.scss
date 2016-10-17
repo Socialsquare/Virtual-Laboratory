@@ -31,15 +31,13 @@
 
     .menu-bar {
         @include gradient-bg(#6e6e73, #433f46);
-
-        position: absolute;
-        bottom: 0;
-        width: 1024px;
-        height: 122px;
-
-        border-top-width: 2px;
-        border-top-style: solid;
         border-color: #555159;
+        border-top-style: solid;
+        border-top-width: $menu-bar-border * 2; // x2 because mouseview bg bug
+        bottom: 0;
+        height: $menu-bar-height;
+        position: absolute;
+        width: $main-view-width;
 
         .guide {
             float: left;

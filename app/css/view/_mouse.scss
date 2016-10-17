@@ -2,10 +2,7 @@
 
 .mouse-view {
     @include view;
-
     background-image: url(#{$img-path}/mouse-view-background-sprite_sRGB.jpg);
-    background-size: 1024px 644px;
-    //background-position: 0 644px;
 
     & .osxsafari { background-image: url(#{$img-path}/mouse-view-background-sprite_sRGB.jpg); }
 
@@ -22,7 +19,7 @@
         left: 365px;
         top: 0;
         width: 660px;
-        height: 644px;
+        height: $lab-view-height;
     }
 
     .bottle {
@@ -50,7 +47,7 @@
         width: 400px;
         height: 250px;
     }
-    
+
     .glucose-bag {
         $glucoseW: 186px;
         $glucoseH: 133px;

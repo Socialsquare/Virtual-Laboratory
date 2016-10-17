@@ -3,12 +3,13 @@
 .loading-view {
     @include view;
 
+    background: #f0f2f1;
+    box-sizing: border-box;
+    color: #5b5c5d;
+    font-family: $serif;
+    height: $main-view-height;
     padding-top: 50px;
     text-align: center;
-
-    font-family: georgia, serif;
-    color: #5b5c5d;
-    background: #f0f2f1;
 
     header {
         margin: 2em 0;
@@ -16,14 +17,14 @@
 
     h1 {
         color: #645d4d;
-        font-size: 3em; 
+        font-size: 3em;
         margin: 0;
         position: relative;
     }
 
     h2 {
-        color: #a69d8c; 
-        font-size: 1.4em; 
+        color: #a69d8c;
+        font-size: 1.4em;
         position: absolute;
         top: 113px;
         right: 230px;
@@ -33,7 +34,7 @@
         margin: 3em 0 0.5em 0;
         font-size: 1.5em;
     }
-    
+
     .ba-logo {
         position: absolute;
         bottom: 10px;
@@ -57,9 +58,9 @@
     }
 
     .loader-text {
-        font-family: sans-serif;
+        font-family: $sans-serif;
         font-size: 1.5em;
-        margin: 1.5em 0; 
+        margin: 1.5em 0;
     }
 
     .progress-bar {
@@ -109,7 +110,7 @@
 
         p {
             font-size: 0.8em;
-            font-family: sans-serif;
+            font-family: $sans-serif;
             margin-left: 0.1em;
         }
     }

@@ -5,7 +5,7 @@
 
     padding: 30px;
 
-    font-family: georgia, serif;
+    font-family: $serif;
 
     color: #3f4c41;
     background: #f0f2f1;
@@ -17,14 +17,14 @@
 
     h1 {
         color: #645d4d;
-        font-size: 1.2em; 
+        font-size: 1.2em;
         margin: 0;
         position: relative;
     }
 
     h2 {
-        color: #a69d8c; 
-        font-size: 0.6em; 
+        color: #a69d8c;
+        font-size: 0.6em;
         position: absolute;
         top: 45px;
         left: 225px;
@@ -36,7 +36,7 @@
         top: 23px;
         right: 25px;
     }
-    
+
     .dda-logo {
         width: 165px;
         position: absolute;
@@ -99,9 +99,9 @@
         .discard-experiment{
             position: absolute;
             top: 0;
-            right: 12px; 
+            right: 12px;
             background: url(#{$img-path}/guide_discard_experiment.png) no-repeat;
-            width: 72px; 
+            width: 72px;
             height: 73px;
         }
       }
@@ -132,11 +132,11 @@
           .task-checkmark {
             width: 50px;
           }
-          
+
           .task-description {
             width: 430px;
           }
-        
+
           .part-question {
             font-weight: bold;
           }
@@ -144,7 +144,7 @@
           input[type=checkbox] {
             display:none;
           }
-        
+
           input[type=checkbox] + label {
             background: url(#{$img-path}/guide_checkmark_off.png) 0 0 no-repeat;
             height: 57px;
@@ -153,7 +153,7 @@
             top: -24px;
             left: 20px;
           }
-        
+
           input[type=checkbox]:checked + label {
             background: url(#{$img-path}/guide_checkmark_on.png) 0 0 no-repeat;
             height: 57px;

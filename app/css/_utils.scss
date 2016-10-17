@@ -8,8 +8,17 @@
     clear: both;
 }
 
-.placeholder, .dimmed {
+.placeholder {
     @include opacity(0.5);
+}
+
+.dimmed {
+    @include opacity(0.1);
+}
+
+.darkened {
+    @include opacity(0.5);
+    background-color: black;
 }
 
 .transparent {

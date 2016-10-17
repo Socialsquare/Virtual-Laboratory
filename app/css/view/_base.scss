@@ -14,7 +14,6 @@
     left: 800px;
     width: 105px;
     height: 227px;
-
     background-image: url(#{$img-path}/grab_pipette_notip.png);
     background-size: 105px 227px;
 
@@ -41,11 +40,9 @@
 
 @mixin view {
     position: relative;
-    left: 50%;
-    width: 1024px;
-    height: 644px;
-    margin-left: -512px;
-    background-size: 1024px 644px;
+    width: 100%;
+    height: $lab-view-height;
+    background-size: 100% 100%;
 }
 
 @import 'menu';
