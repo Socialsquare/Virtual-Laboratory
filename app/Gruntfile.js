@@ -56,7 +56,7 @@ module.exports = function (grunt) {
     		        { expand: true, src: [ 'bower_components/**' ], dest: '<%= dist_root %>' }
 		        ]
         	},
-        	
+
             dist: {
 
                 files: [
@@ -76,7 +76,7 @@ module.exports = function (grunt) {
                     { expand: true, src: [ 'bower_components/**' ], dest: '<%= dist_root %>' }
                 ]
             },
-            
+
             js: {
                 files: [
                     { expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
@@ -113,10 +113,10 @@ module.exports = function (grunt) {
                 }
             }
         },
-        
+
         imagemin: {
             assets: {
-                options: { 
+                options: {
                     optimizationLevel: 1
                 },
                 files: [{
@@ -174,7 +174,7 @@ module.exports = function (grunt) {
 
         ts: {
             dist : {
-                src: [ "typings/tsd.d.ts", "dist/js/**/*.{d.ts,ts}" ],
+                src: [ "typings/index.d.ts", "dist/js/**/*.{d.ts,ts}" ],
                 options: {
                     module: 'amd',
                     failOnTypeErrors: false,
@@ -183,7 +183,7 @@ module.exports = function (grunt) {
             },
             test: {
             	env: 'test',
-            	src: [ "typings/tsd.d.ts", "dist/js/**/*.{d.ts,ts}", "dist/test/*.{d.ts,ts}" ],
+            	src: [ "typings/index.d.ts", "dist/js/**/*.{d.ts,ts}", "dist/test/*.{d.ts,ts}" ],
             	options: {
             		module: 'amd',
             		failOnTypeErrors: false,
@@ -297,7 +297,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [ 'clean:dist', 'assets', 'copy:dist', 'ts:dist', 'sass:dist' ]);
 
-    grunt.registerTask('production', [ 'setProductionBuildEnv', 'build', 'requirejs:production', 
+    grunt.registerTask('production', [ 'setProductionBuildEnv', 'build', 'requirejs:production',
                                        'templateIndex', 'preprocess:production',]);
 
     grunt.registerTask('default', [ 'build', 'templateIndex', 'preprocess:dev', 'connect:dist',

@@ -1,0 +1,18 @@
+{
+  "name": "vlab",
+  "globalDependencies": {
+    "fastclick": "github:DefinitelyTyped/DefinitelyTyped/fastclick/fastclick.d.ts#8b7cc13f6dbabd0a49de7ccba75c342160e600ad",
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#8b7cc13f6dbabd0a49de7ccba75c342160e600ad",
+    "add2home": "github:DefinitelyTyped/DefinitelyTyped/add2home/add2home.d.ts#8b7cc13f6dbabd0a49de7ccba75c342160e600ad",
+    "knockout.mapping": "github:DefinitelyTyped/DefinitelyTyped/knockout.mapping/knockout.mapping.d.ts#8b7cc13f6dbabd0a49de7ccba75c342160e600ad",
+    "snapsvg": "github:DefinitelyTyped/DefinitelyTyped/snapsvg/snapsvg.d.ts#8b7cc13f6dbabd0a49de7ccba75c342160e600ad",
+    "jqueryui": "github:DefinitelyTyped/DefinitelyTyped/jqueryui/jqueryui.d.ts#8b7cc13f6dbabd0a49de7ccba75c342160e600ad",
+    "screenfull": "github:DefinitelyTyped/DefinitelyTyped/screenfull/screenfull.d.ts#8b7cc13f6dbabd0a49de7ccba75c342160e600ad",
+    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#8b7cc13f6dbabd0a49de7ccba75c342160e600ad",
+    "knockout": "github:DefinitelyTyped/DefinitelyTyped/knockout/knockout.d.ts#70bf7e2bfeb0d5b1b651ef3219bcc65c8eec117e",
+    "jquery.flot": "github:DefinitelyTyped/DefinitelyTyped/flot/jquery.flot.d.ts#8b7cc13f6dbabd0a49de7ccba75c342160e600ad",
+    "js-signals": "github:DefinitelyTyped/DefinitelyTyped/js-signals/js-signals.d.ts#8b7cc13f6dbabd0a49de7ccba75c342160e600ad",
+    "knockout-postbox": "github:DefinitelyTyped/DefinitelyTyped/knockout.postbox/knockout-postbox.d.ts#70bf7e2bfeb0d5b1b651ef3219bcc65c8eec117e",
+    "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#70bf7e2bfeb0d5b1b651ef3219bcc65c8eec117e"
+  }
+}
