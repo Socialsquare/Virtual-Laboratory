@@ -1,53 +1,49 @@
 /* popup/guide.scss */
+$popup-margin: 50px;
 
 .popup-guide {
-    $width: 820px;
-
-    padding: 30px;
-
-    font-family: $serif;
-
-    color: #3f4c41;
     background: #f0f2f1;
-
-    left: 50px;
-    top: 30px;
-    width: $width;
-    height: 530px;
+    bottom: $popup-margin;
+    color: #3f4c41;
+    font-family: $serif;
+    height: auto;
+    left: $popup-margin + 100px;
+    padding: 30px;
+    right: $popup-margin + 100px;
+    top: $popup-margin;
+    width: auto;
 
     h1 {
         color: #645d4d;
         font-size: 1.2em;
         margin: 0;
-        position: relative;
     }
 
     h2 {
         color: #a69d8c;
         font-size: 0.6em;
-        position: absolute;
-        top: 45px;
-        left: 225px;
+        line-height: 1;
+    }
+
+    .logo-wrap {
+      position: absolute;
+      right: 30px;
+      top: 25px;
     }
 
     .ba-logo {
         width: 130px;
-        position: absolute;
-        top: 23px;
-        right: 25px;
     }
 
     .dda-logo {
+        padding-right: 20px;
         width: 165px;
-        position: absolute;
-        top: 27px;
-        right: 180px;
     }
 
     hr {
         border: 1px solid #bbbdbc;
         background-color: #bbbdbc;
-        margin: 2em 0 1em 0;
+        margin: 1em 0 0;
     }
 
     ul {
@@ -63,18 +59,39 @@
     }
 
     .btn-row {
-        width: $width;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        width: auto;
     }
 
     .inner {
-      height: 310px;
+      position: relative;
+      height: 520px;
       overflow-y: scroll;
       overflow-x: hidden;
       padding: 0 10px;
 
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 10px;
+        background-color: red;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: 10px;
+        background-color: red;
+      }
+
       header {
         margin-bottom: 2em;
-        padding: 0 120px 0 145px;
+        padding-left: 145px;
         position: relative;
         min-height: 124px;
 
@@ -90,10 +107,6 @@
           font-size: 1.6em;
           font-weight: bold;
           margin: 1em 0 0.5em 0;
-        }
-
-        .story {
-            width: 355px;
         }
 
         .discard-experiment{
@@ -114,7 +127,7 @@
       }
 
       table {
-        width: $width - 10;
+        width: 100%;
         thead {
           h3 {
             font-size: 1em;
@@ -124,17 +137,20 @@
         tbody {
 
           td {
-            vertical-align: top;
             position: relative;
-            padding: 0 0 1.5em 0;
+            padding: 0.5em 0;
           }
 
           .task-checkmark {
             width: 50px;
+            padding-bottom: 3em;
           }
 
-          .task-description {
-            width: 430px;
+          .task-index {
+            font-family: $sans-serif;
+            font-weight: bold;
+            padding-right: 10px;
+            text-align: center;
           }
 
           .part-question {
@@ -150,8 +166,8 @@
             height: 57px;
             width: 44px;
             position: absolute;
-            top: -24px;
-            left: 20px;
+            top: -8px;
+            left: 0px;
           }
 
           input[type=checkbox]:checked + label {
