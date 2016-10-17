@@ -26,5 +26,26 @@
     "mkdirp": "^0.5.0",
     "tslint": "^2.2.0-beta",
     "uglify-js": "^2.4.15"
-  }
+  },
+  "name": "vlab",
+  "version": "2.1.0",
+  "description": "Det Virtuelle Laboratorium er 2.1 er et gratis og stimulerende e-learningværktøj for alle med interesse for biologi og bioteknologi. Spillet er særligt udviklet til undervisere og elever i gymnasiet, og det giver en realistisk simulation af laboratoriearbejde.",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Socialsquare/Virtual-Laboratory.git"
+  },
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/Socialsquare/Virtual-Laboratory/issues"
+  },
+  "homepage": "https://github.com/Socialsquare/Virtual-Laboratory#readme"
 }
