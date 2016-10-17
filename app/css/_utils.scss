@@ -9,7 +9,7 @@
 }
 
 .placeholder, .dimmed {
-    @include opacity(0.1);
+    @include opacity(0.5);
 }
 
 .transparent {
