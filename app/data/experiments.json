@@ -1315,8 +1315,8 @@
                     {
                         "number":11,
                         "description":{
-                            "dk":"Inkubér mikrotiterpladen. Dette gøres i ovnen ved 37 C.",
-                            "en":"Incubate the microtiter plate at 37 C in the oven."
+                            "dk":"Inkubér mikrotiterpladen. Dette gøres i ovnen ved 37°C.",
+                            "en":"Incubate the microtiter plate at 37°C in the oven."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
@@ -1341,8 +1341,8 @@
                     {
                         "number":12,
                         "description":{
-                            "dk":"Tag en ny mikrotitterplade og belæg den med den adjuvant og Ebola antigen blanding du også brugte i begyndelsen.",
-                            "en":"Take a new microtitter plate and coat it with the adjuvant and Ebola antigene mixture you used at the beginning."
+                            "dk":"Tag en Ebola ELISA-plade og tilsæt Ebola antigen til pladen i stinkskabet.",
+                            "en":"Take an Ebola ELISA-plate and add Ebola antigene to the plate inside the fume hood."
                         },
                         "trigger":{
                             "type":"TriggerType.MIX",
@@ -1351,9 +1351,6 @@
                             "liquids":[
                                 {
                                     "type":"LiquidType.ANTIGEN_SMALLPOX"
-                                },
-                                {
-                                    "type":"LiquidType.ADJUVANS"
                                 }
                             ]
                         }
@@ -1361,8 +1358,8 @@
                     {
                         "number":13,
                         "description":{
-                            "dk":"Inkubér pladen i ovenen ved 37 C.",
-                            "en":"Incubate it in the oven at 37 C."
+                            "dk":"Inkubér Ebola ELISA-pladen. Dette gøres i ovnen ved 37°C.",
+                            "en":"Incubate the Ebola ELISA-plate. Do this in the oven at 37°C."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
@@ -1373,9 +1370,6 @@
                                     "liquids":[
                                         {
                                             "type":"LiquidType.ANTIGEN_SMALLPOX"
-                                        },
-                                        {
-                                            "type":"LiquidType.ADJUVANS"
                                         }
                                     ]
                                 }
@@ -1385,8 +1379,8 @@
                     {
                         "number":14,
                         "description":{
-                            "dk":"Tilsæt buffer til ELISA-pladen i stinkskabet.",
-                            "en":"Add buffer to the ELISA plate under the fume hood."
+                            "dk":"Vask Ebola ELISA-pladen i stinkskabet med buffer.",
+                            "en":"Wash the Ebola ELISA-plate inside the fume hood with buffer."
                         },
                         "trigger":{
                             "type":"TriggerType.MIX",
@@ -1397,9 +1391,6 @@
                                     "type":"LiquidType.ANTIGEN_SMALLPOX"
                                 },
                                 {
-                                    "type":"LiquidType.ADJUVANS"
-                                },
-                                {
                                     "type":"LiquidType.BUFFER"
                                 }
                             ]
@@ -1408,8 +1399,8 @@
                     {
                         "number":15,
                         "description":{
-                            "dk":"Udtag nu væske fra den oprindelige mikrotitterbakke og tilsæt det til den nye ELISA plade du lige har forberedt. Normalt skal dette gøres for alle brøndene, men her behøver du kun at gøre det en gang direkte fra pladen - din assistent klarer resten for dig.",
-                            "en":"Transfer some of the liquid from the original microtitter plate to the new ELISA plate your just prepared. Normally this has to be done for every well on the plate, but here you only have to do it once directly from the plate - your assistant will do the rest for you."
+                            "dk":"Udtag prøver fra mikrotiterpladen med cellekultur (trin 10) og overfør til Ebola ELISA-pladen. I det Virtuelle laboratorium behøver du dog kun at gøre det en gang og i virkeligheden tages der kun den øverste halvdel af væsken, da cellerne ligger sig på bunden.",
+                            "en":"Take samples from the microtitter plate with cell cultures (step 10) and transfer to the Ebola ELISA plate. You only have to do this once in the virtual lab and in real life only the upper half of the liquids is used since the cells remain in the bottom half."
                         },
                         "trigger":{
                             "type":"TriggerType.MIX",
@@ -1433,9 +1424,6 @@
                                     "type":"LiquidType.ANTIGEN_SMALLPOX"
                                 },
                                 {
-                                    "type":"LiquidType.ADJUVANS"
-                                },
-                                {
                                     "type":"LiquidType.BUFFER"
                                 }
                             ]
@@ -1444,12 +1432,22 @@
                     {
                         "number":16,
                         "description":{
-                            "dk":"Alle brøndende på ELISA-pladen vaskes med buffer.",
-                            "en":"The ELISA plate is now washed with buffer."
+                            "dk":"Inkubér Ebola+kultur ELISA-pladen i ovnen ved stuetemperatur (21°C).",
+                            "en":"Incubate the Ebola+culture ELISA-plate in the oven at room temperature (21°C)."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
-                            "activation":"ActivationType.MICROTITER_WASHED_WITH_BUFFER"
+                            "activation":"ActivationType.INCUBATOR",
+                            "containers":[
+                                {
+                                    "type":"ContainerType.MICROTITER",
+                                    "liquids":[
+                                        {
+                                            "type":"LiquidType.ANTIGEN_SMALLPOX"
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         "consequence":{
                             "type":"ConsequenceType.QUIZ",
@@ -1505,8 +1503,24 @@
                     {
                         "number":17,
                         "description":{
-                            "dk":"Tilsæt fluorescerende sekundært  antistof til alle brøndene på ELISA-pladen.",
-                            "en":"Add a fluorescent secondary antibody to all the wells."
+                            "dk":"Vask Ebola+kultur ELISA-pladen med buffer.",
+                            "en":"Wash the Ebola+culture ELISA-plate with buffer."
+                        },
+                        "trigger":{
+                            "type":"TriggerType.ACTIVATION",
+                            "activation":"ActivationType.MICROTITER_WASHED_WITH_BUFFER",
+                            "liquids":[
+                                {
+                                    "type":"LiquidType.ANTIGEN_SMALLPOX"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "number":18,
+                        "description":{
+                            "dk":"Tilsæt flouroscerende sekundært antistof til alle brøndene på Ebola+kultur ELISA-pladen.",
+                            "en":"Add fluorescent secondary antibody to all the wells on the Ebola+culture ELISA-plate."
                         },
                         "trigger":{
                             "type":"TriggerType.MIX",
@@ -1521,10 +1535,10 @@
                         }
                     },
                     {
-                        "number":18,
+                        "number":19,
                         "description":{
-                            "dk":"Vask ELISA-pladen med buffer igen.",
-                            "en":"Wash the ELISA plate with buffer."
+                            "dk":"Vask Ebola+kultur ELISA-pladen med buffer igen.",
+                            "en":"Wash the Ebola+culture ELISA-plate with buffer again."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
@@ -1537,7 +1551,7 @@
                         }
                     },
                     {
-                        "number":19,
+                        "number":20,
                         "description":{
                             "dk":"Tag ELISA-pladen med ind i UV-rummet og se nærmere på den. Notér hvilke brønde der fluorescerer. Dem der lyser op har haft en væske med et antistof der kan binde til antigenet i brønden. Det er de antistof-producerende celler fra de brønde vi er interesserede i. Herefter skal du se nærmere på den oprindelige mikrotiterplade og opsamle indholdet fra en brønd, der svarer til en fluorescerende brønd på ELISA-pladen (dette gøres ved at trykke på den pågældende brønd).",
                             "en":"Bring the ELISA plate in the UV room and take a closer look at it. Note which wells fluoresces. Those glowing has had a mixture with an antibody that binds to the antigene in the well. It is these antibody-producing cells from the wells we are interested in. Afterwards you should take a closer look at the original mikrotiter plate and gather the content from a well matching the fluorescent wells in the ELISA plate (This is done by pressing on the well in question)."
@@ -1563,7 +1577,7 @@
                         }
                     },
                     {
-                        "number":20,
+                        "number":21,
                         "description":{
                             "dk":"Send indholdet fra brønden til sekventering ved at åbne computeren og vælge \"Send til sekventering\". Hermed burde du få et nyt DNA-element i DNA-designeren på computeren.",
                             "en":"Send the content from the well to be sequenced by opening the computer and picking \"Send to sequenceing\". This way you should get a new DNA-element in the DNA-designer on the computer."
@@ -1574,7 +1588,7 @@
                         }
                     },
                     {
-                        "number":21,
+                        "number":22,
                         "description":{
                             "dk":"Design et stykke DNA på computeren, som koder for musens antistof, og som desuden koder for resistens af Antibiotikum B. Husk det centrale dogme, når du designer genet, dvs. husk: ribosome binding site, promotor, start- og slutkodon, og terminator.",
                             "en":"Design a piece of DNA on the computer that codes for the antibody of the mouse as well as Antibioticum B. Remember the central dogma when designing the gene."
@@ -1590,7 +1604,7 @@
                         }
                     },
                     {
-                        "number":22,
+                        "number":23,
                         "description":{
                             "dk":"Bland det bestilte DNA med mammale celler i et reagensglas. Tilsæt blanding til elektroporatoren. På den måde hjælper du det genmodificerede DNA med at trænge ind i de mammale celler, der så kan begynder at producere antistof. Processen kaldes transfektion.",
                             "en":"Mix the ordered DNA with mammalian cells in a test tube. Add the mixture to the electroporator. This way you genetically modify the mammalian cells to produce the antibody by letting the designed DNA into the cells. This process is called transfection."
@@ -1610,7 +1624,7 @@
                         }
                     },
                     {
-                        "number":23,
+                        "number":24,
                         "description":{
                             "dk":"Tilsæt de gen-modificerede celler til et reagensglas med vækstmedium og tilføj antibiotikum B.",
                             "en":"Add the genetically modified cells to a test tube with growth media and add antibioticum B."
@@ -1637,7 +1651,7 @@
                         }
                     },
                     {
-                        "number":24,
+                        "number":25,
                         "description":{
                             "dk":"Inkubér blandingen.",
                             "en":"Incubate the mixture."
@@ -1669,7 +1683,7 @@
                         }
                     },
                     {
-                        "number":25,
+                        "number":26,
                         "description":{
                             "dk":"Bland indholdet af reagensglasset og Antibiotikum B i et reagensglas og anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren.",
                             "en":"Mix the content of the test tube and antibioticum B in a new test tube and use a syringe to transfer the content from the test tube to the fermentor."
@@ -1696,7 +1710,7 @@
                         }
                     },
                     {
-                        "number":26,
+                        "number":27,
                         "description":{
                             "dk":"Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt. Tænk på at det er mammale celler",
                             "en":"Start a fermentation. Remember to adjust pH and temperature so the growth becomes optimal - try at different settings and figure out what's optimal. Remember that you're working with mammalian cells."
@@ -1723,7 +1737,7 @@
                         }
                     },
                     {
-                        "number":27,
+                        "number":28,
                         "description":{
                             "dk":"Oprens antistoffet fra fermenteringen.",
                             "en":"Purify the antibodies from the fermentation."
@@ -1739,7 +1753,7 @@
                         }
                     },
                     {
-                        "number":28,
+                        "number":29,
                         "description":{
                             "dk":"Bestil en syg mus med Ebola på computeren og test dit antistof ved at indsprøjte det i musen.",
                             "en":"Order a new mouse with Ebola and test your antibody by injecting it into the mouse."
