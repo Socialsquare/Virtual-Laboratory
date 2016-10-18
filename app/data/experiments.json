@@ -1448,6 +1448,22 @@
                                     ]
                                 }
                             ]
+                        }
+                    },
+                    {
+                        "number":17,
+                        "description":{
+                            "dk":"Vask Ebola+kultur ELISA-pladen med buffer.",
+                            "en":"Wash the Ebola+culture ELISA-plate with buffer."
+                        },
+                        "trigger":{
+                            "type":"TriggerType.ACTIVATION",
+                            "activation":"ActivationType.MICROTITER_WASHED_WITH_BUFFER",
+                            "liquids":[
+                                {
+                                    "type":"LiquidType.ANTIGEN_SMALLPOX"
+                                }
+                            ]
                         },
                         "consequence":{
                             "type":"ConsequenceType.QUIZ",
@@ -1498,22 +1514,6 @@
                                     }
                                 ]
                             }
-                        }
-                    },
-                    {
-                        "number":17,
-                        "description":{
-                            "dk":"Vask Ebola+kultur ELISA-pladen med buffer.",
-                            "en":"Wash the Ebola+culture ELISA-plate with buffer."
-                        },
-                        "trigger":{
-                            "type":"TriggerType.ACTIVATION",
-                            "activation":"ActivationType.MICROTITER_WASHED_WITH_BUFFER",
-                            "liquids":[
-                                {
-                                    "type":"LiquidType.ANTIGEN_SMALLPOX"
-                                }
-                            ]
                         }
                     },
                     {
