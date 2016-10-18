@@ -472,8 +472,8 @@
                     },
                     {
                         "description":{
-                            "dk":"Inkubér petriskålen.",
-                            "en":"Incubate the petri dish in the oven."
+                            "dk":"Inkubér petriskålen in inkubatoren.",
+                            "en":"Incubate the petri dish in the incubator."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
@@ -746,8 +746,8 @@
                     },
                     {
                         "description":{
-                            "dk":"Inkubér petriskålen.",
-                            "en":"Incbate the petri dish in the oven."
+                            "dk":"Inkubér petriskålen i inkubatoren.",
+                            "en":"Incbate the petri dish in the incubator."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
@@ -794,8 +794,8 @@
                     },
                     {
                         "description":{
-                            "dk":"Inkubér reagensglasset.",
-                            "en":"Incubate the test tube in the oven."
+                            "dk":"Inkubér reagensglasset i inkubatoren.",
+                            "en":"Incubate the test tube in the incubator."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
@@ -1247,8 +1247,8 @@
                     {
                         "number":8,
                         "description":{
-                            "dk":"Inkubér herefter reagensglasset i ovnen under forreste arbejdsbord.",
-                            "en":"Incubate the test tube in the oven."
+                            "dk":"Inkubér reagensglasset i inkubatoren under forreste arbejdsbord.",
+                            "en":"Incubate the test tube in the incubator."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
@@ -1315,8 +1315,8 @@
                     {
                         "number":11,
                         "description":{
-                            "dk":"Inkubér mikrotiterpladen. Dette gøres i ovnen ved 37°C.",
-                            "en":"Incubate the microtiter plate at 37°C in the oven."
+                            "dk":"Inkubér mikrotiterpladen. Dette gøres i inkubatoren ved 37°C.",
+                            "en":"Incubate the microtiter plate at 37°C in the incubator."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
@@ -1347,7 +1347,7 @@
                         "trigger":{
                             "type":"TriggerType.MIX",
                             "container":"ContainerType.MICROTITER",
-                            "containerSubtype":"AntigenCoatingType.NONE",
+                            "containerSubtype":"AntigenCoatingType.ANY",
                             "liquids":[
                                 {
                                     "type":"LiquidType.ANTIGEN_SMALLPOX"
@@ -1358,8 +1358,8 @@
                     {
                         "number":13,
                         "description":{
-                            "dk":"Inkubér Ebola ELISA-pladen. Dette gøres i ovnen ved 37°C.",
-                            "en":"Incubate the Ebola ELISA-plate. Do this in the oven at 37°C."
+                            "dk":"Inkubér Ebola ELISA-pladen. Dette gøres i inkubatoren ved 37°C.",
+                            "en":"Incubate the Ebola ELISA-plate. Do this in the incubator at 37°C."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
@@ -1399,7 +1399,7 @@
                     {
                         "number":15,
                         "description":{
-                            "dk":"Udtag prøver fra mikrotiterpladen med cellekultur (trin 10) og overfør til Ebola ELISA-pladen. I det Virtuelle laboratorium behøver du dog kun at gøre det en gang og i virkeligheden tages der kun den øverste halvdel af væsken, da cellerne ligger sig på bunden.",
+                            "dk":"Udtag prøver fra mikrotiterpladen med cellekultur (trin 11) og overfør til Ebola ELISA-pladen. I det Virtuelle laboratorium behøver du dog kun at gøre det en gang og i virkeligheden tages der kun den øverste halvdel af væsken, da cellerne ligger sig på bunden.",
                             "en":"Take samples from the microtitter plate with cell cultures (step 10) and transfer to the Ebola ELISA plate. You only have to do this once in the virtual lab and in real life only the upper half of the liquids is used since the cells remain in the bottom half."
                         },
                         "trigger":{
@@ -1432,8 +1432,8 @@
                     {
                         "number":16,
                         "description":{
-                            "dk":"Inkubér Ebola+kultur ELISA-pladen i ovnen ved stuetemperatur (21°C).",
-                            "en":"Incubate the Ebola+culture ELISA-plate in the oven at room temperature (21°C)."
+                            "dk":"Inkubér Ebola+kultur ELISA-pladen i inkubatoren ved stuetemperatur (21°C).",
+                            "en":"Incubate the Ebola+culture ELISA-plate in the incubator at room temperature (21°C)."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
