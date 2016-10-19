@@ -13,7 +13,7 @@ class DNAService {
             return new DNAElement(element);
         });
     }
-    
+
     static createDNAElementForLiquid(ltype){
         var icon = 'assets/images/icon_dna_dummy.png';
         var name = '';
@@ -23,13 +23,13 @@ class DNAService {
         var sequence = 'GATACA';
         switch (ltype) {
         case LiquidType.ANTIBODY_GOUT:
-            name = LocalizationService.text('liquid.name.antibody_gout');
+            name = 'liquid.name.antibody_gout';
             pscType = 'ProteinCodingSequenceType.ANTIBODY_GOUT';
             id = 'DNA_ANTIBODY_GOUT';
             break;
 
         case LiquidType.ANTIBODY_SMALLPOX:
-            name = LocalizationService.text('liquid.name.antibody_smallpox');
+            name = 'liquid.name.antibody_smallpox';
             pscType = 'ProteinCodingSequenceType.ANTIBODY_SMALLPOX';
             id = 'DNA_ANTIBODY_SMALLPOX';
             link = 'http://www.google.com/patents/EP2061511A2?cl=en';
