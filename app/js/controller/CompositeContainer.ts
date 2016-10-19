@@ -85,7 +85,7 @@ class CompositeContainerController {
             this.imageGetter = ImageHelper.odMachineTubeImage;
             this.accepter = DragHelper.acceptTube;
             break;
-        
+
         case ContainerType.CENTRIFUGE:
             this.imageGetter = ImageHelper.centrifugeTubeImage;
             this.accepter = DragHelper.acceptTube;
@@ -191,25 +191,13 @@ class CompositeContainerController {
                 popupController.notify('buffer_petri.header', 'buffer_petri.body');
                 break;
             case ContainerType.MICROTITER:
+                popupController.notify('microtiter.washed.header', 'microtiter.washed.body');
                 var microtiter = <MicrotiterplateModel>this.compContainer.get(position);
 
                 experimentController.triggerActivation(
                     ActivationType.MICROTITER_WASHED_WITH_BUFFER,
                     microtiter
                 );
-                microtiter.clearContents();
-
-                if (microtiter.antigenCoating === AntigenCoatingType.NONE) {
-                    microtiter.microtiterWells().clearWellsAntibodies();
-                    microtiter.microtiterWells().clearWellsSecondaryAntibodies(false);
-
-                } else {
-                    //Let the wells of the microtiter plate keep their antibodies, 
-                    //and 2ndary, but ONLY if it has antibodies!
-                    microtiter.microtiterWells().clearWellsSecondaryAntibodies(true);
-                }
-
-                return false;
             }
 
             break;

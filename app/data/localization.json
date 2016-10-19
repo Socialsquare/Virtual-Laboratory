@@ -16,6 +16,8 @@
         "microtiter.extract_well.header": "Bekræft",
         "microtiter.extract_well.body": "Vil du tage indholdet af denne brønd og overføre det til et nyt reagensglas?",
         "microtiter.acquired_tube.label": "Indholdet fra en mikrotiterbrønd",
+        "microtiter.washed.header": "Information",
+        "microtiter.washed.body": "Du har vasket mikrotiter pladen med buffer",
 
         "computer.order": "Bestil",
         "computer.menu": "Menu",
@@ -412,6 +414,8 @@
         "microtiter.extract_well.header": "Confirm",
         "microtiter.extract_well.body": "Do you want to take the contents of this well and transfer it to a new test tube?",
         "microtiter.acquired_tube.label": "The contents from a microtiter well",
+        "microtiter.washed.header": "Information",
+        "microtiter.washed.body": "You have wasked the microtiter plate with buffer",
 
         "computer.order": "Order",
         "computer.menu": "Menu",

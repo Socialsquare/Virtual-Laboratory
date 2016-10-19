@@ -1383,15 +1383,11 @@
                             "en":"Wash the Ebola ELISA-plate inside the fume hood with buffer."
                         },
                         "trigger":{
-                            "type":"TriggerType.MIX",
-                            "container":"ContainerType.MICROTITER",
-                            "containerSubtype":"AntigenCoatingType.NONE",
+                            "type":"TriggerType.ACTIVATION",
+                            "activation":"ActivationType.MICROTITER_WASHED_WITH_BUFFER",
                             "liquids":[
                                 {
                                     "type":"LiquidType.ANTIGEN_SMALLPOX"
-                                },
-                                {
-                                    "type":"LiquidType.BUFFER"
                                 }
                             ]
                         }
@@ -1405,7 +1401,7 @@
                         "trigger":{
                             "type":"TriggerType.MIX",
                             "container":"ContainerType.MICROTITER",
-                            "containerSubtype":"AntigenCoatingType.NONE",
+                            "containerSubtype":"AntigenCoatingType.ANY",
                             "liquids":[
                                 {
                                     "type":"LiquidType.HOMO_SPLEEN"
@@ -1422,9 +1418,6 @@
                                 },
                                 {
                                     "type":"LiquidType.ANTIGEN_SMALLPOX"
-                                },
-                                {
-                                    "type":"LiquidType.BUFFER"
                                 }
                             ]
                         }
@@ -1432,8 +1425,8 @@
                     {
                         "number":16,
                         "description":{
-                            "dk":"Inkubér Ebola+kultur ELISA-pladen i inkubatoren ved stuetemperatur (21°C).",
-                            "en":"Incubate the Ebola+culture ELISA-plate in the incubator at room temperature (21°C)."
+                            "dk":"Inkubér Ebola ELISA-pladen i inkubatoren ved stuetemperatur (21°C).",
+                            "en":"Incubate the Ebola ELISA-plate in the incubator at room temperature (21°C)."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
@@ -1442,6 +1435,19 @@
                                 {
                                     "type":"ContainerType.MICROTITER",
                                     "liquids":[
+                                        {
+                                            "type":"LiquidType.HOMO_SPLEEN"
+                                        },
+                                        {
+                                            "type":"LiquidType.HYBRIDOMA_MEDIUM"
+                                        },
+                                        {
+                                            "type":"LiquidType.MICROORGANISM",
+                                            "subtype":"MicroorganismType.MYELOMA"
+                                        },
+                                        {
+                                            "type":"LiquidType.SALT_WATER"
+                                        },
                                         {
                                             "type":"LiquidType.ANTIGEN_SMALLPOX"
                                         }
@@ -1453,13 +1459,26 @@
                     {
                         "number":17,
                         "description":{
-                            "dk":"Vask Ebola+kultur ELISA-pladen med buffer.",
-                            "en":"Wash the Ebola+culture ELISA-plate with buffer."
+                            "dk":"Vask Ebola ELISA-pladen med buffer.",
+                            "en":"Wash the Ebola ELISA-plate with buffer."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
                             "activation":"ActivationType.MICROTITER_WASHED_WITH_BUFFER",
                             "liquids":[
+                                {
+                                    "type":"LiquidType.HOMO_SPLEEN"
+                                },
+                                {
+                                    "type":"LiquidType.HYBRIDOMA_MEDIUM"
+                                },
+                                {
+                                    "type":"LiquidType.MICROORGANISM",
+                                    "subtype":"MicroorganismType.MYELOMA"
+                                },
+                                {
+                                    "type":"LiquidType.SALT_WATER"
+                                },
                                 {
                                     "type":"LiquidType.ANTIGEN_SMALLPOX"
                                 }
@@ -1519,47 +1538,18 @@
                     {
                         "number":18,
                         "description":{
-                            "dk":"Tilsæt flouroscerende sekundært antistof til alle brøndene på Ebola+kultur ELISA-pladen.",
-                            "en":"Add fluorescent secondary antibody to all the wells on the Ebola+culture ELISA-plate."
+                            "dk":"Tilsæt flouroscerende sekundært antistof til alle brøndene på Ebola ELISA-pladen.",
+                            "en":"Add fluorescent secondary antibody to all the wells on the Ebola ELISA-plate."
                         },
                         "trigger":{
                             "type":"TriggerType.MIX",
                             "strict":true,
                             "container":"ContainerType.MICROTITER",
-                            "containerSubtype":"AntigenCoatingType.NONE",
+                            "containerSubtype":"AntigenCoatingType.ANY",
                             "liquids":[
                                 {
                                     "type":"LiquidType.FLUORESCENT_2ND_ANTIBODY"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "number":19,
-                        "description":{
-                            "dk":"Vask Ebola+kultur ELISA-pladen med buffer igen.",
-                            "en":"Wash the Ebola+culture ELISA-plate with buffer again."
-                        },
-                        "trigger":{
-                            "type":"TriggerType.ACTIVATION",
-                            "activation":"ActivationType.MICROTITER_WASHED_WITH_BUFFER",
-                            "liquids":[
-                                {
-                                    "type":"LiquidType.FLUORESCENT_2ND_ANTIBODY"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "number":20,
-                        "description":{
-                            "dk":"Tag ELISA-pladen med ind i UV-rummet og se nærmere på den. Notér hvilke brønde der fluorescerer. Dem der lyser op har haft en væske med et antistof der kan binde til antigenet i brønden. Det er de antistof-producerende celler fra de brønde vi er interesserede i. Herefter skal du se nærmere på den oprindelige mikrotiterplade og opsamle indholdet fra en brønd, der svarer til en fluorescerende brønd på ELISA-pladen (dette gøres ved at trykke på den pågældende brønd).",
-                            "en":"Bring the ELISA plate in the UV room and take a closer look at it. Note which wells fluoresces. Those glowing has had a mixture with an antibody that binds to the antigene in the well. It is these antibody-producing cells from the wells we are interested in. Afterwards you should take a closer look at the original mikrotiter plate and gather the content from a well matching the fluorescent wells in the ELISA plate (This is done by pressing on the well in question)."
-                        },
-                        "trigger":{
-                            "type":"TriggerType.ACQUIRE",
-                            "item":"ContainerType.TUBE",
-                            "liquids":[
+                                },
                                 {
                                     "type":"LiquidType.HOMO_SPLEEN"
                                 },
@@ -1567,11 +1557,78 @@
                                     "type":"LiquidType.HYBRIDOMA_MEDIUM"
                                 },
                                 {
+                                    "type":"LiquidType.MICROORGANISM",
+                                    "subtype":"MicroorganismType.MYELOMA"
+                                },
+                                {
                                     "type":"LiquidType.SALT_WATER"
+                                },
+                                {
+                                    "type":"LiquidType.ANTIGEN_SMALLPOX"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "number":19,
+                        "description":{
+                            "dk":"Vask Ebola ELISA-pladen med buffer igen.",
+                            "en":"Wash the Ebola ELISA-plate with buffer again."
+                        },
+                        "trigger":{
+                            "type":"TriggerType.ACTIVATION",
+                            "activation":"ActivationType.MICROTITER_WASHED_WITH_BUFFER",
+                            "liquids":[
+                                {
+                                    "type":"LiquidType.FLUORESCENT_2ND_ANTIBODY"
+                                },
+                                {
+                                    "type":"LiquidType.HOMO_SPLEEN"
+                                },
+                                {
+                                    "type":"LiquidType.HYBRIDOMA_MEDIUM"
                                 },
                                 {
                                     "type":"LiquidType.MICROORGANISM",
                                     "subtype":"MicroorganismType.MYELOMA"
+                                },
+                                {
+                                    "type":"LiquidType.SALT_WATER"
+                                },
+                                {
+                                    "type":"LiquidType.ANTIGEN_SMALLPOX"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "number":20,
+                        "description":{
+                            "dk":"Tag Ebola ELISA-pladen med ind i UV-rummet og se nærmere på den. Notér hvilke brønde der fluorescerer. Dem der lyser op har haft en væske med et antistof der kan binde til antigenet i brønden. Det er de antistof-producerende celler fra de brønde vi er interesserede i. Herefter skal du se nærmere på den oprindelige mikrotiterplade og opsamle indholdet fra en brønd, der svarer til en fluorescerende brønd på ELISA-pladen (dette gøres ved at trykke på den pågældende brønd).",
+                            "en":"Bring the Ebola ELISA plate in the UV room and take a closer look at it. Note which wells fluoresces. Those glowing has had a mixture with an antibody that binds to the antigene in the well. It is these antibody-producing cells from the wells we are interested in. Afterwards you should take a closer look at the original mikrotiter plate and gather the content from a well matching the fluorescent wells in the ELISA plate (This is done by pressing on the well in question)."
+                        },
+                        "trigger":{
+                            "type":"TriggerType.ACQUIRE",
+                            "item":"ContainerType.TUBE",
+                            "liquids":[
+                                {
+                                    "type":"LiquidType.FLUORESCENT_2ND_ANTIBODY"
+                                },
+                                {
+                                    "type":"LiquidType.HOMO_SPLEEN"
+                                },
+                                {
+                                    "type":"LiquidType.HYBRIDOMA_MEDIUM"
+                                },
+                                {
+                                    "type":"LiquidType.MICROORGANISM",
+                                    "subtype":"MicroorganismType.MYELOMA"
+                                },
+                                {
+                                    "type":"LiquidType.SALT_WATER"
+                                },
+                                {
+                                    "type":"LiquidType.ANTIGEN_SMALLPOX"
                                 }
                             ]
                         }

@@ -47,7 +47,7 @@ class Experiment {
 
     public quizController = quizController;
     public popupController = popupController;
-    
+
     constructor() {
         this.activeExperiment = ko.observable(null);
 
@@ -277,12 +277,12 @@ class Experiment {
         }
 
         if (trigger.activation === ActivationType.MICROTITER_WASHED_WITH_BUFFER) {
-            console.log("trigger check MICROTITER_WASHED_WITH_BUFFER OK");
+            if (!this.matchLiquids(trigger, item)) return;
         }
 
         if (trigger.activation === ActivationType.INCUBATOR) {
             var incubator = <IncubatorModel>item;
-            var unioned = _.union(incubator.tableSpacePetri.containers(), incubator.tubeRack.containers(), 
+            var unioned = _.union(incubator.tableSpacePetri.containers(), incubator.tubeRack.containers(),
                 incubator.tableSpaceMicro.containers());
             var containers = _.compact(unioned);
 
@@ -358,7 +358,7 @@ class Experiment {
 
     markTaskFinished() {
         this.activeTask().finished(true);
-        
+
         // If last task in part, mark part finished
         var partAllDone = _.all(_.invoke(this.activePart().tasks(), 'finished'));
         if (partAllDone) {
@@ -374,7 +374,7 @@ class Experiment {
             popupController.notify('experiment.task_finished.header', 'experiment.task_finished.body');
         }
     }
-    
+
     apparatusEnabled(location: string, aType: string) {
         var experiment = this.activeExperiment();
 
@@ -386,7 +386,7 @@ class Experiment {
             ApparatusType[aType]
         );
 
-        if (enabled) 
+        if (enabled)
             return true;
 
         var part = this.activePart();
