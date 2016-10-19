@@ -35,6 +35,8 @@ import MouseBloodType = require('model/type/MouseBlood');
 import gameState = require('model/GameState');
 import LiquidType = require('model/type/Liquid');
 
+import { initiateExperimentAtStep } from 'utils/ExperimentStarter'
+
 class App extends BaseViewController {
 
     public activeViewController: KnockoutObservable<BaseViewController>;
@@ -75,9 +77,9 @@ class App extends BaseViewController {
             uvroom          : new UvRoomController(),
             washing         : new WashingController(),
         };
-        
+
         this.registerComponents();
-        
+
         // setup routing
         this.router.currentRoute.subscribe((routeName) => {
             this.viewChange(routeName);
@@ -86,11 +88,13 @@ class App extends BaseViewController {
         this.router.navigate('loading');
 
         ko.rebind(this);
+
+        // initiateExperimentAtStep(this, 4, 0, 17)
     }
-    
+
     public registerComponents = () => {
         ko.components.register('vetmonitor-component', {
-            viewModel: { 
+            viewModel: {
                 createViewModel: (params, componentInfo) => {
                     var vetmon = new VetMonitorController(params);
                     vetmon.enter();
