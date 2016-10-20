@@ -118,7 +118,6 @@ class Popup {
     itemDetail(item) {
         const experimentController = require('controller/Experiment');
         this.show('popup-item-detail', { item: item });
-        console.log("experimentController", experimentController);
         experimentController.triggerActivation(ActivationType.ITEM_DETAILS, item);
     }
 

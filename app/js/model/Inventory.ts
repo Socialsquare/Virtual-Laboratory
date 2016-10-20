@@ -23,21 +23,16 @@ class Inventory {
 
     add(item, alternativeLabel = '', liquidData:LiquidDataType[] = []) {
 
-        console.log(item, alternativeLabel, liquidData);
-        // generate label
-        if (!item.acquired() && item.label) {
-            if (alternativeLabel) {
-                item.label(alternativeLabel);
-            } else {
-                item.label(TextHelper.label(item));
-            }
+        if (!item.acquired()) {
+            var info = '';
             if (liquidData) {
-                var info = '';
                 _.each(liquidData, (d) => {
                     info += d.text + ': ' + d.value + ' ' + d.unit + '\n';
                 });
-                item.extraInfo(info);
+            } else if (alternativeLabel) {
+                info += alternativeLabel;
             }
+            item.extraInfo(info);
         }
 
         if (!item.acquired()) {
