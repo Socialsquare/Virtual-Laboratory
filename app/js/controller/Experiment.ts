@@ -335,6 +335,10 @@ class Experiment {
             if (hudController.digitalClockCountdown() > 0) return;
         }
 
+        if (trigger.activation === ActivationType.ITEM_DETAILS) {
+            if (!this.matchLiquids(trigger, item)) return;
+        }
+
         this.finishActiveTask();
     }
 

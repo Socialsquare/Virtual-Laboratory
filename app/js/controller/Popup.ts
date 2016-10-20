@@ -17,6 +17,9 @@ import ListPopupModel = require('model/popup/List');
 import DoorPopupModel = require('model/popup/Door');
 import TubeExtractionPopupModel = require('model/popup/TubeExtraction');
 
+// Needed for to trigger events on popup
+import ActivationType = require('model/type/Activation');
+
 import ImageHelper = require('utils/ImageHelper');
 
 import VideoController = require('controller/Video');
@@ -92,7 +95,7 @@ class Popup {
     }
 
     message(title: string, message: string, delayTime = 0) {
-        _.delay(() => this.show('popup-message', { title: title, message: message }), 
+        _.delay(() => this.show('popup-message', { title: title, message: message }),
                 delayTime);
     }
 
@@ -113,7 +116,10 @@ class Popup {
     }
 
     itemDetail(item) {
+        const experimentController = require('controller/Experiment');
         this.show('popup-item-detail', { item: item });
+        console.log("experimentController", experimentController);
+        experimentController.triggerActivation(ActivationType.ITEM_DETAILS, item);
     }
 
     confirm(title: string, message: string) {
