@@ -1,4 +1,8 @@
 
+import ContainerFactory = require('factory/Container')
+import LiquidFactory = require('factory/Liquid')
+import gameState = require('model/GameState');
+
 import experimentService = require('service/Experiment');
 
 export const initiateExperimentAtStep = (app, experimentNum, partNum, taskNum) => {
@@ -19,6 +23,16 @@ export const initiateExperimentAtStep = (app, experimentNum, partNum, taskNum) =
         for (let i = 0; i < taskNum; i++) {
             tasks[i].finished(true);
         }
+
+        const microtiter = ContainerFactory.microAntigenCoated()
+        microtiter.add(LiquidFactory.antigenSmallpox())
+        microtiter.add(LiquidFactory.saltWater())
+        microtiter.add(LiquidFactory.hybridomaMedium())
+        microtiter.add(LiquidFactory.microorganism.myeloma())
+        microtiter.add(LiquidFactory.homoSpleen(LiquidFactory.antibodySmallpox()))
+        microtiter.add(LiquidFactory.fluorescentSecondaryAntibody())
+
+        gameState.inventory.add(microtiter);
 
         app.router.navigate('overview');
 
