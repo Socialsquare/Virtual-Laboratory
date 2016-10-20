@@ -1,5 +1,6 @@
 define([
     'json!testdatadir/experiments.json',
+    'knockout.postbox',
 
     'lodash',
 
@@ -9,7 +10,7 @@ define([
     'controller/Experiment',
 
     'model/Experiment'
-], function (experimentData, _, CF, LF, experimentController, ExperimentModel) {
+], function (experimentData, postbox, _, CF, LF, experimentController, ExperimentModel) {
 
     var finishedTasks = function () {
         return _.filter(experimentController.activeExperiment().tasks(), function (task) {
@@ -26,7 +27,7 @@ define([
             var tube = CF.tube();
 
             tube.add(LF.deadly());
-            
+
             expect(finishedTasks().length).toBe(0);
 
             tube.add(LF.insulin());

@@ -203,6 +203,9 @@ class TextHelper {
         //XXX: hey, let's add another one to the pile :-D
         case AntibioticType.B:
             return 'item.name.antibiotic_b';
+        case AntibioticType.A:
+            return 'item.name.antibiotic_a';
+
 
         default:
             throw 'TextHelper.prettyNameFromType: Unknown type: ' + type;

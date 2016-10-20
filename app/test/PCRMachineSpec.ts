@@ -1,3 +1,4 @@
+import postbox = require('knockout.postbox');
 import gameState = require('model/GameState');
 import popupController = require('controller/Popup');
 
