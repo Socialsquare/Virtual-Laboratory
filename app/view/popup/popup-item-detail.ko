@@ -1,12 +1,9 @@
 <div class="popup popup-item-details">
     <h1 data-bind="i18n: TextHelper.prettyName(data.item)"></h1>
-
-    <hr />
-
+    <h4 data-bind="i18n: 'popup.details.content'"></h4>
+    <p data-bind="text: data.item.label"></p>
     <h4 data-bind="i18n: 'popup.details.notes'"></h4>
-
-    <textarea rows="10" cols="40" data-bind="value: data.item.label"></textarea>
-
+    <textarea data-bind="i18n: '[placeholder]popup.details.notes_placeholder', value: data.item.note"></textarea>
     <div class="btn-row float-clear">
         <button type="button" data-bind="click: hide">Luk</button>
     </div>

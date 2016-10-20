@@ -1,26 +1,18 @@
 /* popup/details.scss */
 
 .popup-item-details {
-    $width: 400px;
-
-    padding: 30px;
-
-    left: 290px;
-    top: 50px;
-    width: $width;
-    height: 480px;
-
-    color: white;
+    left: 250px;
+    right: 250px;
+    width: auto;
+    height: auto;
 
     textarea {
-        width: 375px;
-        height: 260px;
+        box-sizing: border-box;
+        font-size: inherit;
+        height: 200px;
+        margin-bottom: 60px;
+        padding: 5px;
         resize: none;
-        font-size: 20px;
-        padding: 10px;
-    }
-
-    .btn-row {
-        width: $width;
+        width: 100%;
     }
 }

@@ -76,7 +76,7 @@ class TextHelper {
             return i18n.text(TextHelper.prettyName(l));
         });
         var ucontents = _.uniq(contents);
-        return i18n.text('common.contains') + ': ' + ucontents.join(' & ');
+        return ucontents.join(' & ');
     }
 
     static prettyName(item) {
