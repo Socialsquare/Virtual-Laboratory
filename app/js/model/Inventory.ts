@@ -22,10 +22,9 @@ class Inventory {
     }
 
     add(item, alternativeLabel = '', liquidData:LiquidDataType[] = []) {
-
         if (!item.acquired()) {
             var info = '';
-            if (liquidData) {
+            if (liquidData.length > 0) {
                 _.each(liquidData, (d) => {
                     info += d.text + ': ' + d.value + ' ' + d.unit + '\n';
                 });
