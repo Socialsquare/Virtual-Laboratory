@@ -200,7 +200,6 @@ class SimpleContainer extends InventoryItem {
         var totalConc = this.getTotalConcentration();
 
         if (this.getTotalConcentration() >= this.maxConcentration()) {
-            console.log("growContentsOnce: totalConcentration >= maxConcentration");
             return producedEnzymes;
         }
 
