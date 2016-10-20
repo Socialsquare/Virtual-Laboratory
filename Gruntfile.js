@@ -109,7 +109,7 @@ module.exports = function (grunt) {
         sass: {
             dist : {
                 files: {
-                    '<%= dist_root %>/static/main.css' : 'css/main.scss'
+                    '<%= dist_root %>/static/main.css' : 'app/css/main.scss'
                 }
             }
         },
