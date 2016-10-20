@@ -22,6 +22,8 @@ class Inventory {
     }
 
     add(item, alternativeLabel = '', liquidData:LiquidDataType[] = []) {
+
+        console.log(item, alternativeLabel, liquidData);
         // generate label
         if (!item.acquired() && item.label) {
             if (alternativeLabel) {
@@ -30,11 +32,11 @@ class Inventory {
                 item.label(TextHelper.label(item));
             }
             if (liquidData) {
-                var info = '\n\n';
+                var info = '';
                 _.each(liquidData, (d) => {
                     info += d.text + ': ' + d.value + ' ' + d.unit + '\n';
                 });
-                item.label(item.label()+info);
+                item.extraInfo(info);
             }
         }
 

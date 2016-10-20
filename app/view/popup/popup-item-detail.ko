@@ -1,7 +1,13 @@
 <div class="popup popup-item-details">
     <h1 data-bind="i18n: TextHelper.prettyName(data.item)"></h1>
-    <h4 data-bind="i18n: 'popup.details.content'"></h4>
-    <p data-bind="text: data.item.label"></p>
+    <div data-bind="if: data.item.label">
+        <h4 data-bind="i18n: 'popup.details.content'"></h4>
+        <p data-bind="text: data.item.label"></p>
+    </div>
+    <div data-bind="if: data.item.extraInfo">
+        <h4 data-bind="i18n: 'popup.details.extra_info'"></h4>
+        <p data-bind="text: data.item.extraInfo" class="pre-wrap"></p>
+    </div>
     <h4 data-bind="i18n: 'popup.details.notes'"></h4>
     <textarea data-bind="i18n: '[placeholder]popup.details.notes_placeholder', value: data.item.note"></textarea>
     <div class="btn-row float-clear">
