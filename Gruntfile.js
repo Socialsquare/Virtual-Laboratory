@@ -1,5 +1,5 @@
-var tplProcess = require('./build-tools/tpl-process'),
-    assets = require('./build-tools/assets'),
+var tplProcess = require('./app/build-tools/tpl-process'),
+    assets = require('./app/build-tools/assets'),
     path = require('path'),
     fs = require("fs"),
     mkdirp = require('mkdirp'),
@@ -11,7 +11,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        dist_root: 'dist',
+        dist_root: 'app/dist',
         env: 'dev',
 
         clean: {
@@ -45,15 +45,15 @@ module.exports = function (grunt) {
         copy: {
         	test: {
         		files: [
-    		        { expand: true, src: [ 'test-main.js' ], dest: '<%= dist_root %>/js/' },
-    		        { expand: true, src: [ 'data/*.json' ], dest: '<%= dist_root %>' },
-    		        { expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
-    		        { expand: true, src: [ 'test/**' ], dest: '<%= dist_root %>' },
-    		        { expand: true, src: [ 'view/**' ], dest: '<%= dist_root %>' },
-    		        { expand: true, src: [ 'index.html' ], dest: '<%= dist_root %>' },
-    		        { expand: true, src: [ 'assets/**' ], dest: '<%= dist_root %>' },
-    		        { expand: true, src: [ 'css/**/*.css' ], dest: '<%= dist_root %>' },
-    		        { expand: true, src: [ 'bower_components/**' ], dest: '<%= dist_root %>' }
+    		        { cwd: 'app/', expand: true, src: [ 'test-main.js' ], dest: '<%= dist_root %>/js/' },
+    		        { cwd: 'app/', expand: true, src: [ 'data/*.json' ], dest: '<%= dist_root %>' },
+    		        { cwd: 'app/', expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
+    		        { cwd: 'app/', expand: true, src: [ 'test/**' ], dest: '<%= dist_root %>' },
+    		        { cwd: 'app/', expand: true, src: [ 'view/**' ], dest: '<%= dist_root %>' },
+    		        { cwd: 'app/', expand: true, src: [ 'index.html' ], dest: '<%= dist_root %>' },
+    		        { cwd: 'app/', expand: true, src: [ 'assets/**' ], dest: '<%= dist_root %>' },
+    		        { cwd: 'app/', expand: true, src: [ 'css/**/*.css' ], dest: '<%= dist_root %>' },
+    		        { cwd: 'app/', expand: true, src: [ 'bower_components/**' ], dest: '<%= dist_root %>' }
 		        ]
         	},
 
@@ -61,34 +61,34 @@ module.exports = function (grunt) {
 
                 files: [
                     // data
-                    { expand: true, src: [ 'data/*.json' ], dest: '<%= dist_root %>' },
+                    { cwd: 'app/', expand: true, src: [ 'data/*.json' ], dest: '<%= dist_root %>' },
                     // js
-                    { expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
+                    { cwd: 'app/', expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
                     // views
-                    { expand: true, src: [ 'view/**' ], dest: '<%= dist_root %>' },
+                    { cwd: 'app/', expand: true, src: [ 'view/**' ], dest: '<%= dist_root %>' },
                     // index
-                    { expand: true, src: [ 'index.html' ], dest: '<%= dist_root %>' },
+                    { cwd: 'app/', expand: true, src: [ 'index.html' ], dest: '<%= dist_root %>' },
                     // assets
-                    { expand: true, src: [ 'assets/**' ], dest: '<%= dist_root %>' },
+                    { cwd: 'app/', expand: true, src: [ 'assets/**' ], dest: '<%= dist_root %>' },
                     // css
-                    { expand: true, src: [ 'css/**/*.css' ], dest: '<%= dist_root %>' },
+                    { cwd: 'app/', expand: true, src: [ 'css/**/*.css' ], dest: '<%= dist_root %>' },
                     // vendor
-                    { expand: true, src: [ 'bower_components/**' ], dest: '<%= dist_root %>' }
+                    { cwd: 'app/', expand: true, src: [ 'bower_components/**' ], dest: '<%= dist_root %>' }
                 ]
             },
 
             js: {
                 files: [
-                    { expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
+                    { cwd: 'app/', expand: true, src: [ 'js/**' ], dest: '<%= dist_root %>' },
                 ]
             },
 
             production: {
                 files: [
                     // data
-                    { expand: true, src: [ 'data/**' ], dest: '<%= dist_root %>' },
+                    { cwd: 'app/', expand: true, src: [ 'data/**' ], dest: '<%= dist_root %>' },
                     // assets
-                    { expand: true, src: [ 'assets/**' ], dest: '<%= dist_root %>' }
+                    { cwd: 'app/', expand: true, src: [ 'assets/**' ], dest: '<%= dist_root %>' }
                 ]
             }
         },
@@ -133,24 +133,24 @@ module.exports = function (grunt) {
                 configuration: grunt.file.readJSON("tslint.json")
             },
             files: {
-                src: [ '!Gruntfile.js', 'js/**/*.ts' ]
+                src: [ '!Gruntfile.js', 'app/js/**/*.ts' ]
             }
         },
 
         watch: {
             dist: {
-                files: [ 'js/localization.json', 'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**',
-                         'js/**/*.js', 'js/**/*.ts'],
+                files: [ 'app/js/localization.json', 'app/view/**/*.ko', 'app/css/**/*.scss', '!<%= dist_root %>/**',
+                         'app/js/**/*.js', 'app/js/**/*.ts'],
                 //files: [ 'data/**', 'js/localization.json', 'js/**/*.js',
                 //         'view/**/*.ko', 'css/**/*.scss', '!<%= dist_root %>/**' ],
                 tasks: [ 'build', 'templateIndex', 'preprocess:dev' ]
             },
             sass: {
-            	files: ['css/**/*.scss'],
+            	files: ['app/css/**/*.scss'],
             	tasks: [ 'sass' ]
             },
             js: {
-            	files: ['js/**/*.js', 'js/**/*.ts'],
+            	files: ['app/js/**/*.js', 'app/js/**/*.ts'],
             	tasks: ['clean:js', 'copy:js', 'ts:dist']
             }
         },
@@ -160,21 +160,21 @@ module.exports = function (grunt) {
             production: {
                 options: {
 				    almond: true,
-                    baseUrl: "dist/js",
-                    mainConfigFile: "dist/js/config.js",
-                    name: '../../node_modules/almond/almond',
+                    baseUrl: "app/dist/js",
+                    mainConfigFile: "app/dist/js/config.js",
+                    name: '../../../node_modules/almond/almond',
                     findNestedDependencies: true,
                     preserveLicenseComments: false,
                     optimize: "uglify2",
                     //optimize: "none",
-                    out: "dist/static/script.js"
+                    out: "app/dist/static/script.js"
                 }
             }
         },
 
         ts: {
             dist : {
-                src: [ "typings/index.d.ts", "dist/js/**/*.{d.ts,ts}" ],
+                src: [ "typings/index.d.ts", "app/dist/js/**/*.{d.ts,ts}" ],
                 options: {
                     module: 'amd',
                     failOnTypeErrors: false,
@@ -183,7 +183,7 @@ module.exports = function (grunt) {
             },
             test: {
             	env: 'test',
-            	src: [ "typings/index.d.ts", "dist/js/**/*.{d.ts,ts}", "dist/test/*.{d.ts,ts}" ],
+            	src: [ "typings/index.d.ts", "app/dist/js/**/*.{d.ts,ts}", "app/dist/test/*.{d.ts,ts}" ],
             	options: {
             		module: 'amd',
             		failOnTypeErrors: false,
@@ -194,7 +194,7 @@ module.exports = function (grunt) {
 
         karma: {
             unit: {
-                configFile: "./karma.conf.js"
+                configFile: "./app/karma.conf.js"
             }
         },
 
@@ -229,8 +229,8 @@ module.exports = function (grunt) {
 
         preprocess : {
             production: {
-            	src : 'dist/index.html',
-            	dest : 'dist/index.html',
+            	src : 'app/dist/index.html',
+            	dest : 'app/dist/index.html',
             	options: {
             		inline: true,
             		context : {
@@ -239,8 +239,8 @@ module.exports = function (grunt) {
             	},
             },
             test: {
-            	src : 'dist/index.html',
-            	dest : 'dist/index.html',
+            	src : 'app/dist/index.html',
+            	dest : 'app/dist/index.html',
             	options: {
             		inline: true,
             		context : {
@@ -249,8 +249,8 @@ module.exports = function (grunt) {
             	}
             },
             dev: {
-            	src : 'dist/index.html',
-            	dest : 'dist/index.html',
+            	src : 'app/dist/index.html',
+            	dest : 'app/dist/index.html',
             	options: {
             		inline: true,
             		context : {
@@ -262,13 +262,13 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('templateIndex', function () {
-        var templated = tplProcess.process(grunt, process.cwd());
-        grunt.file.write('dist/index.html', templated);
+        var templated = tplProcess.process(grunt, process.cwd() + '/app');
+        grunt.file.write('./app/dist/index.html', templated);
     });
 
     grunt.registerTask('assets', function () {
         var data = assets.generate(process.cwd(), 'assets');
-        var assetsDir = process.cwd() + '/dist/assets';
+        var assetsDir = process.cwd() + '/app/dist/assets';
         mkdirp.sync(assetsDir);
         fs.writeFileSync(assetsDir + '/preload.json', JSON.stringify(data));
     });

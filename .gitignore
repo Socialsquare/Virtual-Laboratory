@@ -4,10 +4,10 @@ logs
 .tern-project
 .idea
 /app/dist/
-/app/node_modules/
+node_modules/
 .sass-cache
 /app/bower_components/
 /app/assets/preload.json
-/app/typings/
-/app/.tscache/
+typings/
+.tscache/
 tscommand-*
