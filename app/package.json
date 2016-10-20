@@ -20,14 +20,18 @@
     "karma-cli": "0.0.4",
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^1.0.2",
-    "phantomjs-prebuilt": "^2.1.13",
     "karma-requirejs": "^0.2.2",
     "karma-typescript-preprocessor": "0.0.16",
     "lodash": "^2.4.1",
     "mkdirp": "^0.5.0",
+    "phantomjs-prebuilt": "^2.1.13",
+    "pre-push": "^0.1.1",
     "tslint": "^2.2.0-beta",
     "uglify-js": "^2.4.15"
   },
+  "pre-push": [
+    "test"
+  ],
   "name": "vlab",
   "version": "2.1.0",
   "description": "Det Virtuelle Laboratorium er 2.1 er et gratis og stimulerende e-learningværktøj for alle med interesse for biologi og bioteknologi. Spillet er særligt udviklet til undervisere og elever i gymnasiet, og det giver en realistisk simulation af laboratoriearbejde.",
@@ -37,14 +41,14 @@
   },
   "dependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/grunt test"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/Socialsquare/Virtual-Laboratory.git"
   },
-  "author": "",
-  "license": "",
+  "author": "Biotech Academy",
+  "license": "None yet",
   "bugs": {
     "url": "https://github.com/Socialsquare/Virtual-Laboratory/issues"
   },
