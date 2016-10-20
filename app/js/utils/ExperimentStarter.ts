@@ -1,12 +1,11 @@
-
-import ContainerFactory = require('factory/Container')
-import LiquidFactory = require('factory/Liquid')
+import ContainerFactory = require('factory/Container');
+import LiquidFactory = require('factory/Liquid');
 import gameState = require('model/GameState');
 
 import experimentService = require('service/Experiment');
 
 export const initiateExperimentAtStep = (app, experimentNum, partNum, taskNum) => {
-    console.log('loaded!')
+    console.log('experiments loaded!');
     experimentService.getExperiments().done((experiments) => {
         const experiment = experiments[experimentNum];
         const expController = app.experimentController;
