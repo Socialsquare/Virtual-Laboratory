@@ -2,11 +2,10 @@
 
 ## Development
 
-You need to have npm, bower, typings and grunt installed globally.  
+You need to have npm, bower, typings and grunt installed globally.
 Restart terminal after npm install if you get can't find module q error (maybe also npm install bower -g).
 
 ```
-cd app
 npm install
 bower install
 typings install
@@ -27,9 +26,9 @@ grunt
 
 ## Test
 
-[vlab.demo.socialsquare.dk](http://vlab.demo.socialsquare.dk/)  
+[vlab.demo.socialsquare.dk](http://vlab.demo.socialsquare.dk/)
 
-Jenikins CI auto deploys current master from github to vlab.demo.socialsquare.dk
+Jenkins CI auto deploys current master from github to vlab.demo.socialsquare.dk
 and on vlab.demo.socialsquare.dk there is a repository with post-received hook
 which installs npm, bower and runs `grunt production` task.
 
