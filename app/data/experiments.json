@@ -26,8 +26,8 @@
                 "tasks":[
                     {
                         "description":{
-                            "dk":"Bestil en rask mus, og placer den i buret. Tag derefter en blodprøve, og noter glukose- og insulinniveau ud fra data fra blodprøven.",
-                            "en":"Order a healthy mouse and place it in the cage. Take a blood sample from the mouse and note down the glucose and insulin levels from the data received from the sample."
+                            "dk":"Bestil en rask mus, placer den i buret og tag derefter en blodprøve",
+                            "en":"Order a healthy mouse, place it in the cage and take a blood sample."
                         },
                         "trigger":{
                             "type":"TriggerType.ACQUIRE",
@@ -39,15 +39,44 @@
                                 }
                             ]
                         }
-                    },
-                    {
+                    },{
                         "description":{
-                            "dk":"Bestil en diabetisk mus, og placer den i buret i stedet for den raske. Tag igen en blodprøve, og skriv tilsvarende værdier ned.",
-                            "en":"Order a diabetic mouse and place it in the cage instead of the healthy one. Take another bloodsample and note down the glucose and insulin levels again."
+                          "dk":"Notér glukose- og insulinniveau ud fra blodprøven.",
+                          "en":"Write down the glucose and insulin levels from the data received from the sample."
+                        },
+                        "trigger":{
+                            "type":"TriggerType.ACTIVATION",
+                            "activation":"ActivationType.ITEM_DETAILS",
+                            "liquids":[
+                                {
+                                    "type":"LiquidType.MOUSE_BLOOD",
+                                    "subtype":"MouseBloodType.NORMAL"
+                                }
+                            ]
+                        }
+                    },{
+                        "description":{
+                          "dk":"Bestil en diabetisk mus, placer den i buret og tag derefter en blodprøve",
+                          "en":"Order a diabetic mouse, place it in the cage and take a blood sample."
                         },
                         "trigger":{
                             "type":"TriggerType.ACQUIRE",
                             "item":"ContainerType.TUBE",
+                            "liquids":[
+                                {
+                                    "type":"LiquidType.MOUSE_BLOOD",
+                                    "subtype":"MouseBloodType.DIABETIC"
+                                }
+                            ]
+                        }
+                    },{
+                        "description":{
+                          "dk":"Notér glukose- og insulinniveau ud fra blodprøven.",
+                          "en":"Write down the glucose and insulin levels from the data received from the sample."
+                        },
+                        "trigger":{
+                            "type":"TriggerType.ACTIVATION",
+                            "activation":"ActivationType.ITEM_DETAILS",
                             "liquids":[
                                 {
                                     "type":"LiquidType.MOUSE_BLOOD",
