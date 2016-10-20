@@ -31,7 +31,6 @@ class SimpleContainer extends InventoryItem {
     public acquired: KnockoutObservable<boolean>;
     public location: KnockoutObservable<LocationType>;
     public note: KnockoutObservable<string>;
-    public extraInfo: KnockoutObservable<string>;
     public liquidsAdded: Signal;
 
     constructor(type, maxConcentration) {
@@ -49,7 +48,6 @@ class SimpleContainer extends InventoryItem {
             write: (v:string):void=>{},
             owner: this
         });
-        this.extraInfo = ko.observable('');
         this.note = ko.observable('');
         this.acquired = ko.observable(false);
         this.liquidsAdded = new signals.Signal();
