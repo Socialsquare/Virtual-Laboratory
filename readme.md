@@ -14,6 +14,12 @@ grunt test
 grunt
 ```
 
+##### Start at certain step
+* Open `app/js/controller/App.ts`
+  * Remove comment from `something`
+* Open `app/js/utils/ExperimentStarter.ts`
+  * Se the outcommented code at the bottom for inspiration
+
 ##### Dev tips
 
 * In Atom add `customFileTypes:"text.html.basic": ["ko"]` to core in config.cson
