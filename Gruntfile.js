@@ -267,7 +267,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('assets', function () {
-        var data = assets.generate(process.cwd(), 'assets');
+        var data = assets.generate(process.cwd(), 'app/assets');
         var assetsDir = process.cwd() + '/app/dist/assets';
         mkdirp.sync(assetsDir);
         fs.writeFileSync(assetsDir + '/preload.json', JSON.stringify(data));
