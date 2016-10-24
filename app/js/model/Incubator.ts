@@ -9,6 +9,10 @@ import GrowerType = require('model/type/Grower');
 import LocationType = require('model/type/Location');
 import ActivationType = require('model/type/Activation');
 
+const DEFAULT_TEMP: number = 37.0;
+const DEFAULT_TIME: number = 48;
+const DEFAULT_HOUR_RESOLUTION: number = 10;
+
 class Incubator {
 
     public temperature: KnockoutObservable<number>;
@@ -25,11 +29,12 @@ class Incubator {
     public timerText: KnockoutComputed<string>;
 
     constructor() {
-        this.temperature = ko.observable(37.0);
-        this.timer = ko.observable(48); // Time in hours
+        this.temperature = ko.observable(DEFAULT_TEMP);
+        this.timer = ko.observable(DEFAULT_TIME); // Time in hours
         this.turnedOn = ko.observable(false);
         this.timerID = ko.observable(null);
-        this.hourResolution = ko.observable(10); // This is used in the growth.
+        // hourResolution is used in the growth.
+        this.hourResolution = ko.observable(DEFAULT_HOUR_RESOLUTION);
         this.growerType = ko.observable(GrowerType.INCUBATOR);
 
         this.tableSpacePetri = new PetriSpaceModel(2);
@@ -74,7 +79,7 @@ class Incubator {
         // For-løkke med mindre steps?
         if (this.timer() < 1) {
             this.deactivate();
-            this.timer(48);
+            this.timer(DEFAULT_TIME);
             return;
         }
 
@@ -94,12 +99,12 @@ class Incubator {
         this.tableSpaceMicro.removeAll();
         this.tubeRack.removeAll();
 
-        this.temperature(37.0);
-        this.timer(48);
+        this.temperature(DEFAULT_TEMP);
+        this.timer(DEFAULT_TIME);
         this.turnedOn(false);
         clearTimeout(this.timerID());
         this.timerID(null);
-        this.hourResolution(10);
+        this.hourResolution(DEFAULT_HOUR_RESOLUTION);
         this.growerType(GrowerType.INCUBATOR);
     }
 }

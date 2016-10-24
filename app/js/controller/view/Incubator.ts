@@ -50,7 +50,7 @@ class IncubatorController extends BaseViewController {
     enter() {
         super.enter();
         if (super.apparatusEnabled('INCUBATOR_ANTI_MATTER', 'INCUBATOR_ANTI_MATTER')) {
-            this.incubator.timer(240);
+            this.incubator.timer(24);
         }
     }
 }
