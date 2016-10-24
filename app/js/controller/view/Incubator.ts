@@ -33,8 +33,12 @@ class IncubatorController extends BaseViewController {
         ko.rebind(this);
     }
 
-    changeTemp(val: number) {
-        this.incubator.temperature(this.incubator.temperature() + val);
+    changeTemp(tempUp: boolean) {
+        var newTemp = this.incubator.temperature() + tempUp ? 1 : -1;
+
+        if (newTemp >= 17 && newTemp <= 40) {
+            this.incubator.temperature(newTemp);
+        }
     }
 
     changeTimer(val: number) {
@@ -44,7 +48,10 @@ class IncubatorController extends BaseViewController {
     }
 
     activateIncubator() {
-        this.incubator.activate();
+        // Only start incubator if there's time left
+        if (this.incubator.timer() > 0) {
+            this.incubator.activate();
+        }
     }
 
     enter() {
