@@ -145,8 +145,8 @@
         "spectropm.no_useful.header": "Ingen brugbar data",
         "spectropm.no_useful.body": "Det var ikke muligt at få noget brugbar information ud fra din mikrotiterplade. Dette kan skyldes at du har forurenet din prøve.",
 
-        "worktable1.bunsen_required.header": "Forbudt handling",
-        "worktable1.bunsen_required.body": "Bunsenbrænderen skal være tændt, før du kan arbejde ved bordet.",
+        "worktable1.bunsen_required.header": "Husk at tænd for bunsenbrænderen",
+        "worktable1.bunsen_required.body": "Bunsenbrænderen hjælper med at holde lab. bænken fri for uønskede mikroorganismer og derved undgår man prøve kontaminering. Dette giver det bedste eksperimentelle resultat!",
 
         "worktable1.electroporator_success.header": "Godt gået",
         "worktable1.electroporator_success.body": "Tillykke! Du har genmodificeret mikroorganismerne i elektroporatoren.",
@@ -545,8 +545,8 @@
         "spectropm.no_useful.header": "No useful data",
         "spectropm.no_useful.body": "It was not possible to get any useful data out of you microtiter plate. This may be caused by contamination.",
 
-        "worktable1.bunsen_required.header": "Action not permitted",
-        "worktable1.bunsen_required.body": "The bunsen burner needs to be lit before you can begin working at the table.",
+        "worktable1.bunsen_required.header": "Remember to lit the bunsen burner",
+        "worktable1.bunsen_required.body": "The bunsen burner helps with keeping the lab. bench free of unwanted microorganisms, hence one avoids sample contamination. This yields the best experimental result!",
 
         "worktable1.electroporator_success.header": "Well done",
         "worktable1.electroporator_success.body": "Congratulations! You've succesfully genetically modified micororganisms in the electroporator.",
