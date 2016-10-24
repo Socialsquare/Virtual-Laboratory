@@ -33,8 +33,7 @@ class Liquid {
 
         var reacted = false;
         _.forEach(container.liquids(), (liquid) => {
-            if (this === liquid)
-                return;
+            if (this === liquid) return;
 
             fn(liquid);
             reacted = true;
@@ -57,7 +56,7 @@ class Liquid {
 
     clone() {
         var clone = new Liquid(this.type(), this.reactionCount());
-
+        clone.subtype(this.subtype());
         clone.hasReacted(this.hasReacted());
 
         return clone;

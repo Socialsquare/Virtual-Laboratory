@@ -70,8 +70,8 @@ class TextHelper {
         var contents = _.map(container.liquids(), (l) => {
             if (displaySubtype && _.contains(subtyped, l.type())) {
                 var ltype = TextHelper.i18nFromType(l.type());
-                var subtype = TextHelper.i18nFromType(l.subtype());
-                return ltype + ' (' + subtype + ')';
+                var subtype = l.subtype() && TextHelper.i18nFromType(l.subtype());
+                return ltype + (subtype ? ' (' + subtype + ')' : '');
             }
             return i18n.text(TextHelper.prettyName(l));
         });
