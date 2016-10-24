@@ -77,7 +77,7 @@ class IndexedDbService {
 
         DBOpenRequest.onsuccess = (event) => {
             console.info("IndexedDB open success!");
-            // FIXME: shouldn't I use this.result or event.result to avoid garbage collection
+            // TODO: shouldn't I use this.result or event.result to avoid garbage collection
             var db = DBOpenRequest.result;
             this._db.resolve(db);
         };

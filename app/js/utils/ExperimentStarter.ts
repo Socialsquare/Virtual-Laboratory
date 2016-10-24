@@ -23,14 +23,15 @@ export const initiateExperimentAtStep = (app, experimentNum, partNum, taskNum) =
             tasks[i].finished(true);
         }
 
-        const microtiter = ContainerFactory.microAntigenCoated()
-        microtiter.add(LiquidFactory.antigenSmallpox())
-        microtiter.add(LiquidFactory.saltWater())
-        microtiter.add(LiquidFactory.hybridomaMedium())
-        microtiter.add(LiquidFactory.microorganism.myeloma())
-        microtiter.add(LiquidFactory.homoSpleen(LiquidFactory.antibodySmallpox()))
-        microtiter.add(LiquidFactory.fluorescentSecondaryAntibody())
+        // const microtiter = ContainerFactory.microAntigenCoated();
+        const microtiter = ContainerFactory.micro();
+        // microtiter.add(LiquidFactory.antigenSmallpox());
+        microtiter.add(LiquidFactory.saltWater());
+        microtiter.add(LiquidFactory.hybridomaMedium());
+        microtiter.add(LiquidFactory.microorganism.myeloma());
+        microtiter.add(LiquidFactory.homoSpleen(LiquidFactory.antibodySmallpox()));
 
+        // gameState.inventory.add(LiquidFactory.fluorescentSecondaryAntibody());
         gameState.inventory.add(microtiter);
 
         app.router.navigate('overview');

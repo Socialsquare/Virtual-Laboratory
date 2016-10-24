@@ -1641,9 +1641,6 @@
                             "item":"ContainerType.TUBE",
                             "liquids":[
                                 {
-                                    "type":"LiquidType.FLUORESCENT_2ND_ANTIBODY"
-                                },
-                                {
                                     "type":"LiquidType.HOMO_SPLEEN"
                                 },
                                 {
@@ -1655,9 +1652,6 @@
                                 },
                                 {
                                     "type":"LiquidType.SALT_WATER"
-                                },
-                                {
-                                    "type":"LiquidType.ANTIGEN_SMALLPOX"
                                 }
                             ]
                         }

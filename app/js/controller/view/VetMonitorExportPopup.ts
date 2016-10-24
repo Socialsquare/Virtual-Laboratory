@@ -7,8 +7,8 @@ import VetMonitorLogItem = require('model/type/VetMonitorLogItem');
 import gameState = require('model/GameState');
 
 
-// FIXME: logs could have a predefined limit and expire time,
-// FIXME: hence logIds will have to be updated accordingly
+// TODO: logs could have a predefined limit and expire time,
+// TODO: hence logIds will have to be updated accordingly
 class VetMonitorExportPopup {
 
     public maxLogId: number = null;
