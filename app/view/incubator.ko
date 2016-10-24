@@ -2,8 +2,8 @@
     <div class="hand time" data-bind="text: incubator.timerText()"></div>
     <div class="hand temperature" data-bind="text: incubator.temperatureText()"></div>
 
-    <div class="hand timeup-btn" data-bind="click: changeTimer.bind(null, 2)"></div>
-    <div class="hand timedown-btn" data-bind="click: changeTimer.bind(null, -2)"></div>
+    <div class="hand timeup-btn" data-bind="click: changeTimer.bind(null, timerUp = true)"></div>
+    <div class="hand timedown-btn" data-bind="click: changeTimer.bind(null, timerUp = false)"></div>
     <div class="hand tempup-btn" data-bind="click: changeTemp.bind(null, tempUp = true)"></div>
     <div class="hand tempdown-btn" data-bind="click: changeTemp.bind(null, tempUp = false)"></div>
 
