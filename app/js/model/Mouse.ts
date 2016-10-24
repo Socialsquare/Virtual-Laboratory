@@ -15,7 +15,7 @@ import Utils = require('utils/utils');
 
 
 class Mouse extends SpecialItemModel {
-    
+
     public minHR: number = 650;
     public maxHR: number = 700;
     public heartRateData: any;
@@ -71,13 +71,13 @@ class Mouse extends SpecialItemModel {
         this.stomachSugar = ko.observable(0);
         this.meanBloodSugar = ko.observable(this.computeMeanBloodSugar(mouseBloodType));
         this.bloodSugar = ko.observable(this.meanBloodSugar());
-        
+
         // If blood sugar is above `maxBloodSugar` the mouse gets diabetes
         this.maxBloodSugar = ko.observable(12);
-        
+
         // The mouse dies if bloodSugar gets below this threshold
         this.minBloodSugar = ko.observable(0.5);
-        
+
         // The mouse dies if bloodSugar gets above this threshold
         this.killBloodSugar = ko.observable(20);
 
@@ -99,40 +99,40 @@ class Mouse extends SpecialItemModel {
 
         ko.rebind(this);
     }
-    
+
     public computeDescription = ():string => {
         switch (this.mouseType()) {
             case MouseType.GOUT:
                 return 'mouse.description.gout';
-    
+
             case MouseType.SMALLPOX:
                 return 'mouse.description.smallpox';
-    
+
             case MouseType.INSOMNIA:
                 return 'mouse.description.insomnia';
-    
+
             case MouseType.PSORIASIS:
                 return 'mouse.description.psoriasis';
             }
-    
+
             switch (this.mouseBloodType()) {
             case MouseBloodType.NORMAL:
                 return 'mouse.description.healthy';
-    
+
             case MouseBloodType.DIABETIC:
                 return 'mouse.description.diabetic';
-    
+
             default:
                 return '';
         }
     }
-    
+
     public computeInsulinProductivity = (mouseBloodType: number):number => {
-        // FIXME: the further away the blood sugar is from the median
+        // TODO: the further away the blood sugar is from the median
         // the higher insulin production should be.
-        
-        // FIXME: should the samples be closer to a "normal distribution"?
-        
+
+        // TODO: should the samples be closer to a "normal distribution"?
+
         // healthy mouse has ~0.25
         var healthySamples = [0.23, 0.24, 0.25, 0.25, 0.25, 0.25, 0.26,
             0.26, 0.27, 0.28];
@@ -247,11 +247,11 @@ class Mouse extends SpecialItemModel {
     giveInfusion(infusionDose: number): void {
         this.infusionDose(infusionDose);
     }
-    
+
     resetInfusion(): void {
         this.infusionDose(null);
     }
-    
+
     resetBloodSugar(){
         this.bloodSugar(this.meanBloodSugar());
     }
@@ -259,9 +259,9 @@ class Mouse extends SpecialItemModel {
     giveInsulin() {
         this.insulinDose(this.insulinDose() + 35);
     }
-    
+
     public getMeanHeartRate = () => {
-        //var randomHR = Math.floor(Math.random() * 
+        //var randomHR = Math.floor(Math.random() *
         //    (this.maxHR - this.minHR) + this.minHR);
         var meanHR = (this.maxHR + this.minHR) / 2;
         if (this.mouseBloodType() === MouseBloodType.DIABETIC) {
@@ -269,7 +269,7 @@ class Mouse extends SpecialItemModel {
         }
         return meanHR;
     }
-    
+
     nextHeartStep() {
         this.heartRateIndex += 1;
         if (this.heartRateIndex >= this.heartRateData.length) {
@@ -324,15 +324,15 @@ class Mouse extends SpecialItemModel {
                 this.stomachSugar(this.stomachSugar() + glucoseMagic * 2);
                 this.glucoseDose(this.glucoseDose() - glucoseMagic);
             }
-    
+
             //5. remove blood sugar by increasing insulin
             this.bloodSugar(this.bloodSugar() - this.insulinProduction() * this.insulinEfficiency());
         }
         this.storeBloodStep();
     }
-    
+
     insulinNextStep() {
-        //3. f BloodSugar != MeanBloodSugar, increase/decrease insulin levels depending on productivity 
+        //3. f BloodSugar != MeanBloodSugar, increase/decrease insulin levels depending on productivity
         var prod: number = (this.bloodSugar() - this.meanBloodSugar()) * this.insulinProductivity();
         this.insulinProduction(prod);
         //4. if the user has given the mouse insulin, increase insulin prodction
@@ -347,7 +347,7 @@ class Mouse extends SpecialItemModel {
         var clone = new Mouse(this.mouseType(), this.mouseBloodType());
         return clone;
     }
-    
+
     dispose() {
     }
 }
