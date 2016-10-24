@@ -90,7 +90,7 @@ class App extends BaseViewController {
         ko.rebind(this);
 
         // Start at step parameters: (app, experimentNum, partNum, taskNum)
-        initiateExperimentAtStep(this, 4, 0, 19);
+        // initiateExperimentAtStep(this, 4, 0, 19);
     }
 
     public registerComponents = () => {

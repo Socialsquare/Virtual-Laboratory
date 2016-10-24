@@ -180,12 +180,9 @@ class Experiment {
 
         var trigger = this.activeTask().trigger();
 
-        if (trigger.type !== TriggerType.ACQUIRE) return;
-
-        var isNotMatchingType = !this.match(trigger.item, item.type());
-        var isNotMatchingLiquids = !this.matchLiquids(trigger, item);
-
-        if (isNotMatchingType || isNotMatchingLiquids) return;
+        if (trigger.type !== TriggerType.ACQUIRE ||
+            !this.match(trigger.item, item.type()) ||
+            !this.matchLiquids(trigger, item)) return;
 
         this.finishActiveTask();
     }
