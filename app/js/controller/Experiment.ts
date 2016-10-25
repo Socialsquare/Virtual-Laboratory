@@ -286,6 +286,15 @@ class Experiment {
                 incubator.tableSpaceMicro.containers());
             var containers = _.compact(unioned);
 
+            // If we've demanded a specific temp and it doesn't match then show
+            // warning to the user (but allow user to continue)
+            if (!this.match(trigger.temperature, incubator.temperature())) {
+                popupController.notify(
+                    'experiment.wrong_temperature.header',
+                    'experiment.wrong_temperature.body'
+                );
+            }
+
             var validIncubator = _.all(trigger.containers, (triggerContainer) => {
                 return _.any(containers, (incubatorContainer) => {
                     return this.match(triggerContainer.type, incubatorContainer.type())

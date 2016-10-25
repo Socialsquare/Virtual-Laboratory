@@ -359,6 +359,8 @@
 
         "experiment.change.header": "Skift øvelse",
         "experiment.change.body": "Er du sikker? Alle fremskridt i den nuværende øvelse går tabt.",
+        "experiment.wrong_temperature.header": "Ups, forkert temperatur",
+        "experiment.wrong_temperature.body": "Indstil den korrekt næste gang. I den virkelige verden skulle du måske være startet forfra.",
         "experiment.task_finished.header": "Godt arbejde",
         "experiment.task_finished.body": "Du klarede en opgave",
         "experiment.completed.header": "Succes!",
@@ -759,6 +761,8 @@
 
         "experiment.change.header": "Change exercise",
         "experiment.change.body": "Are you sure? All your current progress will be lost.",
+        "experiment.wrong_temperature.header": "Ups, wrong temperature",
+        "experiment.wrong_temperature.body": "Please notice the temperature next time. In a real lab you might have had to start over.",
         "experiment.task_finished.header": "Good job!",
         "experiment.task_finished.body": "You finished a task.",
         "experiment.completed.header": "Success!",

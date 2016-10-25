@@ -1350,6 +1350,7 @@
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
                             "activation":"ActivationType.INCUBATOR",
+                            "temperature":37,
                             "liquids":[
                                 {
                                     "type":"LiquidType.HOMO_SPLEEN"
@@ -1393,6 +1394,7 @@
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
                             "activation":"ActivationType.INCUBATOR",
+                            "temperature":37,
                             "containers":[
                                 {
                                     "type":"ContainerType.MICROTITER",
@@ -1460,6 +1462,7 @@
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
                             "activation":"ActivationType.INCUBATOR",
+                            "temperature":21,
                             "containers":[
                                 {
                                     "type":"ContainerType.MICROTITER",

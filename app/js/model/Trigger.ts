@@ -45,6 +45,7 @@ class Trigger {
     public concentration: number;
     public minVal: number;
     public maxVal: number;
+    public temperature: number;
 
     // Mouse trigger
     public alive: boolean;
@@ -63,7 +64,7 @@ class Trigger {
         this.concentration     = values.concentration;
         this.minVal            = values.minVal;
         this.maxVal            = values.maxVal;
-
+        this.temperature       = values.temperature;
         this.alive             = values.alive;
         this.mouseType         = S2T.mouse(values.mouseType);
         this.mouseBloodType    = S2T.mouseBlood(values.mouseBloodType);
