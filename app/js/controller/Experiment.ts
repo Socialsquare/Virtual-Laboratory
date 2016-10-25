@@ -291,7 +291,8 @@ class Experiment {
             if (!this.match(trigger.temperature, incubator.temperature())) {
                 popupController.notify(
                     'experiment.wrong_temperature.header',
-                    'experiment.wrong_temperature.body'
+                    'experiment.wrong_temperature.body',
+                    5000
                 );
             }
 

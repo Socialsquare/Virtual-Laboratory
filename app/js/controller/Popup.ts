@@ -107,7 +107,7 @@ class Popup {
         this.show('popup-data-export', { csvData: data });
     }
 
-    notify(title: string, message: string, closingTime: number = 5000) {
+    notify(title: string, message: string, closingTime: number = 3000) {
         var vm = this.show('popup-notify', { title: title, message: message }, true);
         _.delay(() => this.hide(vm), closingTime);
     }
