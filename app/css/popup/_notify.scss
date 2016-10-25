@@ -1,19 +1,16 @@
 /* popup/notify.scss */
 
 .popup-notify {
-  $width: 300px;
-
-  padding: 30px;
-
-  left: 70px;
-  top: 20px;
-  width: $width;
-  height: 100px;
-
-  color: white;
+  height: auto;
+  left: 20px;
+  margin-top: 15px;
   opacity: 0.85;
+  padding: 20px;
+  position: relative;
+  top: 5px;
+  width: 300px;
 
   h3 {
-    margin: 0px;
+    margin: 0px 0px 8px;
   }
 }
