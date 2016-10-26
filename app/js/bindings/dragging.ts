@@ -25,10 +25,34 @@ type DragOptions = {
     interceptor?: (any) => boolean;
 };
 
-ko.bindingHandlers.mouseDown = {
+ko.bindingHandlers.mouseDrag = {
     update: function (element, valueAccessor) {
-        const fn = valueAccessor()
-        $(element).mousedown(fn)
+        let isMouseDown = false
+        let mouseMove = false
+        const fns = valueAccessor()
+        const fnDrag = fns.drag
+        const fnDown = fns.down
+        const fnClick = fns.click
+
+        $(element)
+            .mousedown((event) => {
+                isMouseDown = true
+                mouseMove = false
+                if (typeof fnDown === 'function') {
+                    fnDown(event)
+                }
+            })
+            .mouseup(() => {
+                isMouseDown = false
+            })
+            .mousemove((event) => {
+                if (!mouseMove && isMouseDown && typeof fnDrag === 'function') {
+                    fnDrag(event)
+                }
+                if (isMouseDown) {
+                    mouseMove = true
+                }
+            })
     }
 }
 

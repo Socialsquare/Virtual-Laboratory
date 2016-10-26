@@ -6,7 +6,7 @@ interface KnockoutBindingHandlers {
     drag: KnockoutBindingHandler;
     drop: KnockoutBindingHandler;
 
-    mouseDown: KnockoutBindingHandler;
+    mouseDrag: KnockoutBindingHandler;
 
     // localization
     i18n: KnockoutBindingHandler;

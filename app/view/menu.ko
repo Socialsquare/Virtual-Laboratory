@@ -52,12 +52,16 @@
 
                 <li class="hand pipette-container" data-bind="
                     drop: { handler: hidePipette, accept: DragHelper.acceptPipette },
-                    mouseDown: startDragPipette
+                    mouseDrag: {
+                        drag: showPipette,
+                        down: pipetteDown
+                    },
+                    click: togglePipette
                 ">
                     <img
                         src="assets/images/icon_big_pipette.png"
                         alt="Pipette"
-                        data-bind="visible: !pipetteIsVisible()"
+                        data-bind="css: { dimmed: pipetteIsVisible() }"
                     >
                 </li>
             </ul>
