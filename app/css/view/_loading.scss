@@ -12,45 +12,47 @@
     text-align: center;
 
     header {
-        margin: 2em 0;
+        margin: 2em 0 1.5em;
+        display: inline-block;
     }
 
     h1 {
         color: #645d4d;
         font-size: 3em;
-        margin: 0;
-        position: relative;
     }
 
     h2 {
         color: #a69d8c;
         font-size: 1.4em;
-        position: absolute;
-        top: 113px;
-        right: 230px;
+        margin-top: .4em;
+        text-align: right;
     }
 
     h3 {
-        margin: 3em 0 0.5em 0;
+        margin: 1em 0 0.5em 0;
         font-size: 1.5em;
     }
 
     .ba-logo {
         position: absolute;
         bottom: 10px;
-        left: 25px;
+        left: 20px;
         height: 60px;
         width: 203px;
     }
 
     .flags {
         position: absolute;
-        right: 0px;
-        bottom: 40px;
+        right: 20px;
+        bottom: 14px;
+        line-height: 0;
+        font-size: 0;
 
         img {
             cursor: pointer;
+            margin-left: 5px;
             @include opacity(0.4);
+
             &.active {
                 @include opacity(1);
             }
@@ -81,9 +83,9 @@
     #experiments {
         overflow-y: scroll;
         overflow-x: hidden;
-        height: 50%;
+        height: 462px;
         width: 33em;
-        margin: 0 auto;
+        margin: 0 auto 20px;
         text-align: left;
 
         ul {
