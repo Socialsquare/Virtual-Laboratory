@@ -1,33 +1,8 @@
 /* popup/dna-info.scss */
 
 .popup-dna-info {
-    $width: 400px;
-
-    padding: 30px;
-
-    left: 290px;
-    top: 50px;
-    width: $width;
-    height: 480px;
-
-    color: white;
-
-    .description { margin-bottom: 20px }
-
-    .sequence {
-        max-height: 210px;
-        word-break: break-all;
-        overflow: auto;
-        margin-bottom: 20px;
-    }
-
-    h1 {
-        line-height: 1.2;
-    }
-
-    .btn-row {
-        width: $width;
-    }
+    left: $popup-narrow-margin;
+    right: $popup-narrow-margin;
 
     .link a {
         color: #8FA5FF;

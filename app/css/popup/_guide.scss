@@ -1,33 +1,22 @@
 /* popup/guide.scss */
 
 .popup-guide {
-    $width: 820px;
-
-    padding: 30px;
-
     font-family: $serif;
-
     color: #3f4c41;
     background: #f0f2f1;
-
-    left: 50px;
-    top: 30px;
-    width: $width;
-    height: 530px;
+    left: $popup-medium-margin;
+    right: $popup-medium-margin;
 
     h1 {
         color: #645d4d;
         font-size: 1.2em;
         margin: 0;
-        position: relative;
     }
 
     h2 {
         color: #a69d8c;
         font-size: 0.6em;
-        position: absolute;
-        top: 45px;
-        left: 225px;
+        margin-bottom: 10px;
     }
 
     .ba-logo {
@@ -62,12 +51,8 @@
         }
     }
 
-    .btn-row {
-        width: $width;
-    }
-
     .inner {
-      height: 310px;
+      height: 450px;
       overflow-y: scroll;
       overflow-x: hidden;
       padding: 0 10px;
@@ -89,7 +74,7 @@
           color: #3f4c41;
           font-size: 1.6em;
           font-weight: bold;
-          margin: 1em 0 0.5em 0;
+          margin: 0.5em 0;
         }
 
         .story {
@@ -114,7 +99,8 @@
       }
 
       table {
-        width: $width - 10;
+        width: 100%;
+
         thead {
           h3 {
             font-size: 1em;

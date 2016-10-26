@@ -24,19 +24,15 @@ button {
 }
 
 .btn-row {
-    position: absolute;
-    bottom: 20px;
     width: 100%;
     text-align: center;
 
     .left {
-        position: absolute;
-        left: 0;
+        float: left;
     }
 
     .right {
-        position: absolute;
-        right: 0;
+        float: right;
     }
 }
 

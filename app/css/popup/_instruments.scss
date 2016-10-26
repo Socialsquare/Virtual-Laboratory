@@ -1,27 +1,12 @@
 /* popup/instruments.scss */
 
 .popup-instruments {
-
-    $width: 934px;
-    $nav-width: 255px;
-
-    padding: 30px;
-
-    color: white;
-
-    left: 13px;
-    top: 10px;
-    width: $width;
-    height: 560px;
-
     .inner {
-
         .nav {
             overflow-y: auto;
             overflow-x: hidden;
             float: left;
-
-            width: $nav-width;
+            width: 30%;
             height: 480px;
 
             ul li {
@@ -47,11 +32,7 @@
 
         .content {
             overflow-y: auto;
-
-            padding-left: 30px;
-
-            width: $width - $nav-width - 30px;
-            height: 390px;
+            width: 70%;
 
             .title {
                 margin-bottom: 15px;

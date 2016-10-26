@@ -1,16 +1,14 @@
 /* popup/details.scss */
 
 .popup-item-details {
-    left: 250px;
-    right: 250px;
-    width: auto;
-    height: auto;
+    left: $popup-narrow-margin;
+    right: $popup-narrow-margin;
 
     textarea {
         box-sizing: border-box;
         font-size: inherit;
         height: 200px;
-        margin-bottom: 60px;
+        margin-top: 8px;
         padding: 5px;
         resize: none;
         width: 100%;

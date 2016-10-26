@@ -1,7 +1,7 @@
 /* variables.scss */
 
 $sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$serif: "Georgia", Times, "Times New Roman" , serif; 
+$serif: "Georgia", Times, "Times New Roman" , serif;
 $img-path: '../assets/images';
 
 $main-view-height: 768px;
@@ -9,3 +9,9 @@ $main-view-width: 1024px;
 $menu-bar-height: 122px;
 $menu-bar-border: 2px;
 $lab-view-height: $main-view-height - $menu-bar-height - $menu-bar-border;
+
+$popup-padding: 30px;
+$popup-margin: 50px;
+$popup-wide-margin: 100px;
+$popup-medium-margin: 150px;
+$popup-narrow-margin: 250px;

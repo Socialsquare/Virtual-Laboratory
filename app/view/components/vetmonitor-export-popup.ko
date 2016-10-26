@@ -1,10 +1,10 @@
-<div class="popup popup-export-data" data-bind="visible: shouldShowExportPopup">
+<div class="popup popup-item-details" data-bind="visible: shouldShowExportPopup">
     <h1 data-bind="i18n: 'popup.data_export'"></h1>
 
     <hr />
 
     <div data-bind="i18n: 'popup.data_export_message'"></div>
-    
+
     <div class="export-log-btns">
         <button data-bind="visible: backButtonToggle, click: onBackButtonClick, i18n: 'common.back'"></button>
         <ul class="export-log-btns-list" data-bind="visible: logButtonsToggle, foreach: logIds">
@@ -17,9 +17,9 @@
             </li>
         </ul>
     </div>
-    
+
     <div>
-        <textarea id="vetMonitorExportCsvData" rows="10" cols="40" 
+        <textarea id="vetMonitorExportCsvData" rows="10" cols="40"
             data-bind="text: csvData, visible: dataToggle"></textarea>
     </div>
 

@@ -1,25 +1,16 @@
 /* popup/tube-extraction.scss */
+$extraction-image-width: 509px;
 
 .popup-tube-extraction {
-    $width: 600px;
-
-    padding: 30px;
-
-    left: 290px;
-    top: 50px;
-    width: $width;
-    height: 480px;
-
-    color: white;
+    left: ($main-view-width - $extraction-image-width) / 2 - $popup-padding;
+    right: ($main-view-width - $extraction-image-width) / 2 - $popup-padding;
 
     .extraction {
-        position:relative;
-            
-        margin-top: 10px;
-        width: 509px;
-        height: 320px;
-
         background-repeat: no-repeat;
+        height: 320px;
+        margin-top: 10px;
+        position:relative;
+        width: $extraction-image-width;
 
         &.from-mouse-blood {
             background-image: url(#{$img-path}/tube_extraction_blood.png);
@@ -52,9 +43,5 @@
                 left: 100px;
             }
         }
-    }
-
-    .btn-row {
-        width: $width;
     }
 }

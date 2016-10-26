@@ -2,32 +2,34 @@
 
 .popup-gel-info {
     height: 584px;
-  
     background-image: url(#{$img-path}/uv_zoom_base.png);
 
     .lanes {
-      width: 100%;
-      height: 100%;
+        width: 100%;
+        height: 100%;
 
-      li img {
-        position: absolute;
-      }
+        li img {
+            position: absolute;
+        }
 
-      #lane0 img {
-        left: 347px;
-        top: 100px;
-      }
-      #lane1 img {
-        left: 418px;
-        top: 99px;
-      }
-      #lane2 img {
-        left: 493px;
-        top: 95px;
-      }
-      #lane3 img {
-        left: 570px;
-        top: 95px;
-      }
+        #lane0 img {
+            left: 347px;
+            top: 100px;
+        }
+        
+        #lane1 img {
+            left: 418px;
+            top: 99px;
+        }
+
+        #lane2 img {
+            left: 493px;
+            top: 95px;
+        }
+
+        #lane3 img {
+            left: 570px;
+            top: 95px;
+        }
     }
 }
