@@ -180,6 +180,7 @@
         "popup.guide.question": "Spørgsmål",
         "popup.home_screen.header": "Vigtigt!",
         "popup.home_screen.body": "Det Virtuelle Laboratorium 2.0 spilles bedst, hvis du tilføjer det til din hjemmeskærm og åbner spillet derfra.",
+        "popup.video.skip": "Skip video",
 
         "popup.clumped_cells_created.header": "Cellerester dannet",
         "popup.clumped_cells_created_screen.body": "Der er dannet cellerester i reagensglasset. Husk at notere indholdet på reagensglassets mærkat!",
@@ -582,6 +583,7 @@
         "popup.guide.question": "Question",
         "popup.home_screen.header": "Important!",
         "popup.home_screen.body": "Det Virtuelle Laboratorium 2.0 spilles bedst, hvis du tilføjer det til din hjemmeskærm og åbner spillet derfra.",
+        "popup.video.skip": "Skip video",
 
         "popup.clumped_cells_created.header": "Cellular debris",
         "popup.clumped_cells_created_screen.body": "The cells have turned into cellular debris. Remember to note it on the test tube!",

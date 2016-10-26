@@ -163,7 +163,7 @@ class Worktable1 extends BaseViewController {
             return 'electroporator' + videoNumber;
         });
 
-        return this.popupController.video(videoList, true);
+        return this.popupController.video(videoList, true, true);
 
     }
 }

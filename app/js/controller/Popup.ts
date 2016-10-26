@@ -136,9 +136,7 @@ class Popup {
         var videoController = new VideoController();
         var vm = this.show('popup-video', { videoController: videoController, showClose: showClose });
         return videoController.play(sequence, false, controlsRequired)
-            .done(() => {
-                this.hide(vm);
-            });
+        .done(() => this.hide(vm));
     }
 
     select<T>(title, message, options: SelectOption<T>[]) {
