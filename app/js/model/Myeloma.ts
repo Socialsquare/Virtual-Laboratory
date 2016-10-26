@@ -24,9 +24,7 @@ class Myeloma extends MicroorganismModel {
 
         this.antibodiesFor = ko.observableArray([]);
         this.isHybridoma = ko.observable(false);
-
         this.hasSetAntibodiesInThese = ko.observableArray([]);
-
         this.living(true);
         this.extraGenes([]);
         this.extraProperties([]);
@@ -95,10 +93,8 @@ class Myeloma extends MicroorganismModel {
         var clone = new Myeloma();
 
         clone.hasReacted(this.hasReacted());
-
         clone.antibodiesFor(this.antibodiesFor());
         clone.hasSetAntibodiesInThese(this.hasSetAntibodiesInThese());
-
         clone.living(this.living());
         clone.name(this.name());
         clone.extraGenes(_.invoke(this.extraGenes(), 'clone'));

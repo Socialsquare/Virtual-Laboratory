@@ -29,8 +29,7 @@ class Microorganism extends LiquidModel {
 
         // TODO! derp duplicates?
         this.microorganismType = ko.observable(microorganismType);
-        this.subtype = ko.observable(microorganismType);
-
+        this.subtype(microorganismType);
         this.living = ko.observable(true);
         this.name = ko.observable('');
         this.extraGenes = ko.observableArray([]);

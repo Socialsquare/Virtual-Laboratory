@@ -8,6 +8,7 @@ import SpecialItemType = require('model/type/SpecialItem');
 import MouseType = require('model/type/Mouse');
 import LiquidType = require('model/type/Liquid');
 import MouseBloodType = require('model/type/MouseBlood');
+import MicroorganismType = require('model/type/Microorganism');
 
 import SimpleContainerModel = require('model/SimpleContainer');
 
@@ -65,7 +66,7 @@ class TextHelper {
     }
 
     static label(container: SimpleContainerModel, displaySubtype = true) {
-        var subtyped = [ LiquidType.MOUSE_BLOOD, LiquidType.ANTIBIOTIC ];
+        var subtyped = [ LiquidType.MOUSE_BLOOD, LiquidType.ANTIBIOTIC, LiquidType.MICROORGANISM ];
 
         var contents = _.map(container.liquids(), (l) => {
             if (displaySubtype && _.contains(subtyped, l.type())) {
@@ -83,7 +84,7 @@ class TextHelper {
         return TextHelper.prettyNameFromType(item.type());
     }
 
-    static prettyNameFromType(type: ContainerType | SpecialItemType | LiquidType | MouseBloodType | AntibioticType) {
+    static prettyNameFromType(type: ContainerType | SpecialItemType | LiquidType | MouseBloodType | AntibioticType | MicroorganismType ) {
         switch (type) {
         case ContainerType.PETRI_DISH:
             return 'item.name.petri_dish';
@@ -106,6 +107,12 @@ class TextHelper {
             return 'item.name.wash_bottle';
         case SpecialItemType.MOUSE:
             return 'item.name.mouse';
+
+        case MicroorganismType.YEAST:
+            return 'item.name.yeast';
+        case MicroorganismType.MYELOMA:
+            console.log('this is myeloma');
+            return 'item.name.myeloma';
 
         case MouseBloodType.NORMAL:
             return 'liquid.name.mouse_blood.normal';
@@ -200,12 +207,10 @@ class TextHelper {
         case LiquidType.BUFFER:
             return 'liquid.name.buffer';
 
-        //XXX: hey, let's add another one to the pile :-D
         case AntibioticType.B:
             return 'item.name.antibiotic_b';
         case AntibioticType.A:
             return 'item.name.antibiotic_a';
-
 
         default:
             throw 'TextHelper.prettyNameFromType: Unknown type: ' + type;
