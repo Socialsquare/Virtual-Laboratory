@@ -51,10 +51,8 @@ class Electroporator extends SimpleContainerModel {
 
             _.each(LiquidHelper.mos(this.liquids()), (organism) => {
                 organism.extraProperties.pushAll(newProperties);
-                console.log('Modified organism.');
             });
         });
-
     }
 
     getQuizVideo() {
@@ -110,7 +108,7 @@ class Electroporator extends SimpleContainerModel {
 
         var MRNAs: DNAList[] = gene.getMRNAs(promoterPositions, terminatorPositions);
 
-        _(MRNAs).each((mRNA) => {
+        _.each(MRNAs, (mRNA) => {
             // TODO: set quiz/video-numbers
             var values = this.examineMRNAandGetNewProperties(mRNA);
 
@@ -360,7 +358,7 @@ class Electroporator extends SimpleContainerModel {
             }
 
             // Extract relevant DNA
-            _(postionPairs).each((pair) => {
+            _.each(postionPairs, (pair) => {
                 var startPos = pair[0];
                 var stopPos = pair[1];
 

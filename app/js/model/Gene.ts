@@ -72,8 +72,9 @@ class Gene extends LiquidModel {
             postionPairs.push([firstPromoter, firstTerminal]);
         }
 
+
         // Extract mRNA
-        _(postionPairs).each((pair) => {
+        _.each(postionPairs, (pair) => {
             var promPos = pair[0];
             var termPos = pair[1];
 
