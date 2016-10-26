@@ -32,6 +32,7 @@ class Menu extends BaseViewController {
     public scrollValue = ko.observable(0);
 
     public canScroll: KnockoutComputed<boolean>;
+    public pipetteIsVisible: KnockoutComputed<boolean>;
 
     constructor() {
         super('menu');
@@ -41,6 +42,10 @@ class Menu extends BaseViewController {
         this.canScroll = ko.pureComputed(() => {
             return this.inventoryItemsWidth() > this.inventoryWidth;
         });
+
+        this.pipetteIsVisible = ko.pureComputed(() =>
+            gameState.pipette.active()
+        )
 
         ko.rebind(this);
     }
@@ -120,6 +125,18 @@ class Menu extends BaseViewController {
 
     togglePipette() {
         gameState.pipette.active(!gameState.pipette.active());
+    }
+
+    showPipette() {
+        gameState.pipette.active(true);
+    }
+
+    pipetteDown(event) {
+        $('#pipette').trigger(event)
+    }
+
+    hidePipette() {
+        gameState.pipette.active(false);
     }
 
     tipDropHandler(pipette) {
