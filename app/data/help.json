@@ -9,7 +9,7 @@
         "title": "instruments.mouse-cage.header",
         "body": "instruments.mouse-cage.body",
         "image": "assets/images/mouse-view-info.jpg",
-        "route": "mouse"
+        "route": "mousecage"
     },
     {
         "title": "instruments.spectropm.header",
