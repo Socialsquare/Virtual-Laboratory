@@ -15,7 +15,7 @@ class FreeFloatingDNA extends LiquidModel {
         super(LiquidType.FREE_FLOATING_DNA, ReactionCount.ALWAYS, true);
 
         this.isCopied = ko.observable(isCopied);
-		this.bloodType = ko.observable(bloodType);
+        this.bloodType = ko.observable(bloodType);
 
         ko.rebind(this);
     }

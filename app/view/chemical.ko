@@ -1,6 +1,6 @@
 <div class="chemicalcloset-view">
-	<div data-bind="click: showList.bind(null, 'closet')" class="closet-link hand"></div>
-	<div data-bind="click: showList.bind(null, 'fridge')" class="fridge-link hand"></div>
-	<!--<div data-bind="click: showList.bind(null, 'freezer')" class="freezer-link hand"></div>-->
-	<div data-bind="click: showList.bind(null, 'drawer')" class="drawer-link hand"></div>
+    <div data-bind="click: showList.bind(null, 'closet')" class="closet-link hand"></div>
+    <div data-bind="click: showList.bind(null, 'fridge')" class="fridge-link hand"></div>
+    <!--<div data-bind="click: showList.bind(null, 'freezer')" class="freezer-link hand"></div>-->
+    <div data-bind="click: showList.bind(null, 'drawer')" class="drawer-link hand"></div>
 </div>

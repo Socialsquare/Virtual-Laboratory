@@ -6,7 +6,7 @@
     <img class="ba-logo" src="assets/images/logo.png" alt="Biotech Academy">
     <img class="dda-logo" data-bind="visible: displayDDALogo()" src="assets/images/dda-logo.png" alt="Danish Diabetes Academy">
 
-	<hr />
+    <hr />
 
     <section class="inner">
 
@@ -58,7 +58,7 @@
 
     </section>
 
-	<div class="btn-row">
+    <div class="btn-row">
         <button data-bind="click: print, i18n: 'common.print'"></button>
         <button data-bind="click: hide.bind(null, $element), i18n: 'common.close'"></button>
     </div>

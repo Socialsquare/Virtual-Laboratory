@@ -21,7 +21,7 @@ require.config({
         signals: '../bower_components/js-signals/dist/signals',
 
         datadir: '../data',
-    	tmpldir: '../view'
+        tmpldir: '../view'
     },
     shim: {
         'html5Loader': ['jquery'],

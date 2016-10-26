@@ -13,7 +13,7 @@ class ClumpedCells extends LiquidModel {
     constructor(bloodType: MouseBloodType) {
         super(LiquidType.CLUMPED_CELLS, ReactionCount.ALWAYS, true);
 
-		this.bloodType = ko.observable(bloodType);
+        this.bloodType = ko.observable(bloodType);
 
         ko.rebind(this);
     }

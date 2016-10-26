@@ -50,7 +50,7 @@ class DesignDrug extends BaseComputer {
 
         $.get(slot.sidegroup().file(), (data) => {
             var svgNode = $('svg', data);
-	        var docNode = document.adoptNode(svgNode[0]);
+            var docNode = document.adoptNode(svgNode[0]);
             dragger.html(<any>docNode);
         });
 

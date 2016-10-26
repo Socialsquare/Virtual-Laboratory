@@ -6,7 +6,7 @@
     <div data-bind="i18n: 'popup.data_export_message'"></div>
     
     <div class="export-log-btns">
-	    <button data-bind="visible: backButtonToggle, click: onBackButtonClick, i18n: 'common.back'"></button>
+        <button data-bind="visible: backButtonToggle, click: onBackButtonClick, i18n: 'common.back'"></button>
         <ul class="export-log-btns-list" data-bind="visible: logButtonsToggle, foreach: logIds">
             <li>
                 <button class="export-log-btn"
@@ -23,9 +23,9 @@
             data-bind="text: csvData, visible: dataToggle"></textarea>
     </div>
 
-	<div class="btn-row float-clear" style="bottom: 10px;">
-	    <button type="button" data-bind="click: hide, i18n: 'common.close'"></button>
-	</div>
+    <div class="btn-row float-clear" style="bottom: 10px;">
+        <button type="button" data-bind="click: hide, i18n: 'common.close'"></button>
+    </div>
 
     <div id="export-log-btn-label-form" data-bind="visible: isBtnLabelFormVisible">
         <input id="btn-label-input" data-bind="value: btnLabelInputVal" />

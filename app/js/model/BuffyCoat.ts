@@ -13,7 +13,7 @@ class BuffyCoat extends LiquidModel {
     constructor(bloodType: MouseBloodType) {
         super(LiquidType.BUFFY_COAT, ReactionCount.NEVER, true);
 
-		this.bloodType = ko.observable(bloodType);
+        this.bloodType = ko.observable(bloodType);
 
         ko.rebind(this);
     }

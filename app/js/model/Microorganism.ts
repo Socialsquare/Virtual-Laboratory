@@ -16,12 +16,12 @@ class Microorganism extends LiquidModel {
     public subtype: KnockoutObservable<MicroorganismType>;
 
     public living: KnockoutObservable<boolean>;
-	public name: KnockoutObservable<string>;
-	public extraGenes: KnockoutObservableArray<any>;
+    public name: KnockoutObservable<string>;
+    public extraGenes: KnockoutObservableArray<any>;
     public extraProperties: KnockoutObservableArray<any>;
-	public optimalPh: KnockoutObservable<number>;
-	public optimalTemp: KnockoutObservable<number>;
-	public concentration: KnockoutObservable<number>;
+    public optimalPh: KnockoutObservable<number>;
+    public optimalTemp: KnockoutObservable<number>;
+    public concentration: KnockoutObservable<number>;
     public producedEnzymes: KnockoutObservableArray<ProducedEnzymeModel>;
 
     constructor(microorganismType) {
@@ -32,12 +32,12 @@ class Microorganism extends LiquidModel {
         this.subtype = ko.observable(microorganismType);
 
         this.living = ko.observable(true);
-		this.name = ko.observable('');
-		this.extraGenes = ko.observableArray([]);
+        this.name = ko.observable('');
+        this.extraGenes = ko.observableArray([]);
         this.extraProperties = ko.observableArray([]);
-		this.optimalPh = ko.observable(0);
-		this.optimalTemp = ko.observable(0);
-		this.concentration = ko.observable(0);
+        this.optimalPh = ko.observable(0);
+        this.optimalTemp = ko.observable(0);
+        this.concentration = ko.observable(0);
         this.producedEnzymes = ko.observableArray([]);
 
         ko.rebind(this);
@@ -140,12 +140,12 @@ class Microorganism extends LiquidModel {
         clone.hasReacted(this.hasReacted());
 
         clone.living(this.living());
-		clone.name(this.name());
-		clone.extraGenes(_.invoke(this.extraGenes(), 'clone'));
+        clone.name(this.name());
+        clone.extraGenes(_.invoke(this.extraGenes(), 'clone'));
         clone.extraProperties(_.invoke(this.extraProperties(), 'clone'));
-		clone.optimalPh(this.optimalPh());
-		clone.optimalTemp(this.optimalTemp());
-		clone.concentration(this.concentration());
+        clone.optimalPh(this.optimalPh());
+        clone.optimalTemp(this.optimalTemp());
+        clone.concentration(this.concentration());
         clone.producedEnzymes(_.invoke(this.producedEnzymes(), 'clone'));
 
         return clone;

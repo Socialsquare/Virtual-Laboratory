@@ -1,9 +1,9 @@
 <div class="popup popup-list">
     <h1 data-bind="i18n: title"></h1>
 
-	<hr />
+    <hr />
 
-	<ul data-bind="foreach: pagedItems">
+    <ul data-bind="foreach: pagedItems">
         <li data-bind="drag: { item: itemGetter, consume: $parent.itemTakenCallback.bind(null, $data) }">
             <div class="hand">
                 <img data-bind="attr: { src: $parent.ImageHelper.draggingIcon(item())}">
@@ -12,7 +12,7 @@
         </li>
     </ul>
 
-	<div class="btn-row">
+    <div class="btn-row">
         <button class="left" data-bind="click: prevPage, i18n: 'common.previous',
                                         visible: hasPrevious"></button>
         <button data-bind="click: hide, i18n: 'common.close'"></button>

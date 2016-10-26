@@ -9,7 +9,7 @@ ko.bindingHandlers.scaffold = {
 
         $.get(path, (data) => {
             var svgNode = $('svg', data);
-	        var docNode = document.adoptNode(svgNode[0]);
+            var docNode = document.adoptNode(svgNode[0]);
             var origin = $(docNode).find('text[fill="rgb(255,0,0)"]')
                 .hide()
                 .filter((idx, node) => $(node).text() === '1')
@@ -31,7 +31,7 @@ ko.bindingHandlers.svg = {
 
         $.get(path, function (data) {
             var svgNode = $('svg', data);
-	        var docNode = document.adoptNode(svgNode[0]);
+            var docNode = document.adoptNode(svgNode[0]);
             $(element).html(<any>docNode);
         });
     }
