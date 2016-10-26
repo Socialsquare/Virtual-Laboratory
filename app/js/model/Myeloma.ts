@@ -77,23 +77,13 @@ class Myeloma extends MicroorganismModel {
                 return _microtiter === microtiter;
             });
 
-            var totalConcentration = microtiter.getTotalConcentration();
-            var wellModificationCounter = 0;
-
-            while (totalConcentration > 0 && wellModificationCounter < 24) {
-                totalConcentration -= 50; //24 * 2;//TODO: magic number corresponding to the concentration needed for having a single cell in a well. iiish
-                wellModificationCounter++;
-            }
-
             var indices = _.range(24);
-            indices = _.sample(indices, wellModificationCounter);
 
             if (!hasAlreadySetAntibodies) {
                 //Set well--> contains
                 _.each(indices, (index) => {
                     microtiter.microtiterWells().wells()[index].hasAntibody(true);
                     microtiter.microtiterWells.valueHasMutated();
-                    console.log('TODO: GREAT SUCCES! the well now contains antibodies!');
                 });
 
                 this.hasSetAntibodiesInThese.push(microtiter);
