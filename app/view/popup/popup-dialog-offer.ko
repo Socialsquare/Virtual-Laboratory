@@ -1,0 +1,14 @@
+<div class="popup popup-dialog">
+    <!-- ko with: data -->
+    <h1 data-bind="i18n: title"></h1>
+
+    <hr />
+
+    <span data-bind="i18n: message"></span>
+
+    <div class="btn-row">
+        <button type="button" data-bind="click: promise.resolve, i18n: 'common.accept'"></button>
+        <button type="button" data-bind="click: promise.reject, i18n: 'common.reject'"></button>
+    </div>
+    <!-- /ko -->
+</div>

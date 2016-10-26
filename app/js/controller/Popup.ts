@@ -118,9 +118,13 @@ class Popup {
         experimentController.triggerActivation(ActivationType.ITEM_DETAILS, item);
     }
 
-    confirm(title: string, message: string) {
+    confirm(title: string, message: string, template?: string) {
+        if (typeof template === 'undefined') {
+            template = 'popup-dialog'
+        }
+
         var promise = $.Deferred();
-        var vm = this.show('popup-dialog', {
+        var vm = this.show(template, {
             title: title,
             message: message,
             promise: promise
@@ -130,6 +134,10 @@ class Popup {
             promise.resolve();
 
         return promise.always(() => this.hide(vm));
+    }
+
+    offer(title: string, message: string) {
+        return this.confirm(title, message, 'popup-dialog-offer')
     }
 
     video(sequence: string | string[], controlsRequired: boolean, showClose = false) {

@@ -401,8 +401,11 @@
         "common.info": "Information",
         "common.help": "Hjælp",
         "common.goto": "Gå til",
-        "common.print": "Print"
+        "common.print": "Print",
+        "common.accept": "Okay",
+        "common.reject": "Nej tak"
     },
+
     "en": {
         "loading.header": "The Virtual Laboratory",
         "loading.subheader": "Version 2.1",
@@ -804,6 +807,8 @@
         "common.info": "Information",
         "common.help": "Help",
         "common.goto": "Go to",
-        "common.print": "Print"
+        "common.print": "Print",
+        "common.accept": "Okay",
+        "common.reject": "No thanks"
     }
 }

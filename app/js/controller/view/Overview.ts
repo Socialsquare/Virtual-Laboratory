@@ -21,7 +21,7 @@ class Overview extends BaseViewController {
         if (gameState.askTutorial()) {
             gameState.askTutorial(false);
 
-            popupController.confirm('popup.ask_tutorial.header', 'popup.ask_tutorial.body')
+            popupController.offer('popup.ask_tutorial.header', 'popup.ask_tutorial.body')
                 .done(() => {
                     tutorialController.startTutorial();
                 });

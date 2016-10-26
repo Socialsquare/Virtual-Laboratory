@@ -112,7 +112,7 @@ class App extends BaseViewController {
     }
 
     viewChange(viewName: string) {
-        if (window['BUILD'] !== 'production') console.log(viewName);
+        if (window['BUILD'] !== 'production') console.log('navigate', viewName);
 
         // exit current controller
         if (this.activeViewController()) {
