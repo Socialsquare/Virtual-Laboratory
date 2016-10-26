@@ -3,9 +3,6 @@
         "loading.header": "Det Virtuelle Laboratorium",
         "loading.subheader": "Version 2.1",
         "loading.thanks": "Tak for din tålmodighed!",
-        "loading.choose_exercise": "Start med at vælge en øvelse",
-        "loading.choose_new_exercise": "Vælg en ny øvelse",
-        "loading.start_exercise": "Start øvelse",
         "loading.back_to_game": "Tilbage til spillet",
 
         "supply.closet_header": "Kemikalieskabet",
@@ -410,9 +407,6 @@
         "loading.header": "The Virtual Laboratory",
         "loading.subheader": "Version 2.1",
         "loading.thanks": "Thank you for your patience!",
-        "loading.choose_exercise": "Start by picking an exercise",
-        "loading.choose_new_exercise": "Pick a new exercise",
-        "loading.start_exercise": "Start exercise",
         "loading.back_to_game": "Back to the game",
 
         "supply.closet_header": "Chemical Storage",

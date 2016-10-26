@@ -17,18 +17,11 @@
 
     <!-- ko if: isLoaded -->
 
-    <!-- ko ifnot: experimentController.hasExperiment() -->
-    <h3 data-bind="i18n: 'loading.choose_exercise'"></h3>
-    <!-- /ko -->
-    <!-- ko if: experimentController.hasExperiment() -->
-    <h3 data-bind="i18n: 'loading.choose_new_exercise'"></h3>
-    <!-- /ko -->
-
     <!-- ko with: experimentSelectorController -->
     <section id="experiments">
         <ul data-bind="foreach: experiments">
             <li class="hand" data-bind="click: $parent.start, enable: $data, attr: { 'id': id }">
-                <div>
+                <div class="experiment-text">
                     <h1 data-bind="i18n: title"></h1>
                     <p data-bind="i18n: description"></p>
                 </div>
