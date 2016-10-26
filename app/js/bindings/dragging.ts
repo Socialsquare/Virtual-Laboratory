@@ -61,7 +61,6 @@ ko.bindingHandlers.drag = {
                 else if (options.hide)
                     $(this).addClass('hidden');
 
-
                 dragData = _.isFunction(options.item) ? options.item() : options.item;
                 dragConsume = options.consume;
                 currentContainer = options.currentContainer;

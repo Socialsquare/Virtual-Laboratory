@@ -8,6 +8,6 @@ describe('Drug service', () => {
         expect(scaffold.name).toBe("1");
         expect(scaffold.slots().length).toBe(3);
         expect(scaffold.id).toBe("1");
-        expect(scaffold.offset.x).toBe(510);
+        expect(scaffold.offset.x).toBe(372);
     });
 });

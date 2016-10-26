@@ -1,5 +1,17 @@
 /* view/computer/design-drug.scss */
 
+@mixin blue-circle () {
+    position: absolute;
+    $width: 40px;
+    margin: (-$width / 2) 0 0 (-$width / 2);
+    width: $width;
+    height: $width;
+
+    @include border-radius(45px);
+    @include opacity(0.1);
+    background-color: blue;
+}
+
 .screen.computer-design-drug {
 
     .sidebar {
@@ -29,17 +41,20 @@
             position: absolute;
 
             .slot {
-                position: absolute;
-
-                $width: 40px;
-                margin: (-$width / 2) 0 0 (-$width / 2);
-                width: $width;
-                height: $width;
-
-                @include border-radius(45px);
-                @include opacity(0.1);
-                background-color: blue;
+                @include blue-circle();
             }
         }
+    }
+
+}
+
+.drug-draggable.ui-draggable-dragging {
+    position: relative;
+
+    &:after {
+        content: '';
+        @include blue-circle();
+        top: 40px;
+        left: 40px;
     }
 }
