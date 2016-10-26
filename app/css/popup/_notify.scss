@@ -1,18 +1,19 @@
 /* popup/notify.scss */
 
 .popup-notify {
-  height: auto;
-  left: auto;
-  margin-left: auto;
-  margin-top: 15px;
-  opacity: 0.85;
-  padding: 20px;
-  position: relative;
-  right: 20px;
-  top: 5px;
-  width: 300px;
+    height: auto;
+    left: auto;
+    margin-left: auto;
+    margin-top: 15px;
+    opacity: 0.85;
+    padding: 20px;
+    position: relative;
+    right: 20px;
+    top: 5px;
+    width: 300px;
+    transform: translateY(0);
 
-  h3 {
-    margin: 0px 0px 8px;
-  }
+    h3 {
+        margin: 0px 0px 8px;
+    }
 }

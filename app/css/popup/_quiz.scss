@@ -1,27 +1,16 @@
 /* popup/quiz.scss */
 
 .popup-quiz {
-    $width: 600px;
-
-    padding: 30px;
-
-    left: 190px;
-    top: 50px;
-    width: $width;
-    height: 480px;
-
-    color: white;
+    left: $popup-medium-margin;
+    right: $popup-medium-margin;
+    padding: 50px 60px $popup-padding;
 
     .answers {
-        font-size: 14px;
-        line-height: 16px;
-
-        margin: 0;
-        padding: 0;
+        margin-top: 20px;
 
         li {
             list-style: initial;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
 
             .answer {
                 cursor: pointer;
@@ -35,9 +24,5 @@
                 }
             }
         }
-    }
-
-    .btn-row {
-        width: $width;
     }
 }

@@ -13,7 +13,7 @@
 
     <!-- /ko -->
 
-    <div class="btn-row float-clear">
+    <div class="btn-row">
         <button data-bind="click: hide, i18n: 'common.close'"></button>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="popup popup-export-data">
+<div class="popup popup-item-details">
     <h1 data-bind="i18n: 'popup.data_export'"></h1>
 
     <hr />

@@ -1,19 +1,10 @@
 /* popup/video.scss */
 
 .popup-video {
-    width: 724px;
-    height: 604px;
-    left: 72px;
-    top: 20px;
-    padding: 20px;
+    left: $popup-medium-margin;
+    right: $popup-medium-margin;
 
     video {
-        width: 724px;
-        height: 544px;
-    }
-
-    .btn-row {
-        width: 724px;
-        bottom: 20px;
+        width: 100%;
     }
 }

@@ -1,25 +1,13 @@
 /* popup/door.scss */
 
 .popup-door {
-    $width: 550px;
-
-    padding: 30px;
-
-    left: 220px;
-    top: 110px;
-    width: $width;
-    height: 350px;
-
-    color: white;
-
-    .btn-row {
-        width: $width;
-    }
+    left: $popup-medium-margin;
+    right: $popup-medium-margin;
 
     ul {
         padding: 0;
         text-align: center;
-        margin-top: 60px;
+        margin-top: 30px;
 
         li {
             margin: 0 40px;
@@ -32,7 +20,7 @@
             img {
                 height: 80px;
                 width: 80px;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
             }
         }
     }

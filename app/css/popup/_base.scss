@@ -8,24 +8,31 @@
 
 .popup {
     @include gradient-bg(#2f2f2f, #0f0f0f);
-
-    position: absolute;
-
-    left: 82px;
-    top: 50px;
-    padding: 30px;
-    width: 800px;
-    height: 480px;
     color: white;
-
+    // background: #f0f2f1;
+    // color: #3f4c41;
     border-radius: 5px;
     box-shadow: 0 0 4px #000000;
+    left: $popup-margin;
+    max-height: $main-view-height - 2 * $popup-margin;
+    padding: 30px;
+    position: absolute;
+    right: $popup-margin;
+    top: 50%;
+    transform: translateY(-50%);
 
     h1 {
+        margin: 0 0 .5em 0;
+    }
+    h3 {
         margin: 0 0 1em 0;
     }
     h4 {
         margin: 1em 0 0 0;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.2;
     }
 
     hr {
@@ -33,6 +40,7 @@
         height: 1px;
         background-color: #000000;
         margin: 1em 0;
+        display: none;
     }
 
     ol {
@@ -44,9 +52,20 @@
         }
     }
 
+    .description {
+        margin-bottom: 20px;
+    }
+
+    .sequence {
+        word-break: break-all;
+        overflow: auto;
+        margin-bottom: 20px;
+        max-height: 208px;
+    }
+
     .btn-row {
-        right: 0;
-        left: 0;
+        margin-top: 20px;
+        margin-bottom: -10px;
     }
 }
 
@@ -57,7 +76,6 @@
 @import 'dialog';
 @import 'notify';
 @import 'video';
-@import 'export-data';
 @import 'guide';
 @import 'dna-info';
 @import 'gel-info';
