@@ -25,6 +25,13 @@ type DragOptions = {
     interceptor?: (any) => boolean;
 };
 
+ko.bindingHandlers.mouseDown = {
+    update: function (element, valueAccessor) {
+        const fn = valueAccessor()
+        $(element).mousedown(fn)
+    }
+}
+
 ko.bindingHandlers.drag = {
     update: function (element, valueAccessor, allBindingsAccessor, viewModel, context) {
 

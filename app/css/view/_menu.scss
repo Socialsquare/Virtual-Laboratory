@@ -110,26 +110,43 @@
             }
         }
 
-        .menu-right-links {
-            float: right;
-            margin-top: 10px;
-            overflow: hidden;
+    }
 
-            ul {
-                padding: 0;
-                margin: 0;
-                list-style: none;
+    .menu-right-links {
+        float: right;
+        margin-top: 10px;
+        overflow: hidden;
 
-                li {
-                    display: inline-block;
-                    margin: 0 5px;
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            line-height: 0;
+        }
 
-                    img {
-                        width: 100px;
-                        height: 100px;
-                    }
-                }
-            }
+        li {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+
+        img {
+            pointer-events: none;
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    .pipette-container {
+        @include gradient-bg(#38363c, #54565a);
+        @include border(solid, 2px, #1c1b1e, 50%);
+        height: 96px;
+        width: 96px;
+
+        img {
+            margin: 6px;
+            height: 84px;
+            width: 84px;
         }
     }
 }

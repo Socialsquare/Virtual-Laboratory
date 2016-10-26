@@ -49,8 +49,16 @@
                 <li data-bind="drop: { handler: tipDropHandler, accept: DragHelper.acceptPipette }">
                     <img src="assets/images/icon_big_tips.png" alt="Pipette spidser">
                 </li>
-                <li class="hand" data-bind="click: togglePipette">
-                    <img src="assets/images/icon_big_pipette.png" alt="Pipette">
+
+                <li class="hand pipette-container" data-bind="
+                    drop: { handler: hidePipette, accept: DragHelper.acceptPipette },
+                    mouseDown: startDragPipette
+                ">
+                    <img
+                        src="assets/images/icon_big_pipette.png"
+                        alt="Pipette"
+                        data-bind="visible: !pipetteIsVisible()"
+                    >
                 </li>
             </ul>
         </div>
