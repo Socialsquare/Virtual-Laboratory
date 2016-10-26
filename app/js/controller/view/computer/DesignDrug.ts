@@ -46,7 +46,7 @@ class DesignDrug extends BaseComputer {
     }
 
     slotDraggingHelper(slot: SidegroupSlotModel) {
-        var dragger = $('<div>');
+        var dragger = $('<div class="drug-draggable">');
 
         $.get(slot.sidegroup().file(), (data) => {
             var svgNode = $('svg', data);

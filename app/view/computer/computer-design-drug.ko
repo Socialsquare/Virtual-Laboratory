@@ -1,7 +1,7 @@
 <div class="sidebar">
     <ul class="sidegroups" data-bind="foreach: sidegroups">
         <li>
-            <div class="hand" data-bind="svg: file, drag: { item: $data, helper: 'clone' }, click: $parent.showSidegroupInfo"></div>
+            <div class="hand drug-draggable" data-bind="svg: file, drag: { item: $data, helper: 'clone' }, click: $parent.showSidegroupInfo"></div>
         </li>
     </ul>
 </div>
@@ -16,7 +16,7 @@
         <!-- ko if: hasSidegroup -->
         <div class="slot" data-bind="style: { left: position.x + 'px', top: position.y + 'px' },
                                      drop: { handler: $parent.handleDrop.bind(null, $data) },
-                                     drag: { item: $data, dim: true, helper: $parent.slotDraggingHelper.bind(null, $data) }">
+                                     drag: { item: $data, dim: true, helper: $parent.slotDraggingHelper.bind(null, $data), offset: { left: 60, top: 60 } }">
         </div>
         <!-- /ko -->
 
