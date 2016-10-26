@@ -1,7 +1,7 @@
 <div class="popup popup-video">
     <div class="video" data-bind="template: { name: 'video', data: data.videoController }"></div>
-    
+
     <div class="btn-row float-clear" data-bind="if: data.showClose">
-        <button data-bind="click: data.videoController.stop, i18n: 'common.close'"></button>
+        <button data-bind="click: data.videoController.stop, i18n: 'popup.video.skip'"></button>
     </div>
 </div>
