@@ -361,12 +361,12 @@ class Experiment {
         var conseq = this.activeTask().consequence();
 
         switch (conseq.type()) {
-        case ConsequenceType.QUIZ:
-            this.quizController.startQuiz((<QuizConsequenceModel>conseq).quiz).then(this.markTaskFinished);
-            break;
-        case ConsequenceType.VIDEO:
-            this.popupController.video((<VideoConsequenceModel>conseq).video, true).then(this.markTaskFinished);
-            break;
+            case ConsequenceType.QUIZ:
+                this.quizController.startQuiz((<QuizConsequenceModel>conseq).quiz).then(this.markTaskFinished);
+                break;
+            case ConsequenceType.VIDEO:
+                this.popupController.video((<VideoConsequenceModel>conseq).video, true).then(this.markTaskFinished);
+                break;
         }
     }
 

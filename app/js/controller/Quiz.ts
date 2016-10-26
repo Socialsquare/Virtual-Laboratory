@@ -32,6 +32,9 @@ class Quiz {
     }
 
     startQuiz(quiz) {
+        if (this.quizPromise && this.quizPromise.state() !== 'pending') {
+            return
+        }
         this.quizPromise = $.Deferred();
 
         this.activeQuiz(quiz);
@@ -49,6 +52,7 @@ class Quiz {
     }
 
     showQuizPopup() {
+        if (this.currentPopupVM) popupController.hide(this.currentPopupVM);
         this.currentPopupVM = popupController.show('popup-quiz', {
             quizController: this
         });
