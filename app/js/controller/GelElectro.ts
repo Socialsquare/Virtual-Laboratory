@@ -39,13 +39,13 @@ class GelElectroController {
             return false;
 
         if (item.type() !== ContainerType.PIPETTE) return false;
-        
+
         var tip = item.getTip();
         var lane;
         if (tip.contains(LiquidType.FREE_FLOATING_DNA)) {
-            lane = this.gelElectroModel.gelSlot().getVacantLane(); 
+            lane = this.gelElectroModel.gelSlot().getVacantLane();
         } else if (tip.contains(LiquidType.BLUE_STAIN)) {
-            lane = this.gelElectroModel.gelSlot().getUnstainedLane(); 
+            lane = this.gelElectroModel.gelSlot().getUnstainedLane();
         }
 
         if (!lane) {
@@ -71,10 +71,17 @@ class GelElectroController {
     }
 
     activate() {
-        if (this.gelElectroModel.status())
+        if (this.gelElectroModel.status()) {
             return;
-        
+        }
+
         this.gelElectroModel.status(true); // turns button on
+
+        if (this.gelElectroModel.gelSlot() === null) {
+            _.delay(this.finishActivate, 300);
+            return;
+        }
+
         this.gelElectroModel.gelSlot().status(true); // lids up tray
 
         if (this.gelElectroModel.hasGel()) {
