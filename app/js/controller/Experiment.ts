@@ -362,6 +362,7 @@ class Experiment {
 
         switch (conseq.type()) {
             case ConsequenceType.QUIZ:
+                console.log(this.activeTask());
                 this.quizController.startQuiz((<QuizConsequenceModel>conseq).quiz).then(this.markTaskFinished);
                 break;
             case ConsequenceType.VIDEO:
