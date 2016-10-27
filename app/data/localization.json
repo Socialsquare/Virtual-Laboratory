@@ -145,8 +145,8 @@
         "spectropm.no_useful.header": "Ingen brugbar data",
         "spectropm.no_useful.body": "Det var ikke muligt at få noget brugbar information ud fra din mikrotiterplade. Dette kan skyldes at du har forurenet din prøve.",
 
-        "worktable1.bunsen_required.header": "Husk at tænd for bunsenbrænderen",
-        "worktable1.bunsen_required.body": "Bunsenbrænderen hjælper med at holde lab. bænken fri for uønskede mikroorganismer og derved undgår man prøve kontaminering. Dette giver det bedste eksperimentelle resultat!",
+        "worktable1.bunsen_required.header": "Husk at tænde for bunsenbrænderen",
+        "worktable1.bunsen_required.body": "Bunsenbrænderen hjælper med at holde laboratoriebænken fri for uønskede mikroorganismer og derved undgår man prøvekontaminering. Dette giver det bedste eksperimentelle resultat!",
 
         "worktable1.electroporator_success.header": "Godt gået",
         "worktable1.electroporator_success.body": "Tillykke! Du har genmodificeret mikroorganismerne i elektroporatoren.",
