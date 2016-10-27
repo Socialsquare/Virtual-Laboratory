@@ -2,20 +2,21 @@ import ko = require('knockout');
 import $ = require('jquery');
 import _ = require('lodash');
 
-import popupController = require('controller/Popup');
-import quizController = require('controller/Quiz');
-import experimentController = require('controller/Experiment');
-
-import gameState = require('model/GameState');
-
-import BaseViewController = require('controller/view/Base');
-
-import ContainerType = require('model/type/Container');
-import SpecialItemType = require('model/type/SpecialItem');
-
+// Utils
 import ImageHelper = require('utils/ImageHelper');
 import TextHelper = require('utils/TextHelper');
 import DragHelper = require('utils/DragHelper');
+
+// Models
+import gameState = require('model/GameState');
+import ContainerType = require('model/type/Container');
+import SpecialItemType = require('model/type/SpecialItem');
+
+// Controllers
+import popupController = require('controller/Popup');
+import quizController = require('controller/Quiz');
+import experimentController = require('controller/Experiment');
+import BaseViewController = require('controller/view/Base');
 
 class Menu extends BaseViewController {
 
