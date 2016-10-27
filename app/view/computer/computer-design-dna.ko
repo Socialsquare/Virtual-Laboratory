@@ -16,7 +16,7 @@
 <div class="content">
     <div class="elements" data-bind="drop: { handler: handleDrop, accept: DragHelper.acceptDNA }">
 
-        <div data-bind="visible: dnaSequence.isEmpty(), i18n: 'computer.screen.dna.drop_here'"></div>
+        <div data-bind="visible: dnaSequence.isEmpty(), i18n: 'computer.dna.drop_here'"></div>
 
         <!-- ko foreach: dnaSequence -->
         <div class="hand dna-element">

@@ -22,7 +22,7 @@ class DesignDrug extends BaseComputer {
     public selectedScaffold: KnockoutObservable<ScaffoldModel>;
 
     constructor() {
-        super('computer-design-drug', 'computer.screen.drug');
+        super('computer-design-drug', 'computer.drug');
 
         this.sidegroups = drugService.sidegroups;
 
@@ -65,12 +65,12 @@ class DesignDrug extends BaseComputer {
     }
 
     getHelp() {
-        popupController.message('computer.screen.drug_design.help.header', 'computer.screen.drug_design.help.body');
+        popupController.message('computer.drug_design.help.header', 'computer.drug_design.help.body');
     }
 
     order() {
         if (_.contains(this.selectedScaffold().configurationString(), 'R')) {
-            popupController.message('computer.screen.drug_design.cant_order.header', 'computer.screen.drug_design.cant_order.body');
+            popupController.message('computer.drug_design.cant_order.header', 'computer.drug_design.cant_order.body');
             return;
         }
 

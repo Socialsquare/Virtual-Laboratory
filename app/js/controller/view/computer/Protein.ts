@@ -19,7 +19,7 @@ class Protein extends BaseComputer {
     public TextHelper: TextHelper;
 
     constructor() {
-        super('computer-order-protein', 'computer.screen.protein');
+        super('computer-order-protein', 'computer.protein');
 
         this.TextHelper = TextHelper;
 

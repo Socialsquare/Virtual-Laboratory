@@ -25,7 +25,7 @@ class Sequencing extends BaseComputer {
     public consumeItem: () => void;
 
     constructor() {
-        super('computer-sequencing', 'computer.screen.sequencing');
+        super('computer-sequencing', 'computer.sequencing');
 
         this.isValid = ko.observable(false);
         this.message = ko.observable('');
@@ -55,13 +55,13 @@ class Sequencing extends BaseComputer {
 
         if (!tube.containsMicroorganism(MicroorganismType.MYELOMA)) {
             this.isValid(false);
-            popupController.message('computer.screen.sequencing.fail_header', 'computer.screen.sequencing.missing_myeloma');
+            popupController.message('computer.sequencing.fail_header', 'computer.sequencing.missing_myeloma');
             return;
         }
 
         if (!tube.well || !tube.well.hasAntibody()) {
             this.isValid(false);
-            popupController.message('computer.screen.sequencing.fail_header', 'computer.screen.sequencing.missing_antibody');
+            popupController.message('computer.sequencing.fail_header', 'computer.sequencing.missing_antibody');
             return;
         }
 
@@ -88,12 +88,12 @@ class Sequencing extends BaseComputer {
 
         if (_.contains(antibodies, LiquidType.ANTIBODY_GOUT)) {
             dna = this.createDNAElement(LiquidType.ANTIBODY_GOUT);
-            popupController.message('computer.screen.sequencing.created_gout.header',
-                                    'computer.screen.sequencing.created_gout.body');
+            popupController.message('computer.sequencing.created_gout.header',
+                                    'computer.sequencing.created_gout.body');
         } else { //if (_.contains(antibodies, LiquidType.ANTIBODY_SMALLPOX)) {
             dna = this.createDNAElement(LiquidType.ANTIBODY_SMALLPOX);
-            popupController.message('computer.screen.sequencing.created_smallpox.header',
-                                    'computer.screen.sequencing.created_smallpox.body');
+            popupController.message('computer.sequencing.created_smallpox.header',
+                                    'computer.sequencing.created_smallpox.body');
         }
 
         var alreadySequenced = _.any(gameState.sequencedDNA(), (sequencedDNA) => {

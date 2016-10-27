@@ -21,7 +21,7 @@ class DesignDNA extends BaseComputer {
     public availableDNA: KnockoutComputed<DNAElementModel[]>;
 
     constructor() {
-        super('computer-design-dna', 'computer.screen.dna');
+        super('computer-design-dna', 'computer.dna');
 
         this.defaultAvailableDNA = ko.observableArray([]);
         this.dnaSequence = ko.observableArray([]);

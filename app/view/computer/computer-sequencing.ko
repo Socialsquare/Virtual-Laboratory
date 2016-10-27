@@ -1,5 +1,5 @@
 <div class="content-full">
     <div class="droparea" data-bind="drop: { handler: handleDrop, accept: DragHelper.acceptTube }">
-        <span data-bind="i18n: 'computer.screen.sequencing.droparea'"></span>
+        <span data-bind="i18n: 'computer.sequencing.droparea'"></span>
     </div>
 </div>

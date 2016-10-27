@@ -4,31 +4,31 @@
             <div class="icon order-mouse">
                 <img src="assets/images/icon_mouse.png" alt="Mouse icon">
             </div>
-            <div class="text" data-bind="i18n: 'computer.screen.mouse'"></div>
+            <div class="text" data-bind="i18n: 'computer.mouse'"></div>
         </li>
         <!--<li class="hand" data-bind="click: screenChanger('PROTEIN')">
             <div class="icon order-cleansedprotein">
                 <img src="assets/images/icon_tube.png" alt="Test tube icon">
             </div>
-            <div class="text" data-bind="i18n: 'computer.screen.protein'"></div>
+            <div class="text" data-bind="i18n: 'computer.protein'"></div>
         </li>-->
         <li class="hand" data-bind="click: screenChanger('SEQUENCING')">
             <div class="icon send-tubesequencing">
                 <img src="assets/images/icon_sequence.png" alt="Test tube icon">
             </div>
-            <div class="text" data-bind="i18n: 'computer.screen.sequencing'"></div>
+            <div class="text" data-bind="i18n: 'computer.sequencing'"></div>
         </li>
         <li class="hand" data-bind="click: screenChanger('DESIGN_DNA')">
             <div class="icon design-dna">
                 <img src="assets/images/icon_dna_helix.png" alt="DNA helix icon">
             </div>
-            <div class="text" data-bind="i18n: 'computer.screen.dna'"></div>
+            <div class="text" data-bind="i18n: 'computer.dna'"></div>
         </li>
         <li class="hand" data-bind="click: screenChanger('DESIGN_DRUG')">
             <div class="icon design-drug">
                 <img src="assets/images/icon_molecule.png" alt="Molecule icon">
             </div>
-            <div class="text" data-bind="i18n: 'computer.screen.drug'"></div>
+            <div class="text" data-bind="i18n: 'computer.drug'"></div>
         </li>
     </ul>
 </div>

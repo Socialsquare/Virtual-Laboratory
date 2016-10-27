@@ -18,7 +18,7 @@ class OrderMouse extends BaseComputer {
     public selectedMouse: KnockoutComputed<MouseModel>;
 
     constructor() {
-        super('computer-order-mouse', 'computer.screen.mouse');
+        super('computer-order-mouse', 'computer.mouse');
 
         this.availableMice = ko.observableArray([
             new MouseModel(MouseType.HEALTHY, MouseBloodType.DIABETIC),
