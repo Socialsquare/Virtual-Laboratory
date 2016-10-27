@@ -551,7 +551,7 @@
         "spectropm.no_useful.header": "No useful data",
         "spectropm.no_useful.body": "It was not possible to get any useful data out of you microtiter plate. This may be caused by contamination.",
 
-        "worktable1.bunsen_required.header": "Remember to lit the bunsen burner",
+        "worktable1.bunsen_required.header": "Remember to light the bunsen burner",
         "worktable1.bunsen_required.body": "The bunsen burner helps with keeping the lab. bench free of unwanted microorganisms, hence one avoids sample contamination. This yields the best experimental result!",
 
         "worktable1.electroporator_success.header": "Well done",
