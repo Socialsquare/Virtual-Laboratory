@@ -32,14 +32,9 @@ class Quiz {
     }
 
     startQuiz(quiz) {
-        if (this.quizPromise && this.quizPromise.state() !== 'pending') {
-            return
-        }
         this.quizPromise = $.Deferred();
-
         this.activeQuiz(quiz);
         this.showQuizPopup();
-
         this.playQuizVideo();
 
         return this.quizPromise;
