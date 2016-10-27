@@ -124,13 +124,9 @@ module.exports = function (grunt) {
                 tasks: [ 'sass' ]
             },
             js: {
-                files: ['app/js/**/*.js'],
+                files: ['app/js/**/*.js', 'app/js/**/*.ts'],
                 tasks: ['clean:js', 'copy:js', 'ts:dist']
             },
-            ts: {
-                files: ['app/js/**/*.ts'],
-                tasks: ['ts:dist']
-            }
         },
 
         // Run multiple tasks simultaniously
@@ -143,8 +139,7 @@ module.exports = function (grunt) {
                     'watch:dist',
                     'watch:data',
                     'watch:sass',
-                    'watch:js',
-                    'watch:ts'
+                    'watch:js'
                 ]
             }
         },
