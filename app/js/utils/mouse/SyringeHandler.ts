@@ -42,7 +42,7 @@ class SyringeHandler {
                         { 'text': 'Glucose', 'value': mouse.meanBloodSugar(), 'unit': 'mmol/l' },
                         { 'text': 'Insulin', 'value': mouse.insulinProductivity(), 'unit': 'ng/ml' }
                     ];
-                    
+
                     var alternativeLabel = '';
                     if (MC.apparatusEnabled('MOUSE_CAGE_BOTTLE', 'FF_BOTTLE')) {
                         alternativeLabel = TextHelper.label(tube, false);
@@ -102,12 +102,12 @@ class SyringeHandler {
             MC.injectionFromState().done(() => {
                 if (syringe.contains(LiquidType.ANTIGEN_GOUT)) {
                     mouse.vaccinate(LiquidType.ANTIGEN_GOUT);
-                    popupController.message('mouse.vaccinated_gout.header', 'mouse.vaccinated_gout.body');
+                    popupController.notify('mouse.vaccinated_gout.header', 'mouse.vaccinated_gout.body');
                 }
 
                 if (syringe.contains(LiquidType.ANTIGEN_SMALLPOX)) {
                     mouse.vaccinate(LiquidType.ANTIGEN_SMALLPOX);
-                    popupController.message('mouse.vaccinated_smallpox.header', 'mouse.vaccinated_smallpox.body');
+                    popupController.notify('mouse.vaccinated_smallpox.header', 'mouse.vaccinated_smallpox.body');
                 }
 
                 experimentController.triggerMouse(mouse, syringe);

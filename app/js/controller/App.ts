@@ -35,7 +35,7 @@ import MouseBloodType = require('model/type/MouseBlood');
 import gameState = require('model/GameState');
 import LiquidType = require('model/type/Liquid');
 
-import { initiateExperimentAtStep } from 'utils/ExperimentStarter'
+import { initiateExperimentAtStep } from 'utils/ExperimentStarter';
 
 class App extends BaseViewController {
 
@@ -90,7 +90,7 @@ class App extends BaseViewController {
         ko.rebind(this);
 
         // Start at step parameters: (app, experimentNum, partNum, taskNum)
-        // initiateExperimentAtStep(this, 4, 0, 19);
+        initiateExperimentAtStep(this, 4, 0, 2);
     }
 
     public registerComponents = () => {

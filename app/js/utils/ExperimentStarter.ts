@@ -1,7 +1,7 @@
 import ContainerFactory = require('factory/Container');
+import SpecialFactory = require('factory/SpecialItem');
 import LiquidFactory = require('factory/Liquid');
 import gameState = require('model/GameState');
-
 import experimentService = require('service/Experiment');
 
 export const initiateExperimentAtStep = (app, experimentNum, partNum, taskNum) => {
@@ -24,17 +24,25 @@ export const initiateExperimentAtStep = (app, experimentNum, partNum, taskNum) =
         }
 
         // const microtiter = ContainerFactory.microAntigenCoated();
-        const microtiter = ContainerFactory.micro();
+        // const microtiter = ContainerFactory.micro();
         // microtiter.add(LiquidFactory.antigenSmallpox());
-        microtiter.add(LiquidFactory.saltWater());
-        microtiter.add(LiquidFactory.hybridomaMedium());
-        microtiter.add(LiquidFactory.microorganism.myeloma());
-        microtiter.add(LiquidFactory.homoSpleen(LiquidFactory.antibodySmallpox()));
+        // microtiter.add(LiquidFactory.saltWater());
+        // microtiter.add(LiquidFactory.hybridomaMedium());
+        // microtiter.add(LiquidFactory.microorganism.myeloma());
+        // microtiter.add(LiquidFactory.homoSpleen(LiquidFactory.antibodySmallpox()));
 
         // gameState.inventory.add(LiquidFactory.fluorescentSecondaryAntibody());
-        gameState.inventory.add(microtiter);
+        // gameState.inventory.add(microtiter);
 
-        app.router.navigate('overview');
+        const mouse = SpecialFactory.healthyMouse();
+        const syringe = ContainerFactory.syringe();
 
+        syringe.add(LiquidFactory.antigenSmallpox());
+        syringe.add(LiquidFactory.adjuvans());
+
+        gameState.inventory.add(syringe);
+        gameState.inventory.add(mouse);
+
+        app.router.navigate('mousecage');
     });
 }
