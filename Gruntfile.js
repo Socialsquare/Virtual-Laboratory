@@ -10,7 +10,6 @@ var tplProcess = require('./app/build-tools/tpl-process'),
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-
         dist_root: 'app/dist',
         env: 'dev',
 
@@ -57,6 +56,12 @@ module.exports = function (grunt) {
                     { cwd: 'app/', expand: true, src: [ 'assets/**' ], dest: '<%= dist_root %>' },
                     { cwd: 'app/', expand: true, src: [ 'css/**/*.css' ], dest: '<%= dist_root %>' },
                     { cwd: 'app/', expand: true, src: [ 'bower_components/**' ], dest: '<%= dist_root %>' }
+                ]
+            },
+
+            data: {
+                files: [
+                    { cwd: 'app/', expand: true, src: [ 'data/*.json' ], dest: '<%= dist_root %>' }
                 ]
             },
 
@@ -107,17 +112,40 @@ module.exports = function (grunt) {
 
         watch: {
             dist: {
-                files: [ 'app/js/localization.json', 'app/view/**/*.ko', 'app/css/**/*.scss', '!<%= dist_root %>/**',
-                         'app/js/**/*.js', 'app/js/**/*.ts'],
+                files: [ 'app/view/**/*.ko', '!<%= dist_root %>/**' ],
                 tasks: [ 'build', 'templateIndex', 'preprocess:dev' ]
+            },
+            data: {
+                files: [ 'app/data/*.json' ],
+                tasks: [ 'copy:data' ]
             },
             sass: {
                 files: ['app/css/**/*.scss'],
                 tasks: [ 'sass' ]
             },
             js: {
-                files: ['app/js/**/*.js', 'app/js/**/*.ts'],
+                files: ['app/js/**/*.js'],
                 tasks: ['clean:js', 'copy:js', 'ts:dist']
+            },
+            ts: {
+                files: ['app/js/**/*.ts'],
+                tasks: ['ts:dist']
+            }
+        },
+
+        // Run multiple tasks simultaniously
+        concurrent: {
+            options: {
+                logConcurrentOutput: true
+            },
+            watch: {
+                tasks: [
+                    'watch:dist',
+                    'watch:data',
+                    'watch:sass',
+                    'watch:js',
+                    'watch:ts'
+                ]
             }
         },
 
@@ -245,19 +273,20 @@ module.exports = function (grunt) {
         grunt.config('env', 'test');
     });
 
+    grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-karma');
-    grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-preprocess');
-    grunt.loadNpmTasks("grunt-ts");
+    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-tslint');
+    grunt.loadNpmTasks("grunt-ts");
 
     grunt.registerTask('build', [ 'clean:dist', 'assets', 'copy:dist', 'ts:dist', 'sass:dist' ]);
 
@@ -265,7 +294,7 @@ module.exports = function (grunt) {
                                        'templateIndex', 'preprocess:production',]);
 
     grunt.registerTask('default', [ 'build', 'templateIndex', 'preprocess:dev', 'connect:dist',
-                                    'watch:dist' ]);
+                                    'concurrent:watch' ]);
 
     grunt.registerTask('serve-production', [ 'production', 'connect:production:keepalive' ]);
 
