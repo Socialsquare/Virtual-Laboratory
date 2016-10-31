@@ -1,6 +1,5 @@
 import ko = require('knockout');
 import homescreen = require('homescreen');
-import $ = require('jquery');
 
 import tutorialController = require('controller/Tutorial');
 import hudController = require('controller/HUD');
