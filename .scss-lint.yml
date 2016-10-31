@@ -1,0 +1,8 @@
+linters:
+  Indentation:
+    character: space # or 'tab'
+    width: 4
+  HexLength:
+    enabled: false
+  IdSelector:
+    enabled: false
