@@ -204,7 +204,6 @@ class Experiment {
             var currentDisplayValue = parseFloat(item);
             if (!((currentDisplayValue >= trigger.minVal) &&
                 (currentDisplayValue <= trigger.maxVal))) {
-                console.log("ActivationType.OD FAILED: " + currentDisplayValue);
                 return;
             }
         }
