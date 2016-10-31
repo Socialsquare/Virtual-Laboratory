@@ -146,8 +146,6 @@ class Experiment {
         if (trigger.type !== TriggerType.MIX) return;
         if (!this.match(trigger.location, container.location())) return;
         if (!this.match(trigger.container, container.type())) return;
-        var st1 = container.subtype();
-        var st2 = trigger.containerSubtype;
         if (!this.match(trigger.containerSubtype, container.subtype())) return;
 
         if (!this.matchLiquids(trigger, container)) return;
