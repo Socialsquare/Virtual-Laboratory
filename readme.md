@@ -2,6 +2,7 @@
 
 ## Development
 
+Use node v 4.0.0
 You need to have npm, bower, typings and grunt installed globally.
 Restart terminal after npm install if you get can't find module q error (maybe also npm install bower -g).
 
