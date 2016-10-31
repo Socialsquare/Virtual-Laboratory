@@ -236,10 +236,6 @@ class Experiment {
             }
         }
 
-        // if (trigger.activation === ActivationType.DNA) {
-        //     if (!this.matchLiquids(trigger, item)) return;
-        // }
-
         if (trigger.activation === ActivationType.ELECTROPORATOR) {
             if (!this.matchLiquids(trigger, item)) return;
         }
@@ -308,35 +304,6 @@ class Experiment {
             if (!validIncubator) return;
         }
 
-        if (trigger.activation === ActivationType.GELELECTRO) {
-
-        }
-
-        if (trigger.activation === ActivationType.BLUE_STAIN) {
-
-        }
-
-        if (trigger.activation === ActivationType.GEL) {
-
-        }
-
-        if (trigger.activation === ActivationType.COMPUTER_ORDER_DRUG) {
-            // currently don't validate anything about the designed drug
-        }
-
-        if (trigger.activation === ActivationType.COMPUTER_ORDER_SEQUENCE) {
-            // currently don't validate anything about the designed drug
-        }
-
-
-        if (trigger.activation === ActivationType.MOUSE_CAGE) {
-            // mouse cage currently isn't validated
-        }
-
-        if (trigger.activation === ActivationType.MOUSE_MONITOR) {
-            // mouse monitor currently isn't validated
-        }
-
         if (trigger.activation === ActivationType.GLUCOSE_BAG) {
             if (!item.mouseCage.hasMouse()) return;
             if (!item.mouseCage.mouse().alive()) return;
@@ -349,6 +316,19 @@ class Experiment {
         if (trigger.activation === ActivationType.ITEM_DETAILS) {
             if (!this.matchLiquids(trigger, item)) return;
         }
+
+        // NON-VALIDATED TRIGGERS
+        // if (trigger.activation === ActivationType.DNA) {
+        //     if (!this.matchLiquids(trigger, item)) return;
+        // }
+        // if (trigger.activation === ActivationType.GELELECTRO) {}
+        // if (trigger.activation === ActivationType.BLUE_STAIN) {}
+        // if (trigger.activation === ActivationType.GEL) {}
+        // if (trigger.activation === ActivationType.COMPUTER_ORDER_DRUG) {}
+        // if (trigger.activation === ActivationType.COMPUTER_ORDER_SEQUENCE) {}
+        // if (trigger.activation === ActivationType.MOUSE_CAGE) {}
+        // if (trigger.activation === ActivationType.MOUSE_MONITOR) {}
+
 
         this.finishActiveTask();
     }
