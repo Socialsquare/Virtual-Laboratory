@@ -7,6 +7,7 @@ interface KnockoutBindingHandlers {
     drop: KnockoutBindingHandler;
 
     mouseDrag: KnockoutBindingHandler;
+    tooltip: KnockoutBindingHandler;
 
     // localization
     i18n: KnockoutBindingHandler;

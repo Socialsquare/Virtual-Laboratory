@@ -23,3 +23,16 @@
         position: absolute;
     }
 }
+
+#tooltip {
+    @include gradient-bg(#2f2f2f, #0f0f0f);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    box-shadow: 0 0 4px #000000;
+    border-radius: 5px;
+    color: #fff;
+    white-space: pre-line;
+    z-index: 9999999;
+}
