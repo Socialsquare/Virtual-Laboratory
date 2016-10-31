@@ -45,18 +45,6 @@ class DesignDrug extends BaseComputer {
         slot.sidegroup(group);
     }
 
-    slotDraggingHelper(slot: SidegroupSlotModel) {
-        var dragger = $('<div class="drug-draggable">');
-
-        $.get(slot.sidegroup().file(), (data) => {
-            var svgNode = $('svg', data);
-            var docNode = document.adoptNode(svgNode[0]);
-            dragger.html(<any>docNode);
-        });
-
-        return dragger;
-    }
-
     getInfo() {
         drugService.getDrugInfo(this.selectedScaffold().configurationString())
             .then((info) => {

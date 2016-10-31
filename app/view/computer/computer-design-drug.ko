@@ -14,9 +14,7 @@
     <div class="slots" data-bind="style: { left: (selectedScaffold().offset.x - 167) + 'px', top: (selectedScaffold().offset.y - 110) + 'px' },
                                   foreach: selectedScaffold().slots">
         <!-- ko if: hasSidegroup -->
-        <div class="slot" data-bind="style: { left: position.x + 'px', top: position.y + 'px' },
-                                     drop: { handler: $parent.handleDrop.bind(null, $data) },
-                                     drag: { item: $data, dim: true, helper: $parent.slotDraggingHelper.bind(null, $data), offset: { left: 60, top: 60 } }">
+        <div class="slot" data-bind="style: { left: position.x + 'px', top: position.y + 'px' }">
         </div>
         <!-- /ko -->
 
