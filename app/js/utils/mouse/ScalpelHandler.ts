@@ -26,7 +26,7 @@ class ScalpelHandler {
         mouse.isInteracting(true);
         MC.videoController.play('fast-dead-cut', false)
             .done(() => {
-                MC.popupController.message('mouse.spleen_extracted.header', 'mouse.spleen_extracted.body');
+                MC.popupController.notify('mouse.spleen_extracted.header', 'mouse.spleen_extracted.body');
 
                 mouse.isCut(true);
                 mouse.isInteracting(false);
