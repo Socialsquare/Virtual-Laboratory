@@ -26,6 +26,7 @@
     </div>
 
     <div class="btn-bar">
+        <button class="order-btn" data-bind="i18n: 'common.reset', click: reset"></button>
         <button class="order-btn" data-bind="i18n: 'common.help', click: getHelp"></button>
         <button class="order-btn" data-bind="i18n: 'common.info', click: getInfo"></button>
         <button class="order-btn" data-bind="i18n: 'computer.order', click: order"></button>

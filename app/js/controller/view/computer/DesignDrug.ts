@@ -1,5 +1,4 @@
 import ko = require('knockout');
-import $ = require('jquery');
 
 import BaseComputer = require('controller/view/computer/Base');
 import popupController = require('controller/Popup');
@@ -54,6 +53,10 @@ class DesignDrug extends BaseComputer {
 
     getHelp() {
         popupController.message('computer.drug_design.help.header', 'computer.drug_design.help.body');
+    }
+
+    reset() {
+        console.log('Yo Dorph, I want to reset');
     }
 
     order() {
