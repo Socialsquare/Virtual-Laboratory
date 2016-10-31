@@ -2047,7 +2047,7 @@
                     },
                     {
                         "description":{
-                            "dk":"Når dit lægemiddel har en høj affinitet, er det muligvis på tide at teste det på dyr. Prøv at teste det på en psoriasis-syg mus med forskellige administrationsformer. Hvis det ikke virker selvom det har høj affinitet, så prøv at eksperimentér med dets opløselighed (logD-værdien som kan ses i \"Lægemiddel designeren\" på computeren).",
+                            "dk":"Når dit lægemiddel har en høj affinitet, er det på tide at teste det på en psoriasis-syg mus ved at trække reagensglasset hen over musen og derefter vælge administrationsform. Hvis det ikke virker selvom det har høj affinitet, så prøv at eksperimentér med dets opløselighed (logD-værdien som kan ses i \"Lægemiddel designeren\" på computeren).",
                             "en":"When your drug has a high affinity towards the target it may be time to test it on animals. Try testing it on a mouse with psoriasis through different forms of administration. If it doesn't work despite high affinity, try experimenting with it's solubility (the logD value seen in the \"Drug designer\" on the computer)."
                         },
                         "trigger":{
