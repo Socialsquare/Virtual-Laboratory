@@ -1351,19 +1351,24 @@
                             "type":"TriggerType.ACTIVATION",
                             "activation":"ActivationType.INCUBATOR",
                             "temperature":37,
-                            "liquids":[
+                            "containers":[
                                 {
-                                    "type":"LiquidType.HOMO_SPLEEN"
-                                },
-                                {
-                                    "type":"LiquidType.HYBRIDOMA_MEDIUM"
-                                },
-                                {
-                                    "type":"LiquidType.MICROORGANISM",
-                                    "subtype":"MicroorganismType.MYELOMA"
-                                },
-                                {
-                                    "type":"LiquidType.SALT_WATER"
+                                    "type":"ContainerType.MICROTITER",
+                                    "liquids":[
+                                        {
+                                            "type":"LiquidType.HOMO_SPLEEN"
+                                        },
+                                        {
+                                            "type":"LiquidType.HYBRIDOMA_MEDIUM"
+                                        },
+                                        {
+                                            "type":"LiquidType.MICROORGANISM",
+                                            "subtype":"MicroorganismType.MYELOMA"
+                                        },
+                                        {
+                                            "type":"LiquidType.SALT_WATER"
+                                        }
+                                    ]
                                 }
                             ]
                         }
