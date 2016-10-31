@@ -35,14 +35,6 @@ body {
 
     margin: auto;
     overflow: auto;
-
-    @supports (display: flex) {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        height: 100vh;
-        min-height: $main-view-height;
-    }
 }
 
 #app {
