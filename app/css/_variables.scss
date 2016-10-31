@@ -1,7 +1,7 @@
-/* variables.scss */
+// variables.scss
 
-$sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$serif: "Georgia", Times, "Times New Roman" , serif;
+$sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$serif: 'Georgia', Times, 'Times New Roman' , serif;
 $img-path: '../assets/images';
 
 $main-view-height: 768px;
@@ -15,3 +15,6 @@ $popup-margin: 50px;
 $popup-wide-margin: 100px;
 $popup-medium-margin: 150px;
 $popup-narrow-margin: 250px;
+
+// Colors
+$black: #000;

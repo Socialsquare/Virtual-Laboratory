@@ -1,5 +1,4 @@
-/* main.scss */
-
+// main.scss
 @import 'reset';
 @import 'variables';
 @import 'mixin/color';
@@ -24,16 +23,14 @@ html {
 }
 
 body {
+    background-color: $black;
     font-family: $sans-serif;
     font-size: 100%;
     line-height: 1.5em;
-    background-color: #000000;
-
-    // Unedited StackOverflow-magic: http://stackoverflow.com/questions/18490334/responsive-image-full-screen-and-centered-maintain-aspect-ratio-not-exceed-wi
-    max-width: 100%;
-    max-height: 100%;
-
     margin: auto;
+    // Unedited StackOverflow-magic: http://stackoverflow.com/questions/18490334/responsive-image-full-screen-and-centered-maintain-aspect-ratio-not-exceed-wi
+    max-height: 100%;
+    max-width: 100%;
     overflow: auto;
 }
 

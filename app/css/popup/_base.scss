@@ -12,7 +12,7 @@
     // background: #f0f2f1;
     // color: #3f4c41;
     border-radius: 5px;
-    box-shadow: 0 0 4px #000000;
+    box-shadow: 0 0 4px $black;
     left: $popup-margin;
     max-height: $main-view-height - 2 * $popup-margin;
     padding: 30px;
@@ -38,7 +38,7 @@
     hr {
         @include border(solid, 0 0 1px 0, #414141);
         height: 1px;
-        background-color: #000000;
+        background-color: $black;
         margin: 1em 0;
         display: none;
     }

@@ -7,7 +7,7 @@
     @include gradient-bg(#2f2f2f, #0f0f0f);
     //@include border(solid, 0, black, 4px);
     border-radius: 5px;
-    box-shadow: 0 0 4px #000000;
+    box-shadow: 0 0 4px $black;
 
     width: 300px;
     height: 200px;
@@ -16,7 +16,7 @@
     hr {
         @include border(solid, 0 0 1px 0, #414141);
         height: 1px;
-        background-color: #000000;
+        background-color: $black;
     }
 
     h3 {
