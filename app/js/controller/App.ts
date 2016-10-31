@@ -26,14 +26,6 @@ import FermentorScreenController = require('controller/view/FermentorScreen');
 import UvRoomController = require('controller/view/UvRoom');
 import WashingController = require('controller/view/Washing');
 
-//TODO: remove, just for dummy-data
-import ContainerFactory = require('factory/Container');
-import LiquidFactory = require('factory/Liquid');
-import SpecialItemFactory = require('factory/SpecialItem');
-import MouseBloodType = require('model/type/MouseBlood');
-import gameState = require('model/GameState');
-import LiquidType = require('model/type/Liquid');
-
 import { initiateExperimentAtStep } from 'utils/ExperimentStarter';
 
 class App extends BaseViewController {
