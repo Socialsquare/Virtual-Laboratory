@@ -50,6 +50,13 @@ class App extends BaseViewController {
     constructor(isWeb) {
         super('app');
 
+        // Prevent move images default
+        document.onmousedown = function(e) {
+            if(e.target.tagName === 'IMG') {
+                e.preventDefault()
+            }
+        }
+
         this.activeViewController = ko.observable(null);
 
         this.menuController = new MenuController();
