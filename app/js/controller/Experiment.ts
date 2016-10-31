@@ -80,7 +80,7 @@ class Experiment {
             if (ret === undefined) {
                 return null;
             } else {
-                return ret
+                return ret;
             }
         });
 
@@ -116,6 +116,7 @@ class Experiment {
 
             if (!containerValid) return false;
         }
+
         return _.all(trigger.liquids, (liquid) => {
             if (!container.contains(liquid.type)) return false;
             if (!liquid.subtype) return true;
@@ -295,7 +296,7 @@ class Experiment {
                 return _.any(containers, (incubatorContainer) => {
                     return this.match(triggerContainer.type, incubatorContainer.type())
                         && this.match(triggerContainer.containerSubtype, incubatorContainer.subtype())
-                        && this.matchLiquids(trigger, incubatorContainer);
+                        && this.matchLiquids(triggerContainer, incubatorContainer);
                 });
             });
 
