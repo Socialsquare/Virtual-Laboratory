@@ -17,6 +17,7 @@ class Scaffold extends LiquidModel {
     public drugInfo: any;
     // used for simple cloning
     public initialValues: any;
+    public hasReacted: any;
 
     public slots: KnockoutObservableArray<SidegroupSlotModel>;
     public configurationString: KnockoutComputed<string>;
