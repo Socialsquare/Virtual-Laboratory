@@ -4,7 +4,6 @@ import _ = require('lodash');
 import popupController = require('controller/Popup');
 import quizController = require('controller/Quiz');
 import hudController = require('controller/HUD');
-import gameState = require('model/GameState');
 import HeaterModel = require('model/Heater');
 import IceBathModel = require('model/IceBath');
 import TubeModel = require('model/Tube');
@@ -81,7 +80,7 @@ class Experiment {
             if (ret === undefined) {
                 return null;
             } else {
-                return ret
+                return ret;
             }
         });
 
@@ -117,6 +116,7 @@ class Experiment {
 
             if (!containerValid) return false;
         }
+
         return _.all(trigger.liquids, (liquid) => {
             if (!container.contains(liquid.type)) return false;
             if (!liquid.subtype) return true;
@@ -147,8 +147,6 @@ class Experiment {
         if (trigger.type !== TriggerType.MIX) return;
         if (!this.match(trigger.location, container.location())) return;
         if (!this.match(trigger.container, container.type())) return;
-        var st1 = container.subtype();
-        var st2 = trigger.containerSubtype;
         if (!this.match(trigger.containerSubtype, container.subtype())) return;
 
         if (!this.matchLiquids(trigger, container)) return;
@@ -205,7 +203,6 @@ class Experiment {
             var currentDisplayValue = parseFloat(item);
             if (!((currentDisplayValue >= trigger.minVal) &&
                 (currentDisplayValue <= trigger.maxVal))) {
-                console.log("ActivationType.OD FAILED: " + currentDisplayValue);
                 return;
             }
         }
@@ -237,10 +234,6 @@ class Experiment {
                 }
             }
         }
-
-        // if (trigger.activation === ActivationType.DNA) {
-        //     if (!this.matchLiquids(trigger, item)) return;
-        // }
 
         if (trigger.activation === ActivationType.ELECTROPORATOR) {
             if (!this.matchLiquids(trigger, item)) return;
@@ -282,8 +275,11 @@ class Experiment {
 
         if (trigger.activation === ActivationType.INCUBATOR) {
             var incubator = <IncubatorModel>item;
-            var unioned = _.union(incubator.tableSpacePetri.containers(), incubator.tubeRack.containers(),
-                incubator.tableSpaceMicro.containers());
+            var unioned = _.union(
+                incubator.tableSpacePetri.containers(),
+                incubator.tubeRack.containers(),
+                incubator.tableSpaceMicro.containers()
+            );
             var containers = _.compact(unioned);
 
             // If we've demanded a specific temp and it doesn't match then show
@@ -300,40 +296,11 @@ class Experiment {
                 return _.any(containers, (incubatorContainer) => {
                     return this.match(triggerContainer.type, incubatorContainer.type())
                         && this.match(triggerContainer.containerSubtype, incubatorContainer.subtype())
-                        && this.matchLiquids(trigger, incubatorContainer);
+                        && this.matchLiquids(triggerContainer, incubatorContainer);
                 });
             });
 
             if (!validIncubator) return;
-        }
-
-        if (trigger.activation === ActivationType.GELELECTRO) {
-
-        }
-
-        if (trigger.activation === ActivationType.BLUE_STAIN) {
-
-        }
-
-        if (trigger.activation === ActivationType.GEL) {
-
-        }
-
-        if (trigger.activation === ActivationType.COMPUTER_ORDER_DRUG) {
-            // currently don't validate anything about the designed drug
-        }
-
-        if (trigger.activation === ActivationType.COMPUTER_ORDER_SEQUENCE) {
-            // currently don't validate anything about the designed drug
-        }
-
-
-        if (trigger.activation === ActivationType.MOUSE_CAGE) {
-            // mouse cage currently isn't validated
-        }
-
-        if (trigger.activation === ActivationType.MOUSE_MONITOR) {
-            // mouse monitor currently isn't validated
         }
 
         if (trigger.activation === ActivationType.GLUCOSE_BAG) {
@@ -348,6 +315,19 @@ class Experiment {
         if (trigger.activation === ActivationType.ITEM_DETAILS) {
             if (!this.matchLiquids(trigger, item)) return;
         }
+
+        // NON-VALIDATED TRIGGERS
+        // if (trigger.activation === ActivationType.DNA) {
+        //     if (!this.matchLiquids(trigger, item)) return;
+        // }
+        // if (trigger.activation === ActivationType.GELELECTRO) {}
+        // if (trigger.activation === ActivationType.BLUE_STAIN) {}
+        // if (trigger.activation === ActivationType.GEL) {}
+        // if (trigger.activation === ActivationType.COMPUTER_ORDER_DRUG) {}
+        // if (trigger.activation === ActivationType.COMPUTER_ORDER_SEQUENCE) {}
+        // if (trigger.activation === ActivationType.MOUSE_CAGE) {}
+        // if (trigger.activation === ActivationType.MOUSE_MONITOR) {}
+
 
         this.finishActiveTask();
     }

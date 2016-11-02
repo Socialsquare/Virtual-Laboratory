@@ -120,7 +120,7 @@ class Popup {
 
     confirm(title: string, message: string, template?: string) {
         if (typeof template === 'undefined') {
-            template = 'popup-dialog'
+            template = 'popup-dialog';
         }
 
         var promise = $.Deferred();
@@ -137,7 +137,7 @@ class Popup {
     }
 
     offer(title: string, message: string) {
-        return this.confirm(title, message, 'popup-dialog-offer')
+        return this.confirm(title, message, 'popup-dialog-offer');
     }
 
     video(sequence: string | string[], controlsRequired: boolean, showClose = false) {

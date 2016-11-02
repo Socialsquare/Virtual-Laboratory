@@ -17,8 +17,6 @@ import ImageHelper = require('utils/ImageHelper');
 import DragHelper = require('utils/DragHelper');
 
 import LiquidType = require('model/type/Liquid');
-import ApparatusType = require('model/type/Apparatus');
-import ApparatusLocationType = require('model/type/ApparatusLocation');
 import PipetteModel = require('model/Pipette');
 import SimpleContainerModel = require('model/SimpleContainer');
 
@@ -44,11 +42,10 @@ class Base {
         this.templateName = templateName;
 
         this.hasMenu = ko.observable(true);
-        
         this.isPipetteVisible = ko.observable(false);
         this.pipette = gameState.pipette;
         this._isPipetteVisibleSubscription = gameState.pipette.active.subscribe(
-                (newVal: boolean)=>{
+                (newVal: boolean) => {
             this.isPipetteVisible(newVal);
         });
         // TODO: I have no idea where to call _isPipetteVisibleSubscription.dispose()
@@ -82,4 +79,4 @@ class Base {
     }
 }
 
-export = Base
+export = Base;

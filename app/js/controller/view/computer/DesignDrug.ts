@@ -1,5 +1,4 @@
 import ko = require('knockout');
-import $ = require('jquery');
 
 import BaseComputer = require('controller/view/computer/Base');
 import popupController = require('controller/Popup');
@@ -45,18 +44,6 @@ class DesignDrug extends BaseComputer {
         slot.sidegroup(group);
     }
 
-    slotDraggingHelper(slot: SidegroupSlotModel) {
-        var dragger = $('<div class="drug-draggable">');
-
-        $.get(slot.sidegroup().file(), (data) => {
-            var svgNode = $('svg', data);
-            var docNode = document.adoptNode(svgNode[0]);
-            dragger.html(<any>docNode);
-        });
-
-        return dragger;
-    }
-
     getInfo() {
         drugService.getDrugInfo(this.selectedScaffold().configurationString())
             .then((info) => {
@@ -66,6 +53,10 @@ class DesignDrug extends BaseComputer {
 
     getHelp() {
         popupController.message('computer.drug_design.help.header', 'computer.drug_design.help.body');
+    }
+
+    reset() {
+        console.log('Yo Dorph, I want to reset');
     }
 
     order() {

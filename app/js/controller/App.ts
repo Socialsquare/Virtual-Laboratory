@@ -1,6 +1,5 @@
 import ko = require('knockout');
 import homescreen = require('homescreen');
-import $ = require('jquery');
 
 import tutorialController = require('controller/Tutorial');
 import hudController = require('controller/HUD');
@@ -26,14 +25,6 @@ import FermentorController = require('controller/view/Fermentor');
 import FermentorScreenController = require('controller/view/FermentorScreen');
 import UvRoomController = require('controller/view/UvRoom');
 import WashingController = require('controller/view/Washing');
-
-//TODO: remove, just for dummy-data
-import ContainerFactory = require('factory/Container');
-import LiquidFactory = require('factory/Liquid');
-import SpecialItemFactory = require('factory/SpecialItem');
-import MouseBloodType = require('model/type/MouseBlood');
-import gameState = require('model/GameState');
-import LiquidType = require('model/type/Liquid');
 
 import { initiateExperimentAtStep } from 'utils/ExperimentStarter';
 
