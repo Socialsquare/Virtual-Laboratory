@@ -1,0 +1,40 @@
+$vet-export-height: 320px;
+
+.popup-vet-monitor {
+    left: $popup-narrow-margin;
+    right: $popup-narrow-margin;
+
+    ul {
+        max-height: $vet-export-height;
+        overflow-y: auto;
+    }
+
+    li {
+        align-items: center;
+        display: flex;
+        font-size: 0;
+        margin-bottom: 20px;
+
+        span,
+        button {
+            font-size: 1.2rem;
+        }
+
+        span {
+            flex-grow: 1;
+        }
+
+        button {
+            flex-shrink: 0;
+            margin-left: 5px;
+        }
+    }
+
+    textarea {
+        font-family: monospace;
+        font-size: inherit;
+        height: $vet-export-height;
+        resize: none;
+        width: 100%;
+    }
+}
