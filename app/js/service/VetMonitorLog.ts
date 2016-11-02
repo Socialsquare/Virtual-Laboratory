@@ -19,6 +19,16 @@ class VetMonitorLogService extends IndexedDbService {
     }
 
     public saveChunks(chunks: any[]) {
+        const logId = this.getCurrentLogId()
+
+        // If the current logid doesn't have a label we set it to the current time
+        const label = this.getLabelForLogId(logId)
+        if (!label) {
+            const now = new Date()
+            const newLabel = now.toLocaleTimeString('da').replace(/\./g, ':')
+            this.setLabelForLogId(logId, newLabel)
+        }
+
         this.getObjectStore().done((store: any)=>{
             _.each(chunks, (item) => {
                 item.created = new Date();
@@ -75,7 +85,7 @@ class VetMonitorLogService extends IndexedDbService {
         sessionStorage.setItem('vetMonitorLogId', String(0));
         sessionStorage.setItem('vetMonitorLogLabels', JSON.stringify({}));
     }
-    
+
     public getLabelForLogId(logId: number) {
         var logLabelsStr: string = sessionStorage.getItem('vetMonitorLogLabels');
         var logLabels: any = JSON.parse(logLabelsStr);
@@ -84,7 +94,7 @@ class VetMonitorLogService extends IndexedDbService {
         }
         return null;
     }
-    
+
     public setLabelForLogId(logId: number, logLabel: string) {
         var logLabelsStr: string = sessionStorage.getItem('vetMonitorLogLabels');
         var logLabels: any = JSON.parse(logLabelsStr);
