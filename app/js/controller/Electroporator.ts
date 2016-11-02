@@ -37,7 +37,7 @@ class Electroporator extends SimpleContainerController<ElectroporatorModel> {
                     .then(() => {
                         this.simpleContainer.clearContents();
                         item.emptyPipetteInto(this.simpleContainer);
-                        popupController.notify('pipette.filled.header', 'pipette.filled.body', 2000);
+                        popupController.notify('pipette.emptied.header', 'pipette.emptied.body', 2000);
                     });
             }
         }

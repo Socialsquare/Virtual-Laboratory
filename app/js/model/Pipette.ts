@@ -13,8 +13,9 @@ import MicrotiterplateModel = require('model/Microtiterplate');
 import TipModel = require('model/Tip');
 import FreeFloatingDNAModel = require('model/FreeFloatingDNA');
 
-class Pipette extends CompositeContainerModel {
+const PUSH_SPEED = 300;
 
+class Pipette extends CompositeContainerModel {
     public active: KnockoutObservable<boolean>;
     public pressTopButton: KnockoutObservable<boolean>;
     public pressSideButton: KnockoutObservable<boolean>;
@@ -36,7 +37,7 @@ class Pipette extends CompositeContainerModel {
     hasEmptyTip() {
         if (!this.hasTip())
             return false;
-        
+
         return !this.getTip().liquids()[0];
     }
 
@@ -46,7 +47,7 @@ class Pipette extends CompositeContainerModel {
 
         return !this.hasEmptyTip();
     }
-    
+
     hasBloodFilledTip() {
         if (!this.hasTip() || this.hasEmptyTip())
             return false;
@@ -63,10 +64,10 @@ class Pipette extends CompositeContainerModel {
 
     removeTip() {
         this.pressSideButton(true);
-        _.delay(() => { 
+        _.delay(() => {
             this.pressSideButton(false);
             this.remove(0);
-        }, 500);
+        }, PUSH_SPEED);
     }
 
     newTip() {
@@ -82,7 +83,7 @@ class Pipette extends CompositeContainerModel {
         container.addAll(clonedLiqs);
         this.getTip().clearContents();
         this.pressTopButton(true);
-        _.delay(() => this.pressTopButton(false), 500);
+        _.delay(() => this.pressTopButton(false), PUSH_SPEED);
 
         // Special case for transfering 24 microtiter-wells at once:
         if ((container.type() === ContainerType.MICROTITER) && !!this.getTip().microtiterWells()) {
@@ -109,9 +110,9 @@ class Pipette extends CompositeContainerModel {
             // && contaminator !== container
             var contaminatorTypes = _.map(contaminator.liquids(), (l) => l.type());
             var isSameLiquids = container.containsAllStrict(contaminatorTypes);
-    
+
             if (isSameLiquids && contaminator.contains(LiquidType.FREE_FLOATING_DNA)) {
-                // tip contaminated by free floating dna, make sure blood type is the same 
+                // tip contaminated by free floating dna, make sure blood type is the same
                 var ffd = <FreeFloatingDNAModel>contaminator.findByType(LiquidType.FREE_FLOATING_DNA);
                 var ffdContainer = <FreeFloatingDNAModel>container.findByType(LiquidType.FREE_FLOATING_DNA);
                 isSameLiquids = ffd.bloodType() === ffdContainer.bloodType();
@@ -156,7 +157,7 @@ class Pipette extends CompositeContainerModel {
 
         // Push top button down to fill up pipette
         this.pressTopButton(true);
-        _.delay(() => this.pressTopButton(false), 500);
+        _.delay(() => this.pressTopButton(false), PUSH_SPEED);
 
         return true;
     }
