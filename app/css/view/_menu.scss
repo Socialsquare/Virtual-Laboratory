@@ -1,139 +1,51 @@
 /* view/menu.scss */
 
 .hud {
-    .logo {
-        position: absolute;
-        left: 0;
-        bottom: -4px;
+    line-height: 0;
+
+    &__icon {
+        height: $material-icon;
+        width: $material-icon;
+
+        &-sm {
+            height: $material-icon / 1.5;
+            width: $material-icon / 1.5;
+        }
     }
 
     .back-button {
+        background-color: $grey-brown-hud;
+        border: 4px solid #555159;
+        border-bottom-right-radius: $radius * 2;
+        border-left-width: 0;
+        border-top-width: 0;
         position: absolute;
-        top: 15px;
-        left: 15px;
-        width: 45px;
+        top: 0;
     }
 
-    ul.right {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        margin: 0;
-
-        padding: 0;
+    .right {
+        background-color: $grey-brown-hud;
+        border: 4px solid #555159;
+        border-bottom-left-radius: $radius * 2;
+        border-right-width: 0;
+        border-top-width: 0;
         list-style: none;
-
-        li {
-            margin: 0 5px;
-            display: inline-block;
-        }
-    }
-
-    .menu-bar {
-        @include gradient-bg(#6e6e73, #433f46);
-        border-color: #555159;
-        border-top-style: solid;
-        border-top-width: $menu-bar-border * 2; // x2 because mouseview bg bug
-        bottom: 0;
-        height: $menu-bar-height;
+        margin: 0;
+        padding: $spacer / 2;
         position: absolute;
-        width: $main-view-width;
-
-        .guide {
-            float: left;
-            margin-left: 10px;
-        }
-
-        .inventory-container {
-            float: left;
-            height: 100px;
-            position: relative;
-            margin-left: 15px;
-
-            .arrow-left, .arrow-right {
-                position: absolute;
-                cursor: pointer;
-
-                width: 48px;
-                height: 80px;
-                top: 19px;
-            }
-
-            .arrow-left {
-                left: -5px;
-            }
-
-            .arrow-right {
-                left: 510px;
-            }
-
-            .inventory {
-                @include gradient-bg(#38363c, #54565a);
-                @include border(solid, 2px, #1c1b1e, 45px);
-
-                position: absolute;
-                left: 20px;
-                margin: 13px 0 0 30px;
-                width: 448px;
-                height: 90px;
-                overflow: hidden;
-
-                ul {
-                    display: block;
-                    position: relative;
-                    top: 5px;
-                    left: 0;
-                    padding: 0;
-                    margin-left: 3px;
-
-                    height: 90px;
-                    list-style-type: none;
-                    white-space: nowrap;
-
-                    li {
-                        display: inline-block;
-                        width: 80px;
-                        height: 80px;
-                        margin-left: 4px;
-
-                        div {
-                            position: relative;
-                            height: 80px;
-
-                            img {
-                                position: absolute;
-                                bottom: 0;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-    }
-
-    .menu-right-links {
-        float: right;
-        margin-top: 10px;
-        overflow: hidden;
-
-        ul {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            line-height: 0;
-        }
+        right: 0;
+        top: 0;
 
         li {
             display: inline-block;
-            vertical-align: middle;
-            margin: 0 5px;
+
+            &:not(:last-child) {
+                margin-right: $spacer / 2;
+            }
         }
 
-        img {
-            pointer-events: none;
-            width: 100px;
-            height: 100px;
+        .logo {
+            width: 106px;
         }
     }
 
@@ -148,5 +60,115 @@
             height: 84px;
             width: 84px;
         }
+    }
+}
+
+
+.menu-bar {
+    @include gradient-bg(#6e6e73, #433f46);
+    border-color: #555159;
+    border-top-style: solid;
+    border-top-width: $menu-bar-border * 2; // x2 because mouseview bg bug
+    bottom: 0;
+    height: $menu-bar-height;
+    position: absolute;
+    width: $main-view-width;
+
+    .guide {
+        float: left;
+        margin-left: $spacer;
+        margin-top: $spacer;
+    }
+
+    .inventory-container {
+        float: left;
+        height: 100px;
+        position: relative;
+        margin-left: 15px;
+
+        .arrow-left, .arrow-right {
+            position: absolute;
+            cursor: pointer;
+
+            width: 48px;
+            height: 80px;
+            top: 19px;
+        }
+
+        .arrow-left {
+            left: -5px;
+        }
+
+        .arrow-right {
+            left: 510px;
+        }
+
+        .inventory {
+            @include gradient-bg(#38363c, #54565a);
+            @include border(solid, 2px, #1c1b1e, 45px);
+
+            position: absolute;
+            left: 20px;
+            margin: 13px 0 0 30px;
+            width: 448px;
+            height: 90px;
+            overflow: hidden;
+
+            ul {
+                display: block;
+                position: relative;
+                top: 5px;
+                left: 0;
+                padding: 0;
+                margin-left: 3px;
+
+                height: 90px;
+                list-style-type: none;
+                white-space: nowrap;
+
+                li {
+                    display: inline-block;
+                    width: 80px;
+                    height: 80px;
+                    margin-left: 4px;
+
+                    div {
+                        position: relative;
+                        height: 80px;
+
+                        img {
+                            position: absolute;
+                            bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.menu-right-links {
+    float: right;
+    margin-top: 10px;
+    overflow: hidden;
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        line-height: 0;
+    }
+
+    li {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 5px;
+    }
+
+    img {
+        pointer-events: none;
+        width: 100px;
+        height: 100px;
     }
 }

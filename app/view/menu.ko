@@ -1,18 +1,23 @@
 <div class="hud">
 
     <div class="back-button hand" data-bind="click: router.back, visible: router.hasBack">
-        <img src="assets/images/top-button_back.png" alt="Tilbage">
+        <img class="hud__icon" src="assets/icons/back.svg" alt="Tilbage">
     </div>
 
     <ul class="right">
-        <li class="hand" data-bind="click: showInformation">
-            <img src="assets/images/top-button_information.png" alt="Information">
+        <li>
+            <a href="http://www.biotechacademy.dk">
+                <img class="logo" src="assets/images/logo-white.png" alt="Biotech Academy logo">
+            </a>
         </li>
         <li class="hand" data-bind="click: selectExperiment">
-            <img src="assets/images/top-button_experiment.png" alt="Vælg nyt eksperiment">
+            <img class="hud__icon-sm" src="assets/icons/list.svg" alt="Vælg nyt eksperiment">
+        </li>
+        <li class="hand" data-bind="click: showInformation">
+            <img class="hud__icon-sm" src="assets/icons/info.svg" alt="Information">
         </li>
         <li class="hand" data-bind="click: fullscreen">
-            <img src="assets/images/top-button_fullscreen.png" alt="Full screen">
+            <img class="hud__icon-sm" src="assets/icons/fullscreen.svg" alt="Full Screen">
         </li>
     </ul>
 
@@ -66,9 +71,5 @@
                 </li>
             </ul>
         </div>
-    </div>
-
-    <div class="logo">
-        <img src="assets/images/logo-white.png" alt="Biotech Academy logo" width="100px" height="30px">
     </div>
 </div>
