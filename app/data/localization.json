@@ -379,6 +379,7 @@
         "syringe.filled.body": "Du har suget indhold op med kanylen.",
         "syringe.filled.header": "Information",
 
+        "vetmonitor.data": "Data",
         "vetmonitor.exportData": "Exportér data",
         "vetmonitor.labelGlucoseInfusionRate": "Glukosekoncentration i blod",
         "vetmonitor.labelGlucoseInfusionRate": "Glukosetilførsel",
@@ -790,6 +791,7 @@
         "syringe.filled.body": "You have aspirated liquid with the syringe.",
         "syringe.filled.header": "Information",
 
+        "vetmonitor.data": "Data",
         "vetmonitor.exportData": "Export data",
         "vetmonitor.labelGlucoseInfusionRate": "Glucose concentration in blood",
         "vetmonitor.labelGlucoseInfusionRate": "Glucose Infusion Rate",
