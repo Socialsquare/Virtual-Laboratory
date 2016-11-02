@@ -3,12 +3,12 @@
 .popup-guide {
     font-family: $serif;
     color: #3f4c41;
-    background: #f0f2f1;
+    background: $off-white;
     left: $popup-medium-margin;
     right: $popup-medium-margin;
 
     h1 {
-        color: #645d4d;
+        color: $grey-brown;
         font-size: 1.2em;
         margin: 0;
     }

@@ -236,13 +236,8 @@
         "liquid.name.red_blood_cells": "Red blood cells",
         "liquid.name.target_receptor": "Target receptor",
 
-        "loading.back_to_game": "Tilbage til spillet",
-        "loading.choose_exercise": "Start med at vælge en øvelse",
-        "loading.choose_new_exercise": "Vælg en ny øvelse",
         "loading.header": "Det Virtuelle Laboratorium",
-        "loading.start_exercise": "Start øvelse",
         "loading.subheader": "Version 2.1",
-        "loading.thanks": "Tak for din tålmodighed!",
 
         "microtiter.acquired_tube.label": "Indholdet fra en mikrotiterbrønd",
         "microtiter.extract_well.body": "Vil du tage indholdet af denne brønd og overføre det til et nyt reagensglas?",
@@ -652,13 +647,8 @@
         "liquid.name.red_blood_cells": "Red blood cells",
         "liquid.name.target_receptor": "Target receptor",
 
-        "loading.back_to_game": "Back to the game",
-        "loading.choose_exercise": "Start by picking an exercise",
-        "loading.choose_new_exercise": "Pick a new exercise",
         "loading.header": "The Virtual Laboratory",
-        "loading.start_exercise": "Start exercise",
         "loading.subheader": "Version 2.1",
-        "loading.thanks": "Thank you for your patience!",
 
         "microtiter.acquired_tube.label": "The contents from a microtiter well",
         "microtiter.extract_well.body": "Do you want to take the contents of this well and transfer it to a new test tube?",
