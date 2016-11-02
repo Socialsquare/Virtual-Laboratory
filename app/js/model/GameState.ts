@@ -42,6 +42,7 @@ class GameState {
     public washing: WashingModel;
 
     public askTutorial: KnockoutObservable<boolean>;
+    public askBeforeNavigating: boolean;
 
     constructor() {
         this.activeComputerScreen = ko.observable(ComputerScreenType.MENU);
@@ -52,6 +53,7 @@ class GameState {
         this.pipette = new PipetteModel();
 
         this.askTutorial = ko.observable(window['BUILD'] === 'production');
+        this.askBeforeNavigating = window['BUILD'] === 'production';
 
         this.worktable1 = new Worktable1Model();
         this.worktable2 = new Worktable2Model();

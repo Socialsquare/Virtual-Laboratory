@@ -1,6 +1,7 @@
 import ko = require('knockout');
 
 import BaseViewController = require('controller/view/Base');
+import i18n = require('service/Localization');
 
 import tutorialController = require('controller/Tutorial');
 import popupController = require('controller/Popup');
@@ -25,6 +26,12 @@ class Overview extends BaseViewController {
                 .done(() => {
                     tutorialController.startTutorial();
                 });
+        }
+
+        if (gameState.askBeforeNavigating && !window.onbeforeunload) {
+            window.onbeforeunload = () => {
+                return i18n.text('common.navigateAway')
+            }
         }
     }
 }

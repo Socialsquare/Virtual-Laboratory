@@ -36,6 +36,7 @@
         "common.result": "Resultat",
         "common.sequence": "Sekvens",
         "common.skip": "Spring over",
+        "common.navigateAway": "Du vil miste din fremgang, ved at navigere væk.",
 
         "computer.dna.drop_here": "Træk DNA-elementer hertil",
         "computer.dna": "Design DNA",
@@ -451,6 +452,7 @@
         "common.result": "Result",
         "common.sequence": "Sequence",
         "common.skip": "Skip",
+        "common.navigateAway": "You will loose your progress by navigating away.",
 
         "computer.dna.drop_here": "Drag and drop the DNA elements here",
         "computer.dna": "Design DNA",
