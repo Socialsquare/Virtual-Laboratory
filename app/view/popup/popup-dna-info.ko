@@ -3,8 +3,6 @@
 
     <h1 data-bind="i18n: name()"></h1>
 
-    <hr />
-
     <div class="description" data-bind="i18n: description()"></div>
 
     <h4 data-bind="i18n: 'common.sequence'"></h4>

@@ -1,8 +1,6 @@
 <div class="popup popup-item-details">
     <h1 data-bind="i18n: 'popup.data_export'"></h1>
 
-    <hr />
-
     <div data-bind="i18n: 'popup.data_export_message'"></div>
     <textarea rows="10" cols="40" data-bind="text: data.csvData"></textarea>
 

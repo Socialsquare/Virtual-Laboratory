@@ -6,8 +6,6 @@
     <img class="ba-logo" src="assets/images/logo.png" alt="Biotech Academy">
     <img class="dda-logo" data-bind="visible: displayDDALogo()" src="assets/images/dda-logo.png" alt="Danish Diabetes Academy">
 
-    <hr />
-
     <section class="inner">
 
         <header data-bind="attr: { 'id': experiment.id }">

@@ -1,8 +1,8 @@
-<div class="popup popup-item-details" data-bind="visible: shouldShowExportPopup">
+<div class="popup popup-vet-monitor" data-bind="visible: shouldShowExportPopup">
     <h1 data-bind="i18n: 'vetmonitor.data'"></h1>
 
     <div data-bind="visible: logButtonsToggle">
-        <ul class="export-log-btns-list" data-bind="foreach: logIds">
+        <ul data-bind="foreach: logIds">
             <li>
                 <span data-bind="text: $parent.getLogBtnLabel($data)"></span>
                 <button data-bind="click: $parent.showDataByLogId, i18n: 'vetmonitor.dataInspect'"></button>
@@ -17,13 +17,13 @@
 
     <div data-bind="visible: dataToggle">
         <textarea id="vetMonitorExportCsvData" data-bind="text: csvData"></textarea>
+        <button data-bind="click: onBackButtonClick, i18n: 'common.back'"></button>
     </div>
 
     <div data-bind="visible: isBtnLabelFormVisible">
-        <p data-bind="i18n: 'common.rename'"></p>
         <input id="btn-label-input" data-bind="value: btnLabelInputVal" />
-        <button type="button" data-bind="click: setBtnLabel, i18n: 'common.ok'"></button>
+        <button type="button" data-bind="click: setBtnLabel, i18n: 'common.save'"></button>
+        <button data-bind="click: onBackButtonClick, i18n: 'common.cancel'"></button>
     </div>
 
-    <button data-bind="visible: backButtonToggle, click: onBackButtonClick, i18n: 'common.back'"></button>
 </div>

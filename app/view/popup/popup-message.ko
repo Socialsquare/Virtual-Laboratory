@@ -1,7 +1,6 @@
 <div class="popup popup-dialog">
     <!-- ko with: data -->
     <h1 data-bind="i18n: title"></h1>
-    <hr />
 
     <span class="message" data-bind="i18n: message"></span>
     <!-- /ko -->

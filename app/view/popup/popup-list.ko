@@ -1,8 +1,6 @@
 <div class="popup popup-list">
     <h1 data-bind="i18n: title"></h1>
 
-    <hr />
-
     <ul data-bind="foreach: pagedItems">
         <li data-bind="drag: { item: itemGetter, consume: $parent.itemTakenCallback.bind(null, $data) }">
             <div class="hand">

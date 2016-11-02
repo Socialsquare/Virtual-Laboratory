@@ -19,7 +19,6 @@ class VetMonitorExportPopup {
     public isBtnLabelFormVisible: KnockoutObservable<boolean>;
     public shouldShowExportPopup: KnockoutObservable<boolean>;
     public dataToggle: KnockoutObservable<boolean>;
-    public backButtonToggle: KnockoutObservable<boolean>;
     public monitorExportPopupToggle: KnockoutObservable<boolean>;
     public csvData: KnockoutObservable<string>;
     private _toggleSubscription = null;
@@ -34,7 +33,6 @@ class VetMonitorExportPopup {
         this.shouldShowExportPopup = params.shouldShowExportPopup;
         this.logButtonsToggle = ko.observable(true);
         this.dataToggle = ko.observable(false);
-        this.backButtonToggle = ko.observable(false);
         this.maxLogId = vetMonitorLog.getCurrentLogId();
         this.logIds = ko.observableArray(_.range(1, this.maxLogId + 1));
         this.csvData = ko.observable('');
@@ -94,11 +92,9 @@ class VetMonitorExportPopup {
         console.log('VetMonitorExportPopup.showDataByLogId(' + logId + ')');
         this.logButtonsToggle(false);
         this.dataToggle(true);
-        this.backButtonToggle(true);
 
         this.generateCsv(logId).then((csv) => {
             this.csvData(csv);
-            this.backButtonToggle(true);
             this.dataToggle(true);
             $('#vetMonitorExportCsvData').scrollTop(0);
         });
@@ -124,7 +120,7 @@ class VetMonitorExportPopup {
         this.isBtnLabelFormVisible(true);
         this.logButtonsToggle(false);
         this.dataToggle(false);
-        this.backButtonToggle(false);
+        this.btnLabelInputVal(this.getLogBtnLabel(logId));
     }
 
     getLogBtnLabel(logId: number) {
@@ -138,12 +134,10 @@ class VetMonitorExportPopup {
     setBtnLabel() {
         var valStr: string = _.escape(this.btnLabelInputVal().substring(0, 20).trim());
         vetMonitorLog.setLabelForLogId(this.currLabelLogId(), valStr);
-        this.btnLabelInputVal('');
         this.isBtnLabelFormVisible(false);
         this.currLabelLogId(null);
         this.updateLogIds();
         this.dataToggle(false);
-        this.backButtonToggle(false);
         this.logButtonsToggle(true);
         this.logIds.valueHasMutated();
     }
@@ -162,7 +156,6 @@ class VetMonitorExportPopup {
         this.logButtonsToggle(true);
         this.isBtnLabelFormVisible(false);
         this.dataToggle(false);
-        this.backButtonToggle(false);
     }
 }
 export = VetMonitorExportPopup;

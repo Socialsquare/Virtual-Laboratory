@@ -2,8 +2,6 @@
     <!-- ko with: data -->
     <h1 data-bind="i18n: title"></h1>
 
-    <hr />
-
     <span data-bind="i18n: message"></span>
 
     <div class="btn-row">

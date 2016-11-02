@@ -1,8 +1,6 @@
 <div class="popup popup-door">
     <h1>Gå til</h1>
 
-    <hr />
-
     <ul>
         <li class="hand" data-bind="click: goto.bind(null, 'computer')">
             <div>

@@ -3,8 +3,6 @@
 
     <h3 data-bind="i18n: 'common.info'"></h3>
 
-    <hr />
-
     <ul data-bind="foreachKV: info">
         <li>
             <strong data-bind="text: key"></strong>: <span data-bind="text: value"></span>
