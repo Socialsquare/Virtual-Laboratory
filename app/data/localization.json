@@ -308,6 +308,17 @@
         "mouse.warning_glucose_min.body": "Du risikerer at slå musen ihjel, hvis du giver den for meget insulin og/eller ikke giver den noget glucose.",
         "mouse.warning_glucose_min.header": "Pas på!",
 
+        "overview.chemicalcloset": "Gå til kemi skabet",
+        "overview.door": "Gå til døren",
+        "overview.fermentorchroma": "Gå til fermentor and chromatograph",
+        "overview.fumehood": "Gå til stinkskabet",
+        "overview.incubator": "Gå til inkubatoren",
+        "overview.mousecage": "Gå til museburet",
+        "overview.spectrophotometer": "Gå til spektrofotometer",
+        "overview.worktable1": "Gå til arbejdsbord 1",
+        "overview.worktable2": "Gå til arbejdsbord 2",
+        "overview.worktable3": "Gå til arbejdsbord 3",
+
         "pcr.acquired-other.body": "Vi har udført eksperimentet på den anden mus så du ikke behøver gøre det. Reagensglasset med resultatet er lagt i din beholdning.",
         "pcr.acquired-other.header": "Vi har hjulpet dig lidt",
         "pcr.ask-video.body": "Vil du se en video, som beskriver hvordan PCR maskinen virker?",
@@ -367,6 +378,11 @@
         "syringe.emptied.header": "Information",
         "syringe.filled.body": "Du har suget indhold op med kanylen.",
         "syringe.filled.header": "Information",
+
+        "vetmonitor.exportData": "Exportér data",
+        "vetmonitor.toggleBloodSugar": "Vis / Skjul blodsukker",
+        "vetmonitor.toggleGlucoseInfusionRate": "Vis / Skjul glukose infusions hastighed",
+        "vetmonitor.toggleHeartRate": "Vis / Skjul hjerterytme",
 
         "wash_bottle.diluted.body": "Du har fortyndet opløsningen.",
         "wash_bottle.diluted.header": "Information",
@@ -701,6 +717,17 @@
         "mouse.warning_glucose_min.body": "You risk killing the mouse by giving it too much insulin and not enough glucose.",
         "mouse.warning_glucose_min.header": "Watch out!",
 
+        "overview.chemicalcloset": "Go to chemical closet",
+        "overview.door": "Go to door",
+        "overview.fermentorchroma": "Go to fermentor and chromatograph",
+        "overview.fumehood": "Go to fumehood",
+        "overview.incubator": "Go to incubator",
+        "overview.mousecage": "Go to mouse cage",
+        "overview.spectrophotometer": "Go to spectrophotometer",
+        "overview.worktable1": "Go to worktable 1",
+        "overview.worktable2": "Go to worktable 2",
+        "overview.worktable3": "Go to worktable 3",
+
         "pcr.acquired-other.body": "We have conducted a similar experiment on the other type of mouse so you don't have to do it over. The test tube has been added to your inventory.",
         "pcr.acquired-other.header": "We've helped you a bit",
         "pcr.ask-video.body": "Would you like to see a video that shows how a PCR machine works?",
@@ -760,6 +787,11 @@
         "syringe.emptied.header": "Information",
         "syringe.filled.body": "You have aspirated liquid with the syringe.",
         "syringe.filled.header": "Information",
+
+        "vetmonitor.exportData": "Export data",
+        "vetmonitor.toggleBloodSugar": "Toggle bloodsugar",
+        "vetmonitor.toggleGlucoseInfusionRate": "Toggle glucose infusion rate",
+        "vetmonitor.toggleHeartRate": "Toggle heart rate",
 
         "wash_bottle.diluted.body": "You have diluted the mixture.",
         "wash_bottle.diluted.header": "Information",

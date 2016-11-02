@@ -4,17 +4,29 @@
 
 <div class="mousegraph" data-bind="plotVetMonitor: plotData"></div>
 
-<div class="hand power-toggle-light" data-bind="visible: isPowerOn"></div>
-<div class="hand export-btn" data-bind="click: exportData"></div>
+<div class="power-toggle-light" data-bind="visible: isPowerOn"></div>
+<div class="hand export-btn" data-bind="
+    click: exportData,
+    tooltip: { textI18n: 'vetmonitor.exportData' }
+"></div>
 
 <div class="hand hr-toggle-light" data-bind="visible: isHrGraphEnabled"></div>
-<div class="hand hr-toggle-btn" data-bind="click: isHrGraphEnabledToggle"></div>
+<div class="hand hr-toggle-btn" data-bind="
+    click: isHrGraphEnabledToggle,
+    tooltip: { textI18n: 'vetmonitor.toggleHeartRate' }
+"></div>
 
 <div class="hand bloodsugar-toggle-light" data-bind="visible: isBloodSugarGraphEnabled"></div>
-<div class="hand bloodsugar-toggle-btn" data-bind="click: isBloodSugarGraphEnabledToggle">
+<div class="hand bloodsugar-toggle-btn" data-bind="
+    click: isBloodSugarGraphEnabledToggle,
+    tooltip: { textI18n: 'vetmonitor.toggleBloodSugar' }
+">
 </div>
 
 <div class="hand glucose-infusion-rate-toggle-light" data-bind="visible: isGirGraphEnabled"></div>
-<div class="hand glucose-infusion-rate-toggle-btn" data-bind="click: isGirGraphEnabledToggle">
+<div class="hand glucose-infusion-rate-toggle-btn" data-bind="
+    click: isGirGraphEnabledToggle,
+    tooltip: { textI18n: 'vetmonitor.toggleGlucoseInfusionRate' }
+">
 </div>
 <vetmonitor-export-popup-component params='shouldShowExportPopup: shouldShowExportPopup'/></vetmonitor-export-popup-component>

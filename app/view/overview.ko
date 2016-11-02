@@ -1,32 +1,32 @@
 <div class="overview-view">
-    <div class="hand" data-bind="click: handleDoorClick">
-        <img src="assets/images/overview_base-door.png" class="door" alt="Go to door">
-    </div>
-    <div class="hand" data-bind="route: 'chemical'">
-        <img src="assets/images/overview_base-chemicalcloset.png" class="chemicalcloset" alt="Go to chemical closet">
-    </div>
-    <div class="hand" data-bind="route: 'fumehood'">
-        <img src="assets/images/overview_base-fumehood.png" class="fumehood" alt="Go to fumehood">
-    </div>
-    <div class="hand" data-bind="route: 'worktable2'">
-        <img src="assets/images/overview_base-worktable2.png" class="worktable2" alt="Go to work table 2">
-    </div>
-    <div class="hand" data-bind="route: 'mousecage'">
-        <img src="assets/images/overview_base-mouse.png" class="mouse" alt="Go to mouse">
-    </div>
-    <div class="hand" data-bind="route: 'worktable1'">
-        <img src="assets/images/overview_base-worktable1.png" class="worktable1" alt="Go to work table 1">
-    </div>
-    <div class="hand" data-bind="route: 'fermentor'">
-        <img src="assets/images/overview_base-fermentorchroma.png" class="fermentorchroma" alt="Go to fermentor and chromatograph">
-    </div>
-    <div class="hand" data-bind="route: 'incubator'">
-        <img src="assets/images/overview_base-incubator.png" class="incubator" alt="Go to incubator">
-    </div>
-    <div class="hand" data-bind="route: 'worktable3'">
-        <img src="assets/images/overview_base-worktable3.png" class="worktable3" alt="Go to work table 3">
-    </div>
-    <div class="hand" data-bind="route: 'spectropm'">
-        <img src="assets/images/overview_base-spectro.png" class="spectrophotometer" alt="Go to spectrophotometer">
-    </div>
+    <div class="hand door" data-bind="
+        click: handleDoorClick, tooltip: { textI18n: 'overview.door' }
+    "></div>
+    <div class="hand chemicalcloset" data-bind="
+        route: 'chemical', tooltip: { textI18n: 'overview.chemicalcloset' }
+    "></div>
+    <div class="hand fumehood" data-bind="
+        route: 'fumehood', tooltip: { textI18n: 'overview.fumehood' }
+    "></div>
+    <div class="hand worktable2" data-bind="
+        route: 'worktable2', tooltip: { textI18n: 'overview.worktable2' }
+    "></div>
+    <div class="hand mouse" data-bind="
+        route: 'mousecage', tooltip: { textI18n: 'overview.mousecage' }
+    "></div>
+    <div class="hand worktable1" data-bind="
+        route: 'worktable1', tooltip: { textI18n: 'overview.worktable1' }
+    "></div>
+    <div class="hand fermentorchroma" data-bind="
+        route: 'fermentor', tooltip: { textI18n: 'overview.fermentorchroma' }
+    "></div>
+    <div class="hand incubator" data-bind="
+        route: 'incubator', tooltip: { textI18n: 'overview.incubator' }
+    "></div>
+    <div class="hand worktable3" data-bind="
+        route: 'worktable3', tooltip: { textI18n: 'overview.worktable3' }
+    "></div>
+    <div class="hand spectrophotometer" data-bind="
+        route: 'spectropm', tooltip: { textI18n: 'overview.spectrophotometer' }
+    "></div>
 </div>

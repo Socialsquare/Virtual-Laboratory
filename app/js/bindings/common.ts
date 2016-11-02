@@ -29,14 +29,14 @@ interface ITooltTipArguments {
     text?: string
 }
 
-const showTooltipTimeout = null
+let showTooltipTimeout = null
 const showTooltip = (content: string) => {
     clearTimeout(showTooltipTimeout)
     const $tooltip = $('#tooltip')
     $tooltip.html(content)
 
     showTooltipTimeout = setTimeout(() => {
-        showTooltipTimeout = false
+        showTooltipTimeout = undefined
         $tooltip.show()
     }, 500)
 }
@@ -62,17 +62,19 @@ $(() => {
     $tooltip.hide()
     $('body').append($tooltip)
 
-    $(document).mousemove((e) => {
+    $(document)
+    .mousemove((e) => {
         if ($tooltip.is(':visible') || showTooltipTimeout !== null) {
             moveTooltip(e)
         }
     })
+    .mousedown(hideTooltip)
+
 })
 
 ko.bindingHandlers.tooltip = {
     update: function (element, valueAccessor) {
-        console.log('tooltip setup!')
-        const { item, text }: ITooltTipArguments = valueAccessor()
+        const { item, text, textI18n }: ITooltTipArguments = valueAccessor()
 
         $(element)
         .mouseenter(event => {
@@ -80,6 +82,10 @@ ko.bindingHandlers.tooltip = {
 
             if (text) {
                 content += text
+            }
+
+            if (textI18n) {
+                content += i18n.text(textI18n)
             }
 
             if (item) {
