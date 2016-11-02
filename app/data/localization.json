@@ -34,6 +34,7 @@
         "common.rename": "Omdøb",
         "common.reset": "Nulstil",
         "common.result": "Resultat",
+        "common.save": "Gem",
         "common.sequence": "Sekvens",
         "common.skip": "Spring over",
 
@@ -449,6 +450,7 @@
         "common.rename": "Reset",
         "common.reset": "Reset",
         "common.result": "Result",
+        "common.save": "Save",
         "common.sequence": "Sequence",
         "common.skip": "Skip",
 
