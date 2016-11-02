@@ -16,7 +16,6 @@
     <!-- /ko -->
 
     <!-- ko if: isLoaded -->
-
     <!-- ko ifnot: experimentController.hasExperiment() -->
     <h3 data-bind="i18n: 'loading.choose_exercise'"></h3>
     <!-- /ko -->
@@ -36,13 +35,12 @@
         </ul>
     </section>
 
+    <!-- ko if: experimentController.hasExperiment() -->
     <div class="btn-row">
-        <!-- ko if: experimentController.hasExperiment() -->
         <button data-bind="click: goBack, i18n: 'loading.back_to_game'"></button>
-        <!-- /ko -->
     </div>
     <!-- /ko -->
-
+    <!-- /ko -->
     <!-- /ko -->
 
     <div class="flags">
