@@ -4,6 +4,8 @@ import LiquidFactory = require('factory/Liquid');
 import gameState = require('model/GameState');
 import experimentService = require('service/Experiment');
 
+import TypeModel = require('model/Tube');
+
 export const initiateExperimentAtStep = (app, experimentNum, partNum, taskNum) => {
     console.log('experiments loaded!');
     experimentService.getExperiments().done((experiments) => {
@@ -23,17 +25,20 @@ export const initiateExperimentAtStep = (app, experimentNum, partNum, taskNum) =
             tasks[i].finished(true);
         }
 
-        // const microtiter = ContainerFactory.microAntigenCoated();
-        // const microtiter = ContainerFactory.micro();
-        // microtiter.add(LiquidFactory.antigenSmallpox());
-        // microtiter.add(LiquidFactory.saltWater());
-        // microtiter.add(LiquidFactory.hybridomaMedium());
-        // microtiter.add(LiquidFactory.microorganism.myeloma());
-        // microtiter.add(LiquidFactory.homoSpleen(LiquidFactory.antibodySmallpox()));
+        const microtiter = ContainerFactory.micro();
+        microtiter.add(LiquidFactory.antigenSmallpox());
+        microtiter.add(LiquidFactory.saltWater());
+        microtiter.add(LiquidFactory.hybridomaMedium());
+        microtiter.add(LiquidFactory.microorganism.myeloma());
+        microtiter.add(LiquidFactory.homoSpleen(LiquidFactory.antibodySmallpox()));
 
-        // gameState.inventory.add(LiquidFactory.fluorescentSecondaryAntibody());
-        // gameState.inventory.add(microtiter);
 
+        const tube = new TypeModel();
+        tube.add(LiquidFactory.fluorescentSecondaryAntibody());
+        gameState.inventory.add(tube);
+        gameState.inventory.add(microtiter);
+
+        /*
         const mouse = SpecialFactory.healthyMouse();
         const syringe = ContainerFactory.syringe();
 
@@ -43,6 +48,10 @@ export const initiateExperimentAtStep = (app, experimentNum, partNum, taskNum) =
         gameState.inventory.add(syringe);
         gameState.inventory.add(mouse);
 
-        app.router.navigate('mousecage');
+        */
+
+        // navigaoce
+        console.log('nav!')
+        app.router.navigate('overview');
     });
 }

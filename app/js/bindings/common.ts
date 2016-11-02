@@ -26,7 +26,8 @@ ko.bindingHandlers.foreachKV = {
 
 interface ITooltTipArguments {
     item?: SimpleContainer,
-    text?: string
+    text?: string,
+    textI18n?: string,
 }
 
 let showTooltipTimeout = null
