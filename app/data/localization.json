@@ -380,8 +380,10 @@
         "syringe.filled.header": "Information",
 
         "vetmonitor.exportData": "Exportér data",
-        "vetmonitor.toggleBloodSugar": "Vis / Skjul blodsukker",
-        "vetmonitor.toggleGlucoseInfusionRate": "Vis / Skjul glukose infusions hastighed",
+        "vetmonitor.labelGlucoseInfusionRate": "Glukosekoncentration i blod",
+        "vetmonitor.labelGlucoseInfusionRate": "Glukosetilførsel",
+        "vetmonitor.toggleBloodSugar": "Vis / Skjul glukosekoncentration",
+        "vetmonitor.toggleGlucoseInfusionRate": "Vis / Skjul glukosetilførsel",
         "vetmonitor.toggleHeartRate": "Vis / Skjul hjerterytme",
 
         "wash_bottle.diluted.body": "Du har fortyndet opløsningen.",
@@ -789,7 +791,9 @@
         "syringe.filled.header": "Information",
 
         "vetmonitor.exportData": "Export data",
-        "vetmonitor.toggleBloodSugar": "Toggle bloodsugar",
+        "vetmonitor.labelGlucoseInfusionRate": "Glucose concentration in blood",
+        "vetmonitor.labelGlucoseInfusionRate": "Glucose Infusion Rate",
+        "vetmonitor.toggleBloodSugar": "Toggle glucose concentration",
         "vetmonitor.toggleGlucoseInfusionRate": "Toggle glucose infusion rate",
         "vetmonitor.toggleHeartRate": "Toggle heart rate",
 

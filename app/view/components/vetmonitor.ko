@@ -1,6 +1,16 @@
 
-<div class="axis-label yaxis-label yaxis-label-0" data-bind="visible: areYlabelsVisible"><span class="yaxis-label-0__text">MMOL/L</span></div> <!-- GIR -->
-<div class="axis-label yaxis-label yaxis-label-1" data-bind="visible: areYlabelsVisible"><span class="yaxis-label-1__text">MG/KG/MIN</span></div> <!-- blood sugar -->
+<div class="axis-label yaxis-label yaxis-label-0" data-bind="
+  visible: areYlabelsVisible,
+  tooltip: { text: 'Glukosekoncentration i blod' }
+">
+  <span class="yaxis-label-0__text">MMOL/L</span>
+</div> <!-- GIR -->
+<div class="axis-label yaxis-label yaxis-label-1" data-bind="
+  visible: areYlabelsVisible,
+  tooltip: { text: 'Glukosetilførsel' }
+">
+  <span class="yaxis-label-1__text">MG/KG/MIN</span>
+</div> <!-- blood sugar -->
 
 <div class="mousegraph" data-bind="plotVetMonitor: plotData"></div>
 

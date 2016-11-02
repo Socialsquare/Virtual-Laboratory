@@ -1,5 +1,5 @@
 /* view/vetmonitor.scss */
-.tickLabel { 
+.tickLabel {
     font-family: MoolBoran, sans-serif;
     font-size: 15px;
     font-weight: 900;
@@ -45,7 +45,7 @@
     .power-toggle-light {
         background-color: blue;
         background-image: url(#{$img-path}/mouse-view-monitor-powerON.jpg);
-        background-repeat: no-repea;
+        background-repeat: no-repeat;
         position: absolute;
         top: 577px;
         left: 49px;
@@ -56,7 +56,7 @@
     .hr-toggle-light {
         background-color: blue;
         background-image: url(#{$img-path}/mouse-view-monitor-toggleON2.jpg);
-        background-repeat: no-repea;
+        background-repeat: no-repeat;
         position: absolute;
         top: 569px;
         left: 153px;
@@ -67,7 +67,7 @@
     .bloodsugar-toggle-light {
         background-color: blue;
         background-image: url(#{$img-path}/mouse-view-monitor-toggleON1.jpg);
-        background-repeat: no-repea;
+        background-repeat: no-repeat;
         position: absolute;
         top: 566px;
         left: 217px;
@@ -78,22 +78,23 @@
     .glucose-infusion-rate-toggle-light {
         background-color: blue;
         background-image: url(#{$img-path}/mouse-view-monitor-toggleON3.jpg);
-        background-repeat: no-repea;
+        background-repeat: no-repeat;
         position: absolute;
         top: 561px;
         left: 280px;
         width: 15px;
         height: 15px;
     }
-    
+
     .axis-label {
         position: absolute;
         text-align: center;
         font-size: 15px;
         font-weight: 900;
         text-decoration: none;
+        cursor: default;
     }
-    
+
     .yaxis-label {
         transform: rotate(-4deg);
         -o-transform: rotate(-4deg);
