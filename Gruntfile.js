@@ -13,6 +13,18 @@ module.exports = function (grunt) {
         dist_root: 'app/dist',
         env: 'dev',
 
+        autoprefixer: {
+            options: {
+                browsers: ['last 2 versions', 'ie 10', 'ie 11']
+            },
+            dist : {
+                files: {
+                    '<%= dist_root %>/static/main.css' : '<%= dist_root %>/static/main.css'
+                }
+            }
+        },
+
+
         clean: {
             dist: {
                 files: [
@@ -121,7 +133,7 @@ module.exports = function (grunt) {
             },
             sass: {
                 files: ['app/css/**/*.scss'],
-                tasks: [ 'sass' ]
+                tasks: [ 'sass', 'autoprefixer:dist' ]
             },
             js: {
                 files: ['app/js/**/*.js', 'app/js/**/*.ts'],
@@ -268,6 +280,7 @@ module.exports = function (grunt) {
         grunt.config('env', 'test');
     });
 
+    grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
@@ -283,7 +296,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-tslint');
     grunt.loadNpmTasks("grunt-ts");
 
-    grunt.registerTask('build', [ 'clean:dist', 'assets', 'copy:dist', 'ts:dist', 'sass:dist' ]);
+    grunt.registerTask('build', [ 'clean:dist', 'assets', 'copy:dist', 'ts:dist', 'sass:dist', 'autoprefixer:dist' ]);
 
     grunt.registerTask('production', [ 'setProductionBuildEnv', 'build', 'requirejs:production',
                                        'templateIndex', 'preprocess:production',]);
@@ -295,5 +308,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', ['setUnitTestBuildEnv', 'clean:dist',
                                 'assets', 'copy:test', 'ts:test', 'sass:dist',
+                                'autoprefixer:dist',
                                 'templateIndex', 'preprocess:test', 'karma' ]);
 };
