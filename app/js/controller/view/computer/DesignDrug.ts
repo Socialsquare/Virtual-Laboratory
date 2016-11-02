@@ -56,7 +56,10 @@ class DesignDrug extends BaseComputer {
     }
 
     reset() {
-        console.log('Yo Dorph, I want to reset');
+        const scaffold = this.selectedScaffold()
+        scaffold.slots().forEach((slot) => {
+            slot.sidegroup(null)
+        })
     }
 
     order() {
