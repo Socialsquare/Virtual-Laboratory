@@ -50,5 +50,7 @@
         <img data-bind="click: selectLang.bind(null, 'en'), css: { active: selectedLanguage() === 'en'}" src="assets/images/flag_en.png">
     </div>
 
-    <img class="ba-logo" src="assets/images/logo.png" alt="Biotech Academy">
+    <a href="http://www.biotechacademy.dk">
+        <img class="ba-logo" src="assets/images/logo.png" alt="Biotech Academy">
+    </a>
 </div>
