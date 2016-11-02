@@ -1,11 +1,10 @@
 import ko = require('knockout');
 import _ = require('lodash');
 import $ = require('jquery');
+
 import DataHelper = require('utils/DataHelper');
 import vetMonitorLog = require('service/VetMonitorLog');
 import VetMonitorLogItem = require('model/type/VetMonitorLogItem');
-import gameState = require('model/GameState');
-
 
 // TODO: logs could have a predefined limit and expire time,
 // TODO: hence logIds will have to be updated accordingly
@@ -27,7 +26,7 @@ class VetMonitorExportPopup {
 
     constructor(params) {
         // template 'components/vetmonitor-export-popup.ko'
-        console.log("VetMonitorExportPopup.constructor()");
+        console.log('VetMonitorExportPopup.constructor()');
 
         this.maxLogId = null;
         this.currLogId = null;
@@ -44,7 +43,7 @@ class VetMonitorExportPopup {
         this.btnLabelInputVal = ko.observable('');
 
         this._toggleSubscription =
-            this.shouldShowExportPopup.subscribe((newval: boolean)=>{
+            this.shouldShowExportPopup.subscribe((newval: boolean) => {
             this.updateLogIds();
         });
 
@@ -52,7 +51,7 @@ class VetMonitorExportPopup {
     }
 
     show() {
-        console.log("VetMonitorExportPopup.show()"+ this.shouldShowExportPopup());
+        console.log('VetMonitorExportPopup.show()', this.shouldShowExportPopup());
         if (this.shouldShowExportPopup()) {
             return;
         }
@@ -61,13 +60,13 @@ class VetMonitorExportPopup {
     }
 
     hide() {
-        console.log("VetMonitorExportPopup.hide()");
+        console.log('VetMonitorExportPopup.hide()');
         this.showLogButtons();
         this.shouldShowExportPopup(false);
     }
 
     dispose(){
-        console.log("VetMonitorExportPopup.dispose()");
+        console.log('VetMonitorExportPopup.dispose()');
         this._toggleSubscription.dispose();
     }
 
@@ -88,11 +87,11 @@ class VetMonitorExportPopup {
             $link[0].click();
 
             setTimeout(() => { $link.remove() }, 10);
-        })
+        });
     }
 
     showDataByLogId(logId: number) {
-        console.log("VetMonitorExportPopup.showDataByLogId(" + logId + ")");
+        console.log('VetMonitorExportPopup.showDataByLogId(' + logId + ')');
         this.logButtonsToggle(false);
         this.dataToggle(true);
         this.backButtonToggle(true);
@@ -117,8 +116,8 @@ class VetMonitorExportPopup {
                 const csv = DataHelper.toCSV(parsed, headers);
                 resolve(csv);
             });
-        })
-    }
+        });
+    };
 
     showLogBtnLabelForm(logId: number) {
         this.currLabelLogId(logId);
@@ -153,7 +152,7 @@ class VetMonitorExportPopup {
         this.maxLogId = vetMonitorLog.getCurrentLogId();
         this.logIds.removeAll();
         _.map(_.range(1, this.maxLogId + 1),
-              (item:number)=>{ this.logIds.push(item); });
+              (item: number) => { this.logIds.push(item); });
         this.logIds.reverse();
     }
 
@@ -161,6 +160,7 @@ class VetMonitorExportPopup {
         this.updateLogIds();
         this.csvData('');
         this.logButtonsToggle(true);
+        this.isBtnLabelFormVisible(false);
         this.dataToggle(false);
         this.backButtonToggle(false);
     }

@@ -1,29 +1,29 @@
 <div class="popup popup-item-details" data-bind="visible: shouldShowExportPopup">
     <h1 data-bind="i18n: 'vetmonitor.data'"></h1>
 
-    <div class="export-log-btns">
-        <button data-bind="visible: backButtonToggle, click: onBackButtonClick, i18n: 'common.back'"></button>
-        <ul class="export-log-btns-list" data-bind="visible: logButtonsToggle, foreach: logIds">
+    <div data-bind="visible: logButtonsToggle">
+        <ul class="export-log-btns-list" data-bind="foreach: logIds">
             <li>
                 <span data-bind="text: $parent.getLogBtnLabel($data)"></span>
-                <button data-bind="click: $parent.showDataByLogId">Se data</button>
-                <button data-bind="click: $parent.downloadAsCsv">Download</button>
-                <button data-bind="click: $parent.showLogBtnLabelForm">Omdøb</button>
+                <button data-bind="click: $parent.showDataByLogId, i18n: 'vetmonitor.dataInspect'"></button>
+                <button data-bind="click: $parent.downloadAsCsv, i18n: 'common.download'"></button>
+                <button data-bind="click: $parent.showLogBtnLabelForm, i18n: 'common.rename'"></button>
             </li>
         </ul>
+        <div class="btn-row">
+            <button type="button" data-bind="click: hide, i18n: 'common.close'"></button>
+        </div>
     </div>
 
-    <div>
-        <textarea id="vetMonitorExportCsvData" rows="10" cols="40"
-            data-bind="text: csvData, visible: dataToggle"></textarea>
+    <div data-bind="visible: dataToggle">
+        <textarea id="vetMonitorExportCsvData" data-bind="text: csvData"></textarea>
     </div>
 
-    <div class="btn-row float-clear" style="bottom: 10px;">
-        <button type="button" data-bind="click: hide, i18n: 'common.close'"></button>
-    </div>
-
-    <div id="export-log-btn-label-form" data-bind="visible: isBtnLabelFormVisible">
+    <div data-bind="visible: isBtnLabelFormVisible">
+        <p data-bind="i18n: 'common.rename'"></p>
         <input id="btn-label-input" data-bind="value: btnLabelInputVal" />
-        <button type="button" data-bind="click: setBtnLabel">OK</button>
+        <button type="button" data-bind="click: setBtnLabel, i18n: 'common.ok'"></button>
     </div>
+
+    <button data-bind="visible: backButtonToggle, click: onBackButtonClick, i18n: 'common.back'"></button>
 </div>
