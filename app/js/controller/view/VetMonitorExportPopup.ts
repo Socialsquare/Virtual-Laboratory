@@ -76,19 +76,18 @@ class VetMonitorExportPopup {
     }
 
     downloadAsCsv(logId: number) {
-        console.log('export!')
         this.generateCsv(logId).then((csv) => {
-            const csvExport = `data:text/csv;charset=utf-8,${csv}`
-            const encodedUri = (<any>window).encodeURI(csvExport)
+            const csvExport = `data:text/csv;charset=utf-8,${csv}`;
+            const encodedUri = (<any>window).encodeURI(csvExport);
 
-            const label = this.getLogBtnLabel(logId)
-            const csvName = `${label}.csv`
-            const $link = $(`<a href="${encodedUri}" download="${csvName}" />`)
+            const label = this.getLogBtnLabel(logId);
+            const csvName = `${label}.csv`;
+            const $link = $(`<a href="${encodedUri}" download="${csvName}" target="_blank" />`);
 
-            $('body').append($link)
-            $link[0].click()
+            $('body').append($link);
+            $link[0].click();
 
-            setTimeout(() => { $link.remove() }, 10)
+            setTimeout(() => { $link.remove() }, 10);
         })
     }
 
