@@ -236,6 +236,7 @@
         "liquid.name.red_blood_cells": "Red blood cells",
         "liquid.name.target_receptor": "Target receptor",
 
+        "loading.back_to_game": "Tilbage til spillet",
         "loading.header": "Det Virtuelle Laboratorium",
         "loading.subheader": "Version 2.1",
 
@@ -647,6 +648,7 @@
         "liquid.name.red_blood_cells": "Red blood cells",
         "liquid.name.target_receptor": "Target receptor",
 
+        "loading.back_to_game": "Back to the game",
         "loading.header": "The Virtual Laboratory",
         "loading.subheader": "Version 2.1",
 
