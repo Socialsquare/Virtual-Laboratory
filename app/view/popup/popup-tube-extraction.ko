@@ -1,8 +1,6 @@
 <div class="popup popup-tube-extraction">
     <h1 data-bind="i18n: 'popup.tube-extraction.header'"></h1>
 
-    <hr />
-
     <h4 data-bind="i18n: 'popup.tube-extraction.body'"></h4>
 
     <!-- ko if: isType('FROM_MOUSE_BLOOD') -->
