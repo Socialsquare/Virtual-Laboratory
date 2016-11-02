@@ -25,8 +25,8 @@ button {
 }
 
 .btn-row {
-    width: 100%;
     text-align: center;
+    width: 100%;
 
     .left {
         float: left;
@@ -37,17 +37,17 @@ button {
     }
 }
 
-.export-log-btns {
-    position: relative;
-    width: 100%;
-}
-
 .export-log-btns-list {
-    overflow-y: scroll;
-    height: 320px;
-}
+    max-height: 320px;
+    overflow-y: auto;
 
-.export-log-btn {
-    width: 88%;
-    display:inline-block;
+    li {
+        align-items: center;
+        display: flex;
+        margin-bottom: 20px;
+
+        span {
+            flex-grow: 1;
+        }
+    }
 }
