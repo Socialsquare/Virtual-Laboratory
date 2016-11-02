@@ -101,27 +101,25 @@ class Experiment {
         return _.isUndefined(property) || _.isNull(property) || property === expected;
     }
 
-    matchLiquids(trigger: TriggerModel, container: SimpleContainerModel) {
+    matchLiquids(trigger: TriggerModel | TriggerModel.container, container: SimpleContainerModel) {
         if (_.isUndefined(trigger.liquids)) return true;
 
         if (trigger.strict) {
-            var containerValid = _.all(container.liquids(), (containerLiquid) => {
-                return _.any(trigger.liquids, (triggerLiquid) => {
+            var containerValid = _.all(container.liquids(), (containerLiquid: LiquidModel) => {
+                return _.any(trigger.liquids, (triggerLiquid: TriggerModel.liquids) => {
                     if (containerLiquid.type() !== triggerLiquid.type) return false;
                     if (!containerLiquid.subtype()) return true;
-
                     return containerLiquid.subtype() === triggerLiquid.subtype;
                 });
             });
-
             if (!containerValid) return false;
         }
 
-        return _.all(trigger.liquids, (liquid) => {
+        return _.all(trigger.liquids, (liquid: TriggerModel.liquids) => {
             if (!container.contains(liquid.type)) return false;
             if (!liquid.subtype) return true;
 
-            return _.any(container.liquids(), (_liquid) => {
+            return _.any(container.liquids(), (_liquid: SimpleContainerModel.liquids) => {
                 return _liquid.subtype() === liquid.subtype;
             });
         });
@@ -292,8 +290,8 @@ class Experiment {
                 );
             }
 
-            var validIncubator = _.all(trigger.containers, (triggerContainer) => {
-                return _.any(containers, (incubatorContainer) => {
+            var validIncubator = trigger.containers.every((triggerContainer: TriggerModel.containers) => {
+                return _.any(containers, (incubatorContainer: SimpleContainerModel) => {
                     return this.match(triggerContainer.type, incubatorContainer.type())
                         && this.match(triggerContainer.containerSubtype, incubatorContainer.subtype())
                         && this.matchLiquids(triggerContainer, incubatorContainer);

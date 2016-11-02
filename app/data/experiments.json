@@ -1285,6 +1285,7 @@
                             "containers":[
                                 {
                                     "type":"ContainerType.TUBE",
+                                    "strict":true,
                                     "liquids":[
                                         {
                                             "type":"LiquidType.HOMO_SPLEEN"

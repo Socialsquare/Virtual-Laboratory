@@ -20,6 +20,7 @@ type TriggerLiquid = {
 
 type TriggerContainers = {
     type: ContainerType;
+    strict: boolean;
     liquids: TriggerLiquid[];
     containerSubtype: AntigenCoatingType;
 }[];
@@ -74,7 +75,8 @@ class Trigger {
                 return {
                     type: S2T.container(c.type),
                     containerSubtype: S2T.antigenCoating(c.containerSubtype),
-                    liquids: this.parseLiquids(c.liquids)
+                    liquids: this.parseLiquids(c.liquids),
+                    strict: c.strict
                 };
             });
         }
