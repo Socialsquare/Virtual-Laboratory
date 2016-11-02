@@ -24,7 +24,7 @@ class VetMonitorExportPopup {
     public monitorExportPopupToggle: KnockoutObservable<boolean>;
     public csvData: KnockoutObservable<string>;
     private _toggleSubscription = null;
-    
+
     constructor(params) {
         // template 'components/vetmonitor-export-popup.ko'
         console.log("VetMonitorExportPopup.constructor()");
@@ -42,8 +42,8 @@ class VetMonitorExportPopup {
         this.currLabelLogId = ko.observable(null);
         this.isBtnLabelFormVisible = ko.observable(false);
         this.btnLabelInputVal = ko.observable('');
-        
-        this._toggleSubscription = 
+
+        this._toggleSubscription =
             this.shouldShowExportPopup.subscribe((newval: boolean)=>{
             this.updateLogIds();
         });
@@ -65,14 +65,31 @@ class VetMonitorExportPopup {
         this.showLogButtons();
         this.shouldShowExportPopup(false);
     }
-    
+
     dispose(){
         console.log("VetMonitorExportPopup.dispose()");
         this._toggleSubscription.dispose();
     }
-    
+
     onBackButtonClick() {
         this.showLogButtons();
+    }
+
+    downloadAsCsv(logId: number) {
+        console.log('export!')
+        this.generateCsv(logId).then((csv) => {
+            const csvExport = `data:text/csv;charset=utf-8,${csv}`
+            const encodedUri = (<any>window).encodeURI(csvExport)
+
+            const label = this.getLogBtnLabel(logId)
+            const csvName = `${label}.csv`
+            const $link = $(`<a href="${encodedUri}" download="${csvName}" />`)
+
+            $('body').append($link)
+            $link[0].click()
+
+            setTimeout(() => { $link.remove() }, 10)
+        })
     }
 
     showDataByLogId(logId: number) {
@@ -80,20 +97,30 @@ class VetMonitorExportPopup {
         this.logButtonsToggle(false);
         this.dataToggle(true);
         this.backButtonToggle(true);
-        vetMonitorLog.fetchByLogId(logId, (counter, result) => {
-            var headers = ['time', 'blood sugar', 'heart rate', 'GIR'];
-            var parsed = [];
-            _.each(result, (val: VetMonitorLogItem) => {
-                var line = [val.time, val.gl, val.hr, val.gir];
-                parsed.push(line);
-            });
-            this.csvData(DataHelper.toCSV(parsed, headers));
+
+        this.generateCsv(logId).then((csv) => {
+            this.csvData(csv);
             this.backButtonToggle(true);
             this.dataToggle(true);
             $('#vetMonitorExportCsvData').scrollTop(0);
         });
     }
-    
+
+    generateCsv(logId: number) {
+        return new Promise((resolve, reject) => {
+            vetMonitorLog.fetchByLogId(logId, (counter, result) => {
+                var headers = ['time', 'blood sugar', 'heart rate', 'GIR'];
+                var parsed = [];
+                _.each(result, (val: VetMonitorLogItem) => {
+                    var line = [val.time, val.gl, val.hr, val.gir];
+                    parsed.push(line);
+                });
+                const csv = DataHelper.toCSV(parsed, headers);
+                resolve(csv);
+            });
+        })
+    }
+
     showLogBtnLabelForm(logId: number) {
         this.currLabelLogId(logId);
         this.isBtnLabelFormVisible(true);
@@ -101,7 +128,7 @@ class VetMonitorExportPopup {
         this.dataToggle(false);
         this.backButtonToggle(false);
     }
-    
+
     getLogBtnLabel(logId: number) {
         var label = vetMonitorLog.getLabelForLogId(logId);
         if (label) {
@@ -109,7 +136,7 @@ class VetMonitorExportPopup {
         }
         return String(logId);
     }
-    
+
     setBtnLabel() {
         var valStr: string = _.escape(this.btnLabelInputVal().substring(0, 20).trim());
         vetMonitorLog.setLabelForLogId(this.currLabelLogId(), valStr);

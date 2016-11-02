@@ -2,7 +2,7 @@ import _ = require('lodash');
 import Utils = require('utils/utils');
 
 class DataHelper {
-    
+
     static isObject(someVal) {
         if (someVal === null) return false;
         return ( (typeof someVal === 'function') || (typeof someVal === 'object') );
@@ -14,19 +14,16 @@ class DataHelper {
                 if (_.isNumber(p)) {
                     return p.toFixed(2).toString();
                 } else if (p instanceof Date) {
-                    var dOptions = {year: '2-digit', month: '2-digit', day:'2-digit'};
-                    var dateStr = p.toLocaleDateString('dk', dOptions);
-                    var timeStr = p.toLocaleTimeString('dk');
-                    return dateStr + '@' + timeStr;
+                    return p.toLocaleTimeString('da').replace(/\./g, ':');
                 } else if (p) {
                     return p;
                 } else {
-                    return '';
+                    return 'unknown';
                 }
-            }).join('\t');
+            }).join('; ');
         });
 
-        return headers.join('\t') + '\n' + dataRows.join('\n');
+        return headers.join('; ') + '\n' + dataRows.join('\n');
     }
 }
 
