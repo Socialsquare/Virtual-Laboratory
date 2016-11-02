@@ -238,7 +238,7 @@
 
         "loading.back_to_game": "Tilbage til spillet",
         "loading.header": "Det Virtuelle Laboratorium",
-        "loading.subheader": "Version 2.1",
+        "loading.subheader": "version 2.2",
 
         "microtiter.acquired_tube.label": "Indholdet fra en mikrotiterbrønd",
         "microtiter.extract_well.body": "Vil du tage indholdet af denne brønd og overføre det til et nyt reagensglas?",
@@ -351,7 +351,7 @@
         "popup.guide.header": "Det Virtuelle Laboratorium",
         "popup.guide.part": "Del",
         "popup.guide.question": "Spørgsmål",
-        "popup.guide.subheader": "Version 2.1",
+        "popup.guide.subheader": "version 2.2",
         "popup.guide.title": "Forsøgsvejledning",
         "popup.home_screen.body": "Det Virtuelle Laboratorium 2.0 spilles bedst, hvis du tilføjer det til din hjemmeskærm og åbner spillet derfra.",
         "popup.home_screen.header": "Vigtigt!",
@@ -650,7 +650,7 @@
 
         "loading.back_to_game": "Back to the game",
         "loading.header": "The Virtual Laboratory",
-        "loading.subheader": "Version 2.1",
+        "loading.subheader": "version 2.2",
 
         "microtiter.acquired_tube.label": "The contents from a microtiter well",
         "microtiter.extract_well.body": "Do you want to take the contents of this well and transfer it to a new test tube?",
@@ -763,7 +763,7 @@
         "popup.guide.header": "The Virtual Laboratory",
         "popup.guide.part": "Part",
         "popup.guide.question": "Question",
-        "popup.guide.subheader": "Version 2.1",
+        "popup.guide.subheader": "version 2.2",
         "popup.guide.title": "Experiment Guide",
         "popup.home_screen.body": "Det Virtuelle Laboratorium 2.0 spilles bedst, hvis du tilføjer det til din hjemmeskærm og åbner spillet derfra.",
         "popup.home_screen.header": "Important!",
