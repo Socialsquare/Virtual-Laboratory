@@ -63,20 +63,12 @@ require([
 
     FastClick.attach(document.body);
 
-    //TODO-release: Confirm before navigating away
-    /*window.onbeforeunload = function (e) {
-        e = e || window.event;
-        var message = 'Spillet gemmes ikke hvis du navigerer væk';
-        if (e) e.returnValue = message;
-        return message;
-    };*/
-
     var isWeb = document.URL.match(/^https?:/);
 
     var app = new App(isWeb);
 
     var appElement = document.getElementById('#app');
-    
+
     ko.applyBindings(app, appElement);
-    
+
 });
