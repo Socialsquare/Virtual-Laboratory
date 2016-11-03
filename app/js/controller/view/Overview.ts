@@ -30,8 +30,8 @@ class Overview extends BaseViewController {
 
         if (gameState.askBeforeNavigating && !window.onbeforeunload) {
             window.onbeforeunload = () => {
-                return i18n.text('common.navigateAway')
-            }
+                return i18n.text('common.navigateAway');
+            };
         }
     }
 }
