@@ -8,8 +8,8 @@
             "dk": "Hjælpevinduet giver dig information om alle laboratoriets apparater og egenskaber. Brug det hvis du er i tvivl om hvor et apparat befinder sig eller hvordan det virker.",
             "en": "The \"Help\" window gives you information about all of the laboratory's equipment and features. Use it if you are in doubt of where to find a piece of equipment or how it works."
         },
-        "x": 578,
-        "y": 85,
+        "x": 655,
+        "y": 70,
         "arrowTop": true,
         "arrowLeft": false
     },
@@ -22,8 +22,8 @@
             "dk": "Du kan altid vælge et nyt eksperiment, men vær opmærksom på at dine ting og fremskridt mistes.",
             "en": "You can always select a new experiment - but be aware that your progress in the current one will be lost."
         },
-        "x": 628,
-        "y": 85,
+        "x": 615,
+        "y": 70,
         "arrowTop": true,
         "arrowLeft": false
     },
@@ -36,8 +36,8 @@
             "dk": "Åbn spillet i fuldskærm.",
             "en": "Opens the game in fullscreen."
         },
-        "x": 682,
-        "y": 85,
+        "x": 684,
+        "y": 70,
         "arrowTop": true,
         "arrowLeft": false
     },
@@ -75,8 +75,8 @@
             "en": "Pippet"
         },
         "message": {
-            "dk": "Pipetten bruges til at transportere og flytte væsker mellem reagensglas og andre beholdere. Klik på ikonet for at bruge pipetten frem.",
-            "en": "The pippet is used to transport and move liquids between test tubes and other containers. Click on the icon to bring forth the pippet."
+            "dk": "Pipetten bruges til at transportere og flytte væsker mellem reagensglas og andre beholdere. Klik på ikonet eller træk det ud på bordet for bruge pipetten.",
+            "en": "The pippet is used to transport and move liquids between test tubes and other containers. Click on or drag the icon to bring forth the pippet."
         },
         "x": 666,
         "y": 380,

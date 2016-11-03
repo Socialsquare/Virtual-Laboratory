@@ -307,9 +307,9 @@
         "mouse.warning_glucose_min.body": "Du risikerer at slå musen ihjel, hvis du giver den for meget insulin og/eller ikke giver den noget glucose.",
         "mouse.warning_glucose_min.header": "Pas på!",
 
-        "overview.chemicalcloset": "Gå til kemi skabet",
+        "overview.chemicalcloset": "Gå til forsyningsskabene",
         "overview.door": "Gå til døren",
-        "overview.fermentorchroma": "Gå til fermentor and chromatograph",
+        "overview.fermentorchroma": "Gå til fermentor og chromatograph",
         "overview.fumehood": "Gå til stinkskabet",
         "overview.incubator": "Gå til inkubatoren",
         "overview.mousecage": "Gå til museburet",
@@ -719,7 +719,7 @@
         "mouse.warning_glucose_min.body": "You risk killing the mouse by giving it too much insulin and not enough glucose.",
         "mouse.warning_glucose_min.header": "Watch out!",
 
-        "overview.chemicalcloset": "Go to chemical closet",
+        "overview.chemicalcloset": "Go to stock cabinets",
         "overview.door": "Go to door",
         "overview.fermentorchroma": "Go to fermentor and chromatograph",
         "overview.fumehood": "Go to fumehood",
