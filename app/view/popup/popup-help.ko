@@ -2,6 +2,10 @@
 
     <h1 data-bind="i18n: 'instruments.title'"></h1>
 
+    <div class="help-btn-row">
+        <button data-bind="click: hide, i18n: 'common.close'"></button>
+    </div>
+
     <div class="inner">
         <div class="nav">
             <ul data-bind="foreach: entries">
@@ -26,9 +30,5 @@
                 </button>
             </div>
         </div>
-    </div>
-
-    <div class="help-btn-row">
-        <button data-bind="click: hide, i18n: 'common.close'"></button>
     </div>
 </div>
