@@ -1,13 +1,13 @@
-/* popup/instruments.scss */
-
 .popup-instruments {
+    font-size: 1rem;
+
     .inner {
         .nav {
-            overflow-y: auto;
-            overflow-x: hidden;
             float: left;
-            width: 30%;
             height: 480px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 30%;
 
             ul li {
                 position: relative;
@@ -17,20 +17,21 @@
                 }
 
                 img {
-                    width: 30px;
                     height: 30px;
                     margin-right: 10px;
+                    width: 30px;
                 }
 
                 span {
-                    position: absolute;
                     margin-top: 5px;
+                    position: absolute;
                     width: 300px;
                 }
             }
         }
 
         .content {
+            max-height: 430px;
             overflow-y: auto;
             width: 70%;
 
@@ -40,17 +41,17 @@
             }
 
             img {
-                margin-right: 20px;
+                margin-right: $spacer * 2;
                 max-width: 200px;
             }
         }
     }
 
     .help-btn-row {
+        bottom: $spacer * 2;
+        left: 0;
         position: absolute;
-        bottom: 20px;
-        /* width: 100%; */
+        right: 0;
         text-align: center;
-        right: 21px;
     }
 }
