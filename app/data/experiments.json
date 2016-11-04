@@ -1882,29 +1882,6 @@
                 "tasks":[
                     {
                         "description":{
-                            "dk":"Bland lysis, vand og saltvand i rækkefølge.",
-                            "en":"Mix lysis, water and salt water in that order."
-                        },
-                        "trigger":{
-                            "type":"TriggerType.MIX",
-                            "strict":true,
-                            "item":"ContainerType.TUBE",
-                            "liquids":[
-                                {
-                                    "type":"LiquidType.LYSIS"
-                                },
-                                {
-                                    "type":"LiquidType.WATER"
-                                },
-                                {
-                                    "type":"LiquidType.SALT_WATER"
-                                }
-                            ],
-                            "strictlyOrdered":true
-                        }
-                    },
-                    {
-                        "description":{
                             "dk":"Design og bestil et lægemiddel ved at gå hen til computeren og ind i programmet \"Design Lægemiddel\". Husk at tænke over sidegruppernes længde og ladning!",
                             "en":"Design and order a drug by going to the computer and entering the program \"Design Drug\". Remember to take the length and charge of the side-chains into account."
                         },
