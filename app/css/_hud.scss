@@ -1,38 +1,38 @@
-/* view/base.scss */
-
 .hud-container {
     .time-passing {
-        position: relative;
-        color: red;
+        color: $red;
         font-size: 20px;
+        position: relative;
     }
+
     .time-passing-clocks {
-        position: absolute;
-        width: 320px;
         height: 320px;
         left: 598px;
-        top: -30px;
+        position: absolute;
         text-align: center;
+        top: -30px;
+        width: 320px;
     }
+
     .time-passing-digital-clock {
         color: #767777;
         font-size: 28px;
-        top: 200px;
-        left: 0px;
-        right: 0px;
+        left: 0;
         position: absolute;
+        right: 0;
+        top: 200px;
     }
 }
 
 #tooltip {
     @include gradient-bg(#2f2f2f, #0f0f0f);
-    position: absolute;
-    top: 0;
+    border-radius: 5px;
+    box-shadow: 0 0 4px $black;
+    color: $white;
     left: 0;
     padding: 10px;
-    box-shadow: 0 0 4px #000000;
-    border-radius: 5px;
-    color: #fff;
+    position: absolute;
+    top: 0;
     white-space: pre-line;
     z-index: 9999999;
 }

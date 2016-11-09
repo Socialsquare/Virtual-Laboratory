@@ -1,22 +1,19 @@
 /* tutorial.scss */
 
 .tutorial-box {
-    position: absolute;
-    padding: 20px;
-
     @include gradient-bg(#2f2f2f, #0f0f0f);
-    //@include border(solid, 0, black, 4px);
     border-radius: 5px;
     box-shadow: 0 0 4px $black;
-
-    width: 300px;
+    color: $white;
     height: 200px;
-    color: white;
+    padding: 20px;
+    position: absolute;
+    width: 300px;
 
     hr {
         @include border(solid, 0 0 1px 0, #414141);
-        height: 1px;
         background-color: $black;
+        height: 1px;
     }
 
     h3 {
@@ -24,16 +21,17 @@
     }
 
     .next {
-        position: absolute;
         bottom: 20px;
+        position: absolute;
         right: 20px;
     }
 
     .arrow {
         position: absolute;
-        &.top { top: -43px }
-        &.left { left: 25px }
-        &.bottom { bottom: -43px }
-        &.right { right: 25px }
+
+        &.bottom { bottom: -43px; }
+        &.left { left: 25px; }
+        &.right { right: 25px; }
+        &.top { top: -43px; }
     }
 }
