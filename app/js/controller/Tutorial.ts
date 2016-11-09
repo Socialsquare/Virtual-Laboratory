@@ -48,6 +48,10 @@ class Tutorial {
         }
     }
 
+    abort() {
+        this.active(false);
+    }
+
     startTutorial() {
         this.active(true);
     }
