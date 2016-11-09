@@ -5,10 +5,10 @@
        data-bind="css: 'video-' + activeVideo().name(),
                   attr: { loop: isLooping, controls: controlsRequired() && !FeatureHelper.autoPlay },
                   event: { ended: handleVideoEnd }">
-    <source data-bind="attr: { src: 'assets/videos/' + activeVideo().filePath() + '.mp4' }" 
-        type="video/mp4"/>
     <source data-bind="attr: { src: 'assets/videos/' + activeVideo().filePath() + '.webm' }"
         type="video/webm"/>
+    <source data-bind="attr: { src: 'assets/videos/' + activeVideo().filePath() + '.mp4' }"
+        type="video/mp4"/>
 </video>
 <!-- /ko -->
 

@@ -6,7 +6,7 @@ var glob = require('glob'),
 function makeVideoEntry(name, size) {
     return {
         type: "VIDEO",
-        sources: { mp4: { source: name, size: size } }
+        sources: { webm: { source: name, size: size } }
     };
 }
 function makeImageEntry(name, size) {
@@ -27,7 +27,7 @@ module.exports = {
         var imageFormats = ['/**/*.png', '/**/*.jpg'];
         var distPath = '';
 
-        _.each(glob.sync(root + '/' + assetsDir + '/**/*.mp4'), function (file) {
+        _.each(glob.sync(root + '/' + assetsDir + '/**/*.webm'), function (file) {
             distPath = path.relative(root, file).replace('app/','');
             assetsConfig.files.push(makeVideoEntry(distPath, size(file)));
         });
