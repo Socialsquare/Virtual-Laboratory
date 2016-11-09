@@ -6,3 +6,5 @@ linters:
     enabled: false
   IdSelector:
     enabled: false
+  NestingDepth:
+    max_depth: 4
