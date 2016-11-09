@@ -39,10 +39,13 @@ class Menu extends BaseViewController {
     public pipetteIsVisible: KnockoutComputed<boolean>;
     public guideIsVisible = ko.observable(false);
 
+    trashHasBeenUsed: boolean;
     popupModel: PopupModel;
 
     constructor() {
         super('menu');
+
+        this.trashHasBeenUsed = false;
 
         gameState.inventory.items.subscribe(() => this.boundScroll());
 
@@ -174,7 +177,12 @@ class Menu extends BaseViewController {
         if (item.type() === ContainerType.PIPETTE) {
             gameState.pipette.removeTip();
         } else {
-            this.popupController.confirm('popup.confirm_delete.header', 'popup.confirm_delete.body').then(consume);
+            if (this.trashHasBeenUsed === false) {
+                this.popupController.confirm('popup.first_time_delete.header', 'popup.first_time_delete.body').then(consume);
+                this.trashHasBeenUsed = true;
+            } else {
+                consume();
+            }
         }
         return false;
     }
