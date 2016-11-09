@@ -76,12 +76,19 @@ class Popup {
     showGuide(experiment: ExperimentModel) {
         // this is a mess...
         this.guidePopupModel.experiment = experiment;
-
         this.guidePopupModel.resetPromise();
         return this.showPopup(this.guidePopupModel);
     }
 
+
     kvInfo(info) {
+        info.passes = Object.keys(info.passes)
+            .filter(o => info.passes[o] === true)
+            .join(', ')
+            .replace('canPassSkin', i18n.text('kv-info.canPass.skin'))
+            .replace('canPassBBB', i18n.text('kv-info.canPass.BBB'))
+            .replace('canPassBlood', i18n.text('kv-info.canPass.blood'))
+            .replace('canPassIntestine', i18n.text('kv-info.canPass.intestine'));
         this.show('popup-kv-info', { info: info });
     }
 

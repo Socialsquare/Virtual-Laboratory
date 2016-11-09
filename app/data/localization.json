@@ -6,6 +6,11 @@
         "buffer_tube.body": "Det giver ikke mening at forsøge at rense et reagensglas blot med buffer. Hvis du vil have et rent reagensglas, så hent et nyt i skuffen.",
         "buffer_tube.header": "Dette er en dårlig idé.",
 
+        "kv-info.canPass.skin": "huden",
+        "kv-info.canPass.BBB": "blod-hjerne-barrieren",
+        "kv-info.canPass.blood": "blodbanen",
+        "kv-info.canPass.intestine": "tarmvæg",
+
         "centrifuge.buffycoat-extracted.body": "Buffy coat ligger nu i din beholding",
         "centrifuge.buffycoat-extracted.header": "Buffy coat ekstraheret",
         "centrifuge.dna-extracted.body": "DNA ligger nu i din beholding",
@@ -418,6 +423,11 @@
 
         "buffer_tube.body": "It makes no sense cleaning a clean test tube with buffer. If you want a clean test tube get a new one from the drawer.",
         "buffer_tube.header": "This is a bad idea",
+
+        "kv-info.canPass.skin": "skin",
+        "kv-info.canPass.BBB": "blod-brain-barrier",
+        "kv-info.canPass.blood": "blood vessels",
+        "kv-info.canPass.intestine": "intestinal wall",
 
         "centrifuge.buffycoat-extracted.body": "The buffy coat is now in your inventory.",
         "centrifuge.buffycoat-extracted.header": "Buffy coat extracted",
