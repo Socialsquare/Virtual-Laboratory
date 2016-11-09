@@ -29,7 +29,7 @@
         <div class="inventory-container">
             <img class="hand arrow-left" src="assets/images/arrow_left.png"
                  data-bind="event: { mousedown: scrollInventory.bind(null, false), mouseup: stopScroll, touchstart: scrollInventory.bind(null, false), touchend: stopScroll},
-                            css: { dimmed: !canScroll() }">
+                            css: { dimmed: !canScrollBackward() }">
 
             <div class="inventory" data-bind="drop: { handler: inventoryDropHandler, accept: DragHelper.acceptedByInventory }">
                 <ul data-bind="foreach: gameState.inventory.items, style: { left: scrollValue() + 'px' }">
@@ -43,7 +43,7 @@
 
             <img class="hand arrow-right" src="assets/images/arrow_right.png"
                  data-bind="event: { mousedown: scrollInventory.bind(null, true), mouseup: stopScroll, touchstart: scrollInventory.bind(null, true), touchend: stopScroll},
-                            css: { dimmed: !canScroll() }">
+                            css: { dimmed: !canScrollForward() }">
         </div>
 
         <div class="menu-right-links">

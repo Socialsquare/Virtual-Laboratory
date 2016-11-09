@@ -33,6 +33,8 @@ class Menu extends BaseViewController {
     public scrollValue = ko.observable(0);
 
     public canScroll: KnockoutComputed<boolean>;
+    public canScrollForward: KnockoutComputed<boolean>;
+    public canScrollBackward: KnockoutComputed<boolean>;
     public pipetteIsVisible: KnockoutComputed<boolean>;
 
     constructor() {
@@ -42,6 +44,15 @@ class Menu extends BaseViewController {
 
         this.canScroll = ko.pureComputed(() => {
             return this.inventoryItemsWidth() > this.inventoryWidth;
+        });
+
+        this.canScrollForward = ko.pureComputed(() => {
+            var maxVal = this.inventoryWidth - this.inventoryItemsWidth();
+            return this.scrollValue() > maxVal
+        });
+
+        this.canScrollBackward = ko.pureComputed(() => {
+            return this.scrollValue() < 0
         });
 
         this.pipetteIsVisible = ko.pureComputed(() =>
@@ -88,7 +99,10 @@ class Menu extends BaseViewController {
     }
 
     inventoryItemsWidth() {
-        return gameState.inventory.items().length * 91;
+        // Add one to length, so the arrows appear when inventory is
+        // "visually" full, to show the user there's more room
+        const count = gameState.inventory.items().length + 1
+        return count * 91;
     }
 
     stopScroll() {
