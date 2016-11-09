@@ -11,6 +11,7 @@ import DragHelper = require('utils/DragHelper');
 import gameState = require('model/GameState');
 import ContainerType = require('model/type/Container');
 import SpecialItemType = require('model/type/SpecialItem');
+import PopupModel = require('model/Popup');
 
 // Controllers
 import popupController = require('controller/Popup');
@@ -37,6 +38,8 @@ class Menu extends BaseViewController {
     public canScrollBackward: KnockoutComputed<boolean>;
     public pipetteIsVisible: KnockoutComputed<boolean>;
     public guideIsVisible = ko.observable(false);
+
+    popupModel: PopupModel;
 
     constructor() {
         super('menu');
@@ -136,7 +139,6 @@ class Menu extends BaseViewController {
     }
 
     toggleGuide() {
-        console.log(this.popupModel, this.popupModel && this.popupModel.isVisible())
         if (this.popupModel && this.popupModel.isVisible()) {
             this.popupModel.hide();
             this.popupModel = null;

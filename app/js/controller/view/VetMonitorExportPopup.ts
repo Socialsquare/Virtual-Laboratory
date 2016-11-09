@@ -1,3 +1,5 @@
+declare const Promise: any;
+
 import ko = require('knockout');
 import _ = require('lodash');
 import $ = require('jquery');
