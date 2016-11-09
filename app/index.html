@@ -64,10 +64,7 @@
                               'press-top-button': activeViewController().pipette.pressTopButton()}">
             </div>
 
-            <div class="popup-cover" style="display: none"
-                 data-bind="visible: popupController.activePopup() || tutorialController.active(),
-                            css: { transparent: tutorialController.active, darkened: popupController.activePopup() }">
-            </div>
+            <div class="tutorial-container" data-bind="template: { name: 'tutorial', data: tutorialController }"></div>
 
             <div class="popup-container" data-bind="visible: popupController.activePopup">
                 <div data-bind="foreach: popupController.activePopups">
@@ -92,8 +89,6 @@
                     <div data-bind="template: { name: templateName, data: $data}"></div>
                 </div>
             </div>
-
-            <div data-bind="template: { name: 'tutorial', data: tutorialController }"></div>
 
         </div>
 

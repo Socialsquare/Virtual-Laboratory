@@ -2,11 +2,14 @@ import ko = require('knockout');
 import $ = require('jquery');
 import _ = require('lodash');
 
-import SelectOption = require('controller/SelectOption');
+import i18n = require('service/Localization');
+import ImageHelper = require('utils/ImageHelper');
 
 import MicrotiterplateModel = require('model/Microtiterplate');
 import ExperimentModel = require('model/Experiment');
 
+// Needed for to trigger events on popup
+import ActivationType = require('model/type/Activation');
 import TubeExtractionType = require('model/type/TubeExtraction');
 
 import PopupModel = require('model/Popup');
@@ -17,11 +20,7 @@ import ListPopupModel = require('model/popup/List');
 import DoorPopupModel = require('model/popup/Door');
 import TubeExtractionPopupModel = require('model/popup/TubeExtraction');
 
-// Needed for to trigger events on popup
-import ActivationType = require('model/type/Activation');
-
-import ImageHelper = require('utils/ImageHelper');
-
+import SelectOption = require('controller/SelectOption');
 import VideoController = require('controller/Video');
 
 class Popup {
@@ -150,7 +149,6 @@ class Popup {
     select<T>(title, message, options: SelectOption<T>[]) {
         var selected = ko.observable();
         var promise: JQueryDeferred<SelectOption<T>> = $.Deferred();
-
         var vm = this.show('popup-select', {
             title: title,
             message: message,

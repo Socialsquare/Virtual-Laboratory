@@ -1,4 +1,3 @@
-/* popup/guide.scss */
 $img-guide: "#{$img-path}/guide_";
 
 .popup-guide {
@@ -45,8 +44,12 @@ $img-guide: "#{$img-path}/guide_";
         }
     }
 
+    .btn-row {
+      margin-top: 10px;
+    }
+
     .inner {
-        height: 520px;
+        height: 460px;
         overflow-x: hidden;
         overflow-y: scroll;
         padding: 0 10px;

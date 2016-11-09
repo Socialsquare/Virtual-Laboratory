@@ -34,6 +34,7 @@ class Menu extends BaseViewController {
 
     public canScroll: KnockoutComputed<boolean>;
     public pipetteIsVisible: KnockoutComputed<boolean>;
+    public guideIsVisible = ko.observable(false);
 
     constructor() {
         super('menu');
@@ -46,7 +47,7 @@ class Menu extends BaseViewController {
 
         this.pipetteIsVisible = ko.pureComputed(() =>
             gameState.pipette.active()
-        )
+        );
 
         ko.rebind(this);
     }
@@ -120,8 +121,14 @@ class Menu extends BaseViewController {
         gameState.inventory.add(item);
     }
 
-    showGuide() {
-        this.popupController.showGuide(experimentController.activeExperiment());
+    toggleGuide() {
+        console.log(this.popupModel, this.popupModel && this.popupModel.isVisible())
+        if (this.popupModel && this.popupModel.isVisible()) {
+            this.popupModel.hide();
+            this.popupModel = null;
+        } else {
+            this.popupModel = this.popupController.showGuide(experimentController.activeExperiment());
+        }
     }
 
     togglePipette() {
@@ -133,7 +140,7 @@ class Menu extends BaseViewController {
     }
 
     pipetteDown(event) {
-        $('#pipette').trigger(event)
+        $('#pipette').trigger(event);
     }
 
     hidePipette() {
@@ -173,4 +180,4 @@ class Menu extends BaseViewController {
     }
 }
 
-export = Menu
+export = Menu;

@@ -1,6 +1,9 @@
-.popup-cover {
-    height: $main-view-height;
-    position: absolute;
+.popup-container {
+    background-color: rgba($black, .5);
+    height: $lab-view-height;
+    left: 0;
+    position: relative;
+    top: 0;
     width: $main-view-width;
 }
 
@@ -13,7 +16,7 @@
     color: $white;
     font-size: 1.2rem;
     left: $popup-margin;
-    max-height: $main-view-height - 2 * $popup-margin;
+    max-height: $lab-view-height - 2 * $popup-margin;
     padding: 30px;
     position: absolute;
     right: $popup-margin;
