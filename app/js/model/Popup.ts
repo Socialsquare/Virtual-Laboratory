@@ -39,13 +39,17 @@ class PopupModel {
         this.closePromise.resolve();
     }
 
+    isVisible() {
+      return Boolean(this.closePromise) && this.closePromise.state() === 'pending';
+    }
+
     print() {
         var isFs = screenfull.enabled && screenfull.isFullscreen;
         if (isFs) {
             var body = document.getElementsByTagName('body')[0];
             screenfull.exit(body);
         }
-        $("#print-popup").html($(".popup").html());
+        $('#print-popup').html($('.popup').html());
         window.print();
         if (isFs && !screenfull.isFullscreen){
             var body = document.getElementsByTagName('body')[0];
@@ -54,7 +58,7 @@ class PopupModel {
     }
 
     selectedExperiment() {
-        return { 'id': 'clamp' }
+        return { 'id': 'clamp' };
     }
 
     discardExperiment () {

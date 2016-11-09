@@ -1,4 +1,10 @@
-/* tutorial.scss */
+.tutorial-container {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 
 .tutorial-box {
     @include gradient-bg(#2f2f2f, #0f0f0f);
