@@ -60,6 +60,10 @@ class DesignDrug extends BaseComputer {
         scaffold.slots().forEach((slot) => {
             slot.sidegroup(null)
         })
+
+        // Sometimes the view doesn't update correctly, so we push a change to
+        // make sure it updates
+        setTimeout(() => { scaffold.slots()[0].sidegroup(null) }, 50)
     }
 
     order() {
