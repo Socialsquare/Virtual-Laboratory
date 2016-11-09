@@ -1,9 +1,9 @@
 import ko = require('knockout');
 
 import router = require('controller/Router');
-
-import helpService = require('service/Help');
 import PopupModel = require('model/Popup');
+import i18n = require('service/Localization');
+import helpService = require('service/Help');
 
 class Help extends PopupModel {
 
@@ -29,6 +29,16 @@ class Help extends PopupModel {
 
             this.hide();
         }
+    }
+
+    onBeforeOpen () {
+        this.entries.sort((a, b) => {
+            const titleA = i18n.text(a.title)
+            const titleB = i18n.text(b.title)
+            if (titleA > titleB) { return 1; }
+            if (titleA < titleB) { return -1; }
+            return 0;
+        })
     }
 }
 

@@ -39,6 +39,8 @@ class PopupModel {
         this.closePromise.resolve();
     }
 
+    onBeforeOpen () {}
+
     isVisible() {
       return Boolean(this.closePromise) && this.closePromise.state() === 'pending';
     }

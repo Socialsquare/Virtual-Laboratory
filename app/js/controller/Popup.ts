@@ -58,10 +58,13 @@ class Popup {
     }
 
     showPopup(popup: PopupModel) {
-        if (popup.isNotification)
+        popup.onBeforeOpen()
+
+        if (popup.isNotification) {
             this.activeNotifications.push(popup);
-        else
+        } else {
             this.activePopups.push(popup);
+        }
 
         popup.closePromise.then(() => this.hide(popup));
 
