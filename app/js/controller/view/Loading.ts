@@ -8,20 +8,18 @@ import localizationService = require('service/Localization');
 import FeatureHelper = require('utils/FeatureHelper');
 import gameState = require('model/GameState');
 
-
 class Loading extends BaseViewController {
 
     public percent: KnockoutObservable<number>;
     public isLoaded: KnockoutObservable<boolean>;
-
+    public hasMenu: KnockoutObservable<boolean>;
     public experimentSelectorController: ExperimentSelectorController;
 
     constructor() {
         super('loading');
 
         gameState.pipette.active(false);
-        this.hasMenu(false);
-
+        this.hasMenu = ko.observable(false);
         this.percent = ko.observable(0);
         this.isLoaded = ko.observable(false);
 
