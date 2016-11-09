@@ -64,7 +64,7 @@
                               'press-top-button': activeViewController().pipette.pressTopButton()}">
             </div>
 
-            <div class="tutorial-container" data-bind="template: { name: 'tutorial', data: tutorialController }"></div>
+            <div class="tutorial-container" data-bind="template: { name: 'tutorial', data: tutorialController }, visible: tutorialController.active()"></div>
 
             <div class="popup-container" data-bind="visible: popupController.activePopup">
                 <div data-bind="foreach: popupController.activePopups">
