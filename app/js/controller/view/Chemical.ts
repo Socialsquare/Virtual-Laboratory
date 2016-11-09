@@ -63,7 +63,7 @@ class Chemical extends BaseViewController {
 
         this.fridgeItems.pushAll([
             new ChemicalItemModel('item.name.yeast', () => this.inTube(LiquidFactory.microorganism.yeast())),
-            new ChemicalItemModel('item.name.mammalian', () => this.inTube(LiquidFactory.microorganism.yeast())),
+            new ChemicalItemModel('item.name.mammalian', () => this.inTube(LiquidFactory.microorganism.mammalian())),
             new ChemicalItemModel('item.name.myeloma', () => this.inTube(LiquidFactory.microorganism.myeloma())),
             //(TODO: not used) new ChemicalItemModel('item.name.antibiotic_a', () => this.inTube(LiquidFactory.antibiotic.a())),
             new ChemicalItemModel('item.name.antibiotic_b', () => this.inTube(LiquidFactory.antibiotic.b())),

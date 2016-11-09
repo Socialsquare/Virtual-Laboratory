@@ -111,8 +111,9 @@ class TextHelper {
         case MicroorganismType.YEAST:
             return 'item.name.yeast';
         case MicroorganismType.MYELOMA:
-            console.log('this is myeloma');
             return 'item.name.myeloma';
+        case MicroorganismType.MAMMALIAN:
+            return 'item.name.mammalian';
 
         case MouseBloodType.NORMAL:
             return 'liquid.name.mouse_blood.normal';

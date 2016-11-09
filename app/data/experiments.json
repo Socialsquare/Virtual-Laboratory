@@ -1707,7 +1707,7 @@
                                 },
                                 {
                                     "type":"LiquidType.MICROORGANISM",
-                                    "subtype":"MicroorganismType.YEAST"
+                                    "subtype":"MicroorganismType.MAMMALIAN"
                                 }
                             ]
                         }
@@ -1727,7 +1727,7 @@
                                 },
                                 {
                                     "type":"LiquidType.MICROORGANISM",
-                                    "subtype":"MicroorganismType.YEAST"
+                                    "subtype":"MicroorganismType.MAMMALIAN"
                                 },
                                 {
                                     "type":"LiquidType.GROWTH_MEDIUM"
@@ -1760,7 +1760,7 @@
                                         },
                                         {
                                             "type":"LiquidType.MICROORGANISM",
-                                            "subtype":"MicroorganismType.YEAST"
+                                            "subtype":"MicroorganismType.MAMMALIAN"
                                         },
                                         {
                                             "type":"LiquidType.ANTIBIOTIC",
@@ -1789,7 +1789,7 @@
                                 },
                                 {
                                     "type":"LiquidType.MICROORGANISM",
-                                    "subtype":"MicroorganismType.YEAST"
+                                    "subtype":"MicroorganismType.MAMMALIAN"
                                 },
                                 {
                                     "type":"LiquidType.ANTIBIOTIC",
@@ -1816,7 +1816,7 @@
                                 },
                                 {
                                     "type":"LiquidType.MICROORGANISM",
-                                    "subtype":"MicroorganismType.YEAST"
+                                    "subtype":"MicroorganismType.MAMMALIAN"
                                 },
                                 {
                                     "type":"LiquidType.ANTIBIOTIC",

@@ -35,6 +35,19 @@ class LiquidFactory {
 
         myeloma: () => {
             return new Myeloma();
+        },
+
+        mammalian: () => {
+            var micro = new Microorganism(MicroorganismType.MAMMALIAN);
+
+            micro.living(true);
+            micro.extraGenes([]);
+            micro.extraProperties([]);
+            micro.optimalPh(6.0);
+            micro.optimalTemp(35);
+            micro.concentration(Math.pow(10, 8));
+
+            return micro;
         }
     };
 
