@@ -1,3 +1,5 @@
+$img-guide: "#{$img-path}/guide_";
+
 @media screen {
     #print-popup {
         visibility: hidden;
@@ -5,6 +7,10 @@
 }
 
 @media print {
+    body {
+        background: none!important;
+    }
+
     @page {
         margin-top: 2cm;
         margin-bottom: 2cm;
@@ -14,10 +20,16 @@
 
     #app {
         visibility: hidden;
+        display: none;
     }
 
     #print-popup {
+        font-family: $serif;
         visibility: visible;
+
+        button {
+            display: none;
+        }
 
         hr,
         .btn-row {
@@ -37,13 +49,36 @@
         }
 
         h1 {
-            margin: 2em 0 1em;
+            margin: 1em 0 0em;
         }
 
         h2 {
             font-size: 100%;
             font-weight: bold;
-            margin-top: 2em;
+            margin-top: 0.5em;
+        }
+
+        h3 {
+            margin: 1em 0 0.5em;
+        }
+
+        .task-index {
+            text-align: right;
+            padding-right: 0.3em;
+
+            &:after {
+                content: '.';
+            }
+        }
+
+        input[type=checkbox] {
+            margin-right: 0.5em;
+            width: 14px;
+            height: 14px;
+        }
+
+        section h1 {
+            margin-bottom: 0.3em
         }
     }
 }

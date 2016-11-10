@@ -149,19 +149,17 @@ $img-guide: "#{$img-path}/guide_";
 
             input[type=checkbox] + label {
                 background: url("#{$img-guide}checkmark_off.png") 0 0 no-repeat;
+                display: inline-block;
                 height: 57px;
-                width: 44px;
+                left: 0;
+                padding: 0;
                 position: absolute;
                 top: -8px;
-                left: 0;
+                width: 44px;
             }
 
             input[type=checkbox]:checked + label {
-                background: url("#{$img-guide}checkmark_on.png") 0 0 no-repeat;
-                height: 57px;
-                width: 44px;
-                display: inline-block;
-                padding: 0;
+                background-image: url("#{$img-guide}checkmark_on.png");
             }
         }
     }
