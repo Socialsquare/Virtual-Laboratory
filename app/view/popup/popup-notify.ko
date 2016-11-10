@@ -1,6 +1,6 @@
-<div class="popup popup-notify">
-    <!-- ko with: data -->
+<!-- ko with: data -->
+<div class="popup popup-notify" data-bind="css: { jubii: succes }">
     <h3 data-bind="i18n: title"></h3>
     <span class="message" data-bind="i18n: message"></span>
-    <!-- /ko -->
 </div>
+<!-- /ko -->

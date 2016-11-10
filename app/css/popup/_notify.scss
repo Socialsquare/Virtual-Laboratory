@@ -1,5 +1,3 @@
-// popup/notify.scss
-
 .popup-notify {
     height: auto;
     left: auto;
@@ -15,5 +13,9 @@
 
     h3 {
         margin: 0 0 8px;
+    }
+
+    &.jubii {
+        background: linear-gradient(hsl(125, 100%, 10%), hsl(125, 100%, 5%));
     }
 }
