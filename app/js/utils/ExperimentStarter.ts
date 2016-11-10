@@ -26,16 +26,8 @@ export const initiateExperimentAtStep = (app, experimentNum, partNum, taskNum) =
         }
 
         const microtiter = ContainerFactory.micro();
-        microtiter.add(LiquidFactory.antigenSmallpox());
-        microtiter.add(LiquidFactory.saltWater());
-        microtiter.add(LiquidFactory.hybridomaMedium());
-        microtiter.add(LiquidFactory.microorganism.myeloma());
-        microtiter.add(LiquidFactory.homoSpleen(LiquidFactory.antibodySmallpox()));
-
-
         const tube = new TypeModel();
         tube.add(LiquidFactory.fluorescentSecondaryAntibody());
-        gameState.inventory.add(tube);
         gameState.inventory.add(microtiter);
 
         /*
@@ -50,8 +42,6 @@ export const initiateExperimentAtStep = (app, experimentNum, partNum, taskNum) =
 
         */
 
-        // navigaoce
-        console.log('nav!')
         app.router.navigate('overview');
     });
-}
+};
