@@ -34,10 +34,10 @@ class ImageHelper {
             return ImageHelper.img(prefix + (position + 1) + '.png');
         };
     }
-    
+
     static timeIndicatorImageByNo = (imgNo: number) => {
         var ret = ImageHelper.imageRoot + '/'  +
-            ImageHelper.timeIndicatorImgBaseName + 
+            ImageHelper.timeIndicatorImgBaseName +
             utils.formatter.leadingZeros(imgNo, 5) + '.png';
         return ret;
     }
@@ -55,7 +55,7 @@ class ImageHelper {
 
     static odMachineTubeImage = _.constant(ImageHelper.img('work2_od-on.png'));
     static centrifugeTubeImage = ImageHelper.single('work2_centrifuge-slot');
-    
+
     static work3TubeImage = ImageHelper.emptyFull('work3_tube');
     static pcrMachineTubeImage = ImageHelper.single('work3_pcr_tube');
 
@@ -105,19 +105,27 @@ class ImageHelper {
     static inventoryIcon(item) {
         switch (item.type()) {
         case ContainerType.PETRI_DISH:
-            return ImageHelper.img('icon_cup_petri.png');
+            if (item.isEmpty())
+                return ImageHelper.img('icon_cup_petri_empty.png');
+            return ImageHelper.img('icon_cup_petri_full.png');
 
         case ContainerType.MICROTITER:
-            return ImageHelper.img('icon_cup_mkrt.png');
+            if (item.isEmpty())
+                return ImageHelper.img('icon_cup_mkrt_empty.png');
+            return ImageHelper.img('icon_cup_mkrt_empty.png');
 
         case ContainerType.TUBE:
+            if (item.isEmpty())
+                return ImageHelper.img('icon_cup_tube_empty.png');
             if (item.contains(LiquidType.MOUSE_BLOOD))
                 return ImageHelper.img('icon_cup_tube_mouseblood.png');
-            return ImageHelper.img('icon_cup_tube.png');
+            return ImageHelper.img('icon_cup_tube_full.png');
 
         case ContainerType.SYRINGE:
+            if (item.contains(LiquidType.DEADLY))
+                return ImageHelper.img('icon_syringe_deadly.png');
             return ImageHelper.img('icon_syringe.png');
-        
+
         case ContainerType.GEL:
             return ImageHelper.img('icon_gel.png');
 
@@ -151,7 +159,7 @@ class ImageHelper {
             case MouseType.PSORIASIS:
                 return ImageHelper.img('icon_mouse_pso.png');
             }
-        
+
         default:
             throw 'Unknown inventory item: ' + item.type();
         }
@@ -160,15 +168,21 @@ class ImageHelper {
     static draggingIcon(item) {
         switch (item.type()) {
         case ContainerType.PETRI_DISH:
-            return ImageHelper.img('icon_cup_petri.png');
+            if (item.isEmpty())
+                return ImageHelper.img('icon_cup_petri_empty.png');
+            return ImageHelper.img('icon_cup_petri_full.png');
 
         case ContainerType.MICROTITER:
-            return ImageHelper.img('icon_cup_mkrt.png');
+            if (item.isEmpty())
+                return ImageHelper.img('icon_cup_mkrt_empty.png');
+            return ImageHelper.img('icon_cup_mkrt_empty.png');
 
         case ContainerType.TUBE:
+            if (item.isEmpty())
+                return ImageHelper.img('icon_cup_tube_empty.png');
             if (item.contains(LiquidType.MOUSE_BLOOD))
                 return ImageHelper.img('icon_cup_tube_mouseblood.png');
-            return ImageHelper.img('icon_cup_tube.png');
+            return ImageHelper.img('icon_cup_tube_full.png');
 
         case ContainerType.BOTTLE:
             return ImageHelper.img('grab_drink.png');
@@ -177,9 +191,11 @@ class ImageHelper {
             return ImageHelper.img('grab_ff.png');
 
         case LiquidType.DNA:
-            return ImageHelper.img('icon_cup_tube.png');
+            return ImageHelper.img('icon_cup_tube_full.png');
 
         case ContainerType.SYRINGE:
+            if (item.contains(LiquidType.DEADLY))
+                return ImageHelper.img('icon_syringe_deadly.png');
             return ImageHelper.img('icon_syringe.png');
 
         case ContainerType.GEL:
