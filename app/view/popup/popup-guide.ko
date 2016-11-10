@@ -12,7 +12,6 @@
 
         <header data-bind="attr: { 'id': experiment.id }">
             <h1 data-bind="i18n: experiment.title"></h1>
-            <button class="discard-experiment" data-bind="click: discardExperiment"></button>
             <span class="story" data-bind="i18n: experiment.story"></span>
         </header>
 

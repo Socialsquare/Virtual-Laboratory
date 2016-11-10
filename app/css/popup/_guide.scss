@@ -92,16 +92,6 @@ $img-guide: "#{$img-path}/guide_";
                 font-weight: bold;
                 margin: .5em 0;
             }
-
-            .discard-experiment {
-                background: url("#{$img-guide}discard_experiment.png");
-                background-repeat: no-repeat;
-                float: right;
-                height: 70px;
-                margin-bottom: $spacer;
-                margin-left: $spacer;
-                width: 70px;
-            }
         }
 
         h2 {

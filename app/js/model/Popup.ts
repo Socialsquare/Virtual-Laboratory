@@ -62,11 +62,6 @@ class PopupModel {
     selectedExperiment() {
         return { 'id': 'clamp' };
     }
-
-    discardExperiment () {
-        this.hide();
-        router.navigate('loading');
-    }
 }
 
 export = PopupModel;
