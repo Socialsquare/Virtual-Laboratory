@@ -78,14 +78,6 @@ class ImageHelper {
         return ImageHelper.img('uv_petri' + (position + 1) + '_' + state + '.png');
     }
 
-    static scaffoldImage(name) {
-        return ImageHelper.img('scaffold_' + name + '.png');
-    }
-
-    static sidegroupImage(name) {
-        return ImageHelper.img('sidegroup_' + name + '.png');
-    }
-
     static microtiterWell(index: number, microtiter: MicrotiterplateModel) {
         if (microtiter.location() === LocationType.UVROOM) {
             if (microtiter.isWellFluorescent(index))
