@@ -116,7 +116,7 @@ class ImageHelper {
             return ImageHelper.img('icon_cup_tube.png');
 
         case ContainerType.SYRINGE:
-            return ImageHelper.img('icon_med_inj.png');
+            return ImageHelper.img('icon_syrringe.png');
         
         case ContainerType.GEL:
             return ImageHelper.img('icon_gel.png');
@@ -180,7 +180,7 @@ class ImageHelper {
             return ImageHelper.img('icon_cup_tube.png');
 
         case ContainerType.SYRINGE:
-            return ImageHelper.img('icon_med_inj.png');
+            return ImageHelper.img('icon_syrringe.png');
 
         case ContainerType.GEL:
             return ImageHelper.img('icon_gel.png');
