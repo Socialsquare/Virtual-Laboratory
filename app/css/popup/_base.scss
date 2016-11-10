@@ -1,10 +1,14 @@
 .popup-container {
     background-color: rgba($black, .5);
-    height: $lab-view-height;
+    height: $main-view-height;
     left: 0;
     position: relative;
     top: 0;
     width: $main-view-width;
+
+    &.hasmenu {
+        height: $lab-view-height;
+    }
 }
 
 .popup {
