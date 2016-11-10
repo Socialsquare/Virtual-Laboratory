@@ -21,6 +21,7 @@ require.config({
         jqueryui: '../../bower_components/jquery-ui/jquery-ui',
         flot: '../../bower_components/jquery-flot/jquery.flot',
         html5Loader: '../../bower_components/jquery.html5loader/src/jquery.html5Loader',
+        is: '../bower_components/is_js/is',
         lodash: '../../bower_components/lodash/lodash',
         knockout: '../../bower_components/knockout/dist/knockout.debug',
         mapping: '../../bower_components/knockout-mapping/knockout.mapping',

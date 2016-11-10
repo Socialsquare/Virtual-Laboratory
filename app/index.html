@@ -66,7 +66,7 @@
 
             <div class="tutorial-container" data-bind="template: { name: 'tutorial', data: tutorialController }, visible: tutorialController.active()"></div>
 
-            <div class="popup-container" data-bind="visible: popupController.activePopup">
+            <div class="popup-container" data-bind="visible: popupController.activePopup, css: { hasmenu: activeViewController().hasMenu }">
                 <div data-bind="foreach: popupController.activePopups">
                     <div data-bind="template: { name: templateName, data: $data, afterRender: postRender}"></div>
                 </div>
