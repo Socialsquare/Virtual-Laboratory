@@ -17,6 +17,7 @@
     "requirejs-plugins": "~1.0.3",
     "requirejs-text": "~2.0.13",
     "screenfull": "~1.2.1",
-    "jquery.ui.touch-punch.dk": "^0.3.3"
+    "jquery.ui.touch-punch.dk": "^0.3.3",
+    "is_js": "^0.9.0"
   }
 }

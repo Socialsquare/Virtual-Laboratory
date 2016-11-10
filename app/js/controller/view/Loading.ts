@@ -1,8 +1,10 @@
 import ko = require('knockout');
 import $ = require('jquery');
+import is = require('is');
 
 import BaseViewController = require('controller/view/Base');
 import ExperimentSelectorController = require('controller/ExperimentSelector');
+import PopupController = require('controller/Popup');
 import localizationService = require('service/Localization');
 
 import FeatureHelper = require('utils/FeatureHelper');
@@ -43,12 +45,20 @@ class Loading extends BaseViewController {
         return localizationService.selectedLanguage();
     }
 
+    isGoodBrowser() {
+        return is.not.desktop() || is.chrome() || is.firefox();
+    }
+
     enter() {
         gameState.pipette.active(false);
         this.experimentSelectorController.selected(null);
 
         if (FeatureHelper.homeScreen && !window.navigator.standalone) {
-            this.popupController.message('popup.home_screen.header', 'popup.home_screen.body');
+            PopupController.message('popup.home_screen.header', 'popup.home_screen.body');
+        }
+
+        if (!this.isGoodBrowser()) {
+            PopupController.message('popup.bad_browser.header', 'popup.bad_browser.body');
         }
     }
 }
