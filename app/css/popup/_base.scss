@@ -19,6 +19,8 @@
     box-shadow: 0 0 4px $black;
     color: $white;
     font-size: 1.2rem;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
     left: $popup-margin;
     max-height: $lab-view-height - 2 * $popup-margin;
     padding: 30px;

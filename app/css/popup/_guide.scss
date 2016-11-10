@@ -4,6 +4,8 @@ $img-guide: "#{$img-path}/guide_";
     background: $off-white;
     color: #3f4c41;
     font-family: $serif;
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: subpixel-antialiased;
     left: $popup-medium-margin;
     right: $popup-medium-margin;
 
