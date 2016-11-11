@@ -17,7 +17,7 @@ $img-guide: "#{$img-path}/guide_";
 
     h2 {
         color: #a69d8c;
-        font-size: 0.6em;
+        font-size: .6em;
         line-height: 1;
         margin-bottom: $spacer;
     }
@@ -29,8 +29,8 @@ $img-guide: "#{$img-path}/guide_";
     }
 
     .ba-logo {
-        width: 130px;
         margin-bottom: -5px;
+        width: 130px;
     }
 
     .dda-logo {
