@@ -49,113 +49,114 @@ $img-guide: "#{$img-path}/guide_";
     .btn-row {
       margin-top: 10px;
     }
-}
 
-.guide__inner {
-    height: 480px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    padding: 0 10px;
-    position: relative;
-
-    header {
-        background-repeat: no-repeat;
-        margin-bottom: 2em;
-        min-height: 124px;
-        padding-left: 145px;
+    .inner {
+        height: 480px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding: 0 10px;
         position: relative;
 
-        &#clamp {
-            background-image: url("#{$img-guide}experiment_clamp.png");
-        }
+        header {
+            background-repeat: no-repeat;
+            margin-bottom: 2em;
+            min-height: 124px;
+            padding-left: 145px;
+            position: relative;
 
-        &#diabetes {
-            background-image: url("#{$img-guide}experiment_diabetes.png");
-        }
+            &#clamp {
+                background-image: url("#{$img-guide}experiment_clamp.png");
+            }
 
-        &#enzymes {
-            background-image: url("#{$img-guide}experiment_enzymes.png");
-        }
+            &#diabetes {
+                background-image: url("#{$img-guide}experiment_diabetes.png");
+            }
 
-        &#insulin {
-            background-image: url("#{$img-guide}experiment_insulin.png");
-        }
+            &#enzymes {
+                background-image: url("#{$img-guide}experiment_enzymes.png");
+            }
 
-        &#antibody {
-            background-image: url("#{$img-guide}experiment_antibody.png");
-        }
+            &#insulin {
+                background-image: url("#{$img-guide}experiment_insulin.png");
+            }
 
-        &#drug {
-            background-image: url("#{$img-guide}experiment_drug.png");
-        }
+            &#antibody {
+                background-image: url("#{$img-guide}experiment_antibody.png");
+            }
 
-        h1 {
-            color: $grey-green;
-            font-size: 1.6em;
-            font-weight: bold;
-            margin: .5em 0;
-        }
-    }
+            &#drug {
+                background-image: url("#{$img-guide}experiment_drug.png");
+            }
 
-    h2 {
-        font-size: 1.2em;
-        color: $grey-green;
-        margin: 1em 0 0.5em;
-        position: static;
-    }
-
-    table {
-        margin-bottom: 20px;
-        width: 100%;
-
-        thead {
-            padding-top: .5em;
-
-            h3 {
-                font-size: 1em;
-                padding-top: .5em;
+            h1 {
+                color: $grey-green;
+                font-size: 1.6em;
+                font-weight: bold;
+                margin: .5em 0;
             }
         }
 
-        td {
-            padding: .5em 0;
-            position: relative;
+        h2 {
+            font-size: 1.2em;
+            color: $grey-green;
+            margin: 1em 0 0.5em;
+            position: static;
         }
 
-        .task-checkmark {
-            padding-bottom: 3em;
-            width: 50px;
+        table {
+            margin-bottom: 20px;
+            width: 100%;
+
+            thead {
+                padding-top: .5em;
+
+                h3 {
+                    font-size: 1em;
+                    padding-top: .5em;
+                }
+            }
+
+            td {
+                padding: .5em 0;
+                position: relative;
+            }
+
+            .task-checkmark {
+                padding-bottom: 3em;
+                width: 50px;
+            }
+
+            .task-index {
+                font-weight: bold;
+                padding-right: 10px;
+                text-align: center;
+            }
+
+            .part-question {
+                font-weight: bold;
+            }
+        }
+        input[type=checkbox] {
+            display: none;
         }
 
-        .task-index {
-            font-weight: bold;
-            padding-right: 10px;
-            text-align: center;
+        input[type=checkbox] + label {
+            background: url("#{$img-guide}checkmark_off.png") 0 0 no-repeat;
+            display: inline-block;
+            height: 57px;
+            left: 0;
+            padding: 0;
+            position: absolute;
+            top: -8px;
+            width: 44px;
         }
 
-        .part-question {
-            font-weight: bold;
+        input[type=checkbox]:checked + label {
+            background-image: url("#{$img-guide}checkmark_on.png");
         }
-    }
-    input[type=checkbox] {
-        display: none;
-    }
-
-    input[type=checkbox] + label {
-        background: url("#{$img-guide}checkmark_off.png") 0 0 no-repeat;
-        display: inline-block;
-        height: 57px;
-        left: 0;
-        padding: 0;
-        position: absolute;
-        top: -8px;
-        width: 44px;
-    }
-
-    input[type=checkbox]:checked + label {
-        background-image: url("#{$img-guide}checkmark_on.png");
     }
 }
+
 
 .back-button.guide-back-button {
     background-color: $off-white;
