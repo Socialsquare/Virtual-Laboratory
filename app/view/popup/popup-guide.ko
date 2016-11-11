@@ -8,7 +8,7 @@
         </div>
     </header>
 
-    <section class="inner">
+    <section class="guide__inner">
 
         <header data-bind="attr: { 'id': experiment.id }">
             <h1 data-bind="i18n: experiment.title"></h1>
@@ -55,9 +55,16 @@
 
     </section>
 
-    <div class="btn-row">
-        <button data-bind="click: print, i18n: 'common.print'"></button>
-        <button data-bind="click: hide.bind(null, $element), i18n: 'common.close'"></button>
-    </div>
+</div>
 
+<div class="back-button guide-back-button">
+    <img class="hud__icon hand"
+        src="assets/icons/back-dark.svg"
+        alt="Tilbage"
+        data-bind="click: hide.bind(null, $element)">
+    <img class="hud__icon hand print-button"
+        src="assets/icons/print-dark.svg"
+        alt="Print"
+        data-bind="click: print">
+    <!-- i18n: 'common.print' -->
 </div>

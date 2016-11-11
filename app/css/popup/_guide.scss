@@ -2,7 +2,7 @@ $img-guide: "#{$img-path}/guide_";
 
 .popup-guide {
     background: $off-white;
-    color: #3f4c41;
+    color: $grey-green;
     font-family: $serif;
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: subpixel-antialiased;
@@ -51,7 +51,7 @@ $img-guide: "#{$img-path}/guide_";
     }
 
     .inner {
-        height: 460px;
+        height: 480px;
         overflow-x: hidden;
         overflow-y: scroll;
         padding: 0 10px;
@@ -89,7 +89,7 @@ $img-guide: "#{$img-path}/guide_";
             }
 
             h1 {
-                color: #3f4c41;
+                color: $grey-green;
                 font-size: 1.6em;
                 font-weight: bold;
                 margin: .5em 0;
@@ -98,31 +98,32 @@ $img-guide: "#{$img-path}/guide_";
 
         h2 {
             font-size: 1.2em;
-            color: #3f4c41;
+            color: $grey-green;
             margin: 1em 0 0.5em;
             position: static;
         }
 
         table {
+            margin-bottom: 20px;
             width: 100%;
 
             thead {
-                padding-top: 0.5em;
+                padding-top: .5em;
 
                 h3 {
                     font-size: 1em;
-                    padding-top: 0.5em;
+                    padding-top: .5em;
                 }
             }
 
             td {
+                padding: .5em 0;
                 position: relative;
-                padding: 0.5em 0;
             }
 
             .task-checkmark {
-                width: 50px;
                 padding-bottom: 3em;
+                width: 50px;
             }
 
             .task-index {
@@ -154,5 +155,17 @@ $img-guide: "#{$img-path}/guide_";
                 background-image: url("#{$img-guide}checkmark_on.png");
             }
         }
+    }
+}
+
+.back-button.guide-back-button {
+    background-color: $off-white;
+    border-color: darken($off-white, 20%);
+    box-shadow: 0 0 4px $black;
+    color: $grey-green;
+
+    .print-button {
+        box-sizing: border-box;
+        padding: 4px;
     }
 }
