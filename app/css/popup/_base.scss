@@ -12,9 +12,7 @@
 }
 
 .popup {
-    @include gradient-bg(#2f2f2f, #0f0f0f);
-    // background: $off-white;
-    // color: #3f4c41;
+    background: linear-gradient(#2f2f2f, #0f0f0f);
     border-radius: 5px;
     box-shadow: 0 0 4px $black;
     color: $white;
@@ -75,6 +73,12 @@
         margin-bottom: -10px;
         margin-top: 20px;
     }
+}
+
+.back-button.popup-back-button {
+    background-color: #2f2f2f;
+    border-color: #222;
+    box-shadow: 0 0 4px $black;
 }
 
 @import 'details';

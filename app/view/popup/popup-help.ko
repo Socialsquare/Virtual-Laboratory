@@ -2,10 +2,6 @@
 
     <h1 data-bind="i18n: 'instruments.title'"></h1>
 
-    <div class="help-btn-row">
-        <button data-bind="click: hide, i18n: 'common.close'"></button>
-    </div>
-
     <div class="inner">
         <div class="nav">
             <ul data-bind="foreach: entries">
@@ -31,4 +27,8 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="back-button popup-back-button hand" data-bind="click: hide">
+    <img class="hud__icon" src="assets/icons/back.svg" alt="Tilbage">
 </div>

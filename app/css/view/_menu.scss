@@ -11,16 +11,6 @@
         }
     }
 
-    .back-button {
-        background-color: $grey-brown-hud;
-        border: 4px solid #555159;
-        border-bottom-right-radius: $radius * 2;
-        border-left-width: 0;
-        border-top-width: 0;
-        position: absolute;
-        top: 0;
-    }
-
     .right {
         background-color: $grey-brown-hud;
         border: 4px solid #555159;
@@ -167,4 +157,15 @@
         pointer-events: none;
         width: 100px;
     }
+}
+
+.back-button {
+    background-color: $grey-brown-hud;
+    border: 4px solid #555159;
+    border-bottom-right-radius: $radius * 2;
+    border-left-width: 0;
+    border-top-width: 0;
+    line-height: 0;
+    position: absolute;
+    top: 0;
 }

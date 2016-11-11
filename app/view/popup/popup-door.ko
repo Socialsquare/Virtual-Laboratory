@@ -21,8 +21,8 @@
             </div>
         </li>
     </ul>
+</div>
 
-    <div class="btn-row">
-        <button type="button" class="popup-cancel-btn" data-bind="click: hide">Luk</button>
-    </div>
+<div class="back-button popup-back-button hand" data-bind="click: hide">
+    <img class="hud__icon" src="assets/icons/back.svg" alt="Tilbage">
 </div>
