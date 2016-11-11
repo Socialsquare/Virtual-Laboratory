@@ -6,6 +6,7 @@ class Router {
     public currentRoute: KnockoutObservable<string>;
     public viewHistory: KnockoutObservableArray<string>;
     public hasBack: KnockoutComputed<boolean>;
+    public isOverview: KnockoutComputed<boolean>;
 
     constructor() {
         this.currentRoute = ko.observable(null);
@@ -16,13 +17,15 @@ class Router {
             return !this.viewHistory.isEmpty();
         });
 
+        this.isOverview = ko.pureComputed(() => {
+            return this.currentRoute() === 'overview';
+        });
+
         ko.rebind(this);
     }
 
     navigate(name: string) {
         if (!!this.currentRoute()
-            // ignore loading screen from history
-            && this.currentRoute() !== 'loading'
             // ignore changing to the same route
             && this.currentRoute() !== name)
             this.viewHistory.push(this.currentRoute());

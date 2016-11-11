@@ -120,10 +120,6 @@ class Menu extends BaseViewController {
         this.popupController.labInfo();
     }
 
-    selectExperiment() {
-        this.router.navigate('loading');
-    }
-
     fullscreen() {
         var body = document.getElementsByTagName('body')[0];
         if (screenfull.enabled) {

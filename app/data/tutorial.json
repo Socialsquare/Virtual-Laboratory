@@ -1,6 +1,20 @@
 [
     {
         "title": {
+            "dk": "Eksperiment valg",
+            "en": "Select experiment"
+        },
+        "message": {
+            "dk": "Du kan altid vælge et nyt eksperiment, men vær opmærksom på at dine ting og fremskridt mistes.",
+            "en": "You can always select a new experiment - but be aware that your progress in the current one will be lost."
+        },
+        "x": 2,
+        "y": 70,
+        "arrowTop": true,
+        "arrowLeft": true
+    },
+    {
+        "title": {
             "dk": "Hjælp",
             "en": "Help"
         },
@@ -9,20 +23,6 @@
             "en": "The \"Help\" window gives you information about all of the laboratory's equipment and features. Use it if you are in doubt of where to find a piece of equipment or how it works."
         },
         "x": 655,
-        "y": 70,
-        "arrowTop": true,
-        "arrowLeft": false
-    },
-    {
-        "title": {
-            "dk": "Eksperiment valg",
-            "en": "Select experiment"
-        },
-        "message": {
-            "dk": "Du kan altid vælge et nyt eksperiment, men vær opmærksom på at dine ting og fremskridt mistes.",
-            "en": "You can always select a new experiment - but be aware that your progress in the current one will be lost."
-        },
-        "x": 615,
         "y": 70,
         "arrowTop": true,
         "arrowLeft": false
