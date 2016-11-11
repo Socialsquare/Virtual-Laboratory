@@ -3,7 +3,6 @@
   "dependencies": {
     "add-to-homescreen": "~3.0.7",
     "fastclick": "~1.0.2",
-    "font-awesome": "~4.4.0",
     "jquery": "~2.1.1",
     "jquery-flot": "~0.8.3",
     "jquery-ui": "~1.11.0",
