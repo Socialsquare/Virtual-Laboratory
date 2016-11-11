@@ -5,6 +5,8 @@
     position: absolute;
     top: 0;
     width: $main-view-width;
+    // because we use z-index 2 on the computer back button
+    z-index: 4;
 
     &.hasmenu {
         height: $lab-view-height;
