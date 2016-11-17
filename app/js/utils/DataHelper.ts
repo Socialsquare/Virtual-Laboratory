@@ -14,7 +14,8 @@ class DataHelper {
                 if (_.isNumber(p)) {
                     return p.toFixed(2).toString();
                 } else if (p instanceof Date) {
-                    return p.toLocaleTimeString('da').replace(/\./g, ':');
+                    const mSec = (p.getMilliseconds() / 100).toFixed(0);
+                    return p.toLocaleTimeString('da').replace(/\./g, ':') + '.' + mSec;
                 } else if (p) {
                     return p;
                 } else {

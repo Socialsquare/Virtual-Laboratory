@@ -86,7 +86,7 @@ class VetMonitorExportPopup {
             $('body').append($link);
             $link[0].click();
 
-            setTimeout(() => { $link.remove() }, 10);
+            setTimeout(() => { $link.remove(); }, 10);
         });
     }
 
