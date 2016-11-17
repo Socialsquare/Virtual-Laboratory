@@ -110,8 +110,6 @@ class ImageHelper {
             return ImageHelper.img('icon_cup_petri_full.png');
 
         case ContainerType.MICROTITER:
-            if (item.isEmpty())
-                return ImageHelper.img('icon_cup_mkrt_empty.png');
             return ImageHelper.img('icon_cup_mkrt_empty.png');
 
         case ContainerType.TUBE:
@@ -173,8 +171,6 @@ class ImageHelper {
             return ImageHelper.img('icon_cup_petri_full.png');
 
         case ContainerType.MICROTITER:
-            if (item.isEmpty())
-                return ImageHelper.img('icon_cup_mkrt_empty.png');
             return ImageHelper.img('icon_cup_mkrt_empty.png');
 
         case ContainerType.TUBE:
