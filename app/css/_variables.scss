@@ -1,6 +1,6 @@
 // variables.scss
 
-$sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 $serif: 'Georgia', Times, 'Times New Roman' , serif;
 $img-path: '../assets/images';
 
@@ -11,8 +11,8 @@ $menu-bar-border: 2px;
 $lab-view-height: $main-view-height - $menu-bar-height - $menu-bar-border;
 
 $popup-padding: 30px;
-$popup-margin: 50px;
-$popup-wide-margin: 100px;
+$popup-margin: 70px;
+$popup-wide-margin: 110px;
 $popup-medium-margin: 150px;
 $popup-narrow-margin: 250px;
 
@@ -21,6 +21,7 @@ $black: #000;
 $grey-blue: #5b5c5d;
 $grey-brown-hud: #6e6e73;
 $grey-brown-light: #a69d8c;
+$grey-green: #3f4c41;
 $grey-brown: #645d4d;
 $grey-dark: #353535;
 $grey: #8a8a8a;
@@ -33,3 +34,4 @@ $white: #fff;
 $spacer: 10px;
 $material-icon: 48px;
 $radius: 5px;
+$inventory-icon-size: 90px;

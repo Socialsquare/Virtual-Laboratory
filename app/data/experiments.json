@@ -851,8 +851,8 @@
                     },
                     {
                         "description":{
-                            "dk":"Bland indholdet af reagensglasset og Antibiotikum B i et reagensglas og anvend en kanyle til at overføre indholdet fra reagensglasset til fermentoren.",
-                            "en":"Mix the yeast cells and antibiotic B in a test tube and use a syringe to transfer the content from the test tube to the fermentor."
+                            "dk":"Overfør dine genmodificerede gærceller til fermentoren ved hjælp af en kanyle.",
+                            "en":"Use a syringe to transfer your gene modified yeast cells to the fermentor."
                         },
                         "trigger":{
                             "type":"TriggerType.MIX",

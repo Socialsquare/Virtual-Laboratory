@@ -1,7 +1,12 @@
 <div class="hud">
 
     <div class="back-button hand" data-bind="click: router.back, visible: router.hasBack">
+        <!-- ko if: router.isOverview -->
+        <img class="hud__icon" src="assets/icons/list.svg" alt="Vælg nyt eksperiment">
+        <!-- /ko -->
+        <!-- ko ifnot: router.isOverview -->
         <img class="hud__icon" src="assets/icons/back.svg" alt="Tilbage">
+        <!-- /ko -->
     </div>
 
     <ul class="right">
@@ -9,9 +14,6 @@
             <a href="http://www.biotechacademy.dk">
                 <img class="logo" src="assets/images/logo-white.png" alt="Biotech Academy logo">
             </a>
-        </li>
-        <li class="hand" data-bind="click: selectExperiment">
-            <img class="hud__icon-sm" src="assets/icons/list.svg" alt="Vælg nyt eksperiment">
         </li>
         <li class="hand" data-bind="click: showInformation">
             <img class="hud__icon-sm" src="assets/icons/info.svg" alt="Information">

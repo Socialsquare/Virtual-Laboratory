@@ -1,13 +1,12 @@
+<div class="back-button back-button-computer hand" data-bind="click: goToMenu, visible: hasHeader">
+    <img class="hud__icon" src="assets/icons/back.svg" alt="Tilbage">
+</div>
+
 <div class="computer-view">
-
     <div class="screen" data-bind="css: activeScreenController().templateName">
-
         <div class="header" data-bind="visible: hasHeader">
-            <div class="menu-link" data-bind="click: goToMenu"></div>
             <h2 data-bind="i18n: activeScreenController().title"></h2>
         </div>
-
         <!-- ko template: { name: activeScreenController().templateName, data: activeScreenController, if: !!activeScreenController() } --><!-- /ko -->
     </div>
-
 </div>

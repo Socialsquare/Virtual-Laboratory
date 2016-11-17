@@ -13,8 +13,11 @@
     <div class="btn-row">
         <button class="left" data-bind="click: prevPage, i18n: 'common.previous',
                                         visible: hasPrevious"></button>
-        <button data-bind="click: hide, i18n: 'common.close'"></button>
         <button class="right" data-bind="click: nextPage, i18n: 'common.next',
                                          visible: hasNext()"></button>
     </div>
+</div>
+
+<div class="back-button popup-back-button hand" data-bind="click: hide">
+    <img class="hud__icon" src="assets/icons/back.svg" alt="Tilbage">
 </div>

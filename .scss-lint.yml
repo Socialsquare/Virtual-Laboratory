@@ -8,3 +8,5 @@ linters:
     enabled: false
   NestingDepth:
     max_depth: 4
+  ColorVariable:
+    enabled: false

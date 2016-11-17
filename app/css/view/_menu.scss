@@ -1,5 +1,3 @@
-/* view/menu.scss */
-
 .hud {
     line-height: 0;
 
@@ -11,16 +9,6 @@
             height: $material-icon / 1.5;
             width: $material-icon / 1.5;
         }
-    }
-
-    .back-button {
-        background-color: $grey-brown-hud;
-        border: 4px solid #555159;
-        border-bottom-right-radius: $radius * 2;
-        border-left-width: 0;
-        border-top-width: 0;
-        position: absolute;
-        top: 0;
     }
 
     .right {
@@ -56,8 +44,8 @@
         width: 96px;
 
         img {
-            margin: 6px;
             height: 84px;
+            margin: 6px;
             width: 84px;
         }
     }
@@ -77,76 +65,74 @@
     .guide {
         float: left;
         margin-left: $spacer;
-        margin-top: $spacer;
+        margin-top: $spacer + 1px;
     }
-
-    .inventory-container {
-        float: left;
-        height: 100px;
-        position: relative;
-        margin-left: 15px;
-
-        .arrow-left, .arrow-right {
-            position: absolute;
-            cursor: pointer;
-
-            width: 48px;
-            height: 80px;
-            top: 19px;
-        }
-
-        .arrow-left {
-            left: -5px;
-        }
-
-        .arrow-right {
-            left: 510px;
-        }
-
-        .inventory {
-            @include gradient-bg(#38363c, #54565a);
-            @include border(solid, 2px, #1c1b1e, 45px);
-
-            position: absolute;
-            left: 20px;
-            margin: 13px 0 0 30px;
-            width: 448px;
-            height: 90px;
-            overflow: hidden;
-
-            ul {
-                display: block;
-                position: relative;
-                top: 5px;
-                left: 0;
-                padding: 0;
-                margin-left: 3px;
-
-                height: 90px;
-                list-style-type: none;
-                white-space: nowrap;
-
-                li {
-                    display: inline-block;
-                    width: 80px;
-                    height: 80px;
-                    margin-left: 4px;
-
-                    div {
-                        position: relative;
-                        height: 80px;
-
-                        img {
-                            position: absolute;
-                            bottom: 0;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
 }
+
+.inventory-container {
+    float: left;
+    height: 100px;
+    margin-left: 15px;
+    position: relative;
+
+    .arrow-left, .arrow-right {
+        cursor: pointer;
+        height: 80px;
+        position: absolute;
+        top: 19px;
+        width: 48px;
+    }
+
+    .arrow-left {
+        left: -5px;
+    }
+
+    .arrow-right {
+        left: 510px;
+    }
+}
+
+.inventory {
+    @include gradient-bg(#38363c, #54565a);
+    @include border(solid, 2px, #1c1b1e, 45px);
+    height: $inventory-icon-size;
+    left: 20px;
+    margin: 13px 0 0 30px;
+    overflow: hidden;
+    position: absolute;
+    width: 448px;
+
+    ul {
+        display: block;
+        height: $inventory-icon-size;
+        left: 0;
+        list-style-type: none;
+        margin-left: 8px;
+        padding: 0;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    li {
+        display: inline-block;
+        height: $inventory-icon-size;
+        margin-left: -4px;
+        margin-right: -3px;
+        width: $inventory-icon-size;
+
+        div {
+            height: $inventory-icon-size;
+            position: relative;
+
+        }
+
+        img {
+            bottom: 0;
+            position: absolute;
+        }
+    }
+}
+
 
 .menu-right-links {
     float: right;
@@ -154,21 +140,32 @@
     overflow: hidden;
 
     ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
         line-height: 0;
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
 
     li {
         display: inline-block;
-        vertical-align: middle;
         margin: 0 5px;
+        vertical-align: middle;
     }
 
     img {
+        height: 100px;
         pointer-events: none;
         width: 100px;
-        height: 100px;
     }
+}
+
+.back-button {
+    background-color: $grey-brown-hud;
+    border: 4px solid #555159;
+    border-bottom-right-radius: $radius * 2;
+    border-left-width: 0;
+    border-top-width: 0;
+    line-height: 0;
+    position: absolute;
+    top: 0;
 }

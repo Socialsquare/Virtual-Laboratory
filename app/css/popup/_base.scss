@@ -2,9 +2,11 @@
     background-color: rgba($black, .5);
     height: $main-view-height;
     left: 0;
-    position: relative;
+    position: absolute;
     top: 0;
     width: $main-view-width;
+    // because we use z-index 2 on the computer back button
+    z-index: 4;
 
     &.hasmenu {
         height: $lab-view-height;
@@ -12,13 +14,13 @@
 }
 
 .popup {
-    @include gradient-bg(#2f2f2f, #0f0f0f);
-    // background: $off-white;
-    // color: #3f4c41;
+    background: linear-gradient(#2f2f2f, #0f0f0f);
     border-radius: 5px;
     box-shadow: 0 0 4px $black;
     color: $white;
     font-size: 1.2rem;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
     left: $popup-margin;
     max-height: $lab-view-height - 2 * $popup-margin;
     padding: 30px;
@@ -73,6 +75,12 @@
         margin-bottom: -10px;
         margin-top: 20px;
     }
+}
+
+.back-button.popup-back-button {
+    background-color: #2f2f2f;
+    border-color: #222;
+    box-shadow: 0 0 4px $black;
 }
 
 @import 'details';

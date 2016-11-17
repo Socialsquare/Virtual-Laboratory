@@ -363,7 +363,7 @@ class Experiment {
         if (allDone) {
             popupController.message('experiment.completed.header', 'experiment.completed.body');
         } else {
-            popupController.notify('experiment.task_finished.header', 'experiment.task_finished.body');
+            popupController.notify('experiment.task_finished.header', 'experiment.task_finished.body', 3000, true);
         }
     }
 

@@ -30,7 +30,7 @@ class ExperimentSelector extends BaseViewController {
     }
 
     goBack() {
-        this.router.back();
+        this.router.navigate('overview');
     }
 
     start(experiment) {
@@ -47,7 +47,6 @@ class ExperimentSelector extends BaseViewController {
         }
 
         this.experimentController.startExperiment(this.selected());
-
         this.router.navigate('overview');
     }
 }

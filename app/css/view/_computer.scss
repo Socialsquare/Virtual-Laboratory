@@ -1,5 +1,3 @@
-/* view/computer.scss */
-
 .computer-view {
     $screenWidth: 893px;
     $screenHeight: 524px;
@@ -12,14 +10,6 @@
     .header {
         height: $headerHeight;
         background-color: #CCC;
-
-        .menu-link {
-            @include abs-pos(12px, 20px);
-            @include size(24px, 24px);
-
-            cursor: pointer;
-            background-image: url(#{$img-path}/back-arrow.png)
-        }
 
         h2 {
             padding-top: 12px;
@@ -97,6 +87,9 @@
     }
 }
 
+.back-button-computer {
+    z-index: 2;
+}
 
 @import 'computer/menu';
 @import 'computer/design-dna';

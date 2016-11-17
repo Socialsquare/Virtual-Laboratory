@@ -27,7 +27,6 @@ class Menu extends BaseViewController {
     public quizController = quizController;
     public gameState = gameState;
 
-    // TODO: hardcoded width :*(
     public inventoryWidth = 462;
     public scrollInterval = null;
     public scrollRight = false;
@@ -55,11 +54,11 @@ class Menu extends BaseViewController {
 
         this.canScrollForward = ko.pureComputed(() => {
             var maxVal = this.inventoryWidth - this.inventoryItemsWidth();
-            return this.scrollValue() > maxVal
+            return this.scrollValue() > maxVal;
         });
 
         this.canScrollBackward = ko.pureComputed(() => {
-            return this.scrollValue() < 0
+            return this.scrollValue() < 0;
         });
 
         this.pipetteIsVisible = ko.pureComputed(() =>
@@ -108,7 +107,7 @@ class Menu extends BaseViewController {
     inventoryItemsWidth() {
         // Add one to length, so the arrows appear when inventory is
         // "visually" full, to show the user there's more room
-        const count = gameState.inventory.items().length + 1
+        const count = gameState.inventory.items().length + 1;
         return count * 91;
     }
 
@@ -118,10 +117,6 @@ class Menu extends BaseViewController {
 
     showInformation() {
         this.popupController.labInfo();
-    }
-
-    selectExperiment() {
-        this.router.navigate('loading');
     }
 
     fullscreen() {
