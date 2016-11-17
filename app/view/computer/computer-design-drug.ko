@@ -6,7 +6,7 @@
     </ul>
 </div>
 
-<div class="content">
+<div class="content content-design-drug">
     <div class="scaffold"
          data-bind="scaffold: selectedScaffold">
     </div>

@@ -1,89 +1,90 @@
-.computer-view {
-    $screenWidth: 893px;
-    $screenHeight: 524px;
-    $sideBarWidth: 250px;
-    $headerHeight: 50px;
+$screen-width: 893px;
+$screen-height: 524px;
+$sidebar-width: 250px;
+$header-height: 50px;
+$content-width: ($screen-width - $sidebar-width);
 
+.computer-view {
     @include view;
     background-image: url(#{$img-path}/computer.png);
 
     .header {
-        height: $headerHeight;
         background-color: #CCC;
+        height: $header-height;
 
         h2 {
-            padding-top: 12px;
             font-size: 20px;
+            padding-top: 12px;
             text-align: center;
+        }
+    }
+
+    .sidebar {
+        @include abs-pos($header-height, 0);
+        @include size($sidebar-width, ($screen-height - $header-height));
+
+        border-right: 1px solid $black;
+        margin-right: -1px; // make up for the border
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+        h3 {
+            margin: 10px 0 0 10px;
+        }
+
+        li {
+            list-style: none;
+            margin-top: 10px;
+            padding: 5px 0 5px 10px;
+
+            &.selected {
+                background-color: $white;
+                font-weight: bold;
+            }
         }
     }
 
     .screen {
         @include abs-pos(46px, 62px);
-        @include size($screenWidth, $screenHeight);
+        @include size($screen-width, $screen-height);
 
         background-color: #eeeeee;
+    }
 
-        .sidebar {
-            @include abs-pos($headerHeight, 0);
-            @include size($sideBarWidth, ($screenHeight - $headerHeight));
+    .content {
+        @include abs-pos(50px, 250px);
+        height: ($screen-height - $header-height - 20px);
+        padding: 10px;
+        width: ($content-width - 20px);
 
-            border-right: 1px solid black;
-            margin-right: -1px; // make up for the border
-            overflow-y: scroll;
-            overflow-x: hidden;
 
-            h3 {
-                margin: 10px 0 0 10px;
-            }
-
-            ul {
-                li {
-                    list-style: none;
-                    margin-top: 10px;
-                    padding: 5px 0 5px 10px;
-
-                    &.selected {
-                        font-weight: bold;
-                        background-color: white;
-                    }
-                }
-            }
+        .btn-bar {
+            bottom: 10px;
+            position: absolute;
+            text-align: center;
+            width: $content-width;
         }
+    }
 
-        .content-full {
-            @include abs-pos($headerHeight, 0);
-            width: $screenWidth - 20px;
-            height: $screenHeight - $headerHeight - 20px;
+    .content-full {
+        @include abs-pos($header-height, 0);
+        height: $screen-height - $header-height - 20px;
+        padding: 10px;
+        width: $screen-width - 20px;
 
-            padding: 10px;
-
-            .btn-bar {
-                position: absolute;
-                bottom: 10px;
-                width: $screenWidth;
-                text-align: center;
-            }
+        .btn-bar {
+            bottom: 10px;
+            position: absolute;
+            text-align: center;
+            width: $screen-width;
         }
+    }
 
-        .content {
-            $contentWidth: ($screenWidth - $sideBarWidth);
-
-            @include abs-pos(50px, 250px);
-
-            padding: 10px;
-
-            width: ($contentWidth - 20px);
-            height: ($screenHeight - $headerHeight - 20px);
-
-
-            .btn-bar {
-                position: absolute;
-                bottom: 10px;
-                width: $contentWidth;
-                text-align: center;
-            }
-        }
+    .content-design-drug {
+        background-image: url(#{$img-path}/drug-designer-background.png);
+        background-position: 38px 95px;
+        background-repeat: no-repeat;
+        background-size: 450px;
     }
 }
 
