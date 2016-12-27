@@ -226,12 +226,12 @@
             "en":"Genetic test for increased diabetes risk"
         },
         "description":{
-            "dk":"I denne øvelse skal du teste om en mus er genetisk anlagt for udvikling af type 2 diabetes.",
-            "en":"In this exercise you have to test whether or not a mouse is genetically susceptible to developing type 2 diabetes."
+            "dk":"I denne øvelse skal du teste om en mus er genetisk anlagt for udvikling af type 2 diabetes formen MODY.",
+            "en":"In this exercise you have to test whether or not a mouse is genetically susceptible to developing MODY type 2 diabetes."
         },
         "story":{
-            "dk":"Genetiske undersøgelser er brugt som værktøj til at undersøge gener der er DNA arvet fra ens forældre. Du har sikkert hørt at politiet bruger genetiske undersøgelser til at opklare forbrydelser, men de bruges også til identificere sygdomme og præ-disponeringer for sygdomme, såsom diabetes. Her skal du teste en mus for tilstedeværelsen af et gen forbundet med øget risiko for type 2 diabetes, gennem bl.a. blodprøver og polymerase chain reaction (PCR).",
-            "en":"Genetical tests are used as a tool to examine genes that are made up of DNA inhereted from ones parents. You have probably heard of the police using genetical tests to solve a crime, but they're also used to identify diseases and predisposition for certain diseases - such as diabetes. Here you have to test a mouse for the presence of a gen associated with increased risk of type 2 diabetes through blood samples and polymerase chain reaction (PCR)."
+            "dk":"Genetiske undersøgelser er brugt som værktøj til at undersøge gener der er DNA arvet fra ens forældre. Du har sikkert hørt at politiet bruger genetiske undersøgelser til at opklare forbrydelser, men de bruges også til identificere sygdomme og præ-disponeringer for sygdomme, såsom diabetes. Her skal du teste en mus for tilstedeværelsen af en kendt mutation i genet HNF1A, som resulterer i en defekt transkriptionsfaktor med MODY diabetes som følge, gennem bl.a. blodprøver og polymerase chain reaction (PCR).",
+            "en":"Genetical tests are used as a tool to examine genes that are made up of DNA inhereted from ones parents. You have probably heard of the police using genetical tests to solve a crime, but they're also used to identify diseases and predisposition for certain diseases - such as diabetes. Here you have to test a mouse for the presence of a known mutation in the gene HNF1A which results in MODY diabetes because of a defect transcription factor through blood samples and polymerase chain reaction (PCR)."
         },
         "parts":[
             {
@@ -342,8 +342,8 @@
                     },
                     {
                         "description":{
-                            "dk":"Tilsæt diabetes primerne, nukleotider og Taq-polymerase til DNA'et.",
-                            "en":"Add diabetes primers, nukleotider and Taq-polymerase to the DNA."
+                            "dk":"Tilsæt HNF1A primerne, nukleotider og Taq-polymerase til DNA'et.",
+                            "en":"Add HNF1A primers, nukleotides and Taq-polymerase to the DNA."
                         },
                         "trigger":{
                             "type":"TriggerType.MIX",
