@@ -169,8 +169,8 @@
                 "tasks":[
                     {
                         "description":{
-                            "dk":"Start testen ved at trykke på \"Glukose Infusion Rate\"-knappen, længst til højre på instrumentet. Musen gives derved en stor mængde insulin gennem slangen, og du kan derefter skrue op og ned for den mængde glukose musen får på \"+\" og \"-\" knapperne. Hold glukoseniveauet i blodet så tæt på fysiologiske 5 mmol/l som muligt.",
-                            "en":"Start the test by pressing the \"Glucose Infusion Rate\"-button farthest to the right on the monitor. This gives the mouse a large one time injection of insulin through the tube and afterwards you can adjust the amount of glucose the mouse gets by pressing the \"+\" or \"-\". Keep the blood glucose level of the mouse as close to 5 mmol/l as possible."
+                            "dk":"Start testen ved at trykke på \"Glukose Infusion Rate\"-knappen, længst til højre på instrumentet. Musen gives derved en stor mængde insulin gennem slangen, og du kan derefter skrue op og ned for den mængde glukose musen får på \"+\" og \"-\" knapperne. Hold glukoseniveauet i blodet så tæt på fysiologiske 5 mmol/l som muligt. Stop herefter forsøget ved at trykke på \"Glukose Infusion Rate\"-knappen igen.",
+                            "en":"Start the test by pressing the \"Glucose Infusion Rate\"-button farthest to the right on the monitor. This gives the mouse a large one time injection of insulin through the tube and afterwards you can adjust the amount of glucose the mouse gets by pressing the \"+\" or \"-\". Keep the blood glucose level of the mouse as close to 5 mmol/l as possible. Stop the experiment again by clicking the \"Glucose Infusion Rate\"-button again."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
@@ -222,11 +222,11 @@
     {
         "id":"diabetes",
         "title":{
-            "dk":"Genetisk test for forøget diabetes risiko",
+            "dk":"Genetisk test for forøget diabetesrisiko",
             "en":"Genetic test for increased diabetes risk"
         },
         "description":{
-            "dk":"I denne øvelse skal du teste om en mus er genetisk anlagt for udvikling af type 2 diabetes formen MODY.",
+            "dk":"I denne øvelse skal du teste om en mus er genetisk anlagt for udvikling af diabetes typen MODY.",
             "en":"In this exercise you have to test whether or not a mouse is genetically susceptible to developing MODY type 2 diabetes."
         },
         "story":{
@@ -713,7 +713,7 @@
             "en":"In this exercise you have to genetically modify yeast to produce insulin for treatment of type 1 diabetes."
         },
         "story":{
-            "dk":"Et modificeret insulingener, der forventes at kunne anvendes til behandling af type-1 diabetes, er blevet udviklet. Det er din opgave at producere den nye insulintype og teste dens effekt på en laboratoriemus.",
+            "dk":"Et modificeret insulingen, der forventes at kunne anvendes til behandling af type-1 diabetes, er blevet udviklet. Det er din opgave at producere den nye insulintype og teste dens effekt på en laboratoriemus.",
             "en":"A modified insulin gene expected to be able to treat type 1 diabetes has been developed. It is your job to produce the new type of insulin and test it on a mouse."
         },
         "parts":[
@@ -736,8 +736,8 @@
                     },
                     {
                         "description":{
-                            "dk":"Bland gærceller og dit designede DNA i et reagensglas. Overfør en del af blandingen til elektroporatoren med pipetten. På denne måde genmodificeres gærcellerne til at udtrykke det designede DNA.",
-                            "en":"Mix yeast and the designed DNA in a test tube and transfer part of the mixture to the electroporator with the pipet. The electro shock makes the cells absorb the DNA and enables them produce the lipase and resistant towards antibiotic B."
+                            "dk":"Bland gærceller og dit designede DNA i et reagensglas. Overfør en del af blandingen til elektroporatoren med pipetten og tænd for at starte transformationen. På denne måde genmodificeres gærcellerne til at udtrykke det designede DNA.",
+                            "en":"Mix yeast and the designed DNA in a test tube and transfer part of the mixture to the electroporator with the pipet and turn it on to start the transformation. The electro shock makes the cells absorb the DNA and enables them produce the lipase and resistant towards antibiotic B."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
@@ -909,8 +909,8 @@
                     },
                     {
                         "description":{
-                            "dk":"Test effektiviteten af dit producerede insulin ved at give det til en rask mus eller en mus med type-1 diabetes.",
-                            "en":"Test the effeciency of your produced insulin by giving it to a healthy mouse or a mouse with tpye 1 diabetes."
+                            "dk":"Test effektiviteten af dit producerede insulin ved at give det til en rask mus eller en mus med type-1 diabetes ved hjælp af en kanyle.",
+                            "en":"Test the effeciency of your produced insulin by giving it to a healthy mouse or a mouse with type 1 diabetes using a syringe."
                         },
                         "trigger":{
                             "type":"TriggerType.MOUSE",
