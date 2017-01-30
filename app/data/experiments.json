@@ -2,7 +2,7 @@
     {
         "id":"clamp",
         "title":{
-            "dk":"Insulin følsomhed",
+            "dk":"Insulinfølsomhed",
             "en":"Insulin sensitivity"
         },
         "description":{
