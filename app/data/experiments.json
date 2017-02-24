@@ -226,8 +226,8 @@
             "en":"Genetic test for increased diabetes risk"
         },
         "description":{
-            "dk":"I denne øvelse skal du teste om en mus er genetisk anlagt for udvikling af diabetes typen MODY.",
-            "en":"In this exercise you have to test whether or not a mouse is genetically susceptible to developing MODY type 2 diabetes."
+            "dk":"I denne øvelse skal du teste om en mus er genetisk anlagt for udvikling af den sjældne diabetes type MODY.",
+            "en":"In this exercise you have to test whether or not a mouse is genetically susceptible to developing the rare MODY type 2 diabetes."
         },
         "story":{
             "dk":"Genetiske undersøgelser er brugt som værktøj til at undersøge gener der er DNA arvet fra ens forældre. Du har sikkert hørt at politiet bruger genetiske undersøgelser til at opklare forbrydelser, men de bruges også til identificere sygdomme og præ-disponeringer for sygdomme, såsom diabetes. Her skal du teste en mus for tilstedeværelsen af en kendt mutation i genet HNF1A, som resulterer i en defekt transkriptionsfaktor med MODY diabetes som følge, gennem bl.a. blodprøver og polymerase chain reaction (PCR).",
@@ -238,8 +238,8 @@
                 "tasks":[
                     {
                         "description":{
-                            "dk":"Bestil en rask eller en diabetisk mus fra computeren, og placer den i buret.",
-                            "en":"Order a healthy or a diabetic mouse from the computer and place it in the cage."
+                            "dk":"Bestil en rask eller en diabetisk mus fra computeren, og placer den i buret (du vil senere få udleveret den modsatte mus DNA til undersøgelse).",
+                            "en":"Order a healthy or a diabetic mouse from the computer and place it in the cage (later in the exercise you will receive the other mouse's DNA)."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
@@ -288,8 +288,8 @@
                     },
                     {
                         "description":{
-                            "dk":"Opvarm de hvide blodlegemer i varmeblokken, og tilsæt først lysis og derefter saltvand fra køleskabet.",
-                            "en":"Heat the white blood cells in the heating block. Then add lysis to lyse the cells followed by salt water from the fridge."
+                            "dk":"Opvarm de hvide blodlegemer i varmeblokken, og tilsæt først lysis og derefter saltvand (rækkefølgen er vigtig) fra køleskabet, mens du holder prøven i varmeblokken.",
+                            "en":"Heat the white blood cells in the heating block. Then add lysis to lyse the cells followed by salt water from the fridge (the order is important), while keeping the sample in the heating block."
                         },
                         "trigger":{
                             "type":"TriggerType.MIX",
