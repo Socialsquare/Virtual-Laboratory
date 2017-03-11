@@ -1801,8 +1801,8 @@
                     {
                         "number":27,
                         "description":{
-                            "dk":"Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt. Tænk på at det er mammale celler",
-                            "en":"Start a fermentation. Remember to adjust pH and temperature so the growth becomes optimal - try at different settings and figure out what's optimal. Remember that you're working with mammalian cells."
+                            "dk":"Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt (husk at tilføre nye celler til fermentoren hver gang). Tænk på at det er mammale celler",
+                            "en":"Start a fermentation. Remember to adjust pH and temperature so the growth becomes optimal - try at different settings and figure out what's optimal (remember to add new cells to the fermentor each time). Keep in mind that you're working with mammalian cells."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
