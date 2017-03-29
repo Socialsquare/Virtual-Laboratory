@@ -874,8 +874,8 @@
                     },
                     {
                         "description":{
-                            "dk":"Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt.",
-                            "en":"Start a fermentation. Remember to adjust the pH and temperatur so the growth conditions are optimal - try at different settings and explore what is optimal."
+                            "dk":"Start en fermentering. Husk at indstille pH og temperatur, så væksten bliver optimal - prøv ved forskellige indstillinger og undersøg, hvad der er optimalt (husk at tilføre nye celler til fermentoren hver gang).",
+                            "en":"Start a fermentation. Remember to adjust the pH and temperatur so the growth conditions are optimal - try at different settings and explore what is optimal (remember to add new cells to the fermentor every time)."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
