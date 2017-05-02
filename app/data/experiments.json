@@ -342,8 +342,8 @@
                     },
                     {
                         "description":{
-                            "dk":"Tilsæt HNF1A primerne, nukleotider og Taq-polymerase til DNA'et.",
-                            "en":"Add HNF1A primers, nukleotides and Taq-polymerase to the DNA."
+                            "dk":"Tilsæt HNF1A primerne (diabetes primer), nukleotider og Taq-polymerase (DNA polymerase) til DNA'et. Husk at notere på som note på røret, hvorvidt det er fra diabetisk mus eller ej.",
+                            "en":"Add HNF1A primers (diabetes primer), nukleotides and Taq-polymerase (DNA polymerase) to the DNA. Note down whether the DNA is from a diabetic or healthy mouse."
                         },
                         "trigger":{
                             "type":"TriggerType.MIX",
@@ -390,8 +390,8 @@
                     },
                     {
                         "description":{
-                            "dk":"Sæt en gel i gelelektroforesen. Tilsæt derefter blå farve til begge DNA-prøver (din egen og den du har modtaget), og tilsæt dem til to forskellige brønde i gelen. Tænd til sidst gelelektroforesen, der åbner for elektriciteten og trækker DNA og farve ned langs med gelen.",
-                            "en":"Pul a gel in the gel electrophoresis. Then add blue stain to both DNA samples (your own and the one you just received) and add them to two different lanes in the gel. Lastly, turn on the gel electrophoresis which will apply an electrical field pulling down the DNA and the colour through the gel based on size."
+                            "dk":"Sæt en gel i gelelektroforesen (kan findes på arbejdsbord 3). Tilsæt derefter blå farve til begge DNA-prøver (din egen og den du har modtaget), og tilsæt dem til to forskellige brønde i gelen. Tænd til sidst gelelektroforesen, der åbner for elektriciteten og trækker DNA og farve ned langs med gelen.",
+                            "en":"Pul a gel in the gel electrophoresis (can be found on worktable 3). Then add blue stain to both DNA samples (your own and the one you just received) and add them to two different lanes in the gel. Lastly, turn on the gel electrophoresis which will apply an electrical field pulling down the DNA and the colour through the gel based on size."
                         },
                         "trigger":{
                             "type":"TriggerType.ACTIVATION",
